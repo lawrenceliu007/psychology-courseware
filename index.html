@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psychology Courseware Hub | 心理学课件中心</title>
+    <style>
+        :root {
+            --cie-red: #C62828;
+            --cie-blue: #1565C0;
+            --cie-orange: #E87722;
+            --cie-green: #2E7D32;
+            --edexcel-orange: #E87722;
+            --intro-purple: #6A1B9A;
+            --bg: #F5F7FA;
+            --card-bg: #FFFFFF;
+            --text: #2C3E50;
+            --text-light: #607D8B;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        .header { background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%); color: white; padding: 3rem 2rem; text-align: center; }
+        .header h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .header p { font-size: 1.1rem; opacity: 0.9; }
+        .container { max-width: 1200px; margin: 2rem auto; padding: 0 1.5rem; }
+        .section-title { font-size: 1.6rem; font-weight: 700; margin: 2.5rem 0 1.2rem; padding-bottom: 0.5rem; border-bottom: 3px solid; display: flex; align-items: center; gap: 0.6rem; }
+        .section-title.cie { color: var(--cie-blue); border-color: var(--cie-blue); }
+        .section-title.edexcel { color: var(--edexcel-orange); border-color: var(--edexcel-orange); }
+        .section-title.intro { color: var(--intro-purple); border-color: var(--intro-purple); }
+        .badge { font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 12px; color: white; font-weight: 600; vertical-align: middle; }
+        .badge.bio { background: var(--cie-red); }
+        .badge.cog { background: var(--cie-blue); }
+        .badge.soc { background: var(--cie-orange); }
+        .badge.lrn { background: var(--cie-green); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.2rem; margin-bottom: 2rem; }
+        .card { background: var(--card-bg); border-radius: 12px; padding: 1.5rem; transition: transform 0.2s, box-shadow 0.2s; border-left: 4px solid #ddd; }
+        .card:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+        .card.bio { border-left-color: var(--cie-red); }
+        .card.cog { border-left-color: var(--cie-blue); }
+        .card.soc { border-left-color: var(--cie-orange); }
+        .card.lrn { border-left-color: var(--cie-green); }
+        .card.edx { border-left-color: var(--edexcel-orange); }
+        .card.int { border-left-color: var(--intro-purple); }
+        .card h3 { font-size: 1.15rem; margin-bottom: 0.4rem; }
+        .card h3 a { color: var(--text); text-decoration: none; }
+        .card h3 a:hover { color: #1565C0; }
+        .card .meta { font-size: 0.85rem; color: var(--text-light); margin-bottom: 0.6rem; }
+        .card .desc { font-size: 0.92rem; color: var(--text-light); }
+        .footer { text-align: center; padding: 2rem; color: var(--text-light); font-size: 0.85rem; border-top: 1px solid #ddd; margin-top: 2rem; }
+        .stats { display: flex; justify-content: center; gap: 2rem; margin-top: 1.5rem; flex-wrap: wrap; }
+        .stat { text-align: center; }
+        .stat-num { font-size: 2rem; font-weight: 700; color: white; }
+        .stat-label { font-size: 0.85rem; opacity: 0.8; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🧠 Psychology Courseware Hub</h1>
+        <p>CIE A Level & Edexcel IAL Psychology / 心理学课件中心</p>
+        <div class="stats">
+            <div class="stat"><div class="stat-num">11</div><div class="stat-label">CIE Core Studies</div></div>
+            <div class="stat"><div class="stat-num">2</div><div class="stat-label">Edexcel Chapters</div></div>
+            <div class="stat"><div class="stat-num">2</div><div class="stat-label">Intro/Clinical</div></div>
+            <div class="stat"><div class="stat-num">15</div><div class="stat-label">Total Modules</div></div>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <!-- CIE Core Studies -->
+        <h2 class="section-title cie">📗 CIE A Level Psychology — Core Studies</h2>
+
+        <h3 style="color:#C62828;margin:1.2rem 0 0.6rem;font-size:1.1rem;">🔴 Biological Approach（生物取向）</h3>
+        <div class="grid">
+            <div class="card bio">
+                <h3><a href="cie/hassett/">Hassett et al. (2008)</a> <span class="badge bio">Bio</span></h3>
+                <div class="meta">Monkey Toy Preferences / 猴子玩具偏好</div>
+                <div class="desc">Do monkeys show gender-typed toy preferences like humans? Rhesus monkeys' interactions with wheeled vs plush toys.</div>
+            </div>
+            <div class="card bio">
+                <h3><a href="cie/hoelzel/">Hölzel et al. (2011)</a> <span class="badge bio">Bio</span></h3>
+                <div class="meta">Mindfulness Brain Scans / 正念大脑扫描</div>
+                <div class="desc">How does mindfulness meditation change brain structure? MRI scans showing increased grey matter density.</div>
+            </div>
+        </div>
+
+        <h3 style="color:#1565C0;margin:1.2rem 0 0.6rem;font-size:1.1rem;">🔵 Cognitive Approach（认知取向）</h3>
+        <div class="grid">
+            <div class="card cog">
+                <h3><a href="cie/andrade/">Andrade (2010)</a> <span class="badge cog">Cog</span></h3>
+                <div class="meta">Doodling / 涂鸦</div>
+                <div class="desc">Does doodling improve memory? Monitoring task performance while listening to phone messages.</div>
+            </div>
+            <div class="card cog">
+                <h3><a href="cie/baron-cohen/">Baron-Cohen et al. (2001)</a> <span class="badge cog">Cog</span></h3>
+                <div class="meta">Eyes Test (Reading the Mind) / 眼神测试</div>
+                <div class="desc">Can adults identify emotions from eye-region photos? Sex differences in theory of mind.</div>
+            </div>
+            <div class="card cog">
+                <h3><a href="cie/pozzulo/">Pozzulo et al. (2011)</a> <span class="badge cog">Cog</span></h3>
+                <div class="meta">Child Witnesses & Line-ups / 儿童目击者与列队指认</div>
+                <div class="desc">Are children's identifications affected by lineup type? Sequential vs simultaneous lineups.</div>
+            </div>
+        </div>
+
+        <h3 style="color:#E87722;margin:1.2rem 0 0.6rem;font-size:1.1rem;">🟠 Social Approach（社会取向）</h3>
+        <div class="grid">
+            <div class="card soc">
+                <h3><a href="cie/milgram/">Milgram (1963)</a> <span class="badge soc">Soc</span></h3>
+                <div class="meta">Obedience / 服从</div>
+                <div class="desc">How far will people go in obeying authority? The classic shock generator experiment at Yale.</div>
+            </div>
+            <div class="card soc">
+                <h3><a href="cie/perry/">Perry et al. (2015)</a> <span class="badge soc">Soc</span></h3>
+                <div class="meta">Personal Space & Oxytocin / 个人空间与催产素</div>
+                <div class="desc">Does oxytocin affect personal space preferences? Distance kept from strangers vs familiar people.</div>
+            </div>
+            <div class="card soc">
+                <h3><a href="cie/piliavin/">Piliavin et al. (1969)</a> <span class="badge soc">Soc</span></h3>
+                <div class="meta">Subway Samaritans / 地铁好人</div>
+                <div class="desc">What factors influence helping behavior? Staggering victims on NYC subway trains.</div>
+            </div>
+        </div>
+
+        <h3 style="color:#2E7D32;margin:1.2rem 0 0.6rem;font-size:1.1rem;">🟢 Learning Approach（学习取向）</h3>
+        <div class="grid">
+            <div class="card lrn">
+                <h3><a href="cie/bandura/">Bandura et al. (1961)</a> <span class="badge lrn">Lrn</span></h3>
+                <div class="meta">Bobo Doll Aggression / 波波玩偶攻击行为</div>
+                <div class="desc">Do children learn aggression through observation? Adult models and imitative violence.</div>
+            </div>
+            <div class="card lrn">
+                <h3><a href="cie/fagen/">Fagen et al. (2014)</a> <span class="badge lrn">Lrn</span></h3>
+                <div class="meta">Elephant Learning / 大象学习</div>
+                <div class="desc">Can elephants learn using operant conditioning? Training Asian elephants with SPR (successive approximations).</div>
+            </div>
+            <div class="card lrn">
+                <h3><a href="cie/saavedra/">Saavedra & Silverman (2002)</a> <span class="badge lrn">Lrn</span></h3>
+                <div class="meta">Button Phobia / 按钮恐惧症</div>
+                <div class="desc">Can disgust-based evaluative conditioning create phobias? Linking buttons to disgusting images.</div>
+            </div>
+        </div>
+
+        <!-- Edexcel -->
+        <h2 class="section-title edexcel">📙 Edexcel International A Level Psychology</h2>
+        <div class="grid">
+            <div class="card edx">
+                <h3><a href="edexcel/ch1-obedience/">Chapter 1: Obedience</a></h3>
+                <div class="meta">Topic A: Social Psychology / 社会心理学</div>
+                <div class="desc">Milgram's research, Agency Theory, Social Power Theory (French & Raven), individual/situational/cultural factors, ethical issues.</div>
+            </div>
+            <div class="card edx">
+                <h3><a href="edexcel/ch22-depression/">Chapter 22: Unipolar Depression</a></h3>
+                <div class="meta">Clinical Psychology / 临床心理学</div>
+                <div class="desc">DSM-5 symptoms, biological explanations (Monoamine Hypothesis), cognitive explanations (Beck's Triad), CBT treatment approaches.</div>
+            </div>
+        </div>
+
+        <!-- Intro/Clinical -->
+        <h2 class="section-title intro">📕 Introductory & Clinical Chapters</h2>
+        <div class="grid">
+            <div class="card int">
+                <h3><a href="intro/ch20-diagnosis/">Chapter 20: Definitions and Debates in Diagnosis</a></h3>
+                <div class="meta">Clinical Psychology / 临床心理学概论</div>
+                <div class="desc">Reliability & validity of diagnosis, classification systems (DSM/ICD), key debates in psychopathology.</div>
+            </div>
+            <div class="card int">
+                <h3><a href="intro/ch21-schizophrenia/">Chapter 21: Schizophrenia</a></h3>
+                <div class="meta">Clinical Psychology / 临床心理学</div>
+                <div class="desc">Symptoms & classifications, biological & psychological explanations, therapies (drug therapy, CBT, family therapy).</div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <p>Psychology Courseware Hub © 2024–2026 | Built for A Level Psychology students</p>
+        <p style="margin-top:0.3rem;">CIE = Cambridge International Examinations | Edexcel = Pearson Edexcel International A Level</p>
+    </div>
+</body>
+</html>

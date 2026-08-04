@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edexcel Chapter 1 — Obedience（服从）</title>
+<style>
+:root{--primary:#E87722;--primary-dark:#C06518;--primary-light:#F59E3B;--accent:#1E3A5F;--bg:#fff;--text:#2c2c2c;--text-secondary:#6b7280;--border:#e5e7eb;--soft:#f6f7f9;--box:#FFF8E8;--box2:#EEF4FA;--box3:#E8F5E9;--warn-bg:#fee2e2;--exam-blue:#E3F2FD;--cn-box:#FFF3E0;--cn-border:#FF9800}
+*{box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;line-height:1.75;color:var(--text);background:var(--bg);margin:0;padding:0}
+.container{max-width:920px;margin:0 auto;padding:30px 24px}
+.header{text-align:center;padding:40px 20px;background:linear-gradient(135deg,var(--primary-dark),var(--primary),var(--primary-light));color:#fff;border-radius:12px;margin-bottom:28px;box-shadow:0 4px 15px rgba(232,119,34,.35)}
+.header h1{font-size:1.9em;margin-bottom:8px}
+.header .subtitle{font-size:1.08em;opacity:.95}
+.header .meta{margin-top:14px;font-size:.86em;opacity:.88}
+.badge{display:inline-block;padding:4px 13px;border-radius:20px;background:rgba(255,255,255,.22);margin:3px;font-size:.83em}
+.toc{background:var(--soft);border:1px solid var(--border);border-radius:10px;padding:20px 24px;margin-bottom:24px;border-left:4px solid var(--primary)}
+.toc h2{color:var(--primary-dark);margin-bottom:12px;font-size:1.22em}
+.toc ol{padding-left:20px}
+.toc li{margin:6px 0}
+.toc li a{color:var(--accent);text-decoration:none}
+.toc li a:hover{color:var(--primary);text-decoration:underline}
+.section{background:#fff;border-radius:10px;padding:26px 30px;margin-bottom:22px;box-shadow:0 2px 10px rgba(0,0,0,.05);border-top:3px solid var(--primary)}
+.section h2{color:var(--primary-dark);font-size:1.42em;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid var(--border)}
+.section h3{color:var(--primary);font-size:1.15em;margin:20px 0 10px}
+.section h4{color:var(--text);font-size:1.02em;margin:12px 0 7px}
+.quote{border-left:4px solid var(--primary);background:linear-gradient(135deg,#fff8ee,#ffefcc);padding:15px 20px;margin:14px 0;border-radius:0 8px 8px 0;font-style:italic;color:var(--primary-dark)}
+.note-box{background:var(--box);border-left:4px solid var(--primary);border-radius:8px;padding:14px 18px;margin:14px 0}
+.blue-box{background:var(--box2);border-left:4px solid var(--accent);border-radius:8px;padding:14px 18px;margin:14px 0}
+.green-box{background:var(--box3);border-left:4px solid #38a169;border-radius:8px;padding:14px 18px;margin:14px 0}
+.warn-box{background:var(--warn-bg);border-left:4px solid #dc2626;border-radius:8px;padding:14px 18px;margin:14px 0}
+.warn-box h4{color:#991b1b;margin-bottom:5px}
+.keyterm-box{background:linear-gradient(135deg,#E8EEF4,#D4DEEB);border-left:4px solid var(--accent);border-radius:8px;padding:12px 16px;margin:12px 0}
+.keyterm-box strong{color:var(--accent)}
+.exam-tip{background:var(--exam-blue);border:1px solid #1976D2;border-radius:8px;padding:14px 18px;margin:14px 0}
+.exam-tip h4{color:#1565C0;margin-bottom:6px;font-size:.95em;text-transform:uppercase;letter-spacing:.5px}
+.activity-box{background:#263238;color:#eceff1;border-radius:8px;padding:16px 20px;margin:16px 0}
+.activity-box h4{color:var(--primary-light);margin-bottom:8px}
+.activity-box table{width:100%;border-collapse:collapse;margin-top:10px}
+.activity-box th,.activity-box td{border:1px solid #546E7A;padding:9px 12px;font-size:.9em}
+.activity-box th{background:#37474F;color:#fff}
+.activity-box td{background:rgba(255,255,255,.05);color:#eceff1}
+.figure{margin:18px 0;text-align:center}
+.figure img{max-width:100%;border:1px solid var(--border);border-radius:10px;box-shadow:0 3px 12px rgba(0,0,0,.08)}
+.figure-caption{font-size:.87em;color:var(--text-secondary);margin-top:7px;font-style:italic}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:.91em;box-shadow:0 2px 8px rgba(0,0,0,.06);border-radius:8px;overflow:hidden}
+th{background:var(--primary);color:#fff;padding:11px 13px;text-align:left;font-weight:600}
+td{padding:10px 13px;border-bottom:1px solid var(--border)}
+tr:nth-child(even){background:#fafbfc}
+tr:hover{background:#fff8ee}
+td:first-child{font-weight:600;color:var(--primary-dark)}
+.num-cell{text-align:center;font-weight:700;color:var(--primary-dark}
+caption{font-weight:600;color:var(--text);margin-bottom:7px;font-size:.94em}
+ul,ol{margin:8px 0;padding-left:22px}
+li{margin:5px 0}
+.var-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin:16px 0}
+.var-card{background:#fafafa;border-radius:8px;padding:14px 16px;border-left:3px solid var(--primary)}
+.var-card h4{color:var(--primary-dark);margin-bottom:6px;font-size:.95em}
+.factor-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
+.factor-card{background:#fafafa;border-radius:8px;padding:12px 14px;border-left:3px solid var(--accent)}
+.factor-card h4{display:inline;font-size:.91em;color:var(--text)}
+.factor-card .num{font-weight:800;color:var(--accent);font-size:1.05em;margin-right:5px}
+
+/* 中文解释框 */
+.cn-explain{background:var(--cn-box);border-left:4px solid var(--cn-border);border-radius:8px;padding:14px 18px;margin:14px 0}
+.cn-explain h4{color:#E65100;margin-bottom:6px;font-size:.95em}
+.cn-explain p{margin:4px 0;color:#4e342e}
+
+/* 填空练习表 */
+.fill-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:.91em;background:#fff;border:2px solid var(--primary);border-radius:8px;overflow:hidden}
+.fill-table th{background:var(--primary);color:#fff;padding:11px 13px;text-align:left;font-weight:600}
+.fill-table td{padding:10px 13px;border-bottom:1px solid var(--border);background:#FFFEFB}
+.fill-table .blank{display:inline-block;min-width:80px;border-bottom:2px dashed var(--primary);color:var(--primary-dark);font-weight:700;padding:0 4px}
+.fill-answer{color:#38a169;font-weight:600;font-size:.85em;margin-top:4px}
+
+.wider-issue{background:linear-gradient(135deg,#f5f0ff,#ede7f6);border-left:4px solid #7B1FA2;border-radius:8px;padding:14px 18px;margin:14px 0}
+.wider-issue h4{color:#7B1FA2;margin-bottom:6px}
+
+.checkpoint{background:linear-gradient(135deg,#E8F5E9,#C8E6C9);border:2px solid #38a169;border-radius:8px;padding:16px 20px;margin:16px 0}
+.checkpoint h4{color:#2E7D32;margin-bottom:10px}
+
+.footer-note{font-size:.84em;color:var(--text-secondary);margin-top:2em;padding-top:1em;border-top:1px solid var(--border);text-align:center}
+@media(max-width:768px){.container{padding:16px}.section{padding:18px}.factor-grid,.var-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- HEADER -->
+<div class="header">
+<h1>📗 Edexcel Chapter 1</h1>
+<div class="subtitle">Obedience（服从）<br>Topic A: Social Psychology</div>
+<div class="meta">
+<span class="badge">📘 Pearson Edexcel International A Level Psychology</span>
+<span class="badge">📋 WPS01/01 Paper 1 · Section A (26 marks)</span>
+<span class="badge">⚡ Social Psychology 社会心理学</span>
+</div>
+</div>
+
+<!-- ASSESSMENT OVERVIEW -->
+<div class="section" id="assessment">
+<h2>📋 Assessment Overview 考试概述</h2>
+
+<h3>Specification Coverage 考纲覆盖</h3>
+<p><strong>Unit 1 — Topic A: Social Psychology（社会心理学）</strong></p>
+<table>
+<thead><tr><th>Chapter 章节</th><th>Topic 主题</th></tr></thead>
+<tbody>
+<tr><td><strong>Chapter 1</strong></td><td>Obedience（服从）← 当前章节</td></tr>
+<tr><td>Chapter 2</td><td>Conformity（从众）</td></tr>
+<tr><td>Chapter 3</td><td>Minority influence and individual differences（少数人影响与个体差异）</td></tr>
+<tr><td>Chapter 4–7</td><td>Methods & Studies（方法学与实验）</td></tr>
+</tbody>
+</table>
+
+<h3>Paper Structure 试卷结构</h3>
+<table>
+<thead><tr><th>Paper</th><th>% of IAS</th><th>% of IAL</th><th>Marks</th><th>Time</th></tr></thead>
+<tbody>
+<tr><td><strong>Paper 1 (WPS01/01)</strong><br>Social & Cognitive Psychology</td><td class="num-cell">40%</td><td class="num-cell">20%</td><td class="num-cell"><strong>64</strong></td><td>1 hr 30 min</td></tr>
+<tr style="background:#fff8ee;"><td><strong>Paper 2 (WPS02/01)</strong><br>Biological Psychology, Learning & Development</td><td class="num-cell">60%</td><td class="num-cell">30%</td><td class="num-cell"><strong>96</strong></td><td>2 hours</td></tr>
+</tbody>
+</table>
+
+<div class="blue-box">
+<strong>Paper 1 Structure:</strong><br>
+• <strong>Section A:</strong> Social psychology (26 marks) — short-answer + one 8-mark extended open-response<br>
+• <strong>Section B:</strong> Cognitive psychology (26 marks) — same format<br>
+• <strong>Section C:</strong> One <strong>12-mark</strong> extended question on either social or cognitive psychology
+</div>
+</div>
+
+<!-- TOC -->
+<div class="toc">
+<h2>📑 Contents 目录</h2>
+<ol>
+<li><a href="#s1">Learning Objectives & Key Terms 学习目标与核心术语</a></li>
+<li><a href="#s2">Agency Theory of Obedience（代理理论）</a></li>
+<li><a href="#s3">Social Power Theory of Obedience（社会权力理论）</a></li>
+<li><a href="#s4">Milgram's Research into Obedience（米尔格拉姆服从研究）</a></li>
+<li><a href="#s5">Milgram's Variation Studies（变体实验 Exp 7/10/13）</a></li>
+<li><a href="#s6">Methodological & Ethical Issues（方法学与伦理问题）</a></li>
+<li><a href="#s7">Individual Differences: Personality & Gender（个体差异：人格与性别）</a></li>
+<li><a href="#s8">Situational Factors（情境因素）</a></li>
+<li><a href="#s9">Cultural Factors（文化因素）</a></li>
+<li><a href="#s10">Exam Practice & Activities（考试练习与活动表格）</a></li>
+</ol>
+</div>
+
+<!-- SECTION 1: LEARNING OBJECTIVES -->
+<div class="section" id="s1">
+<h2>1️⃣ Learning Objectives & Key Terms 学习目标与核心术语</h2>
+
+<h3>Learning Objectives 学习目标</h3>
+<p>By the end of this chapter you should be able to:</p>
+<ul>
+<li>Understand and evaluate theories of obedience, including <strong>agency theory（代理理论）</strong> and <strong>social power theory（社会权力理论）</strong></li>
+<li>Describe and evaluate <strong>Milgram's research into obedience</strong></li>
+<li>Explain factors affecting obedience and dissent, including individual differences, situation and culture</li>
+</ul>
+
+<h3>Getting Started 引入场景 🏫</h3>
+<div class="blue-box">
+<p><strong>Imagine this scenario 想象这个场景：</strong></p>
+<p>You are in your school library studying for an important exam. You are working silently alongside other students who have exams too. The head librarian, a respected staff member at your school, approaches your table and asks you and the other students to leave your seats immediately as there is a special guest speaker who needs the library to give a lecture.</p>
+<p><strong>Would you rather continue to work in the library because it is the only quiet space and the exam is very important?</strong></p>
+<p>In small groups, discuss how you might react when the librarian requests that you leave. What factors would make you leave the library and what factors would make you stay? Compare your discussion to others in the class.</p>
+</div>
+
+<div class="cn-explain">
+<h4>💡 这个场景在考什么？</h4>
+<p>图书馆场景引入了本章的核心问题：<strong>什么时候我们会服从权威？什么时候会反抗？</strong></p>
+<ul>
+<li>📚 <strong>想留下复习的理由</strong>：考试重要、图书馆安静、个人需求</li>
+<li>👮 <strong>离开的理由</strong>：图书管理员是权威人物、尊重规则、不想惹麻烦</li>
+</ul>
+<p>👉 这个场景会在后面的考试应用题中用到（Activity 3），记住它！</p>
+</div>
+
+<h3>The Origins of Social Psychology 社会心理学的起源</h3>
+<p>Social psychology developed from a group of people working in Europe in the mid-19th century, who were concerned with understanding the collective or group mind. In 1895 a French writer, <strong>Gustave Le Bon</strong>, observed that crowds displayed mob-like behaviour because individuals within it changed their behaviour because they were part of a group.</p>
+<p>The rise of experimental social psychology can be attributed to <strong>Floyd Allport (1924)</strong>. His book outlined a manifesto for social psychology that argued for an experimental approach, leading to laboratories' investigation of social behaviour.</p>
+<p>Today, social psychology investigates a range of social behaviours and attitudes such as persuasion and attitude formation, <strong>social influence（社会影响）, aggression and group behaviour</strong>. This topic focuses on <strong>obedience（服从）, conformity（从众）and minority influence（少数人影响）</strong>.</p>
+
+<h3>Obedience Defined 服从的定义</h3>
+<p>Obedience is a form of <strong>social influence（社会影响）</strong> where the behaviour of an individual is influenced by a real or imagined pressure from another. Obedience can be defined as compliance to the real or imagined demands of an authority figure. Yielding to these demands is considered to be obedience, while rejecting the demands is known as <strong>dissent or resistance to authority（反抗/抵制权威）</strong>.</p>
+
+<p>In our everyday lives we obediently follow the instructions of teachers, employers, police officers and the rules of society. Such obedience can prevent accidents and results in social order most of the time. However, there are times when obedience has led to horrific consequences. Notably, many atrocities that have been committed against innocent people have been the result of unquestioning obedience. During the Second World War, the Nazi party instructed the systematic killing of millions of Jewish people. This could only have been achieved through the collective obedience of many German soldiers who carried out these orders.</p>
+
+<div class="keyterm-box">
+<strong>Key Terms 核心术语：</strong><br>
+• <strong>conformity（从众）</strong>: a form of social influence where our opinions, beliefs and/or behaviour are influenced by a majority<br>
+• <strong>minority influence（少数人影响）</strong>: a form of social influence where opinions/beliefs of the majority are influenced by a minority<br>
+• <strong>obedience（服从）</strong>: complying to the orders of an authority figure<br>
+• <strong>social influence（社会影响）</strong>: how our opinions, beliefs and behaviour are influenced by others
+</div>
+
+<div class="cn-explain">
+<h4>💡 中文点明：三种社会影响的区别</h4>
+<table>
+<thead><tr><th>类型</th><th>英文</th><th>核心特征</th><th>例子</th></tr></thead>
+<tbody>
+<tr><td><strong>从众</strong></td><td>Conformity</td><td>受<strong>大多数人</strong>影响</td><td>大家都穿校服，你也穿</td></tr>
+<tr><td><strong>少数人影响</strong></td><td>Minority Influence</td><td>被<strong>少数人</strong>说服改变观点</td><td>一个朋友说服你尝试新事物</td></tr>
+<tr><td><strong>服从 ⭐</strong></td><td>Obedience</td><td>听从<strong>权威人物</strong>命令（有等级差！）</td><td>听老师/警察/老板的话</td></tr>
+</tbody>
+</table>
+<p>👉 考试必考区分：Obedience 必须有"上级→下级"的关系，Conformity 是平级之间的影响。</p>
+</div>
+</div>
+
+<!-- SECTION 2: AGENCY THEORY -->
+<div class="section" id="s2">
+<h2>2️⃣ Agency Theory of Obedience（代理理论）</h2>
+
+<p>Stanley Milgram wanted to investigate conditions that could explain the atrocities committed during the Nazi control of Germany, in particular the defence claims made by many senior Nazi officers that they were simply 'obeying orders'. He developed a series of experiments (that are now classics in psychology) to investigate obedience under these conditions.</p>
+
+<h3>Socialisation of Obedience 服从的社会化</h3>
+<p>Milgram observed that human society was <strong>hierarchical（等级制的）</strong> in nature, with many at the bottom of the hierarchy and a few at the top giving instructions on how everyone is to behave. He thought that this hierarchical social organisation must have some stabilising function — to create social order and harmony within the group. Obedience within this social organisation is necessary to maintain social order and ensure society's survival. Without obedience there would be challenges to the social order, resulting in chaos and societal breakdown. Therefore it is in our own best interests to be obedient to maintain social order.</p>
+
+<p>Exposure to authority figures within the family and education system nurture obedience through the process of <strong>socialisation（社会化）</strong>. Parents and teachers are primary socialisers and use a system of rewards and punishments to encourage obedience and discourage dissent in young children. Sanctions and rewards are also institutional within the educational and legal systems, and so perform an important role in ensuring that as individuals we learn to be obedient.</p>
+
+<div class="figure">
+<img src="edexcel_ch1_images/img10.png" alt="Children lined up - socialised to obey">
+<div class="figure-caption">We are socialised to be obedient to authority figures from a young age（我们从小就被社会化去服从权威）</div>
+</div>
+
+<div class="cn-explain">
+<h4>👶 社会化的过程：我们如何学会服从？</h4>
+<table>
+<thead><th>年龄阶段</th><th>权威人物</th><th>学到的行为</th></tr></thead>
+<tbody>
+<tr><td>👶 幼儿期</td><td>父母 Parents</td><td>"听话才有糖吃""不听话会被惩罚"</td></tr>
+<tr><td>🧒 学龄期</td><td>老师 Teachers</td><td>"举手发言""按时交作业""老师说做什么就做什么"</td></tr>
+<tr><td>🧑 成年期</td><td>老板/警察/政府 Boss / Police / Government</td><td>"服从安排""遵守法律""执行命令"</td></tr>
+</tbody>
+</table>
+<p>👉 我们从小就被训练成<strong>"听话的好孩子"</strong>，这种训练让我们在面对权威时<strong>自动进入代理状态</strong>。</p>
+</div>
+
+<h3>Agency and Autonomy 代理与自主</h3>
+<p>Within the hierarchical structure of a social group, there must be a mechanism that ensures obedience. Milgram proposed that humans exist in two different psychological states:</p>
+
+<table>
+<thead><tr><th>State 状态</th><th>Description 描述</th><th>Chinese 中文理解</th></tr></thead>
+<tbody>
+<tr><td><strong>Autonomy（自主状态）</strong></td><td>Acting on one's own free will/exercising self-determination, acting according to their own free will, and guided by moral conscience</td><td>🧑 自己做主，按自己的道德判断行动</td></tr>
+<tr style="background:#fff8ee;"><td><strong>Agency（代理状态）</strong></td><td>When given instruction by an authority figure, humans shift into an agentic state, where they see themselves as acting as an agent for the authority figure. In the agentic state, we act on behalf of the authority figure and may comply with their demands, which is what we have been socialised to do</td><td>🤖 把自己当成权威的"工具/代理人"，觉得"我只是执行命令，责任不在我"</td></tr>
+</tbody>
+</table>
+
+<p>For the most part obedience is functional and does not cause harm. However, when we are ordered to behave in a way that goes against our moral conscience (for example, when we are instructed to do something that will cause harm to another), we shift into the agentic state. We may also displace the responsibility for our actions onto the authority figure making those demands. Milgram believed that the agentic state could explain why humans are capable of committing atrocious acts.</p>
+
+<div class="keyterm-box">
+<strong>Key Terms:</strong><br>
+• <strong>agency（代理状态）</strong>: when we act as an agent for another, e.g. obey orders<br>
+• <strong>autonomy（自主状态）</strong>: acting on one's own free will/exercising self determination<br>
+• <strong>confederate（同谋）</strong>: a researcher/participant who pretends to be a participant of a study<br>
+• <strong>hierarchical（等级制的）</strong>: a system of social organisation where there are leaders and those who follow<br>
+• <strong>moral strain（道德紧张）</strong>: experiencing anxiety because you are asked to do something that goes against your moral judgement<br>
+• <strong>socialisation（社会化）</strong>: the process in which we learn the rules and norms of society through socialising agents, such as parents and teachers
+</div>
+
+<h3>Moral Strain 道德紧张 ⭐ Edexcel 核心概念</h3>
+<p>Milgram observed that many participants in his obedience study experienced <strong>moral strain</strong> when asked to harm another person. Moral strain occurs in the agentic state when people are asked to do something they would not choose to do themselves, and they feel immoral or unjust. This moral strain results in an individual feeling very uncomfortable in the situation and, in extreme circumstances, they show anxiety and distress. In Milgram's research he witnessed the participants exhibit signs of moral strain in the form of nervous laughter, sweating and trembling.</p>
+
+<div class="cn-explain">
+<h4>😰 什么是 Moral Strain（道德紧张）？</h4>
+<p>这是 Edexcel 考纲中的一个<strong>核心概念</strong>，必须掌握！</p>
+<p><strong>定义：</strong>当一个人被要求做违背自己道德判断的事情时，产生的<strong>焦虑和内心冲突</strong>。</p>
+<p><strong>在 Milgram 实验中的表现：</strong></p>
+<ul>
+<li>😰 紧张地笑（nervous laughter）— 不是觉得好笑，是不知道该怎么办</li>
+<li>💦 出汗（sweating）</li>
+<li>🤏 发抖（trembling）</li>
+<li>😵 3 人出现无法控制的癫痫发作（uncontrollable seizures）</li>
+</ul>
+<p><strong>为什么重要？</strong></p>
+<ul>
+<li>✅ 证明了被试<strong>不是冷血无情</strong>——他们内心在挣扎</li>
+<li>✅ 支持 Agency Theory：被试进入了 agentic state，所以即使不舒服也继续服从</li>
+<li>✅ 解释了为什么人们会"违背良心"做事——因为责任已经转移给了权威</li>
+</ul>
+</div>
+
+<h3>Evaluation of Agency Theory 代理理论的评价</h3>
+
+<h4>✅ Strengths 优点</h4>
+<ul>
+<li><strong>Supported by Milgram's own research</strong> — 65% of participants demonstrated that they were willing to obey an authority figure and potentially seriously harm an innocent confederate. This provides evidence for agency theory because the participants showed overt signs of moral strain (anxiety) when given an order, yet they still obeyed the authority figure, suggesting they were acting as agents. When debriefed, the participants, many reported that their behaviour was the responsibility of the experimenter, and that they had not wanted to do it. This provides evidence for the concept of displacement of responsibility and agency.</li>
+</ul>
+
+<div class="blue-box">
+<h4>🔬 Real-world Evidence: My Lai Massacre (1968) 美莱村大屠杀</h4>
+<p>During the Vietnam War, a small village called <strong>My Lai</strong> was approached by American soldiers who were ordered to shoot the occupants, who were suspected of being Vietcong soldiers. Lieutenant <strong>Calley</strong> instructed his division to enter the village and shoot, despite no return of fire. The American soldiers massacred men, women and children in the village that day after being ordered by Calley. In his court martial following the incident, Calley claimed to be just following orders. Agency theory can be used to explain the reasons given by people for their actions afterwards as being because they were just following orders.</li>
+</div>
+
+<div class="blue-box">
+<h4>🏥 Real-world Evidence: Hofling et al. (1966) 霍夫林医院研究</h4>
+<p>Charles Hofling et al. (1966) staged a study in a hospital setting. A confederate doctor telephoned a nurse working on a ward late at night, asking her to administer twice the daily dose of a drug to a patient. The drug was fake and harmless. Against hospital policy, the strooge doctor informed the nurse that she would sign the prescription later. A total of <strong>21 out of 22 nurses followed the doctor's orders</strong> and attempted to give the medication to the patient. Several of the nurses justified their behaviour as being a result of the hierarchy of authority at the hospital. This supports agency theory because the majority of nurses displaced their personal responsibility onto the doctor, even though they did not know the doctor and could not verify their identity.</p>
+</div>
+
+<div class="cn-explain">
+<h4>📝 为什么这两个研究很重要？</h4>
+<p>它们证明了 Agency Theory 不只是实验室里的现象——<strong>现实世界中真的有人因为"只是服从命令"而做出伤害他人的事</strong>！</p>
+<ul>
+<li>💀 <strong>My Lai</strong>：士兵屠杀平民 → "我只是服从上级命令"</li>
+<li>💊 <strong>Hofling</strong>：护士给双倍药物 → "医生说的，我照做"</li>
+</ul>
+<p>👉 考试时如果题目问"real-life application of agency theory"，这两个例子是标准答案！</p>
+</div>
+
+<h4>❌ Weaknesses 缺点</h4>
+<ul>
+<li><strong>Reductionist（还原论的）</strong> — A weakness of agency theory is that it does not explain individual differences as to why some people obey and some do not. Obedience and disobedience/dissent can occur for reasons of personality type, gender and cultural factors.</li>
+<li><strong>Does not consider situational factors</strong> — Obedience also depends upon the circumstances or context in which the authority figure commands compliance. <strong>Latané (1981)</strong> suggests that the proximity, strength and number of authority figures relative to the target are important situational factors which can determine the impact of influence. This means that obedience is a more complex process than being explained by agency theory, which can be argued to be a reductionist explanation of obedience because it does not consider these situational factors.</li>
+<li><strong>Individual differences matter</strong> — Another individual difference which may affect obedience is past personal experience. If someone has been the target of malevolent authority, they may be less inclined to be obedient again. For example, one of Milgram's participants, <strong>Gretchen Brandt</strong>, resisted the orders of the experimenter. Brandt had emigrated to America from Germany five years before and had grown up during Hitler's time in office. Her resistance to authority may be in part explained by her past experiences.</li>
+</ul>
+
+<div class="wider-issue">
+<h4>🌍 WIDER ISSUE: Nature-Nurture Debate 先天与后天辩论</h4>
+<p>Milgram was attempting to establish that obedience was a consequence of the situation in which a person finds themselves (environment). Milgram describes obedience as an ingrained behaviour established through the process of socialisation. Obedience is triggered and amplified by social situations. <strong>This suggests that obedience is largely a product of nurture（后天培养）.</strong></p>
+<div class="cn-explain">
+<p>💡 <strong>Nature vs Nurture 在这里：</strong></p>
+<ul>
+<li>🧬 <strong>Nature（先天）</strong>：如果我们天生就有服从的基因？（Milgram 不支持这个观点）</li>
+<li>🌱 <strong>Nurture（后天）</strong>：我们通过社会化过程学会服从（Milgram 支持这个！）</li>
+</ul>
+<p>👉 Agency Theory 是一个 <strong>Nurture 解释</strong>——服从是学来的行为，不是天生的。</p>
+</div>
+</div>
+</div>
+
+<!-- SECTION 3: SOCIAL POWER THEORY -->
+<div class="section" id="s3">
+<h2>3️⃣ Social Power Theory of Obedience（社会权力理论）</h2>
+
+<p>A different explanation for obedience is provided by social power theory. <strong>John French and Bertram Raven (1959)</strong> identified five bases of power, which are said to motivate and influence behaviour: coercive power, reward power, legitimate power, expert power and referent power. These factors may provide a different explanation for obedience, and certainly provide an alternative explanation for Milgram's findings from his research study. French and Raven explain that someone can exert influence or control because of the source of power they possess.</p>
+
+<h3>Bases of Social Power 五种社会权力的基础</h3>
+<p>French and Raven describe five bases of social power that an individual could use on a target to influence obedience:</p>
+
+<table>
+<thead><tr><th>Type 类型</th><th>Description 描述</th><th>Example 例子</th><th>中文理解</th></tr></thead>
+<tbody>
+<tr><td><strong>Coercive Power<br>强制权力</strong></td><td>The ability to impose a punishment, e.g. a teacher can issue a detention</td><td>A boss threatening to fire an employee who refuses overtime</td><td>🔪 "不听话就惩罚你"</td></tr>
+<tr><td><strong>Reward Power<br>奖励权力</strong></td><td>The ability to give a reward or incentive, e.g. a parent can give pocket money</td><td>A teacher offering extra credit for completing additional work</td><td>🍬 "听话就给你好处"</td></tr>
+<tr><td><strong>Legitimate Power<br>合法权力</strong></td><td>An official/recognised position, e.g. a police officer or elected official</td><td>A police officer ordering traffic to stop; a judge passing sentence</td><td>📋 "我是这个位置的，所以你能听我的"</td></tr>
+<tr><td><strong>Expert Power<br>专家权力</strong></td><td>Superior knowledge or expertise held by a credible influence, e.g. a college professor</td><td>A doctor advising a patient on treatment; a lawyer giving legal counsel</td><td>🎓 "你懂这个领域，所以我听你的"</td></tr>
+<tr><td><strong>Referent Power<br>参照权力</strong></td><td>Respect or admiration, e.g. a celebrity or charismatic leader</td><td>A celebrity endorsing a product; students imitating a popular teacher</td><td>⭐ "我喜欢/崇拜你，所以听你的"</td></tr>
+</tbody>
+</table>
+
+<p>If an individual has a base of social power or is perceived to have that power, they have potential influence on other people, which may explain obedience. However, these bases of power are also contingent upon context. For example, a football referee maintains legitimate power on the field during a game, but not off the field once the game is over. Similarly, reward power is only effective if the target desires the reward on offer.</p>
+
+<div class="cn-explain">
+<h4>💡 五种权力的记忆技巧</h4>
+<p>可以用首字母缩写 <strong>C-R-L-R-E</strong> 来记（读作 "curly"）：</p>
+<ul>
+<li><strong>C</strong>oercive → 🔪 强制（怕惩罚）</li>
+<li><strong>R</strong>eward → 🍬 奖励（想要好处）</li>
+<li><strong>L</strong>egitimate → 📋 合法（职位赋予的权利）</li>
+<li><strong>R</strong>eferent → ⭐ 参照（崇拜/认同）</li>
+<li><strong>E</strong>xpert → 🎓 专家（专业知识）</li>
+</ul>
+<p>👉 <strong>考试常见题</strong>："Identify TWO types of power in Milgram's study." 答案通常是 <strong>Legitimate + Expert</strong>（Yale教授穿白大褂=合法+专家双重权力）</p>
+</div>
+
+<h3>Evaluation of Social Power Theory 社会权力理论的评价</h3>
+
+<h4>✅ Strengths 优点</h4>
+<ul>
+<li><strong>Can be applied to society</strong> — One strength of social power theory is that it can be applied to society to explain how organisations (such as corporations or the military) can use hierarchies to create structures of obedience. Senior officers in the military hold legitimate power over lower ranking soldiers. They also hold reward and coercive power, as they can incentivise or sanction the behaviour of soldiers under their command. This may explain why malevolent authority has been implicated in many war crimes. Social power theory can also be used to train soldiers to resist malevolent authority, or promote whistleblowing policies to enable anonymous reporting of destructive obedience.</li>
+<li><strong>Supported by Milgram's research</strong> — A further strength of social power theory can be found in Milgram's research. Milgram found that ordinary participants were willing to administer electric shocks to innocent victims because of the perceived power held by the experimenter ordering them to do so. This could be used as an example of legitimate power, as the experiment was conducted at Yale University, a highly regarded university. The participants may have perceived this environment as one of legitimate power and therefore followed the orders of the experimenter. The participants may have also perceived the experimenter, Mr Williams, dressed in a lab coat, as having expert power as a researcher at the university. This may explain why the participants continued to deliver the electric shocks: they perceived that Mr Williams was in control of the situation and knew what effect the shocks would have on the victims.</li>
+</ul>
+
+<h4>❌ Weaknesses 缺点</h4>
+<ul>
+<li><strong>Does not take account of context/circumstances</strong> — A weakness of social power theory is that it fails to take account of the circumstances or context in which the authority figure gives orders. Latané suggests that the proximity, strength and number of authority figures relative to the target are important situational factors which can determine the impact of influence.</li>
+<li><strong>Fails to explain individual differences</strong> — A further weakness of social power theory is that it fails to explain individual differences in obedience and dissent. Obedience and disobedience/dissent can occur for reasons of personality type, gender and cultural factors. Focusing on the perceived power held by the authority figure fails to consider the individual differences of the target, so social power theory can be argued to be a <strong>reductionist explanation</strong> of obedience.</li>
+</ul>
+
+<div class="wider-issue">
+<h4>🌍 WIDER ISSUE: Social Control 社会控制</h4>
+<div class="figure">
+<img src="edexcel_ch1_images/img13.png" alt="Police officer - social control">
+<div class="figure-caption">If social power is used responsibly, it can maintain order and safety（如果社会权力被负责任地使用，它可以维护秩序和安全）</div>
+</div>
+<p>Social control is an important issue in psychology. It considers how psychological knowledge may be used to manage or control others' behaviour. Social power theory gives us knowledge that can be used to manage individuals in certain contexts, such as in a workplace, which can be useful or unjust. This poses ethical considerations as it raises questions about the use of power in society and organisations, particularly if coercive measures to command obedience, such as in an oppressive regime. However, if social power is used responsibly, it can maintain order and safety.</p>
+</div>
+
+<div class="exam-tip">
+<h4>💡 EXAM TIP: Agency Theory vs Social Power Theory 对比</h4>
+In exam questions comparing Agency Theory vs Social Power Theory:<br>
+• Agency Theory focuses on the <strong>internal psychological state</strong> of the individual (autonomy → agency shift) 【内部心理状态】<br>
+• Social Power Theory focuses on the <strong>external sources of influence</strong> exerted by the authority figure (5 types of power) 【外部影响力来源】<br>
+• Both can be used to explain Milgram's results, but from different angles!<br>
+<br>
+<table>
+<thead><tr><th>Aspect 维度</th><th>Agency Theory 代理理论</th><th>Social Power Theory 社会权力理论</th></tr></thead>
+<tbody>
+<tr><td><strong>Focus 关注点</strong></td><td>Internal 内部（被试的心理状态）</td><td>External 外部（权威的影响力来源）</td></tr>
+<tr><td><strong>Key Concept 核心概念</strong></td><td>Autonomy ↔ Agentic State 自主↔代理状态</td><td>5 Types of Power 五种权力类型</td></tr>
+<tr><td><strong>Explains 解释</strong></td><td>WHY people obey despite guilt 为什么内疚还服从</td><td>HOW authority influences people 权威如何影响人</td></tr>
+<tr><td><strong>Weakness 缺点</strong></td><td>Reductionist; ignores situational factors 还原论；忽略情境</td><td>Reductionist; ignores individual differences 还原论；忽略个体差异</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<!-- SECTION 4: MILGRAM'S RESEARCH -->
+<div class="section" id="s4">
+<h2>4️⃣ Milgram's Research into Obedience（米尔格拉姆服从研究）</h2>
+
+<h3>Aim 研究目的</h3>
+<p>Stanley Milgram wanted to investigate whether ordinary people would follow orders and give an innocent confederate a potentially harmful electric shock. He was motivated to understand why German soldiers followed commands to torture and kill millions of innocent civilians during the Second World War. He was attempting to investigate why ordinary people could commit acts of atrocity in real life, and so he wanted to make his experiment as close to real 'obedience to commit harm' as possible. He also wanted to establish under what conditions people would display more obedience or dissent, so he varied his original experiment to test different factors.</p>
+
+<div class="cn-explain">
+<h4>🎯 研究背景（为什么做这个实验？）</h4>
+<p>Milgram 是犹太人，二战期间很多家人被纳粹杀害。他一直在想：<strong>"为什么普通德国士兵会服从命令，去杀害无辜的人？"</strong></p>
+<p>👉 这个实验的核心问题：<strong>普通人会不会因为"只是服从命令"而做出伤害他人的事？</strong></p>
+</div>
+
+<h3>Sample 样本</h3>
+<p>Milgram placed an advert in the local newspaper and used letterbox mail asking for male participants to volunteer in a study of memory and learning. The advert asked for volunteers aged between 20 and 50 from all occupations (excluding students). <strong>Forty New Haven residents</strong>, from a range of professional, skilled and unskilled occupations, responded to the advert and offered a $4.50 payment for their participation in a study of memory and learning. This is a <strong>volunteer sample（志愿样本）</strong> / self-selecting sampling method.</p>
+
+<div class="figure">
+<img src="edexcel_ch1_images/img14.png" alt="Milgram baseline condition diagram">
+<div class="figure-caption">Figure 1.1: Milgram's baseline condition — experimental setup（基线条件实验装置图）</div>
+</div>
+
+<div class="cn-explain">
+<h4>🔍 图解说明：实验装置</h4>
+<p>上图展示了 Milgram 实验的关键设置：</p>
+<ul>
+<li><strong>Experimenter（实验者）</strong>：穿灰大褂的生物老师，站在被试身后，下达命令（"Please continue..."）</li>
+<li><strong>Subject/Teacher（教师/被试）</strong>：坐在电击发生器前，负责提问和施加电击</li>
+<li><strong>Fake test subject/Learner（假被试/学习者/同谋）</strong>：在隔壁房间，被绑在"电椅"上（假装的），假装感到疼痛</li>
+<li><strong>Shock Generator（电击发生器）</strong>：30个开关，15V → 450V，最后标有 XXX（致命危险）</li>
+</ul>
+<p>👉 关键：<strong>电击是假的</strong>，Learner 是演员，但 <strong>Teacher（真被试）不知道</strong>！</p>
+</div>
+
+<h3>Procedure 程序</h3>
+<p>The study was conducted at the interaction laboratory at Yale University. A biology teacher acted as the <strong>experimenter（实验者）</strong> (dressed in a grey lab coat), and a middle-aged accountant acted as the <strong>confederate（同谋）</strong> ("learner").</p>
+<p>Volunteer participants were invited to the laboratory and introduced to the confederate. The experimenter briefed both of them about how some people may learn more effectively through punishment, and that the experiment was intended to test how much punishment was effective for learning and whether this varied depending on the person's age. This brief was a cover story to justify the procedure of the study to come, and in particular, the use of an electric shock.</p>
+<p>It also set the scene for the study to assign the two roles needed for the study: a teacher and a learner. The experimenter stated that the fairest way of allocating these roles was to draw lots. The volunteer participant did not know that the draw was rigged, and both lots had the word 'teacher' written on them. This ensured that the volunteer participant was the 'teacher', and the confederate was always the 'learner'.</p>
+<p>The teacher and the learner were then taken to another room, and the learner was seated in an electric chair apparatus with their arms strapped with harness to avoid excessive movement or escape during the shock procedure. An electrode was attached to the learner's wrist and conductive gel used to avoid blisters from the shock generator current. The teacher and learner were informed at this point that the shocks would be painful but not dangerous. All of this was a ruse to convince the teacher that the learner would be receiving shocks, when in fact no shocks would ever be administered.</p>
+
+<h3>Apparatus 实验器材</h3>
+<p>The wrist electrode was attached to a fake shock generator in an adjacent room. The generator was a box with a panel of 30 switches positioned in a horizontal line at the front, increasing in 15-volt increments. Each switch was labelled from 15 to 450 volts, and additional labelling above the switches indicated 'Slight Shock', 'Moderate Shock', 'Strong Shock', 'Very Strong Shock', 'Intense Shock', 'Extreme Intensity Shock', 'Danger' and the final two switches were labelled 'XXX'. A light appeared above the switch after it was pressed and a buzzer could be heard. There was also a blue light and a voltage meter dial, which had a hand that oscillated when a lever was pressed. To convince the teacher that the shocks were real, they were given a 45-volt sample shock which felt real.</p>
+
+<h3>Learning Task 学习任务</h3>
+<p>The teacher was informed that they should read out a list of word pairs to the learner. After that they should read out one word from the first pair and provide four possible options. The teacher was to administer a shock from the shock generator if the incorrect pair was given as an answer to the learner, starting at 15 volts. After each incorrect response, the teacher was to increase the shock voltage by pressing the next switch on the shock generator. The learner was to respond to the word pair associate list using a set of four responses that the teacher could see on top of the shock generator. In fact, the sequence of responses from the learner were also rigged so that around one in four responses was incorrect. If the teacher reached 300 volts the learner pounded on the wall, which could clearly be heard by the teacher, and did not give a response. A pounding was repeated at 315 volts and from that point on the learner was silent and did not give the response for the word pair tasks.</p>
+<p>Typically at this stage the teacher objected to delivering shocks and sought guidance from the experimenter. The experimenter delivered a script by giving verbal prods to encourage the teacher to continue delivering shocks even if no response was given by the learner.</p>
+
+<p>If the teacher objected, the experimenter gave standardised <strong>verbal prods（言语提示）</strong>:</p>
+<ol>
+<li>"Please continue."</li>
+<li>"The experiment requires that you continue."</li>
+<li>"It is absolutely essential that you continue."</li>
+<li>"You have no other choice, you must go on."</li>
+</ol>
+
+<div class="cn-explain">
+<h4>📝 四次提示语的分析（逐步升级！）</h4>
+<table>
+<thead><tr><th>Prod 次数</th><th>提示语内容</th><th>语气强度</th><th>作用</th></tr></thead>
+<tbody>
+<tr><td><strong>Prod 1</strong></td><td>"Please continue"</td><td>🟢 温和请求</td><td>第一次拒绝时的轻推</td></tr>
+<tr><td><strong>Prod 2</strong></td><td>"The experiment requires..."</td><td>🟡 引用责任</td><td>把责任推给"实验需求"</td></tr>
+<tr><td><strong>Prod 3</strong></td><td>"It is absolutely essential..."</td><td>🟠 强调必要性</td><td>升级压力，暗示没有选择</td></tr>
+<tr><td><strong>Prod 4</strong></td><td>"You have no other choice..."</td><td>🔴 去除选择权</td><td>最强压力，直接命令</td></tr>
+</tbody>
+</table>
+<p>👉 这四次提示是<strong>标准化的（standardised）</strong>——每个被试听到的完全一样！这保证了实验的 <strong>Reliability（信度）</strong>。</p>
+</div>
+
+<h3>Results 结果</h3>
+<div class="blue-box">
+<h4>📊 Key Findings 核心发现</h4>
+<ul style="margin-bottom:0;">
+<li><strong>All participants gave 300-volt shocks</strong> （所有人都给了300伏电击）</li>
+<li>Only <strong>5 refused to continue beyond 300V</strong> （只有5人在300V后拒绝）</li>
+<li><strong>26 out of 40 (65%) went to 450 volts</strong> — maximum shock （65%的人给到了最大450V！）</li>
+<li>Participants showed signs of extreme distress: nervous laughter, sweating, trembling （极度痛苦：紧张地笑、出汗、发抖）</li>
+<li><strong>3 participants had uncontrollable seizures</strong> （3人出现无法控制的癫痫发作）</li>
+<li>Fourteen participants showed signs of nervous anxiety</li>
+<li>During the debrief they felt the shocks were for the learner on a scale of 1–14 (14 indicating 'extremely painful'), to which the mean response was <strong>13.42</strong> （事后评估平均疼痛感13.42/14，说明他们真的相信了）</li>
+</ul>
+</div>
+
+<div class="figure">
+<img src="edexcel_ch1_images/img15.png" alt="Yale University building">
+<div class="figure-caption">Milgram's experiments initially took place at Yale University which has a well-established reputation for academic research（Milgram实验最初在耶鲁大学进行，享有很高的学术声誉）</div>
+</div>
+
+<div class="cn-explain">
+<h4>😰 结果解读：为什么这个结果如此震撼？</h4>
+<p><strong>65% 的普通人愿意给陌生人施加"致命电击"！</strong></p>
+<p>这些被试不是坏人——他们是：</p>
+<ul>
+<li>✂️ 理发师、👷 工人、👨‍💼 职员、👨‍🏫 教师……普通 New Haven 居民</li>
+<li>实验中<strong>明显很痛苦</strong>（出汗、发抖、紧张地笑）</li>
+<li>但仍然<strong>服从命令</strong>到了最后</li>
+</ul>
+<p>👉 Milgram 的结论：<strong>普通人在权威命令下，可以做出违背良心的事。</strong></p>
+</div>
+
+<h3>Conclusion 结论</h3>
+<p>Milgram concluded that <strong>ordinary people would ignore their own moral conscience and deliver harmful shocks to an innocent victim at the command of an authority figure</strong>, despite displaying considerable distress while doing so. Milgram concluded that there were several features of the study which may explain this obedience, including the reputation of the university, the legitimacy of the task, the teacher and learner's voluntary participation, and the random assignment of teacher and learner roles, among other factors.</p>
+
+<div class="keyterm-box">
+<strong>Key Terms:</strong><br>
+• <strong>volunteer participant（志愿参与者）</strong>: participant who responds to an advert; this is called a self-selecting sampling method<br>
+• <strong>debriefing（事后解释）</strong>: a statement given to participants on conclusion of a study which discloses fully the nature and implications of the research<br>
+• <strong>qualitative data（定性数据）</strong>: descriptive data or observations<br>
+• <strong>quantitative data（定量数据）</strong>: numerical data<br>
+• <strong>mundane realism（日常现实性）</strong>: the extent to which apparatus and procedures used in a study reflect real life
+</div>
+</div>
+
+<!-- SECTION 5: VARIATION STUDIES -->
+<div class="section" id="s5">
+<h2>5️⃣ Milgram's Variation Studies（变体实验）</h2>
+<p>Milgram repeated his experiment to investigate under what conditions obedience or dissent would be found to explain why he found such a high level of obedience to authority. The location of his further experiments varied from the original, most being conducted in the basement of Yale Vaults. He also changed the learner feedback to include more verbal protests from 75 volts, progressively intensifying (let me out of here!) and the inclusion of comments concerning the learner's heart condition ('My heart is bothering me now'). This new procedure formed a baseline condition for his variation studies.</p>
+
+<div class="var-grid">
+<div class="var-card">
+<h4>📞 Experiment 7: Telephonic Instructions 电话指令</h4>
+<p><strong>Aim:</strong> To establish whether the proximity of the experimenter had an influence on the level of obedience or dissent displayed by the teacher</p>
+<p><strong>Procedure:</strong> After giving initial instructions to the teacher face to face, the experimenter left the room and continued to give instructions over the telephone.</p>
+<p><strong>Result:</strong> Only <strong>22.5%</strong> reached 450V (down from 65%)</p>
+<p><strong>Conclusion:</strong> Proximity is a key situational factor — physical absence of authority reduces obedience significantly.</p>
+</div>
+
+<div class="var-card">
+<h4>🏢 Experiment 10: Rundown Office Block 破旧办公楼</h4>
+<p><strong>Aim:</strong> Test effect of institutional setting/prestige on obedience</p>
+<p><strong>Procedure:</strong> Relocated to Bridgeport, CT — a rundown commercial office building. Private company "Research Associates of Bridgeport" conducted the research. Participants recruited through mailshot and paid for their time.</p>
+<p><strong>Result:</strong> <strong>47.5%</strong> reached 450V (down from 65%)</p>
+<p><strong>Conclusion:</strong> Less prestigious environment reduces perceived legitimacy → lower obedience.</p>
+</div>
+
+<div class="var-card">
+<h4>👤 Experiment 13: Ordinary Man Gives Orders 普通人下令</h4>
+<p><strong>Aim:</strong> Test whether the role of authority and status had an effect on obedience</p>
+<p><strong>Procedure:</strong> The role of experimenter was played by an ordinary man, rather than an experimenter wearing a grey lab coat. Three people arrived: 2 confederates + 1 naive participant. The "ordinary man" gave instructions to increase shocks when the learner made mistakes.</p>
+<p><strong>Result:</strong> <strong>80% broke off</strong> before max = only <strong>20%</strong> reached 450V!</p>
+<p><strong>Conclusion:</strong> Authority figure has a significant role — without an authority figure there is considerable dissent.</p>
+</div>
+</div>
+
+<div class="cn-explain">
+<h4>📊 变体实验的逻辑：控制变量法</h4>
+<p>Milgram 用的是经典的<strong>控制变量法</strong>：</p>
+<ul>
+<li>每次只改变<strong>一个变量</strong>（one variable），其他保持不变</li>
+<li>然后比较结果，看这个变量对服从率有什么影响</li>
+</ul>
+<p><strong>三个变体的变量对照：</strong></p>
+<table>
+<thead><tr><th>变体</th><th>改变的变量</th><th>服从率变化</th><th>结论</th></tr></thead>
+<tbody>
+<tr><td>Exp 7 电话指令</td><td>权威的<strong>接近性 Proximity</strong></td><td>65% → <strong style="color:red">22.5%</strong> ↓↓</td><td>距离越远，越不服从</td></tr>
+<tr><td>Exp 10 破旧办公楼</td><td>环境的<strong>合法性 Legitimacy</strong></td><td>65% → <strong style="color:red">47.5%</strong> ↓</td><td>环境越普通，越不服从</td></tr>
+<tr><td>Exp 13 普通人下令</td><td>权威人物的<strong>身份 Status</strong></td><td>65% → <strong style="color:red">20%</strong> ↓↓</td><td>没有权威身份，大部分人拒绝</td></tr>
+</tbody>
+</table>
+<p>👉 考试技巧：变体实验的题目常问"<strong>What does this variation tell us about...?</strong>" 答案格式：<strong>This shows that [变量] affects obedience because...</strong></p>
+</div>
+
+<div class="note-box">
+<strong>About Experiment 13 关于第13号变体实验：</strong><br>
+Milgram himself acknowledged that there were still traces of authority left behind after the experimenter left the room. This was because the physical removal of the experimenter did not strip the situation of all authority, as the experimenter had already given instructions to administer the shocks.
+</div>
+
+<!-- ACTIVITY 2: VARIATION COMPARISON TABLE (FILLED) -->
+<div class="activity-box">
+<h4>ACTIVITY 2: Variation Comparison Table 变体对比表（已填写完整版）</h4>
+<table>
+<tr><th></th><th>Milgram's original baseline 基线条件</th><th>Telephonic instructions (Experiment 7) 电话指令</th><th>Rundown office block (Experiment 10) 破旧办公楼</th><th>Ordinary man gives orders (Experiment 13) 普通人下令</th></tr>
+<tr><td><strong>Aim 目的</strong></td><td>To investigate whether ordinary people would follow orders and give an innocent person a potentially harmful electric shock</td><td>To establish whether the proximity of the experimenter had an influence on the level of obedience or dissent 测试接近性对服从的影响</td><td>To test whether the institutional context (prestige) affects obedience 测试机构环境/声望对服从的影响</td><td>To test whether the role of authority and status had an effect on obedience 测试权威角色和地位对服从的影响</td></tr>
+<tr><td><strong>Sample 样本</strong></td><td>Forty male volunteers from the New Haven area</td><td>Similar volunteers 类似志愿者</td><td>Recruited via mailshot, paid 邮寄招募，有报酬</td><td>3 people: 2 confederates + 1 naive participant 3人：2个同谋+1个真被试</td></tr>
+<tr><td><strong>Procedure 程序</strong></td><td>Conducted at the interaction laboratory at Yale University. Rigged lots drawn to assign teacher or learner. Learner strapped to shock generator. Word association memory task. Verbal prod given.</td><td>Same as baseline, BUT after giving initial instructions face to face, the experimenter left the room and continued to give instructions over the telephone 与基线相同，但实验者离开房间后通过电话下达指令</td><td>Relocated to rundown commercial office building in Bridgeport, CT. Private company "Research Associates of Bridgeport" conducted research. Same lab procedures otherwise. 搬到破旧商业楼，私人公司进行研究</td><td>Experimenter role played by ordinary man (no lab coat). 3 people arrived: 2 confederates + 1 naive participant. Ordinary man gave instructions to increase shocks. 实验者由普通人扮演（无白大褂）。普通人下令增加电击</td></tr>
+<tr><td><strong>Results 结果</strong></td><td>100% to 300V; <strong>65% to 450V</strong></td><td><strong style="color:red">22.5%</strong> to 450V</td><td><strong style="color:red">47.5%</strong> to 450V</td><td><strong style="color:red">20%</strong> to 450V (80% broke off)</td></tr>
+<tr><td><strong>Conclusions 结论</strong></td><td>An ordinary person would harm another if instructed by an authority figure 普通人会因权威命令而伤害他人</td><td>Proximity matters — distance reduces obedience 接近性很重要——距离降低服从</td><td>Prestige/legitimacy matters — less prestigious environment = less obedience 声望/合法性很重要——环境越普通服从率越低</td><td>Authority figure has significant role — without authority there is considerable dissent 权威人物起关键作用——没有权威就有大量反抗</td></tr>
+</table>
+</div>
+
+<div class="exam-tip">
+<h4>💡 EXAM TIP</h4>
+When evaluating Milgram's variation studies, use similar strengths and weaknesses to his original study but adjust them to match each variation. These variation studies demonstrate that situational factors such as <strong>proximity（接近性）</strong> and <strong>legitimacy of authority（权威合法性）</strong> determine whether someone is obedient or willing to dissent.<br><br>
+Note: The procedure of the ordinary man variation was standardised as the co-participant was always given recording timings from a clock seated at a desk, and the experimenter was always called away by telephone call. This means that the effect of lessened authority on obedience level can be re-tested to check for reliability.
+</div>
+</div>
+
+<!-- SECTION 6: METHODOLOGICAL & ETHICAL ISSUES -->
+<div class="section" id="s6">
+<h2>6️⃣ Methodological & Ethical Issues（方法学与伦理问题）</h2>
+
+<h3>Methodological Issues 方法学问题</h3>
+
+<h4>✅ Strengths 优点</h4>
+<ul>
+<li><strong>Highly standardised and controlled</strong> — A strength of Milgram's experiments was that they were highly standardised and controlled. Each participant was briefed in the same way and experienced the same verbal prods, feedback and apparatus. Behavioural data was gathered about how long participants took to press each switch and for how long the switch was depressed. Both objective <strong>quantitative data（定量数据）</strong> and <strong>qualitative observations（定性观察）</strong> were made, making this research highly credible in terms of being both reliable and valid. It also means that retests can be conducted to check whether the same levels of obedience would be observed reliably.</li>
+<li><strong>High ecological validity</strong> — Laboratory research, such as this, is often criticised for being unrealistic and not representative of real behaviour. We can argue that the task lacked mundane realism, as we would not ordinarily be ordered to electrocute an innocent victim. This means that the levels of obedience found are unlikely to reflect obedience in a more naturalistic situation. Milgram maintained that the process of obedience was the same regardless of location or task. Interestingly the Hofling et al. (1966) field study of the doctor-nurse relationship found far more nurses that were willing to obey the instructions of a doctor than Milgram would predict in his experiment. Perhaps real life obedience could be explained by the strict hospital hierarchy and the legitimate status of doctors at the time.</li>
+</ul>
+
+<h4>❌ Weaknesses/Criticisms 缺点/批评</h4>
+<ul>
+<li><strong>Sample bias 样本偏差</strong> — One criticism of Milgram's original study was that the sample of 40 men is not representative of the general population. The participants were recruited by an advert or mailshot, resulting in a volunteer (self-selecting) sample. This could suggest that the participants were more compliant or more authoritarian in character. When debriefed, Milgram noted that participants took part for a range of reasons, and there was not one single overriding factor that could account for high levels of obedience. Milgram was also noted that the participants who gave the greatest level of shock tended to blame the learner for their pain rather than themselves or the experimenter, a typical trait of an authoritarian character. However, other research into volunteering characters has tended to find them less rather than more authoritarian.</li>
+<li><strong>Participants didn't believe shocks were real</strong> — Another criticism of Milgram's experiments was a suggestion that the participants did not really believe that they were administering harmful or serious electric shocks at all, and were just playing along with the game. Milgrim dismissed this claim and made two arguments against it. Firstly, that the observed anxiety of the teachers throughout the duration of administering shocks was evidence itself that they believed that the shocks were real, and secondly that only 2 of the 40 participants in a follow-up experiment thought that the study was a hoax. Milgram believed that these participants were probably defending their own behaviour so that they were not seen as cruel. However, if the participants did believe that the shocks were not real, it would threaten the internal validity of the study and question whether an authority figure could command such destructive obedience.</li>
+<li><strong>Gina Perry (2013) criticisms</strong> — Gina Perry (2013) conducted an archival analysis of Milgram's reports, video and audio tapes and revealed some major issues with Milgram's findings and conclusions. She found that Milgram overstated the obedience rate of his research, equating to 65 per cent, which did not represent the high levels of people who dissented throughout his variation studies. She claims that many more participants revealed that they knew the study was a hoax and that no real shocks were being administered. She claimed that Milgram's procedures were not as standardised as he claimed. Analysis of video and audio recordings showed that there was a great deal of improvisation by the experimenter. Perry believed this to be direct coercion to force the teacher to continue with the shocks.</li>
+</ul>
+
+<!-- ACTIVITY 1: PERRY'S CRITICISMS TABLE (FILLED) -->
+<div class="activity-box">
+<h4>ACTIVITY 1: A Summary of Perry's Criticisms Perry批评总结表（已填写）</h4>
+<table>
+<tr><th>A summary of Perry's criticisms Perry的批评总结</th><th>Why did Perry make this criticism? Perry为什么提出这个批评？</th></tr>
+<tr><td>Perry looked across all of Milgram's variations and criticised Milgram for making the claim that 65 per cent of participants were obedient.<br>Perry查阅了Milgram的所有变体实验，批评Milgram声称65%的人服从的说法。</td><td>The 65% figure was from the baseline condition only. In variation studies, obedience rates varied greatly (22.5% to 80% broke off). Many participants showed dissent throughout. Perry argued Milgram overstated obedience by focusing only on the baseline result.<br>65%只是基线条件的数据。变体实验中服从率变化很大（22.5%到80%拒绝）。Perry认为Milgram只关注基线结果，高估了服从率。</td></tr>
+<tr><td>Perry criticised Milgram for assuming that the participants believed that they were administering real shocks.<br>Perry批评Milgram假设参与者相信他们在施加真实电击。</td><td>Perry found evidence that many participants guessed the study was a hoax (fake). Some knew no real shocks were being administered. If participants didn't believe the shocks were real, the internal validity of the study is threatened.<br>Perry发现证据表明很多参与者猜到了这是个恶作剧。有些人知道没有真实电击。如果参与者不相信电击是真的，研究的内部效度就受到威胁。</td></tr>
+<tr><td>Perry criticised Milgram for claiming that he used standardised procedures.<br>Perry批评Milgram声称他使用了标准化程序。</td><td>Analysis of video and audio recordings showed the experimenter often improvised additional verbal prods and reassurances beyond the standard 4 prods. Perry saw this as direct coercion to force continuation.<br>对视频和音频录音的分析显示，实验者经常即兴添加额外的言语提示和安慰，超出了标准的4次提示。Perry认为这是直接强迫参与者继续。</td></tr>
+</table>
+</div>
+
+<h3>Ethical Issues 伦理问题</h3>
+
+<div class="warn-box">
+<h4>⚠️ Major Ethical Concerns 主要伦理争议</h4>
+</div>
+
+<p>Diana Baumrind (1964) heavily criticised Milgram's experiments on ethical grounds. She expressed considerable concern for the welfare of the participants and argued that the stress caused was deliberate. Milgram responded by stating that the anxiety induced by the experimental conditions was not deliberate or anticipated. He had discussed the experimental procedures at length with colleagues and none had anticipated the participants' responses.</p>
+
+<p>Although it is true that the outcomes of research cannot ever be predicted with reliability, it does not explain the fact that Milgram conducted 18 variations in his study, which involved 636 participants. Although the participants' reactions could not have been foreseen at the beginning, they certainly could have been predicted once the experiments were underway. Milgram justified the anxiety caused to participants by describing it as momentary excitement, which in his view was not the same as harm.</p>
+
+<p>Every experiment that Milgram conducted could also be criticised for involving a considerable amount of <strong>deception（欺骗）</strong>:</p>
+<ul>
+<li>participants thought it was a study of memory and learning, not obedience</li>
+<li>they were hoaxed into believing the drawing of lots was real when in fact it was rigged</li>
+<li>they believed that the confederate learner was a genuine participant</li>
+<li>they thought the shocks administered were real</li>
+</ul>
+
+<p>This deception was necessary for the procedure of the study, but such an approach would be problematic by today's ethical standards. Moreover, it could have caused additional stress and embarrassment for the participants when they were debriefed.</p>
+
+<h4>Debriefing 事后解释</h4>
+<p>Milgram, however, went to considerable lengths to ensure that participants did not feel embarrassed. He fully debriefed the obedient participants by explaining that their actions were normal, and the dissenting participants were assured that their decision making was justified. He also ensured friendly reconciliation between the participant and the learner and followed up with a full written report for all participants. He also conducted a follow-up questionnaire for them to express their feelings about the experiment after some time. Milgram's post-experimental questionnaire seemed to confirm that participants did not have any negative feeling about their participation, with 84 per cent having said that they were glad to have taken part.</p>
+
+<p>Although Milgram clearly offered participants the right to withdraw from the experiment, some argued that their right to leave was violated by the verbal prods used by the experimenter. Milgram briefed participants advising them that they could leave at any time without adverse consequence, and they could also take the money incentive. It is true that Milgram did not physically stop the participants leaving. He did, however, enter them into a contract of trust and incentivised their participation with money, and the verbal prods used directly challenged any participant's attempt to leave the situation. In defence of Milgram, the verbal prods were an essential requirement to ensure orders were given that demonstrate obedience. Because 35 per cent (or more) of his participants did end the experiment, it could be argued that the prods merely disseminated withdrawal.</p>
+
+<p>Milgram vehemently defended his series of experiments, arguing that no one would have been so concerned with the ethical issues associated with the research if they had not found such high levels of obedience from ordinary people.</p>
+
+<div class="exam-tip">
+<h4>💡 EXAM TIP: How to Evaluate 如何写评价</h4>
+If you are asked to 'evaluate' a theory, research study or concept in psychology, you will need to review the strengths and weaknesses of the information, make judgements and form an overall conclusion. For example, if you are asked to evaluate the ethical issues associated with Milgram's research, we need to consider the weaknesses and strengths of the study in terms of ethics, and consider how the ethical issues could have been justified by the methodology or aims of the study.<br><br>
+You will also need to come to a balanced and considered conclusion. It is useful to 'flag up' this conclusion at the end of your answer by stating 'In conclusion...'. This makes it clear to an examiner that you are fulfilling the requirements of the question. You will need to review the main judgements made in your answer and come to a conclusion based on the material you have presented.
+</div>
+</div>
+
+<!-- SECTION 7: INDIVIDUAL DIFFERENCES -->
+<div class="section" id="s7">
+<h2>7️⃣ Individual Differences: Personality & Gender（个体差异：人格与性别）</h2>
+
+<p>Milgram's research shows us that obedience and dissent can depend on a number of factors. Other researchers have investigated a variety of factors to understand whether different people are more likely to have obeyed. Individual differences refer to aspects such as personality and gender. Other factors include situation and culture.</p>
+
+<h3>Personality: Authoritarian Personality 权威型人格</h3>
+<p>The obedience research we have discussed so far suggests that situational factors play a significant role in determining levels of obedience. However, while many of Milgram's participants were obedient, some resisted authority. Perhaps individual differences can explain why some people are more or less likely to be obedient to authority.</p>
+<p>Personality refers to a set of relatively stable psychological traits which can influence how we think and act. Some types of personality have been associated with obedience and dissent.</p>
+
+<h4>Authoritarian Personality 权威型人格</h4>
+<p>A person with an authoritarian personality is typically submissive to authority because they may have been raised in a strict household and punished for non-compliance. <strong>Theodor Adorno et al. (1950)</strong> devised the <strong>F-Scale (Fascism Scale)</strong>, a questionnaire used to detect the authoritarian personality. The authoritarian personality has been associated with higher levels of obedience because individuals with this personality type tend to maintain social rules and order.</p>
+
+<p><strong>Stanley Milgram and Alan Elms (1966)</strong> compared the F-Scale scores for 20 obedient and 20 dissenting participants involved in Milgram's experiments. They found that obedient participants had higher F-Scale score, indicating an authoritarian personality type, compared to the dissenters. However, the F-Scale is a self-reported measure, and the link between authoritarianism and obedience is a correlation, so we cannot be sure that it causes obedience.</p>
+
+<p><strong>Michael Dambrun and Elise Vatine (2010)</strong> conducted a simulation of Milgram's experiment using a virtual environment/computer simulation and found that authoritarianism was linked to obedience. Those with high authoritarian scores were less likely to withdraw from the study, perhaps because they were submissive to the authority of the experimenter, or showed a desire to punish the failing learner.</p>
+
+<div class="keyterm-box">
+<strong>Key Term:</strong> <strong>fascism（法西斯主义）</strong>: a very nationalist and authoritarian position, intolerant of others' views, based on an extreme right-wing political position
+</div>
+
+<div class="cn-explain">
+<h4>🧬 Authoritarian Personality 的特征（考试要点）</h4>
+<table>
+<thead><tr><th>Characteristic 特征</th><th>Description 描述</th><th>Example 例子</th></tr></thead>
+<tbody>
+<tr><td><strong>Strict conventionality 严格守旧</strong></td><td>Fixed ideas about right/wrong, traditional values</td><td>"女人应该在家带孩子""同性恋是不对的"</td></tr>
+<tr><td><strong>Unquestioning obedience 无条件服从</strong></td><td>Obeys authority without questioning</td><td>"领导说怎么做就怎么做"</td></tr>
+<tr><td><strong>Hostility to out-group 对外敌意</strong></td><td>Distrust/dislike of people who are different</td><td>歧视少数族裔、外国人等</td></tr>
+<tr><td><strong>Black-and-white thinking 二元思维</strong></td><td>Sees things as all good or all bad</td><td>"不支持我们就是敌人"</td></tr>
+</tbody>
+</table>
+<p>👉 <strong>成因</strong>：Adorno 认为这种人格源于<strong>严厉的教养方式</strong>（harsh parenting）——父母用"有条件的爱"（conditional love）和严格管教，让孩子学会绝对服从。</p>
+</div>
+
+<h3>Locus of Control 控制点 ⭐</h3>
+<p>Milgram conducted a series of follow-up investigations on participants who were involved in his obedience research to uncover whether certain individuals would be more likely to obey or dissent. In one study, <strong>118 participants from Experiments 1–4</strong> who were both obedient and disobedient were asked to judge the relative responsibility for giving the shocks by moving three hands on a round disc to show the proportionate responsibility for the experimenter, the teacher and the learner. He found that dissenting participants gave proportionately more blame to themselves (48 per cent) and then the experimenter (39 per cent). Obedient participants were more likely to blame the learner (25 per cent) than that the dissenters (12 per cent).</p>
+<p>It seems that disobeying individuals take more of the blame, whereas obedient people are more likely to displace blame. This can be explained by <strong>Rotter's (1966) locus of control personality theory</strong>. This theory outlines two different personality types: those with an internal locus and those with an external locus of control. People with an internal locus of control tend to believe that they are responsible for their own actions and are less influenced by others. People with an external locus of control believe that their behaviour is largely beyond their control and instead is due to external factors. These people are more influenced by others around them. This seems consistent with Milgram's findings that obedient people have an external locus of control: not only are they more likely to be influenced by an authority figure, but they also believe that they are not responsible for their actions.</p>
+
+<p><strong>Albert Blass (1991)</strong> investigated the relationship between locus of control and participants' reactions during the Milgram research. Blass found that participants with an external locus of control were more likely to obey the experimenter's instructions to shock the learner and were also more likely to blame the experimenter. However, he also pointed out that the situation had an important role to play, and that obedience should be considered as an interaction between situation and personality; some people with an external locus of control may be more susceptible to obedience in particular situations.</p>
+
+<!-- ACTIVITY 4: LOCUS OF CONTROL TABLE (FILLED) -->
+<div class="activity-box">
+<h4>ACTIVITY 4: Locus of Control as a Personality Factor 控制点作为人格因素（已填写）</h4>
+<table>
+<tr><th>Locus of control 控制点类型</th><th>What is the belief? 信念是什么？</th><th>Obedient or dissenting? 服从还是反抗？</th></tr>
+<tr><td><strong>External 外控型</strong></td><td>Believes that their behaviour is largely beyond their control and is due to external factors (luck, fate, other powerful others). "Things happen TO me."<br>认为自己的行为很大程度上不受自己控制，而是由外部因素（运气、命运、其他强者）决定。"事情发生在我身上。"</td><td><strong style="color:#FF5252">More likely to be OBEDIENT 更可能服从 ✅</strong><br>Because they blame external factors (the authority figure) rather than themselves.因为他们责怪外部因素（权威人物）而不是自己。</td></tr>
+<tr><td><strong>Internal 内控型</strong></td><td>Believes THEY are responsible for their own actions and are less influenced by others. "I make things happen."<br>认为自己对自己的行为负责，较少受他人影响。"我让事情发生。"</td><td><strong style="color:#69F0AE">More likely to DISSENT/RESIST 更可能反抗 ✊</strong><br>Because they take personal responsibility and are less likely to displace blame onto the authority figure.因为他们承担个人责任，不太可能把责任推给权威人物。</td></tr>
+</table>
+</div>
+
+<div class="exam-tip">
+<h4>💡 EXAM TIP</h4>
+Remember that individual differences refer to <strong>personality and gender</strong>. They are <strong>not the same</strong> as situation and culture. 个体差异指的是人格和性别，它们与情境和文化不同！
+</div>
+
+<h3>Gender 性别</h3>
+<p>Most of the participants in Milgram's studies were male, although he did conduct one variation (Experiment 8) that involved 40 women. Previous research had indicated that women were more compliant than men, yet traditionally we think of women as more empathetic and less aggressive, which might suggest that they would be less likely to comply with orders to shock an innocent victim. This contradiction would be played out in a variation study that commanded both their compliance and empathy. Milgram found that women were virtually identical to men in their level of obedience (65 per cent) breaking out at the 300-volt level. Yet their rated level of anxiety was much higher than men for those who were obedient. This was also found in Burger's (2009) replication of this research.</p>
+
+<p><strong>Sheridan and King (1972)</strong> adapted Milgram's research to involve live puppy as a victim that received genuine shocks from college student participants. They found that all 13 women were much more compliant and delivered the maximum levels of shock to the puppy compared to only half of men. However, in a review of ten obedience experiments, <strong>Blass (1999)</strong> found that obedience levels between men and women were consistent across nine of the studies. The study that did not show a similar male/female obedience level was conducted by Kilham and Mann (1974) in a partial replication of Milgram's experiment in Australia. They found women to be far less obedient (16 per cent) than men (40 per cent). However, research into obedience have used different procedures, and produced inconsistent outcomes. This may indicate that there are few gender differences in obedience, despite traditional beliefs that women would be more compliant to authority.</p>
+
+<div class="blue-box">
+<strong>Conclusion on gender:</strong> Gender alone does not reliably predict obedience levels. Both men and women show similar rates of obedience when placed in comparable situations. The difference lies more in <strong>situational factors</strong> than biological sex.
+</div>
+
+<h3>Evaluation of Individual Difference Explanations 个体差异解释的评价</h3>
+
+<table>
+<thead><tr><th>Factor 因素</th><th>Supporting Evidence 支持</th><th>Criticisms 批评</th></tr></thead>
+<tbody>
+<tr><td><strong>Authoritarian Personality</strong></td><td>Adorno's F-scale shows consistent correlations between authoritarianism and prejudice/obedience; Milgram & Elms (1966) found obedient participants had higher F-scores</td><td>Deterministic; ignores situational factors; based on limited sample (middle-class Americans); F-scale is self-reported (correlation ≠ causation); circular reasoning possible</td></tr>
+<tr><td><strong>Locus of Control</strong></td><td>Rotter (1966) theory explains why obedient people displace blame; Blass (1991) found external LoC participants more likely to obey AND blame experimenter</td><td>Blass noted situation also plays important role; interaction between personality and situation; some external LoC people may still dissent in particular situations</td></tr>
+<tr><td><strong>Gender</strong></td><td>Some early studies suggested women more conforming; Sheridan & King (1972) found women more compliant in puppy shock study</td><td>Later replications show minimal gender difference; Milgram's Exp 8 found identical rates (65%); confounded with social roles; Kilham & Mann (1974) found opposite pattern; inconsistent procedures across studies</td></tr>
+</tbody>
+</table>
+</div>
+
+<!-- SECTION 8: SITUATIONAL FACTORS -->
+<div class="section" id="s8">
+<h2>8️⃣ Situational Factors（情境因素）</h2>
+
+<h3>Social Impact Theory (Latané, 1981) 社会影响理论</h3>
+<p><strong>Social impact theory (Latané, 1981)</strong> explains that there are three factors which can determine the impact of an authority figure upon a target: <strong>strength, immediacy and number</strong>. These are factors associated with the situation which can predict the level of obedience observed. If an authority figure has strength (such as legitimate status or power) we will expect greater authority over a target. If an authority figure is proximal/closer to the target, their influence will be greater than if there is a distance between them. If there are more authority figures relative to targets, then the influence will be greater.</p>
+
+<div class="cn-explain">
+<h4>📐 Latané 的三个因素（记忆公式：S × I × N）</h4>
+<table>
+<thead><tr><th>Factor 因素</th><th>English 英文</th><th>Explanation 解释</th><th>Example in Milgram 在Milgram实验中的体现</th></tr></thead>
+<tbody>
+<tr><td><strong>Strength 强度</strong></td><td>How powerful/legitimate is the authority?</td><td>权威有多强/多合法？</td><td>Yale教授 > 普通人；白大褂 > 便装</td></tr>
+<tr><td><strong>Immediacy 即时性/接近性</strong></td><td>How close is the authority to the target?</td><td>权威离目标有多近？</td><td>面对面 > 电话（Exp 7: 65%→22.5%）</td></tr>
+<tr><td><strong>Number 数量</strong></td><td>How many authority figures are present?</td><td>有多少个权威在场？</td><td>1个实验者 vs 多个权威同时施压</td></tr>
+</tbody>
+</table>
+<p>👉 <strong>公式</strong>：Social Impact = Strength × Immediacy × Number<br>任何一个因素增加 → 影响力增大 → 服从率升高</p>
+</div>
+
+<p>Milgram's research demonstrates obedience can be influenced by these situational factors. A baseline obedience level of 65 per cent was found, and other variations found this rose or fell depending on whether the participant was close or far away from the target, whether the authority was perceived to be legitimate. Distance seemed to act as a buffer to obedience, as found in the telephonic instruction condition. Status of the authority figure also had an impact on obedience, and Milgram claimed that obedience could only be established when the authority figure was perceived to be legitimate. This was found to be the case when the experiments were conducted at Yale University, and obedience fell when the experiment was moved to Bridgeport or conducted by an ordinary man.</p>
+
+<p>The effect of situational variables on obedience has also been demonstrated in partial replications of Milgram's research. <strong>Wim Meeus and Quinten Raaijmakers (1986)</strong> devised a series of studies designed to test whether participants would follow orders to psychologically hurt a victim. Using a similar ruse as Milgram, an experimenter gave orders to a participant to apply for a job, and to make the applicant nervous and disturb the test. The applicant failed the test and did not get offered the job as a result of the participant carrying out the orders. When the experimenter was close to the participant, more than 90 per cent of the participants were cruel to the applicant, but this fell to around 36 per cent when the experimenter gave the orders and left the room. This demonstrates that <strong>proximity is an important situational factor determining the level of obedience achieved</strong>.</p>
+</div>
+
+<!-- SECTION 9: CULTURAL FACTORS -->
+<div class="section" id="s9">
+<h2>9️⃣ Cultural Factors（文化因素）</h2>
+
+<p>Many behaviours vary across cultures, including obedience, which is shaped by social and cultural norms because culture affects the way we perceive authority. Culture can be divided broadly into two types: <strong>individualistic and collectivistic cultures</strong>. Individualistic cultures tend to behave more independently and tolerate dissent, which suggests that they resist conformity or obedience. Collectivistic cultures tend to behave as a collective group based on interdependence and cooperation, meaning that compliance is important for the stability of the group (Smith and Bond, 1998). We could assume from this that collectivistic cultures are more likely to be obedient and be less tolerant of dissent.</p>
+
+<p><strong>Thomas Blass (1999)</strong> conducted a full review of obedience research (see Table 1.1 below), analysing research 35 years after Milgram's first series of experiments. His data can be analysed in terms of cultural differences using research employing similar methodology to Milgram.</p>
+
+<h3>Table 1.1: Obedience Research Across Countries 跨文化服从研究数据表</h3>
+<div class="figure">
+<img src="edexcel_ch1_images/img04.png" alt="Table 1.1 Obedience research cross-cultural data">
+<div class="figure-caption">Table 1.1: Obedience research across different countries（不同国家的服从研究数据）</div>
+</div>
+
+<table>
+<thead><tr><th>Researcher 研究者</th><th>Country 国家</th><th>Percentage of full obedience 完全服从率</th></tr></thead>
+<tbody>
+<tr><td>Milgram (1962)</td><td>US 美国</td><td><strong>65%</strong></td></tr>
+<tr><td>Edwards et al. (1969)</td><td>South Africa 南非</td><td><strong>87.5%</strong></td></tr>
+<tr><td>Bock (1972)</td><td>US 美国</td><td>40%</td></tr>
+<tr><td>Kilham and Mann (1974)</td><td>Australia 澳大利亚</td><td>28%</td></tr>
+<tr><td>Shanab and Yahya (1977)</td><td>Jordan 约旦</td><td>73%</td></tr>
+<tr><td>Miranda et al. (1981)</td><td>Spain 西班牙</td><td>50%</td></tr>
+<tr><td>Schurz (1985)</td><td>Austria 奥地利</td><td>80%</td></tr>
+<tr><td>Ancona and Pareyson (1968)</td><td>Italy 意大利</td><td>85%</td></tr>
+<tr><td>Burley and McGuinness (1977)</td><td>UK 英国</td><td>50%</td></tr>
+</tbody>
+</table>
+
+<p>Although some might argue that obedience levels are not universal, on closer inspection of the methodologies of the research studies, it seems that the <strong>variation in percentage of participants who gave the full shock may be a product of the procedure employed rather than cultural variation</strong>. For example, Ancona and Pareyson's (1968) research took place in Italy and the maximum shock level was 330 volts, compared to Milgram's 450 volts. Milgram found 73 per cent obedience in his proximity studies which is more comparable to the 85 per cent found in Italy, suggesting that 330 volts was perceived to be less dangerous. In Italy, only student participants were used, which Milgram actively avoided because of their compliant and competitive nature. A similar comparison can be made of Burley and McGuinness (1977), who used only 20 students and a maximum voltage of 225.</p>
+
+<p><strong>Carl-Benedict Frey (2020)</strong> analysed contact tracing data used during lockdown during the COVID-19 pandemic which showed that collectivistic countries recorded less in-country mobility than individualistic countries. Despite the compared countries having similar stringent government policies and measures, it seems that individualistic countries were more defiant of the rules, or at least recorded as being less compliant.</p>
+
+<p>The impact of culture on obedience is complex and unclear and our understanding of the topic is often hindered by a lack of research in certain cultures, or a lack of research that can be compared between countries.</p>
+
+<div class="checkpoint">
+<h4>✅ CHECKPOINT 练习：识别影响因素</h4>
+<p>It is important to be able to recognise what factor affecting obedience is being referred to in an exam question. Identify which factor is being described in these scenarios by matching the description with the factor. Record your answers in your notebook.</p>
+<table>
+<thead><tr><th>Scenario 场景</th><th>Factor 因素</th></tr></thead>
+<tbody>
+<tr><td>a) Joshua is always obedient to his parents, but his little sister Jane is always disobedient.</td><td><strong>Personality 人格</strong>（Authoritarian Personality / Locus of Control）</td></tr>
+<tr><td>b) School children in one country are reported to have more school detentions than in a different country.</td><td><strong>Culture 文化</strong>（Collectivist vs Individualist）</td></tr>
+<tr><td>c) Teri is a very independent young person. When asked to do something by her employer, she refused as she did not agree with the request. She firmly stuck by her decision not to follow the employer's request.</td><td><strong>Situation 情境</strong>（或 Personality: Internal LoC）</td></tr>
+<tr><td>d) Noorie completed her schoolwork at school but refused to do any schoolwork at home.</td><td><strong>Situation 情境</strong>（Proximity/Legitimacy — 学校有权威监督，家里没有）</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<!-- SECTION 10: EXAM PRACTICE & ACTIVITIES -->
+<div class="section" id="s10">
+<h2>🔟 Exam Practice & Summary（考试练习与总结）</h2>
+
+<h3>Summary of Key Points 要点总结</h3>
+
+<div class="green-box">
+<h4>📌 What You Must Know 必记要点</h4>
+<ol>
+<li><strong>Obedience = complying with authority orders</strong>; Dissent = refusing authority orders</li>
+<li><strong>Milgram (1963):</strong> 65% obeyed to max 450V; all reached 300V; sample = 40 male volunteers; $4.50 payment</li>
+<li><strong>Variations:</strong> Proximity ↓ obedience (Exp 7: 22.5%), Prestige ↓ obedience (Exp 10: 47.5%), Authority status ↓ obedience (Exp 13: only 20% obeyed!)</li>
+<li><strong>Agency Theory:</strong> Autonomy → Agentic shift → responsibility transferred to authority; supported by My Lai + Hofling; moral strain shows internal conflict</li>
+<li><strong>Social Power Theory:</strong> 5 types — Coercive, Reward, Legitimate, Referent, Expert (C-R-L-R-E)</li>
+<li><strong>Individual factors:</strong> Authoritarian personality (↑ obedience, F-Scale), Locus of Control (external ↑, internal ↓), Gender (no clear difference)</li>
+<li><strong>Situational factors:</strong> Latané (1981) Social Impact Theory — Strength × Immediacy × Number</li>
+<li><strong>Cultural factors:</strong> Collectivist cultures → higher obedience; but procedure differences may explain variation (Table 1.1)</li>
+<li><strong>Ethical issues:</strong> Deception, protection from harm, right to withdraw, debriefing; Gina Perry (2013) criticisms</li>
+</ol>
+</div>
+
+<!-- ACTIVITY 3: APPLICATION TABLE (FILLED) -->
+<div class="activity-box">
+<h4>ACTIVITY 3: Application to Scenario 应用到场景（已填写）</h4>
+<p><strong>Scenario 场景：</strong>Khalid is working in a café as a trainee chef. At work, Khalid works hard to cook good food and clean his food preparation area at the end of his shift. When he is asked to revise the menu in the back room from the café while his manager is away from work, he creates a new menu, even though he does not want to. Khalid's manager asks him to create the new recipes at home. Khalid does not spend any time at home creating the new recipes because he fails to contact his parents because he fails to create the new recipes, but his parents cannot get Khalid to work at home.</p>
+<p><strong>Question:</strong> Discuss, using Milgram's research into obedience, why Khalid only completes his work on some occasions and not others. (8 marks)</p>
+<table>
+<tr><th>Knowledge and understanding of Milgram's obedience research 对Milgram服从研究的知识理解</th><th>Application to scenario 应用到场景</th></tr>
+<tr><td>Milgram's (1963) original laboratory study found that 100% of participants obeyed the instructions of the authority figure to administer shocks up to 300 volts, with 65% continuing to 450 volts.<br>Milgram (1963)原始实验室研究发现100%的被试服从权威指令给予最高300伏电击，65%继续到450伏。</td><td>The café setting may be associated with legitimising instructions to complete cooking and cleaning tasks when asked to do so, which is why Khalid works hard at the café.<br>咖啡馆环境可能让Khalid觉得完成烹饪和清洁任务是合理的（权威的合法性），所以他在咖啡馆工作努力。</td></tr>
+<tr><td>In Experiment 10, rundown office block, Milgram found that the situational variable of having lower prestige of the environment that orders are given reduced obedience levels to 47.5%.<br>在第10号变体（破旧办公楼）中，Milgram发现环境声望较低时服从率降至47.5%。</td><td>When the manager is AWAY FROM THE CAFÉ (lower prestige/less legitimate setting), Khalid does NOT want to create recipes — this mirrors how lower legitimacy reduces obedience.<br>当经理不在咖啡馆时（声望/合法性降低的环境），Khalid不想做菜谱——这反映了低合法性如何降低服从。</td></tr>
+<tr><td>In Experiment 7, telephonic instructions, Milgram found that the number of participants willing to give the maximum 450-volt shock falling from 65% to 22.5%.<br>在第7号变体（电话指令）中，Milgram发现愿意给最大450伏电击的人数从65%降至22.5%。</td><td>When the manager gives instructions BY PHONE / FROM AWAY (lower proximity), Khalid is less obedient — similar to how distance reduces obedience in Exp 7.<br>当经理通过电话/从远处下达指令（接近性降低）时，Khalid较不服从——类似于Exp 7中距离如何降低服从。</td></tr>
+<tr><td>In Experiment 13, ordinary man gives orders, Milgram found that 16 out of 20 participants did NOT fully follow the instructions in the absence of an authority figure, with only 4 participants reaching 450-volt shock levels (20%).<br>在第13号变体（普通人下令）中，Milgram发现20人中有16人在没有权威人物的情况下没有完全服从，只有4人达到450伏（20%）。</td><td>Khalid's PARENTS do not have authority over him in this work context (they are "ordinary people" regarding his job), so Khalid does not obey them to work at home — similar to low obedience when authority is absent (Exp 13).<br>Khalid的父母在工作场合对他没有权威（他们只是"普通人"），所以Khalid不听从他们在家里工作的要求——类似于没有权威时服从率低（Exp 13）。</td></tr>
+</table>
+</div>
+
+<h3>Exam Practice Questions 考试练习题</h3>
+
+<div class="activity-box">
+<h4>Typical Exam Question Types 常见题型</h4>
+<table>
+<tr><th>Mark 分值</th><th>Question Type 题型</th><th>Example 例子</th><th>Writing Tips 答题技巧</th></tr>
+<tr><td><strong>2 marks</strong></td><td>Describe / Outline</td><td>"Describe one individual difference which may affect obedience."</td><td>写2个清晰的事实点（定义+例子/证据）</td></tr>
+<tr><td><strong>2 marks</strong></td><td>Describe + Explain</td><td>"Describe how one situational factor can affect obedience."</td><td>1分描述(factor definition) + 1分解释(how it works + evidence)</td></tr>
+<tr><td><strong>2 marks</strong></td><td>Apply theory to scenario</td><td>"Using agency theory, describe why Kayin completes the task."</td><td>1分theory定义 + 1分link to scenario具体行为</td></tr>
+<tr><td><strong>4 marks</strong></td><td>Describe</td><td>"Outline Milgram's research into obedience."</td><td>写4个清晰的事实点（aim/sample/procedure/result各一点）</td></tr>
+<tr><td><strong>4 marks</strong></td><td>Social power identification</td><td>"Identify which type of social power is being used in a given context."</td><td>Identify power type + brief explanation why</td></tr>
+<tr><td><strong>8 marks</strong></td><td>Discuss / Apply + Discuss</td><td>"Discuss how agency theory could explain Kayin's behaviour." / "Discuss, using Milgram's research, why Khalid only completes his work on some occasions."</td><td>Introduction + 3-4 PEEL paragraphs (Point-Evidence-Explanation-Link to scenario) + Conclusion. Must reference CONTEXT in your answer!</td></tr>
+<tr><td><strong>8 marks</strong></td><td>Describe + Evaluate</td><td>"Describe agency theory of obedience. Evaluate this theory."</td><td>3分描述(AO1) + 3-4分评价(AO3)至少1优1缺 + balanced conclusion</td></tr>
+<tr><td><strong>12 marks</strong></td><td>Extended essay (Section C)</td><td>"Evaluate explanations of obedience, including reference to alternative evidence."</td><td>引言 + 3个PEEL段落（每段3-4分）+ 结论. Flag up 'In conclusion...'</td></tr>
+</table>
+</div>
+
+<div class="exam-tip">
+<h4>💡 EXAM TIP: "To what extent" Questions</h4>
+In the exam, you may be asked 'To what extent...' type questions. For example: 'To what extent do individual differences explain variation in levels of obedience?'<br><br>
+This style of question requires you to review all of the available information and knowledge that you have concerning individual differences in obedience research and theory, and come to a reasoned conclusion that directly answers the conclusion. Similarly, for an 'evaluate' style of question, it is useful to flag up your conclusion by stating 'In conclusion...' at the end of your answer.
+</div>
+
+<h3>Exam Questions from Textbook 教材原题</h3>
+<ol>
+<li>Describe one individual difference which may affect obedience. <strong>(2 marks)</strong></li>
+<li>Describe how one situational factor can affect obedience. <strong>(2 marks)</strong></li>
+<li>Kayin works as an office worker for a company. Her manager orders her to stay late at work to rearrange some office furniture. Kayin follows her manager's instructions and stays late to complete the task. Using agency theory, describe why Kayin completes the task. <strong>(2 marks)</strong></li>
+<li>Kayin arrives at work the following day and her manager tells her to dismiss several staff in the office because it is too busy to do it herself. The responsibility for dismissing the staff is the manager's, and not part of Kayin's role in the company. Kayin is friends with many of the office staff so she knows that dismissing them will cause harm, and she feels bad for them. Kayin follows the manager's instructions to dismiss the office staff, blaming her manager for the decision. Discuss how agency theory could explain Kayin's behaviour. You must make reference to the context in your answer. <strong>(8 marks)</strong></li>
+<li>Goksal is visiting a museum and while he is looking at a display of ancient ceramics, he is asked by a room guard wearing a uniform to leave the room immediately. Goksal leaves the museum room straight away. Explain one strength of agency theory as an explanation for why Goksal leaves the museum room immediately. <strong>(2 marks)</strong></li>
+<li>Alessandro is employed as a maintenance engineer in a factory to repair and maintain machinery. His manager tells him to join the other factory workers on the production line, even though this is not part of his job. Alessandro is aware that the production line workers receive a bonus payment if they meet production targets. Alessandro puts away his tools and starts packing boxes on the production line as told to do by his manager. Describe, using social power theory, why Alessandro works on the production line. <strong>(4 marks)</strong></li>
+</ol>
+
+<h3>Fill-in-the-Blank Exercise 填空练习</h3>
+<div class="activity-box">
+<h4>📝 Test Your Knowledge 知识检测（先自己填，再看答案）</h4>
+<table class="fill-table">
+<tr><th>Question 问题</th><th>Your Answer 你的答案</th><th>Correct Answer 正确答案</th></tr>
+<tr><td>1. Obedience is complying with the orders of an <span class="blank">_________</span> figure.</td><td><span class="blank"></span></td><td class="fill-answer">authority（权威）</td></tr>
+<tr><td>2. In Milgram's study, <span class="blank">_________</span>% of participants went to 450 volts.</td><td><span class="blank"></span></td><td class="fill-answer">65%（65 percent）</td></tr>
+<tr><td>3. The two psychological states in Agency Theory are <span class="blank">_________</span> and <span class="blank">_________</span>.</td><td><span class="blank"></span> / <span class="blank"></span></td><td class="fill-answer">autonomy（自主状态） / agency/agentic state（代理状态）</td></tr>
+<tr><td>4. When an individual shifts from autonomy to agency, this is called the <span class="blank">_________</span>.</td><td><span class="blank"></span></td><td class="fill-answer">agentic shift（代理转换）</td></tr>
+<tr><td>5. The discomfort felt when ordered to do something against your morals is called <span class="blank">_________</span>.</td><td><span class="blank"></span></td><td class="fill-answer">moral strain（道德紧张）</td></tr>
+<tr><td>6. French and Raven identified <span class="blank">_________</span> types of social power.</td><td><span class="blank"></span></td><td class="fill-answer">five / 5（五种）</td></tr>
+<tr><td>7. In Milgram's study, the experimenter had mainly <span class="blank">_________</span> power and <span class="blank">_________</span> power.</td><td><span class="blank"></span> + <span class="blank"></span></td><td class="fill-answer">legitimate（合法） / expert（专家）</td></tr>
+<tr><td>8. When the experimenter gave orders by telephone (Exp 7), obedience dropped to <span class="blank">_________</span>%.</td><td><span class="blank"></span></td><td class="fill-answer">22.5%（22.5 percent）</td></tr>
+<tr><td>9. In Experiment 13 (ordinary man gives orders), only <span class="blank">_________</span>% reached 450V.</td><td><span class="blank"></span></td><td class="fill-answer">20（20 percent / 80% broke off）</td></tr>
+<tr><td>10. The personality type characterised by unquestioning obedience to authority is called <span class="blank">_________</span> personality.</td><td><span class="blank"></span></td><td class="fill-answer">authoritarian（权威型）</td></tr>
+<tr><td>11. People who believe their actions are due to external forces have an <span class="blank">_________</span> locus of control.</td><td><span class="blank"></span></td><td class="fill-answer">external（外控型）</td></tr>
+<tr><td>12. Latané's (1981) Social Impact Theory has three factors: <span class="blank">_________</span>, <span class="blank">_________</span> and <span class="blank">_________</span>.</td><td><span class="blank"></span> · <span class="blank"></span> · <span class="blank"></span></td><td class="fill-answer">strength（强度） / immediacy（即时性/接近性） / number（数量）</td></tr>
+<tr><td>13. Hofling et al. (1966) found that <span class="blank">_________</span> out of 22 nurses followed a doctor's orders to give dangerous medication.</td><td><span class="blank"></span></td><td class="fill-answer">21（21 out of 22）</td></tr>
+<tr><td>14. Gina Perry (2013) criticised Milgram for overstating obedience rates and claiming procedures were <span class="blank">_________</span>.</td><td><span class="blank"></span></td><td class="fill-answer">standardised（标准化的）</td></tr>
+</table>
+</div>
+
+<h3>Key Terms Glossary 核心术语表</h3>
+<table>
+<thead><tr><th>Term 术语</th><th>Definition 定义</th></tr></thead>
+<tbody>
+<tr><td><strong>obedience（服从）</strong></td><td>Complying with the orders of an authority figure</td></tr>
+<tr><td><strong>dissent（反抗）</strong></td><td>Refusing or resisting the demands of an authority figure</td></tr>
+<tr><td><strong>conformity（从众）</strong></td><td>Behaviour influenced by majority opinion/norms</td></tr>
+<tr><td><strong>minority influence（少数人影响）</strong></td><td>Majority influenced by a minority group</td></tr>
+<tr><td><strong>social influence（社会影响）</strong></td><td>How thoughts/feelings/behaviour affected by others</td></tr>
+<tr><td><strong>agency（代理状态）</strong></td><td>Acting as an agent for an authority figure</td></tr>
+<tr><td><strong>autonomy（自主状态）</strong></td><td>Acting according to one's own free will and moral judgement</td></tr>
+<tr><td><strong>agentic shift（代理转换）</strong></td><td>Moving from autonomy to agency when ordered by authority</td></tr>
+<tr><td><strong>moral strain（道德紧张）</strong></td><td>Anxiety experienced when ordered to do something against one's moral judgement</td></tr>
+<tr><td><strong>socialisation（社会化）</strong></td><td>Process of learning society's rules and norms through agents like parents and teachers</td></tr>
+<tr><td><strong>authoritarian personality（权威型人格）</strong></td><td>Personality type with rigid adherence to authority and convention; measured by F-Scale</td></tr>
+<tr><td><strong>locus of control（控制点）</strong></td><td>Belief about whether one's life is controlled by oneself (internal) or external forces (external)</td></tr>
+<tr><td><strong>coercive power（强制权力）</strong></td><td>Power based on fear of punishment</td></tr>
+<tr><td><strong>reward power（奖励权力）</strong></td><td>Power based on ability to provide rewards</td></tr>
+<tr><td><strong>legitimate power（合法权力）</strong></td><td>Power from perceived right due to position/role</td></tr>
+<tr><td><strong>referent power（参照权力）</strong></td><td>Power from admiration/desire to identify with authority</td></tr>
+<tr><td><strong>expert power（专家权力）</strong></td><td>Power from specialised knowledge/expertise</td></tr>
+<tr><td><strong>volunteer sample（志愿样本）</strong></td><td>Self-selected participants responding to recruitment</td></tr>
+<tr><td><strong>naive participant（天真被试）</strong></td><td>Genuine participant (not a confederate)</td></tr>
+<tr><td><strong>confederate（同谋）</strong></td><td>Person playing a scripted role in research</td></tr>
+<tr><td><strong>debriefing（事后解释）</strong></td><td>Post-study explanation revealing true purpose</td></tr>
+<tr><td><strong>deception（欺骗）</strong></td><td>Participants misled about true nature of study</td></tr>
+<tr><td><strong>mundane realism（日常现实性）</strong></td><td>Extent findings apply to real-world settings</td></tr>
+<tr><td><strong>ecological validity（生态效度）</strong></td><td>Extent findings apply to real-world settings</td></tr>
+<tr><td><strong>reductionist（还原论）</strong></td><td>Explanation that oversimplifies by ignoring other factors</td></tr>
+<tr><td><strong>deterministic（决定论）</strong></td><td>View that behaviour is determined by forces beyond individual control</td></tr>
+<tr><td><strong>proximity（接近性）</strong></td><td>Physical distance between authority and subject</td></tr>
+<tr><td><strong>legitimacy（合法性）</strong></td><td>Perceived credibility/rightfulness of authority</td></tr>
+</tbody>
+</table>
+</div>
+
+
+</div>
+</body>
+</html>

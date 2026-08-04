@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Baron-Cohen et al. (2001) — Reading the Mind in the Eyes Test (Revised)</title>
+<style>
+  :root { --bg:#fff;--card-bg:#f8f9fa;--text:#2c3e50;--heading:#1a365d;--accent:#2563eb;--accent-light:#dbeafe;--border:#d1d5db;--note-bg:#fefce8;--note-border:#eab308;--term-color:#7c3aed;--correct:#16a34a;--wrong:#dc2626; }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,"Segoe UI",Roboto,"Noto Sans SC",sans-serif;color:var(--text);background:var(--bg);line-height:1.75;padding:20px;max-width:900px;margin:0 auto}
+  h1{font-size:1.9em;color:var(--heading);border-bottom:3px solid var(--accent);padding-bottom:12px;margin-bottom:24px;line-height:1.3}
+  h2{font-size:1.5em;color:var(--accent);margin:36px 0 14px;padding-left:10px;border-left:4px solid var(--accent)}
+  h3{font-size:1.18em;color:var(--heading);margin:22px 0 10px}
+  p{margin-bottom:11px;text-align:justify}
+  .meta{color:#64748b;font-size:.92em;border-left:3px solid var(--border);padding-left:12px;margin-bottom:26px}
+  ul,ol{padding-left:22px;margin-bottom:13px} li{margin-bottom:4px}
+  strong{color:var(--heading)} .term{color:var(--term-color);font-weight:600} .cn{color:#4b5563;font-weight:500}
+  .key-box{background:linear-gradient(135deg,#eff6ff 0%,#f0fdf4 100%);border:1px solid var(--border);border-radius:10px;padding:18px 22px;margin:18px 0;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+  .key-box h4{color:var(--heading);margin-bottom:8px;font-size:1.05em}
+  .note-box{background:var(--note-bg);border-left:4px solid var(--note-border);border-radius:0 8px 8px 0;padding:14px 18px;margin:15px 0;font-size:.95em}
+  table{width:100%;border-collapse:collapse;margin:18px 0;font-size:.93em}
+  th,td{border:1px solid var(--border);padding:9px 12px;text-align:left}
+  th{background:#f1f5f9;font-weight:600;color:var(--heading)}
+  tr:nth-child(even){background:var(--card-bg)}
+  .img-container{text-align:center;margin:22px 0}
+  .img-container img{max-width:100%;height:auto;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.1);border:1px solid #e5e7eb}
+  .img-caption{font-size:.88em;color:#64748b;margin-top:8px;font-style:italic}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:18px 0}
+  @media(max-width:650px){.two-col{grid-template-columns:1fr}}
+  
+  /* Interactive Eyes Test */
+  .eyes-test-section{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);border-radius:14px;padding:30px;margin:30px 0;color:white}
+  .eyes-test-section h2{color:white!important;border-left-color:rgba(255,255,255,.6)}
+  .test-card{background:white;border-radius:12px;padding:28px;color:var(--text);margin-top:18px}
+  .eye-display{width:280px;height:180px;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;position:relative}
+  .eye-svg{width:260px;height:160px}
+  .options-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:400px;margin:16px auto 0}
+  .option-btn{padding:12px 16px;border:2px solid var(--border);border-radius:8px;background:white;cursor:pointer;font-size:.95em;transition:all .2s;text-align:center}
+  .option-btn:hover{border-color:var(--accent);background:var(--accent-light)}
+  .option-btn.correct{background:var(--correct)!important;color:white;border-color:var(--correct)}
+  .option-btn.wrong{background:var(--wrong)!important;color:white;border-color:var(--wrong)}
+  .test-progress{text-align:center;margin-bottom:16px;font-size:1.05em;font-weight:600}
+  .test-feedback{text-align:center;margin-top:14px;min-height:48px;font-weight:600;font-size:1.02em}
+  .score-display{text-align:center;font-size:1.25em;font-weight:700;margin-top:16px;padding:14px;border-radius:8px;background:#f0fdf4;border:2px solid var(--correct);color:var(--correct);display:none}
+  .restart-btn{display:block;margin:16px auto 0;padding:10px 28px;background:var(--accent);color:white;border:none;border-radius:8px;cursor:pointer;font-size:1em}
+  .restart-btn:hover{background:#1d4ed8}
+  .glossary-note{font-size:.88em;color:#6b7280;text-align:center;margin-top:8px}
+  .comparison-table td:first-child{font-weight:600}
+</style>
+</head>
+
+<body>
+
+<h1>👁️ Baron-Cohen et al. (2001)<br><small style="font-size:.55em;color:#64748b">Reading the Mind in the Eyes Test (Revised Version)</small></h1>
+
+<div class="meta">
+  <strong>Baron-Cohen, S., Wheelwright, S., Hill, J., Raste, Y., & Plumb, I.</strong> (2001). The 'Reading the Mind in the Eyes' Test revised version: A study with normal adults, and adults with Asperger syndrome or high-functioning autism. <em>Journal of Child Psychology and Psychiatry</em>, <strong>42(2)</strong>, 241–251.<br>
+  <span class="cn">CIE Psychology 认知取向 Core Study 2（认知心理学）</span>
+</div>
+
+<!-- ==================== SECTION 1 ==================== -->
+<h2>1. Background（研究背景）</h2>
+
+<div class="key-box">
+<h4>The psychology being investigated（研究的心理现象）</h4>
+<p>A person with an <strong>autism spectrum disorder（自闭症谱系障碍）</strong> does not fully develop cognitive processes linked to social interaction. <strong>ASD</strong> occurs in approximately <strong>1% of the population</strong>. Individuals with ASD share difficulties in social functioning, such as limited social sensitivity, communication and ability to cope with change, and may have narrow interests.</p>
+<p>The term ASD is now used to refer to both <strong>high-functioning autism (HFA)（高功能自闭症）</strong> and <strong>Asperger syndrome (AS)（阿斯伯格综合征）</strong>, however the terms HFA and AS were used at the time that this study was published.</p>
+<p>Baron-Cohen et al. suggest that people with ASD lack or have an underdeveloped cognitive process called <strong>a theory of mind（心智理论）</strong>. A theory of mind is a cognitive ability enabling people to comprehend that others have different feelings, beliefs, knowledge and desires from their own. Individuals with ASD find it difficult to understand that other people have their own plans, thoughts or feelings separate from their own.</p>
+</div>
+
+<div class="note-box">
+  <strong>💡 什么是 Theory of Mind？</strong> 心智理论是一种认知能力，让你能理解：别人有跟你不一样的感觉、信念、知识和愿望。比如看到朋友哭，你知道她难过——这就是 ToM 在工作。自闭症谱系人士通常在这方面有困难。原文用 "mentalising"（心智化）这个词来描述这个过程。Empathy（共情）是理解他人感受的能力，和 ToM 密切相关。
+</div>
+
+<p><strong>Empathy（共情）</strong> is the ability to understand the world as another person does — to appreciate their feelings or emotional state separate from our own. There are several different tests available to measure a person's theory of mind but most of these are designed for children.</p>
+
+<h3>1.1 From Original (1997) to Revised (2001) Eyes Test</h3>
+<p>In 1997, Baron-Cohen published the first version of the '<strong>Reading the Mind in the Eyes</strong>' task. The test used photographs of eyes and asked participants to identify the emotion being shown from two options. The results showed that adults with <strong>ASD correctly identified fewer emotions</strong> than non-ASD participants. However, the researchers identified several practical issues with the original task:</p>
+
+<div class="two-col">
+<table>
+<thead><tr><th colspan="2">Problems with the original Eyes test vs Solutions</th></tr></thead>
+<tr><td style="width:50%"><strong>❌ Problem</strong></td><td><strong>✅ Solution in revised version</strong></td></td></tr>
+<tr><td>Only 2 options (too easy — always opposite meanings like sympathetic vs unsympathetic)</td><td><strong>4 choices</strong>, not semantic opposites</td></tr>
+<tr><td>Only <strong>25 sets of eyes</strong> (ceiling effect: many scored 24/25)</td><td><strong>36 sets of eyes</strong> in final analysis</td></tr>
+<tr><td>Both basic emotions AND complex emotions mixed (complex ones were too hard)</td><td>Only eyes expressing <strong>complex emotions</strong> used</td></tr>
+<tr><td>Some photos could be solved by checking gaze direction (ignoring, gazing at, etc.)</td><td>Sets with direction cues <strong>were deleted</strong></td></tr>
+<tr><td>Imbalance of male/female faces</td><td><strong>Equal number</strong> of male and female faces</td></tr>
+<tr><td>Participants might not know words</td><td>A <strong>glossary</strong> was provided</td></tr>
+</table>
+</div>
+
+<div class="img-container">
+  <img src="baroncohen_images/01.png" alt="Textbook page 1 - Background">
+  <div class="img-caption">Figure 3.7: A pair of eyes from the Reading the Mind in the Eyes test（眼睛区域特写示例）</div>
+</div>
+
+<!-- ==================== SECTION 2 ==================== -->
+<h2>2. Aim（研究目的）</h2>
+
+<div class="key-box">
+<p>The main aim of this research is to investigate whether an improved 'revised' version of the Eyes test would show a clear impairment in a group of adults with <strong>ASD</strong> to assess its effectiveness.</p>
+<p>The researchers also wanted to test whether there was an association between performance on the revised Eyes test and measures of traits of ASD, and to investigate whether there were sex differences in those without ASD on this task.</p>
+</div>
+
+<h3>Five Hypotheses（五个假设）</h3>
+<ol>
+  <li>Participants with ASD will score significantly <strong>lower scores</strong> on the revised Eyes test than the control groups.</li>
+  <li>Participants with ASD will score significantly higher on the <span class="term">Autism Spectrum Quotient (AQ)（自闭症谱系商数）</span> measure than the control groups.</li>
+  <li>Females in the 'normal' groups (Groups 2 & 3) would score higher on the Eyes test than males in those groups.</li>
+  <li>Males on the 'normal' group (Group 3) would score higher on the AQ measure than females.</li>
+  <li>Scores on the AQ and the Eyes test would be <strong>negatively correlated</strong>.</li>
+</ol>
+
+<!-- ==================== SECTION 3 ==================== -->
+<h2>3. Method（研究方法）</h2>
+
+<h3>3.1 Research method and design</h3>
+<p>This was a <strong>laboratory experiment（实验室实验）</strong> as the environment in which participants were tested was not comparable to everyday situations where we detect emotions of others.</p>
+
+<div class="note-box">
+  <strong>⚠️ Quasi-experiment（准实验）vs True Experiment：</strong> 这是一个 quasi-experiment，因为参与者不能被随机分配到各组。Group 1 的 AS/HFA 参与者是根据他们是否患有 AS/HFA 来分配的（基于已有特征），而不是随机分配。这意味着我们不能像真实验那样完全排除混淆变量（confounding variables）的影响。
+</div>
+
+<p>This is an example of a <strong>quasi-experiment</strong>. In a true experiment, participants can be randomly assigned to any experimental conditions. This is not the case of a quasi-experiment, where participants are usually assigned to a condition based on a given characteristic (e.g., whether they have ASD).</p>
+
+<p><strong>Independent variable (IV)（自变量）：</strong> The type of participant in each condition. There were three types of participant in comparison groups in this study:</p>
+<ul>
+  <li><strong>Group 1:</strong> Experimental group containing participants with AS/HFA</li>
+  <li><strong>Groups 2–4:</strong> Comparison/control groups</li>
+</ul>
+
+<p>The experimental design was an <strong>independent measures design（独立测量设计）</strong> because comparisons were made between different groups of participants. Group 1 consisted of participants with ASD compared to the control of Groups 2, 3 and 4.</p>
+
+<p><strong>Dependent variables (DV)（因变量）：</strong></p>
+<ol>
+  <li>Score on the revised Eyes test (out of 36)</li>
+  <li>Score on the <span class="term">AQ (Intelligence Quotient-matched)（智商匹配的自闭症量表）</span></li>
+</ol>
+<p>IQ was assessed using the short <strong>WAIS-R</strong>, measuring four aspects of intelligence using tests of block design, vocabulary, similarities and picture completion.</p>
+
+<h3>3.2 Sample（样本）</h3>
+<p>The study used four groups of participants. These differed in several ways:</p>
+
+<table>
+<thead><tr><th>Group</th><th>Number</th><th>Average characteristics</th></tr></thead>
+<tbody>
+  <tr><td><strong>Group 1: AS/HFA</strong></td><td>15</td><td>All adult males, Age 29.7, IQ 115 ↓</td></tr>
+  <tr><td><strong>Group 2: Adult comparison group</strong></td><td>122</td><td>Age 46.5</td></tr>
+  <tr><td><strong>Group 3: Student comparison group</strong></td><td>103</td><td>Age 20.8</td></tr>
+  <tr><td><strong>Group 4: IQ matched group</strong></td><td>14</td><td>Age 28, IQ 116</td></tr>
+</tbody>
+</table>
+
+<div class="img-container">
+  <img src="baroncohen_images/03.png" alt="Table 3.4 sample details">
+  <div class="img-caption">Table 3.4: The number of participants in separate conditions along with average group characteristics</div>
+</div>
+
+<div class="key-box">
+  <h4>Group Details（各组的详细说明）</h4>
+  <p><strong>Group 1 (AS/HFA):</strong> Comprised 15 adult males with AS or HFA with mean IQ of 115 and mean age of 29.7 years. Sample self-selected through adverts in the Autistic Society magazine and support groups. All had been diagnosed using DSM or ICD criteria.</p>
+  <p><strong>Group 2 (Adult comparison):</strong> 'Normal' adults who did not have a diagnosis of AS/HFA, selected from adult community and education classes in Exeter (UK), mean age 46.5 years.</p>
+  <p><strong>Group 3 (Student comparison):</strong> 'Normal' students without AS/HFA diagnosis, from University of Cambridge, mean age 20.8 years.</p>
+  <p><strong>Group 4 (IQ matched):</strong> 14 IQ matched participants with AS/HFA, mean age 28, IQ 116, randomly selected from general population.</p>
+</div>
+
+<div class="note-box">
+  💡 注意：<strong>DSM = Diagnostic and Statistical Manual（美国精神疾病诊断与统计手册）</strong>，ICD = International Classification of Disorders（国际疾病分类）。两者都是全球通用的精神疾病诊断标准。WAIS-R 是 Wechsler Adult Intelligence Scale-Revised（韦氏成人智力测验修订版），用来测 IQ。
+</div>
+
+<!-- ==================== SECTION 4 ==================== -->
+<h2>4. Procedure（程序）</h2>
+
+<h3>4.1 How the Revised Eyes Test Works</h3>
+<p>Following the changes that Baron-Cohen made to the original Eyes test, the revised Eyes test was used in this experiment as a measure of theory of mind.</p>
+
+<p>To begin the Eyes test, each participant read through a <strong>glossary（词汇表）</strong> of words the experimenter used to describe the emotions to ensure they knew the meaning of each word (Figure 3.8). They were told they could refer back to the glossary whenever they needed to.</p>
+
+<div class="img-container">
+  <img src="baroncohen_images/04.png" alt="Glossary examples">
+  <div class="img-caption">Figure 3.8: Two items from the glossary used in the study（词汇表示例："Flustered" 和 "Relaxed"）</div>
+</div>
+
+<p>They started with <strong>40 sets of eyes</strong>, target words and <strong>foil words</strong> chosen by Simon Baron-Cohen and Sally Wheelwright. One set of target words and three foil (alternative) words for each set of eyes were developed using groups of eight judges. At least five of the judges had to agree that the target word was the most appropriate word for the item. If more than two of the selected foil words were incorrect alternatives, a new target word, new foils, or both, were generated and retested until Groups 2 and 3 agreed.</p>
+
+<div class="note-box">
+  <strong>💡 Foil words 是什么？</strong> 每张眼睛图片对应<strong>一个正确答案（target word，目标词）</strong>和<strong>三个干扰选项（foil words）</strong>。比如正确答案是 "playful"，三个干扰词可能是 serious、bored、irritated。这些干扰词都是不正确的替代描述，用来增加难度。 Judges（评委）要确保目标词确实是最准确的那个。
+</div>
+
+<p>In addition, four control items produced inconsistent results. These four items were removed from the analysis so the final results were based on <strong>36 sets of eyes (18 male, 18 female)</strong>, each with four choices of emotion for the face of the target (e.g., reflective, aghast, irritated, impatient).</p>
+
+<p>The Eyes test for all participants, and a gender recognition test for Group 1 (given as a control task), were completed for a researcher in a quiet room in Exeter or Cambridge.</p>
+
+<p>A pilot study had shown that 'normal' adults usually achieved 100% on gender recognition, so this control group was not tested for this purpose. The purpose of this control was to identify whether participants in Group 1 were able to identify characteristics of the eyes used in the test that were not dependent on having a theory of mind.</p>
+
+<p>Participants in all conditions except the 'normal' adult comparison (Groups 2 and 3), sex differences were apparent — this was not significant. All participants in the AS/HFA condition scored 33 or above out of 36 on the gender recognition task.</p>
+
+<div class="img-container">
+  <img src="baroncohen_images/02.png" alt="Aim and key words page">
+  <div class="img-caption">Table 3.3: Differences between original and revised Eyes test + Aim + Key Words</div>
+</div>
+
+<p>All participants consented to take part in the study and were aware of the nature of the research. Data were also anonymous so that it was not possible to identify any individual from their scores.</p>
+
+<!-- ==================== SECTION 5 ==================== -->
+<h2>5. Results（结果）</h2>
+
+<h3>5.1 Main Finding: AS/HFA Group Scored Significantly Lower</h3>
+<p>On the Eyes test, participants with AS/HFA (Group 1) correctly identified significantly fewer target words than participants in the three comparison groups (Figure 3.9).</p>
+
+<div class="img-container">
+  <img src="baroncohen_images/05.png" alt="Results bar chart and table">
+  <div class="img-caption">Figure 3.9: Average number of words correctly identified + Table 3.5: Mean scores (SD)</div>
+</div>
+
+<table>
+<thead><tr><th>Group</th><th>N</th><th>Eyes test Mean (SD)</th><th>AQ test* Mean (SD)</th></tr></thead>
+<tbody>
+  <tr><td>Group 1: AS/HFA</td><td>15</td><td><strong>21.9 (6.6)</strong></td><td>34.4 [N=14]</td></tr>
+  <tr><td>Group 2: Adult comparison</td><td>122</td><td>26.2 (3.6)</td><td>—</td></tr>
+  <tr><td>Group 3: Student comparison</td><td>103</td><td>28.0 (3.5)</td><td>18.3 [N=79] (6.6)</td></tr>
+  <tr><td>Group 4: IQ matched controls</td><td>14</td><td>30.9 (3.0)</td><td>18.9 (2.9)</td></tr>
+</tbody>
+</table>
+<p style="text-align:right;font-size:.88em;color:#64748b">*Not all participants returned the AQ test</p>
+
+<div class="note-box">
+  📊 关键数据解读：
+  <ul>
+    <li>AS/HFA 组平均只答对 <strong>21.9/36</strong>（61%）</li>
+    <li>IQ 匹配对照组答对 <strong>30.9/36</strong>（86%）→ 差距显著！</li>
+    <li>学生对照组最高：<strong>28.0/36</strong>（78%）</li>
+    <li>说明即使 IQ 相同，ASD 人群在识别情绪方面仍有显著困难 → 支持 ToM 缺陷假设
+  </ul>
+</div>
+
+<h3>5.2 AQ Scores: AS/HFA Much Higher</h3>
+<p>On the AQ task, participants with AS/HFA scored significantly higher than the Student comparison and IQ matched comparison groups, but there was also a smaller, significant difference between male and female AQ scores in the Student comparison group.</p>
+
+<div class="img-container">
+  <img src="baroncohen_images/06.png" alt="AQ scores chart">
+  <div class="img-caption">Figure 3.10: Average AQ scores across groups（各组的平均 AQ 分数）</div>
+</div>
+
+<h3>5.3 Sex Differences</h3>
+<p>There was evidence of a <strong>sex difference</strong>: although males and females in the comparison groups marked the pattern of results as males lower on the Eyes test and showed greater levels of autistic traits on the AQ test than females. However, some of these differences were not significant so further research is needed to clarify whether there are differences between the sexes in terms of their AQ or ability to attribute emotions to others.</p>
+
+<h3>5.4 Correlation between AQ and Eyes Test</h3>
+<p>There was a <strong>significant negative correlation</strong> between the AQ and Eyes test scores (<strong>r = −0.53</strong>) but no correlation between the IQ and Eyes test scores. This suggests that as the AQ score increases (illustrating greater levels of autistic traits), the ability to identify the correct target word on the Eyes test decreases — and that this is independent of the individual's intelligence.</p>
+
+<div class="note-box">
+  🔬 r = −0.53 表示中等强度的负相关：AQ 越高（自闭症特质越多），Eyes Test 得分越低。而且这个相关与 IQ 无关！这说明 Eyes Test 测量的不是一般智力，而是特定的社会认知能力（social cognition）。
+</div>
+
+<!-- ==================== SECTION 6 ==================== -->
+<h2>6. Conclusion（结论）</h2>
+
+<p>The results indicate that the participants in the AS/HFA group had a <strong>specific deficit（特定缺陷）</strong> in a cognitive process that should help them to identify emotions in other individuals, i.e. contribute to a <strong>theory of mind</strong>. This conclusion is validated by the AS/HFA group being able to identify the gender of the eyes accurately. This shows that the Eyes test was able to detect a subtle and specific impairment in otherwise intelligent participants in the HFA/AS group.</p>
+
+<p>There was evidence of a <strong>sex difference</strong> between males and females in the comparison groups: although less marked, the pattern of results as males lower on the Eyes test, and showed greater levels of autistic traits on the AQ test, than females. However, some of these differences were not significant.</p>
+
+<p>This study showed that the revised Eyes test is a more sensitive measure of <strong>adult social intelligence</strong> than that of previous studies, which will allow future research to discriminate individual differences in a more meaningful way.</p>
+
+<!-- ==================== SECTION 7 ==================== -->
+<h2>7. Strengths and Weaknesses（优缺点评价）</h2>
+
+<h3>Strengths（优点）</h3>
+<ol>
+  <li><strong>Laboratory experiment with standardised procedure:</strong> All participants completed the task in a standardised way, allowing confounding variables to be controlled (quiet room, same instructions, glossary). This improves internal validity（内部效度）.</li>
+  <li><strong>Controlled variables:</strong> Administration of the Eyes test by the researcher reduced risk of distortions. Gender recognition task controlled for whether participants could even process visual information about eyes.</li>
+  <li><strong>Reliability check:</strong> The experiment allowed the reliability of the results to be repeated to check validity. Pilot study checked procedures beforehand.</li>
+  <li><strong>Multiple comparison groups:</strong> Having 4 groups (including IQ-matched) strengthens the conclusion that differences are due to ASD, not intelligence or age.</li>
+  <li><strong>Improved over original:</strong> Fixed ceiling effect, increased difficulty, removed gender/direction bias, added glossary — making the test more sensitive to detecting individual differences.</li>
+  <li><strong>Cross-sectional design allows quick data collection</strong> across different populations.</li>
+  <li><strong>Quantitative data:</strong> Easy to analyse statistically, objective scoring.</li>
+</ol>
+
+<h3>Weaknesses（缺点）</h3>
+<ol>
+  <li><strong>Quasi-experiment limitations:</strong> Not possible to randomly allocate participants, so confounding variables could differ between ASD and control groups. Partly resolved by having IQ-matched Group 4, but not fully.</li>
+  <li><strong>Sample issues:</strong> Only 15 participants in AS/HFA group — very small! May not be representative of all people with AS/HFA. Caution needed if generalising findings to the whole ASD population.</li>
+  <li><strong>Ecological validity concerns:</strong> In an everyday situation, a person's validity would not be static. Isolation from the rest of the face means results may not apply to real-world emotion recognition (we normally see whole faces, not just eyes!). Future work might choose to use videos rather than images.</li>
+  <li><strong>Potential demand characteristics:</strong> Participants knew they were doing a 'psychology test' which might influence behaviour.</li>
+  <li><strong>Cultural bias:</strong> All photos were of white/Caucasian faces — may not generalise to other ethnicities.</li>
+  <li><strong>No longitudinal data:</strong> Cannot show causation, only correlation between AQ and Eyes test scores.</li>
+</ol>
+
+<!-- ==================== SECTION 8 ==================== -->
+<h2>8. Ethical Issues（伦理问题）</h2>
+<p>As all participants were able to give informed consent（知情同意）and their data was kept confidential, few ethical issues were raised within the study itself. However, ethical issues could arise from the findings! Evidence such as this, which identifies 'impaired' performance of control groups and the 'impaired' normal performance of the AS/HFA group could be seen as representing neurodiverse groups in a negative way.</p>
+
+<p>Alternatively, by identifying such differences, this research has the capacity to provide both an understanding of the nature of the experience of people with ASD and, therefore, potential for greater understanding of society and the potentially in situations such as school or the workplace. This would be an ethical strength（伦理优势）.</p>
+
+<div class="img-container">
+  <img src="baroncohen_images/07.png" alt="Ethical issues and summary">
+  <div class="img-caption">Ethical issues, Activity 3.4, Summary, and Questions</div>
+</div>
+
+<!-- ==================== SECTION 9 ==================== -->
+<h2>9. Summary（总结）</h2>
+
+<div class="key-box">
+<p>Baron-Cohen et al.'s study investigated how a lack of <strong>'theory of mind'</strong> in adults with <strong>autism spectrum disorder (ASD)</strong> relates to problems with recognising emotions. The ASD group's scores on the Eyes test were <strong>lower</strong> than those of the control group even though their IQ was no different. There was also a <strong>negative correlation</strong> between the Eyes test score and Autistic Spectrum Quotient. The test itself is valid because the size and colour of the eyes were standardised in terms of still images (all black and white) although this could also be a weakness as emotions are usually detected via live faces, which move. The findings suggest the revised Eyes test is better at detecting individual differences in social sensitivity than the previous version, i.e., it is <strong>more valid</strong>（更有效度）.</p>
+</div>
+
+<!-- ==================== SECTION 10 ==================== -->
+<h2>10. Key Terms（核心术语表）</h2>
+
+<table class="comparison-table">
+<thead><tr><th style="width:35%">Term（英文术语）</th><th>中文释义</th></tr></thead>
+<tbody>
+  <tr><td><strong>Autism spectrum disorder (ASD)</strong></td><td>自闭症谱系障碍；一种诊断类别，包括自闭症和阿斯伯格综合征</td></tr>
+  <tr><td><strong>Asperger syndrome (AS)</strong></td><td>阿斯伯格综合征；高功能自闭症的一种形式</td></tr>
+  <tr><td><strong>High-functioning autism (HFA)</strong></td><td>高功能自闭症；智力正常的自闭症患者</td></tr>
+  <tr><td><strong>Theory of mind (ToM)</strong></td><td>心智理论；理解他人拥有与自己不同的感受、信念、知识、欲望的认知能力</td></tr>
+  <tr><td><strong>Mentalising</strong></td><td>心智化；进行心智理论操作的过程（原文常用此术语）</td></tr>
+  <tr><td><strong>Empathy</strong></td><td>共情；理解他人感受或情绪状态的能力</td></tr>
+  <tr><td><strong>Basic emotions</strong></td><td>基本情绪；如 happy, sad, angry, afraid, disgust — 全球通用、幼儿即可识别</td></tr>
+  <tr><td><strong>Complex emotions</strong></td><td>复杂情绪；需要理解他人认知状态才能识别的情绪</td></tr>
+  <tr><td><strong>Autism Spectrum Quotient (AQ)</strong></td><td>自闭症谱系商数；自评问卷，分数越高自闭症特质越明显（范围 0–50）</td></tr>
+  <tr><td><strong>Ceiling effect</strong></td><td>天花板效应；测试太简单导致所有人都拿高分，无法区分个体差异</td></tr>
+  <tr><td><strong>Quasi-experiment</strong></td><td>准实验；参与者不能被随机分配到条件的实验设计</td></tr>
+  <tr><td><strong>Independent measures design</strong></td><td>独立测量设计；不同组参与不同条件</td></tr>
+  <tr><td><strong>Confounding variable</strong></td><td>混淆变量；可能影响结果但未被控制的变量</td></tr>
+  <tr><td><strong>Internal validity</strong></td><td>内部效度；实验能在多大程度上确定 IV 导致 DV 变化的程度</td></tr>
+  <tr><td><strong>Ecological validity</strong></td><td>生态效度；研究结果在多大程度上可以推广到真实生活情境</td></tr>
+  <tr><td><strong>DSM / ICD</strong></td><td>诊断标准手册（美国 / 国际版）</td></tr>
+  <tr><td><strong>WAIS-R</strong></td><td>韦氏成人智力测验修订版；测量IQ的标准工具</td></tr>
+  <tr><td><strong>Foil words</strong></td><td>干扰词；Eyes Test 中每个项目的错误选项</td></tr>
+  <tr><td><strong>Glossary</strong></td><td>词汇表；帮助被试理解情绪词汇含义的参考材料</td></tr>
+  <tr><td><strong>Pilot study</strong></td><td> pilot 研究；正式实验前的小规模预试验，用于检查程序有效性</td></tr>
+  <tr><td><strong>Demand characteristics</strong></td><td>需求特征；被试猜测实验目的后调整行为的现象</td></tr>
+  <tr><td><strong>Informed consent</strong></td><td>知情同意；参与者充分了解实验内容后同意参加</td></tr>
+  <tr><td><strong>Neurodiversity</strong></td><td>神经多样性；大脑功能和行为的自然差异（如自闭症不是"缺陷"而是另一种认知方式）</td></tr>
+  <tr><td><strong>Social cognition</strong></td><td>社会认知；处理和理解社会信息的认知能力</td></tr>
+</tbody>
+</table>
+
+<!-- ==================== SECTION 11 ==================== -->
+<h2>11. Activity 3.3 & 3.4</h2>
+
+<div class="key-box">
+  <h4>Activity 3.3: Design Your Own Eyes Test Items!</h4>
+  <ol>
+    <li>Find two photographs of unknown people (not friends/famous). Choose two that have different facial expressions.</li>
+    <li>Cut the image down so it just shows the eyes.</li>
+    <li>For each photo, choose one correct description and three foil words.</li>
+    <li><strong>Reflect:</strong> Why did you choose the words you did? Are any semantically opposites? Could certain foils be too close to a plausible answer? Discuss ethical considerations of using real photos.</li>
+  </ol>
+</div>
+
+<div class="key-box">
+  <h4>Activity 3.4: Critical Thinking</h4>
+  <p>Can we be sure it really is all in the eyes? What else could be important when thinking about emotions? Are there issues with using photographs? Could this experiment be conducted in a more ecologically valid way? What impact would it have?</p>
+</div>
+
+<!-- ==================== SECTION 12 ==================== -->
+<h2>12. Exam Practice Questions（考试练习题）</h2>
+
+<ol>
+  <li><strong>[AO1]</strong> What is meant by the term 'theory of mind'? (2 marks)</li>
+  <li><strong>[AO1]</strong> Outline one problem with the original Eyes test. (2 marks)</li>
+  <li><strong>[AO1]</strong> Describe how Baron-Cohen et al. operationalised the independent variable in this study. (3 marks)</li>
+  <li><strong>[AO1]</strong> Describe the sample used in Group 1 (AS/HFA). Include how they were recruited and any relevant demographic information. (4 marks)</li>
+  <li><strong>[AO1/AO3]</strong> Choose one possible emotion that Baron-Cohen et al. could have used.<br>
+      a) State the emotion you have chosen.<br>
+      b) Write a glossary entry for this emotion.<br>
+      c) List some possible foils that could be suitable for this emotion and justify why they are usable. (6 marks)</li>
+  <li><strong>[AO3]</strong> If Baron-Cohen et al. had found that there was still a ceiling effect, what could have been done to solve this problem? (4 marks)</li>
+  <li><strong>[AO3]</strong> Explain one strength of using a laboratory experiment in this study. (3 marks)</li>
+  <li><strong>[AO3]</strong> Explain one weakness of the sample used in this study. Suggest how it could be improved. (4 marks)</li>
+  <li><strong>[AO3]</strong> Discuss the ethical issues involved in this type of research. (6 marks)</li>
+  <li><strong>[AO3]</strong> Assess whether the Eyes test has good reliability and validity. Use evidence from the study in your answer. (8 marks)</li>
+  <li><strong>[AO3]</strong> To what extent do the findings support the view that people with ASD have a specific deficit in theory of mind? Refer to the data in your answer. (8 marks)</li>
+  <li><strong>[AO3]</strong> Compare and contrast the strengths and weaknesses of the Eyes test as a measure of social cognition compared to another measure you have studied. (10 marks)</li>
+</ol>
+
+<!-- ============================================================ -->
+<!-- ===== INTERACTIVE EYES TEST — FULL ORIGINAL VERSION ======== -->
+<!-- ============================================================ -->
+
+<section class="eyes-test-section">
+<h2>🧪 体验完整版 Eyes Test (Revised)</h2>
+<p style="opacity:0.9;text-align:center">下面是 Baron-Cohen et al. (2001) 的<strong>原版「读心眼」测试</strong>——1道练习题 + 17道正式题。每张图都是研究中使用的真实照片！</p>
+
+<div class="test-card" id="testCard">
+  <div class="test-progress" id="progress"><span id="progressText">练习题</span></div>
+  
+  <div class="eye-display" id="eyeDisplay">
+    <img id="eyeImg" src="" alt="Eyes test image" style="max-width:100%;max-height:260px;border-radius:8px">
+  </div>
+  
+  <p style="text-align:center;font-size:.95em;color:#374151;margin-bottom:6px;font-weight:500" id="questionPrompt">这个人可能是什么情绪或心理状态？</p>
+  <p style="text-align:center;font-size:.82em;color:#9ca3af;margin-bottom:10px" id="practiceNote">💡 这是练习题，不计分。选择一个答案来熟悉格式。</p>
+  
+  <div class="options-grid" id="optionsGrid">
+    <!-- Options generated by JS -->
+  </div>
+  
+  <div class="test-feedback" id="feedback"></div>
+  <div class="score-display" id="scoreDisplay"></div>
+  <button class="restart-btn" id="restartBtn" onclick="startTest()" style="display:none;">再试一次 ↻</button>
+  <p class="glossary-note">💡 提示：如果不确定某个词的意思，可以参考上文的 Key Terms 表格或 Glossary。</p>
+</div>
+
+<!-- Glossary for the test -->
+<div class="key-box" style="margin-top:18px">
+<h4>📖 Eyes Test 词汇表 (Glossary)</h4>
+<p style="font-size:.9em"><strong>aghast</strong> 惊骇的 | <strong>alarmed</strong> 惊恐的 | <strong>amused</strong> 被逗乐的 | <strong>annoyed</strong> 烦恼的 | <strong>anticipating</strong> 期待的 | <strong>apologetic</strong> 道歉的 | <strong>arrogant</strong> 傲慢的 | <strong>accusing</strong> 谴责的 | <strong>affectionate</strong> 深情的 | <strong>bored</strong> 无聊的 | <strong>cautious</strong> 谨慎的 | <strong>contemplative</strong> 沉思的 | <strong>convinced</strong> 确信的 | <strong>comforting</strong> 安慰的 | <strong>decisive</strong> 果断的 | <strong>depressed</strong> 沮丧的 | <strong>despondent</strong> 失望的 | <strong>disappointed</strong> 失望的 | <strong>dispirited</strong> 气馁的 | <strong>doubtful</strong> 怀疑的 | <strong>embarrassed</strong> 尴尬的 | <strong>encouraging</strong> 鼓励的 | <strong>excited</strong> 兴奋的 | <strong>fantasizing</strong> 幻想的 | <strong>flirtatious</strong> 调情的 | <strong>flustered</strong> 慌乱的 | <strong>friendly</strong> 友好的 | <strong>hostile</strong> 敌对的 | <strong>hateful</strong> 可恨的 | <strong>horrified</strong> 震惊的 | <strong>impatient</strong> 不耐烦的 | <strong>indifferent</strong> 冷漠的 | <strong>insisting</strong> 坚持的 | <strong>irritated</strong> 恼怒的 | <strong>joking</strong> 开玩笑的 | <strong>jealous</strong> 嫉妒的 | <strong>panicked</strong> 惊慌的 | <strong>playful</strong> 顽皮的 | <strong>preoccupied</strong> 心事重重的 | <strong>regretful</strong> 后悔的 | <strong>relieved</strong> 如释重负的 | <strong>relaxed</strong> 放松的 | <strong>sarcastic</strong> 讽刺的 | <strong>sceptical</strong> 怀疑的 | <strong>shy</strong> 害羞的 | <strong>sympathetic</strong> 同情的 | <strong>thoughtful</strong> 体贴的 | <strong>threatening</strong> 威胁的 | <strong>terrified</strong> 极度恐惧的 | <strong>upset</strong> 心烦意乱的 | <strong>uneasy</strong> 不安的 | <strong>worried</strong> 担心的</p>
+</div>
+</section>
+
+<script>
+// Full original Eyes Test data (Practice + 17 items)
+const questions = [
+  // Practice item (not scored)
+  {
+    image: "eyes_test_images/eyes_01.png",
+    options: ["jealous（嫉妒的）", "panicked（惊慌的）", "arrogant（傲慢的）", "hateful（可恨的）"],
+    answer: 0,
+    isPractice: true,
+    explanation: "练习题 — 这双眼睛表现出一种嫉妒/警惕的神情"
+  },
+  // Q1
+  {
+    image: "eyes_test_images/eyes_02.png",
+    options: ["playful（顽皮的）", "comforting（安慰的）", "irritated（恼怒的）", "bored（无聊的）"],
+    answer: 0
+  },
+  // Q2
+  {
+    image: "eyes_test_images/eyes_03.png",
+    options: ["terrified（极度恐惧的）", "upset（心烦意乱的）", "arrogant（傲慢的）", "annoyed（烦恼的）"],
+    answer: 1
+  },
+  // Q3
+  {
+    image: "eyes_test_images/eyes_04.png",
+    options: ["joking（开玩笑的）", "flustered（慌乱的）", "desire（渴望的）", "convinced（确信的）"],
+    answer: 2
+  },
+  // Q4
+  {
+    image: "eyes_test_images/eyes_05.png",
+    options: ["joking（开玩笑的）", "insisting（坚持的）", "amused（被逗乐的）", "relaxed（放松的）"],
+    answer: 1
+  },
+  // Q5
+  {
+    image: "eyes_test_images/eyes_06.png",
+    options: ["irritated（恼怒的）", "sarcastic（讽刺的）", "worried（担心的）", "friendly（友好的）"],
+    answer: 2
+  },
+  // Q6
+  {
+    image: "eyes_test_images/eyes_07.png",
+    options: ["aghast（惊骇的）", "fantasizing（幻想的）", "impatient（不耐烦的）", "alarmed（惊恐的）"],
+    answer: 0
+  },
+  // Q7
+  {
+    image: "eyes_test_images/eyes_08.png",
+    options: ["apologetic（道歉的）", "friendly（友好的）", "uneasy（不安的）", "dispirited（气馁的）"],
+    answer: 0
+  },
+  // Q8
+  {
+    image: "eyes_test_images/eyes_09.png",
+    options: ["despondent（失望的）", "relieved（如释重负的）", "shy（害羞的）", "excited（兴奋的）"],
+    answer: 1
+  },
+  // Q9
+  {
+    image: "eyes_test_images/eyes_10.png",
+    options: ["annoyed（烦恼的）", "hostile（敌对的）", "horrified（震惊的）", "preoccupied（心事重重的）"],
+    answer: 2
+  },
+  // Q10
+  {
+    image: "eyes_test_images/eyes_11.png",
+    options: ["cautious（谨慎的）", "insisting（坚持的）", "bored（无聊的）", "aghast（惊骇的）"],
+    answer: 0
+  },
+  // Q11
+  {
+    image: "eyes_test_images/eyes_12.png",
+    options: ["terrified（极度恐惧的）", "amused（被逗乐的）", "regretful（后悔的）", "flirtatious（调情的）"],
+    answer: 2
+  },
+  // Q12
+  {
+    image: "eyes_test_images/eyes_13.png",
+    options: ["indifferent（冷漠的）", "embarrassed（尴尬的）", "sceptical（怀疑的）", "dispirited（气馁的）"],
+    answer: 2
+  },
+  // Q13
+  {
+    image: "eyes_test_images/eyes_14.png",
+    options: ["decisive（果断的）", "anticipating（期待的）", "threatening（威胁的）", "shy（害羞的）"],
+    answer: 1
+  },
+  // Q14
+  {
+    image: "eyes_test_images/eyes_15.png",
+    options: ["irritated（恼怒的）", "disappointed（失望的）", "depressed（沮丧的）", "accusing（谴责的）"],
+    answer: 3
+  },
+  // Q15
+  {
+    image: "eyes_test_images/eyes_16.png",
+    options: ["contemplative（沉思的）", "flustered（慌乱的）", "encouraging（鼓励的）", "amused（被逗乐的）"],
+    answer: 0
+  },
+  // Q16
+  {
+    image: "eyes_test_images/eyes_17.png",
+    options: ["irritated（恼怒的）", "thoughtful（体贴的）", "encouraging（鼓励的）", "sympathetic（同情的）"],
+    answer: 2
+  },
+  // Q17
+  {
+    image: "eyes_test_images/eyes_18.png",
+    options: ["doubtful（怀疑的）", "affectionate（深情的）", "playful（顽皮的）", "aghast（惊骇的）"],
+    answer: 1
+  }
+];
+
+let currentQ = 0;
+let score = 0;
+let answered = false;
+let practiceDone = false;
+
+function startTest() {
+  currentQ = 0;
+  score = 0;
+  answered = false;
+  practiceDone = false;
+  document.getElementById("scoreDisplay").style.display = "none";
+  document.getElementById("restartBtn").style.display = "none";
+  showQuestion();
+}
+
+function showQuestion() {
+  answered = false;
+  const q = questions[currentQ];
+  const isPrac = q.isPractice;
+  
+  // Update progress display
+  if (isPrac) {
+    document.getElementById("progressText").innerHTML = "<span style='color:#f59e0b'>📝 练习题 (Practice)</span>";
+    document.getElementById("practiceNote").style.display = "block";
+  } else {
+    const qNum = currentQ - (practiceDone ? 1 : 0); // Adjust for practice
+    const realNum = practiceDone ? currentQ : currentQ; 
+    document.getElementById("progressText").innerHTML = "Question <strong>" + (currentQ) + "</strong> of <strong>17</strong>";
+    document.getElementById("practiceNote").style.display = "none";
+  }
+  
+  // Show eye image
+  document.getElementById("eyeImg").src = q.image;
+  document.getElementById("eyeImg").style.display = "block";
+  document.getElementById("feedback").innerHTML = "";
+  
+  // Generate option buttons
+  const grid = document.getElementById("optionsGrid");
+  grid.innerHTML = "";
+  q.options.forEach((opt, i) => {
+    const btn = document.createElement("button");
+    btn.className = "option-btn";
+    btn.textContent = opt;
+    btn.onclick = () => selectAnswer(i);
+    grid.appendChild(btn);
+  });
+}
+
+function selectAnswer(idx) {
+  if (answered) return;
+  answered = true;
+  const q = questions[currentQ];
+  const buttons = document.querySelectorAll(".option-btn");
+  buttons.forEach(b => b.style.pointerEvents = "none");
+  
+  if (idx === q.answer) {
+    buttons[idx].classList.add("correct");
+    if (!q.isPractice) score++;
+    
+    if (q.isPractice) {
+      document.getElementById("feedback").innerHTML = "<span style='color:#f59e0b'>✅ 练习完成！正确答案是 " + q.options[q.answer] + "</span><br><small>接下来进入正式测试...</small>";
+    } else {
+      document.getElementById("feedback").innerHTML = "<span style='color:var(--correct)'>✅ 正确！" + q.explanation + "</span>";
+    }
+  } else {
+    buttons[idx].classList.add("wrong");
+    buttons[q.answer].classList.add("correct");
+    if (q.isPractice) {
+      document.getElementById("feedback").innerHTML = "<span style='color:#f59e0b'>练习题没有对错之分，但建议答案是：" + q.options[q.answer] + "</span>";
+    } else {
+      document.getElementById("feedback").innerHTML = "<span style='color:var(--wrong)'>❌ 正确答案是：" + q.options[q.answer] + "</span>";
+    }
+  }
+
+  setTimeout(() => {
+    if (q.isPractice) {
+      practiceDone = true;
+      currentQ = 1;
+      showQuestion();
+    } else {
+      currentQ++;
+      if (currentQ < questions.length) {
+        showQuestion();
+      } else {
+        showScore();
+      }
+    }
+  }, q.isPractice ? 2500 : 2000);
+}
+
+function showScore() {
+  document.getElementById("eyeImg").style.display = "none";
+  document.getElementById("optionsGrid").innerHTML = "";
+  document.getElementById("progressText").textContent = "🎉 测试完成！";
+  document.getElementById("questionPrompt").style.display = "none";
+  document.getElementById("practiceNote").style.display = "none";
+  document.getElementById("feedback").innerHTML = "";
+  
+  const totalQuestions = questions.length - 1; // Exclude practice
+  const pct = Math.round((score / totalQuestions) * 100);
+  
+  let comment = "";
+  let comparison = "";
+  if (pct >= 90) { comment = "🏆 出色！你的情绪识别能力非常优秀！"; comparison = "高于大多数正常成年人"; }
+  else if (pct >= 76) { comment = "🌟 很好！你的得分在正常成年人平均范围内"; comparison = "≈ 正常成人组平均水平 (26.2/36 ≈ 73%)"; }
+  else if (pct >= 65) { comment = "👍 不错的成绩，接近正常范围"; comparison = "略低于正常成人平均值"; }
+  else if (pct >= 50) { comment = "📗 中等水平，还有提升空间"; comparison = "接近 AS/HFA 组表现范围 (22.4/36 ≈ 62%)"; }
+  else { comment = "💪 继续练习！真实测试中你有词汇表辅助"; comparison = "低于典型表现"; }
+
+  const sd = document.getElementById("scoreDisplay");
+  sd.innerHTML = "你的得分：<strong>" + score + " / " + totalQuestions + "</strong> (" + pct + "%)<br><br>" + comment + "<br><br><table style='margin:10px auto;font-size:.88em'><tr><td style='padding:4px 12px;border:1px solid #d1d5db'>正常成人组 (n=154)</td><td style='padding:4px 12px;border:1px solid #d1d5db'>26.2 / 36 (72.8%)</td></tr><tr><td style='padding:4px 12px;border:1px solid #d1d5db'>AS/HFA 组 (n=15)</td><td style='padding:4px 12px;border:1px solid #d1d5db'>22.4 / 36 (62.2%)</td></tr><tr><td style='padding:4px 12px;border:1px solid #d1d5db'><b>你</b></td><td style='padding:4px 12px;border:1px solid #d1d5db'><b>" + score + " / " + totalQuestions + " (" + pct + "%)</b></td></tr></table><br><small style='font-weight:normal;color:#6b7280'>数据来源：Baron-Cohen et al. (2001) 原文表1 & 表2</small>";
+  sd.style.display = "block";
+  document.getElementById("restartBtn").style.display = "block";
+}
+
+// Auto-start on page load
+startTest();
+</script>
+
+</body>
+</html>

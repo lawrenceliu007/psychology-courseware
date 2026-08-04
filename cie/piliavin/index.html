@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Piliavin et al. (1969) — Subway Samaritans | CIE Psychology</title>
+<style>
+  :root {
+    --bg: #fafafa; --card-bg: #ffffff; --text: #1a1a2e; --text-secondary: #4a4a5a;
+    --accent: #2563eb; --accent-light: #dbeafe; --accent-dark: #1d4ed8;
+    --key-term-bg: #fef3c7; --key-term-border: #f59e0b; --note-bg: #f0f9ff; --note-border: #0ea5e9;
+    --table-header: #1e40af; --table-stripe: #f1f5f9; --border: #e2e8f0; --success: #059669; --warning: #d97706;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; padding: 20px; }
+  .container { max-width: 900px; margin: 0 auto; background: var(--card-bg); border-radius: 12px; box-shadow: 0 2px 16px rgba(0,0,0,0.08); overflow: hidden; }
+  .header { background: linear-gradient(135deg, #1e3a5f, #2563eb); color: white; padding: 36px 32px 28px; text-align: center; }
+  .header h1 { font-size: 1.8em; font-weight: 700; line-height: 1.3; margin-bottom: 8px; }
+  .header .subtitle { font-size: 1.05em; opacity: 0.9; }
+  .header .meta { margin-top: 14px; font-size: 0.88em; opacity: 0.75; }
+  .content { padding: 28px 32px 36px; }
+  h2 { font-size: 1.45em; color: var(--accent-dark); border-bottom: 3px solid var(--accent-light); padding-bottom: 8px; margin: 32px 0 16px; }
+  h3 { font-size: 1.18em; color: var(--text); margin: 24px 0 10px; display: flex; align-items: center; gap: 8px; }
+  h3::before { content: ''; width: 4px; height: 20px; background: var(--accent); border-radius: 2px; flex-shrink: 0; }
+  h4 { font-size: 1.05em; color: var(--text-secondary); margin: 18px 0 8px; }
+  p { margin-bottom: 12px; }
+  ul, ol { margin: 10px 0 14px 22px; }
+  li { margin-bottom: 6px; }
+  strong { color: var(--text); }
+  .cn { color: #c2410c; font-weight: 600; }
+  .key-term { background: var(--key-term-bg); border-left: 4px solid var(--key-term-border); padding: 10px 16px; margin: 14px 0; border-radius: 0 8px 8px 0; font-size: 0.96em; }
+  .key-term strong:first-child { color: #92400e; }
+  .note-box { background: var(--note-bg); border-left: 4px solid var(--note-border); padding: 14px 18px; margin: 16px 0; border-radius: 0 8px 8px 0; font-size: 0.95em; }
+  .figure { margin: 20px 0; text-align: center; }
+  .figure img { max-width: 100%; border-radius: 8px; border: 1px solid var(--border); }
+  .figure .caption { font-size: 0.88em; color: var(--text-secondary); margin-top: 8px; font-style: italic; }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.92em; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+  th { background: var(--table-header); color: white; padding: 11px 14px; text-align: left; font-weight: 600; }
+  td { padding: 10px 14px; border-bottom: 1px solid var(--border); }
+  tr:nth-child(even) { background: var(--table-stripe); }
+  tr:hover { background: #e0e7ff; }
+  .highlight-box { background: linear-gradient(135deg, #ecfdf5, #d1fae5); border: 1px solid #34d399; border-radius: 10px; padding: 18px 22px; margin: 18px 0; }
+  .highlight-box h4 { color: #047857; margin-top: 0; }
+  .warn-box { background: #fff7ed; border: 1px solid #fb923c; border-radius: 10px; padding: 16px 20px; margin: 16px 0; }
+  .warn-box h4 { color: #c2410c; margin-top: 0; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+  .col-card { background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 16px; }
+  .col-card h4 { color: var(--accent-dark); margin-top: 0; }
+  .activity { background: linear-gradient(135deg, #eff6ff, #dbeafe); border: 1px solid #93c5fd; border-radius: 10px; padding: 18px 22px; margin: 18px 0; }
+  .activity h4 { color: #1e40af; margin-top: 0; }
+  .exam-q { background: #fefce8; border: 1px solid #fbbf24; border-radius: 8px; padding: 14px 18px; margin: 12px 0; font-size: 0.94em; }
+  .exam-q b { color: #92400e; }
+  @media (max-width: 650px) {
+    body { padding: 8px; } .content { padding: 18px 16px 24px; } .header { padding: 24px 16px 20px; }
+    .header h1 { font-size: 1.4em; } h2 { font-size: 1.25em; } .two-col { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- ===== HEADER ===== -->
+<div class="header">
+  <h1>🚇 Piliavin et al. (1969)<br>Subway Samaritans<br>（地铁撒玛利亚人实验）</h1>
+  <div class="subtitle">CIE Psychology — Social Approach — Core Study 3</div>
+  <div class="meta">Piliavin, I.M., Rodin, J., & Piliavin, J.A. (1969). Good Samaritanism: an underground phenomenon? <em>Journal of Personality and Social Psychology</em>, <strong>13</strong>(4), 289–299.</div>
+</div>
+
+<div class="content">
+
+<!-- ===== 1. BACKGROUND ===== -->
+<h2>1. Background（研究背景）</h2>
+
+<p><strong>The psychology being investigated（被研究的心理学现象）：</strong>Social psychologists have long studied the role of <strong>bystanders</strong> <span class="cn">（旁观者）</span> in emergency situations. A key trigger for research into <strong>bystander apathy</strong> <span class="cn">（旁观者冷漠 / 旁观者效应）</span> was the murder of a young woman called <strong>Kitty Genovese</strong> in New York City in 1964.</p>
+
+<div class="note-box">
+<p><strong>📖 Kitty Genovese 案件（关键背景，考试常考）</strong></p>
+<p>After returning from work during the early hours of the morning, Kitty Genovese was followed and attacked by a man near her home. One witness had called down to warn off her attacker as she screamed that she was being stabbed. Her attacker was scared off but returned to continue the assault. It was alleged in news reports that around <strong>38 individuals</strong> living nearby either saw or heard what happened, but failed to prevent her murder.</p>
+<p>虽然后来发现"38个目击者"的说法有夸大成分，但这个事件确实引发了社会心理学家对 <strong>why people don't help</strong> 的强烈兴趣。</p>
+</div>
+
+<h3>Two key explanations for bystander apathy（旁观者冷漠的两个解释）</h3>
+
+<div class="two-col">
+  <div class="col-card">
+    <h4>① Diffusion of responsibility（责任分散）</h4>
+    <p>Darley & Latané (1968) 提出的经典假设。当有其他人在场时，个体会感觉<strong>自己的个人责任感降低了</strong>（"别人会帮忙的，不用我出手"），因此更不可能采取行动。</p>
+    <p style="font-size:0.9em;color:#666;">⚠️ 但 Piliavin 的实验结果<strong>不支持</strong>这个假设——这是考试重点！</p>
+  </div>
+  <div class="col-card">
+    <h4>② Modelling（示范/榜样效应）</h4>
+    <p>如果我们看到别人在帮助受害者，我们<strong>也更可能去帮忙</strong>。Bryan & Test (1967) 发现：刚目睹过他人行善的人，自己做好事的概率更高。</p>
+  </div>
+</div>
+
+<h3>Why a field experiment?（为什么要做现场实验？）</h3>
+<p>Piliavin et al. wanted to test these ideas in a <strong>naturalistic setting</strong> rather than a laboratory. Previous lab studies on bystander apathy (like Darley & Latané's epilepsy seizure experiment) used situations where bystanders could only <em>hear</em> the emergency but not see it. Piliavin wanted to know: would the same patterns hold when people can <strong>actually see</strong> the victim?</p>
+
+<!-- ===== 2. AIM ===== -->
+<h2>2. Aim（研究目的）</h2>
+
+<p>The researchers aimed to study <strong>bystander apathy</strong> and <strong>diffusion of responsibility</strong> in a natural setting. Piliavin et al. also wanted to investigate the effect of four variables on helping behaviour or being a '<strong>Good Samaritan</strong>' <span class="cn">（好撒玛利亚人 = 主动帮助陌生人的人）</span>:</p>
+
+<ol>
+  <li><strong>the type of victim</strong> — drunk or ill <span class="cn">（受害者类型：醉酒 vs 生病/拄拐）</span></li>
+  <li><strong>the race of the victim</strong> — black or white <span class="cn">（受害者种族）</span></li>
+  <li><strong>the behaviour of a 'model'</strong> — early help, late help, adjacent area, or no model <span class="cn">（模特行为）</span></li>
+  <li><strong>the size of the group of bystanders</strong> <span class="cn">（旁观群体大小 → 测试责任分散假设）</span></li>
+</ol>
+
+<div class="key-term">
+  <strong>Good Samaritan:</strong> 这个术语源自《圣经》新约，指一个来自古代撒玛利亚的人停下来帮助受伤的 stranger。现在泛指任何在他人遇到困难时主动提供帮助的人。
+</div>
+
+<!-- ===== 3. METHOD ===== -->
+<h2>3. Method（研究方法）</h2>
+
+<h3>3.1 Research method and design（研究方法与设计）</h3>
+
+<p>This study was a <strong>field experiment</strong> <span class="cn">（现场实验）</span>. This means it took place in a realistic environment — in this case, the New York City subway. The study used an <strong>independent groups design</strong> <span class="cn">（独立组设计 / 被试间设计）</span>: the trials were repeated on different days and involved different participants in each condition.</p>
+
+<div class="key-term">
+  <strong>Field experiment（现场实验）:</strong> 在真实自然环境中进行的实验，仍然有自变量的操纵和因变量的测量，但不像实验室那样完全受控。<strong> ecological validity（生态效度）</strong>高，但<strong> extraneous variables（额外变量）</strong>难控制。
+</div>
+
+<p><strong>Four independent variables (IVs) were operationalised as:</strong></p>
+<table>
+  <tr><th>IV</th><th>Levels（水平）</th><th>Operationalisation（操作化定义）</th></tr>
+  <tr><td>Type of victim</td><td>'Drunk' or 'Ill' (cane)</td><td>Victim smelled of alcohol + carried bottle in brown bag (drunk), OR carried black cane & appeared sober (cane)</td></tr>
+  <tr><td>Race of victim</td><td>Black or White</td><td>3 white victims + 1 black victim (all dressed identically)</td></tr>
+  <tr><td>Model behaviour</td><td>5 conditions</td><td>Critical area/early, Critical area/late, Adjacent area/early, Adjacent area/late, No model</td></tr>
+  <tr><td>Group size</td><td>Naturally occurring</td><td>Number of passengers present in the subway carriage</td></tr>
+</table>
+
+<p><strong>The dependent variable (DV)</strong> was operationalised as the time taken for the first passenger to help, as well as the total number of passengers who helped. The race, gender and location of each helper were also recorded. Qualitative data was recorded in the form of verbal remarks made by passengers during each incident.</p>
+
+<div class="key-term">
+  <strong>Operationalisation（操作化）:</strong> 把抽象概念变成可以<strong>具体测量</strong>的操作。比如"帮助行为"不能直接数，所以要定义为"从倒地到第一个人伸手扶的秒数"。
+</div>
+
+<h3>3.2 Sample（样本）</h3>
+
+<p>This study took place on the New York City subway. Participants were passengers travelling on an underground railway service between Harlem and the Bronx (areas of New York City) on weekdays between 11 a.m. and 3 p.m. We might call this an <strong>opportunity sample</strong> <span class="cn">（机会抽样 / 便利抽样）</span> — passengers were not deliberately selected for participation.</p>
+
+<table>
+  <tr><th>Metric</th><th>Value</th></tr>
+  <tr><td>Total estimated participants</td><td>≈ 4,450 people across 103 trials</td></tr>
+  <tr><td>Racial composition</td><td>≈ 45% Black, ≈ 55% White</td></tr>
+  <tr><td>Mean number per carriage</td><td>43 passengers</td></tr>
+  <tr><td>Mean in critical area</td><td>8.5 passengers</td></tr>
+  <tr><td>Date range</td><td>April 15 – June 26, 1968</td></tr>
+</table>
+
+<div class="note-box">
+  <p><strong>💡 为什么选纽约地铁？</strong></p>
+  <ul>
+    <li>A 线和 D 线快车在 59街→125街之间<strong>不停站</strong>（约7.5分钟）→ 被试是"被困住的观众"</li>
+    <li>经过 Harlem 到 Bronx → 多种族乘客 → 可以测试种族变量</li>
+    <li>旧式车厢有两排座位组（group arrangement），不是长条座位 → 有明确的 critical area 和 adjacent area</li>
+  </ul>
+</div>
+
+<h3>3.3 Procedure（实验程序）</h3>
+
+<p>Four teams of student researchers carried out the study using a standard procedure. On each trial, <strong>two male and two female students</strong> boarded the train using different doors. The female confederates sat in the area adjacent to the immediate 'critical' where the incident took place. They observed the passengers and recorded data during each trial. The male confederates took the roles of the <strong>victim</strong> and the <strong>model</strong>. The victim stood at the pole in the centre of the critical area, and the model remained standing throughout the trial.</p>
+
+<div class="figure">
+  <img src="piliavin_images/nyc_subway_photo.jpg" alt="NYC Subway interior">
+  <div class="caption">图：纽约地铁内部实景（A/D 线快车车厢）。Piliavin 团队就在这样的环境中进行103次试验。</div>
+</div>
+
+<div class="figure">
+  <img src="piliavin_images/subway_layout.png" alt="Subway car layout">
+  <div class="caption">Figure 5.9: 地铁车厢布局 — 标注了 Adjacent Area（相邻区）、Critical Area（核心区）、Observer 位置、Victim 倒地位置、Exit Doors。</div>
+</div>
+
+<h4>标准程序（每次试验的流程）：</h4>
+<ol>
+  <li>团队从不同车门上车（避免被认出是一伙的）</li>
+  <li><strong>女性观察者</strong>坐在 critical area 外面，尽量不起眼地记录数据（乘客种族、性别、位置、评论等）</li>
+  <li><strong>男性受害者+模特</strong>站在 critical area 内或附近</li>
+  <li>列车驶离第一站后约 <strong>70秒</strong>，受害者踉跄向前并<strong>倒地</strong>（staggered forward and collapsed）</li>
+  <li>受害者保持躺姿，眼睛看着天花板（remained supine looking at ceiling）</li>
+  <li>如果没人帮忙 → 列车减速时模特把他扶起来（raised to sitting position）</li>
+  <li>到站后全部分开下车，等待其他乘客离开后再在另一站台集合</li>
+  <li>每天进行 6–8 次试验；同一天的所有试验用同一个"受害者条件"</li>
+</ol>
+
+<h4>Victim（受害者）详情：</h4>
+<ul>
+  <li>4名受害者（每队1人），年龄26–35岁，3名白人 + 1名黑人</li>
+  <li>穿着完全相同：<strong>Eisenhower jacket</strong>（艾森豪威尔夹克）、旧裤子、不打领带</li>
+  <li><strong>Cane condition（生病条件，65次试验）</strong>：清醒状态，手持黑色拐杖</li>
+  <li><strong>Drunk condition（醉酒条件，38次试验）</strong>：身上有酒味，棕色纸袋里包着酒瓶</li>
+  <li>每个受害者在两种条件下都参与了试验</li>
+</ul>
+
+<h4>Model（模特）详情：</h4>
+<ul>
+  <li>4名白人男性，年龄24–29岁</li>
+  <li>穿便装但不完全一样（看起来像普通乘客）</li>
+</ul>
+
+<h4>五种 Model 条件（5种试验条件）：</h4>
+<table>
+  <tr><th>Condition</th><th>Model location</th><th>When model helps</th></tr>
+  <tr><td>Critical / early</td><td>Stood in critical area</td><td>Waited ~70 seconds after collapse</td></tr>
+  <tr><td>Critical / late</td><td>Stood in critical area</td><td>Waited ~150 seconds after collapse</td></tr>
+  <tr><td>Adjacent / early</td><td>Stood in adjacent area</td><td>Waited ~70 seconds</td></tr>
+  <tr><td>Adjacent / late</td><td>Stood in adjacent area</td><td>Waited ~150 seconds</td></tr>
+  <tr><td><strong>No model</strong></td><td colspan="2">Model did not help until train reached next stop</td></tr>
+</table>
+
+<div class="note-box">
+  <p><strong>💡 为什么要分 early / late model？</strong></p>
+  <p>研究者想测试：<strong>示范效应的时间窗口</strong>。如果模特早帮（70秒），会不会比晚帮（150秒）更能带动其他人？结果发现：early model 确实能引发更多帮助，late model 几乎没效果——因为大部分愿意帮忙的人在70秒内已经行动了。</p>
+  <p><strong>为什么要分 critical / adjacent area？</strong></p>
+  <p>测试模特与受害者的<strong>距离</strong>是否有影响。结果显示：位置不重要（area variable has no effect），重要的是模特是否及时行动。</p>
+</div>
+
+<!-- ===== 4. RESULTS ===== -->
+<h2>4. Results（研究结果）</h2>
+
+<h3>4.1 Overall helping rate（总体帮助率）</h3>
+
+<p>Overall, the frequency of helping recorded in this study was much higher than had previously been reported in laboratory studies. <strong>Seventy-eight percent of victims received spontaneous help</strong> (i.e., helped before model intervened or in a no-model condition). In 60% of cases more than one person helped!</p>
+
+<div class="highlight-box">
+  <h4>🎯 核心数据速览</h4>
+  <ul>
+    <li><strong>总体自发帮助率：78%</strong>（远高于实验室研究的 ~30-40%）</li>
+    <li>Cane（拄拐）：62/65 次试验得到自发帮助 = <strong>95%</strong></li>
+    <li>Drunk（醉酒）：19/38 次试验得到自发帮助 = <strong>50%</strong></li>
+    <li>60%的试验中有多于1人帮忙</li>
+    <li><strong>90%的第一帮助者是男性</strong>（而人群中男性仅占60%）</li>
+  </ul>
+</div>
+
+<h3>4.2 Effect of type of victim（受害者类型的影响）</h3>
+
+<p>In terms of the type of victim, participants were more likely to help the victim with the <strong>cane than the drunk victim</strong>. The cane victim received help in 62/65 trials; the drunk victim received help in 19/38 trials. In the drunk trials, spontaneous helping also occurred earlier than in the cane trials. For example, in all but three of the cane trials that were also model trials, helping occurred before the model could give assistance.</p>
+
+<table>
+  <tr><th>Trial</th><th colspan="2">White victim</th><th colspan="2">Black victim</th></tr>
+  <tr><th></th><th>Cane</th><th>Drunk</th><th>Cane</th><th>Drunk</th></tr>
+  <tr><td>No model</td><td>100%</td><td>100%</td><td>100%</td><td>73%</td></tr>
+  <tr><td>Model trial</td><td>100%</td><td>77%</td><td>—*</td><td>67%</td></tr>
+</table>
+<p style="font-size:0.85em;color:#666;">*No model trials for the black 'victim' were run for the cane condition（因为所有cane试验在模特干预前就得到了帮助）</p>
+
+<div class="key-term">
+  <strong>为什么 cane 比 drunk 更容易得到帮助？（两个原因）</strong><br>
+  ① 人们认为醉酒者要为自己的处境<strong>负部分责任</strong>（perceived responsibility hypothesis）→ 同情心减少 → 帮助意愿降低<br>
+  ② 醉酒者可能变得令人<strong>厌恶、尴尬甚至危险</strong>（disgusting, embarrassing, or violent）→ 帮助的"成本"太高
+</div>
+
+<h3>4.3 Effect of race（种族的影响）</h3>
+
+<p>In terms of race, both black and white cane victims were equally likely to receive help. However, there was some evidence of <strong>same-race helping</strong> in the drunk condition, with participants being more likely to help those of their own race overall. Although these results were not statistically significant, they support research suggesting people are more likely to help those similar to themselves.</p>
+
+<p>When the victim is drunk (and potentially dangerous), complications are present — probably blame, fear, and disgust. When the victim is a member of one's own group, the conditions for empathy and trust are more favourable — <strong>assistance is more likely to be offered</strong>.</p>
+
+<h3>4.4 Effect of gender of helper（帮助者的性别）</h3>
+
+<p>The result relating to the variable of sex was that the majority of helpers (<strong>90%</strong>) were <strong>male</strong>. Female passengers made comments such as "It's for men to help him" or "I wish I could help him — I'm not strong enough". This may suggest a difference between men and women in terms of bystander helping behaviour, or it may be a result of the victim always being played by a male.</p>
+
+<h3>4.5 Effect of modelling（示范效应）</h3>
+
+<p>The effect of modelling was difficult to analyse because most of the helping that occurred was spontaneous. However, it appeared that <strong>early model intervention at 70 seconds</strong> was slightly more likely to result in helping behaviour than waiting until 150 seconds had passed.</p>
+
+<h3>4.6 Diffusion of responsibility — NOT FOUND!（责任分散假设不被支持！）</h3>
+
+<div class="warn-box">
+  <h4>⚠️ 考试超级重点：没有发现责任分散效应！</h4>
+  <p>Surprisingly and in contrast to previous research, this study found <strong>no evidence to support the diffusion of responsibility hypothesis</strong>. In fact, there was some evidence to suggest that when passengers were present, rates of helping were actually <strong>slightly higher</strong>.</p>
+  <p>Looking at the graph below, we can see that the hypothetical speed of response for seven-person groups, as predicted by diffusion of responsibility theory, is slower than for three-person groups. But the <strong>natural seven-person groups responded FASTER</strong> than predicted, and faster even than the three-person groups! This directly opposes the prediction of diffusion of responsibility.</p>
+</div>
+
+<div class="note-box">
+  <p><strong>💡 为什么地铁上没出现责任分散？（三个解释）</strong></p>
+  <ol>
+    <li><strong>视觉线索</strong>（Visual cues）：乘客能直接看到受害者和彼此，无法用"也许已经有人帮了"来合理化不作为</li>
+    <li><strong>无法逃避</strong>（No escape）：地铁车厢是封闭空间，不能走开，必须面对</li>
+    <li><strong>公共场合的面子压力</strong>（Public accountability）：大家都看得到你不帮忙</li>
+  </ol>
+  <p>原文 Table 5 数据：cane 条件下，critical area 有7+男性的群体，反应中位数仅 1.5 秒；只有1-3名男性的群体反而需要7秒！（Kruskal-Wallis H = 5.08, p = .08）虽然统计上边缘显著，但趋势很明显：<strong>人多反而反应更快</strong>。</p>
+</div>
+
+<h3>4.7 Other responses（其他反应）</h3>
+
+<ul>
+  <li><strong>离开 critical area</strong>：21次试验中共34人离开了核心区。Drunk 条件下更多人离开（42%）vs Cane（5%）</li>
+  <li><strong>评论增加</strong>：Drunk 试验 + 帮助来得晚的试验 → 更多乘客评论（如"It's for men to help him", "I wish I could help him — I'm not strong enough"）</li>
+  <li>没有人完全离开列车（no one left the car on any trial）</li>
+</ul>
+
+<!-- ===== 5. COST-BENEFIT MODEL ===== -->
+<h2>5. Cost-Benefit Model（成本-收益模型）</h2>
+
+<p>Piliavin et al. proposed a model of response to an emergency situation as an alternative to the diffusion of responsibility hypothesis to explain the findings of this study. This is termed the <strong>cost-benefit model</strong>.</p>
+
+<div class="figure">
+  <!-- Simple CSS representation of the cost-benefit scale -->
+  <svg viewBox="0 0 400 180" style="max-width:320px;margin:0 auto;display:block;">
+    <polygon points="200,20 230,140 170,140" fill="#64748b"/>
+    <rect x="180" y="140" width="40" height="8" rx="2" fill="#475569"/>
+    <circle cx="130" cy="115" r="35" fill="#f97316" opacity="0.9"/>
+    <circle cx="270" cy="115" r="35" fill="#2563eb" opacity="0.9"/>
+    <text x="130" y="120" text-anchor="middle" fill="white" font-size="14" font-weight="bold">Cost</text>
+    <text x="270" y="120" text-anchor="middle" fill="white" font-size="14" font-weight="bold">Benefit</text>
+    <line x1="165" y1="115" x2="235" y2="115" stroke="#334155" stroke-width="2"/>
+  </svg>
+  <div class="caption">Figure 5.11: Weighing up the pros and cons of helping（权衡利弊天平）</div>
+</div>
+
+<div class="key-term">
+  <strong>Cost-benefit model（成本-收益模型）:</strong> 目睹紧急情况 → 引发<strong>情绪唤醒</strong>（arousal：恐惧/厌恶/同情/内疚等混合情绪）→ 个体通过<strong>成本-收益分析</strong>来决定如何降低这种不适感。可能的回应方式包括：(a) 直接帮忙 (b) 去叫人 (c) 离开现场 (d) 合理化不帮助（怪罪受害者）。<br>
+  <em>注意：这个模型的动机不是"利他主义"，而是<strong>消除自身的不适感</strong>（selfish desire to rid oneself of an unpleasant emotional state）。</em>
+</div>
+
+<p>This heightened arousal level prompts individuals to respond to the situation, in order to reduce any difficult feelings. The cost-benefit model can explain the findings that a higher number of comments were made during trials with a drunk victim. Observers noted that in around 20% of trials, passengers actively moved away from the critical area where the incident was taking place. So although less helping occurred due to disgust, the participants prompted them to comment or move away instead.</p>
+
+<h4>用 Cost-Benefit Model 解释各项发现：</h4>
+<table>
+  <tr><th>Finding</th><th>Explanation via Cost-Benefit</th></tr>
+  <tr><td>Drunk 得到的帮助少</td><td>Helping costs higher (disgust); not-helping costs lower (he's partly responsible)</td></tr>
+  <tr><td>女性帮忙少</td><td>Helping costs higher (physical effort); not-helping costs lower ("not my role")</td></tr>
+  <tr><td>同种族帮助（尤其drunk时）</td><td>Differential costs: less censure if opposite race; more fear if different race</td></tr>
+  <tr><td>无责任分散（cane trials）</td><td>Helping costs are LOW; not-helping costs are HIGH (self-blame)</td></tr>
+  <tr><td>时间越久→离开越多</td><td>Arousal increases → must find a way to reduce it (leave = one option)</td></tr>
+</table>
+
+<!-- ===== 6. CONCLUSIONS ===== -->
+<h2>6. Conclusions（结论）</h2>
+
+<p>This study found that in a natural setting, many people would offer spontaneous help to a stranger, even in a group situation. This study found no evidence of diffusion of responsibility, but did identify several factors which influence an individual's decision to help:</p>
+
+<ol>
+  <li><strong>The type of victim</strong> — someone using a cane will be helped more than a drunk person</li>
+  <li><strong>The gender of the helper</strong> — men are more likely to help than women</li>
+  <li><strong>The similarity of the victim to the helper</strong> — people may be more likely to help members of their own race, especially if the victim is drunk</li>
+  <li><strong>The duration of the emergency</strong> — the longer an emergency continues, the less likely that anyone will help, and the more likely it is they will find another way of coping with arousal (leaving, commenting)</li>
+</ol>
+
+<!-- ===== 7. STRENGTHS AND WEAKNESSES ===== -->
+<h2>7. Strengths and Weaknesses（优点与缺点）</h2>
+
+<h3>Strengths（优点）</h3>
+<ol>
+  <li><strong>High ecological validity</strong> — Field experiment in a real subway setting; participants were ordinary commuters who would have behaved naturally. They believed the emergency situation was real.</li>
+  <li><strong>Large sample</strong> — Around 4,500 individuals participated across 103 trials, making results more reliable and generalisable.</li>
+  <li><strong>Quantitative + Qualitative data</strong> — Both numerical measurements (latency, frequency) and verbal comments were recorded, allowing deeper understanding of thoughts and behaviours.</li>
+  <li><strong>Standardised procedure</strong> — Even though it was a field experiment, there was good standardisation between trials: victim always dressed identically, same collapse timing, same route.</li>
+  <li><strong>Two observers</strong> — Increased reliability of data collection through inter-rater agreement potential.</li>
+  <li><strong>Testing a real-world theory</strong> — Directly challenged the lab-based diffusion of responsibility finding in a natural environment.</li>
+</ol>
+
+<h3>Weaknesses（缺点）</h3>
+<ol>
+  <li><strong>Ethical issues</strong> — No informed consent; participants deceived (thought victim really collapsed); may have caused psychological distress/guilt about not helping.</li>
+  <li><strong>Lack of control over extraneous variables</strong> — Weather, time of day, train delays could affect participants' behaviour, lowering internal validity and reliability.</li>
+  <li><strong>Demand characteristics</strong> — Participants might behave differently knowing they're part of an "experiment" (though they didn't know).</li>
+  <li><strong>Only one trial per participant</strong> — Cannot use repeated measures design; individual differences not controlled.</li>
+  <li><strong>Sample not representative</strong> — Only NYC subway passengers; cannot generalise to other countries/cultures.</li>
+  <li><strong>Only one Black victim</strong> — Limits conclusions about race effects (acknowledged by researchers themselves).</li>
+  <li><strong>Team 2 violated protocol</strong> — Ran wrong condition on day 4 because victim "didn't like" playing drunk; introduces confounding variable.</li>
+</ol>
+
+<!-- ===== 8. ETHICAL ISSUES ===== -->
+<h2>8. Ethical Issues（伦理问题）</h2>
+
+<div class="warn-box">
+  <h4>🔴 主要伦理问题</h4>
+  <ol>
+    <li><strong>No informed consent（无知情同意）</strong> — 参与者不知道自己在参与研究，也没有同意参加</li>
+    <li><strong>Deception（欺骗）</strong> — 参与者以为受害者真的晕倒了，实际上是被骗的</li>
+    <li><strong>Psychological harm（心理伤害）</strong> — 参与者可能因为没有帮忙而感到内疚或焦虑（guilt about not helping or concern about the well-being of the victim）</li>
+    <li><strong>No debriefing（无事后解释）</strong> — 实验结束后没有向参与者说明真相</li>
+  </ol>
+</div>
+
+<p>Participants in this study were <strong>not aware they were taking part in research</strong>. This means they did not give their informed consent to participate. Why might this be an ethical issue, and how could it be overcome?</p>
+
+<p>Today, such a study would need approval from an ethics committee before being conducted. Possible improvements: obtain general consent via station announcements, debrief participants at the next stop, screen out vulnerable individuals, minimize duration of distress.</p>
+
+<!-- ===== 9. ISSUES, DEBATES AND APPROACHES ===== -->
+<h2>9. Issues, Debates and Approaches（议题、争论与研究取向）</h2>
+
+<h3>Application to everyday life（日常生活的应用）</h3>
+
+<p><strong>Milgram's study has important implications</strong> for understanding obedience in the real world. Previously it was believed that acts of extreme, destructive obedience such as the Holocaust had an individual explanation (i.e. that Germans were somehow very different from other people). However, Milgram's study as well as his later research has shown that <strong>situational variables such as the legitimacy of authority can elicit destructive obedience in nearly anyone</strong>.</p>
+
+<p>A result of this is a raised awareness of the power of authority in the workplace. For example, some hospitals have introduced whistle-blowing policies to encourage reporting mistakes by doctors or other senior staff in order to protect safety and well-being of patients.</p>
+
+<p><strong>The findings from Perry et al. have important implications</strong> for those with social difficulties, for example, people with autism spectrum disorders or social anxiety disorder. Many people expect OT as a social hormone to have a universally positive effect. However, this research shows the effect of OT to be more complex as it was found to differentially enhance the importance of existing social cues.</p>
+
+<h3>Individual vs Situational Explanations（个体 vs 情境解释）</h3>
+
+<p><strong>Milgram's research</strong> highlighted the importance of situational factors in influencing how obedient we are to authority figures. Findings showed that the majority of people will be destructively obedient if they feel that the authority figure is legitimate or the cause is worthy. However, some individuals are more resistant to authority than others; not all participants are fully obedient to all voltage levels. This suggests there is a role for <strong>individual factors</strong> as well, which may affect overall levels of obedience.</p>
+
+<p><strong>Perry et al.'s study</strong> shows us that situational factors matter in our preferences for personal space — for example, the need for space depends on our relationship to the person we are interacting with. As well as interperson context, <strong>individual factors</strong> can also explain some differences in personal space requirements. Individual traits such as empathetic ability can explain why, even when people are exposed to the same levels of social hormone, their personal space needs differ.</p>
+
+<p><strong>Piliavin et al.'s study</strong> tells us about specific situational factors which may make subway passengers more or less likely to help a man who had collapsed on a train. Quantitative measurements showed that victims who were ill were more likely to receive help than those who appeared drunk, and that the number of bystanders does not affect the amount of bystander helping. The findings suggest that diffusion of responsibility is <strong>not typical of bystander helping in natural environments</strong>.</p>
+
+<div class="note-box">
+  <p><strong>💡 Social Approach 的核心主题：情境 vs 个体</strong></p>
+  <p>社会心理学取向的核心争论之一：<strong>我们的行为更多由外部情境决定，还是由内在特质决定？</strong></p>
+  <ul>
+    <li><strong>Milgram</strong> → 强调情境因素（权威合法性、命令形式）</li>
+    <li><strong>Perry</strong> → 两者都重要（情境：关系类型；个体：共情能力）</li>
+    <li><strong>Piliavin</strong> → 情境因素为主（受害者类型、紧急持续时间），但也涉及个体差异（性别、种族偏好）</li>
+  </ul>
+</div>
+
+<h3>Practical applications of Piliavin（实际应用）</h3>
+<ul>
+  <li>培训急救人员了解什么类型的受害者更容易/更不容易得到帮助</li>
+  <li>公共场所安全设计：确保紧急情况下人们容易注意到受害者（视觉线索的重要性）</li>
+  <li>反霸凌项目：理解为什么人群中有时无人制止霸凌（成本-收益分析）</li>
+</div>
+
+<!-- ===== 10. SUMMARY ===== -->
+<h2>10. Summary（总结）</h2>
+
+<div class="highlight-box">
+  <p>Piliavin et al.'s study considered different factors which affect bystander behaviour. It looked at how specific circumstances might make subway passengers more or less likely to help a man who had collapsed on a train. This is a <strong>field experiment involving a large number of participants</strong>. Quantitative measurements showed that victims who ill were more likely to receive help than those who appeared drunk, and that the number of bystanders does not affect the amount of bystander helping. The findings suggest that <strong>diffusion of responsibility is not typical of bystander helping in natural environments</strong>.</p>
+</div>
+
+<!-- ===== 11. KEY TERMS ===== -->
+<h2>11. Key Terms（核心术语表）</h2>
+
+<table>
+  <tr><th>Term</th><th>Definition（定义）</th></tr>
+  <tr><td>Bystander</td><td>A person who is present but not directly involved in a situation（在场但未直接参与的人）</td></tr>
+  <tr><td>Bystander apathy</td><td>When a bystander does not show concern for a person in need（旁观者冷漠/旁观者效应）</td></tr>
+  <tr><td>Diffusion of responsibility</td><td>When there are other people available to help, an individual may feel reduced sense of personal responsibility（责任分散）</td></tr>
+  <tr><td>Modelling</td><td>When we watch a person (model) perform the desired behaviour, e.g. helping behavior（模仿学习/示范）</td></tr>
+  <tr><td>Good Samaritan</td><td>Someone who offers help to others experiencing difficulty（好撒玛利亚人 = 助人为乐者）</td></tr>
+  <tr><td>Field experiment</td><td>Study in everyday locations with IV manipulation and DV measurement（现场实验）</td></tr>
+  <tr><td>Independent groups design</td><td>Different Ps in each condition（独立组设计 / 被试间设计）</td></tr>
+  <tr><td>Opportunity sample</td><td>Ps selected because they happen to be available（机会抽样）</td></tr>
+  <tr><td>Operationalisation</td><td>Defining abstract concepts in measurable terms（操作化）</td></tr>
+  <tr><td>Cost-benefit model</td><td>Decision-making process weighing pros and cons of helping（成本-收益模型）</td></tr>
+  <tr><td>Confederate</td><td>A fake participant who is actually part of the research team（假被试/同盟者）</td></tr>
+  <tr><td>Critical area</td><td>The section of the subway car where the incident was staged（核心区域）</td></tr>
+  <tr><td>Ecological validity</td><td>How well findings apply to real-life settings（生态效度）</td></tr>
+  <tr><td>Extraneous variables</td><td>Unwanted variables that might affect results（额外/混淆变量）</td></tr>
+  <tr><td>Demand characteristics</td><td>Cues that lead Ps to guess the aim of the study（需求特征）</td></tr>
+  <tr><td>Informed consent</td><td>Participants agree to take part knowing what the study involves（知情同意）</td></tr>
+  <tr><td>Debriefing</td><td>Explaining the true purpose after the study ends（事后解释/简报）</td></tr>
+</table>
+
+<!-- ===== 12. ACTIVITY ===== -->
+<h2>12. Activity 5.5（课堂活动）</h2>
+<div class="activity">
+  <h4>📋 Activity 5.5: Ethics Committee Role Play</h4>
+  <p>The study by Piliavin et al. was conducted in 1969. Typically, psychological research now has to be approved by an ethics committee. Imagine you are on an ethics committee and Piliavin et al. present an idea for their study.</p>
+  <ol>
+    <li>Would you allow the study to be conducted in the way Piliavin et al. carried it out originally? Why or why not?</li>
+    <li>Describe some changes you would recommend to Piliavin et al. to help improve the ethical issues in this research.</li>
+    <li>Explain what other effects the changes you described might have on the validity or reliability of the research.</li>
+  </ol>
+</div>
+
+<!-- ===== 13. EXAM QUESTIONS ===== -->
+<h2>13. Exam-Style Questions（模拟考题）</h2>
+
+<div class="exam-q"><b>Q1 [2 marks]</b> Outline one assumption of the social approach.</div>
+<div class="exam-q"><b>Q2 [2+2 marks]</b> The study by Milgram collected both quantitative and qualitative data.<br>a) Outline one quantitative result from Milgram.<br>b) Outline one qualitative result from Milgram.</div>
+<div class="exam-q"><b>Q3 [4 marks]</b> The findings of Milgram support the situational explanation for obedience.<br>a) Identify two features of the situation which may have contributed to the high levels of obedience seen in this study.<br>b) Explain how the study by Milgram could be applied to real-life destructive obedience.</div>
+<div class="exam-q"><b>Q4 [6 marks]</b> Evaluate controlled observations as a research method using the study by Milgram.</div>
+<div class="exam-q"><b>Q5 [2 marks]</b> Describe the sample used in the Perry et al. study.</div>
+<div class="exam-q"><b>Q6 [1 mark]</b> State what is meant by the term 'personal space'.</div>
+<div class="exam-q"><b>Q7 [2 marks]</b> Outline one conclusion from the study by Perry et al.</div>
+<div class="exam-q"><b>Q8 [4 marks]</b> The study by Perry et al. was a laboratory experiment consisting of two experiments.<br>a) Describe the two independent variables (IV) that were manipulated in both Experiment 1: CID and Experiment 2: choosing rooms.<br>b) Describe how the dependent variable was measured in Experiment 1.</div>
+<div class="exam-q"><b>Q9 [10 marks]</b> Evaluate the study by Perry et al., including two strengths and two weaknesses.</div>
+<div class="exam-q"><b>Q10 [4 marks]</b> Describe two ways in which the procedure used by Piliavin et al. was standardised.</div>
+<div class="exam-q"><b>Q11 [4+3 marks]</b> The aim of Piliavin et al.'s study was to test the diffusion of responsibility hypothesis.<br>a) Describe what is meant by 'diffusion of responsibility'.<br>b) Explain whether the results of Piliavin et al.'s study support or contradict this hypothesis.</div>
+<div class="exam-q"><b>Q12 [4 marks]</b> Piliavin et al. carried out a field experiment. Outline one strength and one weakness of this research method in the study by Piliavin et al.</div>
+
+<!-- ===== SELF-EVALUATION CHECKLIST ===== -->
+<h2>Self-Evaluation Checklist（自我评估清单）</h2>
+<p>After studying this chapter, check your understanding:</p>
+<table>
+  <tr><th>I can...</th><th>Needs more work</th><th>Almost there</th><th>Ready to move on</th></tr>
+  <tr><td>State what is meant by the social approach</td><td>☐</td><td>☐</td><td>☐</td></tr>
+  <tr><td>Explain the psychology being investigated in the social approach</td><td>☐</td><td>☐</td><td>☐</td></tr>
+  <tr><td>Describe the main assumptions of the social approach and link them to the studies</td><td>☐</td><td>☐</td><td>☐</td></tr>
+  <tr><td>Use terminology relevant to the social approach</td><td>☐</td><td>☐</td><td>☐</td></tr>
+  <tr><td>Describe and evaluate the study by Milgram (obedience)</td><td>☐</td><td>☐</td><td>☐</td></tr>
+  <tr><td>Describe and evaluate the study by Perry et al. (personal space)</td><td>☐</td><td>☐</td><td>☐</td></tr>
+  <tr><td><strong>Describe and evaluate the study by Piliavin et al. (subway Samaritans)</strong></td><td>☐</td><td>☐</td><td>☐</td></tr>
+  <tr><td>Apply relevant research methods to the social approach</td><td>☐</td><td>☐</td><td>☐</td></tr>
+  <tr><td>Consider issues and debates that are relevant to the social approach</td><td>☐</td><td>☐</td><td>☐</td></tr>
+</table>
+
+</div><!-- end content -->
+</div><!-- end container -->
+</body>
+</html>

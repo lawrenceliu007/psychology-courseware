@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Milgram (1963) — Behavioural Study of Obedience</title>
+  <style>
+    :root {
+      --primary: #8b3a3a;
+      --primary-light: #a85555;
+      --primary-dark: #6b1f1f;
+      --accent: #3a6b8a;
+      --accent-light: #5a8baa;
+      --bg: #ffffff;
+      --card-bg: #ffffff;
+      --text: #2c2c2c;
+      --text-secondary: #6b7280;
+      --border: #e5e7eb;
+      --soft: #f6f7f9;
+      --box: #fff5f5;
+      --box2: #f0f9ff;
+      --box3: #f5fff5;
+      --highlight: #fef3c7;
+      --warn-bg: #fee2e2;
+    }
+    * { box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; line-height: 1.75; color: var(--text); background: var(--bg); margin: 0; padding: 0; }
+    .container { max-width: 900px; margin: 0 auto; padding: 30px 24px; }
+
+    /* Header */
+    .header { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, var(--primary-dark), var(--primary)); color: white; border-radius: 12px; margin-bottom: 28px; box-shadow: 0 4px 15px rgba(139,58,58,0.3); }
+    .header h1 { font-size: 1.85em; margin-bottom: 10px; }
+    .header .subtitle { font-size: 1.05em; opacity: 0.92; }
+    .header .meta { margin-top: 15px; font-size: 0.88em; opacity: 0.82; }
+    .badge { display: inline-block; padding: 4px 14px; border-radius: 20px; background: rgba(255,255,255,0.2); margin: 3px; font-size: 0.84em; }
+
+    /* TOC */
+    .toc { background: var(--soft); border: 1px solid var(--border); border-radius: 10px; padding: 22px 26px; margin-bottom: 24px; border-left: 4px solid var(--primary); }
+    .toc h2 { color: var(--primary-dark); margin-bottom: 14px; font-size: 1.25em; }
+    .toc ol { padding-left: 20px; }
+    .toc li { margin: 7px 0; }
+    .toc li a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+    .toc li a:hover { color: var(--primary); text-decoration: underline; }
+
+    /* Sections */
+    .section { background: var(--card-bg); border-radius: 10px; padding: 28px 32px; margin-bottom: 24px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); border-top: 3px solid var(--primary-light); }
+    .section h2 { color: var(--primary-dark); font-size: 1.45em; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid var(--border); }
+    .section h3 { color: var(--primary); font-size: 1.18em; margin: 22px 0 12px; }
+    .section h4 { color: var(--text); font-size: 1.04em; margin: 14px 0 8px; }
+
+    /* Quote block */
+    .quote { border-left: 4px solid var(--primary); background: linear-gradient(135deg, #fff5f5, #ffe8e8); padding: 16px 22px; margin: 16px 0; border-radius: 0 8px 8px 0; font-style: italic; color: var(--primary-dark); }
+
+    /* Info boxes */
+    .note-box { background: var(--box); border-left: 4px solid var(--primary); border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+    .note-box-title { font-weight: 700; color: var(--primary); margin-bottom: 6px; }
+    .blue-box { background: var(--box2); border-left: 4px solid var(--accent); border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+    .green-box { background: var(--box3); border-left: 4px solid #38a169; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+    .warn-box { background: var(--warn-bg); border-left: 4px solid #dc2626; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+    .warn-box h4 { color: #991b1b; margin-bottom: 6px; }
+
+    /* Keyword box */
+    .keyword-box { background: linear-gradient(135deg, #FFF8E1, #FFECB3); border-left: 5px solid #D97706; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+    .keyword-box h4 { color: #92400E; font-size: 0.95em; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+    .keyword-box p { margin: 6px 0; }
+    .keyword-box strong { color: #78350F; }
+
+    /* Images */
+    .figure { margin: 20px 0; text-align: center; }
+    .figure img { max-width: 100%; border: 1px solid var(--border); border-radius: 10px; box-shadow: 0 3px 12px rgba(0,0,0,0.08); }
+    .figure-caption { font-size: 0.89em; color: var(--text-secondary); margin-top: 8px; font-style: italic; }
+
+    /* Tables */
+    table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 0.92em; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-radius: 8px; overflow: hidden; }
+    th { background: var(--primary); color: white; padding: 12px 14px; text-align: left; font-weight: 600; }
+    td { padding: 11px 14px; border-bottom: 1px solid var(--border); }
+    tr:nth-child(even) { background: #fafbfc; }
+    tr:hover { background: #fff5f5; }
+    td:first-child { font-weight: 600; color: var(--primary-dark); }
+    .num-cell { text-align: center; font-weight: 700; color: var(--primary-dark); }
+    caption { font-weight: 600; color: var(--text); margin-bottom: 8px; font-size: 0.96em; }
+
+    /* Lists */
+    ul, ol { margin: 10px 0; padding-left: 24px; }
+    li { margin: 6px 0; }
+
+    /* Protest timeline special styling */
+    .protest-table td:first-child { width: 100px; font-weight: 700; color: var(--primary-dark); white-space: nowrap; }
+    .protest-level { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.86em; font-weight: 600; }
+    .level-low { background: #d1fae5; color: #065f46; }
+    .level-mid { background: #fef3c7; color: #92400E; }
+    .level-high { background: #fee2e2; color: #991b1b; }
+    .level-extreme { background: #fecaca; color: #7f1d1d; }
+
+    /* Discussion factor cards */
+    .factor-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0; }
+    .factor-card { background: #fafafa; border-radius: 8px; padding: 14px 16px; border-left: 3px solid var(--accent); }
+    .factor-card .num { font-weight: 800; color: var(--accent); font-size: 1.1em; margin-right: 6px; }
+    .factor-card h4 { display: inline; font-size: 0.94em; color: var(--text); }
+
+    /* Footer */
+    .footer-note { font-size: 0.85em; color: var(--text-secondary); margin-top: 2.5em; padding-top: 1em; border-top: 1px solid var(--border); text-align: center; }
+
+    @media (max-width: 768px) {
+      .container { padding: 16px; }
+      .section { padding: 20px; }
+      .factor-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+<!-- HEADER -->
+<div class="header">
+  <h1>⚡ Milgram (1963)</h1>
+  <div class="subtitle">Behavioural Study of Obedience<br>服从行为研究</div>
+  <div class="meta">
+    <span class="badge">📘 CIE Social Approach 社会取向</span>
+    <span class="badge">📄 Journal of Abnormal and Social Psychology, 67, 371–378</span>
+    <span class="badge">🔬 Core Study 1</span>
+    <span class="badge">✅ Revised with Original Paper 原文校对版</span>
+  </div>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<div class="toc">
+  <h2>📑 Contents 目录</h2>
+  <ol>
+    <li><a href="#s1">Main Assumptions in Context（社会心理学取向的主要假设）</a></li>
+    <li><a href="#s2">The Psychology Being Investigated（研究涉及的心理学）</a></li>
+    <li><a href="#s3">Background（研究背景）</a></li>
+    <li><a href="#s4">Aim（研究目的）</a></li>
+    <li><a href="#s5">Method（研究方法）</a></li>
+    <li><a href="#s6">Results（研究结果）</a></li>
+    <li><a href="#s7">Conclusion（结论）</a></li>
+    <li><a href="#s8">Strengths & Weaknesses（优缺点）</a></li>
+    <li><a href="#s9">Ethical Issues（伦理问题）</a></li>
+    <li><a href="#s10">Issues & Debates（争论与取向）</a></li>
+    <li><a href="#s11">Summary（总结）</a></li>
+    <li><a href="#s12">Study Questions（复习题）</a></li>
+    <li><a href="#s13">Key Terms（核心术语）</a></li>
+  </ol>
+</div>
+
+<!-- SECTION 1 -->
+<div class="section" id="s1">
+  <h2>1️⃣ Main Assumptions in Context（社会心理学取向的主要假设）</h2>
+
+  <h3>Humans as Social Actors（人作为社会行动者）</h3>
+  <p>Social psychologists are interested in understanding the factors that influence how we behave in social situations. The main assumptions of the social approach to psychology are that:</p>
+  <ul>
+    <li>Our behaviour, cognitions and emotions can be influenced by the actual, implied or imagined presence of others.</li>
+    <li>All of our behaviour, cognitions and emotions can be influenced by social contexts, social environments and groups.</li>
+  </ul>
+
+  <p>These assumptions introduce the idea that other people have an enormously powerful effect on how we live our lives. We might experience this in the different <strong>social roles（社会角色）</strong> we play as students, children, workers, volunteers, etc. For example, a manager may behave formally in their office environment, greeting colleagues with handshakes and wearing smart work clothes. However, when visiting their mother they change roles to a more informal one, greeting her with a hug and dressing casually.</p>
+
+  <div class="note-box">
+    <p>Social psychology argues that behaviour is not solely determined by personality—it is profoundly shaped by surrounding environments and social relationships. The same person acts differently as a "manager" at work versus as a "son/daughter" at home. This is the power of <strong>social role</strong>.</p>
+  </div>
+
+  <h3>Social Pressure（社会压力）</h3>
+  <p>The influence of others is not limited to their actual presence. We may act as though others are with us even when they are not—feelings of excitement before a party come from imagining friends' presence. These powerful influences on thoughts, feelings and behaviour are collectively known as <strong>social pressure（社会压力）</strong>.</p>
+
+  <p>Social pressure can take the form of direct influence such as orders, threats or demands, but may also involve social approval or reward, or feeling the need to conform to expectations or obey directions from another person.</p>
+
+  <h3>Obedience（服从）</h3>
+  <p>Many social psychologists consider obedience one of the most basic parts of the structure of social worlds. An agreed system of authority and obedience is necessary for humans to live and work together. However, obedience to authority can also have negative consequences, including aggression towards others.</p>
+
+  <p>The concept of <strong>destructive obedience（破坏性服从）</strong> is of special interest. During World War II, millions of innocent people were systematically murdered on command. The Holocaust required the obedience of many ordinary citizens as well as Nazi officers and guards.</p>
+
+  <div class="warn-box">
+    <h4>⚠️ Historical Context</h4>
+    <p>Milgram himself was born into a Jewish family. He wrote: "Obedience is the psychological mechanism that links individual action to political purpose... from 1933–45 millions of innocent persons were systematically slaughtered on command." This personal motivation drove his research.</p>
+  </div>
+</div>
+
+<!-- SECTION 2 -->
+<div class="section" id="s2">
+  <h2>2️⃣ The Psychology Being Investigated（研究涉及的心理学）</h2>
+
+  <p>Social pressure describes the influence of a person or group on another person or group. This might involve direct forms of influence such as orders, threats or demands, but may also involve social approval or reward. The concept of <strong>destructive obedience</strong>, in particular, is of special interest to social psychologists.</p>
+
+  <div class="blue-box">
+    <strong>Core Research Question 核心研究问题：</strong> Why would ordinary people obey an authority figure's commands even when those commands cause harm to another person?<br>
+    <span style="color:var(--text-secondary);font-size:0.93em;">（为什么普通人会服从权威人物的命令，即使这些命令会伤害他人？）</span>
+  </div>
+
+  <blockquote>
+    "When you think of the long and gloomy history of man, you will find more hideous crimes have been committed in the name of obedience than have ever been committed in the name of rebellion."<br>
+    <span style="font-size:0.9em;color:var(--text-secondary);">— C. P. Snow (1961), quoted by Milgram in the original paper</span>
+  </blockquote>
+</div>
+
+<!-- SECTION 3 -->
+<div class="section" id="s3">
+  <h2>3️⃣ Background（研究背景）</h2>
+
+  <h3>The 'Germans Are Different' Hypothesis（"德国人不同"假说）</h3>
+  <p>One theory used to explain the Holocaust is that German citizens possessed defective personal traits which made extreme levels of obedience possible. This individual argument suggests that Germans are somehow different from others—the so-called <strong>'Germans are different' hypothesis（"德国人不同"假说）</strong>.</p>
+
+  <p>Stanley Milgram sought to challenge this hypothesis. He proposed a <strong>situational explanation（情境解释）</strong>: that many people in a similar situation would harm or even kill other human beings under authority orders, regardless of nationality.</p>
+
+  <h3>Predictions Before the Study（实验前的预测）</h3>
+  <p>Before his study, Milgram described the procedure to psychology students and colleagues, asking them what percentage of participants would deliver maximum voltage shocks. Their predictions:</p>
+  <ul>
+    <li><strong>All respondents predicted only an insignificant minority would go through to the end</strong> of the shock series.</li>
+    <li>Estimates ranged from <strong>0% to 3%</strong>.</li>
+    <li>The class mean was <strong>1.2%</strong>.</li>
+    <li>Colleagues felt few if any subjects would go beyond <strong>"Very Strong Shock"</strong> (195–240V).</li>
+  </ul>
+
+  <div class="note-box">
+    <p>Milgram wanted to prove: it wasn't that Germans were uniquely cruel—it was the <strong>situation</strong> that overwhelmed ordinary people's moral judgement. Everyone predicted very low obedience rates. The actual results were shocking.</p>
+  </div>
+
+  <h3>Individual vs Situational Explanations（个体解释与情境解释）</h3>
+  <p>This debate concerns whether a person's individual characteristics (personality) or environmental conditions more strongly influence behaviour. Milgram's study challenges personality-based explanations because <strong>all participants administered at least 300V</strong>. He attributed this to situational variables: legitimacy of the setting and authority of the experimenter.</p>
+</div>
+
+<!-- SECTION 4 -->
+<div class="section" id="s4">
+  <h2>4️⃣ Aim（研究目的）</h2>
+
+  <blockquote>
+    The aim was to investigate how obedient individuals would be to orders received from a person in authority. Specifically, Milgram wanted to know whether people show obedience even when it would result in physical harm to another person (<strong>destructive obedience 破坏性服从</strong>). To test this, he developed a laboratory procedure involving a researcher ordering the participant to give electric shocks to a victim.<br>
+    <span style="font-size:0.95em;color:var(--text-secondary);">（研究普通人在权威命令下会对他人施加电击到什么程度。）</span>
+  </blockquote>
+
+  <div class="blue-box">
+    <strong>Aim in One Sentence 一句话 aim：</strong><br>
+    To investigate how far ordinary people would obey an authority figure when ordered to deliver electric shocks to another person.<br>
+    <span style="color:var(--text-secondary);font-size:0.93em;">（调查普通人在权威命令下会对他人施加多强的电击。）</span>
+  </div>
+</div>
+
+<!-- SECTION 5 -->
+<div class="section" id="s5">
+  <h2>5️⃣ Method（研究方法）</h2>
+
+  <h3>Research Method and Design（研究方法与设计）</h3>
+  <p>This study is a <strong>controlled observation（控制性观察）</strong>. It took place in a laboratory where all variables and measurements were controlled while participant behaviour was observed and recorded.</p>
+
+  <p>Milgram originally described it as a laboratory experiment; however, it contained no manipulated (independent) variables. Each participant underwent the same procedure with no control condition. He later replicated the procedure in other studies using different variations to allow comparisons.</p>
+
+  <div class="note-box">
+    <p>Strictly speaking this is not a true experiment because Milgram did not manipulate different conditions for comparison. He simply observed all participants' behaviour under identical conditions. Hence: <strong>controlled observation</strong>—control the environment, then observe behaviour.</p>
+  </div>
+
+  <h3>Sample（样本）</h3>
+  <p>The subjects were <strong>40 males between the ages of 20 and 50</strong>, recruited through newspaper advertisement in the New Haven area. This was a <strong>volunteer sample（志愿样本）</strong>.</p>
+
+  <table>
+    <caption><strong>Table 1: Distribution of Age and Occupational Types 样本年龄与职业分布</strong> (from original paper)</caption>
+    <thead>
+      <tr><th rowspan="2">Occupation 职业</th><th colspan="3">Age 年龄</th><th rowspan="2">% of Total<br>占比</th></tr>
+      <tr><th>20–29</th><th>30–39</th><th>40–50</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Workers, skilled and unskilled<br>工人（熟练/非熟练）</td><td>4</td><td>5</td><td>6</td><td class="num-cell"><strong>37.5%</strong></td></tr>
+      <tr><td>Sales, business and white-collar<br>销售、商业、白领</td><td>3</td><td>6</td><td>7</td><td class="num-cell"><strong>40.0%</strong></td></tr>
+      <tr><td>Professional 专业人士</td><td>1</td><td>5</td><td>3</td><td class="num-cell"><strong>22.5%</strong></td></tr>
+      <tr style="background:#fff5f5;"><td><strong>% of Total 总计</strong></td><td class="num-cell"><strong>20%</strong></td><td class="num-cell"><strong>40%</strong></td><td class="num-cell"><strong>40%</strong></td><td class="num-cell"><strong>100%</strong></td></tr>
+    </tbody>
+  </table>
+
+  <p>In addition, <strong>43 undergraduate students from Yale University</strong> completed the same experiment without payment. Although details of this additional sample are not included in the main paper, their results were very similar to those obtained by paid participants.</p>
+
+  <div class="note-box">
+    <p>Volunteer sampling means participants self-selected, potentially attracting people who are more cooperative or interested in psychology than average. Also, the sample was <strong>all male</strong>, limiting generalisability to women.</p>
+  </div>
+
+  <h3>Personnel and Locale（人员与地点）</h3>
+  <p>The experiment was conducted on the grounds of <strong>Yale University</strong> in the elegant interaction laboratory. This detail is relevant to the <strong>perceived legitimacy（感知合法性）</strong> of the experiment—in later variations, dissociating the experiment from the university affected performance.</p>
+
+  <div class="figure">
+    <img src="milgram_images/yale_university.png" alt="Yale University">
+    <div class="figure-caption">Yale University, where Milgram's experiments took place（Milgram 服从实验在耶鲁大学进行）</div>
+  </div>
+
+  <h4>The Experimenter（实验者）</h4>
+  <p>The role of experimenter was played by a <strong>31-year-old high school biology teacher</strong>. His manner was <strong>impassive（冷漠的）</strong>, and his appearance somewhat <strong>stern（严厉的）</strong> throughout the experiment. He was dressed in a <strong>gray technician's coat（灰色技术员外套）</strong>.</p>
+
+  <h4>The Victim / Confederate（受害者/同谋）</h4>
+  <p>The victim was played by a <strong>47-year-old accountant（47岁会计师）</strong>, trained for the role. He was of <strong>Irish-American stock（爱尔兰裔美国人）</strong>, whom most observers found <strong>mild-mannered and likable（温和且讨人喜欢）</strong>.</p>
+
+  <h3>Procedure（程序）</h3>
+
+  <h4>Step 1: Arrival and Payment 到达与报酬</h4>
+  <p>Each participant was promised <strong>$4.50</strong> for taking part. Crucially, subjects were told that payment was <strong>simply for coming to the laboratory</strong>, and that the money was theirs <strong>no matter what happened after they arrived</strong>.</p>
+
+  <h4>Step 2: Role Allocation 角色分配</h4>
+  <p>Participants arrived individually and were introduced to another man believed to be another participant. This man was actually a <strong>confederate（同谋/托儿）</strong>. Both were told they would be allocated roles of 'teacher' or 'learner' in an experiment about punishment and learning.</p>
+
+  <p>They drew slips of paper from a hat to determine roles—but <strong>the drawing was rigged（抽签是假的）</strong>. Both slips said "Teacher," ensuring the naive subject was always the teacher and the accomplice always the learner.</p>
+
+  <h4>Step 3: Setup 设置</h4>
+  <p>Immediately after drawing, the learner was taken to an adjacent room and strapped into an "electric chair" apparatus. Straps were explained as preventing excessive movement during shocking. An electrode was attached to the learner's wrist with electrode paste "to avoid blisters and burns."</p>
+
+  <p>The teacher was presented with the <strong>shock generator（电击发生器）</strong>:</p>
+  <ul>
+    <li><strong>30 switches</strong> ranging from 15 volts to 450 volts</li>
+    <li>Verbal labels: Slight Shock → Moderate Shock → Strong Shock → Very Strong Shock → Intense Shock → Extreme Intensity Shock → <strong>Danger: Severe Shock</strong> → XXX (final two switches)</li>
+    <li>Pressing a switch illuminated a red pilot light, produced buzzing, flashed a blue "voltage energizer" light, swung the meter dial, and sounded relay clicks</li>
+    <li>Labeled: <em>Shock Generator, Type ZLB, Dyson Instrument Company, Waltham, Mass. Output 15 Volts – 450 Volts</em></li>
+  </ul>
+
+  <div class="figure">
+    <img src="milgram_images/milgram_experimental_setup.png" alt="Milgram experimental setup">
+    <div class="figure-caption">Milgram's experimental setup: the experimenter urges the participant to continue shocking the victim（Milgram 实验装置：实验者催促参与者继续施加电击）</div>
+  </div>
+
+  <h4>Step 4: Sample Shock 样本电击</h4>
+  <p>Each naive subject received a <strong>sample shock of 45 volts</strong> before beginning. This shock came from a real 45-volt battery wired into the generator, applied to the subject's own wrist. This further convinced subjects of the machine's authenticity. <strong>No subject suspected the instrument was merely simulated.</strong></p>
+
+  <h4>Step 5: Preliminary Run (Practice) 练习阶段</h4>
+  <p>Pretests revealed that reading words and administering shocks required practice. Therefore, immediately preceding the regular run, the teacher completed a <strong>preliminary series of 10 words</strong>:</p>
+  <ul>
+    <li>3 neutral words (learner answers correctly) → no shock needed</li>
+    <li>7 wrong answers → shocks administered, maxing at <strong>105 volts (Moderate Shock)</strong></li>
+    <li><strong>Almost all subjects mastered the procedure by the end of the preliminary run.</strong></li>
+  </ul>
+
+  <h4>Step 6: Regular Run 正式实验</h4>
+  <p>Subjects were presented with a second word list. The experimenter instructed:</p>
+  <blockquote>
+    "When you get to the bottom of the list, repeat it over again, and continue giving shocks, until the learner has learned all the pairs correctly... start from 15 volts and increase the shock level one step each time the learner gives a wrong answer."
+  </blockquote>
+
+  <h4>The Learning Task 学习任务</h4>
+  <p>The teacher read pairs of words aloud, then tested the learner's recognition. The learner followed a pre-set script: approximately <strong>three wrong answers to one correct answer</strong>.</p>
+
+  <h3>The Learner's Protest Script（学习者抗议脚本）⚠️ 重要修正</h3>
+  <p>This is the <strong>feedback from the victim</strong>—a predetermined set of responses based on ~3 wrong : 1 correct ratio. The learner's protests began <strong>far earlier than 300V</strong>:</p>
+
+  <table class="protest-table">
+    <caption><strong>Complete Learner Response Script 完整的学习者反应脚本</strong> (from original paper)</caption>
+    <thead>
+      <tr><th>Voltage 电压</th><th>Label 标签</th><th>Learner's Response 学习者反应</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><span class="protest-level level-low">75V</span></td><td>Slight Shock</td><td><em>Grunts（呻吟）</em></td></tr>
+      <tr><td><span class="protest-level level-low">90V</span></td><td>Slight Shock</td><td><em>Grunts（呻吟）</em></td></tr>
+      <tr><td><span class="protest-level level-mid">105V</span></td><td>Moderate Shock</td><td><em>Grunts（呻吟）</em></td></tr>
+      <tr><td><span class="protest-level level-mid">120V</span></td><td>Moderate Shock</td><td><em>Shouts "Hey, this really hurts!"（喊："嘿，真的很痛！"）</em></td></tr>
+      <tr><td><span class="protest-level level-mid">135V</span></td><td>Strong Shock</td><td><em>A agonized scream（痛苦的尖叫）</em></td></tr>
+      <tr><td><span class="protest-level level-mid">150V</span></td><td>Strong Shock</td><td><em>"Experimenter! That's all! Get me out of here! I told you I had heart trouble! My heart's starting to bother me now! Get me out of here, my heart's!"<br>（"实验者！够了！放我出去！我告诉过我有心脏病！我的心脏现在开始难受了！放我出去！"）</em></td></tr>
+      <tr><td><span class="protest-level level-high">165V</span></td><td>Strong Shock</td><td><em>(Intense screaming 尖叫)</em></td></tr>
+      <tr><td><span class="protest-level level-high">180V</span></td><td>Very Strong Shock</td><td><em>"I can't stand the pain! Let me out of here!"（"我受不了了！放我出去！"）</em></td></tr>
+      <tr><td><span class="protest-level level-high">195V</span></td><td>Very Strong Shock</td><td><em>(Screams 尖叫)</em></td></tr>
+      <tr><td><span class="protest-level level-high">210V</span></td><td>Intense Shock</td><td><em>"I absolutely refuse to go on. Let me out of here!"（"我绝对拒绝继续。放我出去！"）</em></td></tr>
+      <tr><td><span class="protest-level level-high">225V</span></td><td>Intense Shock</td><td><em>(Screams 尖叫)</em></tr>
+      <tr><td><span class="protest-level level-high">240V</span></td><td>Intense Shock</td><td><em>(Screams 尖叫)</em></td></tr>
+      <tr><td><span class="protest-level level-high">255V</span></td><td>Intense Shock</td><td><em>(Agonized scream 痛苦尖叫)</em></td></tr>
+      <tr><td><span class="protest-level level-high">270V</span></td><td>Extreme Intensity</td><td><em>(Agonized scream 痛苦尖叫 + desperate pounding on wall 绝望地捶墙)</em></td></tr>
+      <tr><td><span class="protest-level level-high">285V</span></td><td>Extreme Intensity</td><td><em>(Agonized scream + pounding 痛苦尖叫+捶墙)</em></td></tr>
+      <tr><td><span class="protest-level level-extreme">300V</span></td><td>Extreme Intensity</td><td><em><strong>Kicks violently on the wall 暴力踢墙</strong> — then <strong>NO RESPONSE / SILENCE 无回应/沉默</strong></em></td></tr>
+      <tr><td><span class="protest-level level-extreme">315V</span></td><td>Danger: Severe</td><td><em><strong>STILL SILENT 仍然沉默</strong></em></td></tr>
+      <tr><td><span class="protest-level level-extreme">330V – 450V</span></td><td>Danger → XXX</td><td><em><strong>STILL SILENT 仍然沉默</strong> (no answers reappear on signal box)</em></td></tr>
+    </tbody>
+  </table>
+
+  <div class="warn-box">
+    <h4>⚠️ Key Correction 关键修正</h4>
+    <p>The learner began protesting at <strong>75V (grunting)</strong>, shouted about heart trouble at <strong>150V</strong>, demanded release at <strong>180V</strong>, and started pounding the wall at <strong>270V</strong>. At <strong>300V</strong> he kicked the wall violently and then fell completely silent. The previous version incorrectly stated the learner remained silent until 300V.</p>
+  </div>
+
+  <h3>Verbal Prods（言语提示）</h3>
+  <p>If the subject turned to the experimenter for advice or indicated unwillingness to continue, the experimenter responded with a sequence of <strong>"prods"</strong>, using as many as necessary:</p>
+
+  <table>
+    <thead>
+      <tr><th>Prod #</th><th>Standard Prods 标准提示语</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="num-cell">Prod 1</td><td>Please continue. / Please go on.<br>（请继续。）</td></tr>
+      <tr><td class="num-cell">Prod 2</td><td>The experiment requires that you continue.<br>（实验要求你继续。）</td></tr>
+      <tr><td class="num-cell">Prod 3</td><td>It is absolutely essential that you continue.<br>（你必须绝对继续。）</td></tr>
+      <tr><td class="num-cell">Prod 4</td><td>You have no other choice, you must go on.<br>你别无选择，必须继续。</td></tr>
+    </tbody>
+  </table>
+
+  <p>Prods were always made in sequence. Only if Prod 1 failed could Prod 2 be used. If the subject refused after Prod 4, the experiment terminated. The experimenter's tone was <strong>firm but not impolite</strong>. The sequence restarted each time the subject balked.</p>
+
+  <h4>Special Prods（特殊提示语）</h4>
+  <p>For specific questions, the experimenter gave tailored responses:</p>
+
+  <table>
+    <thead>
+      <tr><th>If the subject asked 如果被试问...</th><th>Experimenter's response 实验者回答</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>"Will the learner suffer permanent physical injury?"<br>（"学习者会不会受永久性身体伤害？"）</td><td>"Although the shocks may be painful, there is no permanent tissue damage, so please go on."<br>（"虽然电击可能很痛，但不会造成永久组织损伤，所以请继续。"）<br><em>→ Then Prods 2, 3, 4 if needed</em></td></tr>
+      <tr><td>"The learner doesn't want to go on"<br>（"学习者不想继续了"）</td><td>"Whether the learner likes it or not, you must go on until he has learned all the word pairs correctly. So please go on."<br>（"不管学习者喜不喜欢，你必须继续直到他学会所有词对。所以请继续。"）<br><em>→ Then Prods 2, 3, 4 if needed</em></td></tr>
+    </tbody>
+  </table>
+
+  <h3>Dependent Measures（因变量测量）</h3>
+  <p>The <strong>primary dependent measure</strong> for any subject is the <strong>maximum shock administered</strong> before refusing to continue. In principle this ranges from 0 (refuses first shock) to 30 (administers highest shock). A subject who breaks off early is termed a <strong>defiant subject（反抗者）</strong>; one who complies fully is termed an <strong>obedient subject（服从者）</strong>.</p>
+
+  <p>Additional records: sessions recorded on magnetic tape, occasional photographs through one-way mirrors, notes on unusual behaviour, timing devices measuring latency and duration of shocks.</p>
+
+  <h3>Interview and Dehoax（访谈与事后解释）</h3>
+  <p>After the experiment, subjects were interviewed using open-ended questions, projective measures, and attitude scales. Subjects estimated how painful the final shocks were on a <strong>14-point scale</strong> ("Not at all painful" to "Extremely painful"). After the interview, procedures assured subjects left in a state of well-being—a friendly <strong>debriefing（事后解释）</strong> reconciled any ill feelings.</p>
+</div>
+
+<!-- SECTION 6 -->
+<div class="section" id="s6">
+  <h2>6️⃣ Results（研究结果）</h2>
+
+  <h3>Subjects Accepted Situation as Real 被试相信情境真实</h3>
+  <p>With few exceptions, subjects were convinced of reality—that they were administering real shocks and the most potent shocks were extremely painful. On the 14-point post-experimental scale:</p>
+  <ul>
+    <li><strong>Modal response: 14</strong> (Extremely painful)</li>
+    <li><strong>Mean: 13.42</strong> out of 14</li>
+  </ul>
+
+  <h3>Signs of Extreme Tension 极度紧张的迹象</h3>
+  <p>Many subjects showed signs of nervousness, especially when administering more powerful shocks. In many cases tension reached extremes rarely seen in sociopsychological studies:</p>
+  <ul>
+    <li><strong>Profuse sweating, trembling, stuttering</strong>（大量出汗、颤抖、口吃）</li>
+    <li>Biting lips, groaning, digging fingernails into flesh</li>
+    <li><strong>Nervous laughter:</strong> 14 of 40 subjects showed definite signs of nervous laughter/smiling</li>
+    <li><strong>3 subjects experienced full-blown, uncontrollable seizures</strong>—one so violent the experiment had to be halted</li>
+  </ul>
+
+  <div class="note-box">
+    <p>The nervous laughter seemed "entirely out of place, even bizarre." One subject (a 46-year-old encyclopedia salesman) was seriously embarrassed by his uncontrollable seizure. In post-experimental interviews, subjects emphasised they were <em>not sadistic types</em> and the laughter did not mean enjoyment.</p>
+  </div>
+
+  <h3>Distribution of Maximum Shocks 最高电击分布</h3>
+  <p>It had been conjectured that persons would not administer shocks beyond <strong>"Very Strong Shock"</strong>. The obtained distribution deviated radically from prediction:</p>
+
+  <table>
+    <caption><strong>Table 2: Distribution of Breakoff Points 断裂点分布</strong> (from original paper)</caption>
+    <thead>
+      <tr><th>Verbal Designation 文字标签</th><th>Voltage 电压(V)</th><th># Subjects 人数</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Slight Shock</td><td>15–60</td><td class="num-cell">0</td></tr>
+      <tr><td>Moderate Shock</td><td>75–120</td><td class="num-cell">0</td></tr>
+      <tr><td>Strong Shock</td><td>135–180</td><td class="num-cell">0</td></tr>
+      <tr><td>Very Strong Shock</td><td>195–240</td><td class="num-cell">0</td></tr>
+      <tr><td>Intense Shock</td><td>255–300</td><td class="num-cell">5</td></tr>
+      <tr><td>Extreme Intensity Shock</td><td>315–360</td><td class="num-cell">8</td></tr>
+      <tr><td>Danger: Severe Shock</td><td>375–420</td><td class="num-cell">1</td></tr>
+      <tr style="background:#fee2e2;font-weight:700;"><td>XXX (Maximum)</td><td>435–450</td><td class="num-cell">26</td></tr>
+      <tr style="background:#fef3c7;font-weight:700;"><td><strong>TOTAL 总计</strong></td><td></td><td class="num-cell"><strong>40</strong></td></tr>
+    </tbody>
+  </table>
+
+  <div class="blue-box">
+    <h4>📊 Key Findings 核心发现</h4>
+    <ul style="margin-bottom:0;">
+      <li><strong>26 of 40 subjects (65%) obeyed fully</strong> — administered maximum 450V shock (two steps beyond "Danger: Severe Shock")</li>
+      <li><strong>14 subjects defied the experimenter</strong> — broke off at various points after the victim protested</li>
+      <li><strong>All 40 subjects reached at least 300V</strong> (where victim kicked wall and went silent)</li>
+      <li><strong>Mean voltage: 368V</strong></li>
+      <li>This contrasts sharply with the predicted <strong>0–3%</strong> obedience rate</li>
+    </ul>
+  </div>
+
+  <h3>Qualitative Data: Remarks at Defiance 定性数据：反抗时的原话</h3>
+  <p>Here are verbatim remarks from defiant subjects, transcribed from tape recordings:</p>
+
+  <div class="quote">
+    <p><strong>[Subject 0124] — broke off at 285V:</strong><br>
+    "I think he's trying to communicate, he's knocking... Well it's not fair to shock the guy... these are terrific volts. I don't think this is very humane... Oh, I can't go on with this; no, this isn't right. It's a hell of an experiment. The guy is suffering in there. No, I don't want to go on. This is crazy."</p>
+  </div>
+
+  <div class="quote">
+    <p><strong>[Subject 0123] — broke off at 300V:</strong><br>
+    "He's banging in there. I'm gonna chicken out. I'd like to continue, but I can't do that to a man... I'm sorry I can't do that to a man. I'll hurt his heart. You take your check... No really, I couldn't do it."</p>
+  </div>
+
+  <p>Defiant subjects were frequently in highly agitated or angered states. Some simply got up from their chair and indicated they wished to leave. Obedient subjects often showed extreme stress too—some expressed reluctance beyond 300V yet still obeyed. After maximum shocks, many heaved sighs of relief, mopped brows, rubbed eyes, or fumbled cigarettes nervously.</p>
+</div>
+
+<!-- SECTION 7 -->
+<div class="section" id="s7">
+  <h2>7️⃣ Conclusion（结论）</h2>
+
+  <p>Milgram's study supports a <strong>situational explanation（情境解释）</strong> for obedience. He identified multiple factors contributing to high obedience levels:</p>
+
+  <ol>
+    <li><strong>Individuals are far more obedient to authority than expected</strong> — this seems true for most people, regardless of culture or personality.</li>
+    <li><strong>Despite high obedience, people experience extreme stress</strong> when carrying out destructive acts under authority orders. This reflects a conflict between two deeply ingrained dispositions: the need to obey legitimate authorities, and the need to avoid harming others.</li>
+  </ol>
+
+  <div class="green-box">
+    <p>Milgram noted one extraordinary case: a subject who, after 20 minutes, was reduced to "a twitching, stuttering wreck, rapidly approaching nervous collapse." He constantly pulled his earlobe, twisted his hands, pushed his fist into his forehead and muttered "Oh God, let's stop it"—<strong>and yet he continued to respond to every word of the experimenter, and obeyed to the end.</strong></p>
+  </div>
+</div>
+
+<!-- SECTION 8 -->
+<div class="section" id="s8">
+  <h2>8️⃣ Strengths & Weaknesses（优缺点）</h2>
+
+  <h3>Strengths（优点）</h3>
+  <ul>
+    <li><strong>Controlled observation with good control（控制良好的观察）</strong>: Extraneous variables controlled (stooge's age, appearance, etc.). All participants experienced identical conditions.</li>
+    <li><strong>Standardised procedure（标准化程序）</strong>: Verbal prods were identical each time. Standardisation increases reliability—each participant had exactly the same experience.</li>
+    <li><strong>Realistic equipment and setting improved validity（真实设备提高效度）</strong>: The authentic-looking shock generator (engraved by precision industrial engravers) and the real 45V sample shock convinced participants the situation was genuine.</li>
+    <li><strong>Quantitative data（定量数据）</strong>: Maximum voltage delivered provides objective, numerical measurement of obedience for easy comparison.</li>
+    <li><strong>Qualitative data（定性数据）</strong>: Observers recorded body language, verbal comments, and emotional responses—providing rich insight into the tension between obedience and conscience.</li>
+    <li><strong>Mixed methods（混合方法）</strong>: Combining quantitative (voltage levels) and qualitative (observations, tape recordings) gives a fuller picture than either alone.</li>
+  </ul>
+
+  <h3>Weaknesses（缺点）</h3>
+  <ul>
+    <li><strong>Sample bias / gender bias（样本偏差/性别偏差）</strong>: All 40 participants were men from New Haven area. Cannot generalise to women or other cultures.</li>
+    <li><strong>Volunteer sample bias（志愿样本偏差）</strong>: Self-selected sample may attract particularly cooperative or psychology-interested individuals.</li>
+    <li><strong>Ecological validity concerns（生态效度问题）</strong>: A mock learning experiment in a lab differs from real-life authority situations (military, hospitals, etc.).</li>
+    <li><strong>Subjective qualitative data（定性数据主观性）</strong>: Observers' interpretations of body language could vary between observers.</li>
+    <li><strong>No control condition（无对照组）</strong>: Not a true experiment—all participants underwent identical procedure, making causal claims harder to establish.</li>
+    <li><strong>Demand characteristics（需求特征）</strong>: Some participants may have guessed the true purpose and behaved accordingly (though debriefing suggested most did not).</li>
+  </ul>
+</div>
+
+<!-- SECTION 9 -->
+<div class="section" id="s9">
+  <h2>9️⃣ Ethical Issues（伦理问题）</h2>
+
+  <p>This study raised major ethical issues that caused outrage at the time of publication:</p>
+
+  <table>
+    <thead>
+      <tr><th>Ethical Issue 伦理问题</th><th>Details 详情</th><th>How Addressed 如何处理</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Deception 欺骗</strong></td><td>Participants told study was about memory/punishment; shocks were fake; confederate was actor; drawing was rigged</td><td>Necessary for ecological validity; fully revealed in debriefing</td></tr>
+      <tr><td><strong>Informed consent 知情同意</strong></td><td>Participants consented but without knowing true nature of study</td><td>Debriefing explained full purpose afterwards</td></tr>
+      <tr><td><strong>Protection from harm 免受伤害</strong></td><td>Many showed extreme distress: sweating, trembling, seizures, nervous breakdown</td><td>Only ONE session stopped early (due to violent seizure); most continued despite visible suffering</td></tr>
+      <tr><td><strong>Right to withdraw 退出权</strong></td><td>Some did ask to stop, but prods pressured them to continue; many felt obligated</td><td>Technically available but socially difficult to exercise</td></tr>
+      <tr><td><strong>Debriefing 事后解释</strong></td><td>Risk of lasting guilt/shame over own obedience behaviour</td><td>Friendly reconciliation; met learner to confirm no harm; assured well-being before leaving</td></tr>
+    </tbody>
+  </table>
+
+  <div class="warn-box">
+    <h4>⚠️ Why This Study Could Not Be Repeated Today</h4>
+    <p>Modern ethics committees (such as BPS guidelines) would reject this design due to: inadequate protection from psychological harm, excessive deception, and insufficient right to withdraw. Milgram's own defence was that thorough debriefing resolved these issues, and follow-up surveys found 84% of participants were "positively glad" to have participated. However, 1.3% reported "very negative" feelings—and given 40 participants, that means some individuals may have been genuinely harmed.</p>
+  </div>
+</div>
+
+<!-- SECTION 10 -->
+<div class="section" id="s10">
+  <h2>🔟 Issues & Debates（议题与辩论）</h2>
+
+  <h3>Discussion: 13 Factors Explaining High Obedience 解释高服从率的13个因素</h3>
+  <p>In the original paper's Discussion section, Milgram identified <strong>13 specific features</strong> of the experiment that help explain why obedience was so high. These can be grouped into three categories:</p>
+
+  <h4>Group A: Authority & Legitimacy 权威与合法性 (Factors 1–6)</h4>
+  <div class="factor-grid">
+    <div class="factor-card"><span class="num">1.</span><h4>Yale University sponsorship — institution of unimpeachable reputation lends legitimacy</h4></div>
+    <div class="factor-card"><span class="num">2.</span><h4>Worthy scientific purpose — advancement of knowledge about learning and memory</h4></div>
+    <div class="factor-card"><span class="num">3.</span><h4>Learner perceived as voluntary participant — initially consented without qualification</h4></div>
+    <div class="factor-card"><span class="num">4.</span><h4>Teacher also volunteered — feels obligation to aid the experimenter; disrupting = breaking promise</h4></div>
+    <div class="factor-card"><span class="num">5.</span><h4>Payment received — creates sense of commitment (partly offset by "money is yours regardless")</h4></div>
+    <div class="factor-card"><span class="num">6.</span><h4>Role assignment by fair lottery — "teacher" determined by chance draw; learner has no grounds to complain</h4></div>
+  </div>
+
+  <h4>Group B: The Nature of the Conflict 冲突的本质 (Factors 10–13)</h4>
+  <div class="factor-grid">
+    <div class="factor-card"><span class="num">10.</span><h4>Competing demands — must choose between satisfying experimenter OR victim; mutually exclusive</h4></div>
+    <div class="factor-card"><span class="num">11.</span><h4>Unequal weight — experimenter carries scientific authority; victim's pleas are personal/emotional</h4></div>
+    <div class="factor-card"><span class="num">12.</span><h4>No time for reflection — conflict descends rapidly; only minutes before protests begin</h4></div>
+    <div class="factor-card"><span class="num">13.</span><h4>Deep conflict of dispositions — opposition between "don't harm others" AND "obey legitimate authorities"</h4></div>
+  </div>
+
+  <div class="info-box" style="background:#EDE7F6;border-left:4px solid var(--primary);">
+    <strong>Note:</strong> Factors 7–9 (not shown above) concern procedural details about the incremental nature of shocks and the fact that the subject perceives himself as not primarily responsible for the consequences.
+  </div>
+
+  <h3>Application to Everyday Life（日常应用）</h3>
+  <p>This study shows how likely we are to follow authority orders even when uncomfortable. Think about military personnel, hospital staff following doctors' orders, or employees obeying managers—all situations where commands may conflict with personal conscience.</p>
+
+  <p>The findings suggest situational variables strongly influence obedience. Organisations could reduce destructive obedience through <strong>whistle-blowing policies</strong> and training staff to safely challenge harmful orders.</p>
+
+  <h3>Individual vs Situational Explanations（个体 vs 情境解释）</h3>
+  <p>The findings challenge personality-based explanations: <strong>all 40 participants administered at least 300V</strong>. If obedience depended on personality traits ("authoritarian personality"), we would expect much greater variation. Instead, Milgram attributed behaviour to situational variables: legitimacy of setting, authority of experimenter, procedural features.</p>
+
+  <p>However, note that <strong>14 subjects (35%) did defy the experimenter</strong>—so individual differences do play some role. The debate continues: how much is nature (personality) vs nurture (situation)?</p>
+</div>
+
+<!-- SECTION 11 -->
+<div class="section" id="s11">
+  <h2>1️⃣1️⃣ Summary（总结）</h2>
+
+  <p>Milgram's study investigated the extent to which ordinary people obey authority figures when ordered to harm an innocent person. <strong>40 male participants</strong> were willing to deliver high-voltage electric shocks at a researcher's command, with <strong>65% (26/40) delivering the maximum 450V shock</strong>—two steps beyond "Danger: Severe Shock."</p>
+
+  <p>This dramatically contrasted with predictions of <strong>0–3% maximum obedience</strong>. The study was a well-controlled observation collecting both quantitative (voltage levels) and qualitative (behavioural observations, tape recordings) data. Most participants showed clear signs of extreme stress, confirming that obedience created genuine internal conflict.</p>
+
+  <p>The findings support a <strong>situational explanation</strong> for obedience: ordinary people can commit harmful acts under authority pressure, regardless of individual moral standards. The 13 factors identified in the Discussion provide a framework for understanding <em>why</em> obedience rates were so unexpectedly high.</p>
+
+  <div class="keyword-box">
+    <h4>🔑 KEY TAKEAWAY 核心要点</h4>
+    <p><strong>Obedience is not about "bad people" — it's about powerful situations overwhelming normal moral instincts.</strong> As Milgram wrote: "The essence of obedience consists in the fact that a person comes to view themselves as the instrument for carrying out another person's wishes, and they therefore no longer regard themselves as responsible for their actions."</p>
+  </div>
+</div>
+
+<!-- SECTION 12 -->
+<div class="section" id="s12">
+  <h2>1️⃣2️⃣ Study Questions（复习题）</h2>
+  <ol>
+    <li>What was the <strong>'Germans are different' hypothesis</strong>, and why did Milgram want to challenge it?</li>
+    <li>Was Milgram's study a true experiment? Explain your answer.</li>
+    <li>Describe the <strong>sample</strong> used in the original study (age range, occupations, recruitment method).</li>
+    <li>What was the role of the <strong>confederate</strong>? Describe his background as given in the original paper.</li>
+    <li>Describe the <strong>experimenter</strong> — his age, occupation, appearance, and manner.</li>
+    <li>At what voltage did the learner <strong>first protest</strong>? Describe the complete protest script.</li>
+    <li>What were the <strong>four standard verbal prods</strong>? What were the two <strong>special prods</strong>?</li>
+    <li>What percentage of participants gave the maximum 450 V shock? How does this compare to predictions?</li>
+    <li>What <strong>qualitative evidence</strong> showed participants were distressed? Give specific examples.</li>
+    <li>Explain <strong>four factors</strong> from Milgram's Discussion that contributed to high obedience levels.</li>
+    <li>Describe one <strong>ethical issue</strong> raised by this study and how Milgram attempted to address it.</li>
+    <li>How does this study support the <strong>situational explanation</strong> of obedience?</li>
+  </ol>
+
+  <div class="activity-box" style="background:#E3F2FD;border-left:4px solid #1976D2;border-radius:8px;padding:16px 20px;margin:16px 0;">
+    <h4 style="color:#1565C0;margin-bottom:8px;">📝 Extension Activity 拓展活动</h4>
+    <p>In <strong>Hofling et al. (1966)</strong>, nurses were ordered via telephone by an unknown "Dr Smith" to administer 20mg of an unknown drug (maximum safe dose: 10mg). Nearly all nurses obeyed. Research this study and compare it to Milgram's. What similarities do you notice? What does this suggest about obedience in real-world professional settings?</p>
+  </div>
+</div>
+
+<!-- SECTION 13 -->
+<div class="section" id="s13">
+  <h2>1️⃣3️⃣ Key Terms（核心术语）</h2>
+  <table>
+    <thead>
+      <tr><th>Term 术语</th><th>Definition 定义</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>social approach（社会取向）</strong></td><td>An approach studying how social situations and others' presence influence behaviour, thoughts, and emotions.</td></tr>
+      <tr><td><strong>social roles（社会角色）</strong></td><td>Ways we behave as members of social groups; one person plays multiple roles adapting to different contexts.</td></tr>
+      <tr><td><strong>social pressure（社会压力）</strong></td><td>Influence of a person/group on another person/group, whether actual, implied, or imagined.</td></tr>
+      <tr><td><strong>obedience（服从）</strong></td><td>Following the orders of an authority figure.</td></tr>
+      <tr><td><strong>destructive obedience（破坏性服从）</strong></td><td>Obedience causing potential psychological or physical harm to another person.</td></tr>
+      <tr><td><strong>situational explanation（情境解释）</strong></td><td>Behaviour explained by environmental/social situational factors rather than personality.</td></tr>
+      <tr><td><strong>individual explanation（个体解释）</strong></td><td>Behaviour explained by unique physiology or personality characteristics.</td></tr>
+      <tr><td><strong>controlled observation（控制性观察）</strong></td><td>Research method: watching/recording behaviour in a controlled environment.</td></tr>
+      <tr><td><strong>volunteer sample（志愿样本）</strong></td><td>Participants recruited because they volunteered to take part.</td></tr>
+      <tr><td><strong>confederate / stooge（同谋/托儿）</strong></td><td>Person playing a scripted role in research, trained by the researcher.</td></tr>
+      <tr><td><strong>shock generator（电击发生器）</strong></td><td>Apparatus appearing to deliver electric shocks (15V–450V) with verbal labels.</td></tr>
+      <tr><td><strong>verbal prods（言语提示）</strong></td><td>Standardised phrases used by experimenter to encourage continuation (4 standard + 2 special).</td></tr>
+      <tr><td><strong>preliminary run（练习阶段）</strong></td><td>Practice session (10 word pairs, max 105V) before the main experiment begins.</td></tr>
+      <tr><td><strong>sample shock（样本电击）</strong></td><td>45V shock given to participant's own wrist to prove machine authenticity.</td></tr>
+      <tr><td><strong>defiant subject（反抗者）</strong></td><td>Participant who refuses to continue before reaching maximum shock level.</td></tr>
+      <tr><td><strong>obedient subject（服从者）</strong></td><td>Participant who administers all commanded shock levels to maximum.</td></tr>
+      <tr><td><strong>quantitative data（定量数据）</strong></td><td>Numerical data analysable statistically (e.g., voltage levels).</td></tr>
+      <tr><td><strong>qualitative data（定性数据）</strong></td><td>Non-numerical data: observations, comments, descriptions, recordings.</td></tr>
+      <tr><td><strong>ecological validity（生态效度）</strong></td><td>Extent to which findings generalise to real-life settings.</td></tr>
+      <tr><td><strong>informed consent（知情同意）</strong></td><td>Agreeing to participate after receiving information about the study.</td></tr>
+      <tr><td><strong>deception（欺骗）</strong></td><td>Not telling participants the true aim of the study.</td></tr>
+      <tr><td><strong>right to withdraw（退出权）</strong></td><td>Freedom to leave the study at any point.</td></tr>
+      <tr><td><strong>protection from harm（免受伤害）</strong></td><td>Ethical guideline: participants should not face physical/psychological harm.</td></tr>
+      <tr><td><strong>debriefing（事后解释）</strong></td><td>Explaining true purpose after the study ends; ensuring participant well-being.</td></tr>
+      <tr><td><strong>legitimacy（合法性）</strong></td><td>Extent to which authority/organisation is perceived as worthy of obedience.</td></tr>
+      <tr><td><strong>demand characteristics（需求特征）</strong></td><td>Cues leading participants to guess the study's purpose and change behaviour accordingly.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="footer-note">
+  Milgram, S. (1963). Behavioural study of obedience. <em>Journal of Abnormal and Social Psychology, 67</em>, 371–378.<br>
+  Revised with original paper (9 pages) · CIE Social Approach · Core Study 1
+</div>
+
+</div>
+</body>
+</html>

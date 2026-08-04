@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 20: Definitions and Debates in Diagnosis</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --text: #1a1a2e;
+    --heading: #16213e;
+    --accent: #0f3460;
+    --accent-light: #e8f0fe;
+    --border: #e0e0e0;
+    --table-header: #0f3460;
+    --table-alt: #f8f9fa;
+    --blockquote: #e8f0fe;
+    --warning: #fff3cd;
+    --warning-border: #ffc107;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.8;
+    color: var(--text);
+    background: var(--bg);
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 40px 24px;
+  }
+  h1 {
+    font-size: 1.9em;
+    color: var(--heading);
+    border-bottom: 3px solid var(--accent);
+    padding-bottom: 12px;
+    margin-bottom: 6px;
+  }
+  .subtitle {
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 32px;
+  }
+  h2 {
+    font-size: 1.5em;
+    color: var(--heading);
+    margin-top: 40px;
+    margin-bottom: 14px;
+    padding-left: 14px;
+    border-left: 4px solid var(--accent);
+  }
+  h3 {
+    font-size: 1.2em;
+    color: var(--accent);
+    margin-top: 26px;
+    margin-bottom: 10px;
+  }
+  h4 {
+    font-size: 1.05em;
+    color: var(--accent);
+    margin-top: 18px;
+    margin-bottom: 8px;
+  }
+  p { margin-bottom: 14px; }
+  ul, ol { margin-bottom: 14px; padding-left: 26px; }
+  li { margin-bottom: 6px; }
+  strong { color: var(--heading); }
+  .cn { color: #6a6a6a; font-weight: 400; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 18px 0;
+    font-size: 0.95em;
+  }
+  th {
+    background: var(--table-header);
+    color: #fff;
+    padding: 12px 14px;
+    text-align: left;
+    font-weight: 600;
+  }
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  tr:nth-child(even) td { background: var(--table-alt); }
+  blockquote {
+    background: var(--blockquote);
+    border-left: 4px solid var(--accent);
+    padding: 14px 20px;
+    margin: 18px 0;
+    border-radius: 0 6px 6px 0;
+  }
+  blockquote p { margin-bottom: 6px; }
+  .figure-label {
+    font-weight: 700;
+    color: var(--accent);
+  }
+  .figure-img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 14px auto;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: #fff;
+    padding: 6px;
+  }
+  .figure-caption {
+    text-align: center;
+    font-size: 0.9em;
+    color: #555;
+    font-style: italic;
+    margin-top: 4px;
+    margin-bottom: 8px;
+  }
+  .activity-box {
+    background: #eef7ff;
+    border: 1px solid #b3d9ff;
+    border-radius: 8px;
+    padding: 18px 22px;
+    margin: 20px 0;
+  }
+  .activity-box h4 {
+    color: var(--accent);
+    margin-top: 0;
+  }
+  .exam-box {
+    background: #fff8f0;
+    border: 1px solid #ffcc80;
+    border-radius: 8px;
+    padding: 18px 22px;
+    margin: 20px 0;
+  }
+  .exam-box h4 {
+    color: #e65100;
+    margin-top: 0;
+  }
+  .marks {
+    display: inline-block;
+    background: #e65100;
+    color: #fff;
+    font-size: 0.8em;
+    padding: 2px 10px;
+    border-radius: 12px;
+    margin-left: 8px;
+  }
+  .note {
+    background: var(--warning);
+    border: 1px solid var(--warning-border);
+    border-radius: 8px;
+    padding: 14px 20px;
+    margin-top: 32px;
+    font-size: 0.92em;
+    color: #856404;
+  }
+  hr {
+    border: none;
+    border-top: 2px solid var(--border);
+    margin: 32px 0;
+  }
+  .toc {
+    background: var(--accent-light);
+    border-radius: 8px;
+    padding: 20px 26px;
+    margin: 24px 0 32px 0;
+  }
+  .toc h3 {
+    margin-top: 0;
+    color: var(--accent);
+  }
+  .toc ol { padding-left: 22px; }
+  .toc li { margin-bottom: 4px; }
+  .toc a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .toc a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<h1>Chapter 20: Definitions and Debates in Diagnosis <span class="cn">（诊断的定义与争论）</span></h1>
+<p class="subtitle">Edexcel Psychology &mdash; Clinical Psychology (Topic H) <span class="cn">（临床心理学）</span></p>
+
+<div class="toc">
+  <h3>Contents</h3>
+  <ol>
+    <li><a href="#sec1">What Is Abnormality?</a></li>
+    <li><a href="#sec2">Defining Abnormality: Statistical Infrequency</a></li>
+    <li><a href="#sec3">Defining Abnormality: Failure to Function Adequately</a></li>
+    <li><a href="#sec4">Classification Systems (ICD & DSM)</a></li>
+    <li><a href="#sec5">Culture-Specific Disorders</a></li>
+    <li><a href="#sec6">Validity and Reliability of Diagnosis</a></li>
+    <li><a href="#sec7">Debates in Diagnosis</a></li>
+    <li><a href="#sec8">Key Terms</a></li>
+    <li><a href="#sec9">Activities</a></li>
+    <li><a href="#sec10">Checkpoint Questions</a></li>
+    <li><a href="#sec11">Exam Practice</a></li>
+  </ol>
+</div>
+
+<h2>Learning Objectives</h2>
+<ul>
+  <li>Define <strong>abnormality</strong> <span class="cn">（异常）</span> in terms of <strong>statistical infrequency</strong> <span class="cn">（统计罕见性）</span> and <strong>failure to function adequately</strong> <span class="cn">（功能失调）</span></li>
+  <li>Explain the <strong>Rosenhan &amp; Seligman (1989)</strong> seven criteria of <strong>dysfunctional behaviour</strong> <span class="cn">（功能失调行为）</span></li>
+  <li>Describe and compare the main <strong>classification systems</strong> <span class="cn">（分类系统）</span>: ICD (10/11) and DSM (IV-TR / 5 / 5-TR)</li>
+  <li>Discuss <strong>culture-specific disorders</strong> <span class="cn">（文化特定障碍）</span> and their implications for diagnosis</li>
+  <li>Evaluate the <strong>validity</strong> <span class="cn">（效度）</span> and <strong>reliability</strong> <span class="cn">（信度）</span> of diagnosis, including <strong>criterion validity</strong> <span class="cn">（效标效度）</span> and <strong>aetiological validity</strong> <span class="cn">（病因效度）</span></li>
+  <li>Consider debates in diagnosis, such as the <strong>medical model</strong> <span class="cn">（医学模型）</span> vs. alternative approaches</li>
+</ul>
+
+<hr>
+
+<h2 id="sec1">1. What Is Abnormality? <span class="cn">（什么是异常？）</span></h2>
+
+<h3>1.1 Defining Abnormality</h3>
+<p><strong>Abnormality</strong> <span class="cn">（异常）</span> is not easy to define. There is no single, universally agreed-upon definition. Several approaches exist:</p>
+<ul>
+  <li><strong>Statistical infrequency</strong> <span class="cn">（统计罕见性）</span>: behaviour that is statistically rare is considered abnormal</li>
+  <li><strong>Failure to function adequately</strong> <span class="cn">（功能失调）</span>: someone who cannot cope with everyday life is considered abnormal</li>
+  <li><strong>Deviation from ideal mental health</strong> <span class="cn">（偏离理想心理健康）</span>: deviation from positive psychological health indicators (Jahoda, 1958)</li>
+  <li><strong>Deviation from social norms</strong> <span class="cn">（偏离社会规范）</span>: behaviour that violates unwritten social rules</li>
+</ul>
+<p>Each definition has strengths and limitations, and none is perfect on its own.</p>
+
+<h3>1.2 A Brief History of Abnormality</h3>
+<ul>
+  <li><strong>Prehistoric times</strong>: mental disorders attributed to evil spirits; treatment involved <strong>trepanning</strong> <span class="cn">（环锯术/颅骨钻孔）</span> (drilling holes in the skull)</li>
+  <li><strong>Ancient Greece</strong>: Hippocrates rejected supernatural explanations; proposed that mental illness had natural causes (imbalance of four <strong>humours</strong> <span class="cn">（体液）</span>)</li>
+  <li><strong>Middle Ages</strong>: supernatural explanations returned; "witches" were persecuted</li>
+  <li><strong>18th&ndash;19th century</strong>: the rise of <strong>asylums</strong> <span class="cn">（精神病院/收容所）</span>; <strong>moral therapy</strong> <span class="cn">（道德疗法）</span> movement</li>
+  <li><strong>20th century onwards</strong>: medical model dominates; classification systems developed; <strong>deinstitutionalisation</strong> <span class="cn">（去机构化）</span></li>
+</ul>
+
+<hr>
+
+<h2 id="sec2">2. Defining Abnormality: Statistical Infrequency <span class="cn">（统计罕见性）</span></h2>
+
+<h3>2.1 The Statistical Approach</h3>
+<p>Abnormality is defined in terms of <strong>statistical rarity</strong> <span class="cn">（统计罕见）</span>. Behaviour or psychological characteristics that occur infrequently in a population are considered abnormal.</p>
+<ul>
+  <li>Uses the <strong>normal distribution curve</strong> <span class="cn">（正态分布曲线）</span> &mdash; most people cluster around the average; few are at the extremes</li>
+  <li>Behaviour at either extreme (very high or very low frequency/intensity) is considered abnormal</li>
+  <li>A common cut-off point: anything beyond <strong>two standard deviations</strong> <span class="cn">（两个标准差）</span> from the mean (approximately the bottom or top 2.5% of the population)</li>
+</ul>
+
+<blockquote>
+  <p><span class="figure-label">Figure 20.1: The Normal Distribution Curve <span class="cn">（正态分布曲线）</span></span></p>
+  <img class="figure-img" src="normal_distribution.png" alt="Normal Distribution Curve">
+  <p class="figure-caption">A bell-shaped curve with the mean (100) in the centre. The tails at both extremes represent statistically infrequent behaviour. The area between &minus;1SD (85) and +1SD (115) covers 68.3% of data; between &minus;2SD (70) and +2SD (130) covers 95.5% of data; the tails (~5%) are considered "abnormal."</p>
+</blockquote>
+
+<h3>2.2 Evaluation of Statistical Infrequency</h3>
+
+<h4>Strengths</h4>
+<ul>
+  <li>Objective, measurable, and scientific &mdash; based on real data</li>
+  <li>Useful for diagnostic purposes (e.g., IQ scores below 70 as indicator of <strong>intellectual disability</strong> <span class="cn">（智力障碍）</span>)</li>
+  <li>Clear cut-off points can be established</li>
+</ul>
+
+<h4>Limitations</h4>
+<ul>
+  <li>Not all rare behaviours are abnormal (e.g., high IQ above 130 is rare but desirable)</li>
+  <li>Not all common disorders are statistically infrequent (e.g., <strong>depression</strong> <span class="cn">（抑郁症）</span> is quite common)</li>
+  <li>Cut-off points are arbitrary &mdash; who decides where "normal" ends?</li>
+  <li>Fails to consider the <strong>desirability</strong> <span class="cn">（合意性）</span> of behaviour, only frequency</li>
+  <li><strong>Cultural bias</strong> <span class="cn">（文化偏差）</span>: what is statistically infrequent in one culture may be common in another</li>
+</ul>
+
+<hr>
+
+<h2 id="sec3">3. Defining Abnormality: Failure to Function Adequately <span class="cn">（功能失调）</span></h2>
+
+<h3>3.1 The Failure to Function Approach</h3>
+<p>This definition focuses on whether an individual can <strong>cope with the demands of everyday life</strong>. If they cannot, they may be considered abnormal.</p>
+
+<h3>3.2 Rosenhan &amp; Seligman (1989): Seven Criteria of Dysfunctional Behaviour</h3>
+<p>Rosenhan and Seligman proposed that abnormal behaviour can be identified by looking at seven features. The more of these features present, the more likely the behaviour is <strong>dysfunctional</strong> <span class="cn">（功能失调的）</span>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 30%;">Criterion</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>1. Suffering</strong> <span class="cn">（痛苦）</span></td><td>The person experiences distress or pain.</td></tr>
+    <tr><td><strong>2. Maladaptiveness</strong> <span class="cn">（适应不良）</span></td><td>The behaviour interferes with the person's ability to meet the demands of daily life (e.g., work, relationships).</td></tr>
+    <tr><td><strong>3. Vividness / Unconventionality</strong> <span class="cn">（鲜明性/非传统性）</span></td><td>The behaviour is unusual, unconventional, or bizarre compared to what is expected.</td></tr>
+    <tr><td><strong>4. Unpredictability</strong> <span class="cn">（不可预测性）</span></td><td>The behaviour is unpredictable and occurs without warning; the person seems to lose control.</td></tr>
+    <tr><td><strong>5. Irrationality</strong> <span class="cn">（非理性）</span></td><td>The behaviour makes no sense to others and cannot be reasoned with.</td></tr>
+    <tr><td><strong>6. Observer discomfort</strong> <span class="cn">（观察者不适）</span></td><td>The behaviour makes others feel uncomfortable, uneasy, or threatened.</td></tr>
+    <tr><td><strong>7. Violation of moral / ideal standards</strong> <span class="cn">（违反道德/理想标准）</span></td><td>The behaviour violates the moral or ethical standards of society.</td></tr>
+  </tbody>
+</table>
+
+<h3>3.3 Evaluation of Failure to Function Adequately</h3>
+
+<h4>Strengths</h4>
+<ul>
+  <li>Focuses on the <strong>individual's experience</strong> and practical impact on daily life</li>
+  <li>Recognises that abnormality is not just about frequency but about <strong>consequences</strong> <span class="cn">（后果）</span></li>
+  <li>Accounts for the <strong>subjective experience</strong> <span class="cn">（主观体验）</span> of distress</li>
+  <li>Flexible &mdash; the seven criteria allow for a nuanced, multi-dimensional assessment</li>
+</ul>
+
+<h4>Limitations</h4>
+<ul>
+  <li>One criterion alone may not indicate abnormality (e.g., a person may suffer but not be "abnormal")</li>
+  <li>Some criteria are subjective (e.g., "observer discomfort" depends on who is observing)</li>
+  <li><strong>Cultural relativity</strong> <span class="cn">（文化相对性）</span>: what is "unconventional" or "violates moral standards" varies across cultures</li>
+  <li>Risk of <strong>subjective judgement</strong> <span class="cn">（主观判断）</span> by the clinician</li>
+  <li>Does not account for people who function poorly by choice (e.g., voluntary withdrawal from society)</li>
+</ul>
+
+<hr>
+
+<h2 id="sec4">4. Classification Systems <span class="cn">（分类系统）</span></h2>
+<p>Classification systems provide a standardised framework for <strong>diagnosing mental disorders</strong> <span class="cn">（诊断精神障碍）</span>. They ensure consistency in diagnosis across clinicians and settings.</p>
+
+<h3>4.1 ICD (International Classification of Diseases) <span class="cn">（国际疾病分类）</span></h3>
+<ul>
+  <li>Published by the <strong>World Health Organization (WHO)</strong> <span class="cn">（世界卫生组织）</span></li>
+  <li>Covers all diseases, including mental disorders</li>
+  <li><strong>ICD-10</strong> (1992): widely used internationally; mental disorders in Chapter V</li>
+  <li><strong>ICD-11</strong> (2018, effective 2022): updated version with refined categories</li>
+  <li>Used more widely globally, particularly in Europe</li>
+</ul>
+
+<h3>4.2 DSM (Diagnostic and Statistical Manual of Mental Disorders) <span class="cn">（精神障碍诊断与统计手册）</span></h3>
+<ul>
+  <li>Published by the <strong>American Psychiatric Association (APA)</strong> <span class="cn">（美国精神医学学会）</span></li>
+  <li>Specific to mental disorders only</li>
+  <li><strong>DSM-IV-TR</strong> (2000): used a <strong>multi-axial</strong> <span class="cn">（多轴）</span> system (five axes)</li>
+  <li><strong>DSM-5</strong> (2013): abandoned the multi-axial system; combined all diagnoses into a single axis; reorganised categories</li>
+  <li><strong>DSM-5-TR</strong> (2022): text revision with updated diagnostic criteria and terminology</li>
+  <li>Used more widely in the US</li>
+</ul>
+
+<h3>4.3 DSM-IV Multi-Axial System <span class="cn">（多轴系统）</span> (Table 20.2)</h3>
+<table>
+  <thead>
+    <tr><th style="width: 18%;">Axis</th><th>Description</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>Axis I</strong></td><td><strong>Clinical disorders</strong> <span class="cn">（临床障碍）</span> and other conditions that may be a focus of clinical attention (e.g., depression, anxiety, <strong>schizophrenia</strong> <span class="cn">（精神分裂症）</span>)</td></tr>
+    <tr><td><strong>Axis II</strong></td><td><strong>Personality disorders</strong> <span class="cn">（人格障碍）</span> and <strong>intellectual disabilities</strong> <span class="cn">（智力障碍）</span> (e.g., borderline personality disorder)</td></tr>
+    <tr><td><strong>Axis III</strong></td><td><strong>General medical conditions</strong> <span class="cn">（一般医疗状况）</span> (e.g., diabetes, brain injury)</td></tr>
+    <tr><td><strong>Axis IV</strong></td><td><strong>Psychosocial and environmental problems</strong> <span class="cn">（心理社会与环境问题）</span> (e.g., unemployment, divorce, housing issues)</td></tr>
+    <tr><td><strong>Axis V</strong></td><td><strong>Global Assessment of Functioning (GAF)</strong> <span class="cn">（全球功能评估）</span> &mdash; a 0&ndash;100 scale rating overall functioning</td></tr>
+  </tbody>
+</table>
+
+<h3>4.4 Key Changes from DSM-IV to DSM-5</h3>
+<ul>
+  <li><strong>Removed the multi-axial system</strong> &mdash; all disorders now on a single axis</li>
+  <li><strong>Combined</strong> some categories (e.g., <strong>autism spectrum disorder</strong> <span class="cn">（自闭症谱系障碍）</span> combined previously separate diagnoses)</li>
+  <li><strong>Added</strong> new disorders (e.g., <strong>binge eating disorder</strong> <span class="cn">（暴食症）</span>, <strong>hoarding disorder</strong> <span class="cn">（囤积症）</span>)</li>
+  <li><strong>Removed</strong> some disorders (e.g., <strong>Asperger's syndrome</strong> <span class="cn">（阿斯伯格综合征）</span> absorbed into autism spectrum)</li>
+  <li><strong>Dimensional</strong> <span class="cn">（维度的）</span> rather than purely <strong>categorical</strong> <span class="cn">（类别的）</span> approach for some disorders</li>
+  <li>Aimed at improving <strong>reliability</strong> <span class="cn">（信度）</span> and <strong>validity</strong> <span class="cn">（效度）</span> of diagnosis</li>
+</ul>
+
+<h3>4.5 Comparison: ICD vs. DSM</h3>
+<table>
+  <thead>
+    <tr><th>Feature</th><th>ICD</th><th>DSM</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Publisher</td><td>WHO <span class="cn">（世卫组织）</span></td><td>APA <span class="cn">（美国精神医学学会）</span></td></tr>
+    <tr><td>Scope</td><td>All diseases</td><td>Mental disorders only</td></tr>
+    <tr><td>Primary use</td><td>International (esp. Europe)</td><td>US and widely globally</td></tr>
+    <tr><td>Multi-axial system</td><td>No (ICD-10/11)</td><td>Yes (DSM-IV), No (DSM-5)</td></tr>
+    <tr><td>Latest version</td><td>ICD-11 (2022)</td><td>DSM-5-TR (2022)</td></tr>
+  </tbody>
+</table>
+
+<hr>
+
+<h2 id="sec5">5. Culture-Specific Disorders <span class="cn">（文化特定障碍）</span></h2>
+<p>Some mental disorders appear to be unique to particular cultures. These are known as <strong>culture-specific disorders</strong> <span class="cn">（文化特定障碍）</span> or <strong>culture-bound syndromes</strong> <span class="cn">（文化束缚综合征）</span>. Their existence challenges the universality of classification systems like ICD and DSM.</p>
+
+<h3>Table 20.3: Examples of Culture-Specific Disorders</h3>
+<table>
+  <thead>
+    <tr><th style="width: 18%;">Disorder</th><th style="width: 25%;">Culture / Region</th><th>Description</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Amok</strong> <span class="cn">（马来狂症）</span></td>
+      <td>Malaysia / Southeast Asia</td>
+      <td>A sudden, unprovoked episode of violent, aggressive or homicidal behaviour, often followed by <strong>amnesia</strong> <span class="cn">（遗忘症）</span>. Historically recognised in Malaysian culture.</td>
+    </tr>
+    <tr>
+      <td><strong>Piblokto</strong> (Pibloktoq) <span class="cn">（极地癔症）</span></td>
+      <td>Inuit / Arctic peoples (Greenland, Alaska)</td>
+      <td>A sudden episode of extreme excitement, wild or bizarre behaviour, often in winter, followed by <strong>convulsions</strong> <span class="cn">（抽搐）</span>, coma and amnesia. Also known as "Arctic hysteria."</td>
+    </tr>
+    <tr>
+      <td><strong>Taijin Kyofusho</strong> <span class="cn">（对人恐怖症）</span></td>
+      <td>Japan</td>
+      <td>A disorder characterised by an intense fear that one's body, appearance, or odour is offensive, embarrassing, or disgusting to others. Related to <strong>social anxiety</strong> <span class="cn">（社交焦虑）</span> but with a focus on offending others rather than embarrassing oneself.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>5.1 Implications of Culture-Specific Disorders</h3>
+<ul>
+  <li><strong>Challenge universal classification</strong>: if disorders are culture-specific, can a single system (ICD/DSM) apply to all cultures?</li>
+  <li><strong>Question the validity of diagnosis</strong>: a clinician from one culture may misdiagnose a culture-specific disorder</li>
+  <li><strong>Highlight cultural relativity</strong> <span class="cn">（文化相对性）</span>: what is "abnormal" in one culture may be normal in another</li>
+  <li><strong>Ethnocentrism</strong> <span class="cn">（民族中心主义）</span> risk: classification systems developed in Western cultures may impose Western norms on non-Western populations</li>
+  <li>DSM-5 attempted to address this by including a <strong>Cultural Formulation Interview</strong> <span class="cn">（文化评估访谈）</span> and glossary of cultural concepts of distress</li>
+</ul>
+
+<hr>
+
+<h2 id="sec6">6. Validity and Reliability of Diagnosis <span class="cn">（诊断的效度与信度）</span></h2>
+
+<h3>6.1 Reliability <span class="cn">（信度）</span></h3>
+<p><strong>Reliability</strong> <span class="cn">（信度）</span> refers to the <strong>consistency</strong> <span class="cn">（一致性）</span> of diagnosis. A diagnosis is reliable if different clinicians reach the same conclusion for the same patient (<strong>inter-rater reliability</strong> <span class="cn">（评分者间信度）</span>).</p>
+<ul>
+  <li>Measured using statistics like <strong>Cohen's kappa</strong> <span class="cn">（科恩kappa系数）</span> (values above 0.7 generally considered good)</li>
+  <li>Improved by standardised classification systems (ICD, DSM) and structured interviews</li>
+  <li>However, reliability is not perfect &mdash; some disorders have lower inter-rater agreement (e.g., personality disorders)</li>
+</ul>
+
+<h3>6.2 Validity <span class="cn">（效度）</span></h3>
+<p><strong>Validity</strong> <span class="cn">（效度）</span> refers to whether the diagnosis is <strong>correct</strong> &mdash; does it accurately identify a real, distinct condition?</p>
+
+<h3>Table 20.4: Types of Validity in Diagnosis</h3>
+<table>
+  <thead>
+    <tr><th style="width: 25%;">Type of Validity</th><th>Description</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>Criterion validity</strong> <span class="cn">（效标效度）</span></td><td>The diagnosis should predict outcomes (e.g., <strong>prognosis</strong> <span class="cn">（预后）</span>, response to treatment). If a diagnosis has good criterion validity, patients with that diagnosis should respond similarly to treatment.</td></tr>
+    <tr><td><strong>Aetiological validity</strong> <span class="cn">（病因效度）</span></td><td>The diagnosis should have a common cause (<strong>aetiology</strong> <span class="cn">（病因学）</span>). Patients with the same diagnosis should share similar causes (e.g., genetic, environmental, neurochemical factors).</td></tr>
+    <tr><td><strong>Content validity</strong> <span class="cn">（内容效度）</span></td><td>The diagnostic criteria should adequately cover all the key features of the disorder.</td></tr>
+    <tr><td><strong>Construct validity</strong> <span class="cn">（构念效度）</span></td><td>The diagnosis should measure the underlying psychological <strong>construct</strong> <span class="cn">（构念）</span> it claims to measure.</td></tr>
+    <tr><td><strong>Concurrent validity</strong> <span class="cn">（同时效度）</span></td><td>The diagnosis should correlate with other established measures of the same condition.</td></tr>
+  </tbody>
+</table>
+
+<h3>6.3 Challenges to Validity</h3>
+<ul>
+  <li><strong>Comorbidity</strong> <span class="cn">（共病）</span>: many patients meet criteria for multiple disorders simultaneously, making it hard to determine which diagnosis is "primary"</li>
+  <li><strong>Symptom overlap</strong> <span class="cn">（症状重叠）</span>: different disorders share symptoms (e.g., difficulty concentrating in both ADHD and depression)</li>
+  <li><strong>Cultural variation</strong> <span class="cn">（文化差异）</span>: symptoms may present differently across cultures</li>
+  <li><strong>Subjectivity</strong> <span class="cn">（主观性）</span>: diagnostic criteria still require clinical judgement</li>
+  <li><strong>Validity vs. reliability trade-off</strong> <span class="cn">（效度与信度的权衡）</span>: increasing the number of specific criteria may improve reliability but reduce validity (by creating artificial categories)</li>
+</ul>
+
+<hr>
+
+<h2 id="sec7">7. Debates in Diagnosis <span class="cn">（诊断中的争论）</span></h2>
+
+<h3>7.1 The Medical Model vs. Alternative Approaches</h3>
+
+<h4>Medical (Biomedical) Model <span class="cn">（医学/生物医学模型）</span></h4>
+<ul>
+  <li>Mental disorders are like physical illnesses &mdash; they have biological causes (genetics, neurochemistry)</li>
+  <li>Diagnosis and classification are essential</li>
+  <li>Treatment is primarily biological (medication)</li>
+  <li>Assumes mental disorders are discrete, categorisable entities</li>
+</ul>
+
+<h4>Critiques / Alternative Approaches</h4>
+<ul>
+  <li><strong>Anti-psychiatry movement</strong> <span class="cn">（反精神病学运动）</span> (e.g., Thomas Szasz): mental illness is a "myth"; psychiatric diagnosis labels non-conformity as illness</li>
+  <li><strong>Rosenhan's (1973) study</strong> ("On Being Sane in Insane Places"): <strong>pseudo-patients</strong> <span class="cn">（伪装病人）</span> admitted to psychiatric hospitals were not detected as sane, highlighting problems with <strong>diagnostic labels</strong> <span class="cn">（诊断标签）</span></li>
+  <li><strong>Labeling theory</strong> <span class="cn">（标签理论）</span>: once diagnosed, a person is treated differently, which can worsen symptoms (<strong>self-fulfilling prophecy</strong> <span class="cn">（自证预言）</span>)</li>
+  <li><strong>Biopsychosocial model</strong> <span class="cn">（生物心理社会模型）</span>: mental disorders result from an interaction of biological, psychological, and social factors</li>
+</ul>
+
+<h3>7.2 Other Debates</h3>
+<ul>
+  <li><strong>Categorical vs. dimensional approaches</strong> <span class="cn">（类别式 vs. 维度式方法）</span>: should we classify disorders as distinct categories or as points on a continuum?</li>
+  <li><strong>Over-diagnosis</strong> <span class="cn">（过度诊断）</span>: some argue DSM-5 has expanded diagnostic criteria, leading to normal variations being <strong>pathologised</strong> <span class="cn">（病理化）</span></li>
+  <li><strong>Pharmaceutical industry influence</strong> <span class="cn">（制药行业影响）</span>: concern that expanding categories benefit drug companies</li>
+  <li><strong>Power and control</strong> <span class="cn">（权力与控制）</span>: who has the authority to define what is "normal"?</li>
+  <li><strong>Gender and cultural bias</strong> <span class="cn">（性别与文化偏差）</span>: diagnostic criteria may be biased toward or against certain groups</li>
+</ul>
+
+<hr>
+
+<h2 id="sec8">8. Key Terms</h2>
+<table>
+  <thead>
+    <tr><th style="width: 30%;">Term</th><th>Definition</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>Abnormality</strong> <span class="cn">（异常）</span></td><td>Behaviour, thoughts, or feelings that deviate from what is considered normal</td></tr>
+    <tr><td><strong>Statistical infrequency</strong> <span class="cn">（统计罕见性）</span></td><td>Defining abnormality based on how rarely a behaviour occurs in the population</td></tr>
+    <tr><td><strong>Failure to function adequately</strong> <span class="cn">（功能失调）</span></td><td>Inability to cope with the demands of everyday life</td></tr>
+    <tr><td><strong>Deviation from ideal mental health</strong> <span class="cn">（偏离理想心理健康）</span></td><td>Deviation from positive psychological health indicators (Jahoda, 1958)</td></tr>
+    <tr><td><strong>Deviation from social norms</strong> <span class="cn">（偏离社会规范）</span></td><td>Behaviour that violates unwritten social rules</td></tr>
+    <tr><td><strong>Normal distribution</strong> <span class="cn">（正态分布）</span></td><td>A bell-shaped curve showing most values cluster around the mean, with few at the extremes</td></tr>
+    <tr><td><strong>Standard deviation</strong> <span class="cn">（标准差）</span></td><td>A measure of how spread out values are from the mean</td></tr>
+    <tr><td><strong>Classification system</strong> <span class="cn">（分类系统）</span></td><td>A standardised framework for diagnosing mental disorders (e.g., ICD, DSM)</td></tr>
+    <tr><td><strong>ICD</strong> <span class="cn">（国际疾病分类）</span></td><td>International Classification of Diseases, published by WHO</td></tr>
+    <tr><td><strong>DSM</strong> <span class="cn">（精神障碍诊断与统计手册）</span></td><td>Diagnostic and Statistical Manual of Mental Disorders, published by APA</td></tr>
+    <tr><td><strong>Multi-axial system</strong> <span class="cn">（多轴系统）</span></td><td>A diagnostic system (DSM-IV) that assessed patients across five axes</td></tr>
+    <tr><td><strong>Culture-bound syndrome</strong> <span class="cn">（文化束缚综合征）</span></td><td>A disorder that appears specific to a particular culture</td></tr>
+    <tr><td><strong>Reliability</strong> <span class="cn">（信度）</span></td><td>Consistency of diagnosis across different clinicians or settings</td></tr>
+    <tr><td><strong>Validity</strong> <span class="cn">（效度）</span></td><td>Accuracy of a diagnosis &mdash; does it measure what it claims to measure?</td></tr>
+    <tr><td><strong>Criterion validity</strong> <span class="cn">（效标效度）</span></td><td>A diagnosis that predicts outcomes such as prognosis or treatment response</td></tr>
+    <tr><td><strong>Aetiological validity</strong> <span class="cn">（病因效度）</span></td><td>A diagnosis where all patients share a common cause</td></tr>
+    <tr><td><strong>Comorbidity</strong> <span class="cn">（共病）</span></td><td>The simultaneous presence of two or more disorders in the same individual</td></tr>
+    <tr><td><strong>Inter-rater reliability</strong> <span class="cn">（评分者间信度）</span></td><td>The degree to which different clinicians agree on a diagnosis</td></tr>
+    <tr><td><strong>Cohen's kappa</strong> <span class="cn">（科恩kappa系数）</span></td><td>A statistical measure of inter-rater agreement</td></tr>
+    <tr><td><strong>Medical model</strong> <span class="cn">（医学模型）</span></td><td>The view that mental disorders are illnesses with biological causes</td></tr>
+    <tr><td><strong>Biopsychosocial model</strong> <span class="cn">（生物心理社会模型）</span></td><td>The view that mental disorders result from biological, psychological, and social factors</td></tr>
+    <tr><td><strong>Prognosis</strong> <span class="cn">（预后）</span></td><td>The likely course and outcome of a disorder</td></tr>
+    <tr><td><strong>Aetiology</strong> <span class="cn">（病因学）</span></td><td>The study of causes of a disorder</td></tr>
+  </tbody>
+</table>
+
+<hr>
+
+<h2 id="sec9">9. Activities</h2>
+
+<div class="activity-box">
+  <h4>ACTIVITY 1</h4>
+  <p>Consider the four definitions of abnormality discussed in this chapter (statistical infrequency, failure to function, deviation from social norms, deviation from ideal mental health). For each definition:</p>
+  <ol>
+    <li>Give one example of a behaviour that would be classified as "abnormal" under this definition</li>
+    <li>Explain one limitation of using this definition alone</li>
+  </ol>
+</div>
+
+<div class="activity-box">
+  <h4>ACTIVITY 2</h4>
+  <p>Research one culture-bound syndrome not discussed in this chapter (i.e., not Amok, Piblokto, or taijin kyofusho). Write a short paragraph covering:</p>
+  <ul>
+    <li>Which culture it is associated with</li>
+    <li>Key symptoms</li>
+    <li>How it might be interpreted in a different culture</li>
+    <li>Whether it challenges the use of universal classification systems</li>
+  </ul>
+</div>
+
+<hr>
+
+<h2 id="sec10">10. Checkpoint Questions</h2>
+<ol>
+  <li>What are the four main approaches to defining abnormality?</li>
+  <li>How does the normal distribution curve relate to the statistical infrequency definition?</li>
+  <li>What are the seven criteria of dysfunctional behaviour proposed by Rosenhan &amp; Seligman (1989)?</li>
+  <li>Why is statistical infrequency alone an inadequate definition of abnormality?</li>
+  <li>What is the key difference between ICD and DSM?</li>
+  <li>What were the five axes in the DSM-IV multi-axial system?</li>
+  <li>What is the main change in the DSM-5 regarding the multi-axial system?</li>
+  <li>Give two examples of culture-specific disorders and explain why they challenge universal classification.</li>
+  <li>What is the difference between criterion validity and aetiological validity?</li>
+  <li>Why is comorbidity a problem for the validity of diagnosis?</li>
+</ol>
+
+<hr>
+
+<h2 id="sec11">11. Exam Practice</h2>
+
+<div class="exam-box">
+  <h4>Question 1 <span class="marks">4 marks</span></h4>
+  <p>Explain two limitations of defining abnormality in terms of statistical infrequency.</p>
+</div>
+
+<div class="exam-box">
+  <h4>Question 2 <span class="marks">6 marks</span></h4>
+  <p>Discuss the strengths and limitations of using classification systems such as the DSM or ICD in the diagnosis of mental disorders.</p>
+</div>
+
+<div class="exam-box">
+  <h4>Question 3 <span class="marks">8 marks</span></h4>
+  <p>Evaluate the validity of diagnosis in clinical psychology. In your answer, consider at least two types of validity and relevant research evidence.</p>
+</div>
+
+<div class="exam-box">
+  <h4>Question 4 <span class="marks">12 marks</span></h4>
+  <p>"Culture-specific disorders prove that it is impossible to create a universal system for diagnosing mental disorders."<br>
+  To what extent do you agree with this statement? Justify your answer with reference to psychological research and theory.</p>
+</div>
+
+<div class="note">
+  <strong>Note:</strong> This text is organised based on content identified from the Edexcel Psychology textbook Chapter 20 screenshots. Please review and refine as needed.
+</div>
+
+</body>
+</html>

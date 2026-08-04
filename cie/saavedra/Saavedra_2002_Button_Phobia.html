@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saavedra & Silverman (2002) — Case Study: Disgust and a Specific Phobia of Buttons</title>
+<style>
+  :root {
+    --primary: #5E35B1;
+    --primary-light: #7E57C2;
+    --primary-dark: #311B92;
+    --accent: #FF6D00;
+    --bg: #FAFAFA;
+    --card-bg: #FFFFFF;
+    --text: #212121;
+    --text-secondary: #616161;
+    --border: #E0E0E0;
+    --highlight: #F3E5F5;
+    --warning: #FFEBEE;
+    --code-bg: #F5F5F5;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: var(--bg); color: var(--text); line-height: 1.8; font-size: 16px; }
+  .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+
+  /* Header */
+  .header { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, var(--primary-dark), var(--primary)); color: white; border-radius: 12px; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(94,53,177,0.3); }
+  .header h1 { font-size: 1.8em; margin-bottom: 10px; }
+  .header .subtitle { font-size: 1.05em; opacity: 0.92; }
+  .header .meta { margin-top: 15px; font-size: 0.9em; opacity: 0.8; }
+  .badge { display: inline-block; padding: 4px 14px; border-radius: 20px; background: rgba(255,255,255,0.2); margin: 3px; font-size: 0.85em; }
+
+  /* TOC */
+  .toc { background: var(--card-bg); border-radius: 10px; padding: 25px; margin-bottom: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-left: 4px solid var(--primary); }
+  .toc h2 { color: var(--primary-dark); margin-bottom: 15px; font-size: 1.3em; }
+  .toc ol { padding-left: 20px; }
+  .toc li { margin: 8px 0; }
+  .toc li a { color: var(--primary); text-decoration: none; transition: color 0.2s; }
+  .toc li a:hover { color: var(--primary-dark); text-decoration: underline; }
+
+  /* Sections */
+  .section { background: var(--card-bg); border-radius: 10px; padding: 30px; margin-bottom: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .section h2 { color: var(--primary-dark); font-size: 1.5em; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--primary-light); }
+  .section h3 { color: var(--primary); font-size: 1.2em; margin: 20px 0 12px; }
+  .section h4 { color: var(--text); font-size: 1.05em; margin: 15px 0 8px; }
+
+  /* Key Words Box */
+  .keyword-box { background: linear-gradient(135deg, #FFF8E1, #FFECB3); border-left: 5px solid var(--accent); border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+  .keyword-box h4 { color: #E65100; font-size: 1em; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+  .keyword-box p { margin: 6px 0; }
+  .keyword-box strong { color: #BF360C; }
+
+  /* Images */
+  .img-container { text-align: center; margin: 22px 0; }
+  .img-container img { max-width: 100%; border-radius: 10px; box-shadow: 0 3px 12px rgba(0,0,0,0.12); }
+  .img-caption { font-size: 0.9em; color: var(--text-secondary); margin-top: 8px; font-style: italic; }
+
+  /* Tables */
+  table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 0.93em; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-radius: 8px; overflow: hidden; }
+  th { background: var(--primary); color: white; padding: 12px 14px; text-align: left; font-weight: 600; }
+  td { padding: 11px 14px; border-bottom: 1px solid var(--border); }
+  tr:nth-child(even) { background: #FBFAFE; }
+  tr:hover { background: var(--highlight); }
+  td:first-child { font-weight: 600; color: var(--primary-dark); }
+  .num-cell { text-align: center; font-weight: 700; color: var(--primary-dark); }
+
+  /* Highlight boxes */
+  .info-box { background: #EDE7F6; border-left: 4px solid var(--primary); border-radius: 6px; padding: 16px 20px; margin: 16px 0; }
+  .warn-box { background: var(--warning); border-left: 4px solid #D32F2F; border-radius: 6px; padding: 16px 20px; margin: 16px 0; }
+  .warn-box h4 { color: #C62828; margin-bottom: 8px; }
+
+  /* Activity box */
+  .activity-box { background: #E3F2FD; border-left: 4px solid #1976D2; border-radius: 6px; padding: 16px 20px; margin: 16px 0; }
+  .activity-box h4 { color: #1565C0; margin-bottom: 8px; }
+
+  /* Lists */
+  ul, ol { padding-left: 24px; margin: 10px 0; }
+  li { margin: 6px 0; }
+
+  /* Chart container */
+  .chart-container { position: relative; height: 360px; margin: 22px 0; background: white; border-radius: 10px; padding: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+
+  /* Two-column layout for debates */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 18px 0; }
+  .col-card { background: #F5F5F5; border-radius: 8px; padding: 18px; }
+  .col-card.nature { border-top: 4px solid #7B1FA2; }
+  .col-card.nurture { border-top: 4px solid var(--primary); }
+  .col-card h4 { margin-bottom: 10px; font-size: 1em; }
+  .col-card.nature h4 { color: #7B1FA2; }
+  .col-card.nurture h4 { color: var(--primary-dark); }
+
+  /* Questions section */
+  .question-item { background: #FAFAFA; border-radius: 8px; padding: 18px; margin: 14px 0; border-left: 4px solid var(--accent); }
+  .question-item strong { color: var(--accent); }
+
+  /* Blockquote */
+  blockquote { background: linear-gradient(135deg,#EDE7F6,#D1C4E9); border-left: 5px solid var(--primary-dark); padding: 18px 24px; margin: 20px 0; border-radius: 0 10px 10px 0; font-style: italic; color: var(--primary-dark); }
+
+  /* Footer */
+  .footer { text-align: center; padding: 25px; color: var(--text-secondary); font-size: 0.88em; border-top: 1px solid var(--border); margin-top: 30px; }
+
+  @media (max-width: 768px) {
+    .two-col { grid-template-columns: 1fr; }
+    .container { padding: 12px; }
+    .section { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<!-- HEADER -->
+<div class="header">
+  <h1>🔘 Saavedra & Silverman (2002)</h1>
+  <div class="subtitle">Case Study: Disgust and a Specific Phobia of Buttons<br>案例研究：厌恶情绪与特定恐惧症——按钮恐惧症</div>
+  <div class="meta">
+    <span class="badge">📘 CIE Learning Approach 学习取向</span>
+    <span class="badge">📄 Journal of the American Academy of Child and Adolescent Psychiatry</span>
+    <span class="badge">🔬 Core Study 3</span>
+  </div>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<div class="toc">
+  <h2>📑 Contents 目录</h2>
+  <ol>
+    <li><a href="#s1">Background — Classical Conditioning 经典条件反射</a></li>
+    <li><a href="#s2">Background (continued) — Operant Conditioning & Evaluative Learning</a></li>
+    <li><a href="#s3">Aim 研究目标</a></li>
+    <li><a href="#s4">Method — Case Study 方法：案例研究</a></li>
+    <li><a href="#s5">Sample & Procedure 样本与程序</a></li>
+    <li><a href="#s6">Results — Two Interventions 结果：两种干预</a></li>
+    <li><a href="#s7">Conclusion 结论</a></li>
+    <li><a href="#s8">Strengths & Weaknesses 优势与不足</a></li>
+    <li><a href="#s9">Ethical Issues 伦理问题</a></li>
+    <li><a href="#s10">Issues & Debates 议题与辩论</a></li>
+    <li><a href="#s11">Summary 总结</a></li>
+    <li><a href="#s12">Questions 考试练习</a></li>
+  </ol>
+</div>
+
+<!-- SECTION 1: CLASSICAL CONDITIONING -->
+<div class="section" id="s1">
+  <h2>1️⃣ Background — Classical Conditioning 经典条件反射</h2>
+
+  <div class="img-container">
+    <img src="saavedra_images/01.png" alt="Textbook page 1 - classical conditioning introduction">
+    <div class="img-caption">Textbook page: Introduction to classical conditioning（经典条件反射介绍）</div>
+  </div>
+
+  <h3>What is Classical Conditioning? 什么是经典条件反射？</h3>
+  <p><strong>Classical conditioning（经典条件反射）</strong> is a form of learning in which an unconditioned response becomes linked to a previously neutral stimulus to create a learned association. It was first investigated by <strong>Ivan Pavlov (1927)</strong>, who observed dogs salivating in a laboratory as part of a totally different experiment.</p>
+
+  <p>Pavlov noticed that the dogs began to anticipate food when they saw researchers in the lab, before feeding times. He presented food alongside a range of neutral stimuli, such as bells, which created a learned association. Over several trials, when the dogs heard the bell (<strong>conditioned stimulus 条件刺激</strong>) they began to salivate (<strong>conditioned response 条件反应</strong>).</p>
+
+  <h3>The Four Stages of Classical Conditioning 经典条件反射四阶段</h3>
+
+  <table>
+    <tr><th>Stage 阶段</th><th>Stimulus 刺激</th><th>Response 反应</th></tr>
+    <tr><td><strong>1. Before conditioning<br>条件反射建立前</strong></td><td>Unconditioned stimulus (food)<br>无条件刺激（食物）</td><td>Unconditioned response (salivation)<br>无条件反应（流口水）</td></tr>
+    <tr><td><strong>2. Before conditioning<br>条件反射建立前</strong></td><td>Neutral stimulus (bell ringing)<br>中性刺激（铃声）</td><td>No response<br>无反应</td></tr>
+    <tr><td><strong>3. During conditioning<br>条件反射建立中</strong></td><td>Unconditioned stimulus (food) + Neutral stimulus (bell)<br>食物 + 铃声配对</td><td>Unconditioned response (salivation)<br>无条件反应（流口水）</td></tr>
+    <tr><td><strong>4. After conditioning<br>条件反射建立后</strong></td><td>Conditioned stimulus (bell ringing)<br>条件刺激（铃声）</td><td>Conditioned response (salivation)<br>条件反应（流口水）</td></tr>
+  </table>
+
+  <div class="img-container">
+    <img src="saavedra_images/02.jpg" alt="Pavlov's dog diagram">
+    <div class="img-caption">Figure 4.6: Pavlov's dog and bell — the four stages of classical conditionin（巴甫洛夫的狗与铃铛——经典条件反射四阶段）</div>
+  </div>
+
+  <div class="keyword-box">
+    <h4>🔑 KEY WORDS 核心术语</h4>
+    <p><strong>classical conditioning（经典条件反射）</strong>: learning through association, studied in both humans and animals. A previously neutral stimulus becomes linked to an unconditioned stimulus to produce a conditioned response.</p>
+    <p><strong>phobia（恐惧症）</strong>: the irrational, persistent fear of an object or event that creates anxiety and poses little real danger but creates anxiety and avoidance in the sufferer.</p>
+    <p><strong>evaluative learning（评估性学习）</strong>: a form of classical conditioning wherein attitudes towards stimuli are considered to be the product of complex thought processes and emotions, which lead an individual to perceive or evaluate a previously neutral stimulus negatively. Attitudes acquired through evaluative learning may be harder to change than more superficial associations.</p>
+  </div>
+
+  <h3>Phobias and Classical Conditioning 恐惧症与经典条件反射</h3>
+  <p>Some psychologists believe that behaviours such as <strong>phobias（恐惧症）</strong> can also be learned (and unlearned) in the same way as any other type of behaviour. There are several subtypes of classical conditioning:</p>
+  <ul>
+    <li><strong>Expectancy learning（预期学习）</strong>: a previously neutral or non-threatening object/event becomes associated with a potentially threatening outcome. The individual <em>expects</em> the negative consequence, so experiences fear in the presence of the previously non-threatening situation.</li>
+    <li><strong>Evaluative learning（评估性学习）</strong>: another type of classical conditioning in which an individual forms an association between a previously neutral stimulus and a negative emotion, but this is a negative <em>evaluation</em> — for example disgust, rather than fear.</li>
+  </ul>
+
+  <p>This suggests that disgust, as well as fear, may be an appropriate target emotion for the treatment of phobias, as well as the primary emotion of fear. In the case of phobias, an emotional response such as fear or anxiety becomes associated with a particular neutral stimulus, such as buttons.</p>
+
+  <div class="img-container">
+    <img src="saavedra_images/phobia_list.jpg" alt="Common phobias list">
+    <div class="img-caption">Common types of specific phobias（常见特定恐惧症类型）— Button phobia (koumounophobia) is one of many specific phobias classified in psychiatry</div>
+  </div>
+</div>
+
+<!-- SECTION 2: OPERANT CONDITIONING -->
+<div class="section" id="s2">
+  <h2>2️⃣ Background — Operant Conditioning 操作性条件反射</h2>
+
+  <h3>Operant Conditioning as Another Explanation 另一种解释</h3>
+  <p>Another form of conditioning is known as <strong>operant conditioning（操作性条件反射）</strong>. When a person or animal performs a new behaviour, this can become associated with a consequence. For example, receiving a sticker as a reward for allowing the dentist to perform a check-up makes it more likely a child might be happy to return for future check-ups.</p>
+
+  <p>In other words, rewards reinforce behaviour and make the behaviour more likely to be used again. Operant conditioning can also be used as an explanation for how people acquire phobias. When people avoid the object of their phobia this can reinforce future avoidance behaviours, because their anxiety is reduced when they haven't have encountered the thing they are afraid of. This reinforces or helps to maintain phobias once they have been learned.</p>
+
+  <p>Psychologists can use the reinforcement principle of operant conditioning to treat phobias as well. Praising or giving other rewards for remaining calm when approaching a phobic stimulus can reinforce more positive behaviours towards such stimuli. Such treatment might mean that the person can better tolerate the phobic stimulus.</p>
+
+  <div class="activity-box">
+    <h4>📝 ACTIVITY 4.3 思考活动</h4>
+    <p>Humans and many animals share cognitive and behavioural characteristics:</p>
+    <ol>
+      <li>Explain why psychologists might use animals rather than humans as participants in research?</li>
+      <li>As discussed in Chapter 1, the BPS Guidelines for Psychologists Working with Animals (2020) include ethical principles such as:
+        <ul><li><strong>replacement（替代）</strong> — use animals only if necessary</li>
+        <li><strong>species selection（物种选择）</strong> — choose appropriate species</li>
+        <li><strong>number（数量）</strong> — use the minimum number required</li>
+        <li><strong>procedures（程序）</strong> — use methods causing minimum suffering</li></ul>
+      </li>
+      <li>Design an advertisement recruiting captive elephants for Fagen et al.'s study, focusing on animal welfare and citing at least two of these ethical guidelines.</li>
+    </ol>
+  </div>
+
+  <h3>Why Buttons? The Research Background 为什么研究按钮恐惧？</h3>
+  <p>The study by Saavedra and Silverman focused on how phobias can be treated using the application of different theories of learning. These included operant conditioning to reinforce desirable behaviour. The researchers compared this treatment to evaluative learning as a form of classical conditioning to reduce feelings of disgust.</p>
+
+  <p>From their study of adults with a blood phobia, Hepburn and Page (1999) suggested that treating patients' disgust, as well as their fear, would help them to make progress. De Jong et al. (1997) worked with children who had a spider phobia. Although no attempt was made to manipulate feelings of disgust, their feelings of disgust declined alongside their reduction in fear.</p>
+
+  <div class="info-box">
+    <strong>💡 Key Insight:</strong> Disgust was recently touted as "the forgotten emotion of psychiatry" (Phillips et al., 1998). Disgust has been hypothesised as a concurrent emotion that, in interaction with fear, may result in increased avoidance behaviour. This case study specifically targets <strong>disgust（厌恶情绪）</strong> in treating childhood phobias.
+  </div>
+</div>
+
+<!-- SECTION 3: AIM -->
+<div class="section" id="s3">
+  <h2>3️⃣ Aim 研究目标</h2>
+
+  <div class="img-container">
+    <img src="saavedra_images/03.png" alt="Textbook page - Aim and Method">
+    <div class="img-caption">Textbook page: Aim, Method, Sample, and Procedure sections</div>
+  </div>
+
+  <blockquote>
+    The aim was to examine the role of classical conditioning in relation to fear and avoidance of a particular stimulus. In the context of this case study participant's specific phobia of buttons, researchers wanted to see if using a type of exposure therapy could reduce the disgust and distress associated with buttons.<br>
+    <span style="font-size:0.95em;color:var(--text-secondary);">研究目标是检验经典条件反射在恐惧和回避特定刺激中的作用。在这个按钮恐惧症的案例中，研究者想看看暴露疗法能否减少与按钮相关的厌恶和痛苦。</span>
+  </blockquote>
+
+  <h3>Research Questions 研究问题</h3>
+  <ol>
+    <li>Can targeting <strong>disgust（厌恶）</strong> (not just fear) improve treatment outcomes for childhood specific phobias?</li>
+    <li>Is <strong>evaluative learning（评估性学习）</strong> a useful framework for understanding why some phobias persist despite behavioural exposure?</li>
+    <li>Which intervention works better: positive reinforcement therapy or imagery exposure therapy?</li>
+  </ol>
+</div>
+
+<!-- SECTION 4: METHOD -->
+<div class="section" id="s4">
+  <h2>4️⃣ Method 方法</h2>
+
+  <h3>Research Method and Design 研究方法与设计</h3>
+  <p>This was a clinical <strong>case study（案例研究）</strong> as it involved just one participant whose life history and treatment were studied in depth. Data was collected using self-report measures. Both the boy and his mother were interviewed by the researchers about the onset of his subsequent behaviour. The boy was observed throughout the treatment sessions to see if his phobic behaviour showed any improvement. The results of the treatment were measured using a nine-point scale of distress known as the <strong>'Feelings Thermometer'（情感温度计）</strong>.</p>
+
+  <div class="keyword-box">
+    <h4>🔑 RESEARCH METHODS</h4>
+    <p>A <strong>case study（案例研究）</strong> involves studying one or a very small number of participants (such as a family unit) in great depth. It is particularly suitable in researching phenomena that are unusual or rare. Case studies often collect a large amount of qualitative data; this is often the main reason they are chosen as a method. In this study, interviews produced a history of the boy's experience with buttons and helped researchers understand the origin of his phobia.</p>
+  </div>
+</div>
+
+<!-- SECTION 5: SAMPLE & PROCEDURE -->
+<div class="section" id="s5">
+  <h2>5️⃣ Sample & Procedure 样本与程序</h2>
+
+  <h3>Sample 样本</h3>
+  <p>The participant was a <strong>9-year-old Hispanic American boy</strong>. Along with his mother, he had sought support from the Child Anxiety and Phobia Program at Florida International University, Miami. He met the criteria for having a specific phobia of buttons and had been experiencing symptoms for around <strong>four years</strong> prior to the start of the study.</p>
+
+  <h3>Origin of the Phobia 恐惧症的起源</h3>
+
+  <div class="img-container">
+    <img src="saavedra_images/buttons_collection.jpg" alt="Collection of various buttons">
+    <div class="img-caption">The feared stimulus: a variety of buttons（恐惧刺激物：各种纽扣）— For this participant, especially small clear plastic buttons provoked the strongest disgust response</div>
+  </div>
+
+  <p>The phobia had begun at age five, when he was in kindergarten during an art project that involved buttons. He described the situation in which he ran out of buttons to paste on his posterboard and was asked to come to the front of his class and teacher. He found a bowl of buttons on his teacher's desk. When he reached for the bowl, his hand slipped and all the buttons in the bowl fell on him. He described this experience as distressing, and from that time onwards his aversion to buttons steadily increased.</p>
+
+  <p>When interviewed, the phobia was interfering significantly with his normal functioning: he could no longer dress himself and had become preoccupied with avoiding touching himself or clothing that could have touched buttons.</p>
+
+  <h3>Procedure — Creating the Hierarchy 程序——建立恐惧层级</h3>
+  <p>It was necessary for the researchers to understand the boy's specific feelings towards buttons prior to starting treatment. Through discussion with the participant, they created a hierarchy of feared stimuli, with each item on the list provoking increasing fear. Table 4.5 shows the most difficult items for the child were small, clear plastic buttons. These were rated at an "8" on the nine-point Feelings Thermometer. Handling these or touching someone wearing them was the most unpleasant task for the boy.</p>
+
+  <h3>Table 4.5: Hierarchy of Fear/Disgust 恐惧/厌恶层级表</h3>
+  <table>
+    <tr><th>#</th><th>Stimuli 刺激物</th><th>Distress rating (0–8)<br>痛苦评分</th></tr>
+    <tr><td>1</td><td>Large denim jean buttons<br>大号牛仔布纽扣</td><td class="num-cell">2</td></tr>
+    <tr><td>2</td><td>Small denim jean buttons<br>小号牛仔布纽扣</td><td class="num-cell">3</td></tr>
+    <tr><td>3</td><td>Clip-on denim jean buttons<br>牛仔夹式纽扣</td><td class="num-cell">3</td></tr>
+    <tr><td>4</td><td>Large plastic buttons (coloured)<br>大号彩色塑料纽扣</td><td class="num-cell">4</td></tr>
+    <tr><td>5</td><td>Large plastic buttons (clear)<br>大号透明塑料纽扣</td><td class="num-cell">4</td></tr>
+    <tr><td>6</td><td>Hugging Mom when she wears large plastic buttons<br>妈妈穿大塑料纽扣衣服时拥抱她</td><td class="num-cell">5</td></tr>
+    <tr><td>7</td><td>Medium plastic buttons (coloured)<br>中号彩色塑料纽扣</td><td class="num-cell">5</td></tr>
+    <tr><td>8</td><td>Medium plastic buttons (clear)<br>中号透明塑料纽扣</td><td class="num-cell">6</td></tr>
+    <tr><td>9</td><td>Hugging Mom when she wears regular medium plastic buttons<br>妈妈穿普通中号塑料纽扣时拥抱</td><td class="num-cell">7</td></tr>
+    <tr><td>10</td><td>Small plastic buttons (coloured)<br>小号彩色塑料纽扣</td><td class="num-cell">8</td></tr>
+    <tr><td>11</td><td>Small plastic buttons (clear) ⭐<br>小号透明塑料纽扣（最难）</td><td class="num-cell">8</td></tr>
+  </table>
+
+  <div class="img-container">
+    <img src="saavedra_images/04.png" alt="Table 4.5 hierarchy">
+    <div class="img-caption">Table 4.5: The participant's hierarchy of fear/disgust（参与者的恐惧/厌恶层级表）</div>
+  </div>
+
+  <h3>Intervention 1: Positive Reinforcement Therapy 干预一：正强化疗法</h3>
+  <p>The boy was treated with two interventions, one after the other. The first was <strong>contingency management（权变管理）</strong>, a form of positive reinforcement therapy. This was a behaviour-focused approach which meant the boy was rewarded for showing less fear and for actually handling the buttons. The positive reinforcement was given to the boy by his mother only after he had completed a gradual exposure to buttons. These treatment sessions lasted between 20 and 30 minutes.</p>
+
+  <p>Researchers observed how the boy approached the buttons (e.g., whether the numbers of buttons he handled increased). They also measured his subjective rating of distress (on a 9-point scale) using the Feelings Thermometer.</p>
+
+  <div class="keyword-box">
+    <h4>🔑 KEY WORD</h4>
+    <p><strong>imagery exposure therapy（意象暴露疗法）</strong>: therapy in which the person is asked to vividly imagine their feared object, situation or activity.</p>
+    <p><strong>self-control（自我控制）</strong>: a form of cognitive-behavioural therapy. It involves using 'self-talk'; the individual is taught to recognise difficult situations, acknowledge troubling thoughts and consider alternative, positive thoughts.</p>
+  </div>
+
+  <h3>Intervention 2: Imagery Exposure Therapy 干预二：意象暴露疗法</h3>
+  <p>The second form of therapy, and the main focus of the study, was known as <strong>imagery exposure therapy（意象暴露疗法）</strong>. Interviews with the boy had revealed that he found touching his body disgusting, and he also believed that buttons smelt unpleasant. These ideas formed the basis for disgust imagery exercises.</p>
+
+  <p>Unlike <em>in vivo</em> exposure (where the individual actually physically handles or is exposed to fearful stimuli), imagery exposure therapy uses visualisation techniques. Disgust-related imagery exposures were incorporated with cognitive <strong>self-control strategies（自我控制策略）</strong>.</p>
+
+  <p>The boy was asked to imagine buttons falling on him, and to consider how they looked, felt and smelled. He was also asked to talk about how these imagery exposures made him feel. The exposures progressed from images of larger to smaller buttons, in line with the boy's fear hierarchy. At each session, self-report measures were taken of the boy's subjective ratings of distress using the Feelings Thermometer.</p>
+</div>
+
+<!-- SECTION 6: RESULTS -->
+<div class="section" id="s6">
+  <h2>6️⃣ Results 结果</h2>
+
+  <div class="img-container">
+    <img src="saavedra_images/05.png" alt="Results page with graphs">
+    <div class="img-caption">Textbook page: Results section with Figure 4.7 and Figure 4.8</div>
+  </div>
+
+  <h3>Intervention 1: Positive Reinforcement Therapy — Unexpected Result 正强化疗法——意外结果</h3>
+  <p>The outcome of the first intervention, positive reinforcement therapy, was a successful completion of all the exposure tasks listed in the hierarchy of fear. The boy was also observed approaching the buttons more positively. One example of this was that he started handling larger numbers of buttons during later sessions.</p>
+
+  <p><strong>However</strong>, his subjective ratings of distress increased significantly between sessions two and three, and continued to rise (see Figure 4.7 below). By session four, a number of items on the hierarchy such as hugging his mother while she was wearing buttons had increased in dislike from the original scores.</p>
+
+  <p><strong>Key finding:</strong> Despite his behaviour towards the fearful stimuli improving, his feelings of disgust, fear and anxiety actually <em>increased</em> as a result of the positive reinforcement therapy. This finding is consistent with previous research into evaluative learning: despite repeated exposure to the phobic object, evaluative reactions (i.e. <strong>disgust 厌恶</strong>) remain unchanged or even increase.</p>
+
+  <h3>Figure 4.7: Distress Ratings During Positive Reinforcement 图4.7：正强化期间的痛苦评分</h3>
+  <div class="chart-container">
+    <canvas id="chartPositive"></canvas>
+  </div>
+  <div class="img-caption">Figure 4.7: Ratings of distress during positive reinforcement therapy — note how distress INCREASED despite behavioural improvement（正强化治疗期间的痛苦评分——注意尽管行为改善，痛苦反而上升了）</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script>
+    const ctx1 = document.getElementById('chartPositive').getContext('2d');
+    new Chart(ctx1, {
+      type: 'line',
+      data: {
+        labels: ['Session 1', 'Session 2', 'Session 3', 'Session 4'],
+        datasets: [{
+          label: 'Number of buttons handled (approach behaviour)',
+          data: [1, 3, 6, 11],
+          borderColor: '#7E57C2',
+          backgroundColor: 'rgba(126,87,194,0.1)',
+          borderWidth: 3,
+          pointBackgroundColor: '#7E57C2',
+          pointBorderColor: '#fff',
+          pointBorderWidth: 2,
+          pointRadius: 6,
+          pointHoverRadius: 8,
+          fill: true,
+          tension: 0.3,
+          yAxisID: 'y'
+        }, {
+          label: 'Severity rating (distress)',
+          data: [6, 6, 7, 8],
+          borderColor: '#D32F2F',
+          backgroundColor: 'rgba(211,47,47,0.1)',
+          borderWidth: 3,
+          pointBackgroundColor: '#D32F2F',
+          pointBorderColor: '#fff',
+          pointBorderWidth: 2,
+          pointRadius: 6,
+          pointHoverRadius: 8,
+          fill: true,
+          tension: 0.3,
+          yAxisID: 'y1'
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: { mode: 'index', intersect: false },
+        plugins: {
+          legend: { labels: { font: { size: 13, family: '-apple-system,sans-serif' } } },
+          title: { display: true, text: 'Positive Reinforcement Therapy: Behaviour Improved but Distress WORSENED', font: { size: 14 } }
+        },
+        scales: {
+          y: { type: 'linear', position: 'left', beginAtZero: true, max: 12, title: { display: true, text: 'Number of buttons handled', font: { size: 12 } }, grid: { color: '#eee' } },
+          y1: { type: 'linear', position: 'right', beginAtZero: true, max: 10, title: { display: true, text: 'Distress rating (0–8)', font: { size: 12 } }, grid: { drawOnChartArea: false } },
+          x: { title: { display: true, text: 'Exposure session', font: { size: 12 } }, grid: { color: '#eee' } }
+        }
+      }
+    });
+  </script>
+
+  <div class="warn-box">
+    <h4>⚠️ Critical Finding 关键发现</h4>
+    So, while the participant was showing improved behaviour, the level of fear and disgust he was experiencing from this intervention worsened. This supports the <strong>evaluative learning（评估性学习）</strong> framework: behavioural exposure alone does not address the underlying emotional evaluation (disgust) associated with the phobic stimulus.
+  </div>
+
+  <h3>Intervention 2: Imagery Exposure Therapy — Success! 意象暴露疗法——成功！</h3>
+  <p>The second intervention, imagery exposure therapy, appeared to be successful in reducing the boy's rating of distress. One example of this is shown in Figure 4.8 below, relating to imagery of "hundreds of buttons falling all over his body". Before imagery exposure, the boy rated this experience as the most fearful and disgusting (score of 8 on the Feelings Thermometer). This reduced to 5 midway through the exposure, and just 3 after the exposure was complete.</p>
+
+  <h3>Figure 4.8: Distress Ratings During Imagery Exposure 图4.8：意象暴露期间的痛苦评分</h3>
+  <div class="chart-container">
+    <canvas id="chartImagery"></canvas>
+  </div>
+  <div class="img-caption">Figure 4.8: Ratings of distress during imagery exposure therapy — distress DECREASED from 8→5→3（意象暴露治疗期间的痛苦评分——从8降到5再降到3）</div>
+
+  <script>
+    const ctx2 = document.getElementById('chartImagery').getContext('2d');
+    new Chart(ctx2, {
+      type: 'line',
+      data: {
+        labels: ['Before exposure\n(暴露前)', 'Midway through\n(中途)', 'After exposure\n(暴露后)'],
+        datasets: [{
+          label: '"Hundreds of buttons falling on body"',
+          data: [8, 5, 3],
+          borderColor: '#5E35B1',
+          backgroundColor: 'rgba(94,53,177,0.15)',
+          borderWidth: 3,
+          pointBackgroundColor: '#5E35B1',
+          pointBorderColor: '#fff',
+          pointBorderWidth: 2,
+          pointRadius: 7,
+          pointHoverRadius: 9,
+          fill: true,
+          tension: 0.4
+        }, {
+          label: '"Hugging Mom with shirt full of buttons"',
+          data: [7, 4, 3],
+          borderColor: '#FF6D00',
+          backgroundColor: 'rgba(255,109,0,0.15)',
+          borderWidth: 3,
+          pointBackgroundColor: '#FF6D00',
+          pointBorderColor: '#fff',
+          pointBorderWidth: 2,
+          pointRadius: 7,
+          pointHoverRadius: 9,
+          fill: true,
+          tension: 0.4
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { labels: { font: { size: 13, family: '-apple-system,sans-serif' } } },
+          title: { display: true, text: 'Imagery Exposure Therapy: Distress Successfully REDUCED', font: { size: 14 } }
+        },
+        scales: {
+          y: { beginAtZero: true, max: 10, title: { display: true, text: 'Distress rating (Feelings Thermometer 0–8)', font: { size: 12 } }, grid: { color: '#eee' } },
+          x: { title: { display: true, text: 'Session time-frame', font: { size: 12 } }, grid: { color: '#eee' } }
+        }
+      }
+    });
+  </script>
+
+  <h3>Follow-up Results 随访结果</h3>
+  <p>Following his treatment, six-month and 12-month follow-ups were conducted. At these assessment sessions, the boy reported feeling minimal distress about buttons. He also no longer met the diagnostic criteria for a specific phobia of buttons. His feelings towards buttons no longer affected his normal functioning; he was able to wear small, clear plastic buttons on his school uniform on a daily basis.</p>
+</div>
+
+<!-- SECTION 7: CONCLUSION -->
+<div class="section" id="s7">
+  <h2>7️⃣ Conclusion 结论</h2>
+
+  <div class="img-container">
+    <img src="saavedra_images/06.png" alt="Conclusion page">
+    <div class="img-caption">Textbook page: Conclusion, Activity 4.4, and Strengths & Weaknesses</div>
+  </div>
+
+  <p>The researchers concluded that the positive reinforcement therapy was successful in changing observable behaviour, and the imagery exposure therapy was successful in reducing feelings of fear and disgust. In particular they argue that:</p>
+
+  <ol>
+    <li><strong>Emotions and cognitions relating to disgust are important when learning new responses to phobic stimuli.</strong> 与厌恶相关的情绪和认知在学习对恐惧刺激的新反应时非常重要。</li>
+    <li><strong>Imagery exposure can have a long-term effect on reducing the distress associated with specific phobias as it tackles negative evaluations.</strong> 意象暴露可以对减少特定恐惧症的痛苦产生长期效果，因为它针对的是负面评估。</li>
+  </ol>
+
+  <blockquote>
+    <strong>Core Conclusion:</strong> This is the first report in the child psychiatric literature documenting the importance of targeting <strong>disgust（厌恶）</strong> in treating a specific childhood phobia. Only upon switching from behavioural exposures to disgust imagery exposures and cognitions was the specific phobia effectively diminished — a phenomenon consistent with an <strong>evaluative learning（评估性学习）</strong> perspective.
+  </blockquote>
+
+  <div class="activity-box">
+    <h4>📝 ACTIVITY 4.4 思考活动</h4>
+    <p>This study found that phobias can be both learned and treated through processes of classical conditioning.</p>
+    <p>Create a poster that illustrates the learning process involved in this study. This can be created using a computer, hand-drawn or a combination of both.</p>
+    <p>You will need to focus on the steps which make up the classical conditioning process. Refer to the information in the Background section to remind yourself of the stages.</p>
+    <p><strong>Ensure you include the following terminology on your poster:</strong></p>
+    <ul>
+      <li>unconditioned stimulus（无条件刺激）</li>
+      <li>unconditioned response（无条件反应）</li>
+      <li>neutral stimulus（中性刺激）</li>
+      <li>no response（无反应）</li>
+      <li>conditioned stimulus（条件刺激）</li>
+      <li>conditioned response（条件反应）</li>
+    </ul>
+    <p>Select images that will support your explanation at each stage.</p>
+  </div>
+</div>
+
+<!-- SECTION 8: STRENGTHS & WEAKNESSES -->
+<div class="section" id="s8">
+  <h2>8️⃣ Strengths & Weaknesses 优势与不足</h2>
+
+  <h3>✅ Strengths 优势</h3>
+
+  <h4>1. Highly Valid (High Ecological Validity) 高生态效度</h4>
+  <p>However, the case study was highly valid; the participant was studied over a period of time, using several different methods of data collection. The researchers used standardised measures such as the Feelings Thermometer before, during and after therapy. Collecting and analysing quantitative data means the researchers could compare the phobic reactions of the boy at the start and end of his treatment to assess any improvement.</p>
+
+  <h4>2. Rich Qualitative Data 丰富的定性数据</h4>
+  <p>A substantial amount of <strong>qualitative data（定性数据）</strong> was also gathered about the boy. An example of this was the background information obtained by interviewing the boy and his mother about the button incident at school. This type of data is useful because it can help us to understand the reasons underlying psychological disorders.</p>
+
+  <h4>3. Insight into Evaluative Learning 对评估性学习的深入洞察</h4>
+  <p>In many ways, this study could be considered to be subjective. The participant created his own hierarchy of fear and disgust relating to his button phobia. He also gave personal ratings which were highly individual to his own thoughts and feelings. However, the aim of this study was to understand the experience of evaluative learning in an individual with specific phobia; these measures were appropriate. A scale created by the researchers for use with all phobic patients would not have been as relevant or informative about personal progress.</p>
+
+  <h4>4. Building Rapport 建立良好关系</h4>
+  <p>Working on a case study involves building rapport with the participant. There is less room for anonymity or objectivity. This means there is a higher risk of bias, which may compromise the validity of the study. There may be researcher bias as the researchers select and report on a particular participant (who may be more likely to have a positive outcome). Demand characteristics may be more obvious also.</p>
+
+  <h3>❌ Weaknesses 不足</h3>
+
+  <h4>1. Very Small Sample (n = 1) 样本量极小</h4>
+  <p>This piece of research involved a case study. This means that the sample is small (in this case, one person). Like the sample of research by Fagen et al. discussed in Section 4.2, using a small sample in psychological study can make it difficult to <strong>generalise（推广）</strong> the results to a larger population. As the participant was diagnosed with a specific phobia of buttons, it makes the case even less likely to be representative of the general population.</p>
+
+  <h4>2. Lacks Generalisability 缺乏推广性</h4>
+  <p>Button phobias are extremely rare. The findings from studying one boy with a highly unusual phobia cannot be generalised to more common phobias (e.g., spiders, heights, blood).</p>
+
+  <h4>3. Risk of Bias 偏见风险</h4>
+  <p>The boy was fully aware he was undergoing therapy with the intention of improving his phobic symptoms. This might have affected the ratings he gave to the different levels of exposure therapy. The mother's ratings may also have been influenced by her desire to see her son improve.</p>
+</div>
+
+<!-- SECTION 9: ETHICAL ISSUES -->
+<div class="section" id="s9">
+  <h2>9️⃣ Ethical Issues 伦理问题</h2>
+
+  <h3>✅ Ethical Strengths 伦理优点</h3>
+  <ol>
+    <li><strong>Informed consent（知情同意）</strong>: The boy and his mother both provided informed consent to participate in the study.</li>
+    <li><strong>Beneficial aim（有益目的）</strong>: The aim of the study was to improve the boy's quality of life and minimise psychological distress, which is more ethical than trying to create phobias in participants and then attempting to treat them.</li>
+    <li><strong>Anonymity preserved（保护匿名）</strong>: In addition, the boy's anonymity was preserved, which allowed him to maintain his privacy.</li>
+    <li><strong>Right to withdraw（退出权利）</strong>: Although the therapy involved deliberate exposure to distressing stimuli (real or imagined), the boy was a willing participant who sought help for his condition.</li>
+  </ol>
+
+  <h3>⚠️ Ethical Considerations 伦理考量</h3>
+  <ol>
+    <li><strong>Children as participants（儿童参与者）</strong>: When using children as participants, ethical issues can be a major concern. In this instance, the boy and his mother gave informed consent to participate in the study. This was important as the therapy involved deliberate exposure to distressing stimuli whether real or imagined.</li>
+    <li><strong>Temporary distress（暂时痛苦）</strong>: The boy could be considered vulnerable as his specific phobia is a recognised mental health condition. The intention of the researchers was to treat his phobia and improve his quality of life, which was to justify the temporary distress caused during treatment.</li>
+    <li><strong>Parental consent vs child consent（父母同意 vs 儿童同意）</strong>: Ethical guidelines typically suggest that parents' or guardians' consent should be obtained in addition to the child's own. The head teacher at the nursery school is thanked in the study, so she was clearly aware of the procedure; there was no indication of whether the parents' consent was obtained.</li>
+  </ol>
+
+  <div class="activity-box">
+    <h4>📝 ACTIVITY 4.5: Comparing with Little Albert 与小阿尔伯特对比</h4>
+    <p>In a different study on phobias (which we will explore in more detail in Chapter 6), researchers Watson and Rayner exposed a nine-month-old baby known as "Little Albert" to different stimuli including a white rat. Albert showed no fear of these stimuli. The researchers then classically conditioned Albert to fear the rat by presenting a loud noise at the same time as showing him the rat. The loud noise caused Albert to cry. They repeated this procedure each time the rat was shown to Albert, until the little boy began to cry as soon as he saw the rat.</p>
+    <ol>
+      <li>Apply the theory of classical conditioning to explain how Albert acquired his phobia of rats.</li>
+      <li>Compare and contrast the Little Albert study with the study by Saavedra and Silverman in terms of ethical issues.</li>
+    </ol>
+  </div>
+
+  <h3>Comparison Table: Little Albert vs. Saavedra & Silverman 小阿尔伯特 vs 本研究的伦理对比</h3>
+  <table>
+    <tr><th>Aspect 方面</th><th>Little Albert (Watson & Rayner, 1920)</th><th>Saavedra & Silverman (2002)</th></tr>
+    <tr><td><strong>Participant age</strong></td><td>9-month-old infant（9个月婴儿）</td><td>9-year-old boy（9岁男孩）</td></tr>
+    <tr><td><strong>Consent 同意</strong></td><td>No consent (mother unaware of full procedure)<br>无知情同意</td><td>Informed consent from boy AND mother<br>双方知情同意</td></tr>
+    <tr><td><strong>Purpose 目的</strong></td><td>To CREATE a phobia (induce fear)<br>制造恐惧症</td><td>To TREAT an existing phobia<br>治疗已有恐惧症</td></tr>
+    <tr><td><strong>Harm caused 造成伤害</strong></td><td>Deliberately induced lasting fear<br>故意造成持久恐惧</td><td>Temporary distress for long-term benefit<br>短期痛苦换取长期改善</td></tr>
+    <tr><td><strong>Right to withdraw 退出权</strong></td><td>Not possible (infant cannot object)<br>不可能（婴儿无法拒绝）</td><td>Participant sought help voluntarily<br>参与者主动求助</td></tr>
+    <tr><td><strong>Anonymity 匿名</strong></td><td>Identity known ("Little Albert")<br>身份已知</td><td>Anonymity preserved<br>匿名得到保护</td></tr>
+    <tr><td><strong>Debriefing 事后说明</strong></td><td>No debriefing; phobia not removed<br>无事后说明；恐惧未被消除</td><td>Full follow-up at 6 & 12 months<br>完整随访6个月和12个月</td></tr>
+  </table>
+</div>
+
+<!-- SECTION 10: ISSUES & DEBATES -->
+<div class="section" id="s10">
+  <h2>🔟 Issues & Debates 议题与辩论</h2>
+
+  <div class="img-container">
+    <img src="saavedra_images/07.png" alt="Issues and debates page">
+    <div class="img-caption">Textbook page: Summary, Questions, Issues & Debates</div>
+  </div>
+
+  <h3>10.1 Nature vs Nurture 先天 vs 后天</h3>
+
+  <div class="two-col">
+    <div class="col-card nature">
+      <h4>🧬 Nature 先天论点</h4>
+      <ol>
+        <li>In Bandura's study, the differences between the responses of boys and girls to the same models could be explained by either nature or nurture. Boys were more likely to imitate aggressive behaviour than girls, possibly because of nature factors including the influence of hormones on brain development.</li>
+        <li>Alternatively (or additionally), boys may be more likely to imitate aggression because they have already acquired stereotypes about what is acceptable behaviour for males or have been rewarded for masculine-type behaviours.</li>
+        <li>The boy's individual sensitivity to disgust may have a biological basis — some individuals are naturally higher in <strong>disgust sensitivity（厌恶敏感度）</strong>.</li>
+        <li>Age-related factors: younger children may be more biologically predisposed to forming strong emotional associations through classical conditioning.</li>
+      </ol>
+    </div>
+    <div class="col-card nurture">
+      <h4>🌱 Nurture 后天论点</h4>
+      <ol>
+        <li>The theory of operant conditioning demonstrated in Fagen et al. relies on a nurture-based approach to learning. As human training shaped the elephants' behaviour through rewards, they were able to demonstrate trunk washing as a learned behaviour.</li>
+        <li>The theory underlying the acquisition and treatment of phobias in the study by Saavedra and Silverman is classical conditioning. Classical conditioning relies solely on a nurture-based explanation of learning. Phobias are considered to be innate or genetically inherited. Instead, they are considered to be products of negative experiences with previously neutral stimuli.</li>
+        <li>The boy's phobia began with a specific traumatic incident (buttons falling on him at age 5) — a clear environmental/nurture trigger.</li>
+        <li>Treatment based on the same principles — subsequent neutral or positive experiences with the phobic stimulus (along with cognitive therapy) can reduce fearful responses.</li>
+      </ol>
+    </div>
+  </div>
+
+  <p style="margin-top:15px;padding:14px;background:var(--highlight);border-radius:8px;">
+    <strong>🎯 Saavedra & Silverman's stance:</strong> The study clearly supports a <strong>Nurture（后天）</strong> view. The phobia was acquired through a negative environmental experience (buttons falling), maintained through evaluative learning (disgust-based emotional association), and successfully treated through modified environmental exposures (imagery therapy + cognitive restructuring). No innate or genetic factors were identified as causes.
+  </p>
+
+  <h3>10.2 Individual and Situational Explanations 个体与情境解释</h3>
+  <p>The individual and situational explanations debate is relevant to the study by Bandura. Imitation clearly suggests that situational factors matter in that the model is an aspect of the situation, as are the differences between male and female models. However, <strong>individual factors</strong> can also explain differences in imitation.</p>
+
+  <p>Individual factors in operant conditioning can explain why, even when girls and boys are exposed to the same models, their acquisition of behaviours differs because boys and girls may be differently rewarded for sex-typed behaviours. For example, a daughter may be praised for <em>not</em> fighting but a son praised for "sticking up for himself".</p>
+
+  <p><strong>In the context of Saavedra & Silverman:</strong> Most of the elephants in Fagen's study successfully had their behaviour changed by situational changes; the SPR technique used by their mahouts. However, this finding was not consistently true of whole group. This suggests that <strong>individual differences</strong> (namely the age and personality of an elephant) may affect an animal's ability to learn new behaviours such as trunk washing. Similarly, the 9-year-old boy's individual characteristics (his specific disgust sensitivity, his cognitive ability to engage in imagery exercises) played a crucial role in the treatment outcome.</p>
+
+  <h3>10.3 Use of Children in Psychological Research 儿童在心理学研究中的使用</h3>
+  <p>The children used in Bandura's study did not appear to have been given the opportunity to consent to the study, or to withdraw. Since children are particularly vulnerable, the study had the potential to cause distress, which is an ethical concern.</p>
+
+  <p>Although the head teacher at the nursery school is thanked in the study, so she was clearly aware of the procedure, there was no indication of whether the parents' consent was obtained. When children are used in studies, ethical guidelines typically suggest that parents' or guardians' consent should be obtained in addition to the child's own.</p>
+
+  <p><strong>On a practical level, the use of children rather than adults in Bandura's study was ideal.</strong> Children have been exposed to much less violence than adults and there are likely to be fewer extraneous factors affecting their aggression levels (such as a bad day at work). In general, children have been naive than adults, so the participants would have been less likely to suspect that they were being shown aggressive models to investigate the effects of these on their own behaviour. These considerations all lead to the greater potential for representative effects of the procedure on children than if the same study were conducted with adult participants.</p>
+
+  <p><strong>In Saavedra & Silverman's study:</strong> The child participant (aged nine) was asked for consent. In accordance with ethical guidelines, his mother also consented to his participation. This study was potentially highly distressing, as it involved both real and imagined exposure to frightening stimuli. Furthermore, the boy could be considered vulnerable as his specific phobia is a recognised mental health condition. The intention of the researchers was to treat his phobia and improve his quality of life, which was to justify the temporary distress caused during treatment.</p>
+
+  <h3>10.4 Use of Animals in Psychological Research 动物在心理学研究中的使用</h3>
+  <div class="img-container">
+    <img src="saavedra_images/08.png" alt="Animals in research">
+    <div class="img-caption">Textbook page: Use of animals in psychological research discussion</div>
+  </div>
+
+  <p>Although the Bandura study was conducted with humans, similar research could have been, and has been, done with animals. Clearly there are some reasons why this would be better:</p>
+  <ul>
+    <li>It removes the potential risk of causing short-term distress or long-term harm to children.</li>
+    <li>Although it is assumed that the children remained naive to the purpose of the activity, it is still possible that the adult's believed that they were "supposed" to copy what they did. This would not be a risk if animals were used, and the possibility that some animals had been exposed to more aggression prior to the study could be controlled.</li>
+  </ul>
+
+  <p><strong>Conversely, there would be disadvantages:</strong></p>
+  <ul>
+    <li>Although there are biological sex differences in the behaviours of animals, they do not acquire sex-typed behaviours that are a consequence of cultural factors in the way that children do. Because this has been shown to be important, an animal study would not be able to test such social influences.</li>
+    <li>The research by Fagen et al. was a controlled observation of the training and testing of a small group of elephants. Practically there were some advantages for working with these animals: they were already in captivity and familiar with their handlers. The elephants were harmed as a result of the learning techniques of positive reinforcement and their housing and care was sufficient.</li>
+    <li>The study was conducted over a number of weeks and involved training on a near daily basis, which would have been impractical to achieve with a human participant. The elephants were also motivated by intermittent food rewards as part of the SPR training; again, motivating a human participant to continue with on-going trials might have been harder.</li>
+  </ul>
+
+  <div class="img-container">
+    <img src="saavedra_images/09.png" alt="Animal cage image">
+    <div class="img-caption">Figure 4.9: Is it right to keep animals in captivity for the purposes of research?（图4.9：为了研究目的将动物圈养在笼中是否正确？）</div>
+  </div>
+
+  <h3>10.5 Application of Psychology to Everyday Life 心理学在日常生活中的应用</h3>
+  <p>There are clear implications from Bandura et al.'s study on the application of psychology to everyday life. Children all over the world are exposed to aggression. This aggression can be either real, such as domestic violence in the home or violence on the news, or fictional, such as in cartoons, films and computer games. This study shows how such models can influence the behaviour of children, especially of boys.</p>
+
+  <p>One consequence of the recognition of such potential effects is that many countries have restrictions on viewing television programmes, films and computer games. For example, there may be certain time in the evening before which you cannot watch programmes with content that is inappropriate for children (this is called the 9:00 p.m. "watershed" in the UK) and certifications for films and games which indicate that they are only suitable for children over a certain age.</p>
+
+  <p><strong>For Saavedra & Silverman's study:</strong> The research shows how therapy based on the principles of classical conditioning can be used to treat specific phobias. A phobia is a distressing mental health condition that can negatively affect people's quality of life. Methods such as disgust imagery exposure are used in clinical practice to challenge the fearful associations with phobic stimuli. This piece of research demonstrates the potential long-term improvement that can result from exposure therapies.</p>
+</div>
+
+<!-- SECTION 11: SUMMARY -->
+<div class="section" id="s11">
+  <h2>1️⃣1️⃣ Summary 总结</h2>
+
+  <div class="img-container">
+    <img src="saavedra_images/10.png" alt="Summary page">
+    <div class="img-caption">Textbook page: Summary section</div>
+  </div>
+
+  <p>The study by Saavedra and Silverman aimed to investigate the role of evaluative learning in treating a specific phobia of buttons. They used a case study of a young boy to explore the origin of his phobia, and treated him using both the original reinforcement and imagery exposure therapies. He responded best to the imagery exposure technique which relates closely to the thoughts and feelings associated with learned responses.</p>
+
+  <p>This is a unique piece of research which gained both qualitative and quantitative data about the participant's progress through therapy. It has practical applications for the treatment of specific phobias, e.g. through imagery exposure relating to disgust.</p>
+
+  <div class="info-box">
+    <h4>📋 Quick Recap 快速回顾</h4>
+    <table>
+      <tr><th>Item 项目</th><th>Details 详情</th></tr>
+      <tr><td>Researchers 研究者</td><td>Lissette M. Saavedra & Wendy K. Silverman (2002)</td></tr>
+      <tr><td>Method 方法</td><td>Case Study（案例研究）with qualitative & quantitative data</td></tr>
+      <tr><td>Sample 样本</td><td>1 participant: 9-year-old Hispanic American boy</td></tr>
+      <tr><td>Phobia onset 发病</td><td>Age 5: buttons fell on him during art class</td></tr>
+      <tr><td>Duration 病程</td><td>4 years before treatment</td></tr>
+      <tr><td>Intervention 1</td><td>Positive reinforcement / contingency management → Behaviour ✅, Distress ❌ WORSENED</td></tr>
+      <tr><td>Intervention 2</td><td>Imagery exposure therapy + cognitive self-control → Distress REDUCED (8→3) ✅</td></tr>
+      <tr><td>Follow-up 随访</td><td>6-month & 12-month: maintenance of gains ✅</td></tr>
+      <tr><td>Key theoretical contribution</td><td>Evaluative learning framework; importance of targeting disgust (not just fear)</td></tr>
+      <tr><td>Approach 取向</td><td>CIE Learning Approach — Classical Conditioning（学习取向：经典条件反射）</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- SECTION 12: QUESTIONS -->
+<div class="section" id="s12">
+  <h2>1️⃣2️⃣ Questions 考试练习</h2>
+
+  <div class="img-container">
+    <img src="saavedra_images/11.png" alt="Exam questions">
+    <div class="img-caption">Textbook page: Exam-style questions (continued)</div>
+  </div>
+
+  <div class="question-item">
+    <p><strong>Q7. Imagine a phobia of something different from buttons, for example of spiders or heights.</strong></p>
+    <p><strong>a)</strong> Define what is meant by a 'phobia'. <span style="color:var(--accent);">[? marks]</span></p>
+    <p><strong>b)</strong> Suggest eight scenarios that could be imagined by a person receiving similar treatment to that described in the study by Saavedra and Silverman. <span style="color:var(--accent);">[? marks]</span></p>
+    <p style="color:var(--text-secondary);margin-top:8px;"><strong>Model Answer 要点：</strong><br>
+    <strong>(a)</strong> A phobia is an irrational, persistent fear of an object or event that creates anxiety and poses little real danger to the sufferer but leads to avoidance behaviour. It is a type of anxiety disorder characterised by excessive and unreasonable fear.<br>
+    <strong>(b)</strong> Eight scenarios for a spider phobia hierarchy (from least to most distressing):<br>
+    1. Looking at a picture of a small spider (rating: 1)<br>
+    2. Looking at a picture of a large spider (rating: 2)<br>
+    3. Being in the same room as a plastic spider toy (rating: 3)<br>
+    4. Watching a video of a real spider (rating: 4)<br>
+    5. Being in the same room as a real spider in a glass container (rating: 5)<br>
+    6. Imagining a spider crawling on your arm (rating: 6)<br>
+    7. Imagining hundreds of spiders falling on your body (rating: 7)<br>
+    8. Imagining holding a large hairy tarantula in your hands (rating: 8)</p>
+  </div>
+
+  <div class="question-item">
+    <p><strong>Q8. This study used only one participant, a nine-year-old boy.</strong></p>
+    <p><strong>a)</strong> Can you explain the limitations of the results of the study, based on using only one participant? <span style="color:var(--accent);">[? marks]</span></p>
+    <p><strong>b)</strong> Why are the results still useful? <span style="color:var(--accent);">[? marks]</span></p>
+    <p style="color:var(--text-secondary);margin-top:8px;"><strong>Model Answer 要点：</strong><br>
+    <strong>(a) Limitations:</strong> (1) Cannot generalise findings to the wider population — n=1 is not representative; (2) Button phobias are extremely rare, so findings may not apply to more common phobias; (3) Risk of researcher bias — only one participant means results may be selectively reported; (4) Demand characteristics — the boy knew he was being treated and may have altered his ratings; (5) Lack of control group — cannot compare with no-treatment or alternative treatment conditions.<br>
+    <strong>(b) Still useful because:</strong> (1) Provides rich, in-depth qualitative data about the experience of phobia and treatment; (2) First study to demonstrate the importance of targeting disgust (not just fear) in childhood phobias; (3) Generates hypotheses for future controlled group studies; (4) Has direct practical applications for clinicians treating similar cases; (5) High ecological validity — conducted in a real therapeutic setting with a genuine client; (6) Long-term follow-up (12 months) demonstrates durability of treatment effects.</p>
+  </div>
+
+  <div class="question-item">
+    <p><strong>Q8 (continued). In the study by Saavedra and Silverman on button phobia, one technique for therapy used operant conditioning.</strong></p>
+    <p><strong>a)</strong> Define what is meant by operant conditioning. <span style="color:var(--accent);">[1 mark]</span></p>
+    <p><strong>b)</strong> Describe how operant conditioning was used to help reduce the boy's phobia in the study. <span style="color:var(--accent);">[2 marks]</span></p>
+    <p style="color:var(--text-secondary);margin-top:8px;"><strong>Model Answer 要点：</strong><br>
+    <strong>(a)</strong> Operant conditioning is a form of learning where behaviour is shaped by its consequences. Behaviours followed by rewarding consequences become more likely to be repeated (reinforcement), while behaviours followed by punishing consequences become less likely. It differs from classical conditioning in that the organism actively operates on the environment to produce consequences.<br>
+    <strong>(b)</strong> In this study, operant conditioning was used in Intervention 1 (positive reinforcement therapy / contingency management): (1) The boy's mother provided positive reinforcement (praise/rewards) contingent on the boy's successful completion of gradual exposure tasks to buttons; (2) Each time the boy successfully handled or approached buttons on the hierarchy, he was reinforced by his mother; (3) This was designed to increase approach behaviour and reduce avoidance through reinforcement. However, although the boy's behavioural approach improved (he handled more buttons), his subjective distress ratings actually increased — showing that operant conditioning alone was insufficient to address the underlying disgust-based evaluative learning.</p>
+  </div>
+
+  <div class="question-item">
+    <p><strong>Q9. Describe the conclusions from the study by Saavedra and Silverman.</strong> <span style="color:var(--accent);">[2 marks]</span></p>
+    <p style="color:var(--text-secondary);margin-top:8px;"><strong>Model Answer 要点：</strong><br>
+    The researchers concluded that:<br>
+    (1) <strong>Positive reinforcement therapy successfully changed observable behaviour</strong> — the boy completed all items on the fear hierarchy and handled increasing numbers of buttons.<br>
+    (2) <strong>BUT positive reinforcement alone did NOT reduce distress</strong> — the boy's subjective ratings of disgust/fear actually increased despite behavioural improvement, consistent with evaluative learning theory.<br>
+    (3) <strong>Imagery exposure therapy WAS successful in reducing distress</strong> — targeting disgust emotions directly through cognitive techniques reduced ratings from 8 to 3.<br>
+    (4) <strong>Emotions/cognitions relating to disgust are important</strong> when learning new responses to phobic stimuli — disgust must be addressed alongside fear.<br>
+    (5) <strong>Treatment gains were maintained at long-term follow-up</strong> — the boy showed minimal distress at 6-month and 12-month assessments and no longer met DSM-IV criteria for specific phobia.<br>
+    (6) This is the first evidence supporting the importance of targeting disgust (not just fear) in treating childhood phobias, conceptualised through the framework of evaluative learning.</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>🔘 Saavedra & Silverman (2002) — CIE Learning Approach Core Study 3</p>
+  <p>Generated for educational purposes | Source: J. Am. Acad. Child Adolesc. Psychiatry, 41(11), 1376–1379</p>
+</div>
+
+</div>
+</body>
+</html>

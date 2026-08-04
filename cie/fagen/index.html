@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fagen et al. (2014) — 大象学习：操作性条件反射与次级正强化训练</title>
+<style>
+  :root {
+    --primary: #2E7D32;
+    --primary-light: #4CAF50;
+    --primary-dark: #1B5E20;
+    --accent: #FF9800;
+    --bg: #FAFAFA;
+    --card-bg: #FFFFFF;
+    --text: #212121;
+    --text-secondary: #616161;
+    --border: #E0E0E0;
+    --highlight: #FFF3E0;
+    --warning: #FFEBEE;
+    --code-bg: #F5F5F5;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: var(--bg); color: var(--text); line-height: 1.8; font-size: 16px; }
+  .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+
+  /* Header */
+  .header { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, var(--primary-dark), var(--primary)); color: white; border-radius: 12px; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(46,125,50,0.3); }
+  .header h1 { font-size: 1.8em; margin-bottom: 10px; }
+  .header .subtitle { font-size: 1.1em; opacity: 0.9; }
+  .header .meta { margin-top: 15px; font-size: 0.9em; opacity: 0.8; }
+  .badge { display: inline-block; padding: 4px 14px; border-radius: 20px; background: rgba(255,255,255,0.2); margin: 3px; font-size: 0.85em; }
+
+  /* TOC */
+  .toc { background: var(--card-bg); border-radius: 10px; padding: 25px; margin-bottom: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-left: 4px solid var(--primary); }
+  .toc h2 { color: var(--primary-dark); margin-bottom: 15px; font-size: 1.3em; }
+  .toc ol { padding-left: 20px; }
+  .toc li { margin: 8px 0; }
+  .toc li a { color: var(--primary); text-decoration: none; transition: color 0.2s; }
+  .toc li a:hover { color: var(--primary-dark); text-decoration: underline; }
+
+  /* Sections */
+  .section { background: var(--card-bg); border-radius: 10px; padding: 30px; margin-bottom: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .section h2 { color: var(--primary-dark); font-size: 1.5em; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--primary-light); }
+  .section h3 { color: var(--primary); font-size: 1.2em; margin: 20px 0 12px; }
+  .section h4 { color: var(--text); font-size: 1.05em; margin: 15px 0 8px; }
+
+  /* Key Words Box */
+  .keyword-box { background: linear-gradient(135deg, #FFF8E1, #FFECB3); border-left: 5px solid var(--accent); border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+  .keyword-box h4 { color: #E65100; font-size: 1em; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+  .keyword-box p { margin: 6px 0; }
+  .keyword-box strong { color: #BF360C; }
+
+  /* Images */
+  .img-container { text-align: center; margin: 22px 0; }
+  .img-container img { max-width: 100%; border-radius: 10px; box-shadow: 0 3px 12px rgba(0,0,0,0.12); }
+  .img-caption { font-size: 0.9em; color: var(--text-secondary); margin-top: 8px; font-style: italic; }
+
+  /* Tables */
+  table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 0.93em; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-radius: 8px; overflow: hidden; }
+  th { background: var(--primary); color: white; padding: 12px 14px; text-align: left; font-weight: 600; }
+  td { padding: 11px 14px; border-bottom: 1px solid var(--border); }
+  tr:nth-child(even) { background: #F9FBF9; }
+  tr:hover { background: var(--highlight); }
+  td:first-child { font-weight: 600; color: var(--primary-dark); }
+  .num-cell { text-align: center; font-weight: 700; color: var(--primary-dark); }
+
+  /* Highlight boxes */
+  .info-box { background: #E8F5E9; border-left: 4px solid var(--primary); border-radius: 6px; padding: 16px 20px; margin: 16px 0; }
+  .warn-box { background: var(--warning); border-left: 4px solid #D32F2F; border-radius: 6px; padding: 16px 20px; margin: 16px 0; }
+  .warn-box h4 { color: #C62828; margin-bottom: 8px; }
+
+  /* Activity box */
+  .activity-box { background: #E3F2FD; border-left: 4px solid #1976D2; border-radius: 6px; padding: 16px 20px; margin: 16px 0; }
+  .activity-box h4 { color: #1565C0; margin-bottom: 8px; }
+
+  /* Lists */
+  ul, ol { padding-left: 24px; margin: 10px 0; }
+  li { margin: 6px 0; }
+
+  /* Chart container */
+  .chart-container { position: relative; height: 380px; margin: 22px 0; background: white; border-radius: 10px; padding: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+
+  /* Two-column layout for debates */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 18px 0; }
+  .col-card { background: #F5F5F5; border-radius: 8px; padding: 18px; }
+  .col-card.nature { border-top: 4px solid #7B1FA2; }
+  .col-card.nurture { border-top: 4px solid var(--primary); }
+  .col-card h4 { margin-bottom: 10px; font-size: 1em; }
+  .col-card.nature h4 { color: #7B1FA2; }
+  .col-card.nurture h4 { color: var(--primary-dark); }
+
+  /* Questions section */
+  .question-item { background: #FAFAFA; border-radius: 8px; padding: 18px; margin: 14px 0; border-left: 4px solid var(--accent); }
+  .question-item strong { color: var(--accent); }
+
+  /* Footer */
+  .footer { text-align: center; padding: 25px; color: var(--text-secondary); font-size: 0.88em; border-top: 1px solid var(--border); margin-top: 30px; }
+
+  @media (max-width: 768px) {
+    .two-col { grid-template-columns: 1fr; }
+    .container { padding: 12px; }
+    .section { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<!-- HEADER -->
+<div class="header">
+  <h1>🐘 Fagen et al. (2014)</h1>
+  <div class="subtitle">Positive Reinforcement Training for a Trunk Wash in Nepal's Working Elephants<br>尼泊尔工作大象的次级正强化训练——象鼻冲洗程序</div>
+  <div class="meta">
+    <span class="badge">📘 CIE 学习取向 Learning Approach</span>
+    <span class="badge">📄 Journal of Applied Animal Welfare Science</span>
+    <span class="badge">🔬 Core Study 2</span>
+  </div>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<div class="toc">
+  <h2>📑 目录 Contents</h2>
+  <ol>
+    <li><a href="#s1">背景 Background — 操作性条件反射（Operant Conditioning）</a></li>
+    <li><a href="#s2">研究背景 Why Elephants? — 象肺结核检测需求</a></li>
+    <li><a href="#s3">研究目标 Aim</a></li>
+    <li><a href="#s4">方法 Method — 受控观察与样本</a></li>
+    <li><a href="#s5">实验 Procedure — SPR 训练五步骤</a></li>
+    <li><a href="#s6">结果 Results — 数据与图表</a></li>
+    <li><a href="#s7">结论 Conclusion</a></li>
+    <li><a href="#s8">优势与不足 Strengths & Weaknesses</a></li>
+    <li><a href="#s9">伦理问题 Ethical Issues</a></li>
+    <li><a href="#s10">议题与辩论 Issues & Debates</a></li>
+    <li><a href="#s11">总结 Summary</a></li>
+    <li><a href="#s12">考试练习 Questions</a></li>
+  </ol>
+</div>
+
+<!-- SECTION 1: BACKGROUND -->
+<div class="section" id="s1">
+  <h2>1️⃣ 背景 Background — 操作性条件反射</h2>
+
+  <div class="img-container">
+    <img src="fagen_images/01.png" alt="Textbook page 1 - operant conditioning introduction">
+    <div class="img-caption">教材截图：操作性条件反射（Operant Conditioning）的基本概念</div>
+  </div>
+
+  <h3>什么是操作性条件反射？</h3>
+  <p><strong>Operant conditioning（操作性条件反射）</strong>是行为主义心理学的核心概念之一，由 B.F. Skinner 提出。它的基本逻辑很简单：<strong>行为的后果决定了该行为是否会被重复</strong>。</p>
+
+  <p>举个例子：当你做了一件有<strong>好后果</strong>的事情（比如认真复习后考试拿了高分），你以后就更可能再做这件事。心理学家把这种机制称为通过行为后果来塑造行为的方式。</p>
+
+  <div class="keyword-box">
+    <h4>🔑 KEY WORDS 核心术语</h4>
+    <p><strong>operant conditioning（操作性条件反射）</strong>：通过我们行动的后果来学习的过程。行为之后如果跟着奖励，这个行为就会被加强；如果跟着惩罚，行为就会减少。</p>
+    <p><strong>positive reinforcer（正强化物）</strong>：能满足生物需求的奖励叫做<strong>初级正强化物（primary positive reinforcer）</strong>，比如食物、水。与初级强化物配对后学会的中性刺激叫做<strong>次级正强化物（secondary reinforcer）</strong>，比如声音标记、金钱、分数等。</p>
+  </div>
+
+  <h3>两种强化方式</h3>
+  <ul>
+    <li><strong>Positive reinforcement（正强化）</strong>：在行为之后给予<strong>令人愉快的刺激</strong>来增加该行为的发生频率。例如表扬、食物奖励、"干得好！"</li>
+    <li><strong>Negative reinforcement（负强化）</strong>：在行为之后<strong>移除或避免令人不愉快的刺激</strong>来增加行为频率。例如穿上厚衣服就不冷了（冷是不愉快刺激），所以你更愿意穿厚衣服。</li>
+  </ul>
+
+  <p>传统的大象训练方法依赖<strong>punishment（惩罚）</strong>和负强化——用疼痛或恐惧来迫使大象服从。而现代动物管理越来越倾向于使用<strong>positive reinforcement（正强化）</strong>方法。</p>
+
+  <div class="img-container">
+    <img src="fagen_images/02.png" alt="Textbook page 2 - elephant training methods">
+    <div class="img-caption">Figure 4.3: 传统方法中，驯象师（mahout）使用棍棒作为惩罚工具来训练大象</div>
+  </div>
+
+  <div class="keyword-box">
+    <h4>🔑 KEY WORDS</h4>
+    <p><strong>captive animal welfare（圈养动物福利）</strong>：心理学家在与被圈养或限制自由活动的动物工作时，必须确保动物的健康和福祉得到保障——包括合理的居住环境、活动空间、食物水源和照料。</p>
+    <p><strong>positive reinforcement（正强化）</strong>：操作性条件反射的一种形式，通过奖励理想行为来鼓励其重复发生。例如夸孩子说"请"和"谢谢"，就是在正向强化礼貌行为。</p>
+  </div>
+
+  <h3>传统训练 vs 正强化训练</h3>
+  <table>
+    <tr><th>方面</th><th>传统方法 Traditional</th><th>SPR 方法 Positive Reinforcement</th></tr>
+    <tr><td>核心手段</td><td>惩罚（棍棒 kocha）、恐惧</td><td>奖励（食物 + 声音标记）</td></tr>
+    <tr><td>动物状态</td><td>被迫服从、出于恐惧</td><td>自愿参与、期待奖励</td></tr>
+    <tr><td>接触方式</td><td>Free contact（无隔离接触）</td><td>Protected contact（有屏障保护）</td></tr>
+    <tr><td>动物福利</td><td>较低，可能造成身心伤害</td><td>较高，改善心理幸福感</td></tr>
+    <tr><td>可靠性</td><td>表面服从但内心抗拒</td><td>行为稳定且可自愿重复</td></tr>
+  </table>
+
+  <div class="activity-box">
+    <h4>📝 ACTIVITY 4.2 思考活动</h4>
+    <p>人类在某些情况下也会尝试训练动物的行为。请思考至少两种不同的训练方法（用于宠物或家养动物），完成下表：</p>
+    <table>
+      <tr><th>Description of training technique<br>训练技术描述</th><th>How it works / how we can see if it works<br>原理及判断方式</th><th>Which method is likely to be more effective<br>哪种方法更有效？</th></tr>
+      <tr><td style="color:#999;">（学生填写）</td><td style="color:#999;">（学生填写）</td><td style="color:#999;">（学生填写）</td></tr>
+      <tr><td style="color:#999;">（学生填写）</td><td style="color:#999;">（学生填写）</td><td style="color:#999;">（学生填写）</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- SECTION 2: WHY ELEPHANTS -->
+<div class="section" id="s2">
+  <h2>2️⃣ 研究背景 Why Elephants?</h2>
+
+  <h3>为什么需要训练大象？</h3>
+  <p>诊断和治疗圈养大象的疾病是动物福利的重要组成部分。为了<strong>避免使用传统的惩罚性方法</strong>，Fagen 等人研究了使用 <strong>SPR（Secondary Positive Reinforcement，次级正强化）</strong>训练来教会大象可靠地、自愿地参与一种名为<strong>"象鼻冲洗（trunk wash）"</strong>的程序——这是一种用于维护大象健康的操作。</p>
+
+  <div class="info-box">
+    <strong>💡 什么是 Trunk Wash（象鼻冲洗）？</strong><br>
+    这是一种从大象鼻腔中采集痰液样本的方法，主要用于检测<strong>结核病（tuberculosis, TB）</strong>。结核病是一种严重的呼吸道疾病，在圈养大象群体中有 11%–25% 的感染率，而且可能从大象传染给人类（人畜共患病 zoonotic transfer）。因此定期检测非常重要。
+  </div>
+
+  <p>SPR 方法此前已成功应用于熊猫、灵长类、羚羊等多种物种，但<strong>从未在大象身上进行过系统性研究和量化记录</strong>。本研究的目的是填补这一空白。</p>
+
+  <div class="keyword-box">
+    <h4>🔑 KEY WORD</h4>
+    <p><strong>secondary positive reinforcement (SPR) training（次级正强化训练）</strong>：一种训练方法，先让动物将一个中性刺激（如声音标记 sound marker/whistle）与初级强化物（如食物）建立关联，然后只用这个次级强化物来指示正确行为，之后再给予真正的食物奖励。</p>
+  </div>
+</div>
+
+<!-- SECTION 3: AIM -->
+<div class="section" id="s3">
+  <h2>3️⃣ 研究目标 Aim</h2>
+
+  <div class="img-container">
+    <img src="fagen_images/03.png" alt="Textbook page 3 - aim and method">
+    <div class="img-caption">教材截图：Aim 与 Method 部分</div>
+  </div>
+
+  <blockquote style="background:#E8F5E9;border-left:4px solid var(--primary);padding:16px 22px;margin:18px 0;border-radius:0 8px 8px 0;font-style:italic;color:var(--primary-dark);">
+    The aim of this study was to see whether free-contact, traditionally trained elephants can be trained to participate in a trunk wash by using positive reinforcement.
+    <br><br>本研究的目标是检验：那些长期接受传统训练的自由接触型大象，能否通过<strong>正强化方法</strong>学会参与象鼻冲洗程序。
+  </blockquote>
+
+  <h3>研究假设（隐含）</h3>
+  <ul>
+    <li>即使是没有 SPR 经验的传统训练大象，也能学会通过正强化完成复杂的兽医配合行为</li>
+    <li>幼年大象比成年大象更容易学会新行为</li>
+    <li>SPR 训练可以在合理时间内（数周内）达到可靠的执行效果</li>
+  </ul>
+
+  <div class="activity-box">
+    <h4>📝 ACTIVITY 4.3 思考活动</h4>
+    <p>人类和许多动物共享认知和行为特征：</p>
+    <ol>
+      <li>解释为什么心理学家可能在研究中使用动物而不是人类作为参与者？</li>
+      <li>如第1章所讨论，英国心理学会（BPS）《动物研究指南》（2020）包含多项伦理准则，如：
+        <ul>
+          <li><strong>replacement（替代）</strong>— 能不用动物就不用</li>
+          <li><strong>species（物种选择）</strong>— 选择合适的物种</li>
+          <li><strong>number（数量）</strong>— 使用最少的必要数量</li>
+          <li><strong>procedures（程序）</strong>— 采用最小痛苦的方法</li>
+        </ul>
+      </li>
+      <li>设计一则广告，招募圈养大象参与 Fagen 等人的研究，广告需聚焦动物福祉，并引用至少两条上述伦理准则。</li>
+    </ol>
+  </div>
+</div>
+
+<!-- SECTION 4: METHOD -->
+<div class="section" id="s4">
+  <h2>4️⃣ 方法 Method</h2>
+
+  <h3>Research Method and Design 研究方法与设计</h3>
+  <p>这是一项<strong>controlled observation（受控观察）</strong>研究，涉及一小群生活在圈养环境中、接受过数周训练的大象。研究者观察大象对特定刺激的行为反应，并使用<strong>behavioural checklist（行为核查表）</strong>以百分比形式记录大象的反应。因此这项研究也可以被描述为<strong>structured observation（结构化观察）</strong>。</p>
+
+  <h3>Sample 样本</h3>
+  <p>本研究包括<strong>五头雌性大象</strong>：四头幼象（juveniles）和一头成年象（adult），全部饲养在尼泊尔的同一所大象站（elephant stable）。</p>
+
+  <table>
+    <tr><th>特征</th><th>详情</th></tr>
+    <tr><td>数量</td><td>5 头雌性（4 幼 + 1 成）</td></tr>
+    <tr><td>年龄</td><td>幼象 5–7 岁；成年象约 50 岁</td></tr>
+    <tr><td>来源</td><td>全部出生于该象站</td></tr>
+    <tr><td>筛选标准</td><td>温顺 docile、未怀孕/无哺乳期幼崽、驯象师愿意配合</td></tr>
+    <tr><td>既往训练</td><td>全部接受过传统方法训练，均无 SPR 经验</td></tr>
+    <tr><td>日常安排</td><td>白天大部分时间在丛林中吃草（由驯象师控制）；其余时间腿链拴在畜栏内，可在直径 1.8–2.4m 范围内移动</td></tr>
+    <tr><td>饮食</td><td>新鲜草料、谷物营养补充包（dhana）；放牧时可到河边饮水</td></tr>
+  </table>
+
+  <p>大象被选中是因为它们<strong>温顺、没有怀孕或正在哺乳小象</strong>，并且它们的驯象师（<strong>mahouts</strong>）愿意参与研究。这些大象都经过传统训练，与驯象师保持自由接触（free contact）。<strong>没有任何大象之前有过 SPR 训练经验</strong>。</p>
+</div>
+
+<!-- SECTION 5: PROCEDURE -->
+<div class="section" id="s5">
+  <h2>5️⃣ 实验 Procedure — SPR 训练全过程</h2>
+
+  <h3>训练工具：SPR 三剑客</h3>
+  <p>本研究的训练方法完全基于 <strong>SPR 技术</strong>：</p>
+  <ul>
+    <li><strong>Primary Reinforcer（初级强化物）</strong>：切碎的香蕉（chopped banana）</li>
+    <li><strong>Secondary Reinforcer（次级强化物/标记）</strong>：短促的哨声（short whistle blow）</li>
+    <li><strong>三大训练技术</strong>：Capture（捕捉）、Lure（诱导）、Shaping（塑形）</li>
+  </ul>
+
+  <div class="img-container">
+    <img src="fagen_images/spr_diagram.jpg" alt="SPR Classical Conditioning Diagram">
+    <div class="img-caption">图解：SPR 的经典条件反射过程 —— 香蕉（无条件刺激）→ 开心大象（无条件反应）；哨声+香蕉 → 开心大象；最终仅哨声（条件刺激）→ 开心大象（条件反应）</div>
+  </div>
+
+  <h3>三种训练技术详解</h3>
+  <div class="two-col">
+    <div class="col-card">
+      <h4>🎯 Capture 捕捉法</h4>
+      <p>等待动物<strong>自然表现</strong>出目标行为，然后立即标记并奖励。适用于动物自发会做的动作。</p>
+      <p><em>例如：大象自然呼气时立刻吹哨+给香蕉</em></p>
+    </div>
+    <div class="col-card">
+      <h4>🍌 Lure 诱导法</h4>
+      <p>用奖励物放在特定位置，<strong>引导</strong>动物做出期望的身体姿势。适用于非自然的身体位置。</p>
+      <p><em>例如：把香蕉放在手心引诱大象把鼻子伸过来</em></p>
+    </div>
+  </div>
+  <div class="col-card" style="margin-top:18px;">
+    <h4>✨ Shaping 塑形法</h4>
+    <p>在捕捉或诱导的基础上，<strong>逐步提高标准</strong>——只奖励越来越接近目标行为的反应，像雕塑一样一步步"塑造"出完整行为。这是最精细也最强大的技术。</p>
+    <p><em>例如：先奖励任何抬鼻子的动作 → 再只奖励抬到一定高度的 → 最后只奖励完全到位的姿势</em></p>
+  </div>
+
+  <h3>五大行为任务（Behavioural Tasks）</h3>
+  <p>训练的目标是将象鼻冲洗分解为五个基本行为，分别训练后再串联起来：</p>
+
+  <div class="img-container">
+    <img src="fagen_images/04.png" alt="Table 4.3 behavioural tasks">
+    <div class="img-caption">Table 4.3: 教给大象的五项基本行为任务及其训练方法</div>
+  </div>
+
+  <table>
+    <tr><th>行为任务 Behavioural Task</th><th>在象鼻冲洗中的作用 Role</th><th>描述 Description</th><th>训练方法 Method</th></tr>
+    <tr>
+      <td><strong>Trunk Here<br>鼻尖放这儿</strong></td>
+      <td>允许向鼻内灌注盐水或水</td>
+      <td>大象将鼻尖轻轻放在训练者手掌上</td>
+      <td>Lure（手心放香蕉诱导）</td>
+    </tr>
+    <tr>
+      <td><strong>Trunk Up<br>抬起鼻子</strong></td>
+      <td>让液体流到鼻根处</td>
+      <td>大象向上抬起鼻子</td>
+      <td>Lure + Shaping（香蕉举高逐步提升）</td>
+    </tr>
+    <tr>
+      <td><strong>Bucket<br>放入桶中</strong></td>
+      <td>为吹气做好准备</td>
+      <td>大象将鼻尖放入桶中</td>
+      <td>Lure（桶底放香蕉）</td>
+    </tr>
+    <tr>
+      <td><strong>Blow<br>用力吹气</strong></td>
+      <td>排出液体以采集样本</td>
+      <td>大象通过鼻子强力呼气</td>
+      <td>Capture + Shaping（捕捉自然呼气再增强力度）</td>
+    </tr>
+    <tr>
+      <td><strong>Steady<br>保持不动</strong></td>
+      <td>维持任何要求的位置一段时间</td>
+      <td>大象保持刚才被要求的姿势不变</td>
+      <td>Shaping（逐步延长保持时间）</td>
+    </tr>
+  </table>
+
+  <div class="img-container">
+    <img src="fagen_images/05.png" alt="Trunk wash steps diagram">
+    <div class="img-caption">Figure 4.4: 象鼻冲洗的四个步骤：(1) trunk here → (2) trunk up → (3) bucket → (4) blow (+ steady 保持)</div>
+  </div>
+
+  <h3>训练流程详解</h3>
+
+  <h4>阶段一：建立标记-奖励联结（Bridge Building）</h4>
+  <p>首先反复将<strong>哨声 + 香蕉</strong>配对呈现，让大象学会：听到哨声 = 马上有好吃的。这就是建立<strong>conditioned reinforcer（条件强化物）</strong>的过程。</p>
+
+  <h4>阶段二：单独训练每个行为</h4>
+  <p>用 Capture/Lure/Shaping 分别训练以上五个基本任务。每头大象的学习速度不同，<strong>没有预设的时间限制</strong>——一切以个体掌握程度为准。</p>
+
+  <h4>阶段三：行为串联（Behaviour Chaining）</h4>
+  <div class="keyword-box">
+    <h4>🔑 KEY WORD</h4>
+    <p><strong>behaviour chaining（行为串联）</strong>：一种让已经分别训练好的行为能够按顺序依次执行的过程。其背后的理论是：一旦某个行为被牢固地与初级强化物关联，这个行为本身就变成了前一个行为的强化物——完成第一个行为就赢得了执行第二个行为的"权利"。</p>
+  </div>
+
+  <p>具体做法：先将 bucket + blow 配对 → 再加入其他行为的各种组合练习 → 最终串联完整序列：</p>
+  <p style="text-align:center;background:var(--highlight);padding:14px;border-radius:8px;font-weight:bold;color:var(--primary-dark);">
+    Trunk Here → Short Steady → Trunk Up → Long Steady → Bucket → Blow ✅
+  </p>
+
+  <h4>阶段四：脱敏训练（Desensitisation to Syringe）</h4>
+  <div class="keyword-box">
+    <h4>🔑 KEY WORD</h4>
+    <p><strong>desensitisation（脱敏）</strong>：逐步减少和消除对某种刺激的反应（如对注射器的恐惧）。通过渐进式暴露——从远处看到注射器 → 触碰鼻尖外侧 → 触碰鼻孔内侧 → 插入鼻孔 → 注入少量液体（从 1ml 开始逐步增加到 60ml）——让大象逐渐适应。</p>
+  </div>
+
+  <h4>关键控制措施</h4>
+  <ul>
+    <li><strong>Verbal cues（语言提示词）</strong>：使用单音节、无意义的自造词（非英语也非尼泊尔语），防止驯象师误以为大象能理解人类语言</li>
+    <li><strong>Mahouts 不干预</strong>：驯象师在场但不说话、不发信号，确保训练的纯粹性</li>
+    <li><strong>自愿参与</strong>：大象可以转身或走开拒绝参与——没有强迫</li>
+    <li><strong>防饮液策略</strong>：训练开始前提供饮用水，防止大象喝掉盐水样本；其中一头偏好盐水的象改用水后成功率大幅提升</li>
+  </ul>
+
+  <h3>测试方式（Performance Tests）</h3>
+  <ul>
+    <li>从第 10 次训练开始，大约每 5 次训练进行一次正式测试</li>
+    <li>每次测试中每个行为给出 8–16 次 offers（提示/指令）</li>
+    <li><strong>通过标准 = 80%</strong>（即 10 次尝试中 8 次及以上正确）</li>
+    <li>一旦整个序列通过率 ≥80%，训练即视为完成</li>
+  </ul>
+</div>
+
+<!-- SECTION 6: RESULTS -->
+<div class="section" id="s6">
+  <h2>6️⃣ 结果 Results</h2>
+
+  <h3>总体发现</h3>
+  <p><strong>四头幼年大象成功学会了象鼻冲洗</strong>，然而成年大象（Elephant 5）未能学会。</p>
+
+  <div class="img-container">
+    <img src="fagen_images/06.png" alt="Results page with table and graph">
+    <div class="img-caption">教材截图：Table 4.4 训练结果数据 + Figure 4.5 学习曲线图</div>
+  </div>
+
+  <h3>Table 4.4：各象训练数据</h3>
+  <table>
+    <tr><th>Elephant 大象</th><th>Number of sessions<br>训练次数</th><th>Mean duration of sessions (mins)<br>平均时长(分钟)</th><th>Total training time (mins)<br>总训练时间(分钟)</th></tr>
+    <tr><td>1 (juvenile) 幼象1</td><td class="num-cell">30</td><td class="num-cell">12.42</td><td class="num-cell">373</td></tr>
+    <tr><td>2 (juvenile) 幼象2</td><td class="num-cell">25</td><td class="num-cell">10.29</td><td class="num-cell">257</td></tr>
+    <tr><td>3 (juvenile) 幼象3</td><td class="num-cell">35</td><td class="num-cell">13.27</td><td class="num-cell">389</td></tr>
+    <tr><td>4 (juvenile) 幼象4</td><td class="num-cell">35</td><td class="num-cell">11.11</td><td class="num-cell">451</td></tr>
+    <tr><td>5 (adult) 成年象5</td><td class="num-cell">n/a</td><td class="num-cell">n/a</td><td class="num-cell">424</td></tr>
+  </table>
+
+  <h3>关键数据解读</h3>
+  <ul>
+    <li><strong>最快学习者</strong>：Elephant 2 仅用 <strong>25 次</strong>训练（平均每次 10.29 分钟）即通过测试，总耗时 257 分钟</li>
+    <li><strong>最慢学习者</strong>：Elephant 4 用了 <strong>35 次</strong>训练，总耗时 451 分钟</li>
+    <li><strong>成年象失败</strong>：Elephant 5 从未通过完整的象鼻冲洗测试（尽管投入了 424 分钟训练）</li>
+    <li><strong>平均每次训练时长</strong>：约 12 分钟</li>
+  </ul>
+
+  <h3>Figure 4.5：学习进步曲线 📈</h3>
+  <div class="chart-container">
+    <canvas id="learningCurve"></canvas>
+  </div>
+  <div class="img-caption">Figure 4.5: 所有大象在每次测试中的平均正确率变化趋势</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script>
+    const ctx = document.getElementById('learningCurve').getContext('2d');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Session 10', 'Session 15', 'Session 20', 'Session 25', 'Session 30', 'Session 35'],
+        datasets: [{
+          label: 'Mean % Correct 平均正确率',
+          data: [36.00, 47.33, 59.39, 86.55, 83.18, 89.33],
+          borderColor: '#2E7D32',
+          backgroundColor: 'rgba(46,125,50,0.1)',
+          borderWidth: 3,
+          pointBackgroundColor: '#2E7D32',
+          pointBorderColor: '#fff',
+          pointBorderWidth: 2,
+          pointRadius: 6,
+          pointHoverRadius: 8,
+          fill: true,
+          tension: 0.3
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { labels: { font: { size: 14, family: '-apple-system,sans-serif' } } },
+          tooltip: {
+            callbacks: {
+              label: function(context) { return context.dataset.label + ': ' + context.parsed.y + '%'; }
+            }
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 100,
+            title: { display: true, text: 'Mean % Correct (%) 正确率', font: { size: 13 } },
+            grid: { color: '#eee' },
+            ticks: { callback: v => v + '%' }
+          },
+          x: {
+            title: { display: true, text: 'Training Session 训练次数', font: { size: 13 } },
+            grid: { color: '#eee' }
+          }
+        }
+      }
+    });
+  </script>
+
+  <div class="info-box">
+    <strong>📊 曲线解读：</strong>大象的平均正确率从第 10 次训练后的 <strong>36.00%</strong>稳步上升至第 35 次训练后的 <strong>89.33%</strong>。注意曲线从未达到 100%，这是因为当行为序列通过后，其中的单个行为会被赋予默认分 90%（80%–100% 通过率的中间值）。
+  </div>
+
+  <h3>各任务的相对难度（Relative Difficulty）</h3>
+  <p>根据 PDF 原文 Table 3 数据，不同行为任务需要的练习次数差异显著（ANOVA 检验 p = 0.017）：</p>
+
+  <table>
+    <tr><th>Task 任务</th><th>Average # of Offers<br>平均所需提示次数</th><th>Standard Error<br>标准误</th><th>难度评级</th></tr>
+    <tr><td>Trunk Here 鼻尖放这儿</td><td class="num-cell">295.40</td><td>62.38</td><td>⭐⭐⭐ 最难</td></tr>
+    <tr><td>Blow 吹气</td><td class="num-cell">183.20</td><td>49.28</td><td>⭐⭐ 较难</td></tr>
+    <tr><td>Trunk Up 抬起鼻子</td><td class="num-cell">166.20</td><td>24.79</td><td>⭐⭐ 中等偏难</td></tr>
+    <tr><td>Syringe Desensitisation 注射器脱敏</td><td class="num-cell">108.25</td><td>11.87</td><td>⭐ 中等</td></tr>
+    <tr><td>Bucket 放入桶中</td><td class="num-cell">61.40</td><td>15.51</td><td>较容易</td></tr>
+    <tr><td>Blow in Bucket 吹入桶中</td><td class="num-cell">54.25</td><td>25.26</td><td>✅ 最易</td></tr>
+  </table>
+
+  <p><strong>Trunk Here 是最难的任务</strong>——它需要大象克服本能的不信任感，主动将身体最敏感的部位（鼻尖）放在陌生人手中。这解释了为什么它需要近 300 次提示才能通过。</p>
+
+  <h3>Elephant 5 为什么失败了？</h3>
+  <p>原文讨论了多个可能因素：</p>
+  <ol>
+    <li><strong>干扰严重</strong>：隔壁象栏的小象经常闯入训练区域，打断注意力</li>
+    <li><strong>健康问题</strong>：训练末期出现足部脓肿（foot abscess），导致烦躁和不专注</li>
+    <li><strong>年龄因素</strong>：约 50 岁，可能有视力损伤和鼻子力量减弱</li>
+    <li><strong>缺乏同伴参照</strong>：其他四头都是幼象， trainer 可以从一头幼象的经验快速应用到其他幼象身上，但对唯一的成年象无法这样做</li>
+  </ol>
+</div>
+
+<!-- SECTION 7: CONCLUSION -->
+<div class="section" id="s7">
+  <h2>7️⃣ 结论 Conclusion</h2>
+
+  <div class="img-container">
+    <img src="fagen_images/07.png" alt="Conclusion page">
+    <div class="img-caption">教材截图：Conclusion 结论部分</div>
+  </div>
+
+  <p>研究者得出以下结论：</p>
+
+  <ol>
+    <li><strong>SPR 对幼年大象有效</strong>：四头幼年自由接触型、传统训练的大象能够在 35 次训练或更少次数内学会象鼻冲洗</li>
+    <li><strong>训练高效</strong>：平均每次训练仅需约 12 分钟，总训练时间在一周左右即可完成</li>
+    <li><strong>行为可靠</strong>：大象的反应是<strong>自愿的</strong>（voluntary），不需要惩罚即可产生可靠的结果</li>
+    <li><strong>具有推广价值</strong>：SPR 可用于全球圈养大象的管理项目，改善动物健康监测、训练师-大象关系和动物福利</li>
+  </ol>
+
+  <blockquote style="background:linear-gradient(135deg,#E8F5E9,#C8E6C9);border-left:5px solid var(--primary-dark);padding:18px 24px;margin:20px 0;border-radius:0 10px 10px 0;">
+    <strong>核心结论：</strong>This study proves that it is feasible to efficiently train juvenile, free-contact, traditionally trained elephants to voluntarily participate in a trunk wash using only SPR training techniques.<br>
+    <span style="font-size:0.95em;color:var(--text-secondary);">本研究证明：仅使用 SPR 训练技术，就能高效地训练幼年的、自由接触型的、传统训练大象，使其自愿且可靠地参与象鼻冲洗程序。</span>
+  </blockquote>
+</div>
+
+<!-- SECTION 8: STRENGTHS & WEAKNESSES -->
+<div class="section" id="s8">
+  <h2>8️⃣ 优势与不足 Strengths & Weaknesses</h2>
+
+  <h3>✅ Strengths 优势</h3>
+
+  <h4>1. 高生态效度（High Ecological Validity）</h4>
+  <p>研究在真实的工作大象站进行，而非实验室环境。大象处于它们的日常生活环境中，使研究结果更具现实意义和推广价值。</p>
+
+  <h4>2. 定量数据收集（Quantitative Data）</h4>
+  <p>作为结构化观察，研究收集了<strong>定量数据</strong>——每次训练的分钟数、每种行为的 offer 次数、每次测试的成功率。定量数据比非结构化观察更容易分析和比较。</p>
+
+  <h4>3. 控制变量充分（Good Controls）</h4>
+  <ul>
+    <li><strong>Mahouts 不干预</strong>：驯象师在场但不发信号，排除了传统训练信号的干扰</li>
+    <li><strong>语言提示词无意义</strong>：使用自造词排除了大象理解人类语言的可能性</li>
+    <li><strong>自愿参与</strong>：大象可以拒绝，证明行为确实来自正强化而非被迫</li>
+  </ul>
+
+  <h4>4. 实践价值高（High Practical Value）</h4>
+  <p>研究直接服务于动物福利目标——改进结核病检测方法，减少对大象的伤害。这不是一个"象牙塔"式的研究，而是有明确实际应用价值的。</p>
+
+  <h4>5. 行为串联方法的创新应用</h4>
+  <p>首次系统地记录了 behaviour chaining 在大象身上的应用效果，为后续研究提供了方法论参考。</p>
+
+  <h3>❌ Weaknesses 不足</h3>
+
+  <h4>1. 样本量极小（Very Small Sample）</h4>
+  <p>只有 <strong>5 头大象</strong>（4 幼 1 成），且全部来自同一个象站。<strong>难以将结果推广到大象群体</strong>（generalisation 问题）。它们是否能代表所有圈养大象？很难说。</p>
+
+  <h4>2. 缺乏对照组（No Control Group）</h4>
+  <p>没有设置使用传统惩罚方法训练的对照组来进行对比。因此虽然知道 SPR 有效，但无法量化它比传统方法<strong>好多少</strong>。</p>
+
+  <h4>3. 主观评分标准（Subjective Assessment）</h4>
+  <p>通过标准的判定是由训练者本人（第一作者）主观决定的——行为是否"足够好以在实际象鼻冲洗中使用"。没有第三方评估，也没有录像回放评分，可能影响<strong>信度（reliability）</strong>和<strong>客观性（objectivity）</strong>。</p>
+
+  <h4>4. Steady 任务测试标准不合理</h4>
+  <p>Steady 任务的通过标准要求在三个位置（up/down/here）都达标，但实际上象鼻冲洗只需要 up 和 here 两个位置的 steady。这导致 steady 任务的测试数据不能准确反映大象的真实能力——大多数大象在这两个实用位置上的 steady 已经很可靠了。</p>
+
+  <h4>5. 外部干扰因素多（Many Extraneous Variables）</h4>
+  <p>训练现场存在游客围观、其他动物噪音、邻近小象闯入等干扰因素，可能影响大象的专注度和参与意愿。同时每头大象的训练计划因个体差异而灵活调整，这种灵活性虽然优化了学习效果，但也意味着<strong>标准化程度低</strong>，影响研究的可复制性（replicability）。</p>
+
+  <h4>6. 性别局限（Only Females）</h4>
+  <p>全部参与者均为雌性，结果不一定适用于雄性大象。</p>
+</div>
+
+<!-- SECTION 9: ETHICAL ISSUES -->
+<div class="section" id="s9">
+  <h2>9️⃣ 伦理问题 Ethical Issues</h2>
+
+  <div class="img-container">
+    <img src="fagen_images/08.png" alt="Ethical issues page">
+    <div class="img-caption">教材截图：Ethical Issues 伦理问题部分</div>
+  </div>
+
+  <h3>✅ 伦理优点</h3>
+  <ol>
+    <li><strong>使用圈养而非野生动物</strong>：研究对象是已经被圈养的大象，而非从野外捕获的动物。这是一个更加符合伦理的选择。</li>
+    <li><strong>避免惩罚</strong>：研究全程<strong>不使用任何惩罚手段</strong>，专注于最小化对动物的伤害的正强化方法。</li>
+    <li><strong>动物福利优先</strong>：大象被报告健康状况良好，没有受到身体伤害。它们白天大部分时间在丛林中自由吃草，可以自由活动，与其他大象社交。</li>
+    <li><strong>自愿参与</strong>：大象可以选择不参与训练（转身或走开），没有被强迫。</li>
+    <li><strong>有益目的</strong>：研究的目的是开发可用于象群健康管理的有用方法——帮助快速诊断和治疗结核病，这对大象自身高度有益。</li>
+  </ol>
+
+  <h3>⚠️ 伦理考量</h3>
+  <ol>
+    <li><strong>腿链限制</strong>：大象每天大部分时间被腿链拴在畜栏内，只能在有限范围内移动。这是当地的标准做法，但涉及动物自由度的伦理问题。</li>
+    <li><strong>脱敏过程中的不适</strong>：注射器脱敏过程可能带来一定程度的不适（尽管是渐进式的且配合奖励）。</li>
+    <li><strong>样本量限制</strong>：由于只有 5 头大象，研究的统计效力有限，这意味着每头大象的数据都很"值钱"——但也意味着个别异常情况会对整体结果产生较大影响。</li>
+  </ol>
+
+  <div class="warn-box">
+    <h4>🐘 BPS 动物研究伦理准则对照</h4>
+    <table>
+      <tr><th>准则</th><th>本研究是否符合？</th></tr>
+      <tr><td>Replacement（替代）</td><td>✅ 必须用真象——模型/计算机无法替代</td></tr>
+      <tr><td>Species（物种）</td><td>✅ 使用已有圈养大象，不从野外捕获</td></tr>
+      <tr><td>Number（数量）</td><td>✅ 使用最少必要数量（5头）</td></tr>
+      <tr><td>Procedures（程序）</td><td>✅ 使用最小痛苦的方法（SPR，无惩罚）</td></tr>
+      <tr><td>Pain and distress（疼痛和痛苦）</td><td>✅ 已最小化</td></tr>
+      <tr><td>Housing（居住条件）</td><td>⚠️ 符合当地标准但腿链限制自由</td></tr>
+      <tr><td>Reward（奖励）</td><td>✅ 充分使用正强化</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- SECTION 10: ISSUES & DEBATES -->
+<div class="section" id="s10">
+  <h2>🔟 议题与辩论 Issues & Debates</h2>
+
+  <h3>10.1 动物是否可以作为心理学研究对象？</h3>
+  <p>Fagen 研究的核心前提是：<strong>大象可以通过操作性条件反射学习复杂行为序列</strong>。这支持了一个更大的论点——<strong>人类和动物之间共享基本的 学习机制（learning mechanisms）</strong>。</p>
+
+  <p>Skinner 的操作性条件反射理论最初是通过鸽子和大鼠实验建立的。Fagen 将同一套原理成功应用于大象——一种智力水平远高于啮齿类的动物——证明了该理论的<strong>跨物种普适性</strong>。</p>
+
+  <p>然而，这也引发了辩论：</p>
+  <ul>
+    <li><strong>支持方</strong>：动物研究允许我们在可控条件下研究基础学习过程，不受人类语言、文化和社会因素的干扰。大象研究还直接改善了动物福利。</li>
+    <li><strong>反对方</strong>：大象是有高度社会性和认知能力的动物，将它们仅仅视为"学习机器"是否忽视了它们的内在体验？腿链圈养本身是否就已经违反了动物权益？</li>
+  </ul>
+
+  <h3>10.2 Nature vs Nurture：大象的行为有多少是"天生"的？</h3>
+
+  <div class="two-col">
+    <div class="col-card nature">
+      <h4>🧬 Nature 先天论点</h4>
+      <ol>
+        <li>大象天生拥有出色的<strong>记忆力和学习能力</strong>——野生大象不需要任何训练就能记住水源位置和社交关系</li>
+        <li>象鼻本身就是高度灵活的器官，拥有超过 40,000 块肌肉——<strong>生理结构</strong>决定了它们有能力完成精细操作</li>
+        <li>Elephant 5（成年象）可能因为年龄相关的<strong>认知衰退</strong>而无法学习——暗示学习能力的生物学限制</li>
+        <li>不同个体之间的学习速度差异（25 vs 35 次）可能反映了<strong>先天性格/气质</strong>的差异</li>
+      </ol>
+    </div>
+    <div class="col-card nurture">
+      <h4>🌱 Nurture 后天论点</h4>
+      <ol>
+        <li><strong>所有五头大象都完全依靠 SPR 学会了各个行为组件</strong>——证明后天训练足以塑造复杂行为</li>
+        <li>四头幼象的成功 vs 一头成年象的失败，强烈暗示<strong>年龄/过往经历</strong>（nurture 因素）比先天因素更重要</li>
+        <li>传统训练方法（惩罚-based）vs SPR 方法（奖励-based）产生截然不同的训练效果——说明<strong>训练方式（环境因素）</strong>决定行为产出</li>
+        <li>Elephant 5 失败的原因主要是环境干扰（小象闯入）和健康问题（足部脓肿），而非先天能力不足</li>
+      </ol>
+    </div>
+  </div>
+
+  <p style="margin-top:15px;padding:14px;background:var(--highlight);border-radius:8px;">
+    <strong>🎯 Fagen 研究的立场：</strong>研究明显支持 <strong>Nurture（后天）</strong>论点。即使是完全没有 SPR 经验、长期接受传统惩罚训练的大象，也可以通过纯正强化方法学会复杂行为。关键在于<strong>训练方法</strong>和<strong>个体环境</strong>，而非先天决定。
+  </p>
+
+  <h3>10.3 动物福利 vs 科学研究的平衡</h3>
+  <p>Fagen 研究处于一个有趣的交叉点：</p>
+  <table>
+    <tr><th>角度</th><th>观点</th></tr>
+    <tr><td><strong>动物福利支持者</strong></td><td>这项研究本身就是为动物福利服务的——SPR 方法取代惩罚方法，直接改善大象的生活质量。研究证明了对大象"温柔以待"不仅道德上正确，而且实际上<strong>更有效</strong>。</td></tr>
+    <tr><td><strong>方法批评者</strong></td><td>研究对象仍然是被腿链拴住的工作大象。"自由接触"本质上意味着训练师与大象之间没有安全屏障——如果大象突然发怒，双方都可能受伤。真正符合最高福利标准的应该是"protected contact"（有屏障保护接触）系统。</td></tr>
+    <tr><td><strong>科学价值论证者</strong></td><td>没有这类研究，我们就永远不知道 SPR 是否适用于大象。而知道了这一点，就可以帮助全世界成千上万头工作大象改善待遇。短期的研究参与换来了长期的福利提升。</td></tr>
+  </table>
+
+  <h3>10.4 本研究的特殊意义：为"不可能"提供证据</h3>
+  <p>在 Fagen 研究之前，很多驯象师可能认为"大象不可能自愿配合做象鼻冲洗"。这项研究用<strong>硬数据</strong>证明了这个"不可能"实际上是可能的——只要方法对了。</p>
+
+  <p>这与 Bandura 的 Bobo Doll 实验有异曲同工之妙：两者都展示了<strong>观察/强化学习</strong>的力量可以超越人们的直觉预期。Bandura 展示了儿童可以通过观察学会攻击行为；Fagen 展示了大象可以通过正强化学会复杂的兽医配合行为。两者共同支撑了学习取向的核心命题：<strong>行为在很大程度上是习得的，而非固定的</strong>。</p>
+</div>
+
+<!-- SECTION 11: SUMMARY -->
+<div class="section" id="s11">
+  <h2>1️⃣1️⃣ 总结 Summary</h2>
+
+  <p>Fagen 等人使用一组五头雌性大象（4 幼 1 成）证明：<strong>象鼻冲洗可以通过正强化训练学会</strong>。通过漫长的训练和测试过程，研究者证实大多数动物能够执行一系列旨在作为健康检查的动作。这是一项<strong>受控观察</strong>研究，样本量较小意味着它的推广性有限，可能难以复制。然而，使用客观的定量测量（正确反应百分比）确实表明：<strong>幼年大象可以使用 SPR 训练学会象鼻冲洗</strong>。</p>
+
+  <div class="info-box">
+    <h4>📋 快速回顾 Quick Recap</h4>
+    <table>
+      <tr><th>项目</th><th>内容</th></tr>
+      <tr><td>研究者</td><td>Ariel Fagen, Narayan Acharya & Gretchen E. Kaufman (2014)</td></tr>
+      <tr><td>方法</td><td>Controlled Observation（受控观察）/ Structured Observation（结构化观察）</td></tr>
+      <tr><td>样本</td><td>5 头雌性大象（4 幼 + 1 成），尼泊尔</td></tr>
+      <tr><td>核心方法</td><td>SPR（次级正强化）：哨声标记 + 香蕉奖励 + Capture/Lure/Shaping</td></tr>
+      <tr><td>主要结果</td><td>4/5 幼象成功学会（25–35 次训练）；成年象失败</td></tr>
+      <tr><td>正确率提升</td><td>36.00%（第10次）→ 89.33%（第35次）</td></tr>
+      <tr><td>最难任务</td><td>Trunk Here（295.40 次提示）</td></tr>
+      <tr><td>取向定位</td><td>CIE Learning Approach — Operant Conditioning（学习取向：操作性条件反射）</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- SECTION 12: QUESTIONS -->
+<div class="section" id="s12">
+  <h2>1️⃣2️⃣ 考试练习 Questions</h2>
+
+  <div class="question-item">
+    <p><strong>Q4. What was the purpose of teaching elephants the trunk washing task?</strong><br>
+    教大象学习象鼻冲洗任务的目的是什么？</p>
+    <p style="color:var(--text-secondary);margin-top:8px;"><strong>参考答案要点：</strong>目的是检测结核病（TB）。TB 是圈养大象中的严重呼吸道疾病（感染率 11%–25%），可通过象鼻冲洗采集痰样进行细菌培养诊断。此外，研究还想证明 SPR 方法可以替代传统惩罚方法来训练大象配合兽医程序。</p>
+  </div>
+
+  <div class="question-item">
+    <p><strong>Q5. The elephants' mahouts were present in each session. However, they didn't look at the elephants or speak to them. Can you explain why the mahouts were asked to behave this way?</strong><br>
+    驯象师每次都在场，但他们不看大象也不跟大象说话。你能解释为什么要他们这样表现吗？</p>
+    <p style="color:var(--text-secondary);margin-top:8px;"><strong>参考答案要点：</strong>这是为了控制<strong>extraneous variables（额外变量）</strong>。驯象师平时用传统方法（包括口头命令和体信号）训练大象，如果他们在场时继续发出这些信号，就无法确定大象的行为是对 SPR 训练的反应还是对驯象师习惯信号的反应。让他们保持中立是为了确保研究的<strong>内部效度（internal validity）</strong>——证明确实是哨声+香蕉的 SPR 在起作用。</p>
+  </div>
+
+  <div class="question-item">
+    <p><strong>Q6. What influence do you think individual differences between the elephants had on the results of this study?</strong><br>
+    你认为大象之间的个体差异对本研究结果有什么影响？</p>
+    <p style="color:var(--text-secondary);margin-top:8px;"><strong>参考答案要点：</strong>(1) <strong>年龄差异</strong>：4 头幼象全部成功，唯一成年象失败——年龄/学习速度可能是关键因素；(2) <strong>学习速度差异</strong>：Elephant 2 用 25 次即通过，其他需要 35 次——个体气质/认知能力不同；(3) <strong>外部环境影响</strong>：Elephant 5 受到隔壁小象干扰和自身健康问题（足部脓肿）的影响；(4) 这些差异既是研究的局限性（降低推广性），也是有趣的发现（SPR 可能更适合年轻动物）。</p>
+  </div>
+
+  <div class="question-item">
+    <p><strong>Q7. Explain what is meant by 'shaping' in the context of this study. Give an example from the elephant training.</strong><br>
+    在本研究背景下解释"shaping（塑形）"的含义。请从大象训练中举例说明。</p>
+    <p style="color:var(--text-secondary);margin-top:8px;"><strong>参考答案要点：</strong>Shaping 是一种通过<strong>逐步提高标准</strong>来训练行为的方法——每次只奖励最接近目标的反应，像雕塑一样一步步"塑造"出完整行为。例如训练"Trunk Up"时：先奖励任何轻微抬鼻子的动作 → 只奖励抬到腰部高度的 → 只奖励抬到头部高度的 → 最后只奖励完全垂直的姿势。每次都比上次要求更高一点，大象通过不断尝试逐渐接近目标。</p>
+  </div>
+
+  <div class="question-item">
+    <p><strong>Q8. Describe one strength and one weakness of this study.</strong><br>描述本研究的优势和不足各一项。</p>
+    <p style="color:var(--text-secondary);margin-top:8px;"><strong>参考答案要点：</strong><br>
+    <strong>优势示例</strong>：使用定量数据（百分比正确率、训练次数、时长等）使结果客观可分析；或：高生态效度（真实环境中的真实大象）；或：良好的控制变量（mahouts 中立、无意义语言提示词）。<br>
+    <strong>不足示例</strong>：样本量极小（n=5）且来自同一地点，推广性差；或：缺乏对照组无法与传统方法对比；或：通过标准为主观判断，缺乏第三方评估影响信度。</p>
+  </div>
+
+  <div class="question-item">
+    <p><strong>Q9. Discuss whether this research supports a nature or nurture view of animal behaviour.</strong><br>讨论这项研究是支持动物行为的先天论还是后天论观点。</p>
+    <p style="color:var(--text-secondary);margin-top:8px;"><strong>参考答案要点：</strong>研究明显支持 <strong>nurture（后天）</strong>观点。证据：(1) 所有行为都是通过 SPR 训练学会的——没有哪头大象天生就会做象鼻冲洗；(2) 传统训练（惩罚）vs SPR（奖励）的不同方法产生不同结果——说明环境和训练方式决定行为；(3) 年龄/环境因素（幼象成功、成年象因干扰失败）比先天因素更能预测学习成果。不过 nature 也扮演了一定角色——大象天生的象鼻灵活性和认知能力是学习的<strong>前提条件</strong>（没有这个先天基础，再好的训练方法也无法奏效）。</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>🐘 Fagen et al. (2014) — CIE Learning Approach Core Study 2</p>
+  <p>Generated for educational purposes | 原文来源: Journal of Applied Animal Welfare Science, 17(2), 83-97</p>
+</div>
+
+</div>
+</body>
+</html>

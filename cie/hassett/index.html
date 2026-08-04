@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Core Study 2: Hassett et al. (2008) — Monkey Toy Preferences</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --text: #1a1a2e;
+    --heading: #16213e;
+    --accent: #0f3460;
+    --accent-light: #e8f0fe;
+    --border: #e0e0e0;
+    --table-header: #0f3460;
+    --table-alt: #f8f9fa;
+    --blockquote: #e8f0fe;
+    --warning: #fff3cd;
+    --warning-border: #ffc107;
+    --key-box: #fff3e0;
+    --key-border: #ff9800;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.8;
+    color: var(--text);
+    background: var(--bg);
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 40px 24px;
+  }
+  h1 {
+    font-size: 1.85em;
+    color: var(--heading);
+    border-bottom: 3px solid var(--accent);
+    padding-bottom: 12px;
+    margin-bottom: 6px;
+  }
+  .subtitle {
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 24px;
+  }
+  .ref {
+    font-size: 0.95em;
+    color: #555;
+    font-style: italic;
+    margin-bottom: 32px;
+    padding: 12px 16px;
+    background: var(--accent-light);
+    border-radius: 6px;
+  }
+  h2 {
+    font-size: 1.45em;
+    color: var(--heading);
+    margin-top: 40px;
+    margin-bottom: 14px;
+    padding-left: 14px;
+    border-left: 4px solid var(--accent);
+  }
+  h3 {
+    font-size: 1.2em;
+    color: var(--accent);
+    margin-top: 26px;
+    margin-bottom: 10px;
+  }
+  h4 {
+    font-size: 1.05em;
+    color: var(--accent);
+    margin-top: 18px;
+    margin-bottom: 8px;
+  }
+  p { margin-bottom: 14px; }
+  ul, ol { margin-bottom: 14px; padding-left: 26px; }
+  li { margin-bottom: 6px; }
+  strong { color: var(--heading); }
+  .cn { color: #6a6a6a; font-weight: 400; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 18px 0;
+    font-size: 0.95em;
+  }
+  th {
+    background: var(--table-header);
+    color: #fff;
+    padding: 12px 14px;
+    text-align: left;
+    font-weight: 600;
+  }
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  tr:nth-child(even) td { background: var(--table-alt); }
+  .key-box {
+    background: var(--key-box);
+    border: 1px solid var(--key-border);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 18px 0;
+  }
+  .key-box p { margin-bottom: 8px; }
+  .key-box p:last-child { margin-bottom: 0; }
+  .issue-box {
+    background: #eef7ff;
+    border: 1px solid #b3d9ff;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 18px 0;
+  }
+  .issue-box p { margin-bottom: 8px; }
+  .issue-box p:last-child { margin-bottom: 0; }
+  .note {
+    background: var(--warning);
+    border: 1px solid var(--warning-border);
+    border-radius: 8px;
+    padding: 14px 20px;
+    margin-top: 32px;
+    font-size: 0.92em;
+    color: #856404;
+  }
+  hr {
+    border: none;
+    border-top: 2px solid var(--border);
+    margin: 32px 0;
+  }
+  .toc {
+    background: var(--accent-light);
+    border-radius: 8px;
+    padding: 20px 26px;
+    margin: 24px 0 32px 0;
+  }
+  .toc h3 {
+    margin-top: 0;
+    color: var(--accent);
+  }
+  .toc ol { padding-left: 22px; }
+  .toc li { margin-bottom: 4px; }
+  .toc a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .toc a:hover { text-decoration: underline; }
+  figure {
+    margin: 22px 0;
+    text-align: center;
+  }
+  figure img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  figcaption {
+    font-size: 0.92em;
+    color: #555;
+    margin-top: 10px;
+    line-height: 1.5;
+  }
+  figcaption .cn { color: #6a6a6a; }
+</style>
+</head>
+<body>
+
+<h1>Core Study 2: Hassett et al. (2008) <span class="cn">（恒河猴玩具偏好）</span></h1>
+<p class="subtitle">Monkey Toy Preferences</p>
+
+<div class="ref">
+  <strong>Hassett, J. M., Siebert, E. R., &amp; Wallen, K. (2008).</strong> Sex differences in rhesus monkey toy preferences parallel those of children. <em>Hormones and Behaviour, 54</em>(3), 359&ndash;364.
+</div>
+
+<div class="toc">
+  <h3>Contents</h3>
+  <ol>
+    <li><a href="#sec1">The Psychology Being Investigated</a></li>
+    <li><a href="#sec2">Background</a></li>
+    <li><a href="#sec3">Aim</a></li>
+    <li><a href="#sec4">Method</a></li>
+    <li><a href="#sec5">Behavioural Checklist</a></li>
+    <li><a href="#sec6">Results</a></li>
+    <li><a href="#sec7">Conclusion</a></li>
+    <li><a href="#sec8">Strengths and Weaknesses</a></li>
+    <li><a href="#sec9">Ethical Issues</a></li>
+    <li><a href="#sec10">Summary</a></li>
+    <li><a href="#sec11">Key Terms</a></li>
+    <li><a href="#sec12">Study Questions</a></li>
+  </ol>
+</div>
+
+<h2 id="sec1">1. The Psychology Being Investigated <span class="cn">（研究主题）</span></h2>
+
+<h3>1.1 Sex Differences <span class="cn">（性别差异）</span></h3>
+
+<p><strong>Sex differences</strong> <span class="cn">（性别差异）</span> are the ways that males and females differ that are caused directly by sex, and include both <strong>physical</strong> <span class="cn">（生理）</span> and <strong>behavioural differences</strong> <span class="cn">（行为差异）</span>.</p>
+
+<p>There are differences in male and female brains, and in their <strong>hormones</strong> <span class="cn">（激素）</span>, that impact on human behaviour. For example, in our discussion of the brain for the key study by H&ouml;lzel et al., we will describe how language functions are <strong>localised</strong> <span class="cn">（局部化）</span> to areas in the left hemisphere. This is the case for men and women, although in women language functions are relatively more <strong>bilateral</strong> <span class="cn">（双侧的）</span>, i.e. spread over both sides of the brain. This is one of several known biological differences between male and female brains.</p>
+
+<p>There are several differences in hormones too. The most obvious is that, post puberty, males have about ten times more <strong>testosterone</strong> <span class="cn">（睾酮）</span> than females, and females have much more <strong>oestrogen</strong> <span class="cn">（雌激素）</span> than males.</p>
+
+<p>However, it is difficult to determine the extent to which some behavioural differences between males and females are the product of <strong>biological differences</strong> <span class="cn">（生物差异）</span> due to their sex, or <strong>social differences</strong> <span class="cn">（社会差异）</span> in their experiences due to the different ways in which society treats males and females. Many factors are involved in the way a child experiences the social world and these add together to create the process of <strong>socialisation</strong> <span class="cn">（社会化）</span>.</p>
+
+<div class="key-box">
+  <p><strong>Socialisation</strong> <span class="cn">（社会化）</span>: the process of learning to behave in socially acceptable ways. This may differ somewhat for the two genders and in different cultures.</p>
+</div>
+
+<h3>1.2 Gender Stereotype <span class="cn">（性别刻板印象）</span></h3>
+
+<p>Differences in behaviours between men and women are traditionally believed to be rooted in socialisation. Boys watch, copy and are rewarded for behaving like men: being tough, active and oriented towards doing things. Girls, in contrast, are rewarded for watching and copying the behaviour of women, so tend to become more passive and caring. So, the socialisation process is, at least partly, determined by gender. This cultural bias, or <strong>gender stereotype</strong> <span class="cn">（性别刻板印象）</span>, is based on a culturally determined, oversimplified belief that all members of one gender share the same characteristics and that these are different from the other gender.</p>
+
+<p>Toys can therefore be described as <strong>'masculine'</strong> <span class="cn">（男性化的）</span> or <strong>'feminine'</strong> <span class="cn">（女性化的）</span> according to gender stereotypes.</p>
+
+<div class="key-box">
+  <p><strong>Gender stereotype</strong> <span class="cn">（性别刻板印象）</span>: a bias exhibited in society, which may be held by people and represented, for example, in books or toys that assign particular traits, behaviours, emotions, occupations, etc. to males and females.</p>
+  <p><strong>Play</strong> <span class="cn">（玩耍）</span>: behaviour typical of childhood, that appears to be done for fun rather than any useful purpose. It may be solitary or social and may or may not involve interaction with an object. Objects designed for the purpose of play are called 'toys'.</p>
+</div>
+
+<h3>1.3 Gender Differences in Play <span class="cn">（玩耍中的性别差异）</span></h3>
+
+<p>One behaviour in which differences can be seen between males and females is in <strong>play</strong> <span class="cn">（玩耍）</span>. We often see boys engaging in active, sometimes aggressive, play with guns, toy tractors and building sets. Girls, however, are more usually seen engaging in <strong>nurturing play</strong> <span class="cn">（养育性游戏）</span> with dolls, playhouses and kitchen sets, i.e. being more passive and caring.</p>
+
+<p>In terms of socialisation, this isn't surprising, as girls and boys are encouraged to play with <strong>gender-stereotyped toys</strong> <span class="cn">（性别刻板印象玩具）</span>, that is, toys that fit society's view of gender-appropriate behaviour (Figure 2.6). This influence has long been assumed to be the primary cause of gender differences in play.</p>
+
+<figure>
+  <img src="gender_toys.jpg" alt="Gender-stereotyped toys in a shop: boys' toys (blue, vehicles, building sets) on the left and girls' toys (pink, dolls, domestic play) on the right.">
+  <figcaption><strong>Figure 2.6</strong> <span class="cn">（插图一：刻板性别印象对应的玩具）</span>: Boys' toys are often blue and activity-focused (vehicles, construction), while girls' toys are often pink and nurturing-focused (dolls, domestic play). These displays reflect cultural gender stereotypes that may shape children's toy choices.</figcaption>
+</figure>
+
+<hr>
+
+<h2 id="sec2">2. Background <span class="cn">（研究背景）</span></h2>
+
+<p>Humans are complicated. Our brains are highly complex in structure and function and our behaviour is affected by our social and physical environments as well as our biology. This complexity makes humans difficult to study, as so many factors could be affecting any one outcome. In some research, the complexity of the human experience can be simplified by excluding many variables, for example in a <strong>laboratory experiment</strong> <span class="cn">（实验室实验）</span> where the effect of a single <strong>independent variable</strong> <span class="cn">（自变量）</span> can be studied by controlling other, potentially <strong>confounding variables</strong> <span class="cn">（混淆变量）</span>, and by having a <strong>control condition</strong> <span class="cn">（控制条件）</span> from which the independent variable is absent.</p>
+
+<p>It is nevertheless sometimes impossible to conduct such studies because isolation of variables cannot ethically, or practically, be done. One such instance is in the case of children's development.</p>
+
+<p>Hassett et al. described an important finding that <strong>prenatal hormonal exposure</strong> <span class="cn">（产前激素暴露）</span> of human infants (the hormones they are exposed to during gestation) affects toy preferences in children. Some girls have a <strong>genetic condition</strong> <span class="cn">（遗传疾病）</span> that causes increased <strong>androgens</strong> <span class="cn">（雄激素）</span> (male hormones) during foetal development. Such girls preferred to play with traditionally 'boys' toys than their unaffected sisters or control females. This was the case even when they receive increased socialisation to encourage 'female-appropriate' activities. Opportunities to study these hormonal differences in children are rare and the validity of the findings will be limited by uncontrolled variables such as the exact amount of hormonal exposure and the extent of gender-related socialisation.</p>
+
+<p>It would be unethical to deliberately expose developing human foetuses or children to hormones, or to remove key factors from a child's environment to control their experience. However, a model for such research exists. A model is nothing more than a <strong>representation</strong> <span class="cn">（表征/模型）</span> of a phenomenon, often on a smaller or simpler scale. In the case of human development, a simpler model is needed, and one that offers the opportunity to control experiences. Higher primates, closely related to humans genetically, and with some very similar behaviours, can provide such a model.</p>
+
+<p>Social activities such as 'rough-and-tumble', peer preferences and interest in infants differ between the genders. These activities are seen not only in children but also in other primates, who show gender differences which match those of children with, for example, males engaging in more rough-and-tumble play and less interest in infants than females. By looking at primate models of human behaviour it may be possible to see whether gender differences in behaviour could be caused by <strong>biological</strong> <span class="cn">（生物）</span> rather than <strong>social differences</strong> <span class="cn">（社会差异）</span>. Young primates, like young humans, have different levels of hormones according to their sex. Prepubescent males have more testosterone, a hormone associated not only with strength and aggressive behaviour but also, at least in humans, being associated with spatial skills. Young females have more oestrogen than males, and this hormone is associated in adult females with nurturing behaviours such as caring for offspring.</p>
+
+<hr>
+
+<h2 id="sec3">3. Aim <span class="cn">（研究目的）</span></h2>
+
+<p>The <strong>aim</strong> <span class="cn">（目的）</span> of the study was to investigate whether toy preferences in monkeys resemble those in children, in order to test whether <strong>sex differences</strong> <span class="cn">（性别差异）</span> in toy choice is <strong>biologically determined by sex</strong> <span class="cn">（由生物性别决定）</span>.</p>
+
+<hr>
+
+<h2 id="sec4">4. Method <span class="cn">（研究方法）</span></h2>
+
+<h3>4.1 Research Method and Design <span class="cn">（研究方法和设计）</span></h3>
+
+<p>This was a <strong>field experiment</strong> <span class="cn">（现场实验）</span> as the environment in which the participants were tested was their normal, outdoor housing area and they were free to interact with the toys or not.</p>
+
+<p>Although the toys were new to them, they would not have been unfamiliar with objects being placed in their enclosures. The <strong>experimental design</strong> <span class="cn">（实验设计）</span> was <strong>independent measures</strong> <span class="cn">（独立测量设计）</span> as the independent variable was <strong>gender</strong> <span class="cn">（性别）</span>; each animal being recorded was either male or female.</p>
+
+<p><strong>Observations</strong> <span class="cn">（观察法）</span> were used as a technique to measure the <strong>dependent variable</strong> <span class="cn">（因变量）</span> of activities with the toys. As well as looking for differences between the genders, a <strong>correlation</strong> <span class="cn">（相关分析）</span> was also conducted on the results, to look for a relationship between individual monkeys' ranks within the <strong>social hierarchy</strong> <span class="cn">（社会等级）</span> and the frequency or duration of activities with each toy type. Finally, data from the monkeys was compared to similar data relating to children obtained from a different study. This was an <strong>independent measures comparison</strong> <span class="cn">（独立测量比较）</span>.</p>
+
+<h3>4.2 Sample <span class="cn">（样本）</span></h3>
+
+<p>The participants were <strong>21 male and 61 female rhesus monkeys</strong> <span class="cn">（21只雄性和61只雌性恒河猴）</span> living in <strong>natal groups</strong> <span class="cn">（出生群体）</span> as part of a wider group of <strong>135 animals</strong> at the <strong>Yerkes primate research station</strong> <span class="cn">（耶基斯灵长类研究中心）</span> in the USA.</p>
+
+<p>Of these 135 animals:</p>
+<ul>
+  <li>14 adults were not studied as they had received hormone treatments</li>
+  <li>39 young infants were excluded as they could not be reliably identified</li>
+  <li>The final number of individuals used in the analysis was <strong>11 males and 23 females</strong></li>
+</ul>
+
+<p>Each natal group was housed in a <strong>25 &times; 25 metre outdoor area</strong> with access to a temperature-controlled indoor environment. They had water available, were given a standard monkey feed twice a day and additional fruit and vegetables once daily.</p>
+
+<h3>4.3 Procedure <span class="cn">（程序）</span></h3>
+
+<p>To reflect differences in activity preferences in sexually differentiated behaviours, the toys chosen were divided into two categories by their properties as objects rather than gender-typing, although the outcome of this categorisation was comparable to the traditional 'boys' toys', 'girls' toys' divide. The category of <strong>'wheeled toys'</strong> <span class="cn">（轮式玩具）</span> matched vehicle toys, typically for boys, and <strong>'plush toys'</strong> <span class="cn">（毛绒玩具）</span> matched typical girls' toys. 'Plush' toys are soft, cuddly ones.</p>
+
+<p>There were:</p>
+<ul>
+  <li>Six wheeled toys ranging in length from 16 to 46 cm (wagon, truck, car, construction vehicle, shopping cart, dump truck)</li>
+  <li>Seven plush toys ranging in length from 14 to 73 cm (Winnie-the-Pooh&trade;, Raggedy-Ann&trade;, koala hand puppet, armadillo, teddy bear, Scooby-Doo&trade;, turtle)</li>
+</ul>
+
+<p>Apart from size, the toys also varied in terms of shape and colour.</p>
+
+<p>For each social group, <strong>seven trials</strong> <span class="cn">（7次试验）</span>, each lasting <strong>25 minutes</strong>, were observed using two video cameras. Each trial began with all the monkeys in the group indoors while one plush toy and one wheeled toy were placed <strong>10 metres apart</strong> in the outdoor enclosure. One video recorder was directed towards each toy and the plush and wheeled toys were <strong>counterbalanced</strong> <span class="cn">（平衡/轮换）</span> between left and right locations on each trial. After each trial the toys were removed and the video tape was analysed by two observers working together to achieve a consensus. They identified each animal interacting with a toy and coded specific activities directed towards the toys using a <strong>behavioural checklist</strong> <span class="cn">（行为清单）</span> (see Table 2.3). The exact time at which each activity occurred was also recorded so, in addition to the frequency of each behaviour, a record of the duration of continuous activities was kept.</p>
+
+<figure>
+  <img src="monkey_playing.png" alt="A rhesus monkey playing with a wheeled toy in an outdoor enclosure.">
+  <figcaption><strong>Figure 2.7</strong> <span class="cn">（插图二：猴子玩玩具）</span>: A rhesus monkey interacting with a wheeled toy during the study. Monkeys were filmed in their outdoor enclosures and were free to approach and play with either a wheeled or a plush toy.</figcaption>
+</figure>
+
+<div class="issue-box">
+  <p><strong>Issues and Debates: Use of Animals in Psychological Research</strong></p>
+  <p>Rhesus monkeys are a highly intelligent, social species, so their needs in terms of housing and protection from pain and distress are great. However, those same characteristics, of intelligence and sociability, make them excellent models for human behaviour. There is therefore a balance between the potential benefits of conducting valid research on a species closely related to ourselves and the costs to the individual animals involved in the research.</p>
+</div>
+
+<hr>
+
+<h2 id="sec5">5. Behavioural Checklist <span class="cn">（行为清单）</span></h2>
+
+<h3>Table 2.3: Specific Activities Coded in Interactions with the Wheeled and Plush Toys <span class="cn">（与轮式和毛绒玩具互动中编码的具体行为）</span></h3>
+
+<table>
+  <thead>
+    <tr><th style="width: 28%;">Behaviour</th><th>Description of Behaviour</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>Extended touch</strong></td><td>Placing a hand or foot on toy</td></tr>
+    <tr><td><strong>Hold</strong></td><td>Stationary support with one or more limbs</td></tr>
+    <tr><td><strong>Sit on</strong></td><td>Seated on the toy or a part of the toy</td></tr>
+    <tr><td><strong>Carry in hand</strong></td><td>Moving with the toy in hand and off the ground</td></tr>
+    <tr><td><strong>Carry in arm</strong></td><td>Moving with the toy in arm and off the ground</td></tr>
+    <tr><td><strong>Carry in mouth</strong></td><td>Moving with the toy in mouth and off the ground</td></tr>
+    <tr><td><strong>Drag</strong></td><td>Moving the toy along the ground behind the animal</td></tr>
+    <tr><td><strong>Manipulate part</strong></td><td>Moving, twisting or turning a part</td></tr>
+    <tr><td><strong>Turn entire toy</strong></td><td>Shifting 3-D orientation of toy</td></tr>
+    <tr><td><strong>Touch</strong></td><td>Brief contact using hands or fingers</td></tr>
+    <tr><td><strong>Sniff</strong></td><td>Coming very close to the toy with the nose</td></tr>
+    <tr><td><strong>Mouth</strong></td><td>Brief oral contact – no biting or pulling</td></tr>
+    <tr><td><strong>Destroy</strong></td><td>Using mouth or hands to bite or tear toy</td></tr>
+    <tr><td><strong>Jump away</strong></td><td>Approach, then back away from toy with a jumping motion</td></tr>
+    <tr><td><strong>Throw</strong></td><td>Project into air with hands</td></tr>
+  </tbody>
+</table>
+
+<div class="issue-box">
+  <p><strong>Research Methods Note:</strong> The descriptions of behaviours in Table 2.3 are examples of <strong>operational definitions</strong> <span class="cn">（操作性定义）</span>. They enabled the observers who were coding the video tapes to work together to achieve <strong>inter-coder reliability</strong> <span class="cn">（编码者间信度）</span> and would allow other researchers to <strong>replicate</strong> <span class="cn">（重复验证）</span> the study.</p>
+</div>
+
+<hr>
+
+<h2 id="sec6">6. Results <span class="cn">（结果）</span></h2>
+
+<p>To analyse the data, the records for each behaviour for each animal were converted into an overall average frequency and duration for that individual. This was because each animal could have participated in a different number of activities in different trials. Not all individuals interacted with the toys and those with fewer than five total recorded behaviours were not used in the analysis (14 males and 3 females). The final number of individuals used in the analysis was <strong>11 males and 23 females</strong>.</p>
+
+<p>Comparisons were made between males and females and between each gender's preference for wheeled or plush toys. It was possible to make such comparisons on the basis of number of interactions (<strong>frequency</strong> <span class="cn">（频率）</span>) and how long time was spent interacting with the toy type (<strong>duration</strong> <span class="cn">（时长）</span>). The data in Table 2.4 is a summary of the results used in these comparisons.</p>
+
+<h3>Table 2.4: Mean Frequency and Duration of Interactions with Each Toy Type <span class="cn">（每种玩具类型的平均互动频率和时长）</span></h3>
+
+<table>
+  <thead>
+    <tr>
+      <th rowspan="2">Toy type</th>
+      <th rowspan="2">Sex of monkey</th>
+      <th colspan="2">Frequency</th>
+      <th colspan="2">Duration (minutes)</th>
+    </tr>
+    <tr>
+      <th>Mean</th>
+      <th>Standard deviation</th>
+      <th>Mean</th>
+      <th>Standard deviation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td rowspan="2"><strong>Wheeled ('masculine' toy)</strong></td><td>Male</td><td>9.77</td><td>8.86</td><td>4.76</td><td>7.59</td></tr>
+    <tr><td>Female</td><td>6.96</td><td>4.92</td><td>1.27</td><td>2.2</td></tr>
+    <tr><td rowspan="2"><strong>Plush ('feminine' toy)</strong></td><td>Male</td><td>2.06</td><td>9.21</td><td>0.53</td><td>1.41</td></tr>
+    <tr><td>Female</td><td>7.97</td><td>10.48</td><td>1.49</td><td>3.81</td></tr>
+  </tbody>
+</table>
+
+<p>Statistical analyses comparing toy preferences <strong>within</strong> each sex, using frequency data, found that:</p>
+<ul>
+  <li>Males preferred wheeled compared to plush toys</li>
+  <li>Females did not show a preference for plush toys over wheeled toys</li>
+</ul>
+
+<p>A comparison <strong>between</strong> the sexes, again using frequency data, also found that females interacted with plush toys more than males, but there was no sex difference for wheeled toys. In comparisons of the duration data, males interacted for a longer time in total with wheeled toys than with plush toys. However, the duration of time spent interacting with the different toy types did not differ for females, who played for a similar total length of time with wheeled and plush toys.</p>
+
+<p>Even though the difference in play durations for the male monkeys was big enough to show a significant difference between time spent playing with wheeled and plush toys, no significant difference was found in a between-sex comparison. This means that there was <strong>no overall difference in the time</strong> that males and females spent with playing with the wheeled and plush toys.</p>
+
+<p>Further comparisons were made to calculate <strong>'magnitude of preference'</strong> <span class="cn">（偏好幅度）</span>, that is, how much males preferred the 'masculine' (wheeled) toy and how much females preferred the 'feminine' (plush) toy. For males, this was calculated by taking the difference 'total frequency of wheeled toy interaction &minus; total frequency of plush toy interaction'. For females, the equation 'total frequency of plush toy interaction &minus; total frequency of wheeled toy interaction' was used. The same type of comparison was also performed on the duration scores. Statistical analysis of these differences confirmed that:</p>
+<ul>
+  <li><strong>Male monkeys had a higher preference for 'masculine' (wheeled) toys</strong></li>
+  <li><strong>Female monkeys had a higher preference for 'feminine' (plush) toys</strong></li>
+</ul>
+
+<p>The results of a comparison of toy preferences of individual male and female animals are shown in Table 2.5.</p>
+
+<h3>Table 2.5: Preferences of Individual Monkeys for Different Toy Types <span class="cn">（个体猴子对不同玩具类型的偏好百分比）</span></h3>
+
+<table>
+  <thead>
+    <tr><th>Percentage of individuals preferring each toy type</th><th>Males</th><th>Females</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Preference for wheeled toys</td><td>73%</td><td>39%</td></tr>
+    <tr><td>Preference for plush toys</td><td>9%</td><td>30%</td></tr>
+    <tr><td>No significant preference</td><td>18%</td><td>30%</td></tr>
+  </tbody>
+</table>
+
+<p>For males and females combined, rank and total frequency of interactions were positively correlated for the wheeled toy and for the plush toy. Using just the data for males, neither frequencies nor durations correlated with rank. For females, however, rank was positively correlated with frequency of interactions for the wheeled toy and for the plush toy, although rank only correlated with duration for the plush toy, not the wheeled toy. As this shows that rank may be related to toy interactions in females but not in males, it is unlikely that social rank is responsible for the sex differences in toy preference overall.</p>
+
+<p>Furthermore, although the sample size was too small for a detailed analysis of the results by age, comparisons were possible between wider groups. A comparison between juvenile, subadult, adult and old animals did not differ in terms of frequency or duration for either toy type.</p>
+
+<h3>Figure 2.8: Sex Differences in Children's and Rhesus Monkeys' Play with Stereotypically Masculine and Feminine Toys <span class="cn">（儿童与恒河猴对性别刻板玩具玩耍的性别差异）</span></h3>
+
+<p>Hassett et al. compared the data for the frequencies of interactions by the monkeys with different toy types to data for the durations of similar behaviours in children. The data for children was taken from another study (Berenbaum and Hines, 1992). The comparison is shown in Figure 2.8, which illustrates that the patterns are very similar.</p>
+
+<p>Both the rhesus monkeys and the human children showed gender differences, with males preferring masculine toys and females preferring feminine toys. In addition, for human children, as with rhesus monkeys, the preference was much more marked for males than for females.</p>
+
+<hr>
+
+<h2 id="sec7">7. Conclusion <span class="cn">（结论）</span></h2>
+
+<p>The results show that, like boys, male monkeys have a strong preference for masculine-type toys, in this case ones with wheels. Female monkeys, like young girls, are more variable in their toy preferences. In addition, the extent to which individuals preferred masculine or feminine (in this case plush) toys differed between males and females, with male monkeys showing much stronger preferences for wheeled toys than female monkeys did for plush toys.</p>
+
+<p>Hassett et al. argue that their findings support a <strong>biological explanation</strong> <span class="cn">（生物学解释）</span> for toy preferences. Specifically, they concluded that these preferences develop in the <strong>absence of socialisation</strong> <span class="cn">（在没有社会化的情况下）</span>. This is because in monkeys, unlike in humans, only hormonal differences not social ones can be responsible for the differences in development of males and females. Importantly, such biologically driven differences could interact with <strong>social pressures</strong> <span class="cn">（社会压力）</span> on children. Boys choosing girls' toys tend to receive more negative responses than girls choosing boys' toys. This would reinforce a pre-existing biological tendency for boys to be more masculine in their toy choices and for girls to remain more variable in their choices.</p>
+
+<hr>
+
+<h2 id="sec8">8. Strengths and Weaknesses <span class="cn">（优点与缺点）</span></h2>
+
+<h3>8.1 Strengths</h3>
+
+<p>A key strength of this study was the use of animals to <strong>eliminate the effect of socialisation</strong> <span class="cn">（消除社会化的影响）</span>. This was taken further, to exclude <strong>confounding variables</strong> <span class="cn">（混淆变量）</span> that could affect social interactions, such as age and social rank. The age of individuals was known as the monkey group had been established for over 25 years. Social rank had been assessed though behavioural observations of who groomed whom, dominance behaviours and submissive behaviours. Analysis demonstrated that these social factors had little effect on the sex differences in toy preference.</p>
+
+<p>The observation process was highly <strong>standardised</strong> <span class="cn">（标准化）</span>, for example with clear <strong>operational definitions</strong> <span class="cn">（操作性定义）</span> of behaviours to improve reliability. The trials were of a standard length of 25 minutes, however, one had to finish 7 minutes early as the plush toy was torn into pieces.</p>
+
+<h3>8.2 Weaknesses</h3>
+
+<p>A weakness of the study was that there were some differences in the way that the monkeys and the children were compared. For example, the masculine and feminine toys offered to the monkeys were chosen for their object properties rather than because they were gender-stereotyped toys for children. The measures of 'masculine' and 'feminine' play were also different for the monkeys and the children. The children were assessed in a different study using different toys and only measuring <strong>duration of play</strong> <span class="cn">（玩耍时长）</span> not frequency. Furthermore, the most significant comparison was between <strong>frequency</strong> for the monkeys and <strong>duration</strong> for the children, rather than duration for both.</p>
+
+<p>The study used to provide data about children tested each participant individually. In contrast, this study observed the monkeys in <strong>groups</strong> <span class="cn">（群体）</span>. This methodological difference may have been important. Alexander and Hines (2002) studied the interactions of vervet monkeys with toys and found the same pattern of gender difference in that a greater proportion of males' toy interactions were with masculine toys and a greater proportion of females' toy interactions were with feminine toys. However, in contrast to both children and Hassett et al.'s rhesus monkeys, the vervet males interacted for a similar amount of time with masculine and feminine toys, unlike females, who were more gender-specific in their duration of play, spending more time with feminine toys. Rather than being a genuine species difference, this pattern could have been explained by the way toys were presented to the vervet monkeys — one at a time rather than together — thus, they were not given a genuine 'choice'. Similarly, testing monkeys in groups and children alone could have influenced the findings in Hassett et al.'s study.</p>
+
+<h3>8.3 Issues and Debates: Nature versus Nurture <span class="cn">（先天与后天）</span></h3>
+
+<div class="issue-box">
+  <p>Has the study by Hassett et al. overlooked the possibility that early socialisation in primates may influence the gendered development of play behaviours? This would suggest there may be a 'nurture' explanation, even in animals. However, Hassett et al. report a study by Alexander and Hines (2002) on vervet monkeys, which found that unlike human boys, male vervets play as much with masculine as with feminine toys. In contrast to human girls, who spend very similar amounts of time with 'masculine' and 'feminine' toys, the female vervets played for significantly longer with feminine than with masculine toys. Although this may superficially look as though it supports a nature view, it would require that female vervet monkeys are more strongly socialised to prefer female toys than human girls are. This seems unlikely, so overall findings from animal studies support the idea that <strong>gender differences in toys preferences are the result of nature</strong> <span class="cn">（性别差异是天生的）</span>.</p>
+</div>
+
+<hr>
+
+<h2 id="sec9">9. Ethical Issues <span class="cn">（伦理问题）</span></h2>
+
+<p>Research with non-human animals is typically controlled by laws, and psychological institutions offer guidelines for their use. This study was conducted following appropriate <strong>ethical guidelines</strong> <span class="cn">（伦理准则）</span> for the care of animals in the USA and was approved by <strong>Emory University</strong> <span class="cn">（埃默里大学）</span>'s ethical committee on animal care and use. In terms of feeding, the animals received regular and appropriate food (twice daily monkey feed plus daily fruit and vegetables) and had constant access to water. They were ethically housed in family groups, in large enclosures, with access to both a temperature-controlled indoor area and an outdoor area. The observation using cameras would not have been distressing and the level of interactions with the toys suggests that their novelty was not in general a source of psychological distress or physical pain. However, one toy was destroyed but it is unknown whether this was a playful act or a reflection of distress.</p>
+
+<hr>
+
+<h2 id="sec10">10. Summary <span class="cn">（总结）</span></h2>
+
+<p>Hassett et al.'s study investigated whether rhesus monkeys show a similar pattern of sex differences in toy preferences to children. In studies where the participants are children, it is difficult to separate any biological causation from social effects. In monkeys, however, the role of <strong>hormonal influences on toy preferences</strong> <span class="cn">（激素对玩具偏好的影响）</span>, without the effect of socialisation, would be clear. Videoed observations of groups of monkeys given a masculine (wheeled) toy and a feminine (plush) toy were analysed using a behavioural checklist of interactions. They found that male monkeys, like boys, prefer masculine toys and female monkeys, like girls, have less fixed preferences in their toy choices. This evidence supports a biological explanation for toy preference because the monkeys' preferences must have developed without the effect of socialisation to which children are normally exposed.</p>
+
+<hr>
+
+<h2 id="sec11">11. Key Terms <span class="cn">（关键词）</span></h2>
+
+<table>
+  <thead>
+    <tr><th style="width: 32%;">Term</th><th>Definition</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>Sex differences</strong> <span class="cn">（性别差异）</span></td><td>Differences between males and females caused directly by sex, including physical and behavioural differences</td></tr>
+    <tr><td><strong>Hormones</strong> <span class="cn">（激素）</span></td><td>Chemicals in the body that affect behaviour and development, e.g. testosterone and oestrogen</td></tr>
+    <tr><td><strong>Testosterone</strong> <span class="cn">（睾酮）</span></td><td>Male hormone associated with strength, aggression and spatial skills</td></tr>
+    <tr><td><strong>Oestrogen</strong> <span class="cn">（雌激素）</span></td><td>Female hormone associated with nurturing behaviours</td></tr>
+    <tr><td><strong>Socialisation</strong> <span class="cn">（社会化）</span></td><td>The process of learning to behave in socially acceptable ways</td></tr>
+    <tr><td><strong>Gender stereotype</strong> <span class="cn">（性别刻板印象）</span></td><td>A culturally determined, oversimplified belief about characteristics of males and females</td></tr>
+    <tr><td><strong>Play</strong> <span class="cn">（玩耍）</span></td><td>Behaviour typical of childhood, done for fun rather than useful purpose</td></tr>
+    <tr><td><strong>Masculine toys</strong> <span class="cn">（男性化玩具）</span></td><td>Toys traditionally associated with boys, e.g. wheeled toys</td></tr>
+    <tr><td><strong>Feminine toys</strong> <span class="cn">（女性化玩具）</span></td><td>Toys traditionally associated with girls, e.g. plush toys</td></tr>
+    <tr><td><strong>Prenatal hormonal exposure</strong> <span class="cn">（产前激素暴露）</span></td><td>Hormones a foetus is exposed to during gestation</td></tr>
+    <tr><td><strong>Androgens</strong> <span class="cn">（雄激素）</span></td><td>Male hormones, e.g. testosterone</td></tr>
+    <tr><td><strong>Biological explanation</strong> <span class="cn">（生物学解释）</span></td><td>Explaining behaviour in terms of biological factors such as hormones and genetics</td></tr>
+    <tr><td><strong>Independent measures design</strong> <span class="cn">（独立测量设计）</span></td><td>Different participants in each condition of an experiment</td></tr>
+    <tr><td><strong>Dependent variable</strong> <span class="cn">（因变量）</span></td><td>What is measured in an experiment</td></tr>
+    <tr><td><strong>Independent variable</strong> <span class="cn">（自变量）</span></td><td>What is manipulated in an experiment</td></tr>
+    <tr><td><strong>Confounding variables</strong> <span class="cn">（混淆变量）</span></td><td>Variables other than the IV that could affect the DV</td></tr>
+    <tr><td><strong>Operational definitions</strong> <span class="cn">（操作性定义）</span></td><td>Clear, precise definitions of behaviours or variables that can be measured</td></tr>
+    <tr><td><strong>Inter-coder reliability</strong> <span class="cn">（编码者间信度）</span></td><td>The degree of agreement between different observers coding the same behaviour</td></tr>
+    <tr><td><strong>Magnitude of preference</strong> <span class="cn">（偏好幅度）</span></td><td>How much an individual prefers one option over another</td></tr>
+    <tr><td><strong>Social hierarchy</strong> <span class="cn">（社会等级）</span></td><td>The ranking of individuals within a social group</td></tr>
+    <tr><td><strong>Standardised</strong> <span class="cn">（标准化）</span></td><td>Carried out in the same way for all participants</td></tr>
+    <tr><td><strong>Field experiment</strong> <span class="cn">（现场实验）</span></td><td>An experiment conducted in the participants' natural environment</td></tr>
+    <tr><td><strong>Nature versus nurture</strong> <span class="cn">（先天与后天）</span></td><td>The debate about whether behaviour is caused by biological or environmental factors</td></tr>
+  </tbody>
+</table>
+
+<hr>
+
+<h2 id="sec12">12. Study Questions <span class="cn">（练习题）</span></h2>
+
+<ol>
+  <li>What was the aim of the study by Hassett et al. (2008)?</li>
+  <li>Why was it useful to use rhesus monkeys in this study?</li>
+  <li>What were the two types of toy used and how were they chosen?</li>
+  <li>How were the toys different? (原书 Question 4)</li>
+  <li>Why did Hassett et al. exclude some of the monkeys from this study? (原书 Question 5)</li>
+  <li>How was the data about children obtained? (原书 Question 6)</li>
+  <li>Why was a correlation of social rank and total frequency of interactions conducted? (原书 Question 7)</li>
+  <li>What were the main findings of the study?</li>
+  <li>What conclusion did Hassett et al. draw about the cause of toy preferences?</li>
+  <li>Describe one strength and one weakness of the study.</li>
+</ol>
+
+<div class="note">
+  <strong>Note:</strong> This text is organised based on content identified from the CIE Psychology textbook Core Study 2 screenshots. Please review and refine as needed.
+</div>
+
+</body>
+</html>
