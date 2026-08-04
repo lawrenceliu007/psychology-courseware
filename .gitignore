@@ -10,3 +10,4 @@ Thumbs.db
 # Source files (only deploy to gh-pages)
 *.md
 !README.md
+!DEPLOY_GUIDE.md
