@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dement & Kleitman (1957) — The Relation of Eye Movements During Sleep to Dream Activity</title>
+<style>
+  :root {
+    --primary: #C62828;
+    --primary-light: #EF5350;
+    --primary-dark: #B71C1C;
+    --accent: #FF7043;
+    --bg: #FAFAFA;
+    --card-bg: #FFFFFF;
+    --text: #212121;
+    --text-secondary: #616161;
+    --border: #E0E0E0;
+    --highlight: #FFEBEE;
+    --warning: #FFF3E0;
+    --code-bg: #F5F5F5;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, "Segoe UI", "Noto Sans SC", sans-serif; background: var(--bg); color: var(--text); line-height: 1.75; font-size: 16px; }
+  .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+
+  /* Header */
+  .header { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, var(--primary-dark), var(--primary)); color: white; border-radius: 12px; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(198,40,40,0.3); }
+  .header h1 { font-size: 1.8em; margin-bottom: 10px; }
+  .header .subtitle { font-size: 1.05em; opacity: 0.95; }
+  .header .meta { margin-top: 15px; font-size: 0.9em; opacity: 0.8; }
+  .badge { display: inline-block; padding: 4px 14px; border-radius: 20px; background: rgba(255,255,255,0.2); margin: 3px; font-size: 0.85em; }
+
+  /* TOC */
+  .toc { background: var(--card-bg); border-radius: 10px; padding: 25px; margin-bottom: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-left: 4px solid var(--primary); }
+  .toc h2 { color: var(--primary-dark); margin-bottom: 15px; font-size: 1.3em; }
+  .toc ol { padding-left: 20px; }
+  .toc li { margin: 8px 0; }
+  .toc li a { color: var(--primary); text-decoration: none; transition: color 0.2s; }
+  .toc li a:hover { color: var(--primary-dark); text-decoration: underline; }
+
+  /* Sections */
+  .section { background: var(--card-bg); border-radius: 10px; padding: 30px; margin-bottom: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .section h2 { color: var(--primary-dark); font-size: 1.5em; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--primary-light); }
+  .section h3 { color: var(--primary); font-size: 1.2em; margin: 20px 0 12px; }
+  .section h4 { color: var(--text); font-size: 1.05em; margin: 15px 0 8px; }
+
+  /* Key Words Box */
+  .keyword-box { background: linear-gradient(135deg, #FFEBEE, #FFCDD2); border-left: 5px solid var(--primary); border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+  .keyword-box h4 { color: var(--primary-dark); font-size: 1em; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+  .keyword-box p { margin: 6px 0; }
+  .keyword-box strong { color: var(--primary-dark); }
+
+  /* Images */
+  .img-container { text-align: center; margin: 22px 0; }
+  .img-container img { max-width: 100%; border-radius: 10px; box-shadow: 0 3px 12px rgba(0,0,0,0.12); }
+  .img-caption { font-size: 0.9em; color: var(--text-secondary); margin-top: 8px; font-style: italic; }
+
+  /* Tables */
+  table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 0.93em; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-radius: 8px; overflow: hidden; }
+  th { background: var(--primary); color: white; padding: 12px 14px; text-align: left; font-weight: 600; }
+  td { padding: 11px 14px; border-bottom: 1px solid var(--border); }
+  tr:nth-child(even) { background: #FEF5F5; }
+  tr:hover { background: var(--highlight); }
+  td:first-child { font-weight: 600; color: var(--primary-dark); }
+  .num-cell { text-align: center; font-weight: 700; color: var(--primary-dark); }
+
+  /* Highlight boxes */
+  .info-box { background: #E3F2FD; border-left: 4px solid #1976D2; border-radius: 6px; padding: 16px 20px; margin: 16px 0; }
+  .cn-note { background: #FFF8E1; border-left: 4px solid #FFA000; border-radius: 6px; padding: 16px 20px; margin: 16px 0; font-size: 0.96em; }
+  .warn-box { background: var(--warning); border-left: 4px solid #F57C00; border-radius: 6px; padding: 16px 20px; margin: 16px 0; }
+  .warn-box h4 { color: #E65100; margin-bottom: 8px; }
+
+  /* Activity box */
+  .activity-box { background: #E8F5E9; border-left: 4px solid #43A047; border-radius: 6px; padding: 16px 20px; margin: 16px 0; }
+  .activity-box h4 { color: #2E7D32; margin-bottom: 8px; }
+
+  /* Lists */
+  ul, ol { padding-left: 24px; margin: 10px 0; }
+  li { margin: 6px 0; }
+
+  /* Two-col layout */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 18px 0; }
+  .col-card { background: #F5F5F5; border-radius: 8px; padding: 18px; }
+  .col-card h4 { margin-bottom: 10px; font-size: 1em; color: var(--primary-dark); }
+
+  /* Questions section */
+  .question-item { background: #FAFAFA; border-radius: 8px; padding: 18px; margin: 14px 0; border-left: 4px solid var(--accent); }
+  .question-item strong { color: var(--primary-dark); }
+
+  /* Result highlight */
+  .result-highlight { background: #DCEDC8; padding: 2px 6px; border-radius: 4px; font-weight: 700; color: #33691E; }
+  .result-high { background: #FFCDD2; padding: 2px 6px; border-radius: 4px; font-weight: 700; color: #B71C1C; }
+
+  /* Footer */
+  .footer { text-align: center; padding: 25px; color: var(--text-secondary); font-size: 0.88em; border-top: 1px solid var(--border); margin-top: 30px; }
+
+  blockquote { background: linear-gradient(135deg,#FFEBEE,#FFCDD2); border-left: 5px solid var(--primary-dark); padding: 18px 24px; margin: 20px 0; border-radius: 0 10px 10px 0; font-style: italic; color: var(--primary-dark); }
+
+  @media (max-width: 768px) {
+    .two-col { grid-template-columns: 1fr; }
+    .container { padding: 12px; }
+    .section { padding: 20px; }
+  }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- HEADER -->
+<div class="header">
+  <h1>😴 Dement & Kleitman (1957)</h1>
+  <div class="subtitle">The Relation of Eye Movements During Sleep to Dream Activity<br><span style="font-size:.9em;opacity:.85">睡眠眼动与做梦活动的关系</span></div>
+  <div class="meta">
+    <span class="badge">🟥 CIE Biological Approach</span>
+    <span class="badge">📄 Journal of Experimental Psychology</span>
+    <span class="badge">🔬 Core Study 2</span>
+  </div>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<div class="toc">
+  <h2>📑 Contents</h2>
+  <ol>
+    <li><a href="#s1">Background — Sleep Stages and Brain Waves</a></li>
+    <li><a href="#s2">Aim — Three Research Questions</a></li>
+    <li><a href="#s3">Method — Laboratory Experiment</a></li>
+    <li><a href="#s4">Procedure — Three Experimental Conditions</a></li>
+    <li><a href="#s5">Results — Dream Recall, Duration Estimation, Eye-Movement Patterns</a></li>
+    <li><a href="#s6">Conclusion</a></li>
+    <li><a href="#s7">Strengths & Weaknesses</a></li>
+    <li><a href="#s8">Ethical Issues</a></li>
+    <li><a href="#s9">Summary</a></li>
+    <li><a href="#s10">Exam Practice Questions</a></li>
+  </ol>
+</div>
+
+<!-- SECTION 1: BACKGROUND -->
+<div class="section" id="s1">
+  <h2>1. Background — Sleep Stages and Brain Waves</h2>
+
+  <h3>The Psychology Being Investigated</h3>
+  <p><strong>Sleep（睡眠）</strong> is an altered state of consciousness（意识改变状态）. We are less aware of our surroundings than when awake and move very little. In spite of the risk this would have presented in our evolutionary history, by making us vulnerable, we sleep every day. Our pattern of sleeping and waking on a 24-hour cycle is called a <strong>circadian rhythm（昼夜节律/生物钟）</strong>; it occurs approximately daily.</p>
+
+  <p>Within each 24 hours there are more frequent cycles, called <strong>ultradian rhythms（超昼夜节律）</strong>. The basic rest–activity cycle (BRAC) occurs approximately every 90 minutes throughout the day and night. During sleep, this rhythm controls the stages of sleep that we experience (see Figure below).</p>
+
+  <div class="img-container">
+    <img src="dement_images/sleep_stages_chart.jpg" alt="Sleep stages through the night">
+    <div class="img-caption">Figure: The cyclical nature of sleep stages through the night, showing four phases of REM sleep and nREM stages (1–4)</div>
+  </div>
+
+  <div class="keyword-box">
+    <h4>🔑 Key Words</h4>
+    <p><strong>sleep（睡眠）</strong>: a state of reduced conscious awareness and reduced movement, which occurs on a daily cycle</p>
+    <p><strong>circadian rhythm（昼夜节律）</strong>: a cycle that repeats daily, i.e. approximately every 24 hours, such as the sleep/wake cycle</p>
+    <p><strong>ultradian rhythm（超昼夜节律）</strong>: a cycle that repeats more often than daily, e.g. the occurrence of periods of dreaming every 90 minutes during sleep</p>
+    <p><strong>electroencephalograph (EEG)（脑电图仪）</strong>: a machine used to detect and record electrical activity in nerve and muscle cells when many are active at the same time. It uses macroelectrodes, which are large electrodes stuck to the skin or scalp</p>
+  </div>
+
+  <h3>How Do We Measure Sleep?</h3>
+  <p>Sleep is difficult to study as the participant is not responsive so cannot communicate their experience. To overcome this problem, a machine called an <strong>electroencephalograph (EEG)（脑电图仪）</strong> is used. This records changes in brain activity using electrodes stuck to the surface of the participant's head that, because they are recording electrodes, cannot give the participant an electric shock! An EEG produces a chart (an electroencephalogram) showing how electrical activity in the brain or 'brain waves' varies.</p>
+
+  <p>The brain waves change in terms of their <strong>frequency（频率）</strong> (how rapidly they occur) and <strong>amplitude（振幅）</strong> (height). These two features of the electrical activity change in a patterned way over time. The chart records changes which indicate the sleep stage the participant is in.</p>
+
+  <div class="img-container">
+    <img src="dement_images/eeg_waveform.jpg" alt="EEG recordings for different sleep stages">
+    <div class="img-caption">Figure 2.2: EEG recordings showing the different stages of sleep — Awake, Stage 1–4, and REM Sleep (with Sleep Spindle marked)</div>
+  </div>
+
+  <h3>The Five Stages of Sleep</h3>
+  <table>
+    <tr><th>Stage<br>（阶段）</th><th>Characteristics<br>（特征）</th><th>Brain Waves<br>（脑波特征）</th></tr>
+    <tr><td><strong>Awake（清醒）</strong></td><td>Fully alert, eyes open</td><td>Beta waves (13–30 Hz), low amplitude, irregular</td></tr>
+    <tr><td><strong>Stage 1（浅睡）</strong></td><td>Light sleep, easily awakened, drifting in/out</td><td>Theta waves (4–7 Hz), mixed alpha/beta</td></tr>
+    <tr><td><strong>Stage 2（入睡）</strong></td><td>Eye movements stop, body temp drops, <strong>sleep spindles（睡眠纺锤波）</strong> appear</td><td>Theta + sleep spindles (12–14 Hz bursts)</td></tr>
+    <tr><td><strong>Stage 3（中睡）</strong></td><td>Deep sleep begins, very slow delta waves emerge</td><td>Delta waves (0.5–4 Hz), high amplitude</td></tr>
+    <tr><td><strong>Stage 4（深睡）</strong></td><td>Deepest sleep, hardest to wake from</td><td>Pure delta waves (>50% of record), highest amplitude</td></tr>
+    <tr><td><strong>REM Sleep<br>（快速眼动睡眠）</strong></td><td>Eyes move rapidly under lids, vivid dreams, body paralysed</td><td>Similar to awake/stage 1 (theta/beta mix), low amplitude</td></tr>
+  </table>
+
+  <p>We enter sleep in stage 1, then work through stages 2, 3 and 4 with our sleep becoming deeper so that we are harder to wake. From here, we re-enter stages 3, then 2 but instead of re-entering stage 1, we go into 'dream' sleep before repeating the cycle several times each night. During the night, the length of time we spend dream sleeping increases and the depth of each cycle reduces. The total length of each cycle therefore stays about the same, i.e., the ultradian rhythm is maintained.</p>
+
+  <h3>Dreams and Rapid Eye Movement (REM)</h3>
+  <p><strong>Dreams（梦）</strong> are vivid, generally visual sequences of imagery that occur at regular intervals during sleep and are associated with rapid eye movements. Like sleep in general, dreams are difficult to study. Although the EEG can detect when we are dreaming, there is no machine that can 'read' our dreams. The sleeper must be woken to give a description of their dream.</p>
+
+  <p>It is possible, however, to detect eye movements that occur during sleep. An EOG can be used to detect activity in the muscles moving the eyes, so can be used to measure the frequency and direction of these eye movements. The recording this produces is called an <strong>electrooculogram (EOG)（眼电图）</strong>. During dream sleep, these eye movements are faster than in any other stage of sleep, hence this is called <strong>rapid eye movement or REM sleep（快速眼动睡眠）</strong>. The other stages of sleep are referred to as <strong>non-rapid eye movement or nREM sleep（非快速眼动睡眠）</strong>.</p>
+
+  <div class="keyword-box">
+    <h4>🔑 Key Words</h4>
+    <p><strong>frequency（频率）</strong>: the number of events per fixed period of time, e.g. the number of eye movements per minute (approximately 60 per minute in REM sleep) or the number of brain waves (cycles) per second, or Hertz (Hz), e.g. 13–30 Hz for beta waves</p>
+    <p><strong>amplitude（振幅）</strong>: the 'height' of waves, e.g. on an EEG (indicating voltage)</p>
+    <p><strong>dream（梦）</strong>: a vivid, visual sequence of imagery that occurs at regular intervals during sleep and is associated with rapid eye movements</p>
+    <p><strong>rapid eye movement (REM) sleep（快速眼动睡眠）</strong>: a stage of sleep in which our eyes move rapidly under the lids, which is associated with vivid, visual dreams</p>
+    <p><strong>non-rapid eye movement (nREM) sleep（非快速眼动睡眠）</strong>: the stages of sleep (1–4) in which our eyes are still. It is also called quiescent (quiet) sleep. It is not associated with dreaming</p>
+    <p><strong>eye-movement patterns（眼球运动模式）</strong>: the pattern that most people tend to follow when looking at, for example, a menu. This can be helpful in designing menus</p>
+  </div>
+
+  <h3>Previous Research: Aserinsky & Kleitman (1955)</h3>
+  <p>Aserinsky and Kleitman (1955) began the objective, physiological measurement of sleep using an EEG to explore the relationship between sleep and dreaming. They showed that participants woken from REM sleep were more likely to report a vivid, visual dream than when woken in other stages. They also found a characteristic brain wave pattern during REM sleep, called <strong>alpha waves（α波）</strong>, which is similar to brain activity when we are awake.</p>
+
+  <div class="cn-note">
+    <strong>💡 Why this matters:</strong> Aserinsky & Kleitman established that REM sleep is linked to dreaming, but they couldn't prove whether dream content relates to actual eye-movement patterns. That's exactly what Dement & Kleitman set out to investigate.
+  </div>
+
+  <div class="activity-box">
+    <h4>📝 Activity 2.2</h4>
+    <p>When you are working over several hours, note down the time you start working and any times when you feel tired or find your mind is wandering. Try to do this several times, perhaps over several days. At the end, look at the times when you felt less wakeful or motivated. Are they happening at intervals, perhaps close to their regular number of minutes? If so, you may be looking at your own waking BRAC.</p>
+    <p>Work out a way to present this data visually. You will need a time scale and a way to differentiate between 'tired' and 'not tired'.</p>
+  </div>
+</div>
+
+<!-- SECTION 2: AIM -->
+<div class="section" id="s2">
+  <h2>2. Aim</h2>
+
+  <blockquote>
+    The aim of this study was to find out more about dreaming, specifically to answer three questions:
+  </blockquote>
+
+  <div class="info-box">
+    <h4>🎯 Three Research Questions</h4>
+    <ol>
+      <li><strong>Does dream recall differ between REM and nREM stages of sleep?</strong><br>
+        <span style="color:var(--text-secondary)">Are participants more likely to recall a dream if woken from REM than from nREM?</span></li>
+      <li><strong>Is there a positive correlation between subjective estimates of dream duration and the length of the REM period before waking?</strong><br>
+        <span style="color:var(--text-secondary)">Can participants accurately judge how long they've been dreaming?</span></li>
+      <li><strong>Are eye-movement patterns related to dream content?</strong><br>
+        <span style="color:var(--text-secondary)">Does the direction of eye movements match what participants see in their dreams?</span></li>
+    </ol>
+  </div>
+
+  <p>In addition to the changes in brain waves and reduction in body muscle activity that Aserinsky and Kleitman linked to dream sleep, they identified increases in breathing and heart rates during REM sleep. Together, these led them to suggest that this pattern of changes represented a particular level of activity in the brain. Aserinsky and Kleitman suggested that rapid eye movements were likely to be associated with the experience of dreaming, and specifically that the strikingly vivid visual reports of dreams that some participants reported when woken from REM sleep indicated that the eye movements were likely to be associated with the visual imagery of dreams.</p>
+
+  <p>However, they also recognised that this would be difficult to test. The study by Dement and Kleitman aimed to explore this exact problem.</p>
+</div>
+
+<!-- SECTION 3: METHOD -->
+<div class="section" id="s3">
+  <h2>3. Method</h2>
+
+  <h3>Research Method and Design</h3>
+  <p>This study was conducted in a <strong>laboratory experiment（实验室实验）</strong> but several methods were used:</p>
+
+  <ul>
+    <li><strong>To answer Question 1</strong> (difference in dream recall between REM and nREM): an experiment with a <strong>repeated measures design（重复测量设计）</strong> was used. The independent variable was <strong>whether the participant was woken from REM or nREM sleep</strong>. The dependent variable was <strong>whether they recalled a dream or not</strong>.</li>
+    <li><strong>To answer Question 2</strong> (relationship between dream duration and REM period length): a <strong>correlation（相关研究）</strong>. A further comparison of participants' estimates of whether they had been dreaming for 5 or 15 minutes was another repeated measures design experiment.</li>
+    <li><strong>To answer Question 3</strong> (eye-movement patterns and dream content): self-reports were compared to the direction of eye movements observed.</li>
+  </ul>
+
+  <div class="img-container">
+    <img src="dement_images/eeg_lab_photo.jpg alt="EEG laboratory setup">
+    <div class="img-caption">Figure 2.4: A participant sleeps in a lab bed with EEG electrodes attached beside the eyes and on the scalp, wires gathered into a single cord from the head</div>
+  </div>
+
+  <h3>Sample</h3>
+  <p><strong>Seven male and two female adults</strong> took part in the study. Of these, <strong>five participants were studied in detail</strong>. Results from the remaining four participants were used to confirm the results of the first five.</p>
+
+  <table>
+    <tr><th>Characteristic<br>（特征）</th><th>Details<br>（详情）</th></tr>
+    <tr><td>Total number（总人数）</td><td>9 adults (7 male, 2 female)</td></tr>
+    <tr><td>Studied in detail（详细研究对象）</td><td>5 participants (DN, IR, KC, WD, PM)</td></tr>
+    <tr><td>Confirmation group（验证组）</td><td>4 additional participants</td></tr>
+    <tr><td>Age range（年龄范围）</td><td>Adults (exact ages not specified)</td></tr>
+    <tr><td>Selection criteria<br>（筛选标准）</td><td>No specific criteria mentioned beyond willingness to participate</td></tr>
+  </table>
+
+  <div class="keyword-box">
+    <h4>🔬 Research Methods</h4>
+    <p><strong>Measures of frequency and amplitude produce quantitative data（频率和振幅测量产生定量数据）</strong>. Data such as this tends to be highly reliable, as the machines used to produce it, such as the EEG, do not vary in the way that they measure the variables. In general, would you expect qualitative data to be more or less reliable? Why?</p>
+  </div>
+</div>
+
+<!-- SECTION 4: PROCEDURE -->
+<div class="section" id="s4">
+  <h2>4. Procedure</h2>
+
+  <p>On each day of the study a participant ate normally, excluding caffeine-containing drinks (such as coffee) and alcohol. The participant arrived at the laboratory just before their normal bedtime. The participant wanted to sleep in a dark, quiet room with <strong>electrodes attached beside the eyes and on the scalp (the EEG)</strong>, which fed into the experimenter's room. The wires were gathered together into a single cord from the participant's head (like a pony-tail) so they could move easily in bed.</p>
+
+  <p>Participants were woken (by a doorbell) at various times during the night, asked to describe their dream if they were having one, then returned to sleep. They were not told about their EEG pattern or whether their eyes were moving.</p>
+
+  <h3>Question 1: Does dream recall differ between REM and nREM?</h3>
+  <p>Participants were woken either from REM or nREM sleep but were not told which. The choice of REM or nREM wakings was decided in different ways for different participants:</p>
+  <ul>
+    <li>using a random number table (participants PM and KC)</li>
+    <li>in groups of three REM then three nREM (participant DN)</li>
+    <li>by telling the participant that they would only be woken in REM but actually waking them in REM or nREM randomly (participant WD)</li>
+    <li>in no specific order, the experimenter just chose (participant IR)</li>
+  </ul>
+
+  <p>Immediately after being woken, the participant stated whether they were having a dream or not and then, if appropriate, described the content of the dream into a recorder. When the participant had finished, the experimenter occasionally entered the room to ask further questions about the dream (they were given a brief <strong>interview（简短访谈）</strong>). There was no other communication between the experimenter and the participant.</p>
+
+  <h3>Question 2: Is there a correlation between dream duration and REM period length?</h3>
+  <p>Initially, participants were woken after a variety of REM durations and asked to estimate the time they had been dreaming. Although roughly accurate, this was too difficult for participants. Subsequently, they were woken after either 5 or 15 minutes in REM sleep. The participant guessed which duration they had been dreaming for. Longer REM periods were also used. The number of words in the dream narrative after each duration, if given, was counted.</p>
+
+  <h3>Question 3: Are eye-movement patterns related to dream content?</h3>
+  <p>The direction of eye movements was detected using EEG electrodes around the eyes. Participants were woken after a single eye-movement pattern had lasted for more than 1 minute and asked to report their dream. The eye-movement patterns detected were:</p>
+  <ul>
+    <li>'<strong>mainly vertical</strong>'（主要为垂直运动）</li>
+    <li>'<strong>mainly horizontal</strong>'（主要为水平运动）</li>
+    <li>'<strong>both vertical and horizontal</strong>'（垂直+水平混合）</li>
+    <li>'<strong>very little or no movement</strong>'（极少或无运动）</li>
+  </ul>
+
+  <p>Comparison EEG records were taken from awake participants, 20 naive ones and five of the experimental sample, who were asked to watch distant and close-up activity.</p>
+
+  <div class="cn-note">
+    <strong>⚙️ Control measures（控制措施）:</strong>
+    <ul>
+      <li>The environment was highly controlled — the doorbell used to wake participants was sufficiently loud to rouse them immediately from any sleep stage</li>
+      <li>If the experimenter asked any questions, this was not done until the participant had definitely completed their recording</li>
+      <li>Reports were not counted as 'dreams' if the participant could only recall having dreamed, rather than any specific content, or had only a vague, fragmented impression of the dream</li>
+      <li>Participants were not told about their EEG pattern or whether their eyes were moving</li>
+    </ul>
+  </div>
+</div>
+
+<!-- SECTION 5: RESULTS -->
+<div class="section" id="s5">
+  <h2>5. Results</h2>
+
+  <h3>General Findings</h3>
+  <p>Dement and Kleitman reported some general findings, such as that all participants dreamed every night, as well as those relating to their three questions. They found that uninterrupted dream stages:</p>
+  <ul>
+    <li>lasted <strong>3–50 minutes</strong> (with a mean of approximately <strong>20 minutes</strong>)</li>
+    <li>were typically longer later in the night</li>
+    <li>showed intermittent bursts of around <strong>2–100 rapid eye movements</strong></li>
+  </ul>
+
+  <p>In addition, they observed that:</p>
+  <ul>
+    <li><strong>no rapid eye movements were seen during the onset of sleep</strong> even though the EEG passed through a stage of brain waves similar to those produced during REM sleep</li>
+    <li>the cycle length (from one REM stage to the next) varied between participants from <strong>70 to 104 minutes</strong> (with a mean of 92 minutes for all participants), but was consistent within individuals</li>
+    <li>when woken from nREM sleep participants returned to nREM but when woken from REM sleep they typically did not dream again until the next REM phase (except sometimes in the final REM phase of the night). As a consequence, the pattern of REM and nREM periods was very similar in experimental participants whose sleep was disturbed to those who had an uninterrupted night's sleep</li>
+  </ul>
+
+  <h3>Question 1: Does dream recall differ between REM and nREM?</h3>
+  <p>Participants frequently described dreams when woken from REM but rarely did when woken from nREM sleep although there were some individual differences (see Table 2.1). Participants were able to recall a dream from <strong>152 of 191 awakenings from REM (79.6%)</strong> whereas for <strong>93.1% (149/160) of awakenings from nREM they did <strong>not</strong> recall a dream</strong>. This difference was most noticeable at the end of the nREM period.</p>
+
+  <p>In 17 nREM awakenings soon after the end of a REM stage (within 8 minutes), five dreams were recalled (29% of occasions). However, from 132 awakenings following periods longer than 8 minutes after a REM stage, only six dreams were recalled (<strong>less than 5% of occasions</strong>). In nREM awakenings, participants tended to describe feelings but not specific dream content. These were least likely to remember a dream if they were woken at the stage of sleep in which the EEG has '<strong>spindles</strong>' (i.e. stage 2). They tended to be bewildered and report feelings such as anxiety, pleasantness or detachment.</p>
+
+  <div class="info-box">
+    <strong>📊 Important note on Participant DN:</strong> He was no more or less likely to report or not report dreams in REM or nREM than other participants even though he could have learned the pattern of awakenings. Also, participants did not become any more accurate over time, i.e. they did not improve with practice.
+  </div>
+
+  <h3>Table 2.1: Dream Recall Following Awakenings from REM or nREM Sleep</h3>
+  <table style="font-size:.88em">
+    <thead>
+      <tr>
+        <th rowspan="2">Participant<br>（参与者）</th>
+        <th colspan="2">Rapid eye movements<br>（快速眼动 / REM）</th>
+        <th colspan="2">No rapid eye movements<br>（非快速眼动 / nREM）</th>
+      </tr>
+      <tr>
+        <th>Dream recall<br>（回忆起梦）</th>
+        <th>No recall<br>（未回忆）</th>
+        <th>Dream recall<br>（回忆起梦）</th>
+        <th>No recall<br>（未回忆）</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>DN</td><td>17</td><td>9</td><td>3</td><td>21</td></tr>
+      <tr><td>IR</td><td>26</td><td>8</td><td>2</td><td>29</td></tr>
+      <tr><td>KC</td><td class="result-highlight">36</td><td>4</td><td>3</td><td>31</td></tr>
+      <tr><td>WD</td><td class="result-highlight">37</td><td>5</td><td>1</td><td>34</td></tr>
+      <tr><td>PM</td><td>24</td><td>6</td><td>2</td><td>23</td></tr>
+      <tr><td>KK</td><td>4</td><td>1</td><td>0</td><td>5</td></tr>
+      <tr><td>SM</td><td>2</td><td>2</td><td>0</td><td>2</td></tr>
+      <tr><td>DM</td><td>2</td><td>1</td><td>0</td><td>1</td></tr>
+      <tr><td>MG</td><td>4</td><td>3</td><td>0</td><td>3</td></tr>
+      <tr style="background:#FFCDD2;font-weight:700"><td>Totals（总计）</td><td class="result-highlight">152</td><td>39</td><td>11</td><td>149</td></tr>
+    </tbody>
+  </table>
+  <p style="text-align:center;font-size:.88em;color:#64748b"><strong>Table 2.1:</strong> Dream recall following awakenings from REM or nREM sleep</p>
+
+  <div class="cn-note">
+    <strong>💡 Interpreting Table 2.1:</strong> The data is striking — 79.6% dream recall rate from REM vs only ~7% from nREM. This provides strong evidence that dreaming is strongly associated with REM sleep. Individual differences exist (e.g., KC had the highest REM recall at 36/40 = 90%), but the overall pattern is consistent across all 9 participants.
+  </div>
+
+  <h3>Question 2: Correlation Between Dream Duration and REM Period Length</h3>
+  <p>Awakenings from REM sleep did not always produce dream recall; absence of dreaming in REM was more common early in the night. Of 39 REM awakenings when dreams were not reported, 19 occurred in the first 2 hours of sleep, 11 from the second 2 hours, 5 from the third 2 hours and 4 from the last 2 hours. In contrast, awakenings from nREM always produced a low incidence of dream recall.</p>
+
+  <p>Narratives from dreams recalled after <strong>30~50 minutes of REM</strong> were not much longer than those after 15 minutes even though the participants felt they had been dreaming for a long time. This is probably because they could not remember all the details from very long dreams.</p>
+
+  <p>The results of two tests help to answer this question. Firstly, the experimenters needed to determine whether participants' subjective experience of dream duration matched the measured REM duration. Second, the correlation between the measured REM duration and the estimate of duration based on the participants' dream narrative length. When participants were offered a choice of estimating that they had been dreaming for 5 or 15 minutes, the accuracy of estimation was very high (<strong>88% and 78%</strong> respectively).</p>
+
+  <h3>Table 2.2: Results of Dream Duration Estimation After 5 or 15 Minutes of REM Sleep</h3>
+  <table style="font-size:.88em">
+    <thead>
+      <tr>
+        <th rowspan="2">Participant<br>（参与者）</th>
+        <th colspan="2">5 minutes（5分钟组）</th>
+        <th colspan="2">15 minutes（15分钟组）</th>
+      </tr>
+      <tr>
+        <th>correct（正确）</th>
+        <th>incorrect（错误）</th>
+        <th>correct（正确）</th>
+        <th>incorrect（错误）</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>DN</td><td>8</td><td>2</td><td>5</td><td>5</td></tr>
+      <tr><td>IR</td><td>11</td><td>1</td><td>7</td><td>3</td></tr>
+      <tr><td>KC</td><td>7</td><td>0</td><td class="result-highlight">12</td><td>1</td></tr>
+      <tr><td>WD</td><td class="result-highlight">13</td><td>1</td><td class="result-highlight">15</td><td>1</td></tr>
+      <tr><td>MP</td><td>6</td><td>2</td><td>8</td><td>3</td></tr>
+      <tr style="background:#DCEDC8;font-weight:700"><td>Total（总计）</td><td class="result-highlight">45</td><td>6</td><td class="result-highlight">47</td><td>13</td></tr>
+    </tbody>
+  </table>
+  <p style="text-align:center;font-size:.88em;color:#64748b"><strong>Table 2.2:</strong> Results of the comparison of dream duration estimates after 5 or 15 minutes of REM sleep</p>
+
+  <p>The r values for the correlation of duration of REM period (in minutes) and number of words in the dream narrative for each participant varied from <strong>r = 0.4 to r = 0.71</strong>; all were significant positive correlations.</p>
+
+  <div class="keyword-box">
+    <h4>🔬 Research Methods</h4>
+    <p>The mean sleep cycle length was calculated for each individual. This would have been worked out by adding together the cycle lengths in minutes for every complete cycle a participant had slept through. This would then have been divided by the number of complete sleep cycles that had been observed for that participant.<br><br><em>Can you work out how variable the average cycle length was?</em></p>
+  </div>
+
+  <h3>Question 3: Are Eye-Movement Patterns Related to Dream Content?</h3>
+  <p>Eye-movement patterns were found to be related to dream content. This part of the study was based on 35 awakenings from nine participants. Periods of only vertical or only horizontal movements were very rare. There were three dreams with mainly vertical eye movements. In one dream, the participant was standing at the bottom of a tall cliff operating a hoist (a lifting machine) and looking up at climbers at various levels then down at the machine. In another dream, a man was climbing up a series of ladders looking up and down as he climbed. In the third dream, the participant was throwing basketballs at a net, shooting, looking up at the net, and then looking down to pick up another ball from the floor (Figure 2.5). There was one instance of a dream with horizontal movement, in which the dreamer was watching two people throwing tomatoes at each other.</p>
+
+  <div class="img-container">
+    <img src="dement_images/dream_illustration.svg" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" alt="Dream illustration - climbing ladders and throwing basketballs">
+    <div style="display:none;padding:30px;background:#f5f5f5;border-radius:10px;text-align:center;">
+      <p style="font-size:1.1em;color:#666;margin-bottom:10px;">🧗 🏀</p>
+      <p style="font-size:0.92em;color:#888;"><em>Figure 2.5: Dreams of climbing ladders (vertical eye movements) and throwing basketballs (vertical eye movements)</em></p>
+    </div>
+    <div class="img-caption">Figure 2.5: Dreams of climbing ladders and throwing basketballs produced vertical eye movements</div>
+  </div>
+
+  <p>Ten dreams had little or no eye movement and the dreamer reported watching something in the distance or staring at an object. Two of these awakenings also had several large eye movements to the left just a second or two before the awakening. In one, the participant had been driving a car and staring at the road ahead. He approached a road junction and was startled by a speeding car suddenly appearing on his left (as the bell rang). The other dreamer also reported driving a car and staring at the road ahead. Immediately before being woken, he saw a man standing to the left of the road and acknowledged him as he drove by.</p>
+
+  <p>Twenty-one of the awakenings had mixed eye movements. These participants reported looking at objects or people close to them, for example talking to a group of people, looking for something and fighting with someone. There was no recall of distant or vertical activity in these cases.</p>
+
+  <p>The eye-movement patterns recorded from the awake (control) participants were similar in amplitude and pattern to those occurring in dreams. Similarly, there was virtually no eye movement when watching distant activity, and much more when watching close-up activity. Vertical eye movements were rare in awake participants, except during blinking, and when the experimenter threw a ball in the air.</p>
+</div>
+
+<!-- SECTION 6: CONCLUSION -->
+<div class="section" id="s6">
+  <h2>6. Conclusion</h2>
+
+  <p>The results indicate that <strong>dreaming is experienced in REM but not nREM sleep</strong>, participants can judge the length of their dream duration and REM patterns relate to dream content. Dreaming is more likely at the end of the night, as the REM stages are longer. These latter two observations fit with those reported by other researchers.</p>
+
+  <p>The occasional recall of dreams from nREM is likely to happen because dreams are being remembered from the previous REM phase, and this is more likely closely following REM sleep. The finding that REM sleep occurs in phases during the night helps to explain why participants in other studies who were awoken randomly may not have reported dreaming. They may have been woken in nREM stages, or were dreaming about distant objects so had few REMs, making accurate detection difficult.</p>
+
+  <p>Measurements using the EEG to record eye movements and brain waves show that differing stages of brain activity and the presence or absence of dreams provides objective evidence supporting the idea that <strong>dreams progress in 'real time'</strong>. This provides a more valid way to study dreaming than using dream recall alone, which is subjective and can be affected by forgetting.</p>
+
+  <blockquote>
+    <strong>Core conclusion:</strong> Dement and Kleitman demonstrated that (1) dreaming is strongly associated with REM sleep, (2) participants can reasonably estimate dream duration, and (3) eye-movement patterns during sleep correspond to visual dream content — particularly vertical movements for "looking up/down" dreams and minimal movements for "watching distantly" dreams.
+  </blockquote>
+</div>
+
+<!-- SECTION 7: STRENGTHS & WEAKNESSES -->
+<div class="section" id="s7">
+  <h2>7. Strengths and Weaknesses</h2>
+
+  <h3>✅ Strengths</h3>
+
+  <h4>1. Laboratory Experiment — High Control（实验室实验——高度控制）</h4>
+  <p>One method used was the <strong>laboratory experiment（实验室实验）</strong>. It was therefore possible to limit the effect of some <strong>uncontrolled variables（无关变量）</strong>. If some individuals, or participants in different stages of sleep, had woken more slowly they may have forgotten more of their dream. This was avoided by using a loud doorbell that woke them instantly from any sleep stage. The participants were not told about their EEG pattern or whether their eyes were moving, or were given false information about this. Both of these procedures help to eliminate potential <strong>demand characteristics（需求特征）</strong>. For example, if the participant expected to remember more detailed dreams in REM sleep, they may have made greater effort to do so.</p>
+
+  <h4>2. Correlation Method — Objective Measurement（相关法——客观测量）</h4>
+  <p>Another method used was a <strong>correlation（相关）</strong>. This demonstrated a positive correlation between REM duration and the number of words in the dream narrative. As with any correlation, this could only demonstrate whether there was a link between variables, not a causal relationship.</p>
+
+  <h4>3. Clear Operationalisation of Variables（变量操作化清晰）</h4>
+  <p>The definition of a 'dream' was clearly operationalised, as a recollection that included content, rather than just having the impression that they had been dreaming. This helped to raise validity, as Dement and Kleitman could be sure that the details being recorded were of dreams.</p>
+
+  <h4>4. EEG Provides Objective, Reliable Data（EEG提供客观可靠数据）</h4>
+  <p>An EEG is an <strong>objective way（客观方法）</strong> to investigate dreaming as it is a biological measure. Differences in narrative length, however, depended not only on the length of the REM phase but also how expressive the participant was making these reports more subjective. Nevertheless, this means that the study collected both quantitative data, from the brain waves, eye-movement patterns and REM sleep duration, and qualitative data, which helped to provide an insight into the reason for the eye movements detected. The EEG also provides a very reliable measure because it is unaffected by the experimenter's personal view. The consistent placing of the electrodes ensured that recordings taken from each participant would provide the same information. The reliability of the findings is supported by the similarity of the results to those of previous studies.</p>
+
+  <h4>5. Use of Control Group（对照组的使用）</h4>
+  <p>Comparison EEG records were taken from awake participants (both naive and experimental sample) who watched distant and close-up activity. This provided a baseline for interpreting what eye-movement patterns mean in terms of visual attention.</p>
+
+  <h3>❌ Weaknesses</h3>
+
+  <h4>1. Small Sample Size（样本量小）</h4>
+  <p>As there may be differences in the dreaming of men and women, or between the way they report their dreams, it was useful in terms of <strong>generalisability（普遍性/可推广性）</strong> that there were both genders in the sample. However, as there were only nine participants in total, the small size of the sample limits generalisability. As these individuals had chosen to participate in a study on dreaming, they may have dreamed more frequently than the population in general, remembered their dreams better, or had more visual dreams for example.</p>
+
+  <h4>2. Unstructured Time Estimation Task（非结构化时间估计任务）</h4>
+  <p>Although participants' estimates were roughly (and occasionally exactly) accurate, the task of unstructured time estimation was too difficult, so the method was changed to explore the link in a more controlled way. The task was limited to a choice between 5 and 15 minutes. This experimental study helped to raise validity as it reduced participant variables such as differences in the ability to recall dreams.</p>
+
+  <h4>3. Low Ecological Validity（低生态效度）</h4>
+  <p>Several aspects of the procedure potentially reduced the ecological validity of the findings. People who were used to drinking coffee or alcohol could have experienced sleep or dreams that were not typical for them as they had been asked to refrain from those drinks. Also, all participants would have found sleeping in a laboratory, connected to machines and under observation, quite different from sleeping in their normal bed. This could also have made their sleeping behaviour less typical.</p>
+
+  <h4>4. Practice Effect Concerns（练习效应担忧）</h4>
+  <p>The practice effect is when an individual's response improves due to familiarity with a task. It is possible that this could have happened for participant DN but not for other participants. Can you explain why is it unlikely that other participants would have been affected?</p>
+</div>
+
+<!-- SECTION 8: ETHICAL ISSUES -->
+<div class="section" id="s8">
+  <h2>8. Ethical Issues</h2>
+
+  <div class="warn-box">
+    <h4>⚠️ Main Ethical Issue: Deception（欺骗）</h4>
+    <p>One aspect of the method that raised an ethical issue was the deception of participant WD who was misled about the stage of sleep he was being woken in. Researchers should avoid using deception as it can cause distress and means they cannot give their informed consent. However, in some cases the aim cannot be achieved without doing so and, in this case, it provided a way to test whether expectation of being woken in REM (at least sometimes) would affect a participant's dream reports.</p>
+  </div>
+
+  <p>Other ethical considerations:</p>
+  <ul>
+    <li><strong>Informed consent（知情同意）</strong>: Participants agreed to sleep in a lab with electrodes attached, but could not be fully informed about the true purpose without compromising the study</li>
+    <li><strong>Right to withdraw（退出权）</strong>: Technically possible but practically difficult once wired up and asleep</li>
+    <li><strong>Protection from harm（保护免受伤害）</strong>: Repeated wakening during sleep may cause fatigue and minor distress, but no lasting harm was reported</li>
+    <li><strong>Debriefing（事后解释）</strong>: Not explicitly mentioned in the original paper, but participants would have been debriefed afterwards</li>
+  </ul>
+</div>
+
+<!-- SECTION 9: SUMMARY -->
+<div class="section" id="s9">
+  <h2>9. Summary</h2>
+
+  <p>Dement and Kleitman's study explored the relationship between eye movements during sleep and dream recall. An EEG provided information about participants' sleep stages, such as REM sleep, and about eye movements. Dream recall was measured by self-report. The correlational results showed that estimates of dream duration based on the number of words in the dream narrative correlated positively with REM duration. Results from the laboratory experiments showed that dreams occurred in REM rather than nREM sleep and confirmed that participants had a sense of the duration of a dream as they could accurately estimate whether they had been dreaming for 5 or 15 minutes. Furthermore, the contents of the dream narratives related to EOG records of the direction and amount of eye movements during dream sleep showing that this is related to dream content, e.g. that vertical movements of the eyes occur when there are vertical events in a dream. Many variables, such as food and drink that could affect sleep, were controlled and demand characteristics were reduced where possible. However, the laboratory, and equipment, meant that the situation was unusual for sleeping. Nevertheless, objective, quantitative data was obtained from the EEG, eye movements and timing, allowing for valid and reliable comparisons to be made.</p>
+
+  <div class="info-box">
+    <h4>📋 Quick Recap</h4>
+    <table>
+      <tr><th>Item（项目）</th><th>Content（内容）</th></tr>
+      <tr><td>Researchers</td><td>Dement, W., & Kleitman, N. (1957)</td></tr>
+      <tr><td>Journal</td><td>Journal of Experimental Psychology, 53, 339–346</td></tr>
+      <tr><td>Method（方法）</td><td>Laboratory experiment + Correlation + Self-report</td></tr>
+      <tr><td>Sample（样本）</td><td>9 adults (7M, 2F); 5 studied in detail</td></tr>
+      <tr><td>Main result 1（主要结果1）</td><td>REM: 79.6% dream recall vs nREM: ~93% no recall</td></tr>
+      <tr><td>Main result 2（主要结果2）</td><td>Duration estimation: 88% correct (5min), 78% correct (15min)</td></tr>
+      <tr><td>Main result 3（主要结果3）</td><td>Eye-movement patterns matched dream visual content</td></tr>
+      <tr><td>Approach（取向定位）</td><td>CIE Biological Approach — Sleep and Dreaming</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- SECTION 10: QUESTIONS -->
+<div class="section" id="s10">
+  <h2>10. Exam Practice Questions</h2>
+
+  <div class="question-item">
+    <p><strong>Q1. Eye-movement patterns were found to be related to dream content. What type of eye movements were observed in the dream about a man who was climbing up a series of ladders looking up and down as he climbed, and why?</strong></p>
+    <p style="color:var(--text-secondary);margin-top:8px;"><strong>Key points:</strong> <strong>Mainly vertical eye movements（主要为垂直眼动）</strong> were observed. Reason: the dreamer was repeatedly looking UP (at climbers above him on the cliff/ladder) and DOWN (at the machine/his feet). This supports the conclusion that eye-movement patterns during REM sleep correspond to the visual content of the dream — the eyes physically move in the same direction as the gaze in the dream narrative.</p>
+  </div>
+
+  <div class="question-item">
+    <p><strong>Q2. What could a person be dreaming about if they have few eye movements during REM sleep?</strong></p>
+    <p style="color:var(--text-secondary);margin-top:8px;"><strong>Key points:</strong> According to the study's findings, dreams with little or no eye movement involved the dreamer <strong>watching something in the distance or staring at an object</strong> (e.g., driving a car and staring at the road ahead). Minimal eye movements suggest static visual scenes without much scanning or tracking of objects. This contrasts sharply with vertical-movement dreams (climbing, throwing) or mixed-movement dreams (close-up social interactions).</p>
+  </div>
+
+  <div class="question-item">
+    <p><strong>Q3. Why was it necessary for Dement and Kleitman to change the way they tested whether there was a positive correlation between estimates of dream duration and the length of the REM period?</strong></p>
+    <p style="color:var(--text-secondary);margin-top:8px;"><strong>Key points:</strong> Initially, participants were asked to freely estimate dream duration after varying REM periods. This proved <strong>"too difficult for participants"</strong> — unstructured time estimation while drowsy is inherently unreliable. They changed to a <strong>forced-choice method</strong>: participants simply guessed whether they'd dreamed for 5 or 15 minutes. This increased control dramatically (accuracy rose to 88%/78%), reducing participant variables like individual differences in time perception ability, thereby improving the validity of the correlation analysis.</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>😴 Dement & Kleitman (1957) — CIE Biological Approach Core Study 2</p>
+  <p>Generated for educational purposes | Source: Journal of Experimental Psychology, 53, 339–346</p>
+</div>
+
+</div>
+</body>
+</html>
