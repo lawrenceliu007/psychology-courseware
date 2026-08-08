@@ -195,14 +195,45 @@
         /* Footer */
         .footer { text-align: center; padding: 2rem; color: var(--text-light); font-size: 0.85rem; border-top: 1px solid #ddd; margin-top: 2rem; }
 
+        /* Sticky Navigation Bar */
+        .nav-bar{position:sticky;top:0;z-index:100;background:white;border-bottom:2px solid #e0e0e0;padding:.7rem 1.5rem;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+        .nav-left{display:flex;align-items:center;gap:.8rem}
+        .nav-home{display:inline-flex;align-items:center;gap:.4rem;padding:5px 14px;background:linear-gradient(135deg,#1a237e,#3949ab);color:white;border-radius:20px;text-decoration:none;font-size:.82rem;font-weight:600;transition:transform .15s,box-shadow .15s}
+        .nav-home:hover{transform:translateY(-1px);box-shadow:0 3px 10px rgba(26,35,126,.3)}
+        .breadcrumb{display:flex;align-items:center;gap:.4rem;font-size:.8rem;color:#607D8B}
+        .breadcrumb a{color:#1565C0;text-decoration:none;font-weight:500}
+        .breadcrumb a:hover{text-decoration:underline}
+        .breadcrumb .sep{color:#bbb}
+        .nav-right{display:flex;align-items:center;gap:.6rem}
+        .nav-progress{font-size:.75rem;color:#607D8B;background:#f0f0f0;padding:4px 12px;border-radius:12px;font-weight:600}
+
         @media (max-width: 600px) {
             .tabs { justify-content: stretch; }
             .tab-btn { flex: 1; text-align: center; padding: 8px 12px; font-size: 13px; }
             .container { padding: 0 1rem; }
+            .nav-bar{flex-wrap:wrap;gap:.5rem;padding:.6rem 1rem}
+            .breadcrumb{font-size:.72rem}
+            .nav-progress{display:none}
         }
     </style>
 </head>
 <body>
+
+<nav class="nav-bar">
+    <div class="nav-left">
+        <a href="../../index.html" class="nav-home">Home</a>
+        <div class="breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span class="sep">›</span>
+            <a href="../">CIE Psychology</a>
+            <span class="sep">›</span>
+            <span>Approaches & Assumptions</span>
+        </div>
+    </div>
+    <div class="nav-right">
+        <span class="nav-progress">4 Approaches · 8 Assumptions</span>
+    </div>
+</nav>
 
 <div class="header">
     <h1>Approaches & Assumptions</h1>
@@ -661,7 +692,7 @@
         <div class="explain-box">
             <strong>Bandura (1961):</strong> Children who observed an <strong>aggressive adult model imitated the aggressive behaviour</strong> — they weren't born aggressive; they learned it through observation (environmental influence).<br><br>
             <strong>Saavedra (2002):</strong> Participants developed a <strong>fear of buttons after they were paired with disgusting images</strong> — buttons are not innately fear-inducing; the phobia was learned through environmental pairing (evaluative conditioning).<br><br>
-            <strong>Fagen (2014):</strong> Elephants learned to perform complex tasks (e.g., putting leaves on head) through <shaping and reinforcement</strong> — showing that even complex behaviours can be acquired through environmental interaction (operant conditioning).
+            <strong>Fagen (2014):</strong> Elephants learned to perform complex tasks (e.g., putting leaves on head) through <strong>shaping and reinforcement</strong> — showing that even complex behaviours can be acquired through environmental interaction (operant conditioning).
         </div>
     </div>
 

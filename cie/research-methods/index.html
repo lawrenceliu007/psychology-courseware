@@ -1,0 +1,1637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIE Research Methods & Design | 研究方法与设计</title>
+    <style>
+        :root{
+            --t1:#C62828;--t1-l:#FCEBEB;--t1-d:#791F1F;
+            --t2:#1565C0;--t2-l:#E6F1FB;--t2-d:#0C447C;
+            --t3:#2E7D32;--t3-l:#EAF3DE;--t3-d:#27500A;
+            --t4:#E87722;--t4-l:#FAEEDA;--t4-d:#633806;
+            --t5:#7B1FA2;--t5-l:#F3E5F5;--t5-d:#4A148C;
+            --t6:#D32F2F;--t6-l:#FFEBEE;--t6-d:#B71C1C;
+            --t7:#00838F;--t7-l:#E0F7FA;--t7-d:#006064;
+            --t8:#E65100;--t8-l:#FFF3E0;--t8-d:#BF360C;
+            --bg:#F5F7FA;--text:#2C3E50;--text-l:#607D8B;
+        }
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+
+        .header{background:linear-gradient(135deg,#1a237e,#3949ab);color:white;padding:2.5rem 2rem;text-align:center}
+        .header h1{font-size:2rem;font-weight:700;margin-bottom:.4rem}
+        .header p{font-size:1rem;opacity:.9}
+        .exam-badge{display:inline-block;background:rgba(255,255,255,.2);padding:.4rem 1rem;border-radius:20px;font-size:.85rem;margin-top:.8rem}
+
+        .container{max-width:900px;margin:1.5rem auto;padding:0 1.5rem}
+
+        .tabs{display:flex;gap:6px;margin-bottom:1.5rem;flex-wrap:wrap;justify-content:center}
+        .tab-btn{padding:9px 16px;border-radius:22px;border:2px solid #ccc;background:white;font-size:12.5px;font-weight:600;cursor:pointer;transition:all .2s}
+        .tab-btn.t1{border-color:var(--t1);color:var(--t1)}.tab-btn.t1.active{background:var(--t1);color:white}
+        .tab-btn.t2{border-color:var(--t2);color:var(--t2)}.tab-btn.t2.active{background:var(--t2);color:white}
+        .tab-btn.t3{border-color:var(--t3);color:var(--t3)}.tab-btn.t3.active{background:var(--t3);color:white}
+        .tab-btn.t4{border-color:var(--t4);color:var(--t4)}.tab-btn.t4.active{background:var(--t4);color:white}
+        .tab-btn.t5{border-color:var(--t5);color:var(--t5)}.tab-btn.t5.active{background:var(--t5);color:white}
+        .tab-btn.t6{border-color:var(--t6);color:var(--t6)}.tab-btn.t6.active{background:var(--t6);color:white}
+        .tab-btn.t7{border-color:var(--t7);color:var(--t7)}.tab-btn.t7.active{background:var(--t7);color:white}
+        .tab-btn.t8{border-color:var(--t8);color:var(--t8)}.tab-btn.t8.active{background:var(--t8);color:white}
+        .tab-btn.t9{border-color:#37474f;color:#37474f}.tab-btn.t9.active{background:#37474f;color:white}
+        .tab-panel{display:none}.tab-panel.active{display:block}
+
+        .topic-header{border-radius:12px;padding:1.5rem;margin-bottom:1.5rem;border-left:5px solid}
+        .th1{background:var(--t1-l);border-color:var(--t1)} .th2{background:var(--t2-l);border-color:var(--t2)}
+        .th3{background:var(--t3-l);border-color:var(--t3)} .th4{background:var(--t4-l);border-color:var(--t4)}
+        .th5{background:var(--t5-l);border-color:var(--t5)} .th6{background:var(--t6-l);border-color:var(--t6)}
+        .th7{background:var(--t7-l);border-color:var(--t7)} .th8{background:var(--t8-l);border-color:var(--t8)}
+        .topic-header h2{font-size:1.35rem;margin-bottom:.35rem}
+        .c1{color:var(--t1-d)}.c2{color:var(--t2-d)}.c3{color:var(--t3-d)}.c4{color:var(--t4-d)}
+        .c5{color:var(--t5-d)}.c6{color:var(--t6-d)}.c7{color:var(--t7-d)}.c8{color:var(--t8-d)}
+        .topic-header .subtitle{font-size:.93rem;opacity:.82}
+
+        .section-label{display:inline-block;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:4px 12px;border-radius:12px;margin-bottom:1rem}
+        .label-learn{background:#E3F2FD;color:#1565C0} .label-practice{background:#FFF3E0;color:#E65100}
+
+        .def-card{background:white;border-radius:12px;padding:1.5rem;margin-bottom:1.5rem;border:1px solid #e0e0e0;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+        .def-num{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;color:white;font-weight:700;font-size:14px;margin-right:10px}
+        .n1{background:var(--t1)}.n2{background:var(--t2)}.n3{background:var(--t3)}.n4{background:var(--t4)}
+        .n5{background:var(--t5)}.n6{background:var(--t6)}.n7{background:var(--t7)}.n8{background:var(--t8)}
+
+        .def-text-box{background:#f8f9fa;border:1px dashed #bbb;border-radius:8px;padding:1rem 1.2rem;margin:.8rem 0;position:relative}
+        .copy-btn{position:absolute;top:8px;right:8px;padding:4px 10px;font-size:11px;border-radius:6px;border:1px solid #ddd;background:white;cursor:pointer;color:#666;transition:all .15s}
+        .copy-btn:hover{background:#eee;color:#333}.copy-btn.copied{background:#4CAF50;color:white;border-color:#4CAF50}
+        .def-text{font-size:.98rem;font-weight:500;color:#333;line-height:1.65}
+        .kw{background:#fff9c4;padding:1px 4px;border-radius:3px;font-weight:600}
+
+        .model-answer{background:#E8F5E9;border-left:4px solid #4CAF50;border-radius:0 8px 8px 0;padding:1rem 1.2rem;margin:1rem 0}
+        .ma-label{font-size:.75rem;font-weight:700;color:#2E7D32;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+        .ma-text{font-size:.92rem;color:#1B5E20;line-height:1.6}
+        .marks-badge{display:inline-block;background:#4CAF50;color:white;font-size:11px;font-weight:700;padding:2px 8px;border-radius:10px;margin-left:8px}
+
+        .explain-box{background:#FFF8E1;border:1px solid #FFE082;border-radius:8px;padding:.9rem 1.1rem;margin-top:.7rem;font-size:.88rem;color:#5D4037;line-height:1.55}
+        .explain-box strong{color:#E65100}
+
+        .tip-box{background:#E3F2FD;border-left:4px solid #1565C0;border-radius:0 8px 8px 0;padding:1rem 1.2rem;margin:1.5rem 0;font-size:.9rem;color:#0D47A1;line-height:1.6}
+        .tip-box strong{color:#1565C0}
+
+        .warn-box{background:#FFEBEE;border-left:4px solid #C62828;border-radius:0 8px 8px 0;padding:1rem 1.2rem;margin:1rem 0;font-size:.89rem;color:#B71C1C;line-height:1.55}
+        .warn-box strong{color:#C62828}
+
+        .rich-table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.87rem;box-shadow:0 2px 8px rgba(0,0,0,.06);border-radius:8px;overflow:hidden}
+        .rich-table th{padding:10px 13px;text-align:left;font-weight:600;font-size:.81rem;text-transform:uppercase;letter-spacing:.5px}
+        .rich-table th.pro{background:#2E7D32;color:white}.rich-table th.con{background:#C62828;color:white}
+        .rich-table td{padding:9px 13px;border-bottom:1px solid #eee;vertical-align:top;line-height:1.55}
+        .rich-table tr:nth-child(even){background:#fafbfc}.rich-table tr:hover{background:#f8f8ff}
+        .rich-table .row-label{font-weight:600;color:#333}
+
+        .comp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin:1rem 0}
+        .comp-card{background:white;border-radius:10px;padding:1.1rem;border:1px solid #e0e0e0;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+        .comp-card h4{font-size:.95rem;margin-bottom:.5rem;color:#333}
+        .comp-card p{font-size:.85rem;color:#666;line-height:1.55}
+
+        .practice-section{background:white;border-radius:12px;padding:1.5rem;margin-top:2rem;border:2px solid #FFCC80}
+        .practice-section h3{color:#E65100;font-size:1.15rem;margin-bottom:1rem}
+        .question-block{background:#FAFAFA;border:1px solid #E0E0E0;border-radius:10px;padding:1.2rem 1.4rem;margin-bottom:1rem}
+        .q-label{font-weight:700;color:#333;margin-bottom:.5rem;font-size:.95rem}
+        .q-cmd{display:inline-block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:2px 8px;border-radius:8px;margin-right:6px;vertical-align:1px}
+        .cmd-outline{background:#E3F2FD;color:#1565C0}.cmd-explain{background:#FCEBEB;color:#C62828}
+        .cmd-evaluate{background:#E8F5E9;color:#2E7D32}.cmd-suggest{background:#FFF3E0;color:#E65100}
+        .q-marks{float:right;font-weight:700;color:#E65100;font-size:.85rem}
+        .q-lines{border:1px dashed #ccc;border-radius:6px;min-height:80px;background:white;padding:.8rem;font-family:'Courier New',monospace;font-size:.85rem;color:#333;resize:vertical;width:100%;box-sizing:border-box;display:block;line-height:1.5;outline:none}
+        .q-lines:focus{border-color:#1565C0;background:#FAFBFF}
+        .q-lines:placeholder-shown{color:#999}
+        .save-hint{font-size:.72rem;color:#999;text-align:right;margin-top:2px;font-style:italic}
+        .show-ans-btn{padding:8px 20px;border-radius:8px;border:none;background:#FF9800;color:white;font-weight:600;font-size:.9rem;cursor:pointer;margin-top:.8rem;transition:background .15s}
+        .show-ans-btn:hover{background:#F57C00}
+        .answer-reveal{display:none;background:#E8F5E9;border-radius:8px;padding:1rem 1.2rem;margin-top:.8rem;animation:fadeIn .3s ease}
+        .answer-reveal.show{display:block}
+        @keyframes fadeIn{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
+        .ans-part{margin-bottom:.8rem}.ans-part:last-child{margin-bottom:0}
+        .ans-label{font-weight:700;font-size:.82rem;color:#2E7D32;margin-bottom:4px}
+        .ans-text{font-size:.9rem;color:#1B5E20;line-height:1.6}
+
+        .footer{text-align:center;padding:2rem;color:var(--text-l);font-size:.85rem;border-top:1px solid #ddd;margin-top:2rem}
+
+        /* ===== Sticky Navigation Bar ===== */
+        .nav-bar{position:sticky;top:0;z-index:100;background:white;border-bottom:2px solid #e0e0e0;padding:.7rem 1.5rem;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+        .nav-left{display:flex;align-items:center;gap:.8rem}
+        .nav-home{display:inline-flex;align-items:center;gap:.4rem;padding:5px 14px;background:linear-gradient(135deg,#1a237e,#3949ab);color:white;border-radius:20px;text-decoration:none;font-size:.82rem;font-weight:600;transition:transform .15s,box-shadow .15s}
+        .nav-home:hover{transform:translateY(-1px);box-shadow:0 3px 10px rgba(26,35,126,.3)}
+        .breadcrumb{display:flex;align-items:center;gap:.4rem;font-size:.8rem;color:#607D8B}
+        .breadcrumb a{color:#1565C0;text-decoration:none;font-weight:500}
+        .breadcrumb a:hover{text-decoration:underline}
+        .breadcrumb .sep{color:#bbb}
+        .nav-right{display:flex;align-items:center;gap:.6rem}
+        .nav-progress{font-size:.75rem;color:#607D8B;background:#f0f0f0;padding:4px 12px;border-radius:12px;font-weight:600}
+        @media(max-width:600px){
+            .nav-bar{flex-wrap:wrap;gap:.5rem;padding:.6rem 1rem}
+            .breadcrumb{font-size:.72rem}
+            .nav-progress{display:none}
+        }
+
+        @media(max-width:600px){
+            .tabs{justify-content:stretch}.tab-btn{flex:1;text-align:center;padding:8px 10px;font-size:11px}
+            .container{padding:0 1rem}.comp-grid{grid-template-columns:1fr}
+        }
+
+        /* ===== Sidebar Layout ===== */
+        .page-layout{display:flex;gap:0;max-width:1100px;margin:0 auto;padding:0}
+        .sidebar{width:175px;flex-shrink:0;background:#FAFAFA;border-right:1px solid #e0e0e0;padding:1rem 0;position:sticky;top:52px;height:calc(100vh - 52px);overflow-y:auto}
+        .sidebar-title{font-size:.68rem;text-transform:uppercase;letter-spacing:1px;color:#888;padding:0 14px 6px;font-weight:700}
+        .sidebar-link{display:block;padding:7px 14px;font-size:.8rem;color:#555;text-decoration:none;border-left:3px solid transparent;transition:all .15s}
+        .sidebar-link:hover{background:#f0f4ff;color:#1565C0}
+        .sidebar-link.active{font-weight:600;color:#333;background-color:#fff}
+        .sidebar-divider{border-top:1px solid #e8e8e8;margin:8px 12px}
+        .main-content{flex:1;min-width:0;padding:0 1rem}
+
+        @media(max-width:850px){
+            .page-layout{flex-direction:column}
+            .sidebar{width:100%;position:relative;top:auto;height:auto;border-right:none;border-bottom:2px solid #e0e0e0;display:flex;flex-wrap:wrap;gap:4px;padding:.5rem;align-items:center}
+            .sidebar-title{display:none}
+            .sidebar-link{border-left:none;border-bottom:2px solid transparent;padding:6px 10px;font-size:.75rem}
+            .sidebar-link.active{border-bottom-color:#1565C0;background:transparent}
+            .sidebar-divider{display:none}
+        }
+    </style>
+</head>
+<body>
+
+<!-- Sticky Navigation Bar -->
+<nav class="nav-bar">
+    <div class="nav-left">
+        <a href="../../" class="nav-home">🏠 Home</a>
+        <div class="breadcrumb">
+            <a href="../../">Home</a> <span class="sep">›</span>
+            <a href="../">CIE Psychology</a> <span class="sep">›</span>
+            <span style="color:#333;font-weight:600">Research Methods</span>
+        </div>
+    </div>
+    <div class="nav-right">
+        <span class="nav-progress">📚 9 Topics · 41 Cards</span>
+    </div>
+</nav>
+
+<div class="header">
+    <h1>Research Methods &amp; Design</h1>
+    <p>CIE A Level Psychology / 研究方法与设计 — Complete Revision Guide</p>
+    <div class="exam-badge">Experiments &middot; Observations &middot; Self-reports &middot; Sampling &middot; Ethics &middot; Data Analysis</div>
+</div>
+
+<div class="page-layout">
+
+<aside class="sidebar">
+    <div class="sidebar-title">Topics</div>
+    <a href="#p1" class="sidebar-link active" onclick="switchTab('p1',this);return false" style="border-left-color:#C62828;background:#FCEBEB">Experiments</a>
+    <a href="#p2" class="sidebar-link" onclick="switchTab('p2',this);return false">Exp. Designs</a>
+    <a href="#p3" class="sidebar-link" onclick="switchTab('p3',this);return false" style="border-left-color:#2E7D32">Observations</a>
+    <a href="#p4" class="sidebar-link" onclick="switchTab('p4',this);return false">Self-Reports</a>
+    <a href="#p5" class="sidebar-link" onclick="switchTab('p5',this);return false">Sampling</a>
+    <a href="#p6" class="sidebar-link" onclick="switchTab('p6',this);return false">Ethics</a>
+    <a href="#p7" class="sidebar-link" onclick="switchTab('p7',this);return false">Data Analysis</a>
+    <a href="#p8" class="sidebar-link" onclick="switchTab('p8',this);return false">Research Design</a>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-title">Practice</div>
+    <a href="#p9" class="sidebar-link" onclick="switchTab('p9',this);return false">Exam Questions</a>
+</aside>
+
+<div class="main-content">
+
+<div class="tabs">
+    <button class="tab-btn t1 active" onclick="switchTab('p1',this)">1. Experiments</button>
+    <button class="tab-btn t2" onclick="switchTab('p2',this)">2. Exp. Designs</button>
+    <button class="tab-btn t3" onclick="switchTab('p3',this)">3. Observations</button>
+    <button class="tab-btn t4" onclick="switchTab('p4',this)">4. Self-Reports</button>
+    <button class="tab-btn t5" onclick="switchTab('p5',this)">5. Sampling</button>
+    <button class="tab-btn t6" onclick="switchTab('p6',this)">6. Ethics</button>
+    <button class="tab-btn t7" onclick="switchTab('p7',this)">7. Data Analysis</button>
+    <button class="tab-btn t8" onclick="switchTab('p8',this)">8. Research Design</button>
+    <button class="tab-btn t9" onclick="switchTab('p9',this)">&#128196; Exam Practice</button>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- TAB 1: EXPERIMENTS -->
+<!-- ============================================================ -->
+<div id="panel-p1" class="tab-panel active">
+
+    <div class="topic-header th1"><h2 class="c1">Experiments / 实验</h2><p class="subtitle">The core method in CIE Psychology — manipulating an IV to measure its effect on a DV.</p></div>
+
+    <span class="section-label label-learn">Learn Mode</span>
+
+    <!-- IV -->
+    <div class="def-card">
+        <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n1">1</span><strong style="font-size:1.05rem;color:#333">Independent Variable (IV, 自变量)</strong></div>
+        <div class="def-text-box" id="iv-def"><button class="copy-btn" onclick="copyText('iv-def',this)">Copy</button><div class="def-text">The <span class="kw">Independent Variable (IV)</span> is the variable that the researcher <span class="kw">manipulates or changes</span> to observe its effect on the dependent variable. It is called "independent" because its values are not influenced by other variables in the study.</div></div>
+        <div class="explain-box"><strong>简单理解：</strong>IV 就是研究者<strong>主动改变</strong>的那个东西。比如在睡眠实验中，"睡眠时长（4小时 vs 8小时）"就是IV。<br><br><strong>关键词：</strong>manipulate（操纵）, change（改变）, researcher controls（研究者控制）</div>
+    </div>
+
+    <!-- DV -->
+    <div class="def-card">
+        <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n1">2</span><strong style="font-size:1.05rem;color:#333">Dependent Variable (DV, 因变量)</strong></div>
+        <div class="def-text-box" id="dv-def"><button class="copy-btn" onclick="copyText('dv-def',this)">Copy</button><div class="def-text">The <span class="kw">Dependent Variable (DV)</span> is the variable that the researcher <span class="kw">measures or records</span>. It is expected to change as a result of manipulations to the independent variable. It "depends" on the IV.</div></div>
+        <div class="explain-box"><strong>简单理解：</strong>DV 是<strong>被测量</strong>的结果。比如上面睡眠实验中，"记忆测试分数"就是DV。<br><br><strong>关键词：</strong>measure（测量）, record（记录）, depends on（取决于）</div>
+    </div>
+
+    <!-- Operationalisation -->
+    <div class="def-card">
+        <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n1">3</span><strong style="font-size:1.05rem;color:#333">Operationalisation / 操作化</strong></div>
+        <div class="def-text-box" id="op-def"><button class="copy-btn" onclick="copyText('op-def',this)">Copy</button><div class="def-text"><span class="kw">Operationalisation</span> is the process of turning an <span class="kw">abstract concept into something measurable</span>. It specifies exactly how a variable will be measured or manipulated in a particular study.</div></div>
+        <div class="explain-box"><strong>例子：</strong><br>&#8226; 抽象概念："攻击性" &#8594; 操作化："在10分钟内推打Bobo娃娃的次数"<br>&#8226; 抽象概念："记忆" &#8594; 操作化："单词回忆测试的正确率(%)"<br>&#8226; 抽象概念："压力" &#8594; 操作化："皮质醇水平(nmol/L)" 或 "自我评分量表(1-10分)"<br><br><strong>&#9888;&#65039; 考试常考：</strong>"Operationalise the DV" = 把DV写成具体可测量的指标</div>
+    </div>
+
+    <!-- EVs -->
+    <div class="def-card">
+        <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n1">4</span><strong style="font-size:1.05rem;color:#333">Extraneous Variables (EVs, 额外变量)</strong></div>
+        <div class="def-text-box" id="ev-def"><button class="copy-btn" onclick="copyText('ev-def',this)">Copy</button><div class="def-text"><span class="kw">Extraneous Variables (EVs)</span> are any variables <span class="kw">other than the IV</span> that could potentially affect the DV. If not controlled, they become <span class="kw">confounding variables</span> and threaten internal validity（内部效度）.</div></div>
+        <table class="rich-table">
+            <thead><tr><th style="background:var(--t1-d);color:white;width:30%">Type</th><th style="background:var(--t1-d);color:white">Description</th><th style="background:var(--t1-d);color:white;width:25%">Example</th></tr></thead>
+            <tbody>
+                <tr><td class="row-label"><strong>Participant variables<br><small>(被试变量)</small></strong></td><td>Characteristics differing between participants</td><td>Age, gender, intelligence, personality</td></tr>
+                <tr><td class="row-label"><strong>Situational variables<br><small>(情境变量)</small></strong></td><td>Environmental factors during the study</td><td>Noise, temperature, time of day, lighting</td></tr>
+                <tr><td class="row-label"><strong>Experimenter effects<br><small>(主试效应)</small></strong></td><td>Researcher's behaviour influencing results</td><td>Tone of voice, facial expressions, expectations</td></tr>
+                <tr><td class="row-label"><strong>Demand characteristics<br><small>(需求特征)</small></strong></td><td>Participants guessing aim and changing behaviour</td><td>"Good participant" effect, social desirability</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Experimental vs Control -->
+    <div class="def-card">
+        <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n1">5</span><strong style="font-size:1.05rem;color:#333">Experimental vs Control Condition</strong></div>
+        <div class="comp-grid">
+            <div class="comp-card"><h4>&#128296; Experimental Condition (实验条件)</h4><p>The group/participants who <strong>receive the IV manipulation</strong> — they experience the treatment or change being tested.</p></div>
+            <div class="comp-card"><h4>&#128202; Control Condition (控制条件)</h4><p>The group/participants who do <strong>NOT receive the IV manipulation</strong> — they provide a baseline for comparison.</p></div>
+        </div>
+        <div class="explain-box"><strong>为什么需要Control Condition？</strong> 为了排除其他解释。如果两组唯一区别就是IV的有无，那么DV的差异就可以归因于IV。<br>例：药物实验中，实验组吃真药，对照组吃安慰剂(placebo)。如果只有实验组症状改善&#8594;说明药有效。</div>
+    </div>
+
+    <!-- Hypotheses -->
+    <div class="def-card">
+        <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n1">6</span><strong style="font-size:1.05rem;color:#333">Hypotheses / 假设</strong></div>
+        <table class="rich-table">
+            <thead><tr><th style="background:var(--t1-d);color:white">Type</th><th style="background:var(--t1-d);color:white">Definition</th><th style="background:var(--t1-d);color:white">Example</th></tr></thead>
+            <tbody>
+                <tr><td class="row-label"><strong>Directional (one-tailed)<br><small>方向性假设</small></strong></td><td>Predicts the <strong>direction</strong> of relationship/difference</td><td>"Participants who sleep 8 hours will score <strong>higher</strong> on memory tests than those who sleep 4 hours."</td></tr>
+                <tr><td class="row-label"><strong>Non-directional (two-tailed)<br><small>非方向性假设</small></strong></td><td>Predicts there <strong>will be</strong> a difference but NOT direction</td><td>"There <strong>will be a difference</strong> in memory scores between 8-hour and 4-hour sleep groups."</td></tr>
+                <tr><td class="row-label"><strong>Null Hypothesis (H&sub0;)<br><small>虚无假设</small></strong></td><td>Predicts <strong>NO significant difference</strong>; any effect due to chance</td><td>"There will be <strong>no difference</strong> in memory scores between groups. Any difference is due to chance."</td></tr>
+            </tbody>
+        </table>
+        <div class="tip-box"><strong>Exam Tip:</strong> Use directional when prior research predicts direction. Use non-directional when unsure. Null hypothesis = always about "no effect" or "due to chance". Make sure your hypothesis states BOTH IV and DV clearly!</div>
+        <div class="warn-box"><strong>Common Mistake:</strong> Don't confuse directional with "better/worse". Directional just means you predict WHICH way. Also ensure your hypothesis clearly identifies both the IV and DV!</div>
+    </div>
+
+    <!-- Placebo -->
+    <div class="def-card">
+        <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n1">7</span><strong style="font-size:1.05rem;color:#333">Placebo / 安慰剂</strong></div>
+        <div class="def-text-box" id="placebo-def"><button class="copy-btn" onclick="copyText('placebo-def',this)">Copy</button><div class="def-text">A <span class="kw">placebo</span> is a <span class="kw">substance or treatment that has no actual effect</span>. It looks like the real treatment but contains no active ingredient. Participants believe they are receiving the real treatment.</div></div>
+        <table class="rich-table">
+            <thead><tr><th style="background:var(--t1-d);color:white;width:22%">Aspect</th><th style="background:var(--t1-d);color:white">Details</th></tr></thead>
+            <tbody>
+                <tr><td class="row-label"><strong>Purpose</strong></td><td>Used in <strong>control condition</strong> to rule out <strong>placebo effect</strong> — participants improve simply because they believe they're being treated</td></tr>
+                <tr><td class="row-label"><strong>Placebo Effect</strong></td><td>Psychological/physical improvement due to <strong>expectation</strong> of benefit, NOT the treatment itself</td></tr>
+                <tr><td class="row-label"><strong>Examples</strong></td><td>Sugar pill in drug trials; saline injection; sham acupuncture (needles don't penetrate)</td></tr>
+                <tr><td class="row-label"><strong>&#9989; Strength</strong></td><td>Allows researchers to isolate the <strong>true effect</strong> of the IV from psychological expectations</td></tr>
+                <tr><td class="row-label"><strong>&#10060; Limitation</strong></td><td>May be considered <strong>deceptive</strong> if participants aren't told they might receive a placebo (ethical issue)</td></tr>
+            </tbody>
+        </table>
+        <div class="explain-box">
+            <strong>课本原文 (p.9)：</strong>"A placebo is a substance or treatment that has no actual effect on the dependent variable... The placebo effect occurs when participants improve because they expect to improve."<br><br>
+            <strong>&#128203; 考试链接：</strong>In drug experiments, control group receives placebo. If experimental group improves significantly more than placebo group → drug has real effect beyond placebo effect.
+        </div>
+    </div>
+
+    <!-- Controls -->
+    <div class="def-card">
+        <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n1">8</span><strong style="font-size:1.05rem;color:#333">Controlling Extraneous Variables / 控制额外变量</strong></div>
+        <table class="rich-table">
+            <thead><tr><th style="background:var(--t1-d);color:white;width:20%">Control Method</th><th style="background:var(--t1-d);color:white;width:28%">How It Works</th><th style="background:var(--t1-d);color:white">EV Type Controlled</th><th style="background:var(--t1-d);color:white;width:18%">Example</th></tr></thead>
+            <tbody>
+                <tr><td class="row-label"><strong>Random Allocation<br><small>(随机分配)</small></strong></td><td>Participants randomly assigned to conditions (e.g., coin flip, computer randomiser)</td><td>Participant variables</td><td>Drug trial: randomise who gets drug vs placebo</td></tr>
+                <tr><td class="row-label"><strong>Standardisation<br><small>(标准化)</small></strong></td><td>Keeping all procedures identical for every participant (same instructions, timing, environment)</td><td>Situational variables</td><td>All participants tested in same room, same time of day, same instructions read from script</td></tr>
+                <tr><td class="row-label"><strong>Counterbalancing<br><small>(平衡法)</small></strong></td><td>Half do Condition A then B; other half do B then A (for repeated measures designs)</td><td>Order effects</td><td>ABBA order: Group 1 does Task 1→2; Group 2 does Task 2→1</td></tr>
+                <tr><td class="row-label"><strong>Double-Blind Design<br><small>(双盲设计)</small></strong></td><td>Neither participants nor researcher knows who is in which condition</td><td>Experimenter effects &amp; demand characteristics</td><td>Drug trial: neither doctor nor patient knows who gets real drug</td></tr>
+                <tr><td class="row-label"><strong>Control of Participant Variables</strong></td><td>Selecting participants with similar characteristics, or using matched pairs</td><td>Individual differences</td><td>Only recruiting right-handed participants for a motor skill study</td></tr>
+            </tbody>
+        </table>
+        <div class="tip-box"><strong>Exam Tip:</strong> "Suggest how the researcher could control extraneous variables" = pick the relevant method from this table. For participant variables → random allocation. For situational → standardisation. For order effects → counterbalancing. For bias → double-blind.</div>
+    </div>
+
+    <div class="tip-box"><strong>Topic 1 Quick Recap:</strong> An experiment needs a clear <strong>IV</strong> (what you change), measurable <strong>DV</strong> (what you measure), control of <strong>EVs</strong> (via random allocation, standardisation, counterbalancing, double-blind), testable <strong>hypothesis</strong>, and often a <strong>placebo</strong> in the control condition. Always operationalise your variables!</div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- TAB 2: EXPERIMENTAL DESIGNS -->
+<!-- ============================================================ -->
+<div id="panel-p2" class="tab-panel">
+
+    <div class="topic-header th2"><h2 class="c2">Experimental Designs / 实验设计</h2><p class="subtitle">How participants are allocated to conditions — IM, RM, and MP designs with strengths and limitations.</p></div>
+
+    <span class="section-label label-learn">Learn Mode</span>
+
+    <!-- IM -->
+    <div class="def-card">
+        <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n2">1</span><strong style="font-size:1.05rem;color:#333">Independent Measures (IM, 被试间设计)</strong></div>
+        <div class="def-text-box" id="im-def"><button class="copy-btn" onclick="copyText('im-def',this)">Copy</button><div class="def-text"><span class="kw">Independent Measures (Between-Subjects design)</span> uses <span class="kw">different participants in each condition</span>. Each participant experiences only ONE experimental condition.</div></div>
+        <table class="rich-table"><thead><tr><th class="pro">&#9989; Strengths</th><th class="con">&#10060; Limitations</th></tr></thead><tbody>
+            <tr><td><strong>No order effects</strong> — no practice/boredom across conditions</td><td><strong>More participants needed</strong> — larger sample, more expensive</td></tr>
+            <tr><td><strong>No demand characteristics across conditions</strong></td><td><strong>Participant variables</strong> — individual differences may confound results</td></tr>
+            <tr><td><strong>Data collected quickly</strong> if many participants available</td><td><strong>Less sensitive</strong> — individual differences add noise</td></tr>
+        </tbody></table>
+        <div class="explain-box"><strong>如何控制IM的Participant Variables？</strong> 用 <strong>Random Allocation</strong>（随机分配）— 每个参与者有相等机会被分配到任一条件。</div>
+    </div>
+
+    <!-- RM -->
+    <div class="def-card">
+        <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n2">2</span><strong style="font-size:1.05rem;color:#333">Repeated Measures (RM, 被试内设计)</strong></div>
+        <div class="def-text-box" id="rm-def"><button class="copy-btn" onclick="copyText('rm-def',this)">Copy</button><div class="def-text"><span class="kw">Repeated Measures (Within-Subjects design)</span> uses the <span class="kw">same participants in ALL conditions</span>. Each person experiences every experimental condition.</div></div>
+        <table class="rich-table"><thead><tr><th class="pro">&#9989; Strengths</th><th class="con">&#10060; Limitations</th></tr></thead><tbody>
+            <tr><td><strong>Controls participant variables</strong> — same people eliminates individual differences</td><td><strong>Order effects</strong> — practice/boredom/fatigue affects later performance</td></tr>
+            <tr><td><strong>Fewer participants needed</strong> — economical</td><td><strong>Demand characteristics</strong> — participants may guess aim after multiple conditions</td></tr>
+            <tr><td><strong>More statistically sensitive</strong> — reduces error variance</td><td><strong>Time-related attrition</strong> — dropouts before completing all conditions</td></tr>
+        </tbody></table>
+        <div class="explain-box"><strong>如何控制RM的Order Effects？</strong> 用 <strong>Counterbalancing</strong>（平衡法）— 一半先A后B，另一半先B后A。例：ABBA或随机顺序。</div>
+    </div>
+
+    <!-- MP -->
+    <div class="def-card">
+        <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n2">3</span><strong style="font-size:1.05rem;color:#333">Matched Pairs (MP, 配对设计)</strong></div>
+        <div class="def-text-box" id="mp-def"><button class="copy-btn" onclick="copyText('mp-def',this)">Copy</button><div class="def-text"><span class="kw">Matched Pairs design</span> uses <span class="kw">different participants in each condition, BUT matched on key characteristics</span> (e.g., age, IQ, gender). Each person has a "matched partner" in the other condition.</div></div>
+        <table class="rich-table"><thead><tr><th class="pro">&#9989; Strengths</th><th class="con">&#10060; Limitations</th></tr></thead><tbody>
+            <tr><td><strong>Reduces participant variables</strong> without order effects</td><td><strong>Difficult to match perfectly</strong> — can't match ALL relevant variables</td></tr>
+            <tr><td><strong>No order effects</strong> — different participants per condition</td><td><strong>Time-consuming matching process</strong></td></tr>
+            <tr><td><strong>Reduces demand characteristics</strong> vs RM</td><td><strong>Pairs lost if one drops out</strong> — must discard together</td></tr>
+        </tbody></table>
+        <div class="explain-box"><strong>匹配什么变量？</strong> 取决于研究内容。记忆&#8594;匹配IQ和年龄；运动能力&#8594;匹配体能和性别；饮食偏好&#8594;匹配BMI和文化背景。</div>
+    </div>
+
+    <!-- Lab vs Field -->
+    <div class="def-card">
+        <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n2">4</span><strong style="font-size:1.05rem;color:#333">Laboratory vs Field Experiments</strong></div>
+        <table class="rich-table">
+            <thead><tr><th style="background:var(--t2-d);color:white;width:18%">Feature</th><th style="background:var(--t2-d);color:white">Lab Experiment</th><th style="background:var(--t2-d);color:white">Field Experiment</th></tr></thead>
+            <tbody>
+                <tr><td class="row-label"><strong>Setting</strong></td><td>Artificial, controlled environment</td><td>Natural, real-world setting</td></tr>
+                <tr><td class="row-label"><strong>EV control</strong></td><td>&#9989; High</td><td>&#9888;&#65039; Lower</td></tr>
+                <tr><td class="row-label"><strong>Ecological validity<br><small>(生态效度)</small></strong></td><td>&#10060; Low</td><td>&#9989; High</td></tr>
+                <tr><td class="row-label"><strong>Internal validity<br><small>(内部效度)</small></strong></td><td>&#9989; High</td><td>&#9888;&#65039; Moderate</td></tr>
+                <tr><td class="row-label"><strong>Example</strong></td><td>Milgram (1963) — obedience in lab</td><td>Piliavin (1969) — helping on subway</td></tr>
+            </tbody>
+        </table>
+        <div class="tip-box"><strong>Exam Tip:</strong> When evaluating, always mention BOTH ecological AND internal validity — they often trade off. Lab = high internal, low ecological. Field = lower internal, high ecological.</div>
+    </div>
+
+    <div class="warn-box"><strong>Don't Mix These Up:</strong><br>&#8226; <strong>IM/RM/MP</strong> = how participants allocated to conditions (design type)<br>&#8226; <strong>Lab/Field</strong> = WHERE experiment takes place (setting type)<br>You can have Lab+IM OR Field+RM — they're independent dimensions!</div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- TAB 3: OBSERVATIONS -->
+<!-- ============================================================ -->
+<div id="panel-p3" class="tab-panel">
+
+    <div class="topic-header th3"><h2 class="c3">Observations / 观察法</h2><p class="subtitle">Watching and recording behaviour without manipulation — overt/covert, participant/non-participant, structured/unstructured, naturalistic/controlled.</p></div>
+
+    <span class="section-label label-learn">Learn Mode</span>
+
+    <!-- Overt vs Covert -->
+    <div class="def-card">
+        <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n3">1</span><strong style="font-size:1.05rem;color:#333">Overt vs Covert Observation / 公开 vs 隐蔽观察</strong></div>
+        <div class="comp-grid">
+            <div class="comp-card"><h4>&#128065; Overt Observation (公开观察)</h4><p>The observer's role is <strong>obvious to participants</strong> — they know they are being watched.<br><em style="font-size:.82rem;color:#888">E.g., Researcher visible in classroom with clipboard</em></p></div>
+            <div class="comp-card"><h4>&#128373; Covert Observation (隐蔽观察)</h4><p>The observer is <strong>hidden or disguised</strong> — participants do NOT know they are being observed.<br><em style="font-size:.82rem;color:#888">E.g., Researcher joins group as member / uses CCTV / sits on park bench</em></p></div>
+        </div>
+        <table class="rich-table"><thead><tr><th class="pro">Covert &#9989;</th><th class="con">Covert &#10060;</th><th class="pro">Overt &#9989;</th><th class="con">Overt &#10060;</th></tr></thead><tbody>
+            <tr><td>No demand characteristics</td><td>Unethical (deception, no consent)</td><td>Ethical — participants can consent</td><td>Demand characteristics affect behaviour</td></tr>
+            <tr><td>Natural behaviour observed</td><td>Data collection difficult</td><td>Easier to record data openly</td><td>Participants may alter behaviour (Hawthorne effect)</td></tr>
+            <tr><td>Access to private/covert behaviours</td><td>May cause distress if revealed</td><td>Observer can ask questions</td><td>Observer effect possible</td></tr>
+        </tbody></table>
+        <div class="explain-box"><strong>课本原文 (p.25)：</strong>"The role played by the observer may be either <strong>overt</strong> (it is obvious that they are an observer) or <strong>covert</strong> (they are hidden or disguised so the participants do not know the individual is an observer)."<br><br><strong>&#9888;&#65039; 考试高频：</strong>"Suggest one advantage of covert over overt observation" = no demand characteristics / more natural behaviour. "Suggest one ethical problem" = deception / lack of informed consent.</div>
+    </div>
+
+    <!-- Naturalistic vs Controlled -->
+    <div class="def-card">
+        <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n3">2</span><strong style="font-size:1.05rem;color:#333">Naturalistic vs Controlled Observation / 自然 vs 控制观察</strong></div>
+        <div class="comp-grid">
+            <div class="comp-card"><h4>&#127795; Naturalistic (自然观察)</h4><p>Conducted in <strong>participants' normal environment</strong>, without interference from researcher. No manipulation of variables.</p></div>
+            <div class="comp-card"><h4>&#128300; Controlled (控制观察)</h4><p>Researcher <strong>manipulates the situation</strong> — varies group sizes, adds a model, or controls objects/play environment. Can be in lab or natural setting.</p></div>
+        </div>
+        <table class="rich-table">
+            <thead><tr><th style="background:var(--t3-d);color:white;width:20%">Aspect</th><th style="background:var(--t3-d);color:white">Naturalistic</th><th style="background:var(--t3-d);color:white">Controlled</th></tr></thead>
+            <tbody>
+                <tr><td class="row-label"><strong>Ecological validity</strong></td><td>&#9989; High — real-world setting</td><td>Lower — artificial elements introduced</td></tr>
+                <tr><td class="row-label"><strong>Control of variables</strong></td><td>Low — many confounding variables possible</td><td>&#9989; Higher — researcher controls some factors</td></tr>
+                <tr><td class="row-label"><strong>Replicability</strong></td><td>Harder to replicate exactly</td><td>&#9989; Easier to standardise and repeat</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Participant vs Non-participant -->
+    <div class="def-card">
+        <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n3">3</span><strong style="font-size:1.05rem;color:#333">Participant vs Non-participant Observation</strong></div>
+        <div class="comp-grid">
+            <div class="comp-card"><h4>&#128100; Participant (参与式观察)</h4><p>Observer <strong>joins the group</strong> and participates while recording behaviour.<br><em style="font-size:.82rem;color:#888">E.g., Researcher joining a sports team to observe team dynamics</em></p></div>
+            <div class="comp-card"><h4>&#128065; Non-participant (非参与式观察)</h4><p>Observer <strong>does NOT join</strong> — watches from outside without involvement.<br><em style="font-size:.82rem;color:#888">Watching children play behind one-way mirror</em></p></div>
+        </div>
+        <table class="rich-table"><thead><tr><th class="pro">Participant &#9989;</th><th class="con">Participant &#10060;</th><th class="pro">Non-participant &#9989;</th><th class="con">Non-participant &#10060;</th></tr></thead><tbody>
+            <tr><td>Deeper insight into group</td><td>May lose objectivity ("go native")</td><td>Remains objective/detached</td><td>May miss underlying meanings</td></tr>
+            <tr><td>Access to covert behaviours</td><td>Often involves deception</td><td>No influence on behaviour</td><td>Hawthorne effect if detected</td></tr>
+            <tr><td>Natural behaviour (forget observer)</td><td>Hard to record while participating</td><td>Easier systematic notes</td><td>Observer effect possible</td></tr>
+        </tbody></table>
+    </div>
+
+    <!-- Structured vs Unstructured -->
+    <div class="def-card">
+        <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n3">4</span><strong style="font-size:1.05rem;color:#333">Structured vs Unstructured Observation</strong></div>
+        <div class="comp-grid">
+            <div class="comp-card"><h4>&#128203; Structured (结构化观察)</h4><p>Uses <strong>predetermined behavioural categories</strong>. Observer knows what to look for, records systematically.</p></div>
+            <div class="comp-card"><h4>&#128275; Unstructured (非结构化观察)</h4><p><strong>No predetermined categories</strong>. Records everything in narrative form. More exploratory.</p></div>
+        </div>
+        <table class="rich-table">
+            <thead><tr><th style="background:var(--t3-d);color:white;width:20%">Aspect</th><th style="background:var(--t3-d);color:white">Structured</th><th style="background:var(--t3-d);color:white">Unstructured</th></tr></thead>
+            <tbody>
+                <tr><td class="row-label"><strong>Data quality</strong></td><td>&#9989; Reliable, quantitative, replicable</td><td>Rich, detailed, qualitative</td></tr>
+                <tr><td class="row-label"><strong>Observer bias</strong></td><td>Reduced (clear categories)</td><td>Higher risk (interpretive)</td></tr>
+                <tr><td class="row-label"><strong>Best for</strong></td><td>Testing specific hypotheses</td><td>Exploratory research</td></tr>
+                <tr><td class="row-label"><strong>Analysis</strong></td><td>Easy (count frequencies)</td><td>Time-consuming (content analysis)</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Behavioural Categories -->
+    <div class="def-card">
+        <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n3">5</span><strong style="font-size:1.05rem;color:#333">Behavioural Categories / 行为类别</strong></div>
+        <div class="def-text-box" id="bc-def"><button class="copy-btn" onclick="copyText('bc-def',this)">Copy</button><div class="def-text"><span class="kw">Behavioural categories</span> are <span class="kw">pre-defined, mutually exclusive categories of behaviour</span> used to code observations. Each observed behaviour fits exactly one category.</div></div>
+        <div class="explain-box"><strong>例子：观察儿童操场行为</strong><br>&#128293; Category A: Aggressive (pushing, hitting, grabbing)<br>&#129309; Category B: Cooperative (sharing, helping, taking turns)<br>&#128110; Category C: Solitary play (playing alone)<br>&#128279; Category D: Other<br><br><strong>关键原则：</strong>Mutually exclusive（互斥）+ Exhaustive（穷尽）</div>
+    </div>
+
+    <!-- Sampling in Observations -->
+    <div class="def-card">
+        <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n3">6</span><strong style="font-size:1.05rem;color:#333">Observational Sampling / 观察抽样</strong></div>
+        <table class="rich-table">
+            <thead><tr><th style="background:var(--t3-d);color:white;width:20%">Type</th><th style="background:var(--t3-d);color:white">How it works</th><th style="background:var(--t3-d);color:white">When to use</th></tr></thead>
+            <tbody>
+                <tr><td class="row-label"><strong>Event Sampling<br><small>(事件抽样)</small></strong></td><td>Record <strong>every occurrence</strong> of target behaviour + context</td><td>Behaviour infrequent; want full detail of each instance</td></tr>
+                <tr><td class="row-label"><strong>Time Sampling<br><small>(时间抽样)</small></strong></td><td>Record at <strong>set intervals</strong> (e.g., every 30s for 15s)</td><td>Behaviour frequent/continuous; need manageable data</td></tr>
+            </tbody>
+        </table>
+        <div class="tip-box"><strong>Exam Tip:</strong> Event sampling = rich detail but may miss simultaneous events. Time sampling = systematic but may miss behaviours BETWEEN intervals.</div>
+    </div>
+
+    <div class="tip-box"><strong>Topic 3 Quick Recap:</strong> Observations has <strong>4 dimensions</strong> &#8212; (1) Overt/Covert: is observer visible? (2) Participant/Non-participant: does observer join in? (3) Structured/Unstructured: predetermined categories or not? (4) Naturalistic/Controlled: normal environment or manipulated? Use behavioural categories for structured. Choose event or time sampling based on behaviour frequency.</div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- TAB 4: SELF-REPORT METHODS -->
+<!-- ============================================================ -->
+<div id="panel-p4" class="tab-panel">
+
+    <div class="topic-header th4"><h2 class="c4">Self-Report Methods / 自陈法</h2><p class="subtitle">Asking participants directly — interviews and questionnaires as tools for gathering data.</p></div>
+
+    <span class="section-label label-learn">Learn Mode</span>
+
+    <!-- Interviews -->
+    <div class="def-card">
+        <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n4">1</span><strong style="font-size:1.05rem;color:#333">Interviews / 访谈法</strong></div>
+        <table class="rich-table">
+            <thead><tr><th style="background:var(--t4-d);color:white;width:17%">Aspect</th><th style="background:var(--t4-d);color:white">Structured (结构化)</th><th style="background:var(--t4-d);color:white">Semi-structured (半结构化)</th><th style="background:var(--t4-d);color:white">Unstructured (非结构化)</th></tr></thead>
+            <tbody>
+                <tr><td class="row-label"><strong>Questions</strong></td><td>Fixed, predetermined questions in set order</td><td>Fixed list of <strong>open AND closed</strong> questions; interviewer can add more if needed</td><td>Flexible, open-ended; follow participant's answers</td></tr>
+                <tr><td class="row-label"><strong>Data type</strong></td><td>Quantitative (easy to compare)</td><td>Mixed — both quantitative &amp; qualitative</td><td>Qualitative (rich, detailed responses)</td></tr>
+                <tr><td class="row-label"><strong>Reliability</strong></td><td>&#9989; High — replicable</td><td>Moderate — some consistency but flexibility varies</td><td>&#10060; Lower — depends on interviewer/context</td></tr>
+                <tr><td class="row-label"><strong>Validity</strong></td><td>May miss unexpected info</td><td>&#9989; Good balance — covers key areas + allows exploration</td><td>&#9989; High — can probe deeply</td></tr>
+                <tr><td class="row-label"><strong>Training needed</strong></td><td>Minimal</td><td>Moderate — needs skill to balance structure with flexibility</td><td>Significant — interpersonal skills essential</td></tr>
+            </tbody>
+        </table>
+        <div class="explain-box">
+            <strong>课本原文 (p.20)：</strong>"A <strong>semi-structured interview</strong>: an interview format using a fixed list of open and closed questions. The interviewer can add more questions if necessary."<br><br>
+            <strong>&#128276; 三种访谈对比总结：</strong>Structured = 量化研究首选；Semi-structured = 最常用，兼顾深度和广度；Unstructured = 探索性研究/个案研究。<br><br>
+            <strong>Interviewer Bias（访谈者偏差）：</strong> Interviewer's tone, body language, or interpretation may influence results。解决方法：standardised instructions + training interviewers + multiple coders。
+        </div>
+    </div>
+
+    <!-- Questionnaires -->
+    <div class="def-card">
+        <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n4">2</span><strong style="font-size:1.05rem;color:#333">Questionnaires / 问卷法</strong></div>
+        <div class="def-text-box" id="q-def"><button class="copy-btn" onclick="copyText('q-def',this)">Copy</button><div class="def-text"><span class="kw">Questionnaires</span> are sets of written questions used to gather information from a large number of participants. They can be administered in person, by post, or online.</div></div>
+        <table class="rich-table"><thead><tr><th class="pro">&#9989; Strengths</th><th class="con">&#10060; Limitations</th></tr></thead><tbody>
+            <tr><td><strong>Low response rates</strong> — people may not return/post back</td><td><strong>Social desirability bias</strong> — people give "acceptable" answers</td></tr>
+            <tr><td><strong>No interviewer bias</strong> — same questions for everyone</td><td><strong>Leading questions</strong> — wording may influence responses (e.g., "Don't you agree that...?")</td></tr>
+            <tr><td><strong>Easy to analyse</strong> — especially with closed questions</td><td><strong>Misunderstanding questions</strong> — no one to clarify</td></tr>
+            <tr><td><strong>Cost-effective</strong> — cheaper than interviews</td><td><strong>Lacks depth</strong> — can't probe or follow up on answers</td></tr>
+        </tbody></table>
+    </div>
+
+    <!-- Open vs Closed Questions -->
+    <div class="def-card">
+        <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n4">3</span><strong style="font-size:1.05rem;color:#333">Open vs Closed Questions</strong></div>
+        <div class="comp-grid">
+            <div class="comp-card">
+                <h4>&#128221; Open Questions (开放式问题)</h4>
+                <p>Participants answer in their own words. No fixed options.<br><br><em>"What do you think causes stress?"</em><br><br><strong>Pros:</strong> Rich data, unexpected insights<br><strong>Cons:</strong> Hard to analyse, time-consuming</p>
+            </div>
+            <div class="comp-card">
+                <h4>&#128220; Closed Questions (封闭式问题)</h4>
+                <p>Participants choose from fixed response options.<br><br><em>"Rate your stress level: 1=Low, 5=High"</em><br><br><strong>Pros:</strong> Easy to analyse, quick to complete<br><strong>Cons:</strong> May miss nuance, forces choices</p>
+            </div>
+        </div>
+        <div class="tip-box"><strong>Best practice:</strong> Many questionnaires use a <strong>mix of both</strong> — closed questions for quantitative data + open questions at the end for qualitative depth ("Any other comments?").</div>
+    </div>
+
+    <!-- Filler Questions & Inter-rater Reliability -->
+    <div class="def-card">
+        <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n4">4</span><strong style="font-size:1.05rem;color:#333">Key Concepts: Filler Questions &amp; Inter-rater Reliability</strong></div>
+        <div class="comp-grid">
+            <div class="comp-card">
+                <h4>&#128221; Filler Questions (填充题/掩饰题)</h4>
+                <p><strong>Definition:</strong> Items put into a questionnaire to <strong>disguise the true aim</strong> of the study. They are irrelevant distractors placed among the real questions so participants are less likely to work out the aims and alter their behaviour.</p>
+                <p><em style="font-size:.82rem;color:#888">Example: In a study about eating habits, include filler questions about "favourite colour" or "mode of transport to school"</em></p>
+                <p><strong>Purpose:</strong> Reduce demand characteristics &#8594; improve validity</p>
+            </div>
+            <div class="comp-card">
+                <h4>&#129309; Inter-rater Reliability (评分者间信度)</h4>
+                <p><strong>Definition:</strong> The extent to which <strong>two or more researchers interpreting qualitative responses</strong> in a questionnaire (or interview) will produce the same records from the same raw data.</p>
+                <p><strong>Why it matters:</strong> If different researchers interpret the same answer differently &#8594; low reliability &#8594; findings may be due to bias, not genuine patterns.</p>
+                <p><strong>How to improve:</strong> Use standardised coding schemes + train raters + check correlation between raters' scores</p>
+            </div>
+        </div>
+        <div class="explain-box">
+            <strong>课本原文 (p.19)：</strong>"<strong>Filler questions:</strong> items put into a questionnaire, interview or test to disguise the aim of the study by hiding the important questions among irrelevant ones..."<br><br>
+            "<strong>Inter-rater reliability:</strong> the extent to which two researchers interpreting qualitative responses...will produce the same records from the same raw data"<br><br>
+            <strong>&#9888;&#65039; 考试常考：</strong>"Suggest how Dr Huang could raise inter-rater reliability" &#8594; standardised coding categories + train raters + compare ratings + use correlation
+        </div>
+    </div>
+
+    <!-- Social Desirability Bias -->
+    <div class="def-card">
+        <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n4">5</span><strong style="font-size:1.05rem;color:#333">Social Desirability Bias / 社会期望偏差</strong></div>
+        <div class="def-text-box" id="sdb-def"><button class="copy-btn" onclick="copyText('sdb-def',this)">Copy</button><div class="def-text"><span class="kw">Social desirability bias</span> occurs when participants try to present themselves in the <span class="kw">best possible light</span> by giving answers they think are socially acceptable, rather than honest answers. This threatens the <strong>validity</strong> of self-report data.</div></div>
+        <div class="explain-box">
+            <strong>课本原文 (p.19)：</strong>"trying to present oneself in the best light by determining how to respond to the task in a way that would be most acceptable to other people, rather than to the researcher"<br><br>
+            <strong>例子：</strong>问卷问"Do you cheat on tests?" &#8594; 大多数人会回答"No"（即使实际上有作弊），因为作弊不被社会接受。<br><br>
+            <strong>如何减少？</strong> 匿名问卷（保证保密）+ 填充题（隐藏真实目的）+ 措辞中性化
+        </div>
+    </div>
+
+    <div class="tip-box"><strong>Topic 4 Quick Recap:</strong> Self-reports ask people directly. Interviews = structured/semi-structured/unstructured (3 types!); Questionnaires = fast but shallow. Open = rich data; Closed = easy analysis. Watch out for: social desirability bias, filler questions, inter-rater reliability.</div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- TAB 5: SAMPLING METHODS -->
+<!-- ============================================================ -->
+<div id="panel-p5" class="tab-panel">
+
+    <div class="topic-header th5"><h2 class="c5">Sampling Methods / 抽样方法</h2><p class="subtitle">How to select participants — five main techniques with different levels of representativeness and practicality.</p></div>
+
+    <span class="section-label label-learn">Learn Mode</span>
+
+    <div class="def-card">
+        <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n5">1</span><strong style="font-size:1.05rem;color:#333">Five Sampling Techniques Overview</strong></div>
+        <table class="rich-table">
+            <thead><tr><th style="background:var(--t5-d);color:white;width:17%">Method</th><th style="background:var(--t5-d);color:white;width:35%">How it works</th><th class="pro" style="width:24%">&#9989; Strengths</th><th class="con">&#10060; Limitations</th></tr></thead>
+            <tbody>
+                <tr>
+                    <td class="row-label"><strong>Random Sampling<br><small>(随机抽样)</small></strong></td>
+                    <td>Every member of the target population has an <strong>equal chance</strong> of being selected. Use random number generator or lottery method.</td>
+                    <td>&#9989; <strong>Unbiased</strong> — representative of population<br>&#9989; Generalisable results</td>
+                    <td>&#10060; Need complete population list<br>&#10060; Time-consuming</td>
+                </tr>
+                <tr>
+                    <td class="row-label"><strong>Opportunity Sampling<br><small>(便利抽样)</small></strong></td>
+                    <td>Select whoever is <strong>available and willing</strong> at the time of research. The most commonly used method.</td>
+                    <td>&#9989; <strong>Convenient &amp; quick</strong><br>&#9989; No special equipment needed</td>
+                    <td>&#10060; <strong>Biased sample</strong> — unrepresentative<br>&#10060; Limited generalisability</td>
+                </tr>
+                <tr>
+                    <td class="row-label"><strong>Systematic Sampling<br><small>(系统抽样)</small></strong></td>
+                    <td>Select every <strong>n<sup>th</sup> person</strong> from a list (e.g., every 10th name on a school register). Starting point = random.</td>
+                    <td>&#9989; More objective than opportunity<br>&#9989; Quick once list exists</td>
+                    <td>&#10060; List may have hidden pattern/bias<br>&#10060; Still not truly random</td>
+                </tr>
+                <tr>
+                    <td class="row-label"><strong>Stratified Sampling<br><small>(分层抽样)</small></strong></td>
+                    <td>Divide population into <strong>subgroups (strata)</strong>, then randomly sample from each stratum in proportion to its size.</td>
+                    <td>&#9989; <strong>Most representative</strong> — all subgroups included<br>&#9989; Generalisable findings</td>
+                    <td>&#10060; Most time-consuming<br>&#10060; Need detailed population data</td>
+                </tr>
+                <tr>
+                    <td class="row-label"><strong>Volunteer Sampling<br><small>(自愿抽样)</small></strong></td>
+                    <td>Participants <strong>self-select</strong> by responding to an advertisement or invitation to take part.</td>
+                    <td>&#9989; Very convenient<br>&#9989; Access to specialised populations</td>
+                    <td>&#10060; <strong>Volunteer bias</strong> — certain types of people volunteer<br>&#10060; Often unrepresentative</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="warn-box"><strong>Exam Hot Topic:</strong> When asked to evaluate sampling, always mention <strong>representativeness</strong> (does the sample reflect the population?) and <strong>generalisability</strong> (can findings apply beyond the sample?). Random and stratified = most representative. Opportunity and volunteer = least representative but most practical.</div>
+    </div>
+
+    <div class="tip-box"><strong>Topic 5 Quick Recap:</strong> Random = unbiased but hard; Opportunity = easy but biased; Systematic = middle ground; Stratified = best representation but slowest; Volunteer = convenient but self-selected bias.</div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- TAB 6: ETHICS -->
+<!-- ============================================================ -->
+<div id="panel-p6" class="tab-panel">
+
+    <div class="topic-header th6"><h2 class="c6">Ethics in Research / 研究伦理</h2><p class="subtitle">Protecting participants — the key ethical principles every psychologist must follow.</p></div>
+
+    <span class="section-label label-learn">Learn Mode</span>
+
+    <div class="def-card">
+        <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n6">1</span><strong style="font-size:1.05rem;color:#333">Core Ethical Principles</strong></div>
+        <table class="rich-table">
+            <thead><tr><th style="background:var(--t6-d);color:white;width:18%">Principle</th><th style="background:var(--t6-d);color:white">Definition</th><th style="background:var(--t6-d);color:white;width:28%">How to Address It</th></tr></thead>
+            <tbody>
+                <tr>
+                    <td class="row-label"><strong>Informed Consent<br><small>(知情同意)</small></strong></td>
+                    <td>Participants must be given <strong>full information</strong> about the study before agreeing to take part, including their right to withdraw.</td>
+                    <td>Use consent forms; explain purpose, procedures, risks; obtain signature (or parental consent for under-16s).</td>
+                </tr>
+                <tr>
+                    <td class="row-label"><strong>Right to Withdraw<br><small>(退出权)</small></strong></td>
+                    <td>Participants should be free to <strong>leave the study at any time</strong> without penalty or negative consequences.</td>
+                    <td>Explicitly tell participants they can stop; remind them during the study; don't use data if they withdraw.</td>
+                </tr>
+                <tr>
+                    <td class="row-label"><strong>Protection from Harm<br><small>(免受伤害)</small></strong></td>
+                    <td>Participants must not experience <strong>physical or psychological harm</strong> beyond what they'd encounter in daily life.</td>
+                    <td>Risk assessment beforehand; debriefing after; screen out vulnerable participants; provide support contacts.</td>
+                </tr>
+                <tr>
+                    <td class="row-label"><strong>Deception<br><small>(欺骗)</small></strong></td>
+                    <td>Should avoid deliberately <strong>misleading participants</strong> about the true aim of the study. Only justified if essential.</td>
+                    <td>If deception necessary: use retrospective consent in debrief; justify why no alternative existed; get ethics committee approval.</td>
+                </tr>
+                <tr>
+                    <td class="row-label"><strong>Confidentiality<br><small>(保密性)</small></strong></td>
+                    <td>Participants' data must be kept <strong>private and anonymous</strong>. Only researchers should have access.</td>
+                    <td>Use ID numbers instead of names; store data securely; report aggregated data only; comply with data protection laws.</td>
+                </tr>
+                <tr>
+                    <td class="row-label"><strong>Privacy<br><small>(隐私权)</small></strong></td>
+                    <td>Participants' right to control <strong>information about themselves</strong>. Research shouldn't intrude into private spaces without consent.</td>
+                    <td>Observe only in public places unless consent given; don't access private records without permission.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="def-card">
+        <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n6">2</span><strong style="font-size:1.05rem;color:#333">Debriefing / 事后解释</strong></div>
+        <div class="def-text-box" id="deb-def"><button class="copy-btn" onclick="copyText('deb-def',this)">Copy</button><div class="def-text"><span class="kw">Debriefing</span> takes place <span class="kw">after the study is completed</span>. Participants are told the <strong>true aim and purpose</strong> of the study, given the opportunity to ask questions, and any deception is revealed and justified.</div></div>
+        <div class="explain-box"><strong>为什么Debriefing很重要？</strong><br>&#8226; Restores participants to their original state (reduces harm)<br>&#8226; Provides retrospective consent after deception<br>&#8226; Allows participants to withdraw their data after learning the truth<br>&#8226; Educational value — participants learn about psychology research</div>
+    </div>
+
+    <div class="warn-box"><strong>Exam Focus — Ethical Issues in CIE Core Studies:</strong><br>&#8226; <strong>Milgram (1963):</strong> Deception (fake shocks, confederate), Protection from harm (extreme stress), Right to withdraw (verbally encouraged to continue)<br>&#8226; <strong>Piliavin (1969):</strong> Informed consent (participants didn't know they were observed), Privacy (observed in public without consent)<br>&#8226; <strong>Baron-Cohen et al. (2001):</strong> Informed consent obtained, but some participants (especially with autism) may not have fully understood the task demands<br><br>When asked to evaluate ethics, always name the specific principle AND explain how it was/wasn't addressed!</div>
+
+    <!-- Presumptive Consent -->
+    <div class="def-card">
+        <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n6">3</span><strong style="font-size:1.05rem;color:#333">Presumptive Consent / 推定同意</strong></div>
+        <div class="def-text-box" id="pc-def"><button class="copy-btn" onclick="copyText('pc-def',this)">Copy</button><div class="def-text"><span class="kw">Presumptive consent</span> is when a <span class="kw">sample group similar to the participants is asked whether they would agree to take part</span>. If they would, it is <strong>presumed</strong> that the actual participants would also consent.</div></div>
+        <table class="rich-table">
+            <thead><tr><th style="background:var(--t6-d);color:white;width:22%">Aspect</th><th style="background:var(--t6-d);color:white">Details</th></tr></thead>
+            <tbody>
+                <tr><td class="row-label"><strong>When used</strong></td><td>When <strong>full informed consent is impossible</strong> — e.g., covert observations, naturalistic studies where telling participants would change their behaviour</td></tr>
+                <tr><td class="row-label"><strong>How it works</strong></td><td>Ask a similar group of people if they'd agree to participate → If majority say yes → presume actual participants would also agree</td></tr>
+                <tr><td class="row-label"><strong>&#9989; Strength</strong></td><td>Allows ethically sensitive research to proceed where consent would otherwise be impossible</td></tr>
+                <tr><td class="row-label"><strong>&#10060; Limitation</strong></td><td>The <strong>similar group may not actually represent</strong> the real participants' views — presumption may be wrong</td></tr>
+                <tr><td class="row-label"><strong>CIE Example</strong></td><td>In a covert observation of classroom behaviour, ask a different class if they'd agree to be observed → use this as presumptive consent</td></tr>
+            </tbody>
+        </table>
+        <div class="explain-box">
+            <strong>课本原文 (p.51)：</strong>"Presumptive consent involves asking a group of people who are similar to the participants whether they would agree to take part in the research. If they would, then it is presumed that the actual participants would also agree."<br><br>
+            <strong>&#128203; 考试链接：</strong>Often used as an alternative to deception or when studying behaviour in natural settings. May be asked alongside "Explain one way the researcher could gain ethical approval for this study."
+        </div>
+    </div>
+
+    <!-- Animal Ethics -->
+    <div class="def-card">
+        <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n6">4</span><strong style="font-size:1.05rem;color:#333">Ethical Issues in Animal Research / 动物研究伦理</strong></div>
+        <table class="rich-table">
+            <thead><tr><th style="background:var(--t6-d);color:white;width:20%">Principle</th><th style="background:var(--t6-d);color:white">What It Means</th><th style="background:var(--t6-d);color:white;width:25%">Example from CIE Studies</th></tr></thead>
+            <tbody>
+                <tr><td class="row-label"><strong>Justification<br><small>(正当性)</small></strong></td><td>Research must have a <strong>clear scientific purpose</strong> that could benefit humans or animals. Benefits must outweigh costs.</td><td><strong>Hassett et al. (2008):</strong> Studying toy preferences in monkeys to understand evolutionary origins of human gender differences</td></tr>
+                <tr><td class="row-label"><strong>Minimising Harm<br><small>(最小伤害)</small></strong></td><td>Use the <strong>minimum number of animals</strong> necessary; cause the <strong>least suffering</strong>; provide appropriate living conditions.</td><td><strong>Fagen et al. (2014):</strong> Elephants trained using positive reinforcement (reward-based) rather than punishment</td></tr>
+                <tr><td class="row-label"><strong>Licensing &amp; Regulation<br><small>(许可与监管)</small></strong></td><td>Must be approved by an <strong>ethics committee</strong>; follow legal guidelines (e.g., ASPA in UK); regular inspections.</td><td>All university animal research requires Home Office licence (UK) or equivalent oversight</td></tr>
+                <tr><td class="row-label"><strong>Replacement (3Rs)<br><small>(替代原则)</small></strong></td><td>Wherever possible, use <strong>non-animal alternatives</strong> (computer models, cell cultures, human volunteers).</td><td>Some learning research now uses virtual simulations instead of live animals</td></tr>
+            </tbody>
+        </table>
+        <div class="explain-box">
+            <strong>课本原文 (p.52)：</strong>"The British Psychological Society (BPS) states that research involving animals should only take place when there is no reasonable alternative... The potential benefits should outweigh any harm or suffering caused to the animals."<br><br>
+            <strong>CIE Core Studies with Animals:</strong> Hassett (monkeys), Fagen (elephants). When evaluating animal studies, always consider: Was it justified? Could non-animal methods be used? Were animals treated humanely?
+        </div>
+    </div>
+
+    <div class="tip-box"><strong>Topic 6 Quick Recap:</strong> Six key principles: Consent, Withdrawal, Protection from Harm, Deception (avoid!), Confidentiality, Privacy. Always debrief. For covert/naturalistic studies, use <strong>presumptive consent</strong>. For animal studies, follow BPS guidelines: justify, minimise harm, license, replace where possible. Link specific studies to specific principles!</div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- TAB 7: DATA ANALYSIS -->
+<!-- ============================================================ -->
+<div id="panel-p7" class="tab-panel">
+
+    <div class="topic-header th7"><h2 class="c7">Data Analysis / 数据分析</h2><p class="subtitle">Making sense of numbers — measures of central tendency, dispersion, correlations, and distributions.</p></div>
+
+    <span class="section-label label-learn">Learn Mode</span>
+
+    <!-- Quantitative vs Qualitative Data -->
+    <div class="def-card">
+        <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n7">1</span><strong style="font-size:1.05rem;color:#333">Types of Data / 数据类型</strong></div>
+        <table class="rich-table">
+            <thead><tr><th style="background:var(--t7-d);color:white;width:22%">Aspect</th><th style="background:var(--t7-d);color:white">Quantitative Data (量化数据)</th><th style="background:var(--t7-d);color:white">Qualitative Data (质性数据)</th></tr></thead>
+            <tbody>
+                <tr><td class="row-label"><strong>Definition</strong></td><td>Numerical results — indicates <strong>amount or quantity</strong> of a measure (e.g., pulse rate, test score, frequency)</td><td>Detailed, in-depth results — indicates <strong>quality</strong> of a characteristic (e.g., written answers, interview transcripts, observations)</td></tr>
+                <tr><td class="row-label"><strong>Examples</strong></td><td>Reaction time in seconds; IQ score; number of aggressive acts; rating on 1–5 scale</td><td>Open-ended questionnaire responses; interview transcript; detailed observation notes; case study narrative</td></tr>
+                <tr><td class="row-label"><strong>&#9989; Strengths</strong></td><td>Objective measures; highly reliable; easy to analyse with statistics (mean, SD, correlations)</td><td>High validity — participants express themselves exactly; rich, detailed; captures unusual responses</td></tr>
+                <tr><td class="row-label"><strong>&#10060; Limitations</strong></td><td>Data collection may limit responses; less valid if participant can't give true response; lacks depth</td><td>Subjective — findings may be influenced by researcher's opinions/biases; time-consuming to analyse; hard to generalise from few individuals</td></tr>
+                <tr><td class="row-label"><strong>Analysis method</strong></td><td>Measures of central tendency &amp; spread; inferential statistics; graphs (bar charts, histograms, scatter graphs)</td><td>Content analysis; thematic analysis; coding into categories; looking for patterns</td></tr>
+            </tbody>
+        </table>
+        <div class="explain-box">
+            <strong>课本原文 (p.40) Table 1.4：</strong>"Quantitative data: numerical results about the amount or quantity... Qualitative data: descriptive, in-depth results indicating the quality..."<br><br>
+            <strong>&#128203; CIE考试要点：</strong>"Explain one strength and one limitation of using quantitative/qualitative data" 是常见考题。Quantitative = reliable but shallow; Qualitative = valid but subjective.
+        </div>
+    </div>
+
+    <!-- Graphs -->
+    <div class="def-card">
+        <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n7">2</span><strong style="font-size:1.05rem;color:#333">Displaying Data: Graphs / 图表展示</strong></div>
+        <table class="rich-table">
+            <thead><tr><th style="background:var(--t7-d);color:white;width:18%">Graph Type</th><th style="background:var(--t7-d);color:white">When to Use</th><th style="background:var(--t7-d);color:white">Key Features</th></tr></thead>
+            <tbody>
+                <tr><td class="row-label"><strong>Bar Chart<br><small>(柱状图)</small></strong></td><td><strong>Discrete categories</strong> (separate groups); comparing totals/averages across named categories</td><td>Gaps between bars (categories not continuous); x-axis = distinct groups; y-axis = value/frequency</td></tr>
+                <tr><td class="row-label"><strong>Histogram<br><small>(直方图)</small></strong></td><td><strong>Continuous data</strong>; showing distribution of scores across ranges/bins</td><td>No gaps between bars (continuous scale); x-axis = score ranges; y-axis = frequency; shows shape of distribution</td></tr>
+                <tr><td class="row-label"><strong>Scatter Graph<br><small>(散点图)</small></strong></td><td><strong>Correlational studies</strong>; showing relationship between two co-variables</td><td>Each point = one participant; x-axis = variable 1, y-axis = variable 2; draw line of best fit to see correlation direction/strength</td></tr>
+            </tbody>
+        </table>
+        <div class="explain-box">
+            <strong>课本原文 (p.46)：</strong>"<strong>Bar chart:</strong> used when data is in separate categories rather than on a continuous scale... <strong>Histogram:</strong> used to show the pattern in a whole data set where data is continuous... <strong>Scatter graph:</strong> displays data from a correlational study..."<br><br>
+            <strong>&#9888;&#65039; 常见错误：</strong>Bar chart 有间隙（离散类别），Histogram 无间隙（连续数据）。考试可能让你选哪种图来展示某组数据！
+        </div>
+    </div>
+
+    <!-- Central Tendency -->
+    <div class="def-card">
+        <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n7">3</span><strong style="font-size:1.05rem;color:#333">Measures of Central Tendency / 集中趋势</strong></div>
+        <table class="rich-table">
+            <thead><tr><th style="background:var(--t7-d);color:white;width:14%">Measure</th><th style="background:var(--t7-d);color:white;width:30%">How to Calculate</th><th style="background:var(--t7-d);color:white;width:28%">When to Use</th><th style="background:var(--t7-d);color:white">Limitations</th></tr></thead>
+            <tbody>
+                <tr>
+                    <td class="row-label"><strong>Mean (平均数)</strong></td>
+                    <td>Add all values &#247; count (&#931;x / n)</td>
+                    <td>Data is <strong>interval/ratio</strong>; roughly normal distribution; no extreme outliers</td>
+                    <td>&#10060; Affected by extreme scores (outliers)<br>&#10060; May not be an actual value in dataset</td>
+                </tr>
+                <tr>
+                    <td class="row-label"><strong>Median (中位数)</strong></td>
+                    <td>Middle value when data arranged in order</td>
+                    <td>Data has <strong>extreme outliers</strong>; skewed distribution; ordinal data</td>
+                    <td>&#10060; Doesn't use all data values<br>&#10060; Less sensitive to small changes</td>
+                </tr>
+                <tr>
+                    <td class="row-label"><strong>Mode (众数)</strong></td>
+                    <td>Most frequently occurring value(s)</td>
+                    <td><strong>Nominal data</strong> (categories); finding most common response; bimodal distributions</td>
+                    <td>&#10060; May not exist (no repeated values)<br>&#10060; Can be multiple modes (bimodal)</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="explain-box"><strong>例子：</strong>数据集 [2, 3, 5, 7, 100]<br>&#8226; Mean = 23.4 （被100严重拉高，不具代表性）<br>&#8226; Median = 5 （不受极端值影响，更合理）<br>&#8226; Mode = 无（没有重复值）<br><br>&#9888;&#65039; 有outlier时用Median！</div>
+    </div>
+
+    <!-- Dispersion -->
+    <div class="def-card">
+        <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n7">4</span><strong style="font-size:1.05rem;color:#333">Measures of Dispersion / 离散程度</strong></div>
+        <table class="rich-table">
+            <thead><tr><th style="background:var(--t7-d);color:white;width:14%">Measure</th><th style="background:var(--t7-d);color:white;width:32%">Definition &amp; Calculation</th><th style="background:var(--t7-d);color:white">When to Use</th></tr></thead>
+            <tbody>
+                <tr>
+                    <td class="row-label"><strong>Range (全距)</strong></td>
+                    <td>Highest value minus lowest value. <em>Range = Max - Min</em></td>
+                    <td>Quick overview of spread; easy to calculate</td>
+                </tr>
+                <tr>
+                    <td class="row-label"><strong>Standard Deviation (SD)<br><small>(标准差)</small></strong></td>
+                    <td>A measure of how <strong>spread out</strong> the data is from the mean. Calculates average distance of each score from the mean.</td>
+                    <td>Normal distribution; needs precise measure of spread; used in inferential statistics</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="explain-box">
+            <strong>Range的问题：</strong> 只看最大和最小值，完全忽略中间数据的分布。一个极端outlier就会让Range变得很大。<br><br>
+            <strong>SD的优势：</strong> 考虑了每一个数据点与mean的距离。SD小&#8594; 数据集中在mean附近；SD大&#8594; 数据分散。<br><br>
+            <strong>CIE常考：</strong> 比较两组数据时，如果Mean相似但SD不同&#8594; 说明分布模式不同！
+        </div>
+    </div>
+
+    <!-- Correlations -->
+    <div class="def-card">
+        <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n7">5</span><strong style="font-size:1.05rem;color:#333">Correlations / 相关关系</strong></div>
+        <div class="def-text-box" id="corr-def"><button class="copy-btn" onclick="copyText('corr-def',this)">Copy</button><div class="def-text"><span class="kw">Correlation</span> measures the <span class="kw">strength and direction of a relationship between two variables</span> (called co-variables). It does <strong>NOT</strong> establish cause-and-effect. Represented by correlation coefficient <strong>r</strong> (ranges from -1 to +1).</div></div>
+        <table class="rich-table">
+            <thead><tr><th style="background:var(--t7-d);color:white;width:18%">Coefficient (r)</th><th style="background:var(--t7-d);color:white">Meaning</th><th style="background:var(--t7-d);color:white">Example</th></tr></thead>
+            <tbody>
+                <tr><td class="row-label"><strong>+1.0 to +0.7</strong></td><td><strong>Strong positive correlation</strong> — as A increases, B increases</td><td>Height and weight (+0.8)</td></tr>
+                <tr><td class="row-label"><strong>+0.7 to +0.3</strong></td><td><strong>Weak/moderate positive</strong> — general trend upward</td><td>Sleep hours and test scores (+0.5)</td></tr>
+                <tr><td class="row-label"><strong>+0.3 to -0.3</strong></td><td><strong>Little/no correlation</strong> — no clear relationship</td><td>Shoe size and IQ (+0.02)</td></tr>
+                <tr><td class="row-label"><strong>-0.3 to -0.7</strong></td><td><strong>Weak/moderate negative</strong> — general trend downward</td><td>Outdoor time and myopia (-0.4)</td></tr>
+                <tr><td class="row-label"><strong>-0.7 to -1.0</strong></td><td><strong>Strong negative correlation</strong> — as A increases, B decreases</td><td>Distance from city and air quality (-0.85)</td></tr>
+            </tbody>
+        </table>
+        <div class="warn-box"><strong>&#9888;&#65039; Critical Exam Point: Correlation &#8800; Causation!</strong><br>Just because two variables are correlated does NOT mean one CAUSES the other. There could be:<br>&#8226; A third variable causing both (confounding variable)<br>&#8226> Reverse causality (B might cause A instead)<br>&#8226; Coincidence<br><br>To prove causation, you need an <strong>experiment</strong> (manipulate IV, control EVs)!</div>
+    </div>
+
+    <!-- Normal Distribution -->
+    <div class="def-card">
+        <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n7">6</span><strong style="font-size:1.05rem;color:#333">Normal Distribution Curve / 正态分布</strong></div>
+        <div class="explain-box" style="text-align:center;padding:1.3rem">
+            <strong style="display:block;font-size:1rem;margin-bottom:10px">Normal Distribution Bell Curve</strong>
+            <svg viewBox="0 0 400 160" style="max-width:380px;margin:0 auto;display:block">
+                <defs><marker id="ar" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto-start-reverse"><path d="M0,0 L6,3 L0,6Z" fill="#00838F"/></marker></defs>
+                <line x1="20" y1="140" x2="380" y2="140" stroke="#ccc" stroke-width="1"/>
+                <line x1="200" y1="140" x2="200" y2="15" stroke="#00838F" stroke-width="1" stroke-dasharray="4,3"/>
+                <path d="M30,138 Q80,135 120,120 Q160,70 200,25 Q240,70 280,120 Q320,135 370,138" fill="none" stroke="#00838F" stroke-width="2.5"/>
+                <text x="200" y="155" text-anchor="middle" font-size="11" fill="#333" font-weight="600">Mean = Median = Mode</text>
+                <text x="115" y="155" text-anchor="middle" font-size="9" fill="#888">-1 SD</text>
+                <text x="285" y="155" text-anchor="middle" font-size="9" fill="#888">+1 SD</text>
+                <text x="55" y="155" text-anchor="middle" font-size="9" fill="#888">-2 SD</text>
+                <text x="345" y="155" text-anchor="middle" font-size="9" fill="#888">+2 SD</text>
+                <text x="200" y="12" text-anchor="middle" font-size="9" fill="#00838F" font-weight="600">68.2% within &#177;1 SD</text>
+                <text x="200" y="155" text-anchor="middle" font-size="9" fill="#00838F" dy="14">(50% each side)</text>
+            </svg>
+        </div>
+        <table class="rich-table">
+            <thead><tr><th style="background:var(--t7-d);color:white;width:22%">Property</th><th style="background:var(--t7-d);color:white">Description</th></tr></thead>
+            <tbody>
+                <tr><td class="row-label"><strong>Symmetrical</strong></td><td>Left half = mirror of right half; mean = median = mode (all at centre)</td></tr>
+                <tr><td class="row-label"><strong>Bell-shaped curve</strong></td><td>Most scores cluster around the mean; fewer scores at extremes</td></tr>
+                <tr><td class="row-label"><strong>Fixed proportions</strong></td><td>&#177;1 SD = 68.2%; &#177;2 SD = 95.4%; &#177;3 SD = 99.7% of data</td></tr>
+                <tr><td class="row-label"><strong>Asymptotic tails</strong></td><td>The curve never quite touches the x-axis (theoretical extreme values possible but increasingly rare)</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="tip-box"><strong>Topic 7 Quick Recap:</strong> Data types: Quantitative = numerical, reliable; Qualitative = detailed, valid. Display data with bar charts (categorical), histograms (continuous), scatter graphs (correlations). Central tendency = where data clusters (Mean/Median/Mode). Dispersion = how spread out (Range/SD). Correlation = relationship strength (-1 to +1), NOT causation! Normal distribution = bell curve, 68-95-99.7 rule.</div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- TAB 8: RESEARCH DESIGN (CORE) -->
+<!-- ============================================================ -->
+<div id="panel-p8" class="tab-panel">
+
+    <div class="topic-header th8"><h2 class="c8">Research Design / 研究设计(核心)</h2><p class="subtitle">Choosing the right approach — case studies, pilot studies, and how to decide which method to use.</p></div>
+
+    <span class="section-label label-learn">Learn Mode</span>
+
+    <!-- Case Studies -->
+    <div class="def-card">
+        <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n8">1</span><strong style="font-size:1.05rem;color:#333">Case Studies / 个案研究</strong></div>
+        <div class="def-text-box" id="cs-def"><button class="copy-btn" onclick="copyText('cs-def',this)">Copy</button><div class="def-text"><span class="kw">A Case Study</span> is an <span class="kw">in-depth investigation of a single individual, group, or event</span> using multiple research methods (interviews, observations, document analysis). It provides rich, detailed qualitative data.</div></div>
+        <table class="rich-table"><thead><tr><th class="pro">&#9989; Strengths</th><th class="con">&#10060; Limitations</th></tr></thead><tbody>
+            <tr><td><strong>Rich, detailed data</strong> — deep insight not possible with large samples</td><td><strong>Not generalisable</strong> — findings from one case may not apply to others</td></tr>
+            <tr><td><strong>Studies rare/unique phenomena</strong> — e.g., brain-damaged patients like H.M. or Clive Wearing</td><td><strong>Researcher bias</strong> — subjective interpretation of qualitative data</td></tr>
+            <tr><td><strong>May challenge existing theories</strong> — single counterexample can refute claims</td><td><strong>Time-consuming</strong> — months or years of data collection</td></tr>
+            <tr><td><strong>High ecological validity</strong> — studied in natural context</td><td><strong>Ethical issues</strong> — privacy concerns when studying one person deeply</td></tr>
+        </tbody></table>
+        <div class="explain-box"><strong>Famous Psychology Case Studies:</strong><br>&#8226; <strong>H.M. (Henry Molaison)</strong> — memory loss after brain surgery, studied for decades<br>&#8226; <strong>Little Albert</strong> — Watson & Rayner's conditioned fear study (ethical issues!)<br>&#8226; <strong>Genie (feral child)</strong> — language development after extreme isolation</div>
+    </div>
+
+    <!-- Pilot Studies -->
+    <div class="def-card">
+        <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n8">2</span><strong style="font-size:1.05rem;color:#333">Pilot Studies / 预实验</strong></div>
+        <div class="def-text-box" id="ps-def"><button class="copy-btn" onclick="copyText('ps-def',this)">Copy</button><div class="def-text"><span class="kw">A Pilot Study</span> is a <span class="kw">small-scale trial run</span> conducted before the main study. It tests whether the research design, procedures, and materials work as intended, allowing refinements before full data collection.</div></div>
+        <table class="rich-table">
+            <thead><tr><th style="background:var(--t8-d);color:white;width:22%">Purpose</th><th style="background:var(--t8-d);color:white">What it Checks</th></tr></thead>
+            <tbody>
+                <tr><td class="row-label"><strong>Procedure clarity</strong></td><td>Are instructions clear? Do participants understand what to do?</td></tr>
+                <tr><td class="row-label"><strong>Timing</strong></td><td>How long does each part take? Is it too long/short?</td></tr>
+                <tr><td class="row-label"><strong>Materials</strong></td><td>Do questionnaires work? Are behavioural categories appropriate?</td></tr>
+                <tr><td class="row-label"><strong>Equipment/tech</strong></td><td>Does recording equipment work? Software glitches?</td></tr>
+                <tr><td class="row-label"><strong>Participant reactions</strong></td><td>Any confusion? Unexpected behaviours? Ethical concerns emerging?</td></tr>
+            </tbody>
+        </table>
+        <div class="tip-box"><strong>Exam Tip:</strong> If asked "why would a researcher conduct a pilot study?", always mention: saves time/money in long run, identifies problems early, helps refine procedures, checks materials work, and ensures the main study will produce usable data.</div>
+    </div>
+
+    <!-- Choosing a Research Design -->
+    <div class="def-card">
+        <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n8">3</span><strong style="font-size:1.05rem;color:#333">How to Choose a Research Method / 决策指南</strong></div>
+        <table class="rich-table">
+            <thead><tr><th style="background:var(--t8-d);color:white;width:18%">Choose Experiment when...</th><th style="background:var(--t8-d);color:white;width:18%">Choose Observation when...</th><th style="background:var(--t8-d);color:white;width:18%">Choose Self-report when...</th></tr></thead>
+            <tbody>
+                <tr>
+                    <td>You want to establish <strong>cause and effect</strong></td>
+                    <td>You want to study <strong>natural behaviour</strong> in real settings</td>
+                    <td>You need <strong>participants' own perspectives</strong> (thoughts, feelings)</td>
+                </tr>
+                <tr>
+                    <td>You can <strong>manipulate an IV</strong> ethically</td>
+                    <td>Behaviour can be <strong>observed directly</strong></td>
+                    <td>The topic is <strong>subjective/internal</strong> (attitudes, opinions)</td>
+                </tr>
+                <tr>
+                    <td>You need <strong>high internal validity</strong></td>
+                    <td>You want high <strong>ecological validity</strong></td>
+                    <td>You need data from <strong>large samples quickly</strong></td>
+                </tr>
+                <tr>
+                    <td>You can control <strong>extraneous variables</strong></td>
+                    <td>Manipulation would be <strong>unethical/impractical</strong></td>
+                    <td>Behaviour is <strong>sensitive/private</strong> (people won't do it if watched)</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="warn-box"><strong>Exam 12-Mark Question Style:</strong> "Design a study to investigate [topic]" — You'll need to choose AND justify your method. Always state: What method? Why this method (not alternatives)? How will you operationalise variables? What design (IM/RM/MP)? What sampling? How address ethics?</div>
+    </div>
+
+    <!-- Longitudinal Studies -->
+    <div class="def-card">
+        <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n8">4</span><strong style="font-size:1.05rem;color:#333">Longitudinal Studies / 纵向研究</strong></div>
+        <div class="def-text-box" id="long-def"><button class="copy-btn" onclick="copyText('long-def',this)">Copy</button><div class="def-text"><span class="kw">A Longitudinal Study</span> is a research method where <span class="kw">the same participants are studied over an extended period of time</span> (months or years). It tracks changes or development within individuals across time.</div></div>
+        <table class="rich-table">
+            <thead><tr><th style="background:var(--t8-d);color:white;width:22%">Aspect</th><th style="background:var(--t8-d);color:white">Details</th></tr></thead>
+            <tbody>
+                <tr><td class="row-label"><strong>Key feature</strong></td><td>Same participants tested repeatedly over time (unlike a snapshot cross-sectional study)</td></tr>
+                <tr><td class="row-label"><strong>Timeframe</strong></td><td>Can range from several months to decades (e.g., studying children into adulthood)</td></tr>
+                <tr><td class="row-label"><strong>&#9989; Strengths</strong></td><td>&#8226; Shows <strong>development and change over time</strong> — captures patterns no other method can<br>&#8226; No individual differences problem (same people throughout)<br>&#8226; Can establish <strong>sequence of events</strong> (what leads to what)</td></tr>
+                <tr><td class="row-label"><strong>&#10060; Limitations</strong></td><td>&#8226; <strong>Attrition (participant dropout)</strong> — people leave the study over time, reducing sample size<br>&#8226; Very <strong>time-consuming and expensive</strong><br>&#8226; <strong>Cohort effects</strong> — the generation may differ from future generations (findings may not generalise)</td></tr>
+            </tbody>
+        </table>
+        <div class="explain-box">
+            <strong>课本原文 (p.30)：</strong>"Longitudinal studies involve studying the same group of participants over an extended period of time... They can show how behaviour changes as people age."<br><br>
+            <strong>vs Cross-Sectional:</strong> Cross-sectional = different age groups tested at ONE point in time (quick but cohort effects). Longitudinal = SAME people tracked over TIME (slow but shows real change).<br><br>
+            <strong>&#128203; 考试链接：</strong>"Suggest one strength and one limitation of using a longitudinal design" = Strength: shows development/change. Limitation: attrition/dropout.
+        </div>
+    </div>
+
+    <!-- Reliability & Validity -->
+    <div class="def-card">
+        <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n8">5</span><strong style="font-size:1.05rem;color:#333">Reliability &amp; Validity / 信度与效度</strong></div>
+
+        <h4 style="color:var(--t8-d);margin:10px 0 8px;font-size:.98rem">&#128269; Reliability（信度）= Consistency（一致性）</h4>
+        <table class="rich-table">
+            <thead><tr><th style="background:var(--t8-d);color:white;width:20%">Type</th><th style="background:var(--t8-d);color:white">Definition</th><th style="background:var(--t8-d);color:white;width:25%">How to Assess/Improve</th></tr></thead>
+            <tbody>
+                <tr><td class="row-label"><strong>Test-Retest Reliability<br><small>(重测信度)</small></strong></td><td>Whether a test produces <strong>consistent results when repeated</strong> on the same participants under similar conditions</td><td>Give the same test twice (e.g., 2 weeks apart) → calculate correlation between scores. High correlation = high reliability.</td></tr>
+                <tr><td class="row-label"><strong>Inter-Rater Reliability<br><small>(评分者间信度)</small></strong></td><td>Whether <strong>different observers/raters agree</strong> in their observations or scoring of the same behaviour</td><td>Train multiple raters using standardised behavioural categories → compare ratings. High agreement = high reliability.</td></tr>
+            </tbody>
+        </table>
+
+        <h4 style="color:var(--t8-d);margin:15px 0 8px;font-size:.98rem">&#128203; Validity（效度）= Accuracy（准确性）</h4>
+        <table class="rich-table">
+            <thead><tr><th style="background:var(--t8-d);color:white;width:18%">Type</th><th style="background:var(--t8-d);color:white">Definition</th><th style="background:var(--t8-d);color:white;width:25%">Example</th></tr></thead>
+            <tbody>
+                <tr><td class="row-label"><strong>Internal Validity<br><small>(内部效度)</small></strong></td><td>Whether the study <strong>actually measures what it claims to measure</strong>, free from confounding variables</td><td>In a memory experiment: did sleep deprivation actually cause lower recall, or was it fatigue/stress?</td></tr>
+                <tr><td class="row-label"><strong>External Validity<br><small>(外部效度)</small></strong></td><td>Whether findings can be <strong>generalised beyond the study</strong> — to other people, settings, and times</td><td>Can lab findings about obedience apply to real-world authority situations?</td></tr>
+                <tr><td class="row-label"><strong>Ecological Validity<br><small>(生态效度)</small></strong></td><td>A type of external validity — whether findings apply to <strong>real-life settings</strong> (not just artificial lab conditions)</td><td>A memory test in a lab (low ecological validity) vs. testing memory in participants' homes (high ecological validity)</td></tr>
+                <tr><td class="row-label"><strong>Population Validity<br><small>(群体效度)</small></strong></td><td>Whether findings can be generalised to <strong>other groups of people</strong> beyond the sample used</td><td>If only male students were tested, can results apply to females? To older adults?</td></tr>
+            </tbody>
+        </table>
+        <div class="explain-box">
+            <strong>课本原文 (p.54-56)：</strong>"Reliability refers to the consistency of a measurement... Validity refers to whether something measures what it is supposed to measure."<br><br>
+            <strong>&#128274; Key Distinction:</strong> Reliability ≠ Validity! A test can be reliable (consistent) but NOT valid (not measuring the right thing). Example: A broken weighing scale that always shows 5kg too much is reliable (consistent) but not valid (inaccurate).
+        </div>
+    </div>
+
+    <!-- Generalisability -->
+    <div class="def-card">
+        <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n8">6</span><strong style="font-size:1.05rem;color:#333">Generalisability / 可推广性</strong></div>
+        <div class="def-text-box" id="gen-def"><button class="copy-btn" onclick="copyText('gen-def',this)">Copy</button><div class="def-text"><span class="kw">Generalisability</span> (or Generalizability) refers to the extent to which research findings from a <span class="kw">sample can be applied to the wider population</span>, and whether results from one setting/time group can be applied to other settings/times/groups.</div></div>
+        <table class="rich-table">
+            <thead><tr><th style="background:var(--t8-d);color:white;width:20%">Factor Affecting Generalisability</th><th style="background:var(--t8-d);color:white">How It Limits Generalisability</th><th style="background:var(--t8-d);color:white;width:23%">Example</th></tr></thead>
+            <tbody>
+                <tr><td class="row-label"><strong>Sampling Bias<br><small>(抽样偏差)</small></strong></td><td>If sample is not representative of target population, findings won't generalise</td><td>Using only university students (WEIRD samples) — can't generalise to whole population</td></tr>
+                <tr><td class="row-label"><strong>Artificial Setting<br><small>(人工环境)</small></strong></td><td>Lab conditions are controlled but unrealistic — behaviour may differ in real life</td><td>Milgram's Yale laboratory vs. real obedience situations in daily life</td></tr>
+                <tr><td class="row-label"><strong>Cultural/Historical Context<br><small>(文化/历史背景)</small></strong></td><td>Findings from one culture or era may not apply elsewhere</td><td>Obedience rates in 1960s America may differ from 2020s China</td></tr>
+                <tr><td class="row-label"><strong>Sample Size<br><small>(样本量)</small></strong></td><td>Very small samples (e.g., case studies) lack statistical generalisability</td><td>H.M.'s memory deficits — fascinating but can't generalise to all amnesia patients</td></tr>
+            </tbody>
+        </table>
+        <div class="tip-box"><strong>Exam Tip:</strong> When asked "Can the findings be generalised?", consider: Was the sample representative? Was it a naturalistic or lab setting? Is the culture/time period relevant? For CIE Core Studies: Milgram (limited by era/culture), Baron-Cohen (adult Western sample), Bandura (children only, lab setting).</div>
+    </div>
+
+    <div class="tip-box"><strong>Topic 8 Quick Recap:</strong> Case studies = deep but not generalisable. Pilot studies = test run before main study. <strong>Longitudinal studies</strong> track same people over time (shows change but attrition risk). <strong>Reliability</strong> = consistency (test-retest, inter-rater). <strong>Validity</strong> = accuracy (internal, external, ecological, population). <strong>Generalisability</strong> depends on sampling, setting, culture, and sample size. Choose method based on goal, topic nature, practicality.</div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- TAB 9: EXAM PRACTICE -->
+<!-- ============================================================ -->
+<div id="panel-p9" class="tab-panel">
+
+    <div class="topic-header" style="background:#ECEFF1;border-color:#37474f">
+        <h2 style="color:#263238">&#128196; Exam Practice / 考试练习</h2>
+        <p class="subtitle">Apply your knowledge — real exam-style questions with model answers and mark breakdowns.</p>
+    </div>
+
+    <span class="section-label label-practice">Practice Mode</span>
+
+    <div class="practice-section">
+        <h3>Topic 1: Experiments (Variables & Hypotheses)</h3>
+
+        <div class="question-block">
+            <div class="q-label"><span class="q-cmd cmd-outline">Outline</span> The independent variable and dependent variable in this study. <span class="q-marks">[4 marks]</span></div>
+            <div class="q-text"><em>"A researcher investigates whether background noise affects concentration. She recruits 30 students and asks half to complete a puzzle in a silent room, while the other half complete it in a room with loud music playing. She records how many minutes each student takes to finish."</em></div>
+            <textarea class="q-lines" placeholder="Write your answer here..." data-qid="rm_q1"></textarea><div class="save-hint">✏️ Auto-saved as you type</div>
+            <button class="show-ans-btn" onclick="toggleAns('e-q1')">Show Model Answer</button>
+            <div class="answer-reveal" id="e-q1">
+                <div class="ans-part">
+                    <div class="ans-label">Full Marks (4/4) Answer:</div>
+                    <div class="ans-text">
+                        <strong>IV (2 marks):</strong> The independent variable is the <strong>presence or absence of background noise</strong> (specifically, silent room vs room with loud music). This is what the researcher manipulates. [1] The IV has two conditions: silence (control) and loud music (experimental). [1]<br><br>
+                        <strong>DV (2 marks):</strong> The dependent variable is the <strong>time taken (in minutes) to complete the puzzle</strong>. [1] This is what the researcher measures/records to see if it changes due to the IV. [1]
+                    </div>
+                </div>
+                <div class="ans-part">
+                    <div class="ans-label" style="color:#C62828">Partial Marks (2/4) Common Answer:</div>
+                    <div class="ans-text" style="color:#B71C1C">
+                        "IV is the music and DV is the time." &#8594; Only gets 1 mark for IV (vague, not operationalised) and 1 for DV (no detail). Must say <strong>what exactly</strong> is manipulated/measured!
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="q-label"><span class="q-cmd cmd-suggest">Suggest</span> a suitable hypothesis (directional or non-directional) for this study. <span class="q-marks">[2 marks]</span></div>
+            <textarea class="q-lines" placeholder="Write your answer here..." data-qid="rm_q2"></textarea><div class="save-hint">✏️ Auto-saved as you type</div>
+            <button class="show-ans-btn" onclick="toggleAns('e-q2')">Show Model Answer</button>
+            <div class="answer-reveal" id="e-q2">
+                <div class="ans-part">
+                    <div class="ans-label">Acceptable Answers (either):</div>
+                    <div class="ans-text">
+                        <strong>Directional:</strong> "Participants in the loud music condition will take <strong>longer</strong> to complete the puzzle than participants in the silent condition."<br><br>
+                        <strong>Non-directional:</strong> "There <strong>will be a difference</strong> in puzzle completion time between participants in the loud music condition and those in the silent condition."
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="practice-section">
+        <h3>Topic 2: Experimental Designs</h3>
+
+        <div class="question-block">
+            <div class="q-label"><span class="q-cmd cmd-evaluate">Evaluate</span> the use of a Repeated Measures design in a memory experiment. <span class="q-marks">[6 marks]</span></div>
+            <textarea class="q-lines" placeholder="Write your answer here..." data-qid="rm_q3"></textarea><div class="save-hint">✏️ Auto-saved as you type</div>
+            <button class="show-ans-btn" onclick="toggleAns('e-q3')">Show Model Answer</button>
+            <div class="answer-reveal" id="e-q3">
+                <div class="ans-part">
+                    <div class="ans-label">Model Answer (6 marks):</div>
+                    <div class="ans-text">
+                        <strong>Strengths (3 marks):</strong><br>
+                        &#8226; Controls participant variables because the same participants are used in both conditions, eliminating individual differences in memory ability. [1]<br>
+                        &#8226; Fewer participants needed, making it more economical and practical when recruiting is difficult. [1]<br>
+                        &#8226; More statistically sensitive as error variance from individual differences is reduced. [1]<br><br>
+                        <strong>Limitations (3 marks):</strong><br>
+                        &#8226; Order effects such as practice (participants perform better on second condition due to practice) or boredom may affect results. [1]<br>
+                        &#8226; Demand characteristics — participants may guess the aim after completing both conditions and change behaviour accordingly. [1]<br>
+                        &#8226; Counterbalancing can reduce but not eliminate order effects entirely. [1]
+                    </div>
+                </div>
+                <div class="ans-part">
+                    <div class="ans-label" style="color:#C62828">Common Mistake (loses 2 marks):</div>
+                    <div class="ans-text" style="color:#B71C1C">
+                        Only giving strengths OR only giving limitations. Evaluation questions require <strong>BOTH sides</strong> for full marks. Also, not mentioning how order effects could be addressed (counterbalancing).
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="practice-section">
+        <h3>Topic 3-4: Observations & Self-Reports</h3>
+
+        <div class="question-block">
+            <div class="q-label"><span class="q-cmd cmd-outline">Outline</span> one difference between participant and non-participant observation. <span class="q-marks">[2 marks]</span></div>
+            <textarea class="q-lines" placeholder="Write your answer here..." data-qid="rm_q4"></textarea><div class="save-hint">✏️ Auto-saved as you type</div>
+            <button class="show-ans-btn" onclick="toggleAns('e-q4')">Show Model Answer</button>
+            <div class="answer-reveal" id="e-q4">
+                <div class="ans-part">
+                    <div class="ans-label">Model Answer (2 marks):</div>
+                    <div class="ans-text">
+                        In <strong>participant observation</strong>, the observer joins the group being studied and participates in their activities while recording behaviour. [1] In contrast, in <strong>non-participant observation</strong>, the observer does not join the group and watches from outside without getting involved. [1]
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="q-label"><span class="q-cmd cmd-explain">Explain</span> why social desirability bias might be a problem in questionnaire research. <span class="q-marks">[4 marks]</span></div>
+            <textarea class="q-lines" placeholder="Write your answer here..." data-qid="rm_q5"></textarea><div class="save-hint">✏️ Auto-saved as you type</div>
+            <button class="show-ans-btn" onclick="toggleAns('e-q5')">Show Model Answer</button>
+            <div class="answer-reveal" id="e-q5">
+                <div class="ans-part">
+                    <div class="ans-label">Model Answer (4 marks):</div>
+                    <div class="ans-text">
+                        Social desirability bias occurs when participants give answers that make them look <strong>good or socially acceptable</strong> rather than honest answers. [1] In questionnaires, there is no interviewer present to encourage honesty or probe deeper. [1] For example, if asked about healthy eating habits, participants may <strong>overreport</strong> fruit/vegetable consumption because they know they "should" eat healthily. [1] This reduces the <strong>validity</strong> of the data collected, as responses don't reflect true behaviour. [1]
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="practice-section">
+        <h3>Topic 5-6: Sampling & Ethics</h3>
+
+        <div class="question-block">
+            <div class="q-label"><span class="q-cmd cmd-suggest">Suggest</span> one limitation of using volunteer sampling in Milgram's obedience study. <span class="q-marks">[2 marks]</span></div>
+            <textarea class="q-lines" placeholder="Write your answer here..." data-qid="rm_q6"></textarea><div class="save-hint">✏️ Auto-saved as you type</div>
+            <button class="show-ans-btn" onclick="toggleAns('e-q6')">Show Model Answer</button>
+            <div class="answer-reveal" id="e-q6">
+                <div class="ans-part">
+                    <div class="ans-label">Model Answer (2 marks):</div>
+                    <div class="ans-text">
+                        Volunteer sampling may lead to <strong>volunteer bias</strong> — the type of person who volunteers for a study on obedience may differ from the general population. [1] Volunteers tend to be more obedient or more willing to please authority figures, meaning the results cannot be generalised to the wider population. [1]
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="q-label"><span class="q-cmd cmd-evaluate">Evaluate</span> the ethics of Milgram's (1963) study of obedience. <span class="q-marks">[6 marks]</span></div>
+            <textarea class="q-lines" placeholder="Write your answer here..." data-qid="rm_q7"></textarea><div class="save-hint">✏️ Auto-saved as you type</div>
+            <button class="show-ans-btn" onclick="toggleAns('e-q7')">Show Model Answer</button>
+            <div class="answer-reveal" id="e-q7">
+                <div class="ans-part">
+                    <div class="ans-label">Model Answer (6 marks):</div>
+                    <div class="ans-text">
+                        <strong>Ethical Issues (3 marks):</strong><br>
+                        &#8226; <strong>Deception:</strong> Participants were told the study was about "learning and memory", not obedience. The "learner" was actually a confederate, and shocks were not real. [1]<br>
+                        &#8226; <strong>Protection from harm:</strong> Many participants showed extreme stress (sweating, trembling, some had seizures). They believed they were genuinely harming someone. [1]<br>
+                        &#8226; <strong>Right to withdraw:</strong> Although told they could leave, the experimenter used verbal prods ("Please continue") that made it difficult for participants to exercise this right. [1]<br><br>
+                        <strong>Justifications (3 marks):</strong><br>
+                        &#8226; Thorough <strong>debriefing</strong> was provided afterwards, explaining the true aim and ensuring participants left in the same state they arrived. [1]<br>
+                        &#8226; Follow-up studies showed <strong>no long-term harm</strong> — 84% of participants reported being "glad" to have participated. [1]<br>
+                        &#8226; The scientific <strong>value of the findings</strong> about obedience justified the temporary distress, as it helps us understand real-world events like the Holocaust. [1]
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="practice-section">
+        <h3>Topic 7: Data Analysis</h3>
+
+        <div class="question-block">
+            <div class="q-label"><span class="q-cmd cmd-describe">Describe</span> the relationship shown by a correlation coefficient of r = -0.82 between hours spent gaming and exam grades. <span class="q-marks">[3 marks]</span></div>
+            <textarea class="q-lines" placeholder="Write your answer here..." data-qid="rm_q8"></textarea><div class="save-hint">✏️ Auto-saved as you type</div>
+            <button class="show-ans-btn" onclick="toggleAns('e-q8')">Show Model Answer</button>
+            <div class="answer-reveal" id="e-q8">
+                <div class="ans-part">
+                    <div class="ans-label">Model Answer (3 marks):</div>
+                    <div class="ans-text">
+                        There is a <strong>strong negative correlation</strong> (r = -0.82) between hours spent gaming and exam grades. [1] This means that as the number of hours spent gaming <strong>increases</strong>, exam grades tend to <strong>decrease</strong>. [1] The strength is strong because the coefficient is close to -1.0, indicating a consistent relationship. [1] However, we cannot conclude that gaming <strong>causes</strong> lower grades — there may be confounding variables (e.g., less study time, poorer time management). [Bonus point if mentioned]
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- 🔗 APPLY RM TO CORE STUDIES (Real Exam Questions by Study) -->
+    <!-- ============================================================ -->
+    <span class="section-label label-practice" style="background:#E8F5E9;color:#2E7D32;margin-top:2.5rem">🔗 Apply RM to Core Studies</span>
+    <p style="font-size:0.88rem;color:#666;margin-bottom:1.2rem;font-style:italic">
+        Real exam questions from CIE past papers (W24/S22/S25/M24/M25). Each question references one of your 12 core studies — apply Research Methods concepts to analyse them.
+    </p>
+
+    <!-- ===== DENMENT & KLEITMAN (Sleep & Dreams) — Most Tested! ===== -->
+    <div class="practice-section" style="border-color:#C62828">
+        <h3 style="color:#C62828">&#128214; Dement &amp; Kleitman (1957) — Sleep &amp; Dreams <small style="font-weight:400;color:#888">| 8 questions across papers</small></h3>
+
+        <div class="question-block">
+            <div class="q-label"><span class="q-cmd cmd-explain">Explain</span> why the uncontrolled variable of daydreaming was a problem in this study. <span class="q-marks">[4 marks]</span> <span style="font-size:75%;color:#999">— S22 P21</span></div>
+            <textarea class="q-lines" placeholder="Write your answer here..." data-qid="study_dk1"></textarea><div class="save-hint">✏️ Auto-saved as you type</div>
+            <button class="show-ans-btn" onclick="toggleAns('s-dk1')">Show Model Answer</button>
+            <div class="answer-reveal" id="s-dk1">
+                <div class="ans-part">
+                    <div class="ans-label">Model Answer (4 marks):</div>
+                    <div class="ans-text">
+                        Daydreaming is an uncontrolled variable because participants might experience <strong>waking mental activity</strong> that could be mistaken for dreaming during REM sleep. [1] If participants were daydreaming when awakened from REM, they might report a dream when they had actually been daydreaming, or vice versa. [1] This threatens the <strong>internal validity</strong> of the study because we cannot be sure whether reports truly reflect dream content or waking thoughts. [1] The researchers tried to control this by asking participants about their mental state, but it is difficult to distinguish subjectively between daydreaming and genuine dreams. [1]
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="q-label"><span class="q-cmd cmd-suggest">Suggest</span> two problems with collecting data about the number of hours of sleep in this study. <span class="q-marks">[4 marks]</span> <span style="font-size:75%;color:#999">— S25 P23</span></div>
+            <textarea class="q-lines" placeholder="Write your answer here..." data-qid="study_dk2"></textarea><div class="save-hint">✏️ Auto-saved as you type</div>
+            <button class="show-ans-btn" onclick="toggleAns('s-dk2')">Show Model Answer</button>
+            <div class="answer-reveal" id="s-dk2">
+                <div class="ans-part">
+                    <div class="ans-label">Acceptable Answers (any two × 2 marks):</div>
+                    <div class="ans-text">
+                        &#8226; <strong>Social desirability bias:</strong> Participants may overestimate or underestimate their sleep hours to appear more disciplined or to gain sympathy. They may not accurately remember how long they slept. [2]<br><br>
+                        &#8226; <strong>Memory distortion:</strong> Asking participants to recall how many hours they slept last night relies on retrospective memory, which may be inaccurate — especially if they fell asleep gradually or woke up multiple times. [2]<br><br>
+                        &#8226; <strong>Subjective interpretation:</strong> Different participants may define "sleep" differently (e.g., does lying in bed count? Does dozing off briefly count?). [2]<br><br>
+                        &#8226; <strong>Honesty issues:</strong> Participants may lie about sleep duration if they feel judged about their sleep habits. [2]
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="q-label"><span class="q-cmd cmd-suggest">Suggest</span> why using one other technique to measure REM sleep duration would be more valid than EEG. <span class="q-marks">[4 marks]</span> <span style="font-size:75%;color:#999">— S22 P21</span></div>
+            <textarea class="q-lines" placeholder="Write your answer here..." data-qid="study_dk3"></textarea><div class="save-hint">✏️ Auto-saved as you type</div>
+            <button class="show-ans-btn" onclick="toggleAns('s-dk3')">Show Model Answer</button>
+            <div class="answer-reveal" id="s-dk3">
+                <div class="ans-part">
+                    <div class="ans-label">Model Answer (4 marks):</div>
+                    <div class="ans-text">
+                        Using <strong>video recording with behavioural observation</strong> alongside EEG would increase validity because: [1] It allows researchers to cross-check physiological REM indicators (rapid eye movements on EEG) with observable behaviours such as eye movements under closed eyelids or muscle twitches. [1] This <strong>triangulation</strong> of methods increases confidence that REM is being accurately detected. [1] EEG alone could potentially pick up artefacts from other sources (e.g., electrode displacement), so having a second measure reduces this risk. [1]
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== HASSETT et al. (Monkey Toy Preferences) ===== -->
+    <div class="practice-section" style="border-color:#E65100">
+        <h3 style="color:#E65100">&#128008; Hassett et al. (2008) — Monkey Toy Preferences <small style="font-weight:400;color:#888">| 4 questions across papers</small></h3>
+
+        <div class="question-block">
+            <div class="q-label"><span class="q-cmd cmd-describe">Describe</span> one example of a correlation from this study. <span class="q-marks">[3 marks]</span> <span style="font-size:75%;color:#999">— W24 P22</span></div>
+            <textarea class="q-lines" placeholder="Write your answer here..." data-qid="study_h1"></textarea><div class="save-hint">✏️ Auto-saved as you type</div>
+            <button class="show-ans-btn" onclick="toggleAns('s-h1')">Show Model Answer</button>
+            <div class="answer-reveal" id="s-h1">
+                <div class="ans-part">
+                    <div class="ans-label">Model Answer (3 marks):</div>
+                    <div class="ans-text">
+                        There was a <strong>positive correlation</strong> between male monkeys' toy preferences and human boys' toy preferences. [1] Male monkeys spent significantly more time with the wheeled toys (cars/trucks) compared to plush dolls, which mirrors the pattern found in human children where boys prefer wheeled toys and girls prefer dolls. [1] Similarly, female monkeys showed less pronounced preference differences, again paralleling human findings. [1]
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="q-label"><span class="q-cmd cmd-suggest">Suggest</span> one ethical reason why it is important that the monkeys are comfortable in the study environment. <span class="q-marks">[2 marks]</span> <span style="font-size:75%;color:#999">— M25 P22</span></div>
+            <textarea class="q-lines" placeholder="Write your answer here..." data-qid="study_h2"></textarea><div class="save-hint">✏️ Auto-saved as you type</div>
+            <button class="show-ans-btn" onclick="toggleAns('s-h2')">Show Model Answer</button>
+            <div class="answer-reveal" id="s-h2">
+                <div class="ans-part">
+                    <div class="ans-label">Acceptable Answers:</div>
+                    <div class="ans-text">
+                        &#8226; To ensure the monkeys' <strong>right to protection from harm</strong> — stressed animals may suffer psychologically or physically, violating ethical guidelines for animal research. [2]<br><br>
+                        &#8226; Uncomfortable/stressed monkeys may show <strong>atypical behaviour</strong>, reducing the validity of findings about natural toy preferences. [2]<br><br>
+                        &#8226; Comfort aligns with the principle of <strong>humane treatment</strong> — researchers have a duty of care to animal subjects. [2]
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="q-label"><span class="q-cmd cmd-suggest">Suggest</span> one way to measure which material the monkeys prefer inside their cages. <span class="q-marks">[2 marks]</span> <span style="font-size:75%;color:#999">— M25 P22</span></div>
+            <textarea class="q-lines" placeholder="Write your answer here..." data-qid="study_h3"></textarea><div class="save-hint">✏️ Auto-saved as you type</div>
+            <button class="show-ans-btn" onclick="toggleAns('s-h3')">Show Model Answer</button>
+            <div class="answer-reveal" id="s-h3">
+                <div class="ans-part">
+                    <div class="ans-label">Acceptable Answers:</div>
+                    <div class="ans-text">
+                        &#8226; Use <strong>time sampling observation</strong> — record how many seconds/minutes each monkey spends interacting with each material (wheeled vs plush toy). [2]<br><br>
+                        &#8226; Count the <strong>frequency of approaches/touches</strong> to each toy type within a fixed time period. [2]<br><br>
+                        &#8226; Place toys at opposite ends of cage and record which area the monkey spends more time in (<strong>spatial preference</strong>). [2]
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== PERRY et al. (Personal Space & Oxytocin) ===== -->
+    <div class="practice-section" style="border-color:#7B1FA2">
+        <h3 style="color:#7B1FA2">&#129488; Perry et al. (2015) — Personal Space &amp; Oxytocin <small style="font-weight:400;color:#888">| 4 questions in S25 P23</small></h3>
+
+        <div class="question-block">
+            <div class="q-label"><span class="q-cmd cmd-describe">Describe</span> one way that Kioni could measure personal space. <span class="q-marks">[3 marks]</span> <span style="font-size:75%;color:#999">— S25 P23</span></div>
+            <textarea class="q-lines" placeholder="Write your answer here..." data-qid="study_perry1"></textarea><div class="save-hint">✏️ Auto-saved as you type</div>
+            <button class="show-ans-btn" onclick="toggleAns('s-perry1')">Show Model Answer</button>
+            <div class="answer-reveal" id="s-perry1">
+                <div class="ans-part">
+                    <div class="ans-label">Acceptable Answers:</div>
+                    <div class="ans-text">
+                        &#8226; Use the <strong>stop-distance paradigm</strong>: Have a confederate slowly approach the participant and measure (in cm) the distance at which the participant asks them to stop or shows discomfort. [2-3]<br><br>
+                        &#8226; <strong>Observational method:</strong> Place participants in a waiting room and observe how far apart they naturally sit/stand from others. Measure distance with a tape measure or floor markers. [2-3]<br><br>
+                        &#8226; <strong>Questionnaire method:</strong> Ask participants to indicate their preferred distance from strangers in different situations using a diagram or rating scale. [2-3]
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="q-label"><span class="q-cmd cmd-suggest">Suggest</span> two variables that could affect an individual's preferred personal space (other than oxytocin). <span class="q-marks">[4 marks]</span> <span style="font-size:75%;color:#999">— S25 P23</span></div>
+            <textarea class="q-lines" placeholder="Write your answer here..." data-qid="study_perry2"></textarea><div class="save-hint">✏️ Auto-saved as you type</div>
+            <button class="show-ans-btn" onclick="toggleAns('s-perry2')">Show Model Answer</button>
+            <div class="answer-reveal" id="s-perry2">
+                <div class="ans-part">
+                    <div class="ans-label">Acceptable Answers (any two × 2 marks):</div>
+                    <div class="ans-text">
+                        &#8226; <strong>Culture:</strong> People from cultures with smaller interpersonal distances (e.g., Latin American, Middle Eastern) prefer closer proximity than those from Northern European/North American cultures. [2]<br><br>
+                        &#8226; <strong>Gender:</strong> Women often prefer smaller personal space than men, especially with same-gender individuals. [2]<br><br>
+                        &#8226; <strong>Age:</strong> Children typically stand closer to others than adults; elderly people may prefer larger spaces due to sensory sensitivities. [2]<br><br>
+                        &#8226; <strong>Relationship status:</strong> People allow closer proximity to friends/family than to strangers. [2]<br><br>
+                        &#8226; <strong>Anxiety/stress levels:</strong> Anxious individuals often prefer larger personal space as a protective buffer. [2]
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== PILIAVIN et al. (Subway Samaritans) ===== -->
+    <div class="practice-section" style="border-color:#00838F">
+        <h3 style="color:#00838F">&#129689; Piliavin et al. (1969) — Subway Samaritans <small style="font-weight:400;color:#888">| 3 questions across papers</small></h3>
+
+        <div class="question-block">
+            <div class="q-label"><span class="q-cmd cmd-suggest">Suggest</span> two ways in which Chen's study is similar to Piliavin's subway study. <span class="q-marks">[4 marks]</span> <span style="font-size:75%;color:#999">— W24 P21</span></div>
+            <textarea class="q-lines" placeholder="Write your answer here..." data-qid="study_pil1"></textarea><div class="save-hint">✏️ Auto-saved as you type</div>
+            <button class="show-ans-btn" onclick="toggleAns('s-pil1')">Show Model Answer</button>
+            <div class="answer-reveal" id="s-pil1">
+                <div class="ans-part">
+                    <div class="ans-label">Acceptable Similarities (any two × 2 marks):</div>
+                    <div class="ans-text">
+                        &#8226; Both used a <strong>field experiment / naturalistic observation</strong> method — conducted in a real-world public setting rather than a laboratory. [2]<br><br>
+                        &#8226; Both used <strong>participant / covert observation</strong> — the victims/confederates were not aware they were being studied (or bystanders didn't know they were part of research). [2]<br><br>
+                        &#8226; Both investigated <strong>helping behaviour / prosocial behaviour</strong> as the DV. [2]<br><br>
+                        &#8226; Both used <strong>confederates</strong> who posed as victims/people needing help. [2]
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="q-label"><span class="q-cmd cmd-suggest">Suggest</span> one way to improve the ecological validity of this study in relation to the victims. <span class="q-marks">[2 marks]</span> <span style="font-size:75%;color:#999">— W24 P23</span></div>
+            <textarea class="q-lines" placeholder="Write your answer here..." data-qid="study_pil2"></textarea><div class="save-hint">✏️ Auto-saved as you type</div>
+            <button class="show-ans-btn" onclick="toggleAns('s-pil2')">Show Model Answer</button>
+            <div class="answer-reveal" id="s-pil2">
+                <div class="ans-part">
+                    <div class="ans-label">Acceptable Answers:</div>
+                    <div class="ans-text">
+                        &#8226; Use <strong>real victims</strong> (genuine medical emergencies) instead of confederates pretending to collapse — this would make the situation authentic. [2]<br><br>
+                        &#8226; Vary the <strong>type of victim</strong> (different ages, genders, appearances) to better reflect real-world diversity of people who need help on public transport. [2]<br><br>
+                        &#8226; Conduct the study on different types of public transport (bus, train) not just subway, to increase generalisability. [2]
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== BARON-COHEN et al. (Eyes Test) ===== -->
+    <div class="practice-section" style="border-color:#1565C0">
+        <h3 style="color:#1565C0">&#128064; Baron-Cohen et al. (2001) — Eyes Test <small style="font-weight:400;color:#888">| 2 questions across papers</small></h3>
+
+        <div class="question-block">
+            <div class="q-label"><span class="q-cmd cmd-outline">Outline</span> one problem with the ecological validity of the revised eyes test. <span class="q-marks">[2 marks]</span> <span style="font-size:75%;color:#999">— W24 P21</span></div>
+            <textarea class="q-lines" placeholder="Write your answer here..." data-qid="study_bc1"></textarea><div class="save-hint">✏️ Auto-saved as you type</div>
+            <button class="show-ans-btn" onclick="toggleAns('s-bc1')">Show Model Answer</button>
+            <div class="answer-reveal" id="s-bc1">
+                <div class="ans-part">
+                    <div class="ans-label">Model Answer (2 marks):</div>
+                    <div class="ans-text">
+                        The eyes test uses <strong>static photographs of eyes only</strong>, which is not how we read emotions in real life. [1] In real social situations, we see the whole face (including mouth, eyebrows), body language, and movement — and we have contextual information about the situation. Looking at just the eyes in a photo is artificial and may not reflect real-world emotion recognition ability. [1]
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="q-label"><span class="q-cmd cmd-explain">Explain</span> how solving one of these problems improved the validity of the eyes test. <span class="q-marks">[4 marks]</span> <span style="font-size:75%;color:#999">— S22 P22</span></div>
+            <textarea class="q-lines" placeholder="Write your answer here..." data-qid="study_bc2"></textarea><div class="save-hint">✏️ Auto-saved as you type</div>
+            <button class="show-ans-btn" onclick="toggleAns('s-bc2')">Show Model Answer</button>
+            <div class="answer-reveal" id="s-bc2">
+                <div class="ans-part">
+                    <div class="ans-label">Model Answer (4 marks):</div>
+                    <div class="ans-text">
+                        One problem was that the original test used <strong>only adult faces</strong>. Baron-Cohen solved this by creating a <strong>child-friendly version</strong> (the Children's Eyes Test) with photos of children's eyes, suitable for younger participants. [1-2] This improved validity because children may find it easier to recognise emotions in other children's eyes than in adults', giving a more accurate measure of their true mind-reading ability. [1-2] Alternatively: The revised test used <strong>normalised difficulty</strong> (equal numbers of male/female eyes, balanced emotional valence) to prevent gender bias, improving construct validity.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== MILGRAM (Obedience) ===== -->
+    <div class="practice-section" style="border-color:#D32F2F">
+        <h3 style="color:#D32F2F">&#128083; Milgram (1963) — Obedience <small style="font-weight:400;color:#888">| 2 questions across papers</small></h3>
+
+        <div class="question-block">
+            <div class="q-label"><span class="q-cmd cmd-describe">Describe</span> the measure of obedience used in Milgram's study. <span class="q-marks">[3 marks]</span> <span style="font-size:75%;color:#999">— W24 P22</span></div>
+            <textarea class="q-lines" placeholder="Write your answer here..." data-qid="study_mil1"></textarea><div class="save-hint">✏️ Auto-saved as you type</div>
+            <button class="show-ans-btn" onclick="toggleAns('s-mil1')">Show Model Answer</button>
+            <div class="answer-reveal" id="s-mil1">
+                <div class="ans-part">
+                    <div class="ans-label">Model Answer (3 marks):</div>
+                    <div class="ans-text">
+                        Obedience was measured as the <strong>maximum voltage level (in volts)</strong> the participant was willing to administer to the learner. [1] The shock generator had 30 switches ranging from 15V ("Slight Shock") to 450V ("XXX"), and the participant's obedience level was recorded as the final switch they pressed before refusing to continue (or 450V if they went all the way). [1] This gave a <strong>continuous numerical score</strong> allowing comparison between conditions and individual participants. [1]
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="q-label"><span class="q-cmd cmd-suggest">Suggest</span> one reason why using participants with different ages could be important to Milgram's study. <span class="q-marks">[2 marks]</span> <span style="font-size:75%;color:#999">— S25 P21</span></div>
+            <textarea class="q-lines" placeholder="Write your answer here..." data-qid="study_mil2"></textarea><div class="save-hint">✏️ Auto-saved as you type</div>
+            <button class="show-ans-btn" onclick="toggleAns('s-mil2')">Show Model Answer</button>
+            <div class="answer-reveal" id="s-mil2">
+                <div class="ans-part">
+                    <div class="ans-label">Acceptable Answers:</div>
+                    <div class="ans-text">
+                        &#8226; To check whether <strong>age affects obedience levels</strong> — older participants may be more/less obedient to authority due to generational differences in attitudes towards authority figures. [2]<br><br>
+                        &#8226; To improve <strong>population validity / generalisability</strong> — Milgram's original sample was all adult males aged 20-50; including younger/older participants would make findings more applicable to the wider population. [2]<br><br>
+                        &#8226; To investigate whether <strong>developmental factors</strong> influence conformity to authority (e.g., adolescents may be more rebellious). [2]
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== ANDRADE (Doodling) ===== -->
+    <div class="practice-section" style="border-color:#2E7D32">
+        <h3 style="color:#2E7D32">&#9998;&#65039; Andrade (2010) — Doodling <small style="font-weight:400;color:#888">| 1 question in S25 P22</small></h3>
+
+        <div class="question-block">
+            <div class="q-label"><span class="q-cmd cmd-explain">Explain</span> how the independent variable (IV) was operationalised in Andrade's doodling study. <span class="q-marks">[4 marks]</span> <span style="font-size:75%;color:#999">— S25 P22</span></div>
+            <textarea class="q-lines" placeholder="Write your answer here..." data-qid="study_and1"></textarea><div class="save-hint">✏️ Auto-saved as you type</div>
+            <button class="show-ans-btn" onclick="toggleAns('s-and1')">Show Model Answer</button>
+            <div class="answer-reveal" id="s-and1">
+                <div class="ans-part">
+                    <div class="ans-label">Model Answer (4 marks):</div>
+                    <div class="ans-text">
+                        The IV was <strong>whether participants doodled or did not doodle</strong> during the monitoring task. [1] This was operationalised by randomly assigning participants to either the <strong>doodling condition</strong> (given shading shapes/doodles to complete while listening) or the <strong>non-doodling / control condition</strong> (asked to sit and listen without any activity). [2] The operationalisation was clear because there was a distinct, measurable difference between the two groups — either they were given doodling materials or they were not. [1]
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== BANDURA (Bobo Doll) ===== -->
+    <div class="practice-section" style="border-color:#E87722">
+        <h3 style="color:#E87722">&#128162; Bandura et al. (1961) — Bobo Doll Aggression <small style="font-weight:400;color:#888">| 1 question in S25 P23</small></h3>
+
+        <div class="question-block">
+            <div class="q-label"><span class="q-cmd cmd-suggest">Suggest</span> why Bandura et al. may not have used volunteer sampling. <span class="q-marks">[2 marks]</span> <span style="font-size:75%;color:#999">— S25 P23</span></div>
+            <textarea class="q-lines" placeholder="Write your answer here..." data-qid="study_band1"></textarea><div class="save-hint">✏️ Auto-saved as you type</div>
+            <button class="show-ans-btn" onclick="toggleAns('s-band1')">Show Model Answer</button>
+            <div class="answer-reveal" id="s-band1">
+                <div class="ans-part">
+                    <div class="ans-label">Acceptable Answers:</div>
+                    <div class="ans-text">
+                        &#8226; Volunteer sampling would introduce <strong>volunteer bias</strong> — parents who volunteer their children for an aggression study may differ systematically from non-volunteers (e.g., more concerned about aggression, or conversely, less concerned about exposing children to violence). [2]<br><br>
+                        &#8226; Bandura needed a specific sample (nursery school children from Stanford area) to match his experimental design — volunteers may not meet the age/location criteria needed. [2]<br><br>
+                        &#8226; Using <strong>opportunity sampling</strong> from the nursery was more practical and ensured all children were of similar age/background, controlling extraneous variables. [2]
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== HOLZEL (Mindfulness) ===== -->
+    <div class="practice-section" style="border-color:#546E7A">
+        <h3 style="color:#546E7A">&#128066; Hölzel et al. (2011) — Mindfulness Brain Scans <small style="font-weight:400;color:#888">| 1 question in W25 P22</small></h3>
+
+        <div class="question-block">
+            <div class="q-label"><span class="q-cmd cmd-suggest">Suggest</span> one fatigue effect that could have occurred in Hölzel's mindfulness study. <span class="q-marks">[2 marks]</span> <span style="font-size:75%;color:#999">— W25 P22</span></div>
+            <textarea class="q-lines" placeholder="Write your answer here..." data-qid="study_holz1"></textarea><div class="save-hint">✏️ Auto-saved as you type</div>
+            <button class="show-ans-btn" onclick="toggleAns('s-holz1')">Show Model Answer</button>
+            <div class="answer-reveal" id="s-holz1">
+                <div class="ans-part">
+                    <div class="ans-label">Acceptable Answers:</div>
+                    <div class="ans-text">
+                        &#8226; Participants may become <strong>tired/bored during the long MRI scanning sessions</strong>, leading to reduced attention or poorer performance on tasks in later trials compared to earlier ones. [2]<br><br>
+                        &#8226; The mindfulness training itself requires sustained concentration — participants may experience <strong>mental fatigue</strong> affecting their engagement with post-training assessments. [2]<br><br>
+                        &#8226; Repeated MRI scans could cause physical discomfort (lying still, scanner noise), leading to <strong>decreased cooperation or movement artefacts</strong> in later scans. [2]
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== SAAVEDRA & SILVERMAN (Button Phobia) ===== -->
+    <div class="practice-section" style="border-color:#880E4F">
+        <h3 style="color:#880E4F">&#128129; Saavedra &amp; Silverman (2002) — Button Phobia <small style="font-weight:400;color:#888">| Referenced in W25 P21 MS</small></h3>
+
+        <div class="question-block">
+            <div class="q-label"><span class="q-cmd cmd-state">State</span> what was meant by time frames 1, 2 and 3 in the severity rating procedure. <span class="q-marks">[2 marks]</span> <span style="font-size:75%;color:#999">— W25 P21</span></div>
+            <textarea class="q-lines" placeholder="Write your answer here..." data-qid="study_saav1"></textarea><div class="save-hint">✏️ Auto-saved as you type</div>
+            <button class="show-ans-btn" onclick="toggleAns('s-saav1')">Show Model Answer</button>
+            <div class="answer-reveal" id="s-saav1">
+                <div class="ans-part">
+                    <div class="ans-label">Model Answer (from MS — 2 marks for all three correct):</div>
+                    <div class="ans-text">
+                        <strong>Time frame 1:</strong> Before the imagery exposure therapy session (baseline distress level).<br>
+                        <strong>Time frame 2:</strong> Midway through the therapy session.<br>
+                        <strong>Time frame 3:</strong> After the therapy session (final distress level).<br><br>
+                        <em>Note: All three must be correct for full marks. Two out of three = 1 mark. Just one = 0.</em>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="warn-box" style="margin-top:2rem">
+        <strong>Final Exam Checklist:</strong><br>
+        &#9745; Can I define IV/DV and operationalise them?<br>
+        &#9745; Can I compare IM/RM/MP with pros and cons?<br>
+        &#9745; Can I evaluate Lab vs Field experiments?<br>
+        &#9745; Can I identify ethical issues in a given study and suggest solutions?<br>
+        &#9745; Can I choose and justify a sampling method?<br>
+        &#9745; Can I interpret correlation coefficients (strength + direction)?<br>
+        &#9745; Can I explain when to use Mean/Median/Mode?<br>
+        &#9745; Can I design a study (choose method, justify, address ethics)?
+    </div>
+</div>
+
+</div><!-- end main-content -->
+
+
+<!-- ==================== FOOTER ==================== -->
+<div class="footer">
+    <p>CIE A Level Psychology (9990) &mdash; Research Methods &amp; Design Revision Guide</p>
+    <p style="margin-top:.5rem;font-size:.82rem">Built for exam success. Good luck! &#128170;</p>
+</div>
+
+</div><!-- end page-layout -->
+
+
+<!-- ==================== JAVASCRIPT ==================== -->
+<script>
+function switchTab(panelId, btn) {
+    // Hide all panels
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    // Remove active from all buttons
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    // Show selected panel
+    document.getElementById('panel-' + panelId).classList.add('active');
+    // Activate button
+    if (btn) btn.classList.add('active');
+    // Update sidebar active state
+    const colors = {'p1':'#C62828','p2':'#1565C0','p3':'#2E7D32','p4':'#E87722','p5':'#7B1FA2','p6':'#D32F2F','p7':'#00838F','p8':'#E65100','p9':'#37474f'};
+    const bgs = {'p1':'#FCEBEB','p2':'#E6F1FB','p3':'#EAF3DE','p4':'#FAEEDA','p5':'#F3E5F5','p6':'#FFEBEE','p7':'#E0F7FA','p8':'#FFF3E0','p9':'#f0f0f0'};
+    document.querySelectorAll('.sidebar-link').forEach(link => {
+        link.classList.remove('active');
+        link.style.borderLeftColor = 'transparent';
+        link.style.background = 'transparent';
+    });
+    const activeLink = document.querySelector('.sidebar-link[href="#' + panelId + '"]');
+    if (activeLink) {
+        activeLink.classList.add('active');
+        activeLink.style.borderLeftColor = colors[panelId] || '#333';
+        activeLink.style.background = bgs[panelId] || '#fff';
+    }
+}
+
+function copyText(boxId, btn) {
+    const box = document.getElementById(boxId);
+    const text = box.querySelector('.def-text').innerText;
+    navigator.clipboard.writeText(text).then(() => {
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+            btn.textContent = 'Copy';
+            btn.classList.remove('copied');
+        }, 2000);
+    }).catch(err => {
+        // Fallback for older browsers
+        const ta = document.createElement('textarea');
+        ta.value = text; document.body.appendChild(ta);
+        ta.select(); document.execCommand('copy');
+        document.body.removeChild(ta);
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+    });
+}
+
+function toggleAns(id) {
+    const el = document.getElementById(id);
+    el.classList.toggle('show');
+}
+
+// Auto-save / restore answers in localStorage
+(function() {
+    var PREFIX = 'cie_rm_ans_';
+    // Restore saved answers on page load
+    document.querySelectorAll('.q-lines[data-qid]').forEach(function(ta) {
+        var qid = ta.getAttribute('data-qid');
+        var saved = localStorage.getItem(PREFIX + qid);
+        if (saved) { ta.value = saved; }
+        // Auto-save on input (with debounce)
+        var timer;
+        ta.addEventListener('input', function() {
+            clearTimeout(timer);
+            timer = setTimeout(function() {
+                localStorage.setItem(PREFIX + qid, ta.value);
+                var hint = ta.nextElementSibling;
+                if (hint && hint.classList.contains('save-hint')) {
+                    hint.textContent = '✅ Saved ' + new Date().toLocaleTimeString();
+                    setTimeout(function() {
+                        hint.textContent = '✏️ Auto-saved as you type';
+                    }, 2000);
+                }
+            }, 500);
+        });
+    });
+})();
+</script>
+
+</body>
+</html>

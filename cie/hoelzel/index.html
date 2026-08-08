@@ -485,5 +485,37 @@
   <strong>Note:</strong> This text is organised based on content identified from the CIE Psychology textbook Core Study 3 screenshots. Please review and refine as needed.
 </div>
 
+
+<style>
+/* Study Navigator */
+.study-nav{border-top:2px solid #e0e0e0;background:#FAFAFA;padding:14px 16px;margin-top:2rem}
+.study-nav-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:880px;margin:0 auto}
+.study-nav-btn{flex:1;padding:9px 14px;border:1px solid #ddd;border-radius:8px;background:white;color:#444;font-size:.82rem;cursor:pointer;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:4px;transition:all .15s;font-family:inherit}
+.study-nav-btn:hover{border-color:#1565C0;color:#1565C0;background:#f8fbff}
+.study-nav-dots{text-align:center;padding:0 8px}
+.study-nav-label{font-size:.65rem;text-transform:uppercase;letter-spacing:1px;color:#888;margin-bottom:5px;font-weight:700}
+.study-dot-row{display:flex;gap:5px;justify-content:center;flex-wrap:wrap}
+.study-dot{width:10px;height:10px;border-radius:50%;cursor:pointer;border:2px solid transparent;transition:all .15s;position:relative;display:inline-block}
+.study-dot:hover{transform:scale(1.3)}
+.study-dot.active{border-color:#333;transform:scale(1.25)}
+@media(max-width:600px){
+    .study-nav-inner{flex-wrap:wrap;gap:8px}
+    .study-nav-btn{font-size:.75rem;padding:7px 10px}
+    .study-dot{width:8px;height:8px}
+}
+</style>
+<div class="study-nav">
+  <div class="study-nav-inner">
+    <a class="study-nav-btn" href="../baron-cohen/">← Baron-Cohen (2001)</a>
+    <div class="study-nav-dots">
+      <div class="study-nav-label">Cognitive</div>
+      <div class="study-dot-row">
+        <span class="study-dot" style="background:#C62828" data-title="Hassett (2008)" onclick="location.href='../hassett/'"></span><span class="study-dot" style="background:#C62828" data-title="Dement (1957)" onclick="location.href='../dement/'"></span><span class="study-dot" style="background:#1565C0" data-title="Baron-Cohen (2001)" onclick="location.href='../baron-cohen/'"></span><span class="study-dot active" style="background:#1565C0" data-title="Hölzel (2011)"></span><span class="study-dot" style="background:#1565C0" data-title="Andrade (2010)" onclick="location.href='../andrade/'"></span><span class="study-dot" style="background:#2E7D32" data-title="Piliavin (1969)" onclick="location.href='../piliavin/'"></span><span class="study-dot" style="background:#2E7D32" data-title="Milgram (1963)" onclick="location.href='../milgram/'"></span><span class="study-dot" style="background:#E87722" data-title="Bandura (1961)" onclick="location.href='../bandura/'"></span><span class="study-dot" style="background:#E87722" data-title="Fagen (2014)" onclick="location.href='../fagen/'"></span><span class="study-dot" style="background:#E87722" data-title="Saavedra (2002)" onclick="location.href='../saavedra/'"></span><span class="study-dot" style="background:#7B1FA2" data-title="Perry (2015)" onclick="location.href='../perry/'"></span><span class="study-dot" style="background:#7B1FA2" data-title="Pozzulo (2011)" onclick="location.href='../pozzulo/'"></span>
+      </div>
+    </div>
+    <a class="study-nav-btn" href="../andrade/">Andrade (2010) →</a>
+  </div>
+</div>
+
 </body>
 </html>
