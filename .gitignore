@@ -11,3 +11,5 @@ Thumbs.db
 *.md
 !README.md
 !DEPLOY_GUIDE.md
+.git-credentials
+.git-credentials

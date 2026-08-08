@@ -26,7 +26,7 @@
 
         .container{max-width:900px;margin:1.5rem auto;padding:0 1.5rem}
 
-        .tabs{display:flex;gap:6px;margin-bottom:1.5rem;flex-wrap:wrap;justify-content:center}
+        .tabs{display:flex;gap:6px;margin-bottom:1.5rem;flex-wrap:nowrap;overflow-x:auto}
         .tab-btn{padding:9px 16px;border-radius:22px;border:2px solid #ccc;background:white;font-size:12.5px;font-weight:600;cursor:pointer;transition:all .2s}
         .tab-btn.t1{border-color:var(--t1);color:var(--t1)}.tab-btn.t1.active{background:var(--t1);color:white}
         .tab-btn.t2{border-color:var(--t2);color:var(--t2)}.tab-btn.t2.active{background:var(--t2);color:white}
@@ -130,7 +130,7 @@
         }
 
         @media(max-width:600px){
-            .tabs{justify-content:stretch}.tab-btn{flex:1;text-align:center;padding:8px 10px;font-size:11px}
+            .tabs{flex-wrap:wrap;justify-content:center}.tab-btn{padding:7px 10px;font-size:11px}
             .container{padding:0 1rem}.comp-grid{grid-template-columns:1fr}
         }
 
