@@ -35,9 +35,41 @@
   .header .meta { margin-top: 15px; font-size: 0.9em; opacity: 0.8; line-height: 1.6; }
   .badge { display: inline-block; padding: 4px 14px; border-radius: 20px; background: rgba(255,255,255,0.2); margin: 3px; font-size: 0.85em; }
 
-  /* TOC — base (overridden by RM-style rules below) */
-  .toc { background: var(--card-bg); border-radius: 10px; margin-bottom: 25px; }
-  .toc h2 { color: var(--primary-dark); margin-bottom: 0; font-size: 1.3em; border: none; padding: 0; }
+  /* ===== LEFT SIDEBAR NAVIGATION (RM-style) ===== */
+  .page-layout{display:flex;gap:0;align-items:flex-start}
+  .sidebar{width:230px;flex-shrink:0;position:sticky;top:60px;max-height:calc(100vh - 80px);overflow-y:auto;padding:20px 0 20px 0;z-index:50}
+  .sidebar::-webkit-scrollbar{width:3px}
+  .sidebar::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:3px}
+  .sidebar-inner{background:#f8fafc;border-radius:12px;border:1px solid #e2e8f0;overflow:hidden}
+  .sb-group-title{color:#94a3b8;font-size:.65rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:14px 16px 8px;margin:0}
+  .sb-group-title.sb-top{padding-top:16px}
+  .sb-divider{height:1px;background:#e2e8f0;margin:4px 0}
+  .sb-list{list-style:none;padding:0;margin:0}
+  .sb-item a{display:block;padding:9px 16px 9px 18px;color:#475569;text-decoration:none;font-size:.85em;font-weight:500;border-left:3px solid transparent;transition:all .12s;line-height:1.4}
+  .sb-item a:hover{background:#f1f5f9;color:#1e293b}
+  .sb-item a.sb-active{background:#eff6ff;color:#1d4ed8;font-weight:600;border-left-color:#3b82f6}
+  /* Color accents per section group */
+  .sb-group-topics .sb-item a:hover,.sb-group-topics .sb-item a.sb-active{border-left-color:#ef4444}
+  .sb-group-topics .sb-item a.sb-active{background:#fef2f2}
+  .sb-group-results .sb-item a:hover,.sb-group-results .sb-item a.sb-active{border-left-color:#f59e0b}
+  .sb-group-results .sb-item a.sb-active{background:#fffbeb}
+  .sb-group-eval .sb-item a:hover,.sb-group-eval .sb-item a.sb-active{border-left-color:#22c55e}
+  .sb-group-eval .sb-item a.sb-active{background:#f0fdf4}
+  .sb-group-ref .sb-item a:hover,.sb-group-ref .sb-item a.sb-active{border-left-color:#8b5cf6}
+  .sb-group-ref .sb-item a.sb-active{background:#faf5ff}
+  .sb-group-interactive .sb-item a:hover,.sb-group-interactive .sb-item a.sb-active{border-left-color:#ec4899}
+  .sb-group-interactive .sb-item a.sb-active{background:#fdf2f8}
+
+  /* Main content area */
+  .main-content{flex:1;min-width:0}/* prevent overflow */
+
+  @media(max-width:850px){
+    .page-layout{flex-direction:block}
+    .sidebar{display:none}/* hide on mobile, keep top TOC if needed */
+    .main-content{width:100%}
+  }
+
+  /* TOC (top — kept for mobile fallback, hidden on desktop) */
 
   /* Sections */
   .section { background: var(--card-bg); border-radius: 10px; padding: 30px; margin-bottom: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
@@ -115,26 +147,8 @@
     .nav-tag{display:none}
   }
 
-  /* TOC — RM-style sidebar with color bars */
-  .toc{background:#f8fafc;border-radius:10px;padding:0;margin-bottom:28px;border:1px solid #e2e8f0;overflow:hidden}
-  .toc h2{color:#64748b;font-size:.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:14px 20px 8px;margin:0;border:none}
-  .toc ol{list-style:none;padding:0;margin:0}
-  .toc li{margin:0}
-  .toc li a{display:flex;align-items:center;padding:10px 20px;color:#374151;text-decoration:none;font-size:.92em;font-weight:500;border-left:3px solid transparent;transition:all .15s}
-  .toc li a:hover{background:#f1f5f9;border-left-color:var(--primary);color:var(--primary-dark)}
-  .toc li a.toc-active{background:#eff6ff;border-left-color:var(--primary);color:var(--primary-dark);font-weight:600}
-  /* Color-coded section groups */
-  .toc li:nth-child(1) a:hover,.toc li:nth-child(1) a.toc-active{border-left-color:#ef4444}
-  .toc li:nth-child(2) a:hover,.toc li:nth-child(2) a.toc-active{border-left-color:#ef4444}
-  .toc li:nth-child(3) a:hover,.toc li:nth-child(3) a.toc-active{border-left-color:#ef4444}
-  .toc li:nth-child(4) a:hover,.toc li:nth-child(4) a.toc-active{border-left-color:#f59e0b}
-  .toc li:nth-child(5) a:hover,.toc li:nth-child(5) a.toc-active{border-left-color:#f59e0b}
-  .toc li:nth-child(6) a:hover,.toc li:nth-child(6) a.toc-active{border-left-color:#22c55e}
-  .toc li:nth-child(7) a:hover,.toc li:nth-child(7) a.toc-active{border-left-color:#22c55e}
-  .toc li:nth-child(8) a:hover,.toc li:nth-child(8) a.toc-active{border-left-color:#22c55e}
-  .toc li:nth-child(9) a:hover,.toc li:nth-child(9) a.toc-active{border-left-color:#8b5cf6}
-  .toc li:nth-child(10) a:hover,.toc li:nth-child(10) a.toc-active{border-left-color:#8b5cf6}
-  .toc li:nth-child(11) a:hover,.toc li:nth-child(11) a.toc-active{border-left-color:#ec4899}
+  /* TOC hidden — replaced by left sidebar */
+  .toc { display: none; }
 
   /* Study Navigator */
   .study-nav{border-top:2px solid #e0e0e0;background:#FAFAFA;padding:14px 16px;margin-top:2rem}
@@ -184,29 +198,49 @@
   </div>
 </div>
 
-<!-- Table of Contents — RM-style sidebar -->
-<div class="toc">
-  <h2>TOPICS</h2>
-  <ol>
-    <li><a href="#s1">Background 研究背景</a></li>
-    <li><a href="#s2">Aim & Hypotheses 目的与假设</a></li>
-    <li><a href="#s3">Method 方法</a> — Sample, Design, Procedure</li>
-    <li><a href="#s4">Results 结果</a></li>
-    <li><a href="#s5">Conclusion 结论</a></li>
-    <li><a href="#s6">Strengths & Weaknesses 优缺点评价</a></li>
-    <li><a href="#s7">Ethics 伦理问题</a></li>
-    <li><a href="#s8">Summary 总结</a></li>
-  </ol>
-  <h2 style="border-top:1px solid #e2e8f0;padding-top:12px;margin-top:4px">REFERENCE</h2>
-  <ol start="9">
-    <li><a href="#s9">Key Terms 核心术语表</a></li>
-    <li><a href="#s10">Exam Practice 考试练习</a></li>
-  </ol>
-  <h2 style="border-top:1px solid #e2e8f0;padding-top:12px;margin-top:4px">INTERACTIVE</h2>
-  <ol start="11">
-    <li><a href="#eyes-test" class="toc-active">🧪 Full RMET Eyes Test (36 Items)</a></li>
-  </ol>
-</div>
+<!-- ===== PAGE LAYOUT: Left Sidebar + Main Content ===== -->
+<div class="page-layout">
+
+<!-- ===== LEFT SIDEBAR NAVIGATION ===== -->
+<aside class="sidebar">
+  <div class="sidebar-inner">
+    <div class="sb-group-title sb-top">TOPICS</div>
+    <ul class="sb-list sb-group-topics">
+      <li class="sb-item"><a href="#s1">Background 研究背景</a></li>
+      <li class="sb-item"><a href="#s2">Aim & Hypotheses 目的与假设</a></li>
+      <li class="sb-item"><a href="#s3">Method 方法</a></li>
+    </ul>
+    <div class="sb-group-title">RESULTS</div>
+    <ul class="sb-list sb-group-results">
+      <li class="sb-item"><a href="#s4">Results 结果</a></li>
+      <li class="sb-item"><a href="#s5">Conclusion 结论</a></li>
+    </ul>
+    <div class="sb-divider"></div>
+    <div class="sb-group-title">EVALUATION</div>
+    <ul class="sb-list sb-group-eval">
+      <li class="sb-item"><a href="#s6">Strengths & Weaknesses 优缺点</a></li>
+      <li class="sb-item"><a href="#s7">Ethics 伦理问题</a></li>
+      <li class="sb-item"><a href="#s8">Summary 总结</a></li>
+    </ul>
+    <div class="sb-divider"></div>
+    <div class="sb-group-title">REFERENCE</div>
+    <ul class="sb-list sb-group-ref">
+      <li class="sb-item"><a href="#s9">Key Terms 核心术语表</a></li>
+      <li class="sb-item"><a href="#s10">Exam Practice 考试练习</a></li>
+    </ul>
+    <div class="sb-divider"></div>
+    <div class="sb-group-title">INTERACTIVE</div>
+    <ul class="sb-list sb-group-interactive">
+      <li class="sb-item"><a href="#eyes-test" class="sb-active">🧪 Eyes Test (36 Items)</a></li>
+    </ul>
+  </div>
+</aside>
+
+<!-- ===== MAIN CONTENT AREA ===== -->
+<div class="main-content">
+
+<!-- Old TOC (hidden, replaced by sidebar) -->
+<div class="toc"></div>
 
 <!-- ==================== SECTION 1 ==================== -->
 <div class="section" id="s1">
@@ -843,9 +877,31 @@ function showScore() {
   document.getElementById("restartBtn").style.display = "block";
 }
 
+// ===== Scroll Spy: Highlight sidebar item based on scroll position =====
+(function(){
+  const sections = document.querySelectorAll('.section[id], .eyes-test-section[id]');
+  const sbLinks = document.querySelectorAll('.sb-item a');
+  function updateActive() {
+    let current = '';
+    const scrollTop = window.scrollY + 120; // offset for sticky nav
+    sections.forEach(s => {
+      if (s.offsetTop <= scrollTop) current = s.getAttribute('id');
+    });
+    sbLinks.forEach(a => {
+      a.classList.remove('sb-active');
+      if (a.getAttribute('href') === '#' + current) a.classList.add('sb-active');
+    });
+  }
+  window.addEventListener('scroll', updateActive, {passive:true});
+  updateActive();
+})();
+
 // Auto-start
 startTest();
 </script>
+
+</div><!-- end .main-content -->
+</div><!-- end .page-layout -->
 
 <!-- Study Navigator -->
 <div class="study-nav">
