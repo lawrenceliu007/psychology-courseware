@@ -46,10 +46,30 @@
   .restart-btn:hover{background:#1d4ed8}
   .glossary-note{font-size:.88em;color:#6b7280;text-align:center;margin-top:8px}
   .comparison-table td:first-child{font-weight:600}
+
+  /* Sticky Navigation Bar */
+  .nav-bar{position:sticky;top:0;z-index:100;background:white;border-bottom:2px solid #e0e0e0;padding:.7rem 1.5rem;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 10px rgba(0,0,0,.08);border-radius:0;margin:-20px -20px 25px -20px;max-width:calc(900px + 40px)}
+  .nav-left{display:flex;align-items:center;gap:.8rem}
+  .nav-logo{font-weight:800;font-size:1rem;color:#2563eb;text-decoration:none}
+  .nav-breadcrumb{font-size:.82rem;color:#64748b}
+  .nav-breadcrumb a{color:#2563eb;text-decoration:none}
+  .nav-breadcrumb a:hover{text-decoration:underline}
+  @media(max-width:650px){
+    .nav-bar{padding:.6rem 1rem}
+    .nav-breadcrumb{display:none}
+  }
 </style>
 </head>
 
 <body>
+<nav class="nav-bar">
+  <div class="nav-left">
+    <a href="../../index.html" class="nav-logo">🏠 Psychology Hub</a>
+    <span class="nav-breadcrumb"><a href="../">CIE Core Studies</a> / Cognitive / Baron-Cohen</span>
+  </div>
+  <div style="font-size:.78rem;color:#94a3b8">👁️ Eyes Test — Full 36 Items</div>
+</nav>
+
 
 <h1>👁️ Baron-Cohen et al. (2001)<br><small style="font-size:.55em;color:#64748b">Reading the Mind in the Eyes Test (Revised Version)</small></h1>
 
@@ -88,11 +108,6 @@
 <tr><td>Imbalance of male/female faces</td><td><strong>Equal number</strong> of male and female faces</td></tr>
 <tr><td>Participants might not know words</td><td>A <strong>glossary</strong> was provided</td></tr>
 </table>
-</div>
-
-<div class="img-container">
-  <img src="baroncohen_images/01.png" alt="Textbook page 1 - Background">
-  <div class="img-caption">Figure 3.7: A pair of eyes from the Reading the Mind in the Eyes test（眼睛区域特写示例）</div>
 </div>
 
 <!-- ==================== SECTION 2 ==================== -->
@@ -152,11 +167,6 @@
 </tbody>
 </table>
 
-<div class="img-container">
-  <img src="baroncohen_images/03.png" alt="Table 3.4 sample details">
-  <div class="img-caption">Table 3.4: The number of participants in separate conditions along with average group characteristics</div>
-</div>
-
 <div class="key-box">
   <h4>Group Details（各组的详细说明）</h4>
   <p><strong>Group 1 (AS/HFA):</strong> Comprised 15 adult males with AS or HFA with mean IQ of 115 and mean age of 29.7 years. Sample self-selected through adverts in the Autistic Society magazine and support groups. All had been diagnosed using DSM or ICD criteria.</p>
@@ -177,11 +187,6 @@
 
 <p>To begin the Eyes test, each participant read through a <strong>glossary（词汇表）</strong> of words the experimenter used to describe the emotions to ensure they knew the meaning of each word (Figure 3.8). They were told they could refer back to the glossary whenever they needed to.</p>
 
-<div class="img-container">
-  <img src="baroncohen_images/04.png" alt="Glossary examples">
-  <div class="img-caption">Figure 3.8: Two items from the glossary used in the study（词汇表示例："Flustered" 和 "Relaxed"）</div>
-</div>
-
 <p>They started with <strong>40 sets of eyes</strong>, target words and <strong>foil words</strong> chosen by Simon Baron-Cohen and Sally Wheelwright. One set of target words and three foil (alternative) words for each set of eyes were developed using groups of eight judges. At least five of the judges had to agree that the target word was the most appropriate word for the item. If more than two of the selected foil words were incorrect alternatives, a new target word, new foils, or both, were generated and retested until Groups 2 and 3 agreed.</p>
 
 <div class="note-box">
@@ -196,11 +201,6 @@
 
 <p>Participants in all conditions except the 'normal' adult comparison (Groups 2 and 3), sex differences were apparent — this was not significant. All participants in the AS/HFA condition scored 33 or above out of 36 on the gender recognition task.</p>
 
-<div class="img-container">
-  <img src="baroncohen_images/02.png" alt="Aim and key words page">
-  <div class="img-caption">Table 3.3: Differences between original and revised Eyes test + Aim + Key Words</div>
-</div>
-
 <p>All participants consented to take part in the study and were aware of the nature of the research. Data were also anonymous so that it was not possible to identify any individual from their scores.</p>
 
 <!-- ==================== SECTION 5 ==================== -->
@@ -208,11 +208,6 @@
 
 <h3>5.1 Main Finding: AS/HFA Group Scored Significantly Lower</h3>
 <p>On the Eyes test, participants with AS/HFA (Group 1) correctly identified significantly fewer target words than participants in the three comparison groups (Figure 3.9).</p>
-
-<div class="img-container">
-  <img src="baroncohen_images/05.png" alt="Results bar chart and table">
-  <div class="img-caption">Figure 3.9: Average number of words correctly identified + Table 3.5: Mean scores (SD)</div>
-</div>
 
 <table>
 <thead><tr><th>Group</th><th>N</th><th>Eyes test Mean (SD)</th><th>AQ test* Mean (SD)</th></tr></thead>
@@ -237,11 +232,6 @@
 
 <h3>5.2 AQ Scores: AS/HFA Much Higher</h3>
 <p>On the AQ task, participants with AS/HFA scored significantly higher than the Student comparison and IQ matched comparison groups, but there was also a smaller, significant difference between male and female AQ scores in the Student comparison group.</p>
-
-<div class="img-container">
-  <img src="baroncohen_images/06.png" alt="AQ scores chart">
-  <div class="img-caption">Figure 3.10: Average AQ scores across groups（各组的平均 AQ 分数）</div>
-</div>
 
 <h3>5.3 Sex Differences</h3>
 <p>There was evidence of a <strong>sex difference</strong>: although males and females in the comparison groups marked the pattern of results as males lower on the Eyes test and showed greater levels of autistic traits on the AQ test than females. However, some of these differences were not significant so further research is needed to clarify whether there are differences between the sexes in terms of their AQ or ability to attribute emotions to others.</p>
@@ -291,11 +281,6 @@
 <p>As all participants were able to give informed consent（知情同意）and their data was kept confidential, few ethical issues were raised within the study itself. However, ethical issues could arise from the findings! Evidence such as this, which identifies 'impaired' performance of control groups and the 'impaired' normal performance of the AS/HFA group could be seen as representing neurodiverse groups in a negative way.</p>
 
 <p>Alternatively, by identifying such differences, this research has the capacity to provide both an understanding of the nature of the experience of people with ASD and, therefore, potential for greater understanding of society and the potentially in situations such as school or the workplace. This would be an ethical strength（伦理优势）.</p>
-
-<div class="img-container">
-  <img src="baroncohen_images/07.png" alt="Ethical issues and summary">
-  <div class="img-caption">Ethical issues, Activity 3.4, Summary, and Questions</div>
-</div>
 
 <!-- ==================== SECTION 9 ==================== -->
 <h2>9. Summary（总结）</h2>
@@ -382,7 +367,14 @@
 
 <section class="eyes-test-section">
 <h2>🧪 体验完整版 Eyes Test (Revised)</h2>
-<p style="opacity:0.9;text-align:center">下面是 Baron-Cohen et al. (2001) 的<strong>原版「读心眼」测试</strong>——1道练习题 + 17道正式题。每张图都是研究中使用的真实照片！</p>
+<p style="opacity:0.9;text-align:center">下面是 Baron-Cohen et al. (2001) 的<strong>完整原版「读心眼」测试</strong>——1道练习题 + <strong>36道正式题</strong>。每张图都是研究中使用的真实照片！答案以 <a href="https://embrace-autism.com/reading-the-mind-in-the-eyes-test/" target="_blank" style="color:#2563eb;text-decoration:underline">embrace-autism.com</a> 官方标准为准。</p>
+<div class="note-box" style="margin-bottom:15px">
+  <strong>📋 测试说明（与原版一致）：</strong>
+  <ol style="margin:8px 0 0 20px;font-size:.9em">
+    <li>每张眼睛照片配有 <strong>4 个选项</strong>，选择最准确描述该人心理状态的那个词</li><li>如果觉得多个词都适用，请选<strong>最合适</strong>的一个</li>
+    <li>作答前<strong>务必先读完所有 4 个选项</strong></li><li>下方词汇表提供了每个词的英文定义，不确定时可参考</li>
+  </ol>
+</div>
 
 <div class="test-card" id="testCard">
   <div class="test-progress" id="progress"><span id="progressText">练习题</span></div>
@@ -404,15 +396,90 @@
   <p class="glossary-note">💡 提示：如果不确定某个词的意思，可以参考上文的 Key Terms 表格或 Glossary。</p>
 </div>
 
-<!-- Glossary for the test -->
+<!-- Glossary for the test — original test provided definitions to ensure comprehension -->
 <div class="key-box" style="margin-top:18px">
-<h4>📖 Eyes Test 词汇表 (Glossary)</h4>
-<p style="font-size:.9em"><strong>aghast</strong> 惊骇的 | <strong>alarmed</strong> 惊恐的 | <strong>amused</strong> 被逗乐的 | <strong>annoyed</strong> 烦恼的 | <strong>anticipating</strong> 期待的 | <strong>apologetic</strong> 道歉的 | <strong>arrogant</strong> 傲慢的 | <strong>accusing</strong> 谴责的 | <strong>affectionate</strong> 深情的 | <strong>bored</strong> 无聊的 | <strong>cautious</strong> 谨慎的 | <strong>contemplative</strong> 沉思的 | <strong>convinced</strong> 确信的 | <strong>comforting</strong> 安慰的 | <strong>decisive</strong> 果断的 | <strong>depressed</strong> 沮丧的 | <strong>despondent</strong> 失望的 | <strong>disappointed</strong> 失望的 | <strong>dispirited</strong> 气馁的 | <strong>doubtful</strong> 怀疑的 | <strong>embarrassed</strong> 尴尬的 | <strong>encouraging</strong> 鼓励的 | <strong>excited</strong> 兴奋的 | <strong>fantasizing</strong> 幻想的 | <strong>flirtatious</strong> 调情的 | <strong>flustered</strong> 慌乱的 | <strong>friendly</strong> 友好的 | <strong>hostile</strong> 敌对的 | <strong>hateful</strong> 可恨的 | <strong>horrified</strong> 震惊的 | <strong>impatient</strong> 不耐烦的 | <strong>indifferent</strong> 冷漠的 | <strong>insisting</strong> 坚持的 | <strong>irritated</strong> 恼怒的 | <strong>joking</strong> 开玩笑的 | <strong>jealous</strong> 嫉妒的 | <strong>panicked</strong> 惊慌的 | <strong>playful</strong> 顽皮的 | <strong>preoccupied</strong> 心事重重的 | <strong>regretful</strong> 后悔的 | <strong>relieved</strong> 如释重负的 | <strong>relaxed</strong> 放松的 | <strong>sarcastic</strong> 讽刺的 | <strong>sceptical</strong> 怀疑的 | <strong>shy</strong> 害羞的 | <strong>sympathetic</strong> 同情的 | <strong>thoughtful</strong> 体贴的 | <strong>threatening</strong> 威胁的 | <strong>terrified</strong> 极度恐惧的 | <strong>upset</strong> 心烦意乱的 | <strong>uneasy</strong> 不安的 | <strong>worried</strong> 担心的</p>
+<h4>📖 Eyes Test 词汇定义表 (Glossary with Definitions)</h4>
+<p style="font-size:.88em;color:#666;margin-bottom:12px">原版测试提供此词汇表，确保受试者理解每个词的准确含义后再作答。做测试前建议先浏览！</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;font-size:.85em">
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>aghast</strong> 惊骇的 — filled with shock or horror</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>alarmed</strong> 惊恐的 — frightened or disturbed by danger</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>amused</strong> 被逗乐的 — finding something funny or entertaining</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>annoyed</strong> 烦恼的 — slightly angry or irritated</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>anticipating</strong> 期待的 — expecting something with pleasure</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>apologetic</strong> 道歉的 — showing regret or saying sorry</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>arrogant</strong> 傲慢的 — having an exaggerated sense of importance</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>accusing</strong> 谴责的 — suggesting someone has done wrong</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>affectionate</strong> 深情的 — showing gentle love or care</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>bored</strong> 无聊的 — feeling uninterested and tired</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>cautious</strong> 谨慎的 — carefully avoiding risk or danger</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>contemplative</strong> 沉思的 — thinking deeply about something</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>convinced</strong> 确信的 — completely certain or sure</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>comforting</strong> 安慰的 — giving comfort or reassurance to someone</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>decisive</strong> 果断的 — showing ability to make decisions quickly</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>depressed</strong> 沮丧的 — feeling severe sadness and low in spirit</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>despondent</strong> 消沉的 — feeling low-spirited and losing hope</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>disappointed</strong> 失望的 — sad because an expectation was not met</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>dispirited</strong> 气馁的 — lacking enthusiasm or hope</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>doubtful</strong> 怀疑的 — uncertain; feeling unsure about something</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>embarrassed</strong> 尴尬的 — feeling self-conscious or ashamed</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>encouraging</strong> 鼓励的 — giving someone confidence or hope</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>excited</strong> 兴奋的 — feeling eager and enthusiastic</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>fantasizing</strong> 幻想的 — imagining pleasant things; daydreaming</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>flirtatious</strong> 调情的 — showing romantic or sexual interest playfully</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>flustered</strong> 慌乱的 — agitated or confused; losing composure</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>friendly</strong> 友好的 — kind and pleasant</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>hostile</strong> 敌对的 — unfriendly; showing opposition or anger</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>hateful</strong> 可恨的 — full of hate; showing intense dislike</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>horrified</strong> 震惊的 — shocked and filled with horror</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>impatient</strong> 不耐烦的 — annoyed at delays; wanting things to happen now</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>indifferent</strong> 冷漠的 — having no interest or concern</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>insisting</strong> 坚持的 — demanding something forcefully; not accepting refusal</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>irritated</strong> 恼怒的 — slightly annoyed; made impatient or angry</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>joking</strong> 开玩笑的 — not serious; saying things for fun</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>jealous</strong> 嫉妒的 — envious of what others have</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>panicked</strong> 惊慌的 — suddenly overcome with fear</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>playful</strong> 顽皮的 — full of fun; wanting to play</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>preoccupied</strong> 心事重重的 — absorbed in thought; distracted by worries</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>regretful</strong> 后悔的 — feeling sorry about something done or not done</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>relieved</strong> 如释重负的 — no longer worried; reassured</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>relaxed</strong> 放松的 — free from tension; calm and comfortable</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>sarcastic</strong> 讽刺的 — using irony to mock or convey contempt</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>sceptical</strong> 怀疑的 — not easily convinced; doubting truth claims</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>shy</strong> 害羞的 — nervous or timid around other people</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>sympathetic</strong> 同情的 — showing understanding of others' feelings</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>thoughtful</strong> 体贴/深思的 — showing consideration for others; reflective</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>threatening</strong> 威胁的 — expressing intention to cause harm</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>terrified</strong> 极度恐惧的 — extremely frightened</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>upset</strong> 心烦意乱的 — unhappy, disappointed, or worried</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>uneasy</strong> 不安的 — slightly anxious or uncomfortable</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>worried</strong> 担心的 — anxious or troubled about something</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>tentative</strong> 试探性的 — uncertain or hesitant</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>dominant</strong> 支配的 — having power and influence over others</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>guilty</strong> 内疚的 — feeling bad about something wrong</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>confused</strong> 困惑的 — unable to think clearly; mixed up</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>imploring</strong> 恳求的 — asking earnestly or desperately for help</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>contented</strong> 满足的 — happy and satisfied with what one has</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>defiant</strong> 挑衅的 — showing open resistance or disobedience</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>pensive</strong> 沉思的 — deeply thoughtful, often with sadness</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>incredulous</strong> 怀疑的 — unwilling to believe; skeptical and surprised</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>anxious</strong> 焦虑的 — worried about something that might happen</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>reassuring</strong> 令人安心的 — removing doubt or fear from someone</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>reflective</strong> 深思的 — thinking carefully about experiences</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>ashamed</strong> 羞愧的 — feeling shame or embarrassment</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>confident</strong> 自信的 — sure of one's abilities or outcome</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>serious</strong> 严肃的 — demanding careful consideration</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>bewildered</strong> 困惑的 — completely confused and perplexed</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>baffled</strong> 困惑的 — totally confused and unable to understand</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>distrustful</strong> 不信任的 — suspicious; lacking trust in someone</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>puzzled</strong> 困惑的 — confused by something difficult</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>suspicious</strong> 可疑的 — having doubts about honesty/motives</div>
+<div style="background:#f8f9fa;padding:6px 10px;border-radius:5px;border-left:3px solid #3b82f6"><strong>indecisive</strong> 优柔寡断的 — not able to make decisions quickly</div>
+</div>
 </div>
 </section>
 
 <script>
-// Full original Eyes Test data (Practice + 17 items)
+// Complete RMET: Practice + 36 items (answers from embrace-autism.com official key)
 const questions = [
   // Practice item (not scored)
   {
@@ -422,108 +489,78 @@ const questions = [
     isPractice: true,
     explanation: "练习题 — 这双眼睛表现出一种嫉妒/警惕的神情"
   },
-  // Q1
-  {
-    image: "eyes_test_images/eyes_02.png",
-    options: ["playful（顽皮的）", "comforting（安慰的）", "irritated（恼怒的）", "bored（无聊的）"],
-    answer: 0
-  },
-  // Q2
-  {
-    image: "eyes_test_images/eyes_03.png",
-    options: ["terrified（极度恐惧的）", "upset（心烦意乱的）", "arrogant（傲慢的）", "annoyed（烦恼的）"],
-    answer: 1
-  },
-  // Q3
-  {
-    image: "eyes_test_images/eyes_04.png",
-    options: ["joking（开玩笑的）", "flustered（慌乱的）", "desire（渴望的）", "convinced（确信的）"],
-    answer: 2
-  },
-  // Q4
-  {
-    image: "eyes_test_images/eyes_05.png",
-    options: ["joking（开玩笑的）", "insisting（坚持的）", "amused（被逗乐的）", "relaxed（放松的）"],
-    answer: 1
-  },
-  // Q5
-  {
-    image: "eyes_test_images/eyes_06.png",
-    options: ["irritated（恼怒的）", "sarcastic（讽刺的）", "worried（担心的）", "friendly（友好的）"],
-    answer: 2
-  },
-  // Q6
-  {
-    image: "eyes_test_images/eyes_07.png",
-    options: ["aghast（惊骇的）", "fantasizing（幻想的）", "impatient（不耐烦的）", "alarmed（惊恐的）"],
-    answer: 0
-  },
-  // Q7
-  {
-    image: "eyes_test_images/eyes_08.png",
-    options: ["apologetic（道歉的）", "friendly（友好的）", "uneasy（不安的）", "dispirited（气馁的）"],
-    answer: 0
-  },
-  // Q8
-  {
-    image: "eyes_test_images/eyes_09.png",
-    options: ["despondent（失望的）", "relieved（如释重负的）", "shy（害羞的）", "excited（兴奋的）"],
-    answer: 1
-  },
-  // Q9
-  {
-    image: "eyes_test_images/eyes_10.png",
-    options: ["annoyed（烦恼的）", "hostile（敌对的）", "horrified（震惊的）", "preoccupied（心事重重的）"],
-    answer: 2
-  },
-  // Q10
-  {
-    image: "eyes_test_images/eyes_11.png",
-    options: ["cautious（谨慎的）", "insisting（坚持的）", "bored（无聊的）", "aghast（惊骇的）"],
-    answer: 0
-  },
-  // Q11
-  {
-    image: "eyes_test_images/eyes_12.png",
-    options: ["terrified（极度恐惧的）", "amused（被逗乐的）", "regretful（后悔的）", "flirtatious（调情的）"],
-    answer: 2
-  },
-  // Q12
-  {
-    image: "eyes_test_images/eyes_13.png",
-    options: ["indifferent（冷漠的）", "embarrassed（尴尬的）", "sceptical（怀疑的）", "dispirited（气馁的）"],
-    answer: 2
-  },
-  // Q13
-  {
-    image: "eyes_test_images/eyes_14.png",
-    options: ["decisive（果断的）", "anticipating（期待的）", "threatening（威胁的）", "shy（害羞的）"],
-    answer: 1
-  },
-  // Q14
-  {
-    image: "eyes_test_images/eyes_15.png",
-    options: ["irritated（恼怒的）", "disappointed（失望的）", "depressed（沮丧的）", "accusing（谴责的）"],
-    answer: 3
-  },
-  // Q15
-  {
-    image: "eyes_test_images/eyes_16.png",
-    options: ["contemplative（沉思的）", "flustered（慌乱的）", "encouraging（鼓励的）", "amused（被逗乐的）"],
-    answer: 0
-  },
-  // Q16
-  {
-    image: "eyes_test_images/eyes_17.png",
-    options: ["irritated（恼怒的）", "thoughtful（体贴的）", "encouraging（鼓励的）", "sympathetic（同情的）"],
-    answer: 2
-  },
-  // Q17
-  {
-    image: "eyes_test_images/eyes_18.png",
-    options: ["doubtful（怀疑的）", "affectionate（深情的）", "playful（顽皮的）", "aghast（惊骇的）"],
-    answer: 1
-  }
+  // Item 1
+  { image: "eyes_test_images/eyes_02.png", options: ["playful（顽皮的）","comforting（安慰的）","irritated（恼怒的）","bored（无聊的）"], answer: 0 },
+  // Item 2
+  { image: "eyes_test_images/eyes_03.png", options: ["terrified（极度恐惧的）","upset（心烦意乱的）","arrogant（傲慢的）","annoyed（烦恼的）"], answer: 1 },
+  // Item 3
+  { image: "eyes_test_images/eyes_04.png", options: ["joking（开玩笑的）","flustered（慌乱的）","desire（渴望的）","convinced（确信的）"], answer: 2 },
+  // Item 4
+  { image: "eyes_test_images/eyes_05.png", options: ["joking（开玩笑的）","insisting（坚持的）","amused（被逗乐的）","relaxed（放松的）"], answer: 1 },
+  // Item 5
+  { image: "eyes_test_images/eyes_06.png", options: ["irritated（恼怒的）","sarcastic（讽刺的）","worried（担心的）","friendly（友好的）"], answer: 2 },
+  // Item 6
+  { image: "eyes_test_images/eyes_07.png", options: ["aghast（惊骇的）","fantasizing（幻想的）","impatient（不耐烦的）","alarmed（惊恐的）"], answer: 1 },
+  // Item 7
+  { image: "eyes_test_images/eyes_08.png", options: ["apologetic（道歉的）","friendly（友好的）","uneasy（不安的）","dispirited（气馁的）"], answer: 2 },
+  // Item 8
+  { image: "eyes_test_images/eyes_09.png", options: ["despondent（消沉的）","relieved（如释重负的）","shy（害羞的）","excited（兴奋的）"], answer: 0 },
+  // Item 9
+  { image: "eyes_test_images/eyes_10.png", options: ["annoyed（烦恼的）","hostile（敌对的）","horrified（震惊的）","preoccupied（心事重重的）"], answer: 1 },
+  // Item 10
+  { image: "eyes_test_images/eyes_11.png", options: ["cautious（谨慎的）","insisting（坚持的）","bored（无聊的）","aghast（惊骇的）"], answer: 0 },
+  // Item 11
+  { image: "eyes_test_images/eyes_12.png", options: ["terrified（极度恐惧的）","amused（被逗乐的）","regretful（后悔的）","flirtatious（调情的）"], answer: 2 },
+  // Item 12
+  { image: "eyes_test_images/eyes_13.png", options: ["indifferent（冷漠的）","embarrassed（尴尬的）","sceptical（怀疑的）","dispirited（气馁的）"], answer: 2 },
+  // Item 13
+  { image: "eyes_test_images/eyes_14.png", options: ["decisive（果断的）","anticipating（期待的）","threatening（威胁的）","shy（害羞的）"], answer: 1 },
+  // Item 14
+  { image: "eyes_test_images/eyes_15.png", options: ["irritated（恼怒的）","disappointed（失望的）","depressed（沮丧的）","accusing（谴责的）"], answer: 3 },
+  // Item 15
+  { image: "eyes_test_images/eyes_16.png", options: ["contemplative（沉思的）","flustered（慌乱的）","encouraging（鼓励的）","amused（被逗乐的）"], answer: 0 },
+  // Item 16
+  { image: "eyes_test_images/eyes_17.png", options: ["irritated（恼怒的）","thoughtful（体贴的）","encouraging（鼓励的）","sympathetic（同情的）"], answer: 1 },
+  // Item 17
+  { image: "eyes_test_images/eyes_18.png", options: ["doubtful（怀疑的）","affectionate（深情的）","playful（顽皮的）","aghast（惊骇的）"], answer: 0 },
+  // Item 18
+  { image: "eyes_test_images/eyes_19.png", options: ["decisive（果断的）","amused（被逗乐的）","aghast（惊骇的）","bored（无聊的）"], answer: 0 },
+  // Item 19
+  { image: "eyes_test_images/eyes_20.png", options: ["arrogant（傲慢的）","grateful（感激的）","sarcastic（讽刺的）","tentative（试探性的）"], answer: 3 },
+  // Item 20
+  { image: "eyes_test_images/eyes_21.png", options: ["dominant（支配的）","friendly（友好的）","guilty（内疚的）","horrified（震惊的）"], answer: 1 },
+  // Item 21
+  { image: "eyes_test_images/eyes_22.png", options: ["embarrassed（尴尬的）","fantasizing（幻想的）","confused（困惑的）","panicked（惊慌的）"], answer: 1 },
+  // Item 22
+  { image: "eyes_test_images/eyes_23.png", options: ["preoccupied（心事重重的）","grateful（感激的）","insisting（坚持的）","imploring（恳求的）"], answer: 0 },
+  // Item 23
+  { image: "eyes_test_images/eyes_24.png", options: ["contented（满足的）","apologetic（道歉的）","defiant（挑衅的）","curious（好奇的）"], answer: 2 },
+  // Item 24
+  { image: "eyes_test_images/eyes_25.png", options: ["pensive（沉思的）","irritated（恼怒的）","excited（兴奋的）","hostile（敌对的）"], answer: 0 },
+  // Item 25
+  { image: "eyes_test_images/eyes_26.png", options: ["panicked（惊慌的）","incredulous（怀疑的）","despondent（消沉的）","interested（感兴趣的）"], answer: 3 },
+  // Item 26
+  { image: "eyes_test_images/eyes_27.png", options: ["alarmed（惊恐的）","shy（害羞的）","hostile（敌对的）","anxious（焦虑的）"], answer: 2 },
+  // Item 27
+  { image: "eyes_test_images/eyes_28.png", options: ["joking（开玩笑的）","cautious（谨慎的）","arrogant（傲慢的）","reassuring（令人安心的）"], answer: 3 },
+  // Item 28
+  { image: "eyes_test_images/eyes_29.png", options: ["interested（感兴趣的）","joking（开玩笑的）","affectionate（深情的）","contented（满足的）"], answer: 0 },
+  // Item 29
+  { image: "eyes_test_images/eyes_30.png", options: ["impatient（不耐烦的）","aghast（惊骇的）","irritated（恼怒的）","reflective（深思的）"], answer: 3 },
+  // Item 30
+  { image: "eyes_test_images/eyes_31.png", options: ["grateful（感激的）","flirtatious（调情的）","hostile（敌对的）","disappointed（失望的）"], answer: 1 },
+  // Item 31
+  { image: "eyes_test_images/eyes_32.png", options: ["ashamed（羞愧的）","confident（自信的）","joking（开玩笑的）","dispirited（气馁的）"], answer: 1 },
+  // Item 32
+  { image: "eyes_test_images/eyes_33.png", options: ["serious（严肃的）","ashamed（羞愧的）","bewildered（困惑的）","alarmed（惊恐的）"], answer: 0 },
+  // Item 33
+  { image: "eyes_test_images/eyes_34.png", options: ["embarrassed（尴尬的）","guilty（内疚的）","fantasizing（幻想的）","concerned（担心的）"], answer: 3 },
+  // Item 34
+  { image: "eyes_test_images/eyes_35.png", options: ["aghast（惊骇的）","baffled（困惑的）","distrustful（不信任的）","terrified（极度恐惧的）"], answer: 2 },
+  // Item 35
+  { image: "eyes_test_images/eyes_36.png", options: ["puzzled（困惑的）","nervous（紧张的）","insisting（坚持的）","contemplative（沉思的）"], answer: 1 },
+  // Item 36
+  { image: "eyes_test_images/eyes_37.png", options: ["ashamed（羞愧的）","nervous（紧张的）","suspicious（可疑的）","indecisive（优柔寡断的）"], answer: 2 }
 ];
 
 let currentQ = 0;
@@ -645,7 +682,6 @@ function showScore() {
 startTest();
 </script>
 
-
 <style>
 /* Study Navigator */
 .study-nav{border-top:2px solid #e0e0e0;background:#FAFAFA;padding:14px 16px;margin-top:2rem}
@@ -663,6 +699,18 @@ startTest();
     .study-nav-btn{font-size:.75rem;padding:7px 10px}
     .study-dot{width:8px;height:8px}
 }
+
+  /* Sticky Navigation Bar */
+  .nav-bar{position:sticky;top:0;z-index:100;background:white;border-bottom:2px solid #e0e0e0;padding:.7rem 1.5rem;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 10px rgba(0,0,0,.08);border-radius:0;margin:-20px -20px 25px -20px;max-width:calc(900px + 40px)}
+  .nav-left{display:flex;align-items:center;gap:.8rem}
+  .nav-logo{font-weight:800;font-size:1rem;color:#2563eb;text-decoration:none}
+  .nav-breadcrumb{font-size:.82rem;color:#64748b}
+  .nav-breadcrumb a{color:#2563eb;text-decoration:none}
+  .nav-breadcrumb a:hover{text-decoration:underline}
+  @media(max-width:650px){
+    .nav-bar{padding:.6rem 1rem}
+    .nav-breadcrumb{display:none}
+  }
 </style>
 <div class="study-nav">
   <div class="study-nav-inner">
