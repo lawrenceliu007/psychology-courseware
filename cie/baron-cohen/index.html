@@ -292,6 +292,29 @@
     body{font-size:11pt;line-height:1.5;background:#fff;color:#000}
     .container{max-width:100%;padding:0}
   }
+  /* 10. Chinese Summary Card (中文逻辑总结) */
+  .cn-summary-wrap{margin:14px 0 6px;position:relative}
+  .cn-summary-toggle{display:inline-flex;align-items:center;gap:5px;background:none;border:1px dashed #a78bfa;color:#7c3aed;cursor:pointer;font-size:.78em;padding:4px 12px;border-radius:14px;font-weight:600;transition:all .15s;line-height:1.4}
+  .cn-summary-toggle:hover{background:#f5f3ff;border-color:#7c3aed}
+  .cn-summary-toggle .cs-icon{font-size:.9em;transition:transform .2s}
+  .cn-summary-toggle.open .cs-icon{transform:rotate(90deg)}
+  .cn-summary-body{max-height:0;overflow:hidden;transition:max-height .3s ease,margin .3s ease,opacity .2s ease;opacity:0;margin:0}
+  .cn-summary-body.open{max-height:400px;opacity:1;margin:8px 0 4px}
+  .cn-summary-card{background:linear-gradient(135deg,#faf5ff,#f0e7ff);border-left:3px solid #8b5cf6;border-radius:8px;padding:14px 18px;font-size:.88em;line-height:1.75;color:#4c1d95}
+  .cn-summary-card .cs-title{font-weight:700;color:#6d28d9;margin-bottom:6px;font-size:1em;display:flex;align-items:center;gap:6px}
+  .cn-summary-card .cs-title::before{content:'📝'}
+  .cn-summary-card p{margin:4px 0;color:#5b21b6}
+  .cn-summary-card strong{color:#6d28d9}
+  .cn-summary-card .cs-en{color:#7c3aed;font-style:italic;font-weight:600}
+  .cn-summary-card ul,.cn-summary-card ol{margin:4px 0;padding-left:18px}
+  .cn-summary-card li{margin:3px 0;color:#5b21b6}
+  body.dark .cn-summary-toggle{color:#a78bfa;border-color:#a78bfa}
+  body.dark .cn-summary-toggle:hover{background:#1e1b4b}
+  body.dark .cn-summary-card{background:linear-gradient(135deg,#1e1b4b,#2e1065);border-left-color:#a78bfa;color:#e0e7ff}
+  body.dark .cn-summary-card .cs-title{color:#c4b5fd}
+  body.dark .cn-summary-card p,body.dark .cn-summary-card li{color:#ddd6fe}
+  body.dark .cn-summary-card strong{color:#c4b5fd}
+  body.dark .cn-summary-card .cs-en{color:#a78bfa}
 </style>
 </head>
 
@@ -403,6 +426,19 @@
 <p>A person with an <strong>autism spectrum disorder（自闭症谱系障碍）</strong> does not fully develop cognitive processes linked to social interaction. <strong>ASD</strong> occurs in approximately <strong>1% of the population</strong>. Individuals with ASD share difficulties in social functioning, such as limited social sensitivity, communication and ability to cope with change, and may have narrow interests.</p>
 <p>The term ASD is now used to refer to both <strong>high-functioning autism (HFA)（高功能自闭症）</strong> and <strong>Asperger syndrome (AS)（阿斯伯格综合征）</strong>, however the terms HFA and AS were used at the time that this study was published.</p>
 <p>Baron-Cohen et al. suggest that people with ASD lack or have an underdeveloped cognitive process called <strong>a theory of mind（心智理论）</strong>. A theory of mind is a cognitive ability enabling people to comprehend that others have different feelings, beliefs, knowledge and desires from their own. Individuals with ASD find it difficult to understand that other people have their own plans, thoughts or feelings separate from their own.</p>
+</div>
+
+<div class="cn-summary-wrap">
+  <button class="cn-summary-toggle" onclick="toggleCnSummary(this)"><span class="cs-icon">▶</span> 中文逻辑总结</button>
+  <div class="cn-summary-body">
+    <div class="cn-summary-card">
+      <div class="cs-title">Background 核心逻辑</div>
+      <p><strong>研究起点：</strong><span class="cs-en">Autism Spectrum Disorder (ASD)</span> 患者约占人口 1%，他们在<strong>社交互动</strong>方面有困难。</p>
+      <p><strong>核心假设：</strong>ASD 人士缺乏 <span class="cs-en">Theory of Mind (ToM，心智理论)</span>——即"理解别人和自己有不同的想法/感受"这种认知能力。</p>
+      <p><strong>ToM 的作用：</strong>让你能推断他人的心理状态（mental state）。比如看到朋友哭 → 知道她难过 → 选择安慰而不是嘲笑。ASD 人士在这个环节有障碍。</p>
+      <p><strong>术语注意：</strong>2001 年论文中用的是 <span class="cs-en">HFA（高功能自闭症）</span>和 <span class="cs-en">AS（阿斯伯格综合征）</span>，现在统一称为 ASD。<span class="cs-en">Empathy（共情）</span>与 ToM 密切相关——共情是理解他人感受的能力，而 ToM 是理解他人心理状态的能力。</p>
+    </div>
+  </div>
 </div>
 
 <div class="note-box">
@@ -578,6 +614,26 @@
 
 <p>All participants consented to take part in the study and were aware of the nature of the research. Data were also anonymous so that it was not possible to identify any individual from their scores.</p>
 
+<div class="cn-summary-wrap">
+  <button class="cn-summary-toggle" onclick="toggleCnSummary(this)"><span class="cs-icon">▶</span> 中文逻辑总结</button>
+  <div class="cn-summary-body">
+    <div class="cn-summary-card">
+      <div class="cs-title">Procedure 实验流程总结</div>
+      <p><strong>第一步 — 准备：</strong>参与者先读 <span class="cs-en">Glossary（情绪词汇表）</span>，确保认识所有选项词的含义。随时可以回查。</p>
+      <p><strong>第二步 — 测试：</strong>看 <strong>40 组眼睛照片</strong>（最终分析用 36 组，男女各半），每组选 <strong>1 个正确答案 + 3 个干扰选项</span>（<span class="cs-en">foil words</span>）。</p>
+      <p><strong>第三步 — 计分：</strong>每题 1 分，满分 <strong>36 分</span>。同时完成 <span class="cs-en">AQ（自闭症谱系商数）</span>问卷。</p>
+      <p><strong>关键设计细节：</strong></p>
+      <ul>
+        <li><span class="cs-en">Target word（目标词）</span>：正确答案，由 8 名评委中至少 5 人认可</li>
+        <li><span class="cs-en">Foil words（干扰词）</span>：3 个错误但看似合理的选项，增加难度</li>
+        <li>删除了 4 道控制题（结果不一致），最终 36 题</li>
+        <li>数据<strong>匿名</strong>处理，参与者知情同意</li>
+      </ul>
+      <p><strong>逻辑链：</strong>Glossary → 40 张眼图 → 每张 4 选 1 → 筛除 4 题 → 最终 36 分 → 同时测 AQ → 对比四组数据</p>
+    </div>
+  </div>
+</div>
+
 <!-- Section 3 Summary Card -->
 <div class="summary-card" id="sum-s3">
   <div class="summary-card-header" onclick="toggleSummary('sum-s3')">
@@ -647,6 +703,25 @@
   🔬 r = −0.53 表示中等强度的负相关：AQ 越高（自闭症特质越多），Eyes Test 得分越低。而且这个相关与 IQ 无关！这说明 Eyes Test 测量的不是一般智力，而是特定的社会认知能力（social cognition）。
 </div>
 
+<div class="cn-summary-wrap">
+  <button class="cn-summary-toggle" onclick="toggleCnSummary(this)"><span class="cs-icon">▶</span> 中文逻辑总结</button>
+  <div class="cn-summary-body">
+    <div class="cn-summary-card">
+      <div class="cs-title">Results 数据解读总结</div>
+      <p><strong>🔴 核心发现（必考）：</strong><span class="cs-en">AS/HFA 组</span> Eyes Test 平均 <strong>21.9/36（61%）</strong>，而 <span class="cs-en">IQ 匹配对照组</span>高达 <strong>30.9/36（86%）</strong>——差距近 9 分，统计显著！</p>
+      <p><strong>这意味着什么？</strong></p>
+      <ol>
+        <li><strong>ASD 的情绪识别困难是真实的</strong>，不是因为智商低（Group 1 IQ=115 vs Group 4 IQ=116 几乎相同）</li>
+        <li><strong>支持 ToM 缺陷假设：</span>问题出在特定的社会认知能力，而非一般智力</li>
+        <li><span class="cs-en">Revised Eyes Test 比 1997 原版更有效</span>——能检测到原版无法区分的个体差异</li>
+      </ol>
+      <p><strong>📊 AQ 相关性：</strong><span class="cs-en">r = −0.53</span>（中等负相关）。自闭症特质越多 → 情绪识别越差。且与 IQ 无关 → 说明测的是特定能力。</p>
+      <p><strong>👤 性别差异：</strong>男性在 Eyes Test 上得分更低、AQ 得分更高，但部分差异未达显著水平 → 需要更多研究。</p>
+      <p><strong>考试答题模板：</strong>如果问 "What do results show?" → 先报核心数据（21.9 vs 30.9），再解释意义（specific ToM deficit, independent of IQ），最后提相关性（r = −0.53）。</p>
+    </div>
+  </div>
+</div>
+
 <!-- Section 4 Summary Card -->
 <div class="summary-card" id="sum-s4">
   <div class="summary-card-header" onclick="toggleSummary('sum-s4')">
@@ -678,11 +753,30 @@
   </div>
 </div>
 
-<p>The results indicate that the participants in the AS/HFA group had a <strong>specific deficit（特定缺陷）</strong> in a cognitive process that should help them to identify emotions in other individuals, i.e. contribute to a <span class="term" data-term="theory of mind">theory of mind<span class='tooltip-html'><strong>Theory of Mind (心智理论)</strong><span class='tt-cn'>心智理论</span><span class='tt-def'>Cognitive ability to understand others have different feelings, beliefs, knowledge and desires from one\'s own.</span></span></span>. This conclusion is validated by the AS/HFA group being able to identify the gender of the eyes accurately — showing that the Eyes test detected a subtle and specific impairment in otherwise intelligent participants. <span class="tag-must">Must Know</span></p>
+<p>The results indicate that the participants in the AS/HFA group had a <strong>specific deficit（特定缺陷）</strong> in a cognitive process that should help them to identify emotions in other individuals, i.e. contribute to a <span class="term" data-term="theory of mind">theory of mind</span>. This conclusion is validated by the AS/HFA group being able to identify the gender of the eyes accurately — showing that the Eyes test detected a subtle and specific impairment in otherwise intelligent participants. <span class="tag-must">Must Know</span></p>
 
 <p>There was evidence of a <strong>sex difference</strong>: males lower on the Eyes test, and showed greater levels of autistic traits on the AQ test, than females. However, some differences were not significant.</p>
 
 <p>This study showed that the revised Eyes test is a more sensitive measure of <strong>adult social intelligence</strong> than previous studies, allowing future research to discriminate individual differences more meaningfully.</p>
+
+<div class="cn-summary-wrap">
+  <button class="cn-summary-toggle" onclick="toggleCnSummary(this)"><span class="cs-icon">▶</span> 中文逻辑总结</button>
+  <div class="cn-summary-body">
+    <div class="cn-summary-card">
+      <div class="cs-title">Conclusion 结论逻辑链</div>
+      <p><strong>核心论点：</strong>AS/HFA 组在 Eyes Test 上的表现差 → 不是因为一般认知能力差 → 而是 <span class="cs-en">Theory of Mind (ToM)</span> 有<strong>特定缺陷（specific deficit）</strong>。</p>
+      <p><strong>证据链条：</strong></p>
+      <ol>
+        <li><strong>AS/HFA 组识别情绪差：</strong>21.9/36 vs 对照组 26-31分 ✅</li>
+        <li><strong>但 AS/HFA 组能准确判断性别：</strong>说明视觉处理没问题 ❌ 排除一般视觉缺陷</li>
+        <li><strong>AQ 与得分负相关 (r=−0.53)：</strong>自闭症特质越多越差，且与 IQ 无关 ❌ 排除智力因素</li>
+      </ol>
+      <p><strong>结论：</strong>Eyes Test 测量的是一种<strong>特定的社会认知能力</strong>（识别他人情绪状态），而非一般智力或基本视觉能力。</p>
+      <p><strong>实践意义：</strong><span class="cs-en">Revised Eyes Test (2001)</span> 比 <span class="cs-en">Original (1997)</span> 更敏感、更有效——能区分个体差异，可用于成人 ASD 的诊断辅助工具。</p>
+      <p><strong>性别发现：</strong>男性 Eyes Test 更低 + AQ 更高 → 支持 <span class="cs-en">"Extreme Male Brain" theory of autism</span>（自闭症的极端男性大脑理论）。</p>
+    </div>
+  </div>
+</div>
 
 <!-- Section 5 Summary Card -->
 <div class="summary-card" id="sum-s5">
@@ -736,6 +830,35 @@
   <li><strong>No longitudinal data:</strong> Cannot show causation, only correlation between AQ and Eyes test scores.</li>
 </ol>
 
+<div class="cn-summary-wrap">
+  <button class="cn-summary-toggle" onclick="toggleCnSummary(this)"><span class="cs-icon">▶</span> 中文逻辑总结</button>
+  <div class="cn-summary-body">
+    <div class="cn-summary-card">
+      <div class="cs-title">Evaluation 评价框架总结</div>
+      <p><strong>✅ 七大优点（Strengths）：</strong></p>
+      <ol>
+        <li><span class="cs-en">Standardised procedure（标准化程序）</span> → 控制混淆变量 → ↑<span class="cs-en">Internal Validity（内部效度）</span></li>
+        <li><span class="cs-en">Controlled variables（控制变量）</span> → 研究者亲自施测 + 性别识别任务控制视觉能力</li>
+        <li><span class="cs-en">Reliability check（信度检验）</span> → 前期 pilot study 验证流程</li>
+        <li><span class="cs-en">Multiple comparison groups（多对照组）</span> → 4 组含 IQ 匹配组 → 排除智力/年龄干扰</li>
+        <li><span class="cs-en">Improved over original（比原版改进）</span> → 解决 ceiling effect、增加难度、消除偏差</li>
+        <li><span class="cs-en">Cross-sectional design（横断设计）</span> → 快速收集不同人群数据</li>
+        <li><span class="cs-en">Quantitative data（量化数据）</span> → 客观计分，易做统计分析</li>
+      </ol>
+      <p><strong>❌ 六大缺点（Weaknesses）：</strong></p>
+      <ol>
+        <li><span class="cs-en">Quasi-experiment（准实验）</span> → 不能随机分配 → 混淆变量未完全控制</li>
+        <li><span class="cs-en">Sample size（样本量）</span> → AS/HFA 仅 n=15！太小，可能不具代表性</li>
+        <li><span class="cs-en">Ecological validity（生态效度）</span> → 只看眼睛 vs 现实中看整张脸 → 外部推广受限</li>
+        <li><span class="cs-en">Demand characteristics（需求特征）</span> → 参与者知道在做心理学实验 → 可能改变行为</li>
+        <li><span class="cs-en">Cultural bias（文化偏见）</span> → 照片全是白人面孔 → 不能推广到其他种族</li>
+        <li><span class="cs-en">No longitudinal data（无纵向数据）</span> → 只能说明相关，不能证明因果</li>
+      </ol>
+      <p><strong>📝 考试答题技巧：</strong>AO3 评价题通常要求 "Discuss strengths and weaknesses"。建议结构：选 2-3 个最强优点 + 2-3 个最明显缺点，每个都要<strong>解释为什么</strong>它影响研究结论的可信度。</p>
+    </div>
+  </div>
+</div>
+
 <!-- Section 6 Summary Card -->
 <div class="summary-card" id="sum-s6">
   <div class="summary-card-header" onclick="toggleSummary('sum-s6')">
@@ -761,6 +884,33 @@
 <p>As all participants were able to give informed consent（知情同意）and their data was kept confidential, few ethical issues were raised within the study itself. However, ethical issues could arise from the findings! Evidence identifying 'impaired' performance of the AS/HFA group could be seen as representing neurodiverse groups in a negative way.</p>
 
 <p>Alternatively, by identifying such differences, this research has the capacity to provide understanding of the nature of the experience of people with ASD, potentially leading to greater understanding in situations such as school or the workplace. This would be an ethical strength（伦理优势）.</p>
+
+<div class="cn-summary-wrap">
+  <button class="cn-summary-toggle" onclick="toggleCnSummary(this)"><span class="cs-icon">▶</span> 中文逻辑总结</button>
+  <div class="cn-summary-body">
+    <div class="cn-summary-card">
+      <div class="cs-title">Ethical Issues 伦理分析</div>
+      <p><strong>✅ 研究过程本身伦理风险低：</strong></p>
+      <ul>
+        <li>参与者均能给出 <span class="cs-en">Informed Consent（知情同意）</span></li>
+        <li>数据<strong>保密匿名</strong>处理</li>
+        <li>无欺骗、无伤害性操作</li>
+      </ul>
+      <p><strong>⚠️ 但研究发现可能引发伦理争议：</strong></p>
+      <ul>
+        <li><strong>污名化风险：</strong>结果表明 AS/HFA 组"表现受损" → 可能被用来负面描述神经多样性群体</li>
+        <li><strong>标签效应：</strong>"自闭症人士缺乏心智理论"这个结论可能加剧社会歧视</li>
+      </ul>
+      <p><strong>🔄 反方论点（伦理优势）：</strong></p>
+      <ul>
+        <li>识别差异 → 促进对 ASD 人群体验的理解</li>
+        <li>帮助学校/职场提供更好的支持环境</li>
+        <li>推动诊断工具改进 → 早期干预</li>
+      </ul>
+      <p><strong>考试要点：</strong>CIE 伦理题常考 "Discuss ethical issues"。答案结构：①研究过程本身没问题（consent, confidentiality）②但<strong>研究结果的应用</strong>可能带来伦理问题（stigma vs understanding）③两边都要提到才算 balanced。</p>
+    </div>
+  </div>
+</div>
 
 <!-- Section 7 Summary Card -->
 <div class="summary-card" id="sum-s7">
@@ -1041,6 +1191,13 @@
 function toggleSummary(id) {
   const card = document.getElementById(id);
   if (card) card.classList.toggle('open');
+}
+
+// --- 3b. Chinese Summary Toggle (中文总结展开/折叠) ---
+function toggleCnSummary(btn) {
+  btn.classList.toggle('open');
+  const body = btn.nextElementSibling;
+  if (body) body.classList.toggle('open');
 }
 
 // --- 7. Dark Mode Toggle ---
