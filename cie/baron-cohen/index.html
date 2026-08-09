@@ -98,6 +98,13 @@
   .restart-btn:hover{background:#1d4ed8}
   .glossary-note{font-size:.88em;color:#6b7280;text-align:center;margin-top:8px}
 
+  /* Test Navigation Buttons */
+  .test-nav{display:flex;align-items:center;justify-content:space-between;max-width:400px;margin:16px auto 0;gap:10px}
+  .nav-btn{padding:10px 20px;border:2px solid var(--accent);border-radius:8px;background:white;color:var(--accent);cursor:pointer;font-size:.9em;font-weight:600;transition:all .2s;flex-shrink:0}
+  .nav-btn:hover:not(:disabled){background:var(--accent);color:white}
+  .nav-btn:disabled{opacity:.35;cursor:not-allowed;border-color:#ccc;color:#999}
+  .nav-hint{font-size:.8em;color:#9ca3af;text-align:center}
+
   /* Sticky Navigation Bar */
   .nav-bar{position:sticky;top:0;z-index:100;background:white;border-bottom:2px solid #e0e0e0;padding:.7rem 1.5rem;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 10px rgba(0,0,0,.08);border-radius:0;margin:-20px -20px 25px -20px;max-width:calc(900px + 40px)}
   .nav-left{display:flex;align-items:center;gap:.8rem}
@@ -467,7 +474,14 @@
   <p style="text-align:center;font-size:.82em;color:#9ca3af;margin-bottom:10px" id="practiceNote">💡 这是练习题，不计分。选择一个答案来熟悉格式。</p>
   
   <div class="options-grid" id="optionsGrid"></div>
-  
+
+  <!-- Navigation Buttons -->
+  <div class="test-nav" id="testNav" style="display:none;">
+    <button class="nav-btn" id="prevBtn" onclick="goPrev()">← 上一题</button>
+    <span class="nav-hint" id="navHint">选择一个答案后可继续</span>
+    <button class="nav-btn" id="nextBtn" onclick="goNext()" disabled>下一题 →</button>
+  </div>
+
   <div class="test-feedback" id="feedback"></div>
   <div class="score-display" id="scoreDisplay"></div>
   <button class="restart-btn" id="restartBtn" onclick="startTest()" style="display:none;">再试一次 ↻</button>
@@ -609,34 +623,45 @@ let currentQ = 0;
 let score = 0;
 let answered = false;
 let practiceDone = false;
+let answers = []; // track per-question answer state
 
 function startTest() {
   currentQ = 0;
   score = 0;
   answered = false;
   practiceDone = false;
+  answers = new Array(questions.length).fill(-1); // -1 = not answered
   document.getElementById("scoreDisplay").style.display = "none";
   document.getElementById("restartBtn").style.display = "none";
   showQuestion();
 }
 
 function showQuestion() {
-  answered = false;
   const q = questions[currentQ];
   const isPrac = q.isPractice;
-  
+
+  // Restore or set answered state
+  if (answers[currentQ] >= 0) {
+    answered = true; // already answered this question before
+  } else {
+    answered = false;
+  }
+
   if (isPrac) {
     document.getElementById("progressText").innerHTML = "<span style='color:#f59e0b'>📝 练习题 (Practice)</span>";
     document.getElementById("practiceNote").style.display = "block";
+    document.getElementById("testNav").style.display = "none";
   } else {
     document.getElementById("progressText").innerHTML = "Question <strong>" + (currentQ) + "</strong> of <strong>36</strong>";
     document.getElementById("practiceNote").style.display = "none";
+    document.getElementById("testNav").style.display = "flex";
+    updateNavButtons();
   }
-  
+
   document.getElementById("eyeImg").src = q.image;
   document.getElementById("eyeImg").style.display = "block";
   document.getElementById("feedback").innerHTML = "";
-  
+
   const grid = document.getElementById("optionsGrid");
   grid.innerHTML = "";
   q.options.forEach((opt, i) => {
@@ -646,20 +671,90 @@ function showQuestion() {
     btn.onclick = () => selectAnswer(i);
     grid.appendChild(btn);
   });
+
+  // If already answered, restore the visual state
+  if (answers[currentQ] >= 0 && !isPrac) {
+    restoreAnswerState();
+  }
+}
+
+function updateNavButtons() {
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+  const hint = document.getElementById("navHint");
+
+  // Practice question: hide nav
+  if (questions[currentQ].isPractice) return;
+
+  // Prev: can always go back (except on practice)
+  prevBtn.disabled = (currentQ <= 1);
+
+  // Next: need to answer first, unless already answered
+  if (answers[currentQ] >= 0) {
+    nextBtn.disabled = false;
+    hint.textContent = currentQ >= questions.length - 1 ? "最后一题" : "点击「下一题」继续";
+    nextBtn.textContent = currentQ >= questions.length - 1 ? "查看结果 →" : "下一题 →";
+  } else {
+    nextBtn.disabled = true;
+    hint.textContent = "选择一个答案后可继续";
+    nextBtn.textContent = "下一题 →";
+  }
+}
+
+function goPrev() {
+  if (currentQ > 0) {
+    currentQ--;
+    showQuestion();
+  }
+}
+
+function goNext() {
+  if (questions[currentQ].isPractice) {
+    practiceDone = true;
+    currentQ = 1;
+    showQuestion();
+  } else if (currentQ < questions.length - 1) {
+    currentQ++;
+    showQuestion();
+  } else {
+    showScore();
+  }
+}
+
+function restoreAnswerState() {
+  const q = questions[currentQ];
+  const selectedIdx = answers[currentQ];
+  const buttons = document.querySelectorAll(".option-btn");
+
+  buttons.forEach(b => b.style.pointerEvents = "none");
+
+  if (selectedIdx === q.answer) {
+    buttons[selectedIdx].classList.add("correct");
+    document.getElementById("feedback").innerHTML = "<span style='color:var(--correct)'>✅ 正确！</span>";
+  } else {
+    buttons[selectedIdx].classList.add("wrong");
+    buttons[q.answer].classList.add("correct");
+    document.getElementById("feedback").innerHTML = "<span style='color:var(--wrong)'>❌ 正确答案是：" + q.options[q.answer] + "</span>";
+  }
 }
 
 function selectAnswer(idx) {
-  if (answered) return;
+  if (answered && answers[currentQ] >= 0) return; // already answered, don't re-score
+  if (answered) return; // double-click guard
+
   answered = true;
   const q = questions[currentQ];
   const buttons = document.querySelectorAll(".option-btn");
   buttons.forEach(b => b.style.pointerEvents = "none");
-  
+
+  // Record answer
+  answers[currentQ] = idx;
+
   if (idx === q.answer) {
     buttons[idx].classList.add("correct");
     if (!q.isPractice) score++;
-    document.getElementById("feedback").innerHTML = q.isPractice 
-      ? "<span style='color:#f59e0b'>✅ 练习完成！接下来进入正式测试...</span>"
+    document.getElementById("feedback").innerHTML = q.isPractice
+      ? "<span style='color:#f59e0b'>✅ 练习完成！</span>"
       : "<span style='color:var(--correct)'>✅ 正确！</span>";
   } else {
     buttons[idx].classList.add("wrong");
@@ -669,25 +764,20 @@ function selectAnswer(idx) {
       : "<span style='color:var(--wrong)'>❌ 正确答案是：" + q.options[q.answer] + "</span>";
   }
 
-  setTimeout(() => {
-    if (q.isPractice) {
-      practiceDone = true;
-      currentQ = 1;
-      showQuestion();
-    } else {
-      currentQ++;
-      if (currentQ < questions.length) {
-        showQuestion();
-      } else {
-        showScore();
-      }
-    }
-  }, q.isPractice ? 2500 : 2000);
+  // Update nav buttons to enable "next"
+  updateNavButtons();
+
+  // Auto-advance for practice only
+  if (q.isPractice) {
+    setTimeout(() => { goNext(); }, 2000);
+  }
+  // For real questions: user clicks "下一题" manually
 }
 
 function showScore() {
   document.getElementById("eyeImg").style.display = "none";
   document.getElementById("optionsGrid").innerHTML = "";
+  document.getElementById("testNav").style.display = "none";
   document.getElementById("progressText").textContent = "🎉 测试完成！";
   document.getElementById("questionPrompt").style.display = "none";
   document.getElementById("practiceNote").style.display = "none";
@@ -704,7 +794,22 @@ function showScore() {
   else comment = "💪 继续练习！真实测试中你有词汇表辅助";
 
   const sd = document.getElementById("scoreDisplay");
-  sd.innerHTML = "你的得分：<strong>" + score + " / " + totalQuestions + "</strong> (" + pct + "%)<br><br>" + comment + "<br><br><table style='margin:10px auto;font-size:.88em'><tr><td style='padding:4px 12px;border:1px solid #d1d5db'>正常成人组 (n=154)</td><td style='padding:4px 12px;border:1px solid #d1d5db'>26.2 / 36 (72.8%)</td></tr><tr><td style='padding:4px 12px;border:1px solid #d1d5db'>AS/HFA 组 (n=15)</td><td style='padding:4px 12px;border:1px solid #d1d5db'>21.9 / 36 (60.8%)</td></tr><tr><td style='padding:4px 12px;border:1px solid #d1d5db'><b>你</b></td><td style='padding:4px 12px;border:1px solid #d1d5db'><b>" + score + " / " + totalQuestions + " (" + pct + "%)</b></td></tr></table><br><small style='font-weight:normal;color:#6b7280'>数据来源：Baron-Cohen et al. (2001) 原文</small>";
+  sd.innerHTML = "<h3 style='margin-bottom:12px;color:var(--primary-dark)'>📊 你的成绩</h3>" +
+    "<p style='font-size:1.4em;font-weight:700;margin:8px 0'>" + score + " / " + totalQuestions + " <span style='font-size:.8em;color:#6b7280'>(" + pct + "%)</span></p>" +
+    "<p style='margin:10px 0'>" + comment + "</p>" +
+    "<hr style='border:none;border-top:1px solid #e5e7eb;margin:14px 0'>" +
+    "<h4 style='color:#374151;margin-bottom:10px'>📈 Scoring 常模对照 (Norm Data)</h4>" +
+    "<p style='font-size:.85em;color:#666;margin-bottom:10px'>满分 36 分。每题答对得 1 分，答错不得分。以下为不同人群的平均得分范围：</p>" +
+    "<table style='margin:0 auto;font-size:.88em;width:100%;max-width:420px;border-collapse:collapse'>" +
+    "<tr><td style='padding:8px 12px;border:1px solid #d1d5db;background:#fef3c7;font-weight:600'>🧠 Autistic average & range</td><td style='padding:8px 12px;border:1px solid #d1d5db;background:#fef3c7'><strong>24.9 ± 0.7</strong> (23–30)</td></tr>" +
+    "<tr><td style='padding:8px 12px;border:1px solid #d1d5db;background:#dbeafe;font-weight:600'>👤 Neurotypical average & range</td><td style='padding:8px 12px;border:1px solid #d1d5db;background:#dbeafe'><strong>27.3 ± 0.5</strong> (18–29)</td></tr>" +
+    "<tr><td style='padding:8px 12px;border:2px solid var(--primary);border-radius:6px;font-weight:600;background:#f0f9ff'>🎯 <b>你的得分</b></td><td style='padding:8px 12px;border:2px solid var(--primary);border-radius:6px;background:#f0f9ff'><b>" + score + " / " + totalQuestions + " (" + pct + "%)</b></td></tr>" +
+    "</table>" +
+    "<div style='margin-top:12px;padding:10px;background:#f8fafc;border-radius:6px;font-size:.82em;color:#475569;line-height:1.7'>" +
+    "<strong>💡 如何解读：</strong>如果你的得分接近或高于神经典型组平均(27+)，说明你的情绪识别能力在正常范围内。" +
+    "如果低于自闭症组平均(25以下)，可能提示在通过眼睛识别复杂情绪方面有困难——但这只是参考，不能作为诊断依据。" +
+    "</div>" +
+    "<br><small style='font-weight:normal;color:#94a3b8'>数据来源：[1] Baron-Cohen et al. (2001) AS/HFA group; [2] Control groups norm data</small>";
   sd.style.display = "block";
   document.getElementById("restartBtn").style.display = "block";
 }
