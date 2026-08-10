@@ -51,17 +51,24 @@
     body.dark .nav-btn:hover { border-color: #66BB6A; color: #66BB6A; }
 
     /* ===== PAGE LAYOUT ===== */
-    .page-layout { display: flex; gap: 28px; align-items: flex-start; }
-    .sidebar { width: 156px; flex-shrink: 0; position: sticky; top: 60px; max-height: calc(100vh - 80px); overflow-y: auto; padding: 14px 0; z-index: 50; }
+    .page-layout { display: flex; gap: 30px; align-items: flex-start; }
+    .sidebar { width: 170px; flex-shrink: 0; position: sticky; top: 60px; max-height: calc(100vh - 80px); overflow-y: auto; padding: 12px 0; z-index: 50; }
     .sidebar::-webkit-scrollbar { width: 2px; }
     .sidebar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 2px; }
-    .sidebar-inner { background: #f8fafc; border-radius: 10px; border: 1px solid #e2e8f0; overflow: hidden; }
-    body.dark .sidebar-inner { background: #16213e; border-color: #334155; }
-    .sb-list { list-style: none; padding: 0; margin: 0; }
-    .sb-item a { display: block; padding: 7px 10px 7px 12px; color: #475569; text-decoration: none; font-size: .78em; font-weight: 500; border-left: 3px solid transparent; transition: all .12s; line-height: 1.45; }
-    .sb-item a:hover, .sb-item a.sb-active { border-left-color: var(--primary); color: var(--primary-dark); font-weight: 600; background: #f0fdf4; }
+    .sidebar-inner { background: #f8fafc; border-radius: 14px; border: 1px solid #e2e8f0; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,.05); }
+    body.dark .sidebar-inner { background: #16213e; border-color: #334155; box-shadow: 0 2px 8px rgba(0,0,0,.25); }
+    .sb-header { padding: 13px 16px 10px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); }
+    .sb-header-title { font-size: .72em; font-weight: 700; color: white; letter-spacing: .8px; text-transform: uppercase; margin: 0; }
+    .sb-header-sub { font-size: .63em; color: rgba(255,255,255,.75); margin: 2px 0 0; font-weight: 500; }
+    .sb-list { list-style: none; padding: 6px 0 10px; margin: 0; }
+    .sb-divider { height: 1px; background: #e2e8f0; margin: 4px 12px; }
+    body.dark .sb-divider { background: #334155; }
+    .sb-item a { display: block; padding: 7px 14px 7px 18px; color: #475569; text-decoration: none; font-size: .76em; font-weight: 500; border-left: 3px solid transparent; transition: all .15s ease; line-height: 1.45; border-radius: 0 7px 7px 0; margin: 1px 4px 1px 0; }
+    .sb-item a:hover { border-left-color: var(--primary); color: var(--primary-dark); font-weight: 600; background: linear-gradient(90deg, rgba(46,125,50,.07), transparent); }
+    .sb-item a.sb-active { border-left-color: var(--primary); color: var(--primary-dark); font-weight: 700; background: linear-gradient(90deg, rgba(46,125,50,.12), transparent); }
     body.dark .sb-item a { color: #94a3b8; }
-    body.dark .sb-item a:hover, body.dark .sb-item a.sb-active { color: #66BB6A; background: rgba(102,187,106,.08); border-left-color: #66BB6A; }
+    body.dark .sb-item a:hover { color: #66BB6A; background: linear-gradient(90deg, rgba(102,187,106,.10), transparent); border-left-color: #66BB6A; }
+    body.dark .sb-item a.sb-active { color: #81C784; background: linear-gradient(90deg, rgba(102,187,106,.16), transparent); border-left-color: #66BB6A; }
     .main-content { flex: 1; min-width: 0; }
 
     /* ===== HEADER CARD ===== */
@@ -171,20 +178,24 @@
     .cs-en { color: #7c3aed; font-style: italic; font-weight: 500; }
     body.dark .cs-en { color: #a78bfa; }
 
-    /* ===== EXAM KEY POINTS (summary-card) ===== */
-    .summary-card { margin: 18px 0; }
-    .summary-toggle { display: flex; align-items: center; gap: 8px; width: 100%; padding: 10px 18px; background: linear-gradient(135deg, #eff6ff, #dbeafe); border: 1.5px solid #93c5fd; border-radius: 8px; cursor: pointer; font-size: .86em; color: #1e40af; font-weight: 600; transition: all .2s; text-align: left; }
-    body.dark .summary-toggle { background: linear-gradient(135deg, rgba(59,130,246,.1), rgba(37,99,235,.08)); border-color: #3b82f6; color: #93c5fd; }
-    .summary-toggle:hover { background: linear-gradient(135deg, #dbeafe, #bfdbfe); }
-    .st-icon { font-size: .75em; transition: transform .2s; min-width: 14px; }
-    .summary-toggle.open .st-icon { transform: rotate(90deg); }
-    .summary-body { max-height: 0; overflow: hidden; opacity: 0; transition: max-height .4s ease, opacity .25s ease; }
-    .summary-body.open { max-height: 800px; opacity: 1; margin: 8px 0 4px; }
-    .summary-body { background: linear-gradient(135deg, #f8fafc, #f1f5f9); border-radius: 8px; padding: 18px 22px; border: 1px solid #e2e8f0; }
-    body.dark .summary-body { background: linear-gradient(135deg, #1e293b, #0f172a); border-color: #334155; }
-    .summary-body ul { margin: 0; padding-left: 18px; }
-    .summary-body li { margin: 7px 0; font-size: .92em; color: #334155; line-height: 1.6; }
-    body.dark .summary-body li { color: #cbd5e1; }
+    /* ===== EXAM KEY POINTS (summary-card) — Baron-Cohen style ===== */
+    .summary-card { background: linear-gradient(135deg, #f0fdf4, #dcfce7); border-left: 5px solid #16a34a; border-radius: 10px; margin: 20px 0 0; overflow: hidden; transition: all .2s; }
+    body.dark .summary-card { background: linear-gradient(135deg, #052e16, #14532d); border-left-color: #22c55e; }
+    .summary-card-header { display: flex; align-items: center; gap: 8px; padding: 12px 18px; cursor: pointer; user-select:none; -webkit-user-select:none; transition: background .15s; }
+    .summary-card-header:hover { background: #bbf7d0; }
+    body.dark .summary-card-header:hover { background: #166534; }
+    .summary-card-icon { font-size: 1.1em; transition: transform .2s; color: #166534; }
+    body.dark .summary-card-icon { color: #86efac; }
+    .summary-card.open .summary-card-icon { transform: rotate(90deg); }
+    .summary-card-title { font-size: .92em; font-weight: 700; color: #166534; flex: 1; }
+    body.dark .summary-card-title { color: #86efac; }
+    .summary-card-badge { font-size: .7rem; background: #16a34a; color: white; padding: 2px 10px; border-radius: 10px; font-weight: 600; }
+    .summary-card-body { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+    .summary-card.open .summary-card-body { max-height: 800px; }
+    .summary-card-inner { padding: 0 18px 14px; }
+    .summary-card-inner ol, .summary-card-inner ul { margin: 0; padding-left: 20px; }
+    .summary-card-inner li { margin: 6px 0; font-size: .9em; color: #15803d; line-height: 1.65; }
+    body.dark .summary-card-inner li { color: #bbf7d0; }
 
     /* EXAM TAGS */
     .tag-must { display: inline-block; padding: 2px 8px; border-radius: 4px; background: #fee2e2; color: #dc2626; font-size: .76em; font-weight: 700; vertical-align: middle; margin-left: 4px; }
@@ -306,20 +317,27 @@
   <!-- LEFT SIDEBAR NAVIGATION -->
   <aside class="sidebar">
     <div class="sidebar-inner">
+      <div class="sb-header">
+        <div class="sb-header-title">⚡ Milgram 1963</div>
+        <div class="sb-header-sub">Obedience Study</div>
+      </div>
       <ul class="sb-list" id="sidebarList">
-        <li class="sb-item"><a href="#s1">§1 Assumptions</a></li>
-        <li class="sb-item"><a href="#s2">§2 Psychology</a></li>
-        <li class="sb-item"><a href="#s3">§3 Background</a></li>
-        <li class="sb-item"><a href="#s4">§4 Aim</a></li>
-        <li class="sb-item"><a href="#s5">§5 Method</a></li>
-        <li class="sb-item"><a href="#s6">§6 Results</a></li>
-        <li class="sb-item"><a href="#s7">§7 Conclusion</a></li>
-        <li class="sb-item"><a href="#s8">§8 Evaluation</a></li>
-        <li class="sb-item"><a href="#s9">§9 Ethics</a></li>
-        <li class="sb-item"><a href="#s10">§10 Debates</a></li>
-        <li class="sb-item"><a href="#s11">§11 Summary</a></li>
-        <li class="sb-item"><a href="#s12">§12 Questions</a></li>
-        <li class="sb-item"><a href="#s13">§13 Key Terms</a></li>
+        <li class="sb-item"><a href="#s1">Assumptions</a></li>
+        <li class="sb-item"><a href="#s2">Psychology</a></li>
+        <li class="sb-item"><a href="#s3">Background</a></li>
+        <li class="sb-item"><a href="#s4">Aim</a></li>
+        <li class="sb-divider"></li>
+        <li class="sb-item"><a href="#s5">Method</a></li>
+        <li class="sb-item"><a href="#s6">Results</a></li>
+        <li class="sb-item"><a href="#s7">Conclusion</a></li>
+        <li class="sb-divider"></li>
+        <li class="sb-item"><a href="#s8">Evaluation</a></li>
+        <li class="sb-item"><a href="#s9">Ethics</a></li>
+        <li class="sb-item"><a href="#s10">Debates</a></li>
+        <li class="sb-divider"></li>
+        <li class="sb-item"><a href="#s11">Summary</a></li>
+        <li class="sb-item"><a href="#s12">Questions</a></li>
+        <li class="sb-item"><a href="#s13">Key Terms</a></li>
       </ul>
     </div>
   </aside>
@@ -417,14 +435,20 @@
 
   <!-- Exam Key Points -->
   <div class="summary-card" id="summary-s1">
-    <button class="summary-toggle" onclick="toggleSummary('summary-s1')">▶ Exam Key Points</button>
-    <div class="summary-body">
-      <ul>
-        <li>Two assumptions of social approach: (1) influenced by others' presence (actual/implied/imagined), (2) shaped by social contexts/environments <span class="tag-must">Must Know</span></li>
-        <li>Key term: <strong>destructive obedience</strong> = obeying authority that causes harm to others <span class="tag-must">Must Know</span></li>
-        <li>Social role example: same person behaves differently as manager vs. child at home <span class="tag-common">Common Q</span></li>
-        <li>AO1: Describe assumptions clearly; AO2: Link to why Milgram's study matters for understanding obedience <span class="tag-ao2">AO2 Gold</span></li>
-      </ul>
+    <div class="summary-card-header" onclick="toggleSummary('summary-s1')">
+      <span class="summary-card-icon">▶</span>
+      <span class="summary-card-title">Exam Key Points — Social Approach</span>
+      <span class="summary-card-badge">AO1</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ul>
+          <li>Two assumptions of social approach: (1) influenced by others' presence (actual/implied/imagined), (2) shaped by social contexts/environments <span class="tag-must">Must Know</span></li>
+          <li>Key term: <strong>destructive obedience</strong> = obeying authority that causes harm to others <span class="tag-must">Must Know</span></li>
+          <li>Social role example: same person behaves differently as manager vs. child at home <span class="tag-common">Common Q</span></li>
+          <li>AO1: Describe assumptions clearly; AO2: Link to why Milgram's study matters for understanding obedience <span class="tag-ao2">AO2 Gold</span></li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
@@ -492,14 +516,20 @@
 
   <!-- Exam Key Points -->
   <div class="summary-card" id="summary-s3">
-    <button class="summary-toggle" onclick="toggleSummary('summary-s3')">▶ Exam Key Points</button>
-    <div class="summary-body">
-      <ul>
-        <li>'Germans are different' hypothesis = individual/personality explanation for Holocaust obedience <span class="tag-must">Must Know</span></li>
-        <li>Predicted obedience rate: 0–3% (class mean 1.2%) → Actual: 65% <span class="tag-must">Must Know</span></li>
-        <li>Milgram supported <strong>situational explanation</strong> over individual explanation <span class="tag-must">Must Know</span></li>
-        <li>AO2 evaluation point: This debate continues — 35% DID defy, so individual differences matter too <span class="tag-ao2">AO2 Gold</span></li>
-      </ul>
+    <div class="summary-card-header" onclick="toggleSummary('summary-s3')">
+      <span class="summary-card-icon">▶</span>
+      <span class="summary-card-title">Exam Key Points — Background</span>
+      <span class="summary-card-badge">AO1+AO2</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ul>
+          <li>'Germans are different' hypothesis = individual/personality explanation for Holocaust obedience <span class="tag-must">Must Know</span></li>
+          <li>Predicted obedience rate: 0–3% (class mean 1.2%) → Actual: 65% <span class="tag-must">Must Know</span></li>
+          <li>Milgram supported <strong>situational explanation</strong> over individual explanation <span class="tag-must">Must Know</span></li>
+          <li>AO2 evaluation point: This debate continues — 35% DID defy, so individual differences matter too <span class="tag-ao2">AO2 Gold</span></li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
@@ -731,16 +761,22 @@
 
   <!-- Exam Key Points -->
   <div class="summary-card" id="summary-s5">
-    <button class="summary-toggle" onclick="toggleSummary('summary-s5')">▶ Exam Key Points</button>
-    <div class="summary-body">
-      <ul>
-        <li>Method = Controlled observation (or quasi-experiment) — no IV manipulated, all Ps had identical procedure <span class="tag-must">Must Know</span></li>
-        <li>Sample: n=40 males, 20-50yrs, volunteer sample via newspaper ad <span class="tag-must">Must Know</span></li>
-        <li>First protest at <strong>75V</strong> (NOT 300V!) — this correction is frequently tested <span class="tag-must">Must Know</span></li>
-        <li>4 standard prods + 2 special prods — know them verbatim <span class="tag-common">Common Q</span></li>
-        <li>DV = maximum voltage administered before refusal <span class="tag-common">Common Q</span></li>
-        <li>AO2: Why not a true experiment? No control condition, no IV manipulation <span class="tag-ao2">AO2 Gold</span></li>
-      </ul>
+    <div class="summary-card-header" onclick="toggleSummary('summary-s5')">
+      <span class="summary-card-icon">▶</span>
+      <span class="summary-card-title">Exam Key Points — Method</span>
+      <span class="summary-card-badge">AO1+AO3</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ul>
+          <li>Method = Controlled observation (or quasi-experiment) — no IV manipulated, all Ps had identical procedure <span class="tag-must">Must Know</span></li>
+          <li>Sample: n=40 males, 20-50yrs, volunteer sample via newspaper ad <span class="tag-must">Must Know</span></li>
+          <li>First protest at <strong>75V</strong> (NOT 300V!) — this correction is frequently tested <span class="tag-must">Must Know</span></li>
+          <li>4 standard prods + 2 special prods — know them verbatim <span class="tag-common">Common Q</span></li>
+          <li>DV = maximum voltage administered before refusal <span class="tag-common">Common Q</span></li>
+          <li>AO2: Why not a true experiment? No control condition, no IV manipulation <span class="tag-ao2">AO2 Gold</span></li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
@@ -850,16 +886,22 @@
 
   <!-- Exam Key Points -->
   <div class="summary-card" id="summary-s6">
-    <button class="summary-toggle" onclick="toggleSummary('summary-s6')">▶ Exam Key Points</button>
-    <div class="summary-body">
-      <ul>
-        <li><strong>65% (26/40)</strong> fully obedient to 450V <span class="tag-must">Must Know</span></li>
-        <li><strong>100%</strong> reached at least 300V <span class="tag-must">Must Know</span></li>
-        <li>Mean maximum voltage = <strong>368V</strong> <span class="tag-must">Must Know</span></li>
-        <li>Predicted 0-3% → actual 65% — massive discrepancy <span class="tag-common">Common Q</span></li>
-        <li>Qualitative evidence: sweating, trembling, nervous laughter (14/40), seizures (3/40) <span class="tag-ao2">AO2 Gold</span></li>
-        <li>Use quotes from defiant subjects to support internal conflict argument <span class="tag-ao2">AO2 Gold</span></li>
-      </ul>
+    <div class="summary-card-header" onclick="toggleSummary('summary-s6')">
+      <span class="summary-card-icon">▶</span>
+      <span class="summary-card-title">Exam Key Points — Results</span>
+      <span class="summary-card-badge">AO1</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ul>
+          <li><strong>65% (26/40)</strong> fully obedient to 450V <span class="tag-must">Must Know</span></li>
+          <li><strong>100%</strong> reached at least 300V <span class="tag-must">Must Know</span></li>
+          <li>Mean maximum voltage = <strong>368V</strong> <span class="tag-must">Must Know</span></li>
+          <li>Predicted 0-3% → actual 65% — massive discrepancy <span class="tag-common">Common Q</span></li>
+          <li>Qualitative evidence: sweating, trembling, nervous laughter (14/40), seizures (3/40) <span class="tag-ao2">AO2 Gold</span></li>
+          <li>Use quotes from defiant subjects to support internal conflict argument <span class="tag-ao2">AO2 Gold</span></li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
@@ -896,14 +938,20 @@
 
   <!-- Exam Key Points -->
   <div class="summary-card" id="summary-s7">
-    <button class="summary-toggle" onclick="toggleSummary('summary-s7')">▶ Exam Key Points</button>
-    <div class="summary-body">
-      <ul>
-        <li>Conclusion supports <strong>situational explanation</strong> of obedience <span class="tag-must">Must Know</span></li>
-        <li>Two key points: (1) people more obedient than expected, (2) extreme internal conflict <span class="tag-must">Must Know</span></li>
-        <li>The "twitching wreck" case study — perfect example of conflict + obedience coexisting <span class="tag-common">Common Q</span></li>
-        <li>AO2: Note that 35% DID resist — so individual differences still play some role <span class="tag-ao2">AO2 Gold</span></li>
-      </ul>
+    <div class="summary-card-header" onclick="toggleSummary('summary-s7')">
+      <span class="summary-card-icon">▶</span>
+      <span class="summary-card-title">Exam Key Points — Conclusion</span>
+      <span class="summary-card-badge">AO1+AO2</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ul>
+          <li>Conclusion supports <strong>situational explanation</strong> of obedience <span class="tag-must">Must Know</span></li>
+          <li>Two key points: (1) people more obedient than expected, (2) extreme internal conflict <span class="tag-must">Must Know</span></li>
+          <li>The "twitching wreck" case study — perfect example of conflict + obedience coexisting <span class="tag-common">Common Q</span></li>
+          <li>AO2: Note that 35% DID resist — so individual differences still play some role <span class="tag-ao2">AO2 Gold</span></li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
@@ -961,16 +1009,22 @@
 
   <!-- Exam Key Points -->
   <div class="summary-card" id="summary-s8">
-    <button class="summary-toggle" onclick="toggleSummary('summary-s8')">▶ Exam Key Points</button>
-    <div class="summary-body">
-      <ul>
-        <li>Know 3 strengths AND 3 weaknesses with clear reasoning <span class="tag-must">Must Know</span></li>
-        <li>Strength: Standardised prods → high reliability <span class="tag-ao2">AO2 Gold</span></li>
-        <li>Weakness: All-male sample → gender bias, cannot generalise to women <span class="tag-ao2">AO2 Gold</span></li>
-        <li>Weakness: Volunteer sample → cooperative bias <span class="tag-common">Common Q</span></li>
-        <li>Weakness: Not a true experiment (no control condition) → cannot establish cause-effect <span class="tag-ao2">AO2 Gold</span></li>
-        <li>Evaluation tip: Always add "this means..." to explain the implication of your point <span class="tag-context">Context</span></li>
-      </ul>
+    <div class="summary-card-header" onclick="toggleSummary('summary-s8')">
+      <span class="summary-card-icon">▶</span>
+      <span class="summary-card-title">Exam Key Points — Evaluation</span>
+      <span class="summary-card-badge">AO3</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ul>
+          <li>Know 3 strengths AND 3 weaknesses with clear reasoning <span class="tag-must">Must Know</span></li>
+          <li>Strength: Standardised prods → high reliability <span class="tag-ao2">AO2 Gold</span></li>
+          <li>Weakness: All-male sample → gender bias, cannot generalise to women <span class="tag-ao2">AO2 Gold</span></li>
+          <li>Weakness: Volunteer sample → cooperative bias <span class="tag-common">Common Q</span></li>
+          <li>Weakness: Not a true experiment (no control condition) → cannot establish cause-effect <span class="tag-ao2">AO2 Gold</span></li>
+          <li>Evaluation tip: Always add "this means..." to explain the implication of your point <span class="tag-context">Context</span></li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
@@ -1020,15 +1074,21 @@
 
   <!-- Exam Key Points -->
   <div class="summary-card" id="summary-s9">
-    <button class="summary-toggle" onclick="toggleSummary('summary-s9')">▶ Exam Key Points</button>
-    <div class="summary-body">
-      <ul>
-        <li>5 ethical issues: Deception, Informed Consent, Protection from Harm, Right to Withdraw, Debriefing <span class="tag-must">Must Know</span></li>
-        <li>Why rejected today: BPS guidelines require adequate harm protection, informed consent, genuine right to withdraw <span class="tag-must">Must Know</span></li>
-        <li>Milgram's defence: Thorough debriefing, 84% positive feedback <span class="tag-common">Common Q</span></li>
-        <li>Counter-argument: 1.3% very negative × 40 Ps = some genuinely harmed <span class="tag-ao2">AO2 Gold</span></li>
-        <li>AO3: Ethical issues vs scientific value trade-off <span class="tag-ao2">AO2 Gold</span></li>
-      </ul>
+    <div class="summary-card-header" onclick="toggleSummary('summary-s9')">
+      <span class="summary-card-icon">▶</span>
+      <span class="summary-card-title">Exam Key Points — Ethics</span>
+      <span class="summary-card-badge">AO3</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ul>
+          <li>5 ethical issues: Deception, Informed Consent, Protection from Harm, Right to Withdraw, Debriefing <span class="tag-must">Must Know</span></li>
+          <li>Why rejected today: BPS guidelines require adequate harm protection, informed consent, genuine right to withdraw <span class="tag-must">Must Know</span></li>
+          <li>Milgram's defence: Thorough debriefing, 84% positive feedback <span class="tag-common">Common Q</span></li>
+          <li>Counter-argument: 1.3% very negative × 40 Ps = some genuinely harmed <span class="tag-ao2">AO2 Gold</span></li>
+          <li>AO3: Ethical issues vs scientific value trade-off <span class="tag-ao2">AO2 Gold</span></li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
@@ -1100,15 +1160,21 @@
 
   <!-- Exam Key Points -->
   <div class="summary-card" id="summary-s10">
-    <button class="summary-toggle" onclick="toggleSummary('summary-s10')">▶ Exam Key Points</button>
-    <div class="summary-body">
-      <ul>
-        <li>13 factors grouped into: Authority/Legitimacy (1-6), Procedural (7-9), Nature of Conflict (10-13) <span class="tag-must">Must Know</span></li>
-        <li>Factor 1 (Yale legitimacy) and Factor 13 (deep conflict) are most commonly tested <span class="tag-common">Common Q</span></li>
-        <li>Everyday applications: military, hospitals, workplaces <span class="tag-context">Context</span></li>
-        <li>Individual vs Situational: 100% reached 300V supports situational, BUT 35% resisted shows individual differences matter <span class="tag-ao2">AO2 Gold</span></li>
-        <li>AO3: Use this debate to discuss free will vs determinism <span class="tag-ao2">AO2 Gold</span></li>
-      </ul>
+    <div class="summary-card-header" onclick="toggleSummary('summary-s10')">
+      <span class="summary-card-icon">▶</span>
+      <span class="summary-card-title">Exam Key Points — Issues & Debates</span>
+      <span class="summary-card-badge">AO3</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ul>
+          <li>13 factors grouped into: Authority/Legitimacy (1-6), Procedural (7-9), Nature of Conflict (10-13) <span class="tag-must">Must Know</span></li>
+          <li>Factor 1 (Yale legitimacy) and Factor 13 (deep conflict) are most commonly tested <span class="tag-common">Common Q</span></li>
+          <li>Everyday applications: military, hospitals, workplaces <span class="tag-context">Context</span></li>
+          <li>Individual vs Situational: 100% reached 300V supports situational, BUT 35% resisted shows individual differences matter <span class="tag-ao2">AO2 Gold</span></li>
+          <li>AO3: Use this debate to discuss free will vs determinism <span class="tag-ao2">AO2 Gold</span></li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
