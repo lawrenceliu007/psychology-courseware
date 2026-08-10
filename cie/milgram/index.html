@@ -6,110 +6,326 @@
   <title>Milgram (1963) — Behavioural Study of Obedience</title>
   <style>
     :root {
-      --primary: #8b3a3a;
-      --primary-light: #a85555;
-      --primary-dark: #6b1f1f;
-      --accent: #3a6b8a;
-      --accent-light: #5a8baa;
-      --bg: #ffffff;
-      --card-bg: #ffffff;
-      --text: #2c2c2c;
-      --text-secondary: #6b7280;
-      --border: #e5e7eb;
-      --soft: #f6f7f9;
-      --box: #fff5f5;
-      --box2: #f0f9ff;
-      --box3: #f5fff5;
-      --highlight: #fef3c7;
-      --warn-bg: #fee2e2;
+      --primary: #2E7D32;
+      --primary-light: #43A047;
+      --primary-dark: #1B5E20;
+      --accent: #2E7D32;
+      --bg: #FAFAFA;
+      --card-bg: #FFFFFF;
+      --text: #212121;
+      --text-secondary: #616161;
+      --border: #E0E0E0;
+      --highlight: #E8F5E9;
+      --warning: #FFEBEE;
+      --code-bg: #F5F5F5;
+      --note-bg: #FFF8E1;
+      --note-border: #FFC107;
+      --term-color: #2E7D32;
+      --correct: #16a34a;
+      --wrong: #dc2626;
     }
     * { box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; line-height: 1.75; color: var(--text); background: var(--bg); margin: 0; padding: 0; }
-    .container { max-width: 900px; margin: 0 auto; padding: 30px 24px; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; line-height: 1.75; color: var(--text); background: var(--bg); margin: 0; padding: 0; font-size: 16px; transition: background .3s, color .3s; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 16px 24px; }
 
-    /* Header */
-    .header { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, var(--primary-dark), var(--primary)); color: white; border-radius: 12px; margin-bottom: 28px; box-shadow: 0 4px 15px rgba(139,58,58,0.3); }
+    /* ===== PROGRESS BAR ===== */
+    .progress-bar { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: linear-gradient(90deg, var(--primary), var(--primary-light), #81C784); z-index: 9999; transition: width .1s ease-out; }
+    body.dark .progress-bar { background: linear-gradient(90deg, #66BB6A, #81C784, #A5D6A7); }
+
+    /* ===== NAV BAR (RM-style) ===== */
+    .nav-bar { position: sticky; top: 0; z-index: 100; background: white; border-bottom: 3px solid var(--primary); padding: .65rem 2rem; display: flex; align-items: center; gap: 1rem; margin: 0 0 28px 0; box-shadow: 0 2px 10px rgba(0,0,0,.06); }
+    body.dark .nav-bar { background: #1a1a2e; border-bottom-color: var(--primary); }
+    .nav-pill { display: inline-flex; align-items: center; gap: .4rem; padding: .45rem 1.1rem; background: var(--primary); color: white; border-radius: 20px; text-decoration: none; font-size: .82em; font-weight: 600; transition: background .15s; white-space: nowrap; }
+    .nav-pill:hover { background: var(--primary-dark); }
+    .nav-breadcrumb { display: flex; align-items: center; gap: .4rem; font-size: .82em; color: var(--text-secondary); flex: 1; }
+    .nav-breadcrumb a { color: var(--text-secondary); text-decoration: none; transition: color .15s; }
+    .nav-breadcrumb a:hover { color: var(--primary); }
+    .nav-breadcrumb .sep { color: #ccc; font-weight: 300; }
+    .nav-breadcrumb span:last-child { color: var(--text); font-weight: 500; }
+    body.dark .nav-breadcrumb a { color: #aaa; }
+    body.dark .nav-breadcrumb span:last-child { color: #ddd; }
+    .nav-controls { display: flex; align-items: center; gap: .5rem; }
+    .nav-btn { background: none; border: 1px solid #ddd; border-radius: 6px; padding: .35rem .65rem; cursor: pointer; font-size: .85em; color: var(--text-secondary); transition: all .15s; display: flex; align-items: center; gap: .25rem; }
+    .nav-btn:hover { border-color: var(--primary); color: var(--primary); }
+    body.dark .nav-btn { border-color: #444; color: #aaa; }
+    body.dark .nav-btn:hover { border-color: #66BB6A; color: #66BB6A; }
+
+    /* ===== PAGE LAYOUT ===== */
+    .page-layout { display: flex; gap: 28px; align-items: flex-start; }
+    .sidebar { width: 156px; flex-shrink: 0; position: sticky; top: 60px; max-height: calc(100vh - 80px); overflow-y: auto; padding: 14px 0; z-index: 50; }
+    .sidebar::-webkit-scrollbar { width: 2px; }
+    .sidebar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 2px; }
+    .sidebar-inner { background: #f8fafc; border-radius: 10px; border: 1px solid #e2e8f0; overflow: hidden; }
+    body.dark .sidebar-inner { background: #16213e; border-color: #334155; }
+    .sb-list { list-style: none; padding: 0; margin: 0; }
+    .sb-item a { display: block; padding: 7px 10px 7px 12px; color: #475569; text-decoration: none; font-size: .78em; font-weight: 500; border-left: 3px solid transparent; transition: all .12s; line-height: 1.45; }
+    .sb-item a:hover, .sb-item a.sb-active { border-left-color: var(--primary); color: var(--primary-dark); font-weight: 600; background: #f0fdf4; }
+    body.dark .sb-item a { color: #94a3b8; }
+    body.dark .sb-item a:hover, body.dark .sb-item a.sb-active { color: #66BB6A; background: rgba(102,187,106,.08); border-left-color: #66BB6A; }
+    .main-content { flex: 1; min-width: 0; }
+
+    /* ===== HEADER CARD ===== */
+    .header { text-align: center; padding: 36px 24px; background: linear-gradient(135deg, var(--primary-dark), var(--primary)); color: white; border-radius: 12px; margin-bottom: 24px; box-shadow: 0 4px 15px rgba(46,125,50,0.3); }
     .header h1 { font-size: 1.85em; margin-bottom: 10px; }
     .header .subtitle { font-size: 1.05em; opacity: 0.92; }
     .header .meta { margin-top: 15px; font-size: 0.88em; opacity: 0.82; }
     .badge { display: inline-block; padding: 4px 14px; border-radius: 20px; background: rgba(255,255,255,0.2); margin: 3px; font-size: 0.84em; }
+    .kw-tags { margin-top: 18px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+    .kw-tag { display: inline-flex; align-items: center; gap: 5px; padding: 6px 16px; border-radius: 20px; font-size: .82em; font-weight: 600; color: white; opacity: .95; }
+    .kw-app { background: linear-gradient(135deg, #1565C0, #42A5F5); }
+    .kw-meth { background: linear-gradient(135deg, #E65100, #FB8C00); }
+    .kw-conc { background: linear-gradient(135deg, #7B1FA2, #AB47BC); }
 
-    /* TOC */
-    .toc { background: var(--soft); border: 1px solid var(--border); border-radius: 10px; padding: 22px 26px; margin-bottom: 24px; border-left: 4px solid var(--primary); }
+    /* ===== TOC ===== */
+    .toc { background: var(--soft, #f8fafc); border: 1px solid var(--border); border-radius: 10px; padding: 22px 26px; margin-bottom: 24px; border-left: 4px solid var(--primary); }
+    body.dark .toc { background: #16213e; border-color: #334155; }
     .toc h2 { color: var(--primary-dark); margin-bottom: 14px; font-size: 1.25em; }
     .toc ol { padding-left: 20px; }
     .toc li { margin: 7px 0; }
     .toc li a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
     .toc li a:hover { color: var(--primary); text-decoration: underline; }
 
-    /* Sections */
-    .section { background: var(--card-bg); border-radius: 10px; padding: 28px 32px; margin-bottom: 24px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); border-top: 3px solid var(--primary-light); }
+    /* ===== SECTIONS ===== */
+    .section { background: var(--card-bg); border-radius: 10px; padding: 28px 32px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-top: 3px solid var(--primary-light); }
+    body.dark .section { background: #1a1a2e; box-shadow: 0 2px 8px rgba(0,0,0,.3); }
     .section h2 { color: var(--primary-dark); font-size: 1.45em; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid var(--border); }
+    body.dark .section h2 { color: #66BB6A; border-bottom-color: #334155; }
     .section h3 { color: var(--primary); font-size: 1.18em; margin: 22px 0 12px; }
+    body.dark .section h3 { color: #81C784; }
     .section h4 { color: var(--text); font-size: 1.04em; margin: 14px 0 8px; }
 
-    /* Quote block */
-    .quote { border-left: 4px solid var(--primary); background: linear-gradient(135deg, #fff5f5, #ffe8e8); padding: 16px 22px; margin: 16px 0; border-radius: 0 8px 8px 0; font-style: italic; color: var(--primary-dark); }
-
-    /* Info boxes */
-    .note-box { background: var(--box); border-left: 4px solid var(--primary); border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
-    .note-box-title { font-weight: 700; color: var(--primary); margin-bottom: 6px; }
-    .blue-box { background: var(--box2); border-left: 4px solid var(--accent); border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
-    .green-box { background: var(--box3); border-left: 4px solid #38a169; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
-    .warn-box { background: var(--warn-bg); border-left: 4px solid #dc2626; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+    /* ===== INFO BOXES ===== */
+    .quote { border-left: 4px solid var(--primary); background: linear-gradient(135deg, #f0fdf4, #dcfce7); padding: 16px 22px; margin: 16px 0; border-radius: 0 8px 8px 0; font-style: italic; color: var(--primary-dark); }
+    body.dark .quote { background: linear-gradient(135deg, rgba(46,125,50,.15), rgba(46,125,50,.08)); border-left-color: #66BB6A; color: #a5d6a7; }
+    .note-box { background: #fffbeb; border-left: 4px solid var(--primary); border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+    body.dark .note-box { background: rgba(251,191,36,.06); border-left-color: #FBC02D; }
+    .blue-box { background: #eff6ff; border-left: 4px solid var(--accent); border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+    body.dark .blue-box { background: rgba(59,130,246,.06); border-left-color: #42A5F5; }
+    .green-box { background: #f0fdf4; border-left: 4px solid #38a169; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+    body.dark .green-box { background: rgba(56,161,105,.06); border-left-color: #66BB6A; }
+    .warn-box { background: #fef2f2; border-left: 4px solid #dc2626; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+    body.dark .warn-box { background: rgba(220,38,38,.06); border-left-color: #ef5350; }
     .warn-box h4 { color: #991b1b; margin-bottom: 6px; }
+    body.dark .warn-box h4 { color: #ef5350; }
 
-    /* Keyword box */
+    /* ===== KEYWORD BOX ===== */
     .keyword-box { background: linear-gradient(135deg, #FFF8E1, #FFECB3); border-left: 5px solid #D97706; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
     .keyword-box h4 { color: #92400E; font-size: 0.95em; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
     .keyword-box p { margin: 6px 0; }
     .keyword-box strong { color: #78350F; }
 
-    /* Images */
+    /* ===== IMAGES ===== */
     .figure { margin: 20px 0; text-align: center; }
     .figure img { max-width: 100%; border: 1px solid var(--border); border-radius: 10px; box-shadow: 0 3px 12px rgba(0,0,0,0.08); }
     .figure-caption { font-size: 0.89em; color: var(--text-secondary); margin-top: 8px; font-style: italic; }
 
-    /* Tables */
+    /* ===== TABLES ===== */
     table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 0.92em; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-radius: 8px; overflow: hidden; }
     th { background: var(--primary); color: white; padding: 12px 14px; text-align: left; font-weight: 600; }
     td { padding: 11px 14px; border-bottom: 1px solid var(--border); }
     tr:nth-child(even) { background: #fafbfc; }
-    tr:hover { background: #fff5f5; }
+    body.dark tr:nth-child(even) { background: rgba(255,255,255,.02); }
+    tr:hover { background: #f0fdf4; }
+    body.dark tr:hover { background: rgba(46,125,50,.05); }
     td:first-child { font-weight: 600; color: var(--primary-dark); }
+    body.dark td:first-child { color: #81C784; }
     .num-cell { text-align: center; font-weight: 700; color: var(--primary-dark); }
     caption { font-weight: 600; color: var(--text); margin-bottom: 8px; font-size: 0.96em; }
 
-    /* Lists */
+    /* LISTS */
     ul, ol { margin: 10px 0; padding-left: 24px; }
     li { margin: 6px 0; }
 
-    /* Protest timeline special styling */
+    /* MILGRAM-SPECIFIC STYLES */
     .protest-table td:first-child { width: 100px; font-weight: 700; color: var(--primary-dark); white-space: nowrap; }
     .protest-level { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.86em; font-weight: 600; }
     .level-low { background: #d1fae5; color: #065f46; }
     .level-mid { background: #fef3c7; color: #92400E; }
     .level-high { background: #fee2e2; color: #991b1b; }
     .level-extreme { background: #fecaca; color: #7f1d1d; }
-
-    /* Discussion factor cards */
     .factor-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0; }
     .factor-card { background: #fafafa; border-radius: 8px; padding: 14px 16px; border-left: 3px solid var(--accent); }
+    body.dark .factor-card { background: #16213e; border-left-color: #66BB6A; }
     .factor-card .num { font-weight: 800; color: var(--accent); font-size: 1.1em; margin-right: 6px; }
+    body.dark .factor-card .num { color: #66BB6A; }
     .factor-card h4 { display: inline; font-size: 0.94em; color: var(--text); }
 
-    /* Footer */
+    /* ===== CHINESE SUMMARY CARDS ===== */
+    .cn-summary-wrap { margin: 18px 0; }
+    .cn-summary-toggle { display: flex; align-items: center; gap: 8px; width: 100%; padding: 10px 16px; background: linear-gradient(135deg, #f3e8ff, #ede9fe); border: 1.5px dashed #a78bfa; border-radius: 8px; cursor: pointer; font-size: .86em; color: #6b21a8; font-weight: 500; transition: all .2s; text-align: left; }
+    body.dark .cn-summary-toggle { background: linear-gradient(135deg, rgba(167,139,250,.1), rgba(139,92,246,.08)); border-color: #8b5cf6; color: #c4b5fd; }
+    .cn-summary-toggle:hover { background: linear-gradient(135deg, #ede9fe, #ddd6fe); border-color: #8b5cf6; }
+    .cs-icon { font-size: .75em; transition: transform .2s; min-width: 14px; }
+    .cn-summary-toggle.open .cs-icon { transform: rotate(90deg); }
+    .cn-summary-body { max-height: 0; overflow: hidden; opacity: 0; transition: max-height .4s ease, opacity .25s ease; }
+    .cn-summary-body.open { max-height: 800px; opacity: 1; margin: 8px 0 4px; }
+    .cn-summary-body { background: linear-gradient(135deg, #faf5ff, #f3e8ff); border-radius: 8px; padding: 18px 22px; border: 1px solid #e9d5ff; }
+    body.dark .cn-summary-body { background: linear-gradient(135deg, rgba(167,139,250,.06), rgba(124,58,237,.04)); border-color: rgba(139,92,246,.2); }
+    .cs-title { font-weight: 700; color: #6b21a8; font-size: .95em; margin-bottom: 10px; padding-bottom: 6px; border-bottom: 1px dashed #d8b4fe; }
+    body.dark .cs-title { color: #c4b5fd; border-bottom-color: rgba(139,92,246,.3); }
+    .cn-summary-body p { margin: 8px 0; line-height: 1.72; color: #374151; font-size: .93em; }
+    body.dark .cn-summary-body p { color: #d1d5db; }
+    .cn-summary-body ul { margin: 6px 0; padding-left: 20px; }
+    .cn-summary-body li { margin: 5px 0; font-size: .93em; color: #374151; }
+    body.dark .cn-summary-body li { color: #d1d5db; }
+    .cs-en { color: #7c3aed; font-style: italic; font-weight: 500; }
+    body.dark .cs-en { color: #a78bfa; }
+
+    /* ===== EXAM KEY POINTS (summary-card) ===== */
+    .summary-card { margin: 18px 0; }
+    .summary-toggle { display: flex; align-items: center; gap: 8px; width: 100%; padding: 10px 18px; background: linear-gradient(135deg, #eff6ff, #dbeafe); border: 1.5px solid #93c5fd; border-radius: 8px; cursor: pointer; font-size: .86em; color: #1e40af; font-weight: 600; transition: all .2s; text-align: left; }
+    body.dark .summary-toggle { background: linear-gradient(135deg, rgba(59,130,246,.1), rgba(37,99,235,.08)); border-color: #3b82f6; color: #93c5fd; }
+    .summary-toggle:hover { background: linear-gradient(135deg, #dbeafe, #bfdbfe); }
+    .st-icon { font-size: .75em; transition: transform .2s; min-width: 14px; }
+    .summary-toggle.open .st-icon { transform: rotate(90deg); }
+    .summary-body { max-height: 0; overflow: hidden; opacity: 0; transition: max-height .4s ease, opacity .25s ease; }
+    .summary-body.open { max-height: 800px; opacity: 1; margin: 8px 0 4px; }
+    .summary-body { background: linear-gradient(135deg, #f8fafc, #f1f5f9); border-radius: 8px; padding: 18px 22px; border: 1px solid #e2e8f0; }
+    body.dark .summary-body { background: linear-gradient(135deg, #1e293b, #0f172a); border-color: #334155; }
+    .summary-body ul { margin: 0; padding-left: 18px; }
+    .summary-body li { margin: 7px 0; font-size: .92em; color: #334155; line-height: 1.6; }
+    body.dark .summary-body li { color: #cbd5e1; }
+
+    /* EXAM TAGS */
+    .tag-must { display: inline-block; padding: 2px 8px; border-radius: 4px; background: #fee2e2; color: #dc2626; font-size: .76em; font-weight: 700; vertical-align: middle; margin-left: 4px; }
+    .tag-common { display: inline-block; padding: 2px 8px; border-radius: 4px; background: #fef3c7; color: #d97706; font-size: .76em; font-weight: 700; vertical-align: middle; margin-left: 4px; }
+    .tag-ao2 { display: inline-block; padding: 2px 8px; border-radius: 4px; background: #dcfce7; color: #16a34a; font-size: .76em; font-weight: 700; vertical-align: middle; margin-left: 4px; }
+    .tag-context { display: inline-block; padding: 2px 8px; border-radius: 4px; background: #f1f5f9; color: #64748b; font-size: .76em; font-weight: 700; vertical-align: middle; margin-left: 4px; }
+
+    /* TERM TOOLTIPS */
+    .term { color: var(--term-color); font-weight: 600; cursor: help; position: relative; border-bottom: 1px dotted var(--term-color); }
+    .term-tooltip { position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%); background: #1e293b; color: #f8fafc; padding: 12px 16px; border-radius: 8px; font-size: .84em; line-height: 1.55; width: 280px; z-index: 200; box-shadow: 0 8px 30px rgba(0,0,0,.25); opacity: 0; visibility: hidden; transition: .2s; pointer-events: none; }
+    .term-tooltip::after { content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); border: 6px solid transparent; border-top-color: #1e293b; }
+    .term:hover .term-tooltip { opacity: 1; visibility: visible; }
+    .tt-cn { color: #a78bfa; font-weight: 600; display: block; margin-bottom: 4px; font-size: .96em; }
+    .tt-def { color: #94a3b8; display: block; margin-top: 4px; }
+
+    /* VISUAL SECTION HEADER */
+    .visual-header { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; padding: 14px 18px; background: linear-gradient(135deg, #f0fdf4, #dcfce7); border-radius: 10px; border-left: 4px solid var(--primary); }
+    body.dark .visual-header { background: linear-gradient(135deg, rgba(46,125,50,.1), rgba(34,197,94,.06)); border-left-color: #66BB6A; }
+    .vh-icon { font-size: 1.8em; flex-shrink: 0; }
+    .vh-text h4 { margin: 0 0 3px; color: var(--primary-dark); font-size: .92em; }
+    body.dark .vh-text h4 { color: #81C784; }
+    .vh-text p { margin: 0; font-size: .82em; color: var(--text-secondary); }
+
+    /* BACK TO TOP */
+    .back-to-top { position: fixed; bottom: 30px; right: 30px; width: 44px; height: 44px; background: var(--primary); color: white; border: none; border-radius: 50%; cursor: pointer; font-size: 1.2em; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(46,125,50,.35); opacity: 0; visibility: hidden; transform: translateY(15px); transition: all .3s; z-index: 90; }
+    .back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+    .back-to-top:hover { background: var(--primary-dark); transform: translateY(-3px); }
+
+    /* FOOTER */
     .footer-note { font-size: 0.85em; color: var(--text-secondary); margin-top: 2.5em; padding-top: 1em; border-top: 1px solid var(--border); text-align: center; }
 
-    @media (max-width: 768px) {
-      .container { padding: 16px; }
-      .section { padding: 20px; }
-      .factor-grid { grid-template-columns: 1fr; }
+    /* STUDY NAVIGATOR */
+    .study-nav{border-top:2px solid #e0e0e0;background:#FAFAFA;padding:14px 16px;margin-top:2rem}
+    .study-nav-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:1100px;margin:0 auto}
+    .study-nav-btn{flex:1;padding:9px 14px;border:1px solid #ddd;border-radius:8px;background:white;color:#444;font-size:.82rem;cursor:pointer;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:4px;transition:all .15s;font-family:inherit}
+    .study-nav-btn:hover{border-color:#2E7D32;color:#2E7D32;background:#f0fdf4}
+    .study-nav-dots{text-align:center;padding:0 8px}
+    .study-nav-label{font-size:.65rem;text-transform:uppercase;letter-spacing:1px;color:#888;margin-bottom:5px;font-weight:700}
+    .study-dot-row{display:flex;gap:5px;justify-content:center;flex-wrap:wrap}
+    .study-dot{width:10px;height:10px;border-radius:50%;cursor:pointer;border:2px solid transparent;transition:all .15s;position:relative;display:inline-block}
+    .study-dot:hover{transform:scale(1.3)}
+    .study-dot.active{border-color:#333;transform:scale(1.25)}
+
+    /* DARK MODE — comprehensive overrides */
+    body.dark { background: #0f172a; color: #e2e8f0; }
+    body.dark .container { background: #0f172a; }
+    body.dark .header { background: linear-gradient(135deg, #1B5E20, #2E7D32); }
+    body.dark .keyword-box { background: linear-gradient(135deg, rgba(217,119,6,.12), rgba(217,119,6,.06)); border-left-color: #F59E0B; }
+    body.dark .keyword-box h4, body.dark .keyword-box strong { color: #FBBF24; }
+    body.dark .keyword-box p { color: #d1d5db; }
+    body.dark th { background: #1B5E20; }
+    body.dark td { border-bottom-color: #1e293b; }
+    body.dark caption { color: #cbd5e1; }
+    body.dark .footer-note { border-top-color: #1e293b; color: #94a3b8; }
+    body.dark .study-nav { background: #1e293b; border-top-color: #334155; }
+    body.dark .study-nav-btn { background: #0f172a; border-color: #334155; color: #94a3b8; }
+    body.dark .study-nav-btn:hover { border-color: #66BB6A; color: #66BB6A; background: rgba(46,125,50,.08); }
+    body.dark .protest-table td:first-child { color: #81C784; }
+    body.dark .figure img { border-color: #334155; }
+    body.dark .figure-caption { color: #94a3b8; }
+    body.dark blockquote { color: #94a3b8; border-left-color: #334155; }
+    body.dark .info-box { background: #1e293b; border-left-color: #66BB6A; }
+    body.dark .activity-box { background: rgba(46,125,50,.06); border-left-color: #66BB6A; }
+    body.dark .activity-box h4 { color: #81C784; }
+    body.dark .activity-box p { color: #cbd5e1; }
+    body.dark .back-to-top { background: #2E7D32; }
+    body.dark .back-to-top:hover { background: #43A047; }
+
+    /* PRINT STYLES */
+    @media print {
+      .progress-bar, .nav-bar, .sidebar, .page-layout, .back-to-top, .cn-summary-wrap, .summary-card, .study-nav, .kw-tags { display: none !important; }
+      .container { max-width: 100% !important; padding: 0 !important; }
+      .main-content { width: 100% !important; }
+      .section { break-inside: avoid; page-break-inside: avoid; box-shadow: none; border: 1px solid #ddd; }
+      body { font-size: 11pt; background: white; color: black; }
+      .header { background: #2E7D32 !important; color: white !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:850px){
+      .page-layout{flex-direction:column}
+      .sidebar{display:none}
+      .container{padding:12px 16px}
+      .section{padding:20px}
+      .factor-grid{grid-template-columns:1fr}
+      .nav-bar{flex-wrap:wrap;padding:.5rem 1rem}
+      .nav-breadcrumb{order:3;width:100%;margin-top:6px}
+    }
+    @media(max-width:600px){
+      .study-nav-inner{flex-wrap:wrap;gap:8px}
+      .study-nav-btn{font-size:.75rem;padding:7px 10px}
+      .study-dot{width:8px;height:8px}
+      .header h1{font-size:1.4em}
+      .kw-tags{gap:6px}
+      .kw-tag{font-size:.74em;padding:5px 10px}
     }
   </style>
 </head>
 <body>
+<div class="progress-bar" id="progressBar"></div>
+
 <div class="container">
+
+<!-- Sticky Navigation Bar -->
+<nav class="nav-bar">
+  <a href="../../index.html" class="nav-pill">🏠 Home</a>
+  <div class="nav-breadcrumb">
+    <a href="../../index.html">Home</a><span class="sep">›</span>
+    <a href="../">CIE Psychology</a><span class="sep">›</span><span>Milgram (1963)</span>
+  </div>
+  <div class="nav-controls">
+    <button class="nav-btn" onclick="toggleDarkMode()" id="darkBtn" title="Toggle dark mode">🌙 Dark</button>
+    <button class="nav-btn" onclick="adjustFontSize(-1)" title="Decrease font size">A-</button>
+    <button class="nav-btn" onclick="adjustFontSize(1)" title="Increase font size">A+</button>
+  </div>
+</nav>
+
+<div class="page-layout">
+  <!-- LEFT SIDEBAR NAVIGATION -->
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+      <ul class="sb-list" id="sidebarList">
+        <li class="sb-item"><a href="#s1">§1 Assumptions</a></li>
+        <li class="sb-item"><a href="#s2">§2 Psychology</a></li>
+        <li class="sb-item"><a href="#s3">§3 Background</a></li>
+        <li class="sb-item"><a href="#s4">§4 Aim</a></li>
+        <li class="sb-item"><a href="#s5">§5 Method</a></li>
+        <li class="sb-item"><a href="#s6">§6 Results</a></li>
+        <li class="sb-item"><a href="#s7">§7 Conclusion</a></li>
+        <li class="sb-item"><a href="#s8">§8 Evaluation</a></li>
+        <li class="sb-item"><a href="#s9">§9 Ethics</a></li>
+        <li class="sb-item"><a href="#s10">§10 Debates</a></li>
+        <li class="sb-item"><a href="#s11">§11 Summary</a></li>
+        <li class="sb-item"><a href="#s12">§12 Questions</a></li>
+        <li class="sb-item"><a href="#s13">§13 Key Terms</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
 
 <!-- HEADER -->
 <div class="header">
@@ -120,6 +336,11 @@
     <span class="badge">📄 Journal of Abnormal and Social Psychology, 67, 371–378</span>
     <span class="badge">🔬 Core Study 1</span>
     <span class="badge">✅ Revised with Original Paper 原文校对版</span>
+  </div>
+  <div class="kw-tags">
+    <span class="kw-tag kw-app">🧠 Social Approach</span>
+    <span class="kw-tag kw-meth">📐 Lab Observation</span>
+    <span class="kw-tag kw-conc">💡 Obedience</span>
   </div>
 </div>
 
@@ -134,18 +355,26 @@
     <li><a href="#s5">Method（研究方法）</a></li>
     <li><a href="#s6">Results（研究结果）</a></li>
     <li><a href="#s7">Conclusion（结论）</a></li>
-    <li><a href="#s8">Strengths & Weaknesses（优缺点）</a></li>
+    <li><a href="#s8">Strengths &amp; Weaknesses（优缺点）</a></li>
     <li><a href="#s9">Ethical Issues（伦理问题）</a></li>
-    <li><a href="#s10">Issues & Debates（争论与取向）</a></li>
+    <li><a href="#s10">Issues &amp; Debates（争论与取向）</a></li>
     <li><a href="#s11">Summary（总结）</a></li>
     <li><a href="#s12">Study Questions（复习题）</a></li>
     <li><a href="#s13">Key Terms（核心术语）</a></li>
   </ol>
 </div>
 
-<!-- SECTION 1 -->
+<!-- ==================== SECTION 1 ==================== -->
 <div class="section" id="s1">
   <h2>1️⃣ Main Assumptions in Context（社会心理学取向的主要假设）</h2>
+
+  <div class="visual-header">
+    <div class="vh-icon">🧠</div>
+    <div class="vh-text">
+      <h4>Social Approach Core Assumptions</h4>
+      <p>How others shape our behaviour, thoughts & emotions</p>
+    </div>
+  </div>
 
   <h3>Humans as Social Actors（人作为社会行动者）</h3>
   <p>Social psychologists are interested in understanding the factors that influence how we behave in social situations. The main assumptions of the social approach to psychology are that:</p>
@@ -155,10 +384,6 @@
   </ul>
 
   <p>These assumptions introduce the idea that other people have an enormously powerful effect on how we live our lives. We might experience this in the different <strong>social roles（社会角色）</strong> we play as students, children, workers, volunteers, etc. For example, a manager may behave formally in their office environment, greeting colleagues with handshakes and wearing smart work clothes. However, when visiting their mother they change roles to a more informal one, greeting her with a hug and dressing casually.</p>
-
-  <div class="note-box">
-    <p>Social psychology argues that behaviour is not solely determined by personality—it is profoundly shaped by surrounding environments and social relationships. The same person acts differently as a "manager" at work versus as a "son/daughter" at home. This is the power of <strong>social role</strong>.</p>
-  </div>
 
   <h3>Social Pressure（社会压力）</h3>
   <p>The influence of others is not limited to their actual presence. We may act as though others are with us even when they are not—feelings of excitement before a party come from imagining friends' presence. These powerful influences on thoughts, feelings and behaviour are collectively known as <strong>social pressure（社会压力）</strong>.</p>
@@ -174,9 +399,37 @@
     <h4>⚠️ Historical Context</h4>
     <p>Milgram himself was born into a Jewish family. He wrote: "Obedience is the psychological mechanism that links individual action to political purpose... from 1933–45 millions of innocent persons were systematically slaughtered on command." This personal motivation drove his research.</p>
   </div>
+
+  <!-- Chinese Summary Card -->
+  <div class="cn-summary-wrap">
+    <button class="cn-summary-toggle" onclick="toggleCnSummary(this)"><span class="cs-icon">▶</span> 中文逻辑总结</button>
+    <div class="cn-summary-body">
+      <div class="cs-title">§1 社会心理学取向的三大假设</div>
+      <p><strong>逻辑链：</strong>人是社会性动物 → 他人的存在（实际/想象/暗示）深刻影响我们的行为 → 这种影响称为 <span class="cs-en">Social Pressure</span> → 其中一种特殊形式是 <span class="cs-en">Obedience（服从）</span>——听从权威人物的命令。</p>
+      <ul>
+        <li><span class="cs-en">Social Roles（社会角色）</span>：同一个人在不同场景下表现不同（经理 vs 儿子），说明行为由情境决定，不仅仅是性格。</li>
+        <li><span class="cs-en">Social Pressure</span> 可以是直接的（命令、威胁），也可以是间接的（从众压力、想获得认可）。</li>
+        <li><span class="cs-en">Destructive Obedience（破坏性服从）</span>：当服从导致伤害他人时——二战大屠杀就是最极端的例子，这也是 Milgram 研究的核心动机。</li>
+      </ul>
+      <p><strong>💡 考试要点：</strong>CIE 考试常问 "outline two assumptions of the social approach"。答案模板：(1) Others influence our behaviour/thoughts/emotions; (2) We are shaped by social contexts/groups/roles.</p>
+    </div>
+  </div>
+
+  <!-- Exam Key Points -->
+  <div class="summary-card" id="summary-s1">
+    <button class="summary-toggle" onclick="toggleSummary('summary-s1')">▶ Exam Key Points</button>
+    <div class="summary-body">
+      <ul>
+        <li>Two assumptions of social approach: (1) influenced by others' presence (actual/implied/imagined), (2) shaped by social contexts/environments <span class="tag-must">Must Know</span></li>
+        <li>Key term: <strong>destructive obedience</strong> = obeying authority that causes harm to others <span class="tag-must">Must Know</span></li>
+        <li>Social role example: same person behaves differently as manager vs. child at home <span class="tag-common">Common Q</span></li>
+        <li>AO1: Describe assumptions clearly; AO2: Link to why Milgram's study matters for understanding obedience <span class="tag-ao2">AO2 Gold</span></li>
+      </ul>
+    </div>
+  </div>
 </div>
 
-<!-- SECTION 2 -->
+<!-- ==================== SECTION 2 ==================== -->
 <div class="section" id="s2">
   <h2>2️⃣ The Psychology Being Investigated（研究涉及的心理学）</h2>
 
@@ -193,9 +446,17 @@
   </blockquote>
 </div>
 
-<!-- SECTION 3 -->
+<!-- ==================== SECTION 3 ==================== -->
 <div class="section" id="s3">
   <h2>3️⃣ Background（研究背景）</h2>
+
+  <div class="visual-header">
+    <div class="vh-icon">🔍</div>
+    <div class="vh-text">
+      <h4>The "Germans Are Different" Hypothesis</h4>
+      <p>Milgram wanted to prove: it's about situation, not nationality</p>
+    </div>
+  </div>
 
   <h3>The 'Germans Are Different' Hypothesis（"德国人不同"假说）</h3>
   <p>One theory used to explain the Holocaust is that German citizens possessed defective personal traits which made extreme levels of obedience possible. This individual argument suggests that Germans are somehow different from others—the so-called <strong>'Germans are different' hypothesis（"德国人不同"假说）</strong>.</p>
@@ -211,15 +472,39 @@
     <li>Colleagues felt few if any subjects would go beyond <strong>"Very Strong Shock"</strong> (195–240V).</li>
   </ul>
 
-  <div class="note-box">
-    <p>Milgram wanted to prove: it wasn't that Germans were uniquely cruel—it was the <strong>situation</strong> that overwhelmed ordinary people's moral judgement. Everyone predicted very low obedience rates. The actual results were shocking.</p>
-  </div>
-
   <h3>Individual vs Situational Explanations（个体解释与情境解释）</h3>
   <p>This debate concerns whether a person's individual characteristics (personality) or environmental conditions more strongly influence behaviour. Milgram's study challenges personality-based explanations because <strong>all participants administered at least 300V</strong>. He attributed this to situational variables: legitimacy of the setting and authority of the experimenter.</p>
+
+  <!-- Chinese Summary Card -->
+  <div class="cn-summary-wrap">
+    <button class="cn-summary-toggle" onclick="toggleCnSummary(this)"><span class="cs-icon">▶</span> 中文逻辑总结</button>
+    <div class="cn-summary-body">
+      <div class="cs-title">§3 研究背景：挑战"德国人不同"假说</div>
+      <p><strong>核心争论：</strong>为什么二战时普通德国人会执行屠杀命令？</p>
+      <ul>
+        <li><span class="cs-en">Individual Explanation（个体解释）</span>：德国人有某种"缺陷人格"或独特的"权威型人格"（<span class="cs-en">Authoritarian Personality</span>, Adorno 1950）→ 只有德国人会这样。</li>
+        <li><span class="cs-en">Situational Explanation（情境解释）</span>（Milgram 的立场）：任何人在类似的情境下都会服从 → 不是德国人的问题，是<strong>情境的力量</strong>。</li>
+      </ul>
+      <p><strong>预测 vs 实际：</strong>心理学家预测只有 0-3% 的人会施加最高电压 → 实际结果 **65%** 完全服从到 450V！这个巨大反差证明了情境的力量远超人们预期。</p>
+      <p><strong>💡 考试答题模板：</strong>"Milgram challenged the 'Germans are different' hypothesis by showing that ordinary Americans (not Germans) showed high levels of obedience (65%), supporting a situational rather than individual explanation."</p>
+    </div>
+  </div>
+
+  <!-- Exam Key Points -->
+  <div class="summary-card" id="summary-s3">
+    <button class="summary-toggle" onclick="toggleSummary('summary-s3')">▶ Exam Key Points</button>
+    <div class="summary-body">
+      <ul>
+        <li>'Germans are different' hypothesis = individual/personality explanation for Holocaust obedience <span class="tag-must">Must Know</span></li>
+        <li>Predicted obedience rate: 0–3% (class mean 1.2%) → Actual: 65% <span class="tag-must">Must Know</span></li>
+        <li>Milgram supported <strong>situational explanation</strong> over individual explanation <span class="tag-must">Must Know</span></li>
+        <li>AO2 evaluation point: This debate continues — 35% DID defy, so individual differences matter too <span class="tag-ao2">AO2 Gold</span></li>
+      </ul>
+    </div>
+  </div>
 </div>
 
-<!-- SECTION 4 -->
+<!-- ==================== SECTION 4 ==================== -->
 <div class="section" id="s4">
   <h2>4️⃣ Aim（研究目的）</h2>
 
@@ -235,18 +520,22 @@
   </div>
 </div>
 
-<!-- SECTION 5 -->
+<!-- ==================== SECTION 5 ==================== -->
 <div class="section" id="s5">
   <h2>5️⃣ Method（研究方法）</h2>
+
+  <div class="visual-header">
+    <div class="vh-icon">⚗️</div>
+    <div class="vh-text">
+      <h4>Controlled Observation</h4>
+      <p>Lab setting · 40 male participants · Shock generator apparatus</p>
+    </div>
+  </div>
 
   <h3>Research Method and Design（研究方法与设计）</h3>
   <p>This study is a <strong>controlled observation（控制性观察）</strong>. It took place in a laboratory where all variables and measurements were controlled while participant behaviour was observed and recorded.</p>
 
   <p>Milgram originally described it as a laboratory experiment; however, it contained no manipulated (independent) variables. Each participant underwent the same procedure with no control condition. He later replicated the procedure in other studies using different variations to allow comparisons.</p>
-
-  <div class="note-box">
-    <p>Strictly speaking this is not a true experiment because Milgram did not manipulate different conditions for comparison. He simply observed all participants' behaviour under identical conditions. Hence: <strong>controlled observation</strong>—control the environment, then observe behaviour.</p>
-  </div>
 
   <h3>Sample（样本）</h3>
   <p>The subjects were <strong>40 males between the ages of 20 and 50</strong>, recruited through newspaper advertisement in the New Haven area. This was a <strong>volunteer sample（志愿样本）</strong>.</p>
@@ -266,10 +555,6 @@
   </table>
 
   <p>In addition, <strong>43 undergraduate students from Yale University</strong> completed the same experiment without payment. Although details of this additional sample are not included in the main paper, their results were very similar to those obtained by paid participants.</p>
-
-  <div class="note-box">
-    <p>Volunteer sampling means participants self-selected, potentially attracting people who are more cooperative or interested in psychology than average. Also, the sample was <strong>all male</strong>, limiting generalisability to women.</p>
-  </div>
 
   <h3>Personnel and Locale（人员与地点）</h3>
   <p>The experiment was conducted on the grounds of <strong>Yale University</strong> in the elegant interaction laboratory. This detail is relevant to the <strong>perceived legitimacy（感知合法性）</strong> of the experiment—in later variations, dissociating the experiment from the university affected performance.</p>
@@ -345,15 +630,15 @@
       <tr><td><span class="protest-level level-mid">105V</span></td><td>Moderate Shock</td><td><em>Grunts（呻吟）</em></td></tr>
       <tr><td><span class="protest-level level-mid">120V</span></td><td>Moderate Shock</td><td><em>Shouts "Hey, this really hurts!"（喊："嘿，真的很痛！"）</em></td></tr>
       <tr><td><span class="protest-level level-mid">135V</span></td><td>Strong Shock</td><td><em>A agonized scream（痛苦的尖叫）</em></td></tr>
-      <tr><td><span class="protest-level level-mid">150V</span></td><td>Strong Shock</td><td><em>"Experimenter! That's all! Get me out of here! I told you I had heart trouble! My heart's starting to bother me now! Get me out of here, my heart's!"<br>（"实验者！够了！放我出去！我告诉过我有心脏病！我的心脏现在开始难受了！放我出去！"）</em></td></tr>
+      <tr><td><span class="protest-level level-mid">150V</span></td><td>Strong Shock</td><td><em>"Experimenter! That's all! Get me out of here! I told you I had heart trouble! My heart's starting to bother me now! Get me out of here, my heart!"<br>（"实验者！够了！放我出去！我告诉过我有心脏病！我的心脏现在开始难受了！放我出去！"）</em></td></tr>
       <tr><td><span class="protest-level level-high">165V</span></td><td>Strong Shock</td><td><em>(Intense screaming 尖叫)</em></td></tr>
       <tr><td><span class="protest-level level-high">180V</span></td><td>Very Strong Shock</td><td><em>"I can't stand the pain! Let me out of here!"（"我受不了了！放我出去！"）</em></td></tr>
       <tr><td><span class="protest-level level-high">195V</span></td><td>Very Strong Shock</td><td><em>(Screams 尖叫)</em></td></tr>
       <tr><td><span class="protest-level level-high">210V</span></td><td>Intense Shock</td><td><em>"I absolutely refuse to go on. Let me out of here!"（"我绝对拒绝继续。放我出去！"）</em></td></tr>
-      <tr><td><span class="protest-level level-high">225V</span></td><td>Intense Shock</td><td><em>(Screams 尖叫)</em></tr>
+      <tr><td><span class="protest-level level-high">225V</span></td><td>Intense Shock</td><td><em>(Screams 尖叫)</em></td></tr>
       <tr><td><span class="protest-level level-high">240V</span></td><td>Intense Shock</td><td><em>(Screams 尖叫)</em></td></tr>
-      <tr><td><span class="protest-level level-high">255V</span></td><td>Intense Shock</td><td><em>(Agonized scream 痛苦尖叫)</em></td></tr>
-      <tr><td><span class="protest-level level-high">270V</span></td><td>Extreme Intensity</td><td><em>(Agonized scream 痛苦尖叫 + desperate pounding on wall 绝望地捶墙)</em></td></tr>
+      <tr><td><span class="protest-level level-high">255V</span></td><td>Intensity Shock</td><td><em>(Agonized scream 痛苦尖叫)</em></td></tr>
+      <tr><td><span class="protest-level level-high">270V</span></td><td>Extreme Intensity</td><td><em>(Agonized scream + desperate pounding 绝望地捶墙)</em></td></tr>
       <tr><td><span class="protest-level level-high">285V</span></td><td>Extreme Intensity</td><td><em>(Agonized scream + pounding 痛苦尖叫+捶墙)</em></td></tr>
       <tr><td><span class="protest-level level-extreme">300V</span></td><td>Extreme Intensity</td><td><em><strong>Kicks violently on the wall 暴力踢墙</strong> — then <strong>NO RESPONSE / SILENCE 无回应/沉默</strong></em></td></tr>
       <tr><td><span class="protest-level level-extreme">315V</span></td><td>Danger: Severe</td><td><em><strong>STILL SILENT 仍然沉默</strong></em></td></tr>
@@ -403,11 +688,64 @@
 
   <h3>Interview and Dehoax（访谈与事后解释）</h3>
   <p>After the experiment, subjects were interviewed using open-ended questions, projective measures, and attitude scales. Subjects estimated how painful the final shocks were on a <strong>14-point scale</strong> ("Not at all painful" to "Extremely painful"). After the interview, procedures assured subjects left in a state of well-being—a friendly <strong>debriefing（事后解释）</strong> reconciled any ill feelings.</p>
+
+  <!-- Chinese Summary Card -->
+  <div class="cn-summary-wrap">
+    <button class="cn-summary-toggle" onclick="toggleCnSummary(this)"><span class="cs-icon">▶</span> 中文逻辑总结</button>
+    <div class="cn-summary-body">
+      <div class="cs-title">§5 方法：控制性观察的完整流程</div>
+      <p><strong>研究类型：</strong><span class="cs-en">Controlled Observation（控制性观察）</span>——不是真实验（没有 IV 操作），但严格控制环境条件后观察行为。也有人归类为 <span class="cs-en">Quasi-experiment（准实验）</span> 或 <span class="cs-en">Lab Experiment（实验室实验）</span>。考试时根据题目要求选择术语。</p>
+      <p><strong>样本：</strong>n=40 男性，20-50 岁，<span class="cs-en">Volunteer Sample（志愿样本）</span>，New Haven 地区报纸招募。另有 43 名耶鲁大学生 unpaid 对照组。</p>
+      <p><strong>程序六步法：</strong></p>
+      <ol>
+        <li><strong>到达付款 $4.50</strong> → 强调"钱已经给你了，无论后面发生什么"</li>
+        <li><strong>假抽签分配角色</strong> → 被试永远是 Teacher，<span class="cs-en">Confederate（同谋）</span> 永远是 Learner</li>
+        <li><strong>Learner 被绑电椅</strong> → 电极贴手腕（"避免水泡和烧伤"）</li>
+        <li><strong>45V 样本电击</strong> → 被试自己体验一次，确信机器是真的</li>
+        <li><strong>练习阶段 10 题</strong> → 最高 105V，确保被试掌握操作流程</li>
+        <li><strong>正式实验</strong> → Learner 按 ~3错:1对 比例反应</li>
+      </ol>
+      <p><strong>⚠️ 关键时间线修正（必考！）：</strong></p>
+      <ul>
+        <li><strong>75V</strong>：首次抗议（呻吟）← 不是 300V！</li>
+        <li><strong>150V</strong>：喊心脏病</li>
+        <li><strong>180V</strong>：要求释放</li>
+        <li><strong>270V</strong>：绝望捶墙</li>
+        <li><strong>300V</strong>：暴力踢墙 → 然后<strong>完全沉默</strong></li>
+      </ul>
+      <p><strong>四个标准提示语：</strong>Please continue → Experiment requires → Absolutely essential → No other choice</p>
+      <p><strong>两个特殊提示语：</strong>关于永久性伤害 / 学习者不想继续</p>
+      <p><strong>因变量：</strong>被试施加的最高电压（0-30 档，对应 15V-450V）</p>
+    </div>
+  </div>
+
+  <!-- Exam Key Points -->
+  <div class="summary-card" id="summary-s5">
+    <button class="summary-toggle" onclick="toggleSummary('summary-s5')">▶ Exam Key Points</button>
+    <div class="summary-body">
+      <ul>
+        <li>Method = Controlled observation (or quasi-experiment) — no IV manipulated, all Ps had identical procedure <span class="tag-must">Must Know</span></li>
+        <li>Sample: n=40 males, 20-50yrs, volunteer sample via newspaper ad <span class="tag-must">Must Know</span></li>
+        <li>First protest at <strong>75V</strong> (NOT 300V!) — this correction is frequently tested <span class="tag-must">Must Know</span></li>
+        <li>4 standard prods + 2 special prods — know them verbatim <span class="tag-common">Common Q</span></li>
+        <li>DV = maximum voltage administered before refusal <span class="tag-common">Common Q</span></li>
+        <li>AO2: Why not a true experiment? No control condition, no IV manipulation <span class="tag-ao2">AO2 Gold</span></li>
+      </ul>
+    </div>
+  </div>
 </div>
 
-<!-- SECTION 6 -->
+<!-- ==================== SECTION 6 ==================== -->
 <div class="section" id="s6">
   <h2>6️⃣ Results（研究结果）</h2>
+
+  <div class="visual-header">
+    <div class="vh-icon">📊</div>
+    <div class="vh-text">
+      <h4>Shockingly High Obedience</h4>
+      <p>65% fully obedient · Mean 368V · All reached 300V</p>
+    </div>
+  </div>
 
   <h3>Subjects Accepted Situation as Real 被试相信情境真实</h3>
   <p>With few exceptions, subjects were convinced of reality—that they were administering real shocks and the most potent shocks were extremely painful. On the 14-point post-experimental scale:</p>
@@ -424,10 +762,6 @@
     <li><strong>Nervous laughter:</strong> 14 of 40 subjects showed definite signs of nervous laughter/smiling</li>
     <li><strong>3 subjects experienced full-blown, uncontrollable seizures</strong>—one so violent the experiment had to be halted</li>
   </ul>
-
-  <div class="note-box">
-    <p>The nervous laughter seemed "entirely out of place, even bizarre." One subject (a 46-year-old encyclopedia salesman) was seriously embarrassed by his uncontrollable seizure. In post-experimental interviews, subjects emphasised they were <em>not sadistic types</em> and the laughter did not mean enjoyment.</p>
-  </div>
 
   <h3>Distribution of Maximum Shocks 最高电击分布</h3>
   <p>It had been conjectured that persons would not administer shocks beyond <strong>"Very Strong Shock"</strong>. The obtained distribution deviated radically from prediction:</p>
@@ -475,9 +809,47 @@
   </div>
 
   <p>Defiant subjects were frequently in highly agitated or angered states. Some simply got up from their chair and indicated they wished to leave. Obedient subjects often showed extreme stress too—some expressed reluctance beyond 300V yet still obeyed. After maximum shocks, many heaved sighs of relief, mopped brows, rubbed eyes, or fumbled cigarettes nervously.</p>
+
+  <!-- Chinese Summary Card -->
+  <div class="cn-summary-wrap">
+    <button class="cn-summary-toggle" onclick="toggleCnSummary(this)"><span class="cs-icon">▶</span> 中文逻辑总结</button>
+    <div class="cn-summary-body">
+      <div class="cs-title">§6 结果：令人震惊的高服从率</div>
+      <p><strong>核心数据（必须背诵！）：</strong></p>
+      <ul>
+        <li><strong>65%（26/40）完全服从</strong> → 施加了最高 450V（超过 "Danger: Severe Shock" 两档）</li>
+        <li><strong>100% 达到至少 300V</strong>（Learner 开始踢墙并沉默的电压）</li>
+        <li><strong>平均最高电压：368V</strong></li>
+        <li>预测值：<strong>0-3%</strong> → 实际值 <strong>65%</strong> → 差距 20 倍以上！</li>
+      </ul>
+      <p><strong>紧张迹象（Qualitative Data）：</strong></p>
+      <ul>
+        <li>大量出汗、颤抖、口吃、咬嘴唇</li>
+        <li>14/40 出现紧张笑/微笑</li>
+        <li>3 人出现无法控制的癫痫发作（其中 1 人被迫中止实验）</li>
+      </ul>
+      <p><strong>关键洞察：</strong>被试并非"享受"施暴——他们表现出极度痛苦和内心冲突。这证明 <span class="cs-en">obedience</span> 不是因为"邪恶人格"，而是<strong>情境压倒了个人道德</strong>。</p>
+      <p><strong>💡 考试答题模板：</strong>"The results showed 65% of participants (26/40) obeyed fully to 450V, and all 40 reached at least 300V. This dramatically exceeded predictions of 0-3%. Qualitative data revealed extreme tension: sweating, trembling, nervous laughter (14/40), and even seizures (3/40)."</p>
+    </div>
+  </div>
+
+  <!-- Exam Key Points -->
+  <div class="summary-card" id="summary-s6">
+    <button class="summary-toggle" onclick="toggleSummary('summary-s6')">▶ Exam Key Points</button>
+    <div class="summary-body">
+      <ul>
+        <li><strong>65% (26/40)</strong> fully obedient to 450V <span class="tag-must">Must Know</span></li>
+        <li><strong>100%</strong> reached at least 300V <span class="tag-must">Must Know</span></li>
+        <li>Mean maximum voltage = <strong>368V</strong> <span class="tag-must">Must Know</span></li>
+        <li>Predicted 0-3% → actual 65% — massive discrepancy <span class="tag-common">Common Q</span></li>
+        <li>Qualitative evidence: sweating, trembling, nervous laughter (14/40), seizures (3/40) <span class="tag-ao2">AO2 Gold</span></li>
+        <li>Use quotes from defiant subjects to support internal conflict argument <span class="tag-ao2">AO2 Gold</span></li>
+      </ul>
+    </div>
+  </div>
 </div>
 
-<!-- SECTION 7 -->
+<!-- ==================== SECTION 7 ==================== -->
 <div class="section" id="s7">
   <h2>7️⃣ Conclusion（结论）</h2>
 
@@ -491,9 +863,37 @@
   <div class="green-box">
     <p>Milgram noted one extraordinary case: a subject who, after 20 minutes, was reduced to "a twitching, stuttering wreck, rapidly approaching nervous collapse." He constantly pulled his earlobe, twisted his hands, pushed his fist into his forehead and muttered "Oh God, let's stop it"—<strong>and yet he continued to respond to every word of the experimenter, and obeyed to the end.</strong></p>
   </div>
+
+  <!-- Chinese Summary Card -->
+  <div class="cn-summary-wrap">
+    <button class="cn-summary-toggle" onclick="toggleCnSummary(this)"><span class="cs-icon">▶</span> 中文逻辑总结</button>
+    <div class="cn-summary-body">
+      <div class="cs-title">§7 结论：情境解释得到强力支持</div>
+      <p><strong>Milgram 的两大核心结论：</strong></p>
+      <ol>
+        <li><strong>普通人的服从程度远超预期</strong> —— 不只是德国人，美国人也一样会服从到极致。文化、性格都不是决定因素。</li>
+        <li><strong>服从伴随着极度内心冲突</strong> —— 被试不是"冷血杀手"，他们大量出汗、颤抖、甚至癫痫发作。<span class="cs-en">Internal Conflict（内部冲突）</span>：一边是"不要伤害他人"的本能，另一边是"服从合法权威"的社会化训练。</li>
+      </ol>
+      <p><strong>那个典型案例：</strong>一个被试 20 分钟后变成"抽搐、口吃的废人"，不断念叨"Oh God, let's stop it"，但<strong>仍然服从到了最后</strong>。这个案例完美诠释了情境力量如何压倒个人意志。</p>
+      <p><strong>💡 考试答题模板：</strong>"Milgram concluded that ordinary people would obey authority figures to a surprising extent (65% to 450V), supporting a situational explanation of obedience. However, the extreme stress shown by participants (sweating, trembling, seizures) indicates genuine internal conflict between conscience and the need to obey legitimate authority."</p>
+    </div>
+  </div>
+
+  <!-- Exam Key Points -->
+  <div class="summary-card" id="summary-s7">
+    <button class="summary-toggle" onclick="toggleSummary('summary-s7')">▶ Exam Key Points</button>
+    <div class="summary-body">
+      <ul>
+        <li>Conclusion supports <strong>situational explanation</strong> of obedience <span class="tag-must">Must Know</span></li>
+        <li>Two key points: (1) people more obedient than expected, (2) extreme internal conflict <span class="tag-must">Must Know</span></li>
+        <li>The "twitching wreck" case study — perfect example of conflict + obedience coexisting <span class="tag-common">Common Q</span></li>
+        <li>AO2: Note that 35% DID resist — so individual differences still play some role <span class="tag-ao2">AO2 Gold</span></li>
+      </ul>
+    </div>
+  </div>
 </div>
 
-<!-- SECTION 8 -->
+<!-- ==================== SECTION 8 ==================== -->
 <div class="section" id="s8">
   <h2>8️⃣ Strengths & Weaknesses（优缺点）</h2>
 
@@ -516,9 +916,51 @@
     <li><strong>No control condition（无对照组）</strong>: Not a true experiment—all participants underwent identical procedure, making causal claims harder to establish.</li>
     <li><strong>Demand characteristics（需求特征）</strong>: Some participants may have guessed the true purpose and behaved accordingly (though debriefing suggested most did not).</li>
   </ul>
+
+  <!-- Chinese Summary Card -->
+  <div class="cn-summary-wrap">
+    <button class="cn-summary-toggle" onclick="toggleCnSummary(this)"><span class="cs-icon">▶</span> 中文逻辑总结</button>
+    <div class="cn-summary-body">
+      <div class="cs-title">§8 评价：六大优点 vs 六大缺点</div>
+      <p><strong>✅ 六大优点（Strengths）：</strong></p>
+      <ul>
+        <li><span class="cs-en">Controlled Observation</span>：环境高度控制（同谋年龄/外貌固定），所有被试经历相同流程 → 高 <span class="cs-en">Internal Validity（内部效度）</span></li>
+        <li><span class="cs-en">Standardised Procedure</span>：提示语逐字标准化 → 高 <span class="cs-en">Reliability（信度）</span></li>
+        <li><span class="cs-en">Ecological Validity</span>（设备真实性）：精密工业雕刻的电击机 + 真 45V 样本电击 → 被试深信不疑</li>
+        <li><span class="cs-en">Quantitative Data</span>：电压数值客观可比较 → 易于统计分析</li>
+        <li><span class="cs-en">Qualitative Data</span>：录音 + 观察 + 引用原话 → 揭示内部冲突</li>
+        <li><span class="cs-en">Mixed Methods</span>：定量 + 定性结合 → 更完整的图景</li>
+      </ul>
+      <p><strong>❌ 六大缺点（Weaknesses）：</strong></p>
+      <ul>
+        <li><span class="cs-en">Sample Bias</span>：全男性 + New Haven 地区 + 志愿样本 → 不能推广到女性/其他文化</li>
+        <li><span class="cs-en">Volunteer Bias</span>：自选样本可能偏向合作型人格</li>
+        <li><span class="cs-en">Low Ecological Validity</span>：假学习任务 ≠ 真实权威情境（军队/医院）</li>
+        <li><span class="cs-en">Subjective Qualitative Data</span>：观察者解读可能不一致</li>
+        <li><span class="cs-en">No Control Condition</span>：非真实验 → 无法建立因果关系</li>
+        <li><span class="cs-en">Demand Characteristics</span>：部分被试可能猜到真正目的（尽管 debriefing 显示大多数人没猜到）</li>
+      </ul>
+      <p><strong>💡 AO2 答题技巧：</strong>每个评价点都要加 "because..." 解释为什么这是优点/缺点，然后加 "this means..." 说明对研究的意义。例如："It used standardised procedure because all participants heard the same prods word-for-word. This means the study has high reliability and results are consistent across participants."</p>
+    </div>
+  </div>
+
+  <!-- Exam Key Points -->
+  <div class="summary-card" id="summary-s8">
+    <button class="summary-toggle" onclick="toggleSummary('summary-s8')">▶ Exam Key Points</button>
+    <div class="summary-body">
+      <ul>
+        <li>Know 3 strengths AND 3 weaknesses with clear reasoning <span class="tag-must">Must Know</span></li>
+        <li>Strength: Standardised prods → high reliability <span class="tag-ao2">AO2 Gold</span></li>
+        <li>Weakness: All-male sample → gender bias, cannot generalise to women <span class="tag-ao2">AO2 Gold</span></li>
+        <li>Weakness: Volunteer sample → cooperative bias <span class="tag-common">Common Q</span></li>
+        <li>Weakness: Not a true experiment (no control condition) → cannot establish cause-effect <span class="tag-ao2">AO2 Gold</span></li>
+        <li>Evaluation tip: Always add "this means..." to explain the implication of your point <span class="tag-context">Context</span></li>
+      </ul>
+    </div>
+  </div>
 </div>
 
-<!-- SECTION 9 -->
+<!-- ==================== SECTION 9 ==================== -->
 <div class="section" id="s9">
   <h2>9️⃣ Ethical Issues（伦理问题）</h2>
 
@@ -541,9 +983,42 @@
     <h4>⚠️ Why This Study Could Not Be Repeated Today</h4>
     <p>Modern ethics committees (such as BPS guidelines) would reject this design due to: inadequate protection from psychological harm, excessive deception, and insufficient right to withdraw. Milgram's own defence was that thorough debriefing resolved these issues, and follow-up surveys found 84% of participants were "positively glad" to have participated. However, 1.3% reported "very negative" feelings—and given 40 participants, that means some individuals may have been genuinely harmed.</p>
   </div>
+
+  <!-- Chinese Summary Card -->
+  <div class="cn-summary-wrap">
+    <button class="cn-summary-toggle" onclick="toggleCnSummary(this)"><span class="cs-icon">▶</span> 中文逻辑总结</button>
+    <div class="cn-summary-body">
+      <div class="cs-title">§9 伦理问题：五项重大违规</div>
+      <p><strong>五大伦理问题一览：</strong></p>
+      <ul>
+        <li><span class="cs-en">Deception（欺骗）</span>：告诉被试研究关于"记忆与学习"，实际上测服从；电击是假的；同谋是演员；抽签是操纵的</li>
+        <li><span class="cs-en">Informed Consent（知情同意）</span>：被试同意参加，但不知道真正的实验目的</li>
+        <li><span class="cs-en">Protection from Harm（免受伤害）</span>：多人出现极度痛苦（出汗、颤抖、癫痫）；仅 1 人因严重发作被中止</li>
+        <li><span class="cs-en">Right to Withdraw（退出权）</span>：技术上可以退出，但言语提示造成强大社会压力让被试难以开口</li>
+        <li><span class="cs-en">Debriefing（事后解释）</span>：友好的和解会议；见到学习者确认其安全；84% 表示"积极庆幸参与"；但 1.3% 报告"非常负面感受"</li>
+      </ul>
+      <p><strong>❌ 为什么今天不能重复？</strong></p>
+      <p>BPS（英国心理学会）现代伦理指南会拒绝此设计：心理伤害保护不足、过度欺骗、退出权未充分保障。Milgram 的辩护是"彻底的事后解释解决了这些问题"，但批评者认为有些伤害是不可逆的。</p>
+      <p><strong>💡 考试答题模板：</strong>"Milgram's study raised serious ethical issues: deception (participants believed shocks were real), inadequate protection from harm (extreme distress including seizures), and compromised right to withdraw (verbal prods created social pressure to continue). Although thorough debriefing was provided (84% felt positively about participating), modern BPS guidelines would not permit this study today."</p>
+    </div>
+  </div>
+
+  <!-- Exam Key Points -->
+  <div class="summary-card" id="summary-s9">
+    <button class="summary-toggle" onclick="toggleSummary('summary-s9')">▶ Exam Key Points</button>
+    <div class="summary-body">
+      <ul>
+        <li>5 ethical issues: Deception, Informed Consent, Protection from Harm, Right to Withdraw, Debriefing <span class="tag-must">Must Know</span></li>
+        <li>Why rejected today: BPS guidelines require adequate harm protection, informed consent, genuine right to withdraw <span class="tag-must">Must Know</span></li>
+        <li>Milgram's defence: Thorough debriefing, 84% positive feedback <span class="tag-common">Common Q</span></li>
+        <li>Counter-argument: 1.3% very negative × 40 Ps = some genuinely harmed <span class="tag-ao2">AO2 Gold</span></li>
+        <li>AO3: Ethical issues vs scientific value trade-off <span class="tag-ao2">AO2 Gold</span></li>
+      </ul>
+    </div>
+  </div>
 </div>
 
-<!-- SECTION 10 -->
+<!-- ==================== SECTION 10 ==================== -->
 <div class="section" id="s10">
   <h2>🔟 Issues & Debates（议题与辩论）</h2>
 
@@ -581,9 +1056,49 @@
   <p>The findings challenge personality-based explanations: <strong>all 40 participants administered at least 300V</strong>. If obedience depended on personality traits ("authoritarian personality"), we would expect much greater variation. Instead, Milgram attributed behaviour to situational variables: legitimacy of setting, authority of experimenter, procedural features.</p>
 
   <p>However, note that <strong>14 subjects (35%) did defy the experimenter</strong>—so individual differences do play some role. The debate continues: how much is nature (personality) vs nurture (situation)?</p>
+
+  <!-- Chinese Summary Card -->
+  <div class="cn-summary-wrap">
+    <button class="cn-summary-toggle" onclick="toggleCnSummary(this)"><span class="cs-icon">▶</span> 中文逻辑总结</button>
+    <div class="cn-summary-body">
+      <div class="cs-title">§10 议题与辩论：13 个因素 + 日常应用</div>
+      <p><strong>Group A — 权威与合法性（Factors 1-6）：</strong></p>
+      <ul>
+        <li>耶鲁大学背书 → 增加感知合法性</li>
+        <li>"科学目的" → 让被试觉得有意义</li>
+        <li>Learner 自愿参加 → 减少内疚感</li>
+        <li>Teacher 也自愿 → 打破承诺的心理成本</li>
+        <li>已付报酬 → 承诺效应（部分被"钱是你的"抵消）</li>
+        <li>公平抽签 → 角色分配无可抱怨</li>
+      </ul>
+      <p><strong>Group B — 冲突的本质（Factors 10-13）：</strong></p>
+      <ul>
+        <li>双重需求冲突：满足实验者 vs 保护受害者（互斥）</li>
+        <li>权重不等：实验者有科学权威 > 受害者的情感诉求</li>
+        <li>没时间思考：几分钟内就从 15V 升到 300V+</li>
+        <li>深层冲突："不伤害他人" vs "服从合法权威"</li>
+      </ul>
+      <p><strong>日常应用：</strong>军队执行命令、医院护士遵医嘱、员工服从管理层 → 都可能出现类似模式。组织可以通过<strong>举报政策（whistle-blowing）</strong>和培训来减少破坏性服从。</p>
+      <p><strong>个体 vs 情境辩论：</strong>100% 到达 300V 支持情境论，但 35% 反抗说明个体差异也有作用。考试时要展现<strong>平衡观点</strong>（balanced argument）。</p>
+    </div>
+  </div>
+
+  <!-- Exam Key Points -->
+  <div class="summary-card" id="summary-s10">
+    <button class="summary-toggle" onclick="toggleSummary('summary-s10')">▶ Exam Key Points</button>
+    <div class="summary-body">
+      <ul>
+        <li>13 factors grouped into: Authority/Legitimacy (1-6), Procedural (7-9), Nature of Conflict (10-13) <span class="tag-must">Must Know</span></li>
+        <li>Factor 1 (Yale legitimacy) and Factor 13 (deep conflict) are most commonly tested <span class="tag-common">Common Q</span></li>
+        <li>Everyday applications: military, hospitals, workplaces <span class="tag-context">Context</span></li>
+        <li>Individual vs Situational: 100% reached 300V supports situational, BUT 35% resisted shows individual differences matter <span class="tag-ao2">AO2 Gold</span></li>
+        <li>AO3: Use this debate to discuss free will vs determinism <span class="tag-ao2">AO2 Gold</span></li>
+      </ul>
+    </div>
+  </div>
 </div>
 
-<!-- SECTION 11 -->
+<!-- ==================== SECTION 11 ==================== -->
 <div class="section" id="s11">
   <h2>1️⃣1️⃣ Summary（总结）</h2>
 
@@ -599,7 +1114,7 @@
   </div>
 </div>
 
-<!-- SECTION 12 -->
+<!-- ==================== SECTION 12 ==================== -->
 <div class="section" id="s12">
   <h2>1️⃣2️⃣ Study Questions（复习题）</h2>
   <ol>
@@ -623,7 +1138,7 @@
   </div>
 </div>
 
-<!-- SECTION 13 -->
+<!-- ==================== SECTION 13 ==================== -->
 <div class="section" id="s13">
   <h2>1️⃣3️⃣ Key Terms（核心术语）</h2>
   <table>
@@ -661,19 +1176,22 @@
   </table>
 </div>
 
+  </main><!-- END MAIN CONTENT -->
+</div><!-- END PAGE LAYOUT -->
+
 <div class="footer-note">
   Milgram, S. (1963). Behavioural study of obedience. <em>Journal of Abnormal and Social Psychology, 67</em>, 371–378.<br>
   Revised with original paper (9 pages) · CIE Social Approach · Core Study 1
 </div>
 
-</div>
+</div><!-- END CONTAINER -->
 
+<!-- Study Navigator -->
 <style>
-/* Study Navigator */
 .study-nav{border-top:2px solid #e0e0e0;background:#FAFAFA;padding:14px 16px;margin-top:2rem}
-.study-nav-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:880px;margin:0 auto}
+.study-nav-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:1100px;margin:0 auto}
 .study-nav-btn{flex:1;padding:9px 14px;border:1px solid #ddd;border-radius:8px;background:white;color:#444;font-size:.82rem;cursor:pointer;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:4px;transition:all .15s;font-family:inherit}
-.study-nav-btn:hover{border-color:#1565C0;color:#1565C0;background:#f8fbff}
+.study-nav-btn:hover{border-color:#2E7D32;color:#2E7D32;background:#f0fdf4}
 .study-nav-dots{text-align:center;padding:0 8px}
 .study-nav-label{font-size:.65rem;text-transform:uppercase;letter-spacing:1px;color:#888;margin-bottom:5px;font-weight:700}
 .study-dot-row{display:flex;gap:5px;justify-content:center;flex-wrap:wrap}
@@ -692,12 +1210,125 @@
     <div class="study-nav-dots">
       <div class="study-nav-label">Social</div>
       <div class="study-dot-row">
-        <span class="study-dot" style="background:#C62828" data-title="Hassett (2008)" onclick="location.href='../hassett/'"></span><span class="study-dot" style="background:#C62828" data-title="Dement (1957)" onclick="location.href='../dement/'"></span><span class="study-dot" style="background:#1565C0" data-title="Baron-Cohen (2001)" onclick="location.href='../baron-cohen/'"></span><span class="study-dot" style="background:#1565C0" data-title="Hölzel (2011)" onclick="location.href='../hoelzel/'"></span><span class="study-dot" style="background:#1565C0" data-title="Andrade (2010)" onclick="location.href='../andrade/'"></span><span class="study-dot" style="background:#2E7D32" data-title="Piliavin (1969)" onclick="location.href='../piliavin/'"></span><span class="study-dot active" style="background:#2E7D32" data-title="Milgram (1963)"></span><span class="study-dot" style="background:#E87722" data-title="Bandura (1961)" onclick="location.href='../bandura/'"></span><span class="study-dot" style="background:#E87722" data-title="Fagen (2014)" onclick="location.href='../fagen/'"></span><span class="study-dot" style="background:#E87722" data-title="Saavedra (2002)" onclick="location.href='../saavedra/'"></span><span class="study-dot" style="background:#7B1FA2" data-title="Perry (2015)" onclick="location.href='../perry/'"></span><span class="study-dot" style="background:#7B1FA2" data-title="Pozzulo (2011)" onclick="location.href='../pozzulo/'"></span>
+        <span class="study-dot" style="background:#C62828" data-title="Hassett (2008)" onclick="location.href='../hassett/'"></span>
+        <span class="study-dot" style="background:#C62828" data-title="Dement (1957)" onclick="location.href='../dement/'"></span>
+        <span class="study-dot" style="background:#1565C0" data-title="Baron-Cohen (2001)" onclick="location.href='../baron-cohen/'"></span>
+        <span class="study-dot" style="background:#1565C0" data-title="Hölzel (2011)" onclick="location.href='../hoelzel/'"></span>
+        <span class="study-dot" style="background:#1565C0" data-title="Andrade (2010)" onclick="location.href='../andrade/'"></span>
+        <span class="study-dot" style="background:#2E7D32" data-title="Piliavin (1969)" onclick="location.href='../piliavin/'"></span>
+        <span class="study-dot active" style="background:#2E7D32" data-title="Milgram (1963)"></span>
+        <span class="study-dot" style="background:#E87722" data-title="Bandura (1961)" onclick="location.href='../bandura/'"></span>
+        <span class="study-dot" style="background:#E87722" data-title="Fagen (2014)" onclick="location.href='../fagen/'"></span>
+        <span class="study-dot" style="background:#E87722" data-title="Saavedra (2002)" onclick="location.href='../saavedra/'"></span>
+        <span class="study-dot" style="background:#7B1FA2" data-title="Perry (2015)" onclick="location.href='../perry/'"></span>
+        <span class="study-dot" style="background:#7B1FA2" data-title="Pozzulo (2011)" onclick="location.href='../pozzulo/'"></span>
       </div>
     </div>
     <a class="study-nav-btn" href="../bandura/">Bandura (1961) →</a>
   </div>
 </div>
+
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
+
+<script>
+// ===== 1. READING PROGRESS BAR =====
+function updateProgress() {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+  document.getElementById('progressBar').style.width = progress + '%';
+  localStorage.setItem('milgram-scrollPos', scrollTop);
+}
+window.addEventListener('scroll', updateProgress);
+window.addEventListener('load', () => {
+  const saved = localStorage.getItem('milgram-scrollPos');
+  if (saved) window.scrollTo(0, parseInt(saved));
+  updateProgress();
+});
+
+// ===== 2. SCROLL SPY FOR SIDEBAR =====
+function initScrollSpy() {
+  const sections = document.querySelectorAll('.section[id]');
+  const navItems = document.querySelectorAll('.sb-item a');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navItems.forEach(a => a.classList.remove('sb-active'));
+        const active = document.querySelector(`.sb-item a[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('sb-active');
+      }
+    });
+  }, { rootMargin: '-80px 0px -60% 0px' });
+  sections.forEach(s => observer.observe(s));
+}
+
+// ===== 3. DARK MODE =====
+function toggleDarkMode() {
+  document.body.classList.toggle('dark');
+  const btn = document.getElementById('darkBtn');
+  const isDark = document.body.classList.contains('dark');
+  btn.textContent = isDark ? '☀️ Light' : '🌙 Dark';
+  localStorage.setItem('milgram-darkMode', isDark ? 'dark' : 'light');
+}
+
+// ===== 4. FONT SIZE ADJUSTER =====
+function adjustFontSize(delta) {
+  const root = document.documentElement;
+  let current = parseFloat(getComputedStyle(root).fontSize) || 16;
+  let newSize = Math.min(22, Math.max(12, current + delta * 1.5));
+  root.style.fontSize = newSize + 'px';
+  localStorage.setItem('milgram-fontSize', newSize);
+}
+
+// ===== 5. SUMMARY CARD TOGGLE =====
+function toggleSummary(id) {
+  const card = document.getElementById(id);
+  if (card) {
+    card.classList.toggle('open');
+    const btn = card.querySelector('.summary-toggle');
+    if (btn) btn.classList.toggle('open');
+  }
+}
+
+// ===== 6. CHINESE SUMMARY TOGGLE =====
+function toggleCnSummary(btn) {
+  btn.classList.toggle('open');
+  const body = btn.nextElementSibling;
+  if (body) body.classList.toggle('open');
+}
+
+// ===== 7. BACK TO TOP =====
+function initBackToTop() {
+  const btn = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > window.innerHeight * 2.5) {
+      btn.classList.add('show');
+    } else {
+      btn.classList.remove('show');
+    }
+  });
+}
+
+// ===== 8. RESTORE PREFERENCES =====
+function restorePreferences() {
+  // Dark mode
+  const dark = localStorage.getItem('milgram-darkMode');
+  if (dark === 'dark') {
+    document.body.classList.add('dark');
+    document.getElementById('darkBtn').textContent = '☀️ Light';
+  }
+  // Font size
+  const fs = localStorage.getItem('milgram-fontSize');
+  if (fs) document.documentElement.style.fontSize = fs + 'px';
+}
+
+// ===== INITIALIZE =====
+document.addEventListener('DOMContentLoaded', () => {
+  initScrollSpy();
+  initBackToTop();
+  restorePreferences();
+});
+</script>
 
 </body>
 </html>
