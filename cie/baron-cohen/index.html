@@ -195,15 +195,20 @@
   .summary-card{background:linear-gradient(135deg,#f0fdf4,#dcfce7);border-left:5px solid #16a34a;border-radius:10px;margin:20px 0 0;overflow:hidden;transition:all .2s}
   .summary-card-header{display:flex;align-items:center;gap:8px;padding:12px 18px;cursor:pointer;user-select:none;-webkit-user-select:none}
   .summary-card-header:hover{background:#bbf7d0}
-  .summary-card-icon{font-size:1.1em;transition:transform .2s}
+  body.dark .summary-card-header:hover{background:#166534}
+  .summary-card-icon{font-size:1.1em;transition:transform .2s;color:#166534}
+  body.dark .summary-card-icon{color:#86efac}
   .summary-card.open .summary-card-icon{transform:rotate(90deg)}
   .summary-card-title{font-size:.92em;font-weight:700;color:#166534;flex:1}
+  body.dark .summary-card-title{color:#86efac}
   .summary-card-badge{font-size:.7rem;background:#16a34a;color:white;padding:2px 8px;border-radius:10px;font-weight:600}
-  .summary-card-body{max-height:0;overflow:hidden;transition:max-height .3s ease}
+  .summary-card-body{max-height:0;overflow:hidden;transition:max-height .35s ease}
   .summary-card.open .summary-card-body{max-height:800px}
-  .summary-card-inner{padding:0 18px 14px}
+  .summary-card-inner{margin:0 14px 14px;padding:16px 20px;background:#ffffff;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,.06);border:1px solid #e8f0e8}
+  body.dark .summary-card-inner{background:#0c1a0c;border-color:#1a3a1a;box-shadow:0 1px 4px rgba(0,0,0,.2)}
   .summary-card-inner ol{margin:0;padding-left:20px}
-  .summary-card-inner li{margin:6px 0;font-size:.9em;color:#15803d;line-height:1.65}
+  .summary-card-inner li{margin:8px 0;font-size:.94em;color:#1a1a1a;line-height:1.72}
+  body.dark .summary-card-inner li{color:#e8ede9}
 
   /* 4. Exam Focus Tags */
   .tag-must{display:inline-flex;align-items:center;gap:3px;background:#fef2f2;color:#dc2626;border:1px solid #fecaca;padding:1px 8px;border-radius:12px;font-size:.72em;font-weight:700;vertical-align:middle;margin-left:4px;white-space:nowrap}
@@ -251,7 +256,7 @@
   body.dark .summary-card{background:linear-gradient(135deg,#052e16,#14532d);border-left-color:#22c55e}
   body.dark .summary-card-header:hover{background:#166534}
   body.dark .summary-card-title{color:#86efac}
-  body.dark .summary-card-inner li{color:#bbf7d0}
+  body.dark .summary-card-inner li{color:#e8ede9}
   body.dark .visual-header{background:linear-gradient(135deg,#172554,#0c4a6e);border-left-color:#38bdf8}
   body.dark .visual-header-text h4{color:#7dd3fc}
   body.dark .visual-header-text p{color:#94a3b8}

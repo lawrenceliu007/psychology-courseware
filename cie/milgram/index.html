@@ -190,12 +190,13 @@
     .summary-card-title { font-size: .92em; font-weight: 700; color: #166534; flex: 1; }
     body.dark .summary-card-title { color: #86efac; }
     .summary-card-badge { font-size: .7rem; background: #16a34a; color: white; padding: 2px 10px; border-radius: 10px; font-weight: 600; }
-    .summary-card-body { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+    .summary-card-body { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
     .summary-card.open .summary-card-body { max-height: 800px; }
-    .summary-card-inner { padding: 0 18px 14px; }
+    .summary-card-inner { margin: 0 14px 14px; padding: 16px 20px; background: #ffffff; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,.06); border: 1px solid #e8f0e8; }
+    body.dark .summary-card-inner { background: #0c1a0c; border-color: #1a3a1a; box-shadow: 0 1px 4px rgba(0,0,0,.2); }
     .summary-card-inner ol, .summary-card-inner ul { margin: 0; padding-left: 20px; }
-    .summary-card-inner li { margin: 6px 0; font-size: .9em; color: #15803d; line-height: 1.65; }
-    body.dark .summary-card-inner li { color: #bbf7d0; }
+    .summary-card-inner li { margin: 8px 0; font-size: .94em; color: #1a1a1a; line-height: 1.72; }
+    body.dark .summary-card-inner li { color: #e8ede9; }
 
     /* EXAM TAGS */
     .tag-must { display: inline-block; padding: 2px 8px; border-radius: 4px; background: #fee2e2; color: #dc2626; font-size: .76em; font-weight: 700; vertical-align: middle; margin-left: 4px; }
