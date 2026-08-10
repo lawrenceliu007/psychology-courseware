@@ -1285,7 +1285,9 @@ function toggleSummary(id) {
   const card = document.getElementById(id);
   if (card) {
     card.classList.toggle('open');
+    const body = card.querySelector('.summary-body');
     const btn = card.querySelector('.summary-toggle');
+    if (body) body.classList.toggle('open');
     if (btn) btn.classList.toggle('open');
   }
 }
