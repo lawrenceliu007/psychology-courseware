@@ -195,7 +195,7 @@
     .summary-card-inner { margin: 0 14px 14px; padding: 16px 20px; background: #ffffff; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,.06); border: 1px solid #e8f0e8; }
     body.dark .summary-card-inner { background: #0c1a0c; border-color: #1a3a1a; box-shadow: 0 1px 4px rgba(0,0,0,.2); }
     .summary-card-inner ol, .summary-card-inner ul { margin: 0; padding-left: 20px; }
-    .summary-card-inner li { margin: 8px 0; font-size: .94em; color: #1a1a1a; line-height: 1.72; }
+    .summary-card-inner li { margin: 8px 0; font-size: .98em; color: #1a1a1a; line-height: 1.72; }
     body.dark .summary-card-inner li { color: #e8ede9; }
 
     /* EXAM TAGS */
@@ -203,6 +203,30 @@
     .tag-common { display: inline-block; padding: 2px 8px; border-radius: 4px; background: #fef3c7; color: #d97706; font-size: .76em; font-weight: 700; vertical-align: middle; margin-left: 4px; }
     .tag-ao2 { display: inline-block; padding: 2px 8px; border-radius: 4px; background: #dcfce7; color: #16a34a; font-size: .76em; font-weight: 700; vertical-align: middle; margin-left: 4px; }
     .tag-context { display: inline-block; padding: 2px 8px; border-radius: 4px; background: #f1f5f9; color: #64748b; font-size: .76em; font-weight: 700; vertical-align: middle; margin-left: 4px; }
+
+    /* ===== STUDY QUESTIONS (Q&A Cards) ===== */
+    .qa-card { background: white; border: 1.5px solid #e2e8f0; border-radius: 10px; margin: 12px 0; overflow: hidden; transition: box-shadow .2s, border-color .2s; }
+    .qa-card:hover { box-shadow: 0 3px 12px rgba(0,0,0,.08); border-color: #cbd5e1; }
+    body.dark .qa-card { background: #1a2332; border-color: #334155; }
+    body.dark .qa-card:hover { border-color: #475569; box-shadow: 0 3px 12px rgba(0,0,0,.25); }
+    .qa-question { display: flex; align-items: flex-start; gap: 10px; padding: 16px 18px; cursor: pointer; user-select:none; -webkit-user-select:none; transition: background .15s; }
+    .qa-question:hover { background: #f8fafc; }
+    body.dark .qa-question:hover { background: rgba(255,255,255,.03); }
+    .qa-num { flex-shrink: 0; width: 28px; height: 28px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: .78em; font-weight: 700; line-height: 1; }
+    .qa-text { flex: 1; font-size: .93em; color: #1e293b; line-height: 1.6; font-weight: 500; }
+    body.dark .qa-text { color: #e2e8f0; }
+    .qa-toggle { flex-shrink: 0; width: 32px; height: 28px; background: linear-gradient(135deg, #eff6ff, #dbeafe); border: 1.5px solid #93c5fd; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: .72em; color: #2563eb; font-weight: 600; transition: all .15s; cursor: pointer; }
+    body.dark .qa-toggle { background: rgba(59,130,246,.1); border-color: #3b82f6; color: #93c5fd; }
+    .qa-toggle:hover { background: linear-gradient(135deg, #dbeafe, #bfdbfe); }
+    body.dark .qa-toggle:hover { background: rgba(59,130,246,.18); }
+    .qa-toggle .qa-icon { transition: transform .2s; display: inline-block; }
+    .qa-card.open .qa-toggle .qa-icon { transform: rotate(180deg); }
+    .qa-answer { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
+    .qa-card.open .qa-answer { max-height: 500px; }
+    .qa-answer-inner { padding: 14px 18px 18px; margin: 0 14px 14px; background: linear-gradient(135deg, #fefce8, #fef3c7); border-left: 4px solid #f59e0b; border-radius: 8px; font-size: .91em; color: #451a03; line-height: 1.72; }
+    body.dark .qa-answer-inner { background: linear-gradient(135deg, rgba(245,158,11,.08), rgba(217,119,6,.05)); border-left-color: #f59e0b; color: #d4a574; }
+    .qa-answer-inner strong { color: #b45309; }
+    body.dark .qa-answer-inner strong { color: #fbbf24; }
 
     /* TERM TOOLTIPS */
     .term { color: var(--term-color); font-weight: 600; cursor: help; position: relative; border-bottom: 1px dotted var(--term-color); }
@@ -1199,20 +1223,227 @@
 <!-- ==================== SECTION 12 ==================== -->
 <div class="section" id="s12">
   <h2>1️⃣2️⃣ Study Questions（复习题）</h2>
-  <ol>
-    <li>What was the <strong>'Germans are different' hypothesis</strong>, and why did Milgram want to challenge it?</li>
-    <li>Was Milgram's study a true experiment? Explain your answer.</li>
-    <li>Describe the <strong>sample</strong> used in the original study (age range, occupations, recruitment method).</li>
-    <li>What was the role of the <strong>confederate</strong>? Describe his background as given in the original paper.</li>
-    <li>Describe the <strong>experimenter</strong> — his age, occupation, appearance, and manner.</li>
-    <li>At what voltage did the learner <strong>first protest</strong>? Describe the complete protest script.</li>
-    <li>What were the <strong>four standard verbal prods</strong>? What were the two <strong>special prods</strong>?</li>
-    <li>What percentage of participants gave the maximum 450 V shock? How does this compare to predictions?</li>
-    <li>What <strong>qualitative evidence</strong> showed participants were distressed? Give specific examples.</li>
-    <li>Explain <strong>four factors</strong> from Milgram's Discussion that contributed to high obedience levels.</li>
-    <li>Describe one <strong>ethical issue</strong> raised by this study and how Milgram attempted to address it.</li>
-    <li>How does this study support the <strong>situational explanation</strong> of obedience?</li>
-  </ol>
+  <p style="color:var(--text-secondary);font-size:.88em;margin-bottom:16px;">Click each question to reveal the model answer. All answers are based on the study content above.</p>
+
+  <div class="qa-card" onclick="this.classList.toggle('open')">
+    <div class="qa-question">
+      <span class="qa-num">1</span>
+      <span class="qa-text">What was the <strong>'Germans are different' hypothesis</strong>, and why did Milgram want to challenge it?</span>
+      <span class="qa-toggle"><span class="qa-icon">▶ Answer</span></span>
+    </div>
+    <div class="qa-answer">
+      <div class="qa-answer-inner">
+        The <strong>'Germans are different' hypothesis</strong> claimed that German citizens possessed defective personal traits which made extreme levels of obedience possible — suggesting Germans were somehow inherently different from others. This was used as an individual/personality explanation for Holocaust obedience.<br><br>
+        Milgram wanted to challenge this by proposing a <strong>situational explanation</strong>: that ordinary people in any country would harm others under authority orders, regardless of nationality. His study showed 65% of American participants obeyed to maximum voltage, supporting his argument.
+      </div>
+    </div>
+  </div>
+
+  <div class="qa-card" onclick="this.classList.toggle('open')">
+    <div class="qa-question">
+      <span class="qa-num">2</span>
+      <span class="qa-text">Was Milgram's study a true experiment? Explain your answer.</span>
+      <span class="qa-toggle"><span class="qa-icon">▶ Answer</span></span>
+    </div>
+    <div class="qa-answer">
+      <div class="qa-answer-inner">
+        <strong>No, it was not a true experiment.</strong> A true experiment requires manipulation of an independent variable (IV) and a control condition for comparison. In Milgram's study:<br><br>
+        • There was <strong>no IV manipulated</strong> — all 40 participants experienced identical procedures<br>
+        • There was <strong>no control condition</strong> — no group received different treatment<br>
+        • It is best described as a <strong>controlled observation (or quasi-experiment)</strong><br><br>
+        This means we cannot establish cause-and-effect relationships as confidently as in a true experiment.
+      </div>
+    </div>
+  </div>
+
+  <div class="qa-card" onclick="this.classList.toggle('open')">
+    <div class="qa-question">
+      <span class="qa-num">3</span>
+      <span class="qa-text">Describe the <strong>sample</strong> used in the original study (age range, occupations, recruitment method).</span>
+      <span class="qa-toggle"><span class="qa-icon">▶ Answer</span></span>
+    </div>
+    <div class="qa-answer">
+      <div class="qa-answer-inner">
+        • <strong>n = 40 male participants</strong>, aged 20–50 years<br>
+        • <strong>Recruitment:</strong> Volunteer sample via newspaper advertisement in New Haven, Connecticut<br>
+        • <strong>Occupations:</strong> Diverse range — postal clerks, high school teachers, salesmen, engineers, labourers, etc.<br>
+        • Received $4.50 just for coming to the laboratory<br>
+        • <strong>Evaluation point:</strong> All-male sample = gender bias; volunteer sample may attract cooperative individuals
+      </div>
+    </div>
+  </div>
+
+  <div class="qa-card" onclick="this.classList.toggle('open')">
+    <div class="qa-question">
+      <span class="qa-num">4</span>
+      <span class="qa-text">What was the role of the <strong>confederate</strong>? Describe his background as given in the original paper.</span>
+      <span class="qa-toggle"><span class="qa-icon">▶ Answer</span></span>
+    </div>
+    <div class="qa-answer">
+      <div class="qa-answer-inner">
+        The confederate (stooge) played the role of the <strong>"learner"</strong> who was supposedly receiving electric shocks. According to the original paper:<br><br>
+        • He was introduced as a 47-year-old accountant trained at Fairfield State Hospital<br>
+        • He appeared mild-mannered and likable<br>
+        • His "job" was to memorise word pairs and receive shocks for wrong answers<br>
+        • In reality, he was an actor following a pre-recorded protest script<br>
+        • His protests began at <strong>75V</strong> (grunting), escalated through shouting about heart trouble (<strong>150V</strong>), demanding release (<strong>180V</strong>), pounding the wall (<strong>270V</strong>), then falling silent after <strong>300V</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="qa-card" onclick="this.classList.toggle('open')">
+    <div class="qa-question">
+      <span class="qa-num">5</span>
+      <span class="qa-text">Describe the <strong>experimenter</strong> — his age, occupation, appearance, and manner.</span>
+      <span class="qa-toggle"><span class="qa-icon">▶ Answer</span></span>
+    </div>
+    <div class="qa-answer">
+      <div class="qa-answer-inner">
+        From the original paper:<br><br>
+        • <strong>Age:</strong> 31-year-old high school teacher of biology<br>
+        • <strong>Appearance:</strong> Somewhat stern and impassive manner; wore a grey lab coat (giving scientific authority)<br>
+        • <strong>Manner:</strong> Calm but firm; delivered standardised verbal prods when participants hesitated<br>
+        • His role was to give instructions and encourage continuation using the four prods (or two special prods if needed)<br>
+        • He never raised his voice or showed anger — his authority came from the institutional setting (Yale University) and his role as the scientist
+      </div>
+    </div>
+  </div>
+
+  <div class="qa-card" onclick="this.classList.toggle('open')">
+    <div class="qa-question">
+      <span class="qa-num">6</span>
+      <span class="qa-text">At what voltage did the learner <strong>first protest</strong>? Describe the complete protest script.</span>
+      <span class="qa-toggle"><span class="qa-icon">▶ Answer</span></span>
+    </div>
+    <div class="qa-answer">
+      <div class="qa-answer-inner">
+        The learner's first protest was at <strong>75 volts</strong> (a grunt/uh!). The complete timeline:<br><br>
+        • <strong>75V:</strong> Grunt ("Ugh!")<br>
+        • <strong>90V:</strong> "Ugh!"<br>
+        • <strong>105V:</strong> "Ugh! That's all right."<br>
+        • <strong>120V:</strong> "Ugh! Experimenter! That's all right!"<br>
+        • <strong>135V:</strong> "Ugh!!"<br>
+        • <strong>150V:</strong> "Experimenter! Get me out of here! I told you I have heart trouble! My heart's starting to bother me now! Get me out of here, please! My heart!"<br>
+        • <strong>180V:</strong> "(screaming) I can't stand the pain! Let me out of here!"<br>
+        • <strong>200V+:</strong> Agonised screams, refusal to answer<br>
+        • <strong>270V:</strong> Pounding on wall (3 times)<br>
+        • <strong>300V:</strong> Violent kicking of wall, then <strong>complete silence</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="qa-card" onclick="this.classList.toggle('open')">
+    <div class="qa-question">
+      <span class="qa-num">7</span>
+      <span class="qa-text">What were the <strong>four standard verbal prods</strong>? What were the two <strong>special prods</strong>?</span>
+      <span class="qa-toggle"><span class="qa-icon">▶ Answer</span></span>
+    </div>
+    <div class="qa-answer">
+      <div class="qa-answer-inner">
+        <strong>The Four Standard Prods (used in order):</strong><br>
+        1. <em>"Please continue."</em> / <em>"Please go on."</em><br>
+        2. <em>"The experiment requires that you continue."</em><br>
+        3. <em>"It is absolutely essential that you continue."</em><br>
+        4. <em>"You have no other choice, you must go on."</em><br><br>
+        <strong>The Two Special Prods (used only if needed):</strong><br>
+        • If participant asked who would be responsible if the learner gets hurt: <em>"If anything happens to him, the responsibility is mine."</em> (used once)<br>
+        • For participants who refused after prod 4: <em>"Although the shocks may be painful, there is no permanent tissue damage."</em> followed by <em>"Please continue."</em>
+      </div>
+    </div>
+  </div>
+
+  <div class="qa-card" onclick="this.classList.toggle('open')">
+    <div class="qa-question">
+      <span class="qa-num">8</span>
+      <span class="qa-text">What percentage of participants gave the maximum 450 V shock? How does this compare to predictions?</span>
+      <span class="qa-toggle"><span class="qa-icon">▶ Answer</span></span>
+    </div>
+    <div class="qa-answer">
+      <div class="qa-answer-inner">
+        <strong>65% (26 out of 40)</strong> gave the maximum 450 V shock.<br><br>
+        This contrasts dramatically with predictions:<br>
+        • Psychologists predicted only <strong>0–3%</strong> would go to maximum<br>
+        • Class mean prediction was <strong>1.2%</strong><br>
+        • Colleagues felt few would go beyond "Very Strong Shock" (195–240V)<br><br>
+        Additional key findings:<br>
+        • <strong>100%</strong> reached at least 300V<br>
+        • Mean maximum voltage = <strong>368V</strong><br>
+        • Only 14 subjects defied before reaching 300V
+      </div>
+    </div>
+  </div>
+
+  <div class="qa-card" onclick="this.classList.toggle('open')">
+    <div class="qa-question">
+      <span class="qa-num">9</span>
+      <span class="qa-text">What <strong>qualitative evidence</strong> showed participants were distressed? Give specific examples.</span>
+      <span class="qa-toggle"><span class="qa-icon">▶ Answer</span></span>
+    </div>
+    <div class="qa-answer">
+      <div class="qa-answer-inner">
+        Many subjects showed signs of extreme nervousness, especially at higher voltages:<br><br>
+        • <strong>Physical signs:</strong> Profuse sweating, trembling, stuttering, biting lips, groaning, digging fingernails into flesh<br>
+        • <strong>Nervous laughter/smiling:</strong> 14 of 40 subjects showed definite signs<br>
+        • <strong>Seizures:</strong> 3 subjects had full-blown uncontrollable seizures (one so violent the experiment was halted)<br>
+        • <strong>Verbal evidence:</strong> Tape recordings captured remarks like "I can't go on with this", "This isn't right", "It's a hell of an experiment"<br>
+        • <strong>Post-experiment:</strong> Many heaved sighs of relief, mopped brows, rubbed eyes, fumbled cigarettes nervously<br>
+        • On the 14-point pain scale: <strong>modal response = 14</strong> (extremely painful), mean = 13.42
+      </div>
+    </div>
+  </div>
+
+  <div class="qa-card" onclick="this.classList.toggle('open')">
+    <div class="qa-question">
+      <span class="qa-num">10</span>
+      <span class="qa-text">Explain <strong>four factors</strong> from Milgram's Discussion that contributed to high obedience levels.</span>
+      <span class="qa-toggle"><span class="qa-icon">▶ Answer</span></span>
+    </div>
+    <div class="qa-answer">
+      <div class="qa-answer-inner">
+        Milgram identified 13 factors total. Here are four key ones:<br><br>
+        <strong>Factor 1 — Yale University sponsorship:</strong> Yale's reputation lent legitimacy. Participants trusted the institution and believed the study served a worthy purpose.<br><br>
+        <strong>Factor 6 — Role assignment by fair lottery:</strong> The "teacher" role was determined by chance draw, making it seem fair and reducing resentment about being assigned this role.<br><br>
+        <strong>Factor 10 — Competing demands:</strong> Participants faced mutually exclusive demands — satisfy the experimenter OR help the victim. They couldn't do both simultaneously.<br><br>
+        <strong>Factor 13 — Deep conflict of dispositions:</strong> Opposition between two ingrained tendencies: "don't harm others" vs "obey legitimate authorities". Most people chose obedience over harming prevention.
+      </div>
+    </div>
+  </div>
+
+  <div class="qa-card" onclick="this.classList.toggle('open')">
+    <div class="qa-question">
+      <span class="qa-num">11</span>
+      <span class="qa-text">Describe one <strong>ethical issue</strong> raised by this study and how Milgram attempted to address it.</span>
+      <span class="qa-toggle"><span class="qa-icon">▶ Answer</span></span>
+    </div>
+    <div class="qa-answer">
+      <div class="qa-answer-inner">
+        <strong>Option A — Deception:</strong><br>
+        Participants were deceived about the true purpose (told it was about memory/learning), the reality of shocks (fake), the confederate (actor), and the rigged drawing. Milgram addressed this through thorough debriefing where the full purpose was revealed.<br><br>
+        <strong>Option B — Protection from Harm:</strong><br>
+        Many participants showed extreme distress: sweating, trembling, nervous laughter (14/40), seizures (3/40). Only ONE session was stopped early. Milgram argued that thorough debriefing resolved psychological harm, and follow-up surveys found 84% felt positively about participating. However, 1.3% reported very negative feelings.<br><br>
+        <strong>Option C — Right to Withdraw:</strong><br>
+        Technically available, but the verbal prods created strong social pressure making it psychologically difficult to exercise. Participants felt obligated to continue despite wanting to stop.
+      </div>
+    </div>
+  </div>
+
+  <div class="qa-card" onclick="this.classList.toggle('open')">
+    <div class="qa-question">
+      <span class="qa-num">12</span>
+      <span class="qa-text">How does this study support the <strong>situational explanation</strong> of obedience?</span>
+      <span class="qa-toggle"><span class="qa-icon">▶ Answer</span></span>
+    </div>
+    <div class="qa-answer">
+      <div class="qa-answer-inner">
+        The study strongly supports the situational explanation over the individual explanation:<br><br>
+        • <strong>65% obedience rate</strong> shows ordinary Americans (not "defective" Germans) will obey authority to harmful extremes<br>
+        • Predictions of 0–3% were massively wrong — personality differences didn't predict behaviour<br>
+        • The 13 factors identified (Yale legitimacy, experimenter presence, payment, fair role assignment, etc.) are all <strong>situational features</strong> that created pressure to obey<br>
+        • Participants' extreme stress (sweating, trembling, seizures) proves they weren't naturally obedient — they experienced genuine internal conflict between conscience and authority<br>
+        • However, note that <strong>35% did resist</strong>, showing individual differences still play some role
+      </div>
+    </div>
+  </div>
 
   <div class="activity-box" style="background:#E3F2FD;border-left:4px solid #1976D2;border-radius:8px;padding:16px 20px;margin:16px 0;">
     <h4 style="color:#1565C0;margin-bottom:8px;">📝 Extension Activity 拓展活动</h4>
