@@ -6,21 +6,22 @@
   <title>Piliavin et al. (1969) — Subway Samaritans</title>
   <style>
     :root {
-      --primary: #ea580c;
-      --primary-light: #43A047;
-      --primary-dark: #c2410c;
-      --accent: #ea580c;
-      --bg: #FAFAFA;
+      /* Piliavin (1969) Subway Theme — Sky Blue */
+      --primary: #0369a1;
+      --primary-light: #0ea5e9;
+      --primary-dark: #075985;
+      --accent: #0369a1;
+      --bg: #f8fafc;
       --card-bg: #FFFFFF;
-      --text: #212121;
-      --text-secondary: #616161;
-      --border: #E0E0E0;
-      --highlight: #fff7ed;
-      --warning: #FFEBEE;
-      --code-bg: #F5F5F5;
-      --note-bg: #FFF8E1;
-      --note-border: #FFC107;
-      --term-color: #ea580c;
+      --text: #1e293b;
+      --text-secondary: #475569;
+      --border: #e2e8f0;
+      --highlight: #f0f9ff;
+      --warning: #fef2f2;
+      --code-bg: #f1f5f9;
+      --note-bg: #eff6ff;
+      --note-border: #0ea5e9;
+      --term-color: #0369a1;
       --correct: #16a34a;
       --wrong: #dc2626;
     }
@@ -63,31 +64,31 @@
     .main-content { min-width: 0; max-width: 660px; }
 
     /* ===== RIGHT NOTES COLUMN ===== */
-    .notes-col { width: 250px; background: #fffef5; border: 2px solid #f59e0b; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; position: sticky; top: 60px; max-height: calc(100vh - 80px); box-shadow: 0 2px 12px rgba(245,158,11,.15); }
-    .nc-header { background: linear-gradient(135deg,#f59e0b,#d97706); padding: 12px 14px; display: flex; align-items: center; gap: 8px; }
+    .notes-col { width: 250px; background: #f8fafc; border: 2px solid #0ea5e9; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; position: sticky; top: 60px; max-height: calc(100vh - 80px); box-shadow: 0 2px 12px rgba(14,165,233,.15); }
+    .nc-header { background: linear-gradient(135deg,#0369a1,#075985); padding: 12px 14px; display: flex; align-items: center; gap: 8px; }
     .nc-title { font-size: .85em; font-weight: 700; color: #fff; }
     .nc-count { margin-left: auto; background: rgba(255,255,255,.3); color: #fff; font-size: .7em; font-weight: 700; padding: 2px 8px; border-radius: 10px; }
     .nc-body { flex: 1; overflow-y: auto; padding: 10px; max-height: calc(100vh - 240px); min-height: 60px; }
     .nc-empty { text-align: center; color: #9ca3af; padding: 20px 8px; font-size: .78em; }
-    .nc-input-row { display: none; padding: 12px; border-top: 1px solid #fde68a; background: #fffbeb; }
+    .nc-input-row { display: none; padding: 12px; border-top: 1px solid #bae6fd; background: #eff6ff; }
     .nc-input-row.show { display: block; }
-    .nc-textarea { width: 100%; border: 1px solid #fcd34d; border-radius: 8px; padding: 10px; font-size: .82em; resize: vertical; min-height: 60px; box-sizing: border-box; outline: none; font-family: inherit; }
-    .nc-textarea:focus { border-color: #d97706; box-shadow: 0 0 0 2px rgba(245,158,11,.15); }
+    .nc-textarea { width: 100%; border: 1px solid #7dd3fc; border-radius: 8px; padding: 10px; font-size: .82em; resize: vertical; min-height: 60px; box-sizing: border-box; outline: none; font-family: inherit; }
+    .nc-textarea:focus { border-color: #0369a1; box-shadow: 0 0 0 2px rgba(14,165,233,.15); }
     .nc-actions { display: flex; gap: 8px; margin-top: 8px; }
     .nc-actions button { flex: 1; padding: 8px; border-radius: 6px; font-size: .78em; font-weight: 600; cursor: pointer; border: 1px solid transparent; }
     .nc-btn-save { background: #16a34a; color: white; }
     .nc-btn-cancel { background: white; color: #6b7280; border-color: #d1d5db !important; }
-    .nc-add-btn { width: 100%; padding: 13px; background: linear-gradient(135deg,#ea580c,#c2410c); color: white; border: none; border-radius: 0 0 10px 10px; font-size: .88em; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: opacity .2s; }
+    .nc-add-btn { width: 100%; padding: 13px; background: linear-gradient(135deg,#0369a1,#075985); color: white; border: none; border-radius: 0 0 10px 10px; font-size: .88em; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: opacity .2s; }
     .nc-add-btn:hover { opacity: .9; }
-    .nc-footer { display: flex; gap: 4px; padding: 6px 10px; border-top: 1px solid #fde68a; }
-    .nc-footer button { flex: 1; padding: 4px 0; font-size: .68em; border: none; background: transparent; color: #92400e; cursor:pointer; }
-    .hl-text { background: linear-gradient(120deg,#fef08a,#fde047); border-radius: 2px; padding: 0 2px; cursor: pointer; transition: background .15s; }
-    .hl-text:hover { background: linear-gradient(120deg,#fde047,#facc15); }
-    .note-card { background: #fff; border-radius: 8px; padding: 10px 12px; margin-bottom: 8px; border-left: 3px solid #f59e0b; box-shadow: 0 1px 3px rgba(0,0,0,.08); font-size: .78em; line-height: 1.5; position: relative; animation: nFadeIn .2s ease; transition: box-shadow .2s, border-color .2s; }
+    .nc-footer { display: flex; gap: 4px; padding: 6px 10px; border-top: 1px solid #bae6fd; }
+    .nc-footer button { flex: 1; padding: 4px 0; font-size: .68em; border: none; background: transparent; color: #075985; cursor:pointer; }
+    .hl-text { background: linear-gradient(120deg,#bfdbfe,#93c5fd); border-radius: 2px; padding: 0 2px; cursor: pointer; transition: background .15s; }
+    .hl-text:hover { background: linear-gradient(120deg,#93c5fd,#60a5fa); }
+    .note-card { background: #fff; border-radius: 8px; padding: 10px 12px; margin-bottom: 8px; border-left: 3px solid #0ea5e9; box-shadow: 0 1px 3px rgba(0,0,0,.08); font-size: .78em; line-height: 1.5; position: relative; animation: nFadeIn .2s ease; transition: box-shadow .2s, border-color .2s; }
     @keyframes nFadeIn { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:translateY(0)} }
-    .note-card[ondblclick]:hover { box-shadow: 0 4px 12px rgba(245,158,11,.25); border-left-color: #d97706; }
-    .note-card-hl { font-size: .7em; color: #92400e; background: #fef3c7; padding: 2px 6px; border-radius: 4px; margin-bottom: 4px; cursor: pointer; word-break: break-all; }
-    .note-card-hl:hover { background: #fde68a; }
+    .note-card[ondblclick]:hover { box-shadow: 0 4px 12px rgba(14,165,233,.25); border-left-color: #0369a1; }
+    .note-card-hl { font-size: .7em; color: #075985; background: #f0f9ff; padding: 2px 6px; border-radius: 4px; margin-bottom: 4px; cursor: pointer; word-break: break-all; }
+    .note-card-hl:hover { background: #bae6fd; }
     .note-card-text { color: #374151; word-break: break-word; }
     .note-card-del { position: absolute; top: 4px; right: 4px; width: 18px; height: 18px; border: none; background: #fee2e2; color: #ef4444; border-radius: 50%; font-size: .65em; cursor: pointer; opacity: 0; display: flex; align-items: center; justify-content: center; }
     .note-card:hover .note-card-del { opacity: 1; }
@@ -95,8 +96,12 @@
     /* ===== CONTENT STYLES ===== */
     .header { background: linear-gradient(135deg, #1e3a5f, #2563eb); color: white; padding: 32px 28px 24px; border-radius: 12px; margin-bottom: 20px; text-align: center; }
     .header h1 { font-size: 1.7em; font-weight: 700; line-height: 1.3; margin-bottom: 6px; }
-    .header .subtitle { font-size: 1em; opacity: .92; }
-    .header .meta { margin-top: 12px; font-size: .84em; opacity: .8; line-height: 1.6; }
+    .header .subtitle { font-size: 1em; opacity: .95; }
+    .header .meta { margin-top: 12px; font-size: .88em; line-height: 1.6; background: rgba(255,255,255,.2); display: inline-block; padding: 8px 20px; border-radius: 8px; backdrop-filter: blur(6px); color: #ffffff !important; font-weight: 500; }
+    .header .meta em, .header .meta strong { color: #ffffff !important; font-style: normal; }
+    .header-tags { display: flex; justify-content: center; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
+    .header-tag { display: inline-flex; align-items: center; gap: 4px; padding: 6px 14px; background: rgba(255,255,255,.22); border: 1.5px solid rgba(255,255,255,.35); border-radius: 20px; font-size: .78em; font-weight: 600; color: #ffffff; backdrop-filter: blur(4px); transition: all .2s; }
+    .header-tag:hover { background: rgba(255,255,255,.32); transform: translateY(-1px); }
     h2 { font-size: 1.35em; color: var(--primary-dark); border-bottom: 2px solid #fed7aa; padding-bottom: 6px; margin: 28px 0 14px; }
     h3 { font-size: 1.12em; color: var(--text); margin: 20px 0 10px; }
     h4 { font-size: 1em; color: var(--text-secondary); margin: 16px 0 8px; }
@@ -105,13 +110,13 @@
     li { margin-bottom: 5px; }
     strong { color: var(--text); }
     em { color: var(--text-secondary); }
-    .cn { color: #c2410c; font-weight: 600; }
+    .cn { color: #0369a1; font-weight: 600; }
 
-    .key-term { background: #fffbeb; border-left: 4px solid #f59e0b; padding: 10px 14px; margin: 14px 0; border-radius: 0 8px 8px 0; font-size: .94em; }
-    .key-term strong:first-child { color: #92400e; }
+    .key-term { background: #f0f9ff; border-left: 4px solid #0ea5e9; padding: 10px 14px; margin: 14px 0; border-radius: 0 8px 8px 0; font-size: .94em; }
+    .key-term strong:first-child { color: #075985; }
     .note-box { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 12px 16px; margin: 14px 0; border-radius: 0 8px 8px 0; font-size: .93em; }
     .warn-box { background: #fff7ed; border-left: 4px solid #f97316; padding: 12px 16px; margin: 14px 0; border-radius: 0 8px 8px 0; }
-    .warn-box h4 { color: #c2410c; margin-top: 0; }
+    .warn-box h4 { color: #0369a1; margin-top: 0; }
     .highlight-box { background: linear-gradient(135deg, #ecfdf5, #d1fae5); border: 1px solid #34d399; border-radius: 10px; padding: 16px 18px; margin: 16px 0; }
     .highlight-box h4 { color: #047857; margin-top: 0; }
     .blue-box { background: #eff6ff; border: 1px solid #93c5fd; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
@@ -129,10 +134,99 @@
     .activity { background: linear-gradient(135deg, #eff6ff, #dbeafe); border: 1px solid #93c5fd; border-radius: 10px; padding: 16px 18px; margin: 16px 0; }
     .activity h4 { color: #1e40af; margin-top: 0; }
     .exam-q { background: #fefce8; border: 1px solid #fbbf24; border-radius: 8px; padding: 12px 14px; margin: 10px 0; font-size: .92em; }
-    .exam-q b { color: #92400e; }
+    .exam-q b { color: #075985; }
     blockquote { border-left: 4px solid var(--primary); padding: 10px 16px; margin: 14px 0; background: var(--highlight); border-radius: 0 8px 8px 0; font-style: italic; color: var(--text-secondary); }
 
     @media(max-width:900px){ .page-layout{grid-template-columns:1fr!important} .sidebar,.notes-col{display:none} }
+
+    /* ===== EXAM KEY POINTS (summary-card) — Baron-Cohen style ===== */
+    .summary-card { background: linear-gradient(135deg, #f0fdf4, #dcfce7); border-left: 5px solid #16a34a; border-radius: 10px; margin: 20px 0 0; overflow: hidden; transition: all .2s; }
+    body.dark .summary-card { background: linear-gradient(135deg, #052e16, #14532d); border-left-color: #22c55e; }
+    .summary-card-header { display: flex; align-items: center; gap: 8px; padding: 12px 18px; cursor: pointer; user-select:none; -webkit-user-select:none; transition: background .15s; }
+    .summary-card-header:hover { background: #bbf7d0; }
+    body.dark .summary-card-header:hover { background: #166534; }
+    .summary-card-icon { font-size: 1.1em; transition: transform .2s; color: #166534; }
+    body.dark .summary-card-icon { color: #86efac; }
+    .summary-card.open .summary-card-icon { transform: rotate(90deg); }
+    .summary-card-title { font-size: .92em; font-weight: 700; color: #166534; flex: 1; }
+    body.dark .summary-card-title { color: #86efac; }
+    .summary-card-badge { font-size: .7rem; background: #16a34a; color: white; padding: 2px 10px; border-radius: 10px; font-weight: 600; }
+    .summary-card-body { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
+    .summary-card.open .summary-card-body { max-height: 800px; }
+    .summary-card-inner { margin: 0 14px 14px; padding: 16px 20px; background: #ffffff; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,.06); border: 1px solid #e8f0e8; }
+    body.dark .summary-card-inner { background: #0c1a0c; border-color: #1a3a1a; }
+    .summary-card-inner ol, .summary-card-inner ul { margin: 0; padding-left: 20px; }
+    .summary-card-inner li { margin: 8px 0; font-size: .98em; color: #1a1a1a; line-height: 1.72; }
+    body.dark .summary-card-inner li { color: #e8ede9; }
+
+    /* ===== CHINESE SUMMARY CARDS (cn-summary) — Purple theme ===== */
+    .cn-summary-wrap { margin: 18px 0; }
+    .cn-summary-toggle { display: flex; align-items: center; gap: 8px; width: 100%; padding: 10px 16px; background: linear-gradient(135deg, #f3e8ff, #ede9fe); border: 1.5px dashed #a78bfa; border-radius: 8px; cursor: pointer; font-size: .86em; color: #6b21a8; font-weight: 500; transition: all .2s; text-align: left; }
+    body.dark .cn-summary-toggle { background: linear-gradient(135deg, rgba(167,139,250,.1), rgba(139,92,246,.08)); border-color: #8b5cf6; color: #c4b5fd; }
+    .cn-summary-toggle:hover { background: linear-gradient(135deg, #ede9fe, #ddd6fe); border-color: #8b5cf6; }
+    .cs-icon { font-size: .75em; transition: transform .2s; min-width: 14px; }
+    .cn-summary-toggle.open .cs-icon { transform: rotate(90deg); }
+    .cn-summary-body { max-height: 0; overflow: hidden; opacity: 0; transition: max-height .4s ease, opacity .25s ease; }
+    .cn-summary-body.open { max-height: 800px; opacity: 1; margin: 8px 0 4px; }
+    .cn-summary-body { background: linear-gradient(135deg, #faf5ff, #f3e8ff); border-radius: 8px; padding: 18px 22px; border: 1px solid #e9d5ff; }
+    body.dark .cn-summary-body { background: linear-gradient(135deg, rgba(167,139,250,.06), rgba(124,58,237,.04)); border-color: rgba(139,92,246,.2); }
+    .cs-title { font-weight: 700; color: #6b21a8; font-size: .95em; margin-bottom: 10px; padding-bottom: 6px; border-bottom: 1px dashed #d8b4fe; }
+    body.dark .cs-title { color: #c4b5fd; border-bottom-color: rgba(139,92,246,.3); }
+    .cn-summary-body p { margin: 8px 0; line-height: 1.72; color: #374151; font-size: .93em; }
+    body.dark .cn-summary-body p { color: #d1d5db; }
+    .cn-summary-body ul { margin: 6px 0; padding-left: 20px; }
+    .cn-summary-body li { margin: 5px 0; font-size: .93em; color: #374151; }
+    body.dark .cn-summary-body li { color: #d1d5db; }
+    .cs-en { color: #7c3aed; font-style: italic; font-weight: 500; }
+    body.dark .cs-en { color: #a78bfa; }
+
+    /* ===== EXAM TAGS ===== */
+    .tag-must { display: inline-block; padding: 2px 8px; border-radius: 4px; background: #fee2e2; color: #dc2626; font-size: .76em; font-weight: 700; vertical-align: middle; margin-left: 4px; }
+    .tag-common { display: inline-block; padding: 2px 8px; border-radius: 4px; background: #f0f9ff; color: #0369a1; font-size: .76em; font-weight: 700; vertical-align: middle; margin-left: 4px; }
+    .tag-ao2 { display: inline-block; padding: 2px 8px; border-radius: 4px; background: #dcfce7; color: #16a34a; font-size: .76em; font-weight: 700; vertical-align: middle; margin-left: 4px; }
+    .tag-context { display: inline-block; padding: 2px 8px; border-radius: 4px; background: #f1f5f9; color: #64748b; font-size: .76em; font-weight: 700; vertical-align: middle; margin-left: 4px; }
+
+    /* ===== Q&A CARDS ===== */
+    .qa-card { background: white; border: 1.5px solid #e2e8f0; border-radius: 10px; margin: 12px 0; overflow: hidden; transition: box-shadow .2s, border-color .2s; }
+    .qa-card:hover { box-shadow: 0 3px 12px rgba(0,0,0,.08); border-color: #cbd5e1; }
+    .qa-question { display: flex; align-items: flex-start; gap: 10px; padding: 16px 18px; cursor: pointer; user-select:none; -webkit-user-select:none; transition: background .15s; }
+    .qa-question:hover { background: #f8fafc; }
+    .qa-num { flex-shrink: 0; width: 28px; height: 28px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: .78em; font-weight: 700; line-height: 1; }
+    .qa-text { flex: 1; font-size: .93em; color: #1e293b; line-height: 1.6; font-weight: 500; }
+    .qa-toggle { flex-shrink: 0; width: 32px; height: 28px; background: linear-gradient(135deg, #eff6ff, #dbeafe); border: 1.5px solid #93c5fd; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: .72em; color: #2563eb; font-weight: 600; transition: all .15s; cursor: pointer; }
+    .qa-toggle .qa-icon { transition: transform .2s; display: inline-block; }
+    .qa-card.open .qa-toggle .qa-icon { transform: rotate(180deg); }
+    .qa-answer { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
+    .qa-card.open .qa-answer { max-height: 500px; }
+    .qa-answer-inner { padding: 14px 18px 18px; margin: 0 14px 14px; background: linear-gradient(135deg, #f0f9ff, #e0f2fe); border-left: 4px solid #0ea5e9; border-radius: 8px; font-size: .91em; color: #1e3a5f; line-height: 1.72; }
+
+    /* TERM TOOLTIPS */
+    .term { color: var(--term-color); font-weight: 600; cursor: help; position: relative; border-bottom: 1px dotted var(--term-color); }
+    .term-tooltip { position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%); background: #1e293b; color: #f8fafc; padding: 12px 16px; border-radius: 8px; font-size: .84em; line-height: 1.55; width: 280px; z-index: 200; box-shadow: 0 8px 30px rgba(0,0,0,.25); opacity: 0; visibility: hidden; transition: .2s; pointer-events: none; }
+    .term-tooltip::after { content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); border: 6px solid transparent; border-top-color: #1e293b; }
+    .term:hover .term-tooltip { opacity: 1; visibility: visible; }
+    .tt-cn { color: #a78bfa; font-weight: 600; display: block; margin-bottom: 4px; font-size: .96em; }
+    .tt-def { color: #94a3b8; display: block; margin-top: 4px; }
+
+    /* VISUAL SECTION HEADER */
+    .visual-header { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; padding: 14px 18px; background: linear-gradient(135deg, #fff7ed, #ffedd5); border-radius: 10px; border-left: 4px solid var(--primary); }
+    .vh-icon { font-size: 1.8em; flex-shrink: 0; }
+    .vh-text h4 { margin: 0 0 3px; color: var(--primary-dark); font-size: .92em; }
+    .vh-text p { margin: 0; font-size: .82em; color: var(--text-secondary); }
+
+    /* BACK TO TOP */
+    .back-to-top { position: fixed; bottom: 30px; right: 30px; width: 44px; height: 44px; background: var(--primary); color: white; border: none; border-radius: 50%; cursor: pointer; font-size: 1.2em; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(234,88,12,.35); opacity: 0; visibility: hidden; transform: translateY(15px); transition: all .3s; z-index: 90; }
+    .back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+    .back-to-top:hover { background: var(--primary-dark); }
+
+    /* PRINT STYLES */
+    @media print {
+      .progress-bar, .nav-bar, .sidebar, .page-layout, .back-to-top,
+      .cn-summary-wrap, .summary-card, .study-nav, .kw-tags,
+      .notes-col { display: none !important; }
+      .main-content { max-width: 100% !important; }
+      body { font-size: 12pt; }
+    }
   </style>
 </head>
 <body>
@@ -190,10 +284,16 @@
 <!-- HEADER -->
 <div class="header">
   <h1>🚇 Piliavin et al. (1969)</h1>
-  <div class="subtitle">Subway Samaritans<br>（地铁撒玛利亚人实验）</div>
+  <div class="subtitle">Subway Samaritans — Bystander Intervention in Emergencies<br>（地铁撒玛利亚人实验）</div>
   <div class="meta">
-    CIE Psychology — Social Approach — Core Study<br>
+    Piliavin, I.M., Rodin, J., & Piliavin, J.A. (1969)<br>
     <em>Journal of Personality and Social Psychology</em>, <strong>13</strong>(4), 289–299
+  </div>
+  <div class="header-tags">
+    <span class="header-tag">📚 Social Approach</span>
+    <span class="header-tag">🔬 Field Experiment</span>
+    <span class="header-tag">👥 Bystander Effect</span>
+    <span class="header-tag">🚇 Helping Behaviour</span>
   </div>
 </div>
 
@@ -201,47 +301,117 @@
 <div class="section" id="s1">
   <h2>1️⃣ Background（研究背景）</h2>
 
-  <p><strong>The psychology being investigated（被研究的心理学现象）：</strong>Social psychologists have long studied the role of <strong>bystanders</strong> <span class="cn">（旁观者）</span> in emergency situations. A key trigger for research into <strong>bystander apathy</strong> <span class="cn">（旁观者冷漠 / 旁观者效应）</span> was the murder of a young woman called <strong>Kitty Genovese</strong> in New York City in 1964.</p>
+  <p><strong>The psychology being investigated:</strong> Social psychologists have long studied the role of <strong>bystanders</strong> in emergency situations. A key trigger for research into <strong>bystander apathy</strong> was the murder of a young woman called <strong>Kitty Genovese</strong> in New York City in 1964.</p>
 
   <div class="note-box">
-    <p><strong>📖 Kitty Genovese 案件（关键背景，考试常考）</strong></p>
+    <p><strong>📖 The Kitty Genovese Case (1964)</strong> — A pivotal event that sparked bystander intervention research.</p>
     <p>After returning from work during the early hours of the morning, Kitty Genovese was followed and attacked by a man near her home. One witness had called down to warn off her attacker as she screamed that she was being stabbed. Her attacker was scared off but returned to continue the assault. It was alleged in news reports that around <strong>38 individuals</strong> living nearby either saw or heard what happened, but failed to prevent her murder.</p>
-    <p>虽然后来发现"38个目击者"的说法有夸大成分，但这个事件确实引发了社会心理学家对 <strong>why people don't help</strong> 的强烈兴趣。</p>
+    <p style="font-size:.88em;color:#666;">⚠️ Note: Later investigations revealed the "38 witnesses" figure may have been exaggerated, but the case nonetheless triggered intense research interest into why people don't help.</p>
   </div>
 
-  <h3>Two key explanations for bystander apathy（旁观者冷漠的两个解释）</h3>
+  <h3>Two key explanations for bystander apathy</h3>
 
   <div class="two-col">
     <div class="col-card">
-      <h4>① Diffusion of responsibility（责任分散）</h4>
-      <p>Darley & Latané (1968) 提出的经典假设。当有其他人在场时，个体会感觉<strong>自己的个人责任感降低了</strong>（"别人会帮忙的，不用我出手"），因此更不可能采取行动。</p>
-      <p style="font-size:.88em;color:#666;">⚠️ 但 Piliavin 的实验结果<strong>不支持</strong>这个假设——这是考试重点！</p>
+      <h4>① Diffusion of Responsibility</h4>
+      <p>Proposed by Darley & Latané (1968). When others are present, individuals feel <strong>reduced personal responsibility</strong> ("someone else will help"), making them less likely to act.</p>
+      <p style="font-size:.88em;color:#dc2626;"><strong>⚠️ Piliavin's results do NOT support this hypothesis!</strong></p>
     </div>
     <div class="col-card">
-      <h4>② Modelling（示范/榜样效应）</h4>
-      <p>如果我们看到别人在帮助受害者，我们<strong>也更可能去帮忙</strong>。Bryan & Test (1967) 发现：刚目睹过他人行善的人，自己做好事的概率更高。</p>
+      <h4>② Modelling</h4>
+      <p>If people observe someone else helping a victim, they become <strong>more likely to help themselves</strong>. Bryan & Test (1967) found that individuals who had just witnessed prosocial behaviour were more likely to act prosocially themselves.</p>
     </div>
   </div>
 
-  <h3>Why a field experiment?（为什么要做现场实验？）</h3>
+  <h3>Why a field experiment?</h3>
   <p>Piliavin et al. wanted to test these ideas in a <strong>naturalistic setting</strong> rather than a laboratory. Previous lab studies on bystander apathy (like Darley & Latané's epilepsy seizure experiment) used situations where bystanders could only <em>hear</em> the emergency but not see it. Piliavin wanted to know: would the same patterns hold when people can <strong>actually see</strong> the victim?</p>
+
+  <!-- Chinese Summary Card -->
+  <div class="cn-summary-wrap">
+    <button class="cn-summary-toggle" onclick="toggleCnSummary(this)"><span class="cs-icon">▶</span> 中文逻辑总结</button>
+    <div class="cn-summary-body">
+      <div class="cs-title">§1 研究背景：旁观者效应</div>
+      <p><strong>逻辑链：</strong>Kitty Genovese 谋杀案（1964）→ 38个目击者无人帮忙 → 引发社会心理学家研究 <span class="cs-en">Bystander Apathy（旁观者冷漠）</span> → 提出两个解释理论 → 需要实验验证。</p>
+      <ul>
+        <li><span class="cs-en">Diffusion of Responsibility（责任分散）</span>：人在群体中会感觉个人责任感降低（"别人会帮"）。<strong>⚠️ Piliavin 结果不支持此理论！</strong></li>
+        <li><span class="cs-en">Modelling（示范效应）</span>：看到别人帮忙 → 自己也更可能帮忙（社会学习）。</li>
+        <li><span class="cs-en">Field Experiment（现场实验）</span>：比实验室更真实，能观察到人们"看到"紧急情况时的反应。</li>
+      </ul>
+      <p><strong>💡 考试要点：</strong>CIE 常考 "outline two explanations for bystander apathy"。答案：(1) Diffusion of responsibility; (2) Modelling/pluralistic ignorance。</p>
+    </div>
+  </div>
+
+  <!-- Exam Key Points -->
+  <div class="summary-card" id="summary-s1">
+    <div class="summary-card-header" onclick="toggleSummary('summary-s1')">
+      <span class="summary-card-icon">▶</span>
+      <span class="summary-card-title">Exam Key Points — Background</span>
+      <span class="summary-card-badge">AO1+AO2</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ul>
+          <li>Kitty Genovese case (1964) triggered research into bystander behaviour <span class="tag-must">Must Know</span></li>
+          <li>Two explanations: Diffusion of responsibility vs. Modelling <span class="tag-must">Must Know</span></li>
+          <li>Piliavin's study does NOT support diffusion of responsibility <span class="tag-must">Critical!</span></li>
+          <li>Field experiment advantage: higher ecological validity than lab studies <span class="tag-ao2">AO2 Gold</span></li>
+          <li>AO2 link: Why naturalistic settings matter for studying helping behaviour <span class="tag-ao2">AO2 Gold</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- ==================== SECTION 2: AIM ==================== -->
 <div class="section" id="s2">
   <h2>2️⃣ Aim（研究目的）</h2>
 
-  <p>The researchers aimed to study <strong>bystander apathy</strong> and <strong>diffusion of responsibility</strong> in a natural setting. Piliavin et al. also wanted to investigate the effect of four variables on helping behaviour or being a '<strong>Good Samaritan</strong>' <span class="cn">（好撒玛利亚人 = 主动帮助陌生人的人）</span>:</p>
+  <p>The researchers aimed to study <strong>bystander apathy</strong> and <strong>diffusion of responsibility</strong> in a natural setting. Piliavin et al. also wanted to investigate the effect of four variables on helping behaviour or being a '<strong>Good Samaritan</strong>' (someone who helps a stranger in need):</p>
 
   <ol>
-    <li><strong>the type of victim</strong> — drunk or ill <span class="cn">（受害者类型：醉酒 vs 生病/拄拐）</span></li>
-    <li><strong>the race of the victim</strong> — black or white <span class="cn">（受害者种族）</span></li>
-    <li><strong>the behaviour of a 'model'</strong> — early help, late help, adjacent area, or no model <span class="cn">（模特行为）</span></li>
-    <li><strong>the size of the group of bystanders</strong> <span class="cn">（旁观群体大小 → 测试责任分散假设）</span></li>
+    <li><strong>the type of victim</strong> — drunk or ill (with cane)</li>
+    <li><strong>the race of the victim</strong> — black or white</li>
+    <li><strong>the behaviour of a 'model'</strong> — early help, late help, adjacent area help, or no model</li>
+    <li><strong>the size of the group of bystanders</strong></li>
   </ol>
 
   <div class="key-term">
-    <strong>Good Samaritan:</strong> 这个术语源自《圣经》新约，指一个来自古代撒玛利亚的人停下来帮助受伤的 stranger。现在泛指任何在他人遇到困难时主动提供帮助的人。
+    <strong>Good Samaritan:</strong> A person who helps a stranger in need. The term originates from the biblical parable where a Samaritan man stops to help an injured stranger on the road.
+  </div>
+
+  <!-- Chinese Summary Card -->
+  <div class="cn-summary-wrap">
+    <button class="cn-summary-toggle" onclick="toggleCnSummary(this)"><span class="cs-icon">▶</span> 中文逻辑总结</button>
+    <div class="cn-summary-body">
+      <div class="cs-title">§2 研究目的：4个自变量</div>
+      <p><strong>逻辑链：</strong>研究旁观者冷漠 → 需要测试哪些因素影响帮助行为 → 提出4个 <span class="cs-en">Independent Variables (IVs)（自变量）</span> → 在真实地铁环境中操纵这些变量。</p>
+      <ul>
+        <li><span class="cs-en">Type of Victim（受害者类型）</span>：Drunk（醉酒）vs Ill/Cane（生病/拄拐）→ 测试"是否值得帮"。</li>
+        <li><span class="cs-en">Race of Victim（种族）</span>：Black vs White → 测试种族偏见。</li>
+        <li><span class="cs-en">Model Behaviour（模特行为）</span>：Early/Late help, Critical/Adjacent area, No model → 测试示范效应。</li>
+        <li><span class="cs-en">Group Size（群体大小）</span> → 测试责任分散假设。</li>
+      </ul>
+      <p><strong>💡 考试要点：</strong>CIE 常考 "outline one aim of the study"。答案模板：To investigate the effect of [variable] on helping behaviour/bystander intervention in a naturalistic setting。</p>
+    </div>
+  </div>
+
+  <!-- Exam Key Points -->
+  <div class="summary-card" id="summary-s2">
+    <div class="summary-card-header" onclick="toggleSummary('summary-s2')">
+      <span class="summary-card-icon">▶</span>
+      <span class="summary-card-title">Exam Key Points — Aim</span>
+      <span class="summary-card-badge">AO1</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ul>
+          <li>Four IVs: victim type, victim race, model behaviour, group size <span class="tag-must">Must Know</span></li>
+          <li>DV: helping behaviour (time to help, who helps, frequency) <span class="tag-common">Common Q</span></li>
+          <li>Term: Good Samaritan = someone who helps a stranger in need <span class="tag-context">Context</span></li>
+          <li>Aim template: "To investigate factors affecting bystander intervention" <span class="tag-ao2">AO2 Gold</span></li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -249,17 +419,17 @@
 <div class="section" id="s3">
   <h2>3️⃣ Method（研究方法）</h2>
 
-  <h3>Research method and design（研究方法与设计）</h3>
+  <h3>Research method and design</h3>
 
-  <p>This study was a <strong>field experiment</strong> <span class="cn">（现场实验）</span>. This means it took place in a realistic environment — in this case, the New York City subway. The study used an <strong>independent groups design</strong> <span class="cn">（独立组设计 / 被试间设计）</span>: the trials were repeated on different days and involved different participants in each condition.</p>
+  <p>This study was a <strong>field experiment</strong>. This means it took place in a realistic environment — in this case, the New York City subway. The study used an <strong>independent groups design</strong>: the trials were repeated on different days and involved different participants in each condition.</p>
 
   <div class="key-term">
-    <strong>Field experiment（现场实验）:</strong> 在真实自然环境中进行的实验，仍然有自变量的操纵和因变量的测量，但不像实验室那样完全受控。<strong> ecological validity（生态效度）</strong>高，但<strong> extraneous variables（额外变量）</strong>难控制。
+    <strong>Field experiment:</strong> An experiment conducted in a natural, real-world setting where the IV is manipulated and the DV is measured, but with less control than a laboratory. Offers high ecological validity but extraneous variables are harder to control.
   </div>
 
   <p><strong>Four independent variables (IVs) were operationalised as:</strong></p>
   <table>
-    <tr><th>IV</th><th>Levels（水平）</th><th>Operationalisation（操作化定义）</th></tr>
+    <tr><th>IV</th><th>Levels</th><th>Operationalisation</th></tr>
     <tr><td>Type of victim</td><td>'Drunk' or 'Ill' (cane)</td><td>Victim smelled of alcohol + carried bottle in brown bag (drunk), OR carried black cane & appeared sober (cane)</td></tr>
     <tr><td>Race of victim</td><td>Black or White</td><td>3 white victims + 1 black victim (all dressed identically)</td></tr>
     <tr><td>Model behaviour</td><td>5 conditions</td><td>Critical area/early, Critical area/late, Adjacent area/early, Adjacent area/late, No model</td></tr>
@@ -269,12 +439,12 @@
   <p><strong>The dependent variable (DV)</strong> was operationalised as the time taken for the first passenger to help, as well as the total number of passengers who helped. The race, gender and location of each helper were also recorded. Qualitative data was recorded in the form of verbal remarks made by passengers during each incident.</p>
 
   <div class="key-term">
-    <strong>Operationalisation（操作化）:</strong> 把抽象概念变成可以<strong>具体测量</strong>的操作。比如"帮助行为"不能直接数，所以要定义为"从倒地到第一个人伸手扶的秒数"。
+    <strong>Operationalisation:</strong> The process of defining an abstract concept in terms of specific, measurable operations. For example, "helping behaviour" cannot be directly counted, so it was defined as "the time (in seconds) from collapse until the first passenger offers assistance".
   </div>
 
-  <h3>Sample（样本）</h3>
+  <h3>Sample</h3>
 
-  <p>This study took place on the New York City subway. Participants were passengers travelling on an underground railway service between Harlem and the Bronx (areas of New York City) on weekdays between 11 a.m. and 3 p.m. We might call this an <strong>opportunity sample</strong> <span class="cn">（机会抽样 / 便利抽样）</span> — passengers were not deliberately selected for participation.</p>
+  <p>This study took place on the New York City subway. Participants were passengers travelling on an underground railway service between Harlem and the Bronx (areas of New York City) on weekdays between 11 a.m. and 3 p.m. We might call this an <strong>opportunity sample</strong> — passengers were not deliberately selected for participation.</p>
 
   <table>
     <tr><th>Metric</th><th>Value</th></tr>
@@ -286,12 +456,49 @@
   </table>
 
   <div class="note-box">
-    <p><strong>💡 为什么选纽约地铁？</strong></p>
+    <p><strong>💡 Why the NYC Subway?</strong></p>
     <ul>
-      <li>A 线和 D 线快车在 59街→125街之间<strong>不停站</strong>（约7.5分钟）→ 被试是"被困住的观众"</li>
-      <li>经过 Harlem 到 Bronx → 多种族乘客 → 可以测试种族变量</li>
-      <li>旧式车厢有两排座位组（group arrangement），不是长条座位 → 有明确的 critical area 和 adjacent area</li>
+      <li>A and D express trains make <strong>no stops</strong> between 59th St → 125th St (~7.5 minutes) → passengers are a "captive audience"</li>
+      <li>Route passes through Harlem to Bronx → racially diverse passengers → allows testing race variable</li>
+      <li>Old-style carriages had two seating groups (not continuous rows) → clear <em>critical area</em> and <em>adjacent area</em> zones</li>
     </ul>
+  </div>
+
+  <!-- Chinese Summary Card -->
+  <div class="cn-summary-wrap">
+    <button class="cn-summary-toggle" onclick="toggleCnSummary(this)"><span class="cs-icon">▶</span> 中文逻辑总结</button>
+    <div class="cn-summary-body">
+      <div class="cs-title">§3 研究方法：现场实验设计</div>
+      <p><strong>逻辑链：</strong>要在真实环境中测试旁观者行为 → 选择 <span class="cs-en">Field Experiment（现场实验）</span> → 在纽约地铁进行（高生态效度）→ 使用 <span class="cs-en">Independent Groups Design（独立组设计）</span> → 操纵4个IVs → 测量DV。</p>
+      <ul>
+        <li><span class="cs-en">Field Experiment</span>：真实环境 + 操纵IV + 测量DV，生态效度高但额外变量难控。</li>
+        <li><span class="cs-en">Operationalisation（操作化）</span>：把抽象概念变成可测量的具体操作。如"帮助" = "从倒地到第一个人帮忙的秒数"。</li>
+        <li><span class="cs-en">Opportunity Sample（机会抽样）</span>：≈4,450名乘客，45% Black + 55% White。</li>
+        <li><span class="cs-en">DV（因变量）</span>：时间（秒）、帮助人数、帮助者种族/性别/位置、乘客的口头评论（定性数据）。</li>
+      </ul>
+      <p><strong>💡 考试要点：</strong>CIE 常考 "outline the method used"。答案要点：Field experiment, IVs (victim type/race/model/group size), DV (time to help/frequency), sample (opportunity, ~4450 people), setting (NYC subway)。</p>
+    </div>
+  </div>
+
+  <!-- Exam Key Points -->
+  <div class="summary-card" id="summary-s3">
+    <div class="summary-card-header" onclick="toggleSummary('summary-s3')">
+      <span class="summary-card-icon">▶</span>
+      <span class="summary-card-title">Exam Key Points — Method</span>
+      <span class="summary-card-badge">AO1+AO3</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ul>
+          <li>Field experiment in NYC subway (high ecological validity) <span class="tag-must">Must Know</span></li>
+          <li>Independent groups design (different participants each trial) <span class="tag-must">Must Know</span></li>
+          <li>4 IVs: victim type, race, model behaviour, group size <span class="tag-common">Common Q</span></li>
+          <li>DV: time to help, number of helpers, helper characteristics <span class="tag-must">Must Know</span></li>
+          <li>Sample: opportunity sample, ≈4,450 passengers, 103 trials <span class="tag-ao2">AO2 Gold</span></li>
+          <li>AO3: Strength — high ecological validity; Weakness — lack of control over EVs <span class="tag-ao2">AO2 Gold</span></li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -303,42 +510,42 @@
 
   <div class="figure">
     <img src="piliavin_images/nyc_subway_photo.jpg" alt="NYC Subway interior">
-    <div class="figure-caption">图：纽约地铁内部实景（A/D 线快车车厢）。Piliavin 团队就在这样的环境中进行103次试验。</div>
+    <div class="figure-caption">Figure: NYC Subway interior (A/D express line carriage). Piliavin's team conducted 103 trials in this setting.</div>
   </div>
 
   <div class="figure">
     <img src="piliavin_images/subway_layout.png" alt="Subway car layout">
-    <div class="figure-caption">Figure 5.9: 地铁车厢布局 — 标注了 Adjacent Area（相邻区）、Critical Area（核心区）、Observer 位置、Victim 倒地位置、Exit Doors。</div>
+    <div class="figure-caption">Figure: Subway car layout — showing Adjacent Area, Critical Area, Observer position, Victim collapse position, and Exit Doors.</div>
   </div>
 
-  <h4>标准程序（每次试验的流程）：</h4>
+  <h4>Standard procedure (each trial):</h4>
   <ol>
-    <li>团队从不同车门上车（避免被认出是一伙的）</li>
-    <li><strong>女性观察者</strong>坐在 critical area 外面，尽量不起眼地记录数据（乘客种族、性别、位置、评论等）</li>
-    <li><strong>男性受害者+模特</strong>站在 critical area 内或附近</li>
-    <li>列车驶离第一站后约 <strong>70秒</strong>，受害者踉跄向前并<strong>倒地</strong>（staggered forward and collapsed）</li>
-    <li>受害者保持躺姿，眼睛看着天花板（remained supine looking at ceiling）</li>
-    <li>如果没人帮忙 → 列车减速时模特把他扶起来（raised to sitting position）</li>
-    <li>到站后全部分开下车，等待其他乘客离开后再在另一站台集合</li>
-    <li>每天进行 6–8 次试验；同一天的所有试验用同一个"受害者条件"</li>
+    <li>Team members boarded through <strong>different doors</strong> (to avoid being recognised as a group)</li>
+    <li><strong>Female observers</strong> sat outside the critical area, recording data unobtrusively (passenger race, gender, location, comments)</li>
+    <li><strong>Male victim + model</strong> stood inside or near the critical area</li>
+    <li>About <strong>70 seconds</strong> after the train left the first station, the victim staggered forward and <strong>collapsed</strong></li>
+    <li>The victim remained supine, looking at the ceiling</li>
+    <li>If no one helped → the model raised him to a sitting position as the train slowed down</li>
+    <li>At the station, all team members disembarked separately and reassembled at another platform after other passengers had left</li>
+    <li><strong>6–8 trials per day</strong>; all trials on the same day used the same "victim condition"</li>
   </ol>
 
-  <h4>Victim（受害者）详情：</h4>
+  <h4>Victim details:</h4>
   <ul>
-    <li>4名受害者（每队1人），年龄26–35岁，3名白人 + 1名黑人</li>
-    <li>穿着完全相同：<strong>Eisenhower jacket</strong>（艾森豪威尔夹克）、旧裤子、不打领带</li>
-    <li><strong>Cane condition（生病条件，65次试验）</strong>：清醒状态，手持黑色拐杖</li>
-    <li><strong>Drunk condition（醉酒条件，38次试验）</strong>：身上有酒味，棕色纸袋里包着酒瓶</li>
-    <li>每个受害者在两种条件下都参与了试验</li>
+    <li>4 victims (1 per team), aged 26–35; 3 White + 1 Black</li>
+    <li>All wore identical clothing: <strong>Eisenhower jacket</strong>, old trousers, no tie</li>
+    <li><strong>Cane condition (65 trials):</strong> Sober appearance, carrying a black cane</li>
+    <li><strong>Drunk condition (38 trials):</strong> Smelled of alcohol, carried bottle wrapped in brown paper bag</li>
+    <li>Each victim participated in both conditions across different days</li>
   </ul>
 
-  <h4>Model（模特）详情：</h4>
+  <h4>Model details:</h4>
   <ul>
-    <li>4名白人男性，年龄24–29岁</li>
-    <li>穿便装但不完全一样（看起来像普通乘客）</li>
+    <li>4 White males, aged 24–29</li>
+    <li>Dressed casually but not identically (to look like ordinary passengers)</li>
   </ul>
 
-  <h4>五种 Model 条件（5种试验条件）：</h4>
+  <h4>Five model conditions:</h4>
   <table>
     <tr><th>Condition</th><th>Model location</th><th>When model helps</th></tr>
     <tr><td>Critical / early</td><td>Stood in critical area</td><td>Waited ~70 seconds after collapse</td></tr>
@@ -349,10 +556,44 @@
   </table>
 
   <div class="note-box">
-    <p><strong>💡 为什么要分 early / late model？</strong></p>
-    <p>研究者想测试：<strong>示范效应的时间窗口</strong>。如果模特早帮（70秒），会不会比晚帮（150秒）更能带动其他人？结果发现：early model 确实能引发更多帮助，late model 几乎没效果——因为大部分愿意帮忙的人在70秒内已经行动了。</p>
-    <p><strong>为什么要分 critical / adjacent area？</strong></p>
-    <p>测试模特与受害者的<strong>距离</strong>是否有影响。结果显示：位置不重要（area variable has no effect），重要的是模特是否及时行动。</p>
+    <p><strong>💡 Why early vs. late model?</strong> Researchers wanted to test the <strong>time window for modelling effects</strong>. Would an early helper (70s) be more influential than a late one (150s)? Result: Early models triggered more helping; late models had almost no effect — because most willing helpers had already acted within 70 seconds.</p>
+    <p><strong>Why critical vs. adjacent area?</strong> To test whether <strong>distance from victim</strong> mattered. Result: Location was not significant (area variable has no effect); what mattered was whether the model acted promptly.</p>
+  </div>
+
+  <!-- Chinese Summary Card -->
+  <div class="cn-summary-wrap">
+    <button class="cn-summary-toggle" onclick="toggleCnSummary(this)"><span class="cs-icon">▶</span> 中文逻辑总结</button>
+    <div class="cn-summary-body">
+      <div class="cs-title">§4 实验程序：标准流程</div>
+      <p><strong>逻辑链：</strong>制定标准化程序 → 确保每次试验一致 → 4人一队（victim + model + 2 observers）→ 在地铁快车上执行 → 记录数据。</p>
+      <ul>
+        <li><span class="cs-en">Standardised Procedure（标准化程序）</span>：每队4人，victim 倒地后保持躺姿，observers 记录时间/行为。</li>
+        <li><span class="cs-en">Victim Conditions（受害者条件）</span>：Cane（生病，95%帮助率）vs Drunk（醉酒，50%帮助率）。</li>
+        <li><span class="cs-en">Model Conditions（模特条件）</span>：5种（Critical/Adjacent × Early/Late + No model）→ 测试示范效应。</li>
+        <li><span class="cs-en">Critical Area vs Adjacent Area</span>：距离变量无显著影响，关键是模特是否及时帮忙。</li>
+      </ul>
+      <p><strong>💡 考试要点：</strong>CIE 常考 "outline the procedure"。答案要点：Team of 4, victim collapses, standardised behaviour, 5 model conditions, observers record data, 103 trials total。</p>
+    </div>
+  </div>
+
+  <!-- Exam Key Points -->
+  <div class="summary-card" id="summary-s4">
+    <div class="summary-card-header" onclick="toggleSummary('summary-s4')">
+      <span class="summary-card-icon">▶</span>
+      <span class="summary-card-title">Exam Key Points — Procedure</span>
+      <span class="summary-card-badge">AO1</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ul>
+          <li>Standardised team procedure (victim + model + 2 observers) <span class="tag-must">Must Know</span></li>
+          <li>5 model conditions: Critical/Adjacent area × Early/Late timing + No model <span class="tag-common">Common Q</span></li>
+          <li>Victim remained supine until helped or train slowed down <span class="tag-context">Context</span></li>
+          <li>103 trials total: 65 cane condition + 38 drunk condition <span class="tag-must">Must Know</span></li>
+          <li>Early model (~70s) more effective than late model (~150s) <span class="tag-ao2">AO2 Gold</span></li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -365,17 +606,17 @@
   <p>Overall, the frequency of helping recorded in this study was much higher than had previously been reported in laboratory studies. <strong>Seventy-eight percent of victims received spontaneous help</strong> (i.e., helped before model intervened or in a no-model condition). In 60% of cases more than one person helped!</p>
 
   <div class="highlight-box">
-    <h4>🎯 核心数据速览</h4>
+    <h4>🎯 Key Findings at a Glance</h4>
     <ul>
-      <li><strong>总体自发帮助率：78%</strong>（远高于实验室研究的 ~30-40%）</li>
-      <li>Cane（拄拐）：62/65 次试验得到自发帮助 = <strong>95%</strong></li>
-      <li>Drunk（醉酒）：19/38 次试验得到自发帮助 = <strong>50%</strong></li>
-      <li>60%的试验中有多于1人帮忙</li>
-      <li><strong>90%的第一帮助者是男性</strong>（而人群中男性仅占60%）</li>
+      <li><strong>Overall spontaneous helping rate: 78%</strong> (much higher than lab studies ~30-40%)</li>
+      <li>Cane (ill) victim: 62/65 trials received help = <strong>95%</strong></li>
+      <li>Drunk victim: 19/38 trials received help = <strong>50%</strong></li>
+      <li>In 60% of trials, more than one person helped</li>
+      <li><strong>90% of first helpers were male</strong> (while males were only 60% of the general population)</li>
     </ul>
   </div>
 
-  <h3>Effect of type of victim（受害者类型的影响）</h3>
+  <h3>Effect of type of victim</h3>
 
   <p>In terms of the type of victim, participants were more likely to help the victim with the <strong>cane than the drunk victim</strong>. The cane victim received help in 62/65 trials; the drunk victim received help in 19/38 trials. In the drunk trials, spontaneous helping also occurred earlier than in the cane trials. For example, in all but three of the cane trials that were also model trials, helping occurred before the model could give assistance.</p>
 
@@ -385,53 +626,90 @@
     <tr><td>No model</td><td>100%</td><td>100%</td><td>100%</td><td>73%</td></tr>
     <tr><td>Model trial</td><td>100%</td><td>77%</td><td>—*</td><td>67%</td></tr>
   </table>
-  <p style="font-size:.85em;color:#666;">*No model trials for the black 'victim' were run for the cane condition（因为所有cane试验在模特干预前就得到了帮助）</p>
+  <p style="font-size:.85em;color:#666;">*No model trials for the black 'victim' were run for the cane condition (all cane trials received help before model intervention)</p>
 
   <div class="key-term">
-    <strong>为什么 cane 比 drunk 更容易得到帮助？（两个原因）</strong><br>
-    ① 人们认为醉酒者要为自己的处境<strong>负部分责任</strong>（perceived responsibility hypothesis）→ 同情心减少 → 帮助意愿降低<br>
-    ② 醉酒者可能变得令人<strong>厌恶、尴尬甚至危险</strong>（disgusting, embarrassing, or violent）→ 帮助的"成本"太高
+    <strong>Why are cane victims helped more often than drunk victims? (Two reasons)</strong><br>
+    ① People perceive drunk victims as <strong>partly responsible</strong> for their condition (perceived responsibility hypothesis) → reduced sympathy → lower willingness to help<br>
+    ② Drunk individuals may be seen as <strong>disgusting, embarrassing, or potentially violent</strong> → the "cost" of helping is perceived as too high
   </div>
 
-  <h3>Effect of race（种族的影响）</h3>
+  <h3>Effect of race</h3>
 
   <p>In terms of race, both black and white cane victims were equally likely to receive help. However, there was some evidence of <strong>same-race helping</strong> in the drunk condition, with participants being more likely to help those of their own race overall. Although these results were not statistically significant, they support research suggesting people are more likely to help those similar to themselves.</p>
 
   <p>When the victim is drunk (and potentially dangerous), complications are present — probably blame, fear, and disgust. When the victim is a member of one's own group, the conditions for empathy and trust are more favourable — <strong>assistance is more likely to be offered</strong>.</p>
 
-  <h3>Effect of gender of helper（帮助者的性别）</h3>
+  <h3>Effect of gender of helper</h3>
 
   <p>The result relating to the variable of sex was that the majority of helpers (<strong>90%</strong>) were <strong>male</strong>. Female passengers made comments such as "It's for men to help him" or "I wish I could help him — I'm not strong enough". This may suggest a difference between men and women in terms of bystander helping behaviour, or it may be a result of the victim always being played by a male.</p>
 
-  <h3>Effect of modelling（示范效应）</h3>
+  <h3>Effect of modelling</h3>
 
   <p>The effect of modelling was difficult to analyse because most of the helping that occurred was spontaneous. However, it appeared that <strong>early model intervention at 70 seconds</strong> was slightly more likely to result in helping behaviour than waiting until 150 seconds had passed.</p>
 
-  <h3>Diffusion of responsibility — NOT FOUND!（责任分散假设不被支持！）</h3>
+  <h3>Diffusion of responsibility — NOT FOUND!</h3>
 
   <div class="warn-box">
-    <h4>⚠️ 考试超级重点：没有发现责任分散效应！</h4>
+    <h4>⚠️ Critical Exam Finding: No diffusion of responsibility effect!</h4>
     <p>Surprisingly and in contrast to previous research, this study found <strong>no evidence to support the diffusion of responsibility hypothesis</strong>. In fact, there was some evidence to suggest that when passengers were present, rates of helping were actually <strong>slightly higher</strong>.</p>
     <p>Looking at the graph below, we can see that the hypothetical speed of response for seven-person groups, as predicted by diffusion of responsibility theory, is slower than for three-person groups. But the <strong>natural seven-person groups responded FASTER</strong> than predicted, and faster even than the three-person groups! This directly opposes the prediction of diffusion of responsibility.</p>
   </div>
 
   <div class="note-box">
-    <p><strong>💡 为什么地铁上没出现责任分散？（三个解释）</strong></p>
+    <p><strong>💡 Why no diffusion of responsibility on the subway? (Three explanations)</strong></p>
     <ol>
-      <li><strong>视觉线索</strong>（Visual cues）：乘客能直接看到受害者和彼此，无法用"也许已经有人帮了"来合理化不作为</li>
-      <li><strong>无法逃避</strong>（No escape）：地铁车厢是封闭空间，不能走开，必须面对</li>
-      <li><strong>公共场合的面子压力</strong>（Public accountability）：大家都看得到你不帮忙</li>
+      <li><strong>Visual cues:</strong> Passengers could directly see each other and the victim — cannot use "someone else probably already helped" as an excuse for inaction</li>
+      <li><strong>No escape:</strong> The subway carriage is an enclosed space; passengers cannot walk away and must confront the situation</li>
+      <li><strong>Public accountability:</strong> Everyone can see whether you help or not — social pressure to act prosocially</li>
     </ol>
-    <p>原文 Table 5 数据：cane 条件下，critical area 有7+男性的群体，反应中位数仅 1.5 秒；只有1-3名男性的群体反而需要7秒！（Kruskal-Wallis H = 5.08, p = .08）虽然统计上边缘显著，但趋势很明显：<strong>人多反而反应更快</strong>。</p>
+    <p style="font-size:.88em;color:#0369a1;"><em>Data from Table 5: In cane conditions, groups of 7+ males in critical area had median response time of only 1.5 seconds; groups with only 1-3 males took 7 seconds! (Kruskal-Wallis H = 5.08, p = .08) Though marginally significant, the trend is clear: <strong>larger groups responded FASTER</strong>.</em></p>
   </div>
 
-  <h3>Other responses（其他反应）</h3>
+  <h3>Other responses</h3>
 
   <ul>
-    <li><strong>离开 critical area</strong>：21次试验中共34人离开了核心区。Drunk 条件下更多人离开（42%）vs Cane（5%）</li>
-    <li><strong>评论增加</strong>：Drunk 试验 + 帮助来得晚的试验 → 更多乘客评论（如"It's for men to help him", "I wish I could help him — I'm not strong enough"）</li>
-    <li>没有人完全离开列车（no one left the car on any trial）</li>
+    <li><strong>Left critical area:</strong> Across all trials, 34 people left the critical area. More left in drunk condition (42%) vs. cane (5%)</li>
+    <li><strong>Increased commenting:</strong> Drunk trials + late-helping trials → more passenger comments (e.g., "It's for men to help him", "I wish I could help him — I'm not strong enough")</li>
+    <li>No one completely left the train car on any trial</li>
   </ul>
+
+  <!-- Chinese Summary Card -->
+  <div class="cn-summary-wrap">
+    <button class="cn-summary-toggle" onclick="toggleCnSummary(this)"><span class="cs-icon">▶</span> 中文逻辑总结</button>
+    <div class="cn-summary-body">
+      <div class="cs-title">§5 研究结果：78%帮助率 + 无责任分散</div>
+      <p><strong>逻辑链：</strong>总体帮助率高达78%（远超实验室研究）→ Cane(95%) > Drunk(50%) → 种族影响不显著 → 90%帮助者是男性 → 示范效应有限（early > late）→ <strong>⚠️ 最重要发现：没有责任分散效应！</strong></p>
+      <ul>
+        <li><span class="cs-en">Victim Type Effect（受害者类型效应）</span>：Cane 95% vs Drunk 50% → 人们认为醉酒者要为自己的处境负责（perceived responsibility）+ 害怕醉酒者危险。</li>
+        <li><span class="cs-en">Race Effect（种族效应）</span>：Cane 条件下无种族差异；Drunk 条件下有微弱的同种族帮助倾向（不显著）。</li>
+        <li><span class="cs-en">Gender Effect（性别效应）</span>：90%第一帮助者是男性（人群中男性仅60%）。</li>
+        <li><span class="cs-en">No Diffusion of Responsibility（无责任分散）</span>：<strong>考试超级重点！</strong>人多反而反应更快！原因：(1) 视觉线索无法否认 (2) 无法逃避封闭空间 (3) 公共场合面子压力。</li>
+      </ul>
+      <p><strong>💡 考试要点：</strong>CIE 必考 "outline the results"。必须记住：78%总体帮助率、Cane 95% vs Drunk 50%、无责任分散效应、90%男性帮助者。</p>
+    </div>
+  </div>
+
+  <!-- Exam Key Points -->
+  <div class="summary-card" id="summary-s5">
+    <div class="summary-card-header" onclick="toggleSummary('summary-s5')">
+      <span class="summary-card-icon">▶</span>
+      <span class="summary-card-title">Exam Key Points — Results</span>
+      <span class="summary-card-badge">AO1</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ul>
+          <li>Overall helping rate: 78% (much higher than lab studies ~30-40%) <span class="tag-must">Must Know</span></li>
+          <li>Cane victim: 95% helped (62/65 trials); Drunk victim: 50% helped (19/38) <span class="tag-must">Must Know</span></li>
+          <li>90% of first helpers were male (males = only 60% of passengers) <span class="tag-common">Common Q</span></li>
+          <li><strong>No diffusion of responsibility found!</strong> Larger groups responded FASTER <span class="tag-must">Critical!</span></li>
+          <li>Early model (~70s) more effective than late model (~150s) <span class="tag-ao2">AO2 Gold</span></li>
+          <li>Race: minimal effect for cane; slight same-race preference for drunk (not significant) <span class="tag-context">Context</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- ==================== SECTION 6: COST-BENEFIT MODEL ==================== -->
@@ -454,13 +732,13 @@
   </div>
 
   <div class="key-term">
-    <strong>Cost-benefit model（成本-收益模型）:</strong> 目睹紧急情况 → 引发<strong>情绪唤醒</strong>（arousal：恐惧/厌恶/同情/内疚等混合情绪）→ 个体通过<strong>成本-收益分析</strong>来决定如何降低这种不适感。可能的回应方式包括：(a) 直接帮忙 (b) 去叫人 (c) 离开现场 (d) 合理化不帮助（怪罪受害者）。<br>
-    <em>注意：这个模型的动机不是"利他主义"，而是<strong>消除自身的不适感</strong>（selfish desire to rid oneself of an unpleasant emotional state）。</em>
+    <strong>Cost-benefit model:</strong> Witnessing an emergency triggers <strong>emotional arousal</strong> (a mix of fear, disgust, sympathy, guilt, etc.). The individual then conducts a <strong>cost-benefit analysis</strong> to decide how to reduce this unpleasant state. Possible responses include: (a) direct helping (b) calling for help (c) leaving the scene (d) rationalising non-helping (blaming the victim).<br>
+    <em>Note: This model's motivation is not "altruism" but rather a <strong>selfish desire to rid oneself of an unpleasant emotional state</strong>.</em>
   </div>
 
   <p>This heightened arousal level prompts individuals to respond to the situation, in order to reduce any difficult feelings. The cost-benefit model can explain the findings that a higher number of comments were made during trials with a drunk victim. Observers noted that in around 20% of trials, passengers actively moved away from the critical area where the incident was taking place. So although less helping occurred due to disgust, the participants prompted them to comment or move away instead.</p>
 
-  <h4>用 Cost-Benefit Model 解释各项发现：</h4>
+  <h4>Explaining findings via Cost-Benefit Model:</h4>
   <table>
     <tr><th>Finding</th><th>Explanation via Cost-Benefit</th></tr>
     <tr><td>Drunk 得到的帮助少</td><td>Helping costs higher (disgust); not-helping costs lower (he's partly responsible)</td></tr>
@@ -469,6 +747,42 @@
     <tr><td>无责任分散（cane trials）</td><td>Helping costs are LOW; not-helping costs are HIGH (self-blame)</td></tr>
     <tr><td>时间越久→离开越多</td><td>Arousal increases → must find a way to reduce it (leave = one option)</td></tr>
   </table>
+
+  <!-- Chinese Summary Card -->
+  <div class="cn-summary-wrap">
+    <button class="cn-summary-toggle" onclick="toggleCnSummary(this)"><span class="cs-icon">▶</span> 中文逻辑总结</button>
+    <div class="cn-summary-body">
+      <div class="cs-title">§6 成本-收益模型：解释帮助行为的新理论</div>
+      <p><strong>逻辑链：</strong>目睹紧急情况 → 引发<strong>情绪唤醒</strong>（arousal）→ 个体通过成本-收益分析决定如何降低不适感 → 可能选择帮忙/离开/评论/合理化。</p>
+      <ul>
+        <li><span class="cs-en">Arousal（情绪唤醒）</span>：恐惧、厌恶、同情、内疚等混合情绪 → 必须消除这种不适感。</li>
+        <li><span class="cs-en">Cost-Benefit Analysis（成本收益分析）</span>：不是利他主义，而是自私地想让自己舒服。</li>
+        <li><span class="cs-en">Explaining Findings（解释发现）</span>：Drunk 帮助少（成本高：厌恶+他认为该负责）；女性帮忙少（成本高：体力+角色期望）；无责任分散（cane 条件下不帮忙的成本极高：自责）。</li>
+      </ul>
+      <p><strong>💡 考试要点：</strong>CIE 常考 "explain the cost-benefit model"。答案要点：Arousal → costs (effort, disgust, embarrassment) vs benefits (praise, self-satisfaction) → decision to help/not help/leave/comment。</p>
+    </div>
+  </div>
+
+  <!-- Exam Key Points -->
+  <div class="summary-card" id="summary-s6">
+    <div class="summary-card-header" onclick="toggleSummary('summary-s6')">
+      <span class="summary-card-icon">▶</span>
+      <span class="summary-card-title">Exam Key Points — Cost-Benefit Model</span>
+      <span class="summary-card-badge">AO1+AO2</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ul>
+          <li>Arousal theory: emergency triggers emotional arousal that must be reduced <span class="tag-must">Must Know</span></li>
+          <li>Costs of helping: effort, physical danger, disgust, embarrassment <span class="tag-common">Common Q</span></li>
+          <li>Benefits of helping: social approval, self-satisfaction, avoiding guilt <span class="tag-context">Context</span></li>
+          <li>Explains why drunk victims helped less (higher costs, lower blame if don't help) <span class="tag-must">Must Know</span></li>
+          <li>Explains no diffusion of responsibility for cane victims (not-helping cost = high self-blame) <span class="tag-ao2">AO2 Gold</span></li>
+          <li>Alternative to diffusion of responsibility; more comprehensive explanation <span class="tag-ao2">AO2 Gold</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- ==================== SECTION 7: CONCLUSIONS ==================== -->
@@ -483,6 +797,42 @@
     <li><strong>The similarity of the victim to the helper</strong> — people may be more likely to help members of their own race, especially if the victim is drunk</li>
     <li><strong>The duration of the emergency</strong> — the longer an emergency continues, the less likely that anyone will help, and the more likely it is they will find another way of coping with arousal (leaving, commenting)</li>
   </ol>
+
+  <!-- Chinese Summary Card -->
+  <div class="cn-summary-wrap">
+    <button class="cn-summary-toggle" onclick="toggleCnSummary(this)"><span class="cs-icon">▶</span> 中文逻辑总结</button>
+    <div class="cn-summary-body">
+      <div class="cs-title">§7 结论：影响帮助行为的4个因素</div>
+      <p><strong>逻辑链：</strong>自然环境中人们愿意帮忙（78%）→ 无责任分散效应 → 帮助行为受以下因素影响：</p>
+      <ul>
+        <li><span class="cs-en">Victim Type（受害者类型）</span>：Cane > Drunk（95% vs 50%）。</li>
+        <li><span class="cs-en">Helper Gender（帮助者性别）</span>：男性 > 女性（90% vs 10%）。</li>
+        <li><span class="cs-en">Similarity（相似性）</span>：同种族帮助倾向（尤其drunk时）。</li>
+        <li><span class="cs-en">Duration（持续时间）</span>：越久越不可能帮忙，更可能选择离开或评论。</li>
+      </ul>
+      <p><strong>💡 考试要点：</strong>CIE 常考 "outline two conclusions"。答案模板：(1) No diffusion of responsibility in natural settings; (2) Victim type is strongest predictor of helping; (3) Men more likely to help than women.</p>
+    </div>
+  </div>
+
+  <!-- Exam Key Points -->
+  <div class="summary-card" id="summary-s7">
+    <div class="summary-card-header" onclick="toggleSummary('summary-s7')">
+      <span class="summary-card-icon">▶</span>
+      <span class="summary-card-title">Exam Key Points — Conclusions</span>
+      <span class="summary-card-badge">AO1+AO2</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ul>
+          <li>No evidence for diffusion of responsibility in natural settings <span class="tag-must">Critical!</span></li>
+          <li>Victim type: cane victims helped significantly more than drunk victims <span class="tag-must">Must Know</span></li>
+          <li>Gender: men are more likely to help than women (90% male helpers) <span class="tag-common">Common Q</span></li>
+          <li>Similarity: slight same-race preference, especially for drunk victims <span class="tag-context">Context</span></li>
+          <li>Duration: longer emergencies → less helping, more leaving/commenting <span class="tag-ao2">AO2 Gold</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- ==================== SECTION 8: EVALUATION ==================== -->
@@ -509,6 +859,41 @@
     <li><strong>Only one Black victim</strong> — Limits conclusions about race effects (acknowledged by researchers themselves).</li>
     <li><strong>Team 2 violated protocol</strong> — Ran wrong condition on day 4 because victim "didn't like" playing drunk; introduces confounding variable.</li>
   </ol>
+
+  <!-- Chinese Summary Card -->
+  <div class="cn-summary-wrap">
+    <button class="cn-summary-toggle" onclick="toggleCnSummary(this)"><span class="cs-icon">▶</span> 中文逻辑总结</button>
+    <div class="cn-summary-body">
+      <div class="cs-title">§8 优缺点评价：6优点 + 7缺点</div>
+      <p><strong>逻辑链：</strong>评估研究质量 → 优点（生态效度高、大样本、混合数据）→ 缺点（伦理问题、额外变量难控、样本代表性有限）。</p>
+      <ul>
+        <li><span class="cs-en">Strengths（优点）</span>：High EV（真实地铁）、Large sample（~4,450人）、Mixed methods（定量+定性）、Standardised procedure（标准化）、Two observers（提高信度）、Challenged existing theory（挑战责任分散理论）。</li>
+        <li><span class="cs-en">Weaknesses（缺点）</span>：Ethical issues（无知情同意+欺骗）、Lack of control（EVs如天气/时间）、Demand characteristics（可能察觉实验）、Only one trial per participant（无法用重复测量）、Sample bias（仅NYC地铁）、Only one Black victim（种族结论受限）、Protocol violation（Team 2违规）。</li>
+      </ul>
+      <p><strong>💡 考试要点：</strong>CIE 常考 "evaluate the method"。答案模板：Strength (high EV, large sample, mixed data) + Weakness (ethical issues, lack of control, sample bias) + Overall judgement (valuable despite limitations)。</p>
+    </div>
+  </div>
+
+  <!-- Exam Key Points -->
+  <div class="summary-card" id="summary-s8">
+    <div class="summary-card-header" onclick="toggleSummary('summary-s8')">
+      <span class="summary-card-icon">▶</span>
+      <span class="summary-card-title">Exam Key Points — Evaluation</span>
+      <span class="summary-card-badge">AO3</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ul>
+          <li>High ecological validity (real subway setting) <span class="tag-must">Must Know</span></li>
+          <li>Large sample (~4,450 participants, 103 trials) increases reliability <span class="tag-common">Common Q</span></li>
+          <li>Mixed methods: quantitative (latency) + qualitative (comments) <span class="tag-ao2">AO2 Gold</span></li>
+          <li>Ethical issues: no informed consent, deception, potential distress <span class="tag-must">Must Know</span></li>
+          <li>Lack of control over extraneous variables (weather, time, delays) <span class="tag-ao2">AO2 Gold</span></li>
+          <li>Sample not representative (only NYC subway passengers) <span class="tag-context">Context</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- ==================== SECTION 9: ETHICS ==================== -->
@@ -528,6 +913,43 @@
   <p>Participants in this study were <strong>not aware they were taking part in research</strong>. This means they did not give their informed consent to participate. Why might this be an ethical issue, and how could it be overcome?</p>
 
   <p>Today, such a study would need approval from an ethics committee before being conducted. Possible improvements: obtain general consent via station announcements, debrief participants at the next stop, screen out vulnerable individuals, minimize duration of distress.</p>
+
+  <!-- Chinese Summary Card -->
+  <div class="cn-summary-wrap">
+    <button class="cn-summary-toggle" onclick="toggleCnSummary(this)"><span class="cs-icon">▶</span> 中文逻辑总结</button>
+    <div class="cn-summary-body">
+      <div class="cs-title">§9 伦理问题：4大问题</div>
+      <p><strong>逻辑链：</strong>现场实验的伦理困境 → 无法获得知情同意（否则破坏真实性）→ 欺骗参与者 → 可能造成心理伤害 → 无事后解释。</p>
+      <ul>
+        <li><span class="cs-en">No Informed Consent（无知情同意）</span>：参与者不知道自己在参与研究。现场实验的固有矛盾：知情同意会降低生态效度。</li>
+        <li><span class="cs-en">Deception（欺骗）</span>：受害者假装晕倒，参与者信以为真。</li>
+        <li><span class="cs-en">Psychological Harm（心理伤害）</span>：参与者可能因没帮忙而感到内疚或焦虑。</li>
+        <li><span class="cs-en">No Debriefing（无事后解释）</span>：实验后未向参与者说明真相。</li>
+      </ul>
+      <p><strong>💡 考试要点：</strong>CIE 常考 "discuss ethical issues"。答案模板：(1) No informed consent (justified by need for realism); (2) Deception (necessary for natural behaviour); (3) Potential psychological harm (guilt/anxiety); (4) Improvements today (ethics committee approval, debriefing at next stop)。</p>
+    </div>
+  </div>
+
+  <!-- Exam Key Points -->
+  <div class="summary-card" id="summary-s9">
+    <div class="summary-card-header" onclick="toggleSummary('summary-s9')">
+      <span class="summary-card-icon">▶</span>
+      <span class="summary-card-title">Exam Key Points — Ethics</span>
+      <span class="summary-card-badge">AO3</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ul>
+          <li>No informed consent — participants unaware they were in a study <span class="tag-must">Must Know</span></li>
+          <li>Deception — victims faked collapse; participants believed it was real <span class="tag-must">Must Know</span></li>
+          <li>Potential psychological harm — guilt about not helping, anxiety for victim <span class="tag-common">Common Q</span></li>
+          <li>No debriefing — participants never told the truth <span class="tag-context">Context</span></li>
+          <li>Justification: need for ecological validity and natural behaviour <span class="tag-ao2">AO2 Gold</span></li>
+          <li>Modern improvements: ethics committee approval, debrief at next stop <span class="tag-ao2">AO2 Gold</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- ==================== SECTION 10: DEBATES ==================== -->
@@ -554,6 +976,41 @@
     <li>公共场所安全设计：确保紧急情况下人们容易注意到受害者（视觉线索的重要性）</li>
     <li>反霸凌项目：理解为什么人群中有时无人制止霸凌（成本-收益分析）</li>
   </ul>
+
+  <!-- Chinese Summary Card -->
+  <div class="cn-summary-wrap">
+    <button class="cn-summary-toggle" onclick="toggleCnSummary(this)"><span class="cs-icon">▶</span> 中文逻辑总结</button>
+    <div class="cn-summary-body">
+      <div class="cs-title">§10 议题与争论：情境 vs 个体</div>
+      <p><strong>逻辑链：</strong>Social Approach 的核心争论 → 行为由情境还是个体决定？→ Piliavin 支持<strong>情境因素为主</strong>（受害者类型、持续时间）→ 但也涉及个体差异（性别、种族偏好）。</p>
+      <ul>
+        <li><span class="cs-en">Situational Factors（情境因素）</span>：受害者类型（cane > drunk）、紧急持续时间（越久越少帮）、示范效应（early model 有效）。</li>
+        <li><span class="cs-en">Individual Differences（个体差异）</span>：男性更可能帮忙（90%）、微弱的同种族偏好。</li>
+        <li><span class="cs-en">Practical Applications（实际应用）</span>：急救培训、公共场所安全设计、反霸凌项目。</li>
+      </ul>
+      <p><strong>💡 考试要点：</strong>CIE 常考 "discuss the individual-situational debate"。答案模板：Piliavin supports situational explanation (victim type, duration most important) but also acknowledges individual differences (gender, race). Compare with Milgram (situational) and Perry (both).</p>
+    </div>
+  </div>
+
+  <!-- Exam Key Points -->
+  <div class="summary-card" id="summary-s10">
+    <div class="summary-card-header" onclick="toggleSummary('summary-s10')">
+      <span class="summary-card-icon">▶</span>
+      <span class="summary-card-title">Exam Key Points — Debates</span>
+      <span class="summary-card-badge">AO3</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ul>
+          <li>Supports situational explanation: victim type & duration are strongest predictors <span class="tag-must">Must Know</span></li>
+          <li>But individual differences matter: gender (90% male helpers), slight racial preference <span class="tag-common">Common Q</span></li>
+          <li>No diffusion of responsibility → challenges lab-based findings <span class="tag-ao2">AO2 Gold</span></li>
+          <li>Practical applications: first aid training, public safety design, anti-bullying programs <span class="tag-context">Context</span></li>
+          <li>Compare with Milgram (situational) and Perry (interactionist) <span class="tag-ao2">AO2 Gold</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- ==================== SECTION 11: SUMMARY ==================== -->
@@ -563,18 +1020,190 @@
   <div class="highlight-box">
     <p>Piliavin et al.'s study considered different factors which affect bystander behaviour. It looked at how specific circumstances might make subway passengers more or less likely to help a man who had collapsed on a train. This is a <strong>field experiment involving a large number of participants</strong>. Quantitative measurements showed that victims who ill were more likely to receive help than those who appeared drunk, and that the number of bystanders does not affect the amount of bystander helping. The findings suggest that <strong>diffusion of responsibility is not typical of bystander helping in natural environments</strong>.</p>
   </div>
+
+  <!-- Chinese Summary Card -->
+  <div class="cn-summary-wrap">
+    <button class="cn-summary-toggle" onclick="toggleCnSummary(this)"><span class="cs-icon">▶</span> 中文逻辑总结</button>
+    <div class="cn-summary-body">
+      <div class="cs-title">§11 总结：核心发现</div>
+      <p><strong>一句话总结：</strong>Piliavin 的现场实验发现，在真实环境中人们愿意帮忙（78%），<strong>没有责任分散效应</strong>，帮助行为主要受<strong>受害者类型</strong>（cane > drunk）和<strong>情境因素</strong>影响，而非群体大小。</p>
+      <ul>
+        <li><span class="cs-en">Key Finding 1</span>：78% 自发帮助率，远高于实验室研究。</li>
+        <li><span class="cs-en">Key Finding 2</span>：Cane 95% vs Drunk 50% → 受害者类型是最强预测因子。</li>
+        <li><span class="cs-en">Key Finding 3</span>：<strong>无责任分散！</strong>人多反而反应更快。</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Exam Key Points -->
+  <div class="summary-card" id="summary-s11">
+    <div class="summary-card-header" onclick="toggleSummary('summary-s11')">
+      <span class="summary-card-icon">▶</span>
+      <span class="summary-card-title">Exam Key Points — Summary</span>
+      <span class="summary-card-badge">AO1</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ul>
+          <li>Field experiment with large sample (~4,450 passengers) <span class="tag-must">Must Know</span></li>
+          <li>Ill victims helped more than drunk victims (95% vs 50%) <span class="tag-must">Must Know</span></li>
+          <li>No diffusion of responsibility found — contradicts lab studies <span class="tag-must">Critical!</span></li>
+          <li>Situational factors > individual factors in predicting helping <span class="tag-common">Common Q</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- ==================== SECTION 12: QUESTIONS ==================== -->
 <div class="section" id="s12">
   <h2>1️⃣2️⃣ Exam-Style Questions（模拟考题）</h2>
 
-  <div class="exam-q"><b>Q1 [4 marks]</b> Describe two ways in which the procedure used by Piliavin et al. was standardised.</div>
-  <div class="exam-q"><b>Q2 [4+3 marks]</b> The aim of Piliavin et al.'s study was to test the diffusion of responsibility hypothesis.<br>a) Describe what is meant by 'diffusion of responsibility'.<br>b) Explain whether the results of Piliavin et al.'s study support or contradict this hypothesis.</div>
-  <div class="exam-q"><b>Q3 [4 marks]</b> Piliavin et al. carried out a field experiment. Outline one strength and one weakness of this research method in the study by Piliavin et al.</div>
-  <div class="exam-q"><b>Q4 [6 marks]</b> Evaluate the study by Piliavin et al., including two strengths and two weaknesses.</div>
-  <div class="exam-q"><b>Q5 [2 marks]</b> State what is meant by the term 'field experiment'.</div>
-  <div class="exam-q"><b>Q6 [4 marks]</b> Outline one ethical issue in the study by Piliavin et al. and suggest how it could be overcome.</div>
+  <!-- Q1 -->
+  <div class="qa-card">
+    <div class="qa-toggle" onclick="toggleQa(this)">
+      <span class="qa-icon">▶</span>
+      <b>Q1 [4 marks]</b> Describe two ways in which the procedure used by Piliavin et al. was standardised.
+    </div>
+    <div class="qa-answer">
+      <div class="qa-answer-inner">
+        <p><strong>Model Answer:</strong></p>
+        <ol>
+          <li><strong>The victim's appearance was standardised</strong> — The same actor played both the drunk and ill conditions, wearing identical clothing (grey jacket, black trousers). Only the facial expression and presence of a cane differed between conditions.</li>
+          <li><strong>The timing of collapse was standardised</strong> — The victim collapsed at exactly the same point in the journey (70 seconds after leaving one station) in every trial, ensuring all participants experienced the same duration before the emergency.</li>
+        </ol>
+        <p style="margin-top:8px;font-size:.88em;color:#0369a1;">💡 <em>Other acceptable answers: same subway carriage used; same route (59th→125th St); model helpers followed a script.</em></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="qa-card">
+    <div class="qa-toggle" onclick="toggleQa(this)">
+      <span class="qa-icon">▶</span>
+      <b>Q2 [4+3 marks]</b> The aim of Piliavin et al.'s study was to test the diffusion of responsibility hypothesis.<br>
+      <span style="margin-left:24px"><strong>a)</strong> Describe what is meant by 'diffusion of responsibility'.</span><br>
+      <span style="margin-left:24px"><strong>b)</strong> Explain whether the results support or contradict this hypothesis.</span>
+    </div>
+    <div class="qa-answer">
+      <div class="qa-answer-inner">
+        <p><strong>a) Definition [4 marks]:</strong></p>
+        <p>Diffusion of responsibility refers to the phenomenon where individuals feel <strong>less personal responsibility to take action</strong> when other people are present. The assumption is that responsibility is "spread" or "diffused" among all bystanders, so each person feels less compelled to help, assuming someone else will intervene.</p>
+
+        <p style="margin-top:14px;"><strong>b) Evaluation [3 marks]:</strong></p>
+        <p>Piliavin's results <strong>contradict / do NOT support</strong> the diffusion of responsibility hypothesis. The study found that <strong>helping was faster in larger groups</strong>, and there was <strong>no relationship between group size and helping rate</strong>. If diffusion of responsibility were operating, we would expect <em>less</em> and <em>slower</em> helping in larger groups — but this was not observed. Instead, <strong>victim condition (drunk vs. cane)</strong> was the strongest predictor of helping behaviour.</p>
+        <p style="margin-top:8px;font-size:.88em;color:#dc2626;">⚠️ <em>This is a critical finding for CIE exams! Many students incorrectly assume diffusion of responsibility was supported.</em></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="qa-card">
+    <div class="qa-toggle" onclick="toggleQa(this)">
+      <span class="qa-icon">▶</span>
+      <b>Q3 [4 marks]</b> Piliavin et al. carried out a field experiment. Outline one strength and one weakness of this research method in the study by Piliavin et al.
+    </div>
+    <div class="qa-answer">
+      <div class="qa-answer-inner">
+        <p><strong>Strength [2 marks]:</strong></p>
+        <p><strong>High ecological validity</strong> — The study took place in a real NYC subway with genuine passengers who were unaware they were being observed. This means the findings reflect how people actually behave in real emergency situations, unlike artificial lab settings where participants know they're being studied.</p>
+
+        <p style="margin-top:14px;"><strong>Weakness [2 marks]:</strong></p>
+        <p><strong>Lack of control over extraneous variables</strong> — In a natural setting, the researchers could not control factors such as passengers' prior experiences, mood, cultural background, or personal characteristics. This makes it difficult to establish a clear cause-and-effect relationship and reduces internal validity. Additionally, there were <strong>ethical issues</strong> such as lack of informed consent and psychological distress caused to passengers.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="qa-card">
+    <div class="qa-toggle" onclick="toggleQa(this)">
+      <span class="qa-icon">▶</span>
+      <b>Q4 [6 marks]</b> Evaluate the study by Piliavin et al., including two strengths and two weaknesses.
+    </div>
+    <div class="qa-answer">
+      <div class="qa-answer-inner">
+        <p><strong>Strength 1: High ecological validity</strong> — Real-world setting with unaware participants → findings generalisable to actual bystander situations. <span style="color:#16a34a;">[+EV]</span></p>
+
+        <p style="margin-top:10px;"><strong>Strength 2: Large sample size</strong> — Approximately 4,450 passengers across 103 trials provides substantial quantitative data and increases reliability of findings. <span style="color:#16a34a;">[+Reliability]</span></p>
+
+        <p style="margin-top:14px;"><strong>Weakness 1: Ethical issues</strong> — Participants did not give informed consent; some passengers may have experienced genuine distress believing someone was seriously ill; debriefing was not possible. <span style="color:#dc2626;">[−Ethics]</span></p>
+
+        <p style="margin-top:10px;"><strong>Weakness 2: Lack of control</strong> — Extraneous variables (passenger demographics, individual differences) could not be controlled, potentially confounding results. Team 2 also violated protocol on day 4. <span style="color:#dc2626;">[−IV]</span></p>
+
+        <p style="margin-top:10px;font-size:.88em;color:#0369a1;">💡 <em>Tip for 6-mark questions: Always use "PEEL" — Point, Evidence, Explanation, Link. Reference specific findings (e.g., "78% helping rate", "103 trials").</em></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="qa-card">
+    <div class="qa-toggle" onclick="toggleQa(this)">
+      <span class="qa-icon">▶</span>
+      <b>Q5 [2 marks]</b> State what is meant by the term 'field experiment'.
+    </div>
+    <div class="qa-answer">
+      <div class="qa-answer-inner">
+        <p><strong>Model Answer:</strong></p>
+        <p>A <strong>field experiment</strong> is a research method where the <strong>independent variable (IV) is manipulated</strong> and the dependent variable (DV) is measured in a <strong>naturalistic, real-world setting</strong>, rather than in an artificial laboratory environment. Participants are often <strong>unaware they are being studied</strong> (covert observation), which increases ecological validity but reduces control over extraneous variables.</p>
+        <p style="margin-top:8px;font-size:.88em;color:#0369a1;">💡 <em>Keywords to include: IV manipulated, natural setting, high EV, unaware participants, real-life context.</em></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="qa-card">
+    <div class="qa-toggle" onclick="toggleQa(this)">
+      <span class="qa-icon">▶</span>
+      <b>Q6 [4 marks]</b> Outline one ethical issue in the study by Piliavin et al. and suggest how it could be overcome.
+    </div>
+    <div class="qa-answer">
+      <div class="qa-answer-inner">
+        <p><strong>Ethical Issue [2 marks]:</strong></p>
+        <p><strong>Lack of informed consent</strong> — Passengers on the subway train did not know they were participating in a psychological study and had not given their permission to be observed or recorded. Some may have experienced genuine worry or distress upon seeing someone collapse.</p>
+        <p><em>(Alternative acceptable answers: Psychological harm/distress to participants; No right to withdraw; No debriefing)</em></p>
+
+        <p style="margin-top:14px;"><strong>How to overcome [2 marks]:</strong></p>
+        <p>Researchers could obtain <strong>general presumptive consent</strong> by posting notices at stations explaining that a study may be conducted and passengers may be observed (though this would reduce realism). Alternatively, conduct a <thorough debriefing immediately after each trial</thorough> at the next station, explaining the true purpose and offering participants the opportunity to withdraw their data. A <strong>screening process</strong> could also exclude vulnerable individuals (e.g., elderly passengers, those with heart conditions).</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chinese Summary Card -->
+  <div class="cn-summary-wrap">
+    <button class="cn-summary-toggle" onclick="toggleCnSummary(this)"><span class="cs-icon">▶</span> 中文逻辑总结</button>
+    <div class="cn-summary-body">
+      <div class="cs-title">§12 模拟考题：CIE 常见题型</div>
+      <p><strong>逻辑链：</strong>CIE 考试常见题型 → AO1（描述/概述）+ AO2/AO3（解释/评价）→ 必须用研究中的具体证据支持答案。</p>
+      <ul>
+        <li><span class="cs-en">Q1 [4m] Standardisation</span>：描述2个标准化程序（如：victim 着装相同、collapse 时间相同）。</li>
+        <li><span class="cs-en">Q2 [4+3m] Diffusion of Responsibility</span>：(a) 定义 (b) Piliavin 结果不支持此假设。</li>
+        <li><span class="cs-en">Q3 [4m] Field Experiment</span>：1个优点（高EV）+ 1个缺点（伦理问题/EVs难控）。</li>
+        <li><span class="cs-en">Q4 [6m] Evaluation</span>：2个优点 + 2个缺点，必须联系具体研究发现。</li>
+        <li><span class="cs-en">Q5 [2m] Definition</span>：定义 field experiment。</li>
+        <li><span class="cs-en">Q6 [4m] Ethics</span>：1个伦理问题 + 1个改进建议。</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Exam Key Points -->
+  <div class="summary-card" id="summary-s12">
+    <div class="summary-card-header" onclick="toggleSummary('summary-s12')">
+      <span class="summary-card-icon">▶</span>
+      <span class="summary-card-title">Exam Key Points — Questions</span>
+      <span class="summary-card-badge">AO1+AO3</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ul>
+          <li>Q1: Standardised procedure examples (clothing, timing, route) <span class="tag-common">Common Q</span></li>
+          <li>Q2: Define diffusion of responsibility; results contradict it <span class="tag-must">Must Know</span></li>
+          <li>Q3: Field experiment strength (high EV) and weakness (ethics/control) <span class="tag-must">Must Know</span></li>
+          <li>Q4: 6-mark evaluation: balance strengths and weaknesses with evidence <span class="tag-ao2">AO2 Gold</span></li>
+          <li>Always use specific findings from the study to support answers! <span class="tag-ao2">AO2 Gold</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- ==================== SECTION 13: KEY TERMS ==================== -->
@@ -600,6 +1229,40 @@
     <tr><td>Informed consent</td><td>Participants agree to take part knowing what the study involves（知情同意）</td></tr>
     <tr><td>Debriefing</td><td>Explaining the true purpose after the study ends（事后解释/简报）</td></tr>
   </table>
+
+  <!-- Chinese Summary Card -->
+  <div class="cn-summary-wrap">
+    <button class="cn-summary-toggle" onclick="toggleCnSummary(this)"><span class="cs-icon">▶</span> 中文逻辑总结</button>
+    <div class="cn-summary-body">
+      <div class="cs-title">§13 核心术语：17个必背术语</div>
+      <p><strong>逻辑链：</strong>CIE 考试要求掌握核心术语的准确定义 → 这些术语是答题的基础 → 必须能用英文定义 + 中文解释。</p>
+      <ul>
+        <li><span class="cs-en">Tier 1 — 必考术语（必须能默写定义）</span>：Bystander apathy, Diffusion of responsibility, Field experiment, Ecological validity, Informed consent。</li>
+        <li><span class="cs-en">Tier 2 — 重要术语（常出现在题目中）</span>：Modelling, Good Samaritan, Independent groups design, Operationalisation, Cost-benefit model, Confederate。</li>
+        <li><span class="cs-en">Tier 3 — 辅助术语（帮助理解）</span>：Opportunity sample, Critical area, Extraneous variables, Debriefing。</li>
+      </ul>
+      <p><strong>💡 考试技巧：</strong>看到 "outline" 题型时，先写术语定义（得1分），再结合 Piliavin 的具体例子展开（得剩余分数）。</p>
+    </div>
+  </div>
+
+  <!-- Exam Key Points -->
+  <div class="summary-card" id="summary-s13">
+    <div class="summary-card-header" onclick="toggleSummary('summary-s13')">
+      <span class="summary-card-icon">▶</span>
+      <span class="summary-card-title">Exam Key Points — Key Terms</span>
+      <span class="summary-card-badge">AO1</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ul>
+          <li>17 key terms to memorise for CIE exam <span class="tag-must">Must Know</span></li>
+          <li>Must be able to define in English + explain in Chinese <span class="tag-common">Common Q</span></li>
+          <li>Top 5 most tested: Bystander apathy, Diffusion of responsibility, Field experiment, EV, Informed consent <span class="tag-must">Must Know</span></li>
+          <li>Exam technique: define term first (1 mark), then give example from Piliavin (remaining marks) <span class="tag-ao2">AO2 Gold</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
 
   </main><!-- END MAIN CONTENT -->
@@ -611,7 +1274,7 @@
       <div class="nc-empty" id="notesEmpty"><div style="font-size:1.5em">✏️</div><div>No notes yet</div><div style="font-size:.7em;margin-top:4px;opacity:.7">Select text → click Add Note</div></div>
     </div>
     <div class="nc-input-row" id="notesInputRow">
-      <div id="hlPreview" style="font-size:.72em;color:#92400e;background:#fef3c7;padding:4px 8px;border-radius:5px;margin-bottom:6px"></div>
+      <div id="hlPreview" style="font-size:.72em;color:#075985;background:#f0f9ff;padding:4px 8px;border-radius:5px;margin-bottom:6px"></div>
       <textarea class="nc-textarea" id="noteTextarea" placeholder="Write your note here..."></textarea>
       <div class="nc-actions"><button class="nc-btn-save" onclick="saveNoteFromInput()">💾 Save</button><button class="nc-btn-cancel" onclick="cancelNoteInput()">Cancel</button></div>
     </div>
@@ -725,6 +1388,40 @@
 
   load();
 })();
+
+// ===== EXAM KEY POINTS & CHINESE SUMMARY FUNCTIONS =====
+function toggleSummary(id) {
+  var el = document.getElementById(id);
+  if (el) el.classList.toggle('open');
+}
+
+function toggleCnSummary(btn) {
+  var body = btn.nextElementSibling;
+  if (body) {
+    btn.classList.toggle('open');
+    body.classList.toggle('open');
+  }
+}
+
+function toggleQa(questionEl) {
+  var card = questionEl.closest('.qa-card');
+  if (card) card.classList.toggle('open');
+}
+
+// ===== BACK TO TOP BUTTON =====
+window.addEventListener('scroll', function() {
+  var btn = document.querySelector('.back-to-top');
+  if (btn) {
+    if (window.scrollY > 400) {
+      btn.classList.add('show');
+    } else {
+      btn.classList.remove('show');
+    }
+  }
+});
 </script>
+
+<!-- Back to Top Button -->
+<button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
 </body>
 </html>

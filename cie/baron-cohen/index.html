@@ -42,30 +42,29 @@
   .header .meta { margin-top: 15px; font-size: 0.9em; opacity: 0.8; line-height: 1.6; }
   .badge { display: inline-block; padding: 4px 14px; border-radius: 20px; background: rgba(255,255,255,0.2); margin: 3px; font-size: 0.85em; }
 
-  /* ===== LEFT SIDEBAR NAVIGATION (compact tool-style) ===== */
+  /* ===== LEFT SIDEBAR NAVIGATION (Milgram-style upgrade) ===== */
   .page-layout{display:flex;gap:28px;align-items:flex-start}
-  .sidebar{width:156px;flex-shrink:0;position:sticky;top:56px;max-height:calc(100vh - 72px);overflow-y:auto;padding:12px 0 10px 0;z-index:50}
+  .sidebar{width:170px;flex-shrink:0;position:sticky;top:60px;max-height:calc(100vh - 80px);overflow-y:auto;padding:14px 0;z-index:50}
   .sidebar::-webkit-scrollbar{width:2px}
   .sidebar::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:2px}
-  .sidebar-inner{background:#f8fafc;border-radius:10px;border:1px solid #e2e8f0;overflow:hidden}
-  .sb-group-title{display:none}
-  .sb-group-title.sb-top{display:none}
-  .sb-divider{display:none}
-  .sb-list{list-style:none;padding:0;margin:0}
-  .sb-item a{display:block;padding:6px 8px 6px 11px;color:#475569;text-decoration:none;font-size:.78em;font-weight:500;border-left:3px solid transparent;transition:all .12s;line-height:1.35}
-  .sb-item a:hover{background:#f1f5f9;color:#1e293b}
-  .sb-item a.sb-active{background:#eff6ff;color:#1d4ed8;font-weight:600;border-left-color:#3b82f6}
-  /* Color accents per section group */
-  .sb-group-topics .sb-item a:hover,.sb-group-topics .sb-item a.sb-active{border-left-color:#ef4444}
-  .sb-group-topics .sb-item a.sb-active{background:#fef2f2}
-  .sb-group-results .sb-item a:hover,.sb-group-results .sb-item a.sb-active{border-left-color:#f59e0b}
-  .sb-group-results .sb-item a.sb-active{background:#fffbeb}
-  .sb-group-eval .sb-item a:hover,.sb-group-eval .sb-item a.sb-active{border-left-color:#22c55e}
-  .sb-group-eval .sb-item a.sb-active{background:#f0fdf4}
-  .sb-group-ref .sb-item a:hover,.sb-group-ref .sb-item a.sb-active{border-left-color:#8b5cf6}
-  .sb-group-ref .sb-item a.sb-active{background:#faf5ff}
-  .sb-group-interactive .sb-item a:hover,.sb-group-interactive .sb-item a.sb-active{border-left-color:#ec4899}
-  .sb-group-interactive .sb-item a.sb-active{background:#fdf2f8}
+  .sidebar-inner{background:#f8fafc;border-radius:14px;border:1px solid #e2e8f0;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+  /* Sidebar header */
+  .sb-header{background:linear-gradient(135deg,#1565C0,#0D47A1);padding:14px 16px;text-align:center}
+  .sb-header-title{font-size:.9em;font-weight:700;color:#fff;letter-spacing:.3px}
+  .sb-header-sub{font-size:.72em;color:rgba(255,255,255,.75);margin-top:3px}
+  /* Dividers */
+  .sb-divider{height:1px;background:linear-gradient(90deg,transparent,#cbd5e1,transparent);margin:6px 14px}
+  /* List */
+  .sb-list{list-style:none;padding:6px 0;margin:0}
+  .sb-item a{display:block;padding:9px 14px 9px 16px;color:#475569;text-decoration:none;font-size:.78em;font-weight:500;border-left:3px solid transparent;transition:all .15s ease;line-height:1.45;border-radius:0 6px 6px 0;margin-right:4px}
+  .sb-item a:hover{border-left-color:var(--primary);color:var(--primary-dark);font-weight:600;background:linear-gradient(90deg,rgba(21,101,192,.06),transparent)}
+  .sb-item a.sb-active{border-left-color:var(--primary);color:var(--primary-dark);font-weight:700;background:linear-gradient(90deg,rgba(21,101,192,.10),transparent)}
+  body.dark .sidebar-inner{background:#16213e;border-color:#334155;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+  body.dark .sb-header{background:linear-gradient(135deg,#0f3460,#0a2647)}
+  body.dark .sb-divider{background:linear-gradient(90deg,transparent,#334155,transparent)}
+  body.dark .sb-item a{color:#94a3b8}
+  body.dark .sb-item a:hover{color:#64b5f6;background:linear-gradient(90deg,rgba(100,181,246,.10),transparent);border-left-color:#64b5f6}
+  body.dark .sb-item a.sb-active{color:#90caf9;background:linear-gradient(90deg,rgba(100,181,246,.15),transparent);border-left-color:#64b5f6}
 
   /* Main content area */
   .main-content{flex:1;min-width:0}/* prevent overflow */
@@ -320,6 +319,30 @@
   body.dark .cn-summary-card p,body.dark .cn-summary-card li{color:#ddd6fe}
   body.dark .cn-summary-card strong{color:#c4b5fd}
   body.dark .cn-summary-card .cs-en{color:#a78bfa}
+
+  /* ===== STUDY QUESTIONS (Q&A Cards) ===== */
+  .qa-card{background:white;border:1.5px solid #e2e8f0;border-radius:10px;margin:12px 0;overflow:hidden;transition:box-shadow .2s,border-color .2s}
+  .qa-card:hover{box-shadow:0 3px 12px rgba(0,0,0,.08);border-color:#cbd5e1}
+  body.dark .qa-card{background:#1a2332;border-color:#334155}
+  body.dark .qa-card:hover{border-color:#475569;box-shadow:0 3px 12px rgba(0,0,0,.25)}
+  .qa-question{display:flex;align-items:flex-start;gap:10px;padding:16px 18px;cursor:pointer;user-select:none;-webkit-user-select:none;transition:background .15s}
+  .qa-question:hover{background:#f8fafc}
+  body.dark .qa-question:hover{background:rgba(255,255,255,.03)}
+  .qa-num{flex-shrink:0;width:28px;height:28px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:white;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:.78em;font-weight:700;line-height:1}
+  .qa-text{flex:1;font-size:.93em;color:#1e293b;line-height:1.6;font-weight:500}
+  body.dark .qa-text{color:#e2e8f0}
+  .qa-toggle{flex-shrink:0;width:32px;height:28px;background:linear-gradient(135deg,#eff6ff,#dbeafe);border:1.5px solid #93c5fd;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:.72em;color:#2563eb;font-weight:600;transition:all .15s;cursor:pointer}
+  body.dark .qa-toggle{background:rgba(59,130,246,.1);border-color:#3b82f6;color:#93c5fd}
+  .qa-toggle:hover{background:linear-gradient(135deg,#dbeafe,#bfdbfe)}
+  body.dark .qa-toggle:hover{background:rgba(59,130,246,.18)}
+  .qa-toggle .qa-icon{transition:transform .2s;display:inline-block}
+  .qa-card.open .qa-toggle .qa-icon{transform:rotate(180deg)}
+  .qa-answer{max-height:0;overflow:hidden;transition:max-height .35s ease}
+  .qa-card.open .qa-answer{max-height:500px}
+  .qa-answer-inner{padding:14px 18px 18px;margin:0 14px 14px;background:linear-gradient(135deg,#fefce8,#fef3c7);border-left:4px solid #f59e0b;border-radius:8px;font-size:.91em;color:#451a03;line-height:1.72}
+  body.dark .qa-answer-inner{background:linear-gradient(135deg,rgba(245,158,11,.08),rgba(217,119,6,.05));border-left-color:#f59e0b;color:#d4a574}
+  .qa-answer-inner strong{color:#b45309}
+  body.dark .qa-answer-inner strong{color:#fbbf24}
 </style>
 </head>
 
@@ -375,34 +398,28 @@
 <!-- ===== LEFT SIDEBAR NAVIGATION ===== -->
 <aside class="sidebar">
   <div class="sidebar-inner">
-    <div class="sb-group-title sb-top">TOPICS</div>
-    <ul class="sb-list sb-group-topics">
-      <li class="sb-item"><a href="#s1">Background 研究背景</a></li>
-      <li class="sb-item"><a href="#s2">Aim & Hypotheses 目的与假设</a></li>
-      <li class="sb-item"><a href="#s3">Method 方法</a></li>
-    </ul>
-    <div class="sb-group-title">RESULTS</div>
-    <ul class="sb-list sb-group-results">
-      <li class="sb-item"><a href="#s4">Results 结果</a></li>
-      <li class="sb-item"><a href="#s5">Conclusion 结论</a></li>
-    </ul>
-    <div class="sb-divider"></div>
-    <div class="sb-group-title">EVALUATION</div>
-    <ul class="sb-list sb-group-eval">
-      <li class="sb-item"><a href="#s6">Strengths & Weaknesses 优缺点</a></li>
-      <li class="sb-item"><a href="#s7">Ethics 伦理问题</a></li>
-      <li class="sb-item"><a href="#s8">Summary 总结</a></li>
-    </ul>
-    <div class="sb-divider"></div>
-    <div class="sb-group-title">REFERENCE</div>
-    <ul class="sb-list sb-group-ref">
-      <li class="sb-item"><a href="#s9">Key Terms 核心术语表</a></li>
-      <li class="sb-item"><a href="#s10">Exam Practice 考试练习</a></li>
-    </ul>
-    <div class="sb-divider"></div>
-    <div class="sb-group-title">INTERACTIVE</div>
-    <ul class="sb-list sb-group-interactive">
-      <li class="sb-item"><a href="#eyes-test" class="sb-active">🧪 Eyes Test (36 Items)</a></li>
+    <div class="sb-header">
+      <div class="sb-header-title">🧠 Baron-Cohen 2001</div>
+      <div class="sb-header-sub">Eyes Test / ToM</div>
+    </div>
+    <ul class="sb-list" id="sidebarList">
+      <li class="sb-item"><a href="#s1">Assumptions</a></li>
+      <li class="sb-item"><a href="#s2">Background</a></li>
+      <li class="sb-item"><a href="#s3">Aim</a></li>
+      <li class="sb-divider"></li>
+      <li class="sb-item"><a href="#s4">Method</a></li>
+      <li class="sb-item"><a href="#s4b">Procedure</a></li>
+      <li class="sb-item"><a href="#s6">Results</a></li>
+      <li class="sb-item"><a href="#s7">Conclusion</a></li>
+      <li class="sb-divider"></li>
+      <li class="sb-item"><a href="#s8">Evaluation</a></li>
+      <li class="sb-item"><a href="#s9">Ethics</a></li>
+      <li class="sb-divider"></li>
+      <li class="sb-item"><a href="#s10">Summary</a></li>
+      <li class="sb-item"><a href="#s11">Key Terms</a></li>
+      <li class="sb-item"><a href="#s12">Questions</a></li>
+      <li class="sb-divider"></li>
+      <li class="sb-item"><a href="#eyes-test">🧪 Eyes Test</a></li>
     </ul>
   </div>
 </aside>
@@ -415,7 +432,79 @@
 
 <!-- ==================== SECTION 1 ==================== -->
 <div class="section" id="s1">
-<h2>1. Background（研究背景）</h2>
+  <h2>1️⃣ Cognitive Approach Assumptions（认知取向的主要假设）</h2>
+
+  <div class="visual-header">
+    <div class="vh-icon">🧠</div>
+    <div class="vh-text">
+      <h4>Cognitive Approach Core Assumptions</h4>
+      <p>Mental processes mediate behaviour · Active information processing</p>
+    </div>
+  </div>
+
+  <h3>Humans as Information Processors（人作为信息加工者）</h3>
+  <p>The cognitive approach assumes that <strong>mental processes（心理过程）</strong> lie between stimulus and response. Unlike behaviourists who only study observable behaviour, cognitive psychologists are interested in what happens inside the mind — how we perceive, remember, think, and solve problems.</p>
+
+  <p>The two core assumptions of the cognitive approach are:</p>
+  <ul>
+    <li><strong>Mediational processes:</strong> Mental processes (such as thinking, perception, attention, memory) act as mediators between environmental stimuli and our behavioural responses. We don't just respond to the world — we interpret it first.</li>
+    <li><strong>Active information processing:</strong> Humans actively process information from the environment, much like a computer inputs, stores, and retrieves data. We are not passive recipients of sensory information.</li>
+  </ul>
+
+  <h3>Theory of Mind（心理理论）</h3>
+  <p>A key concept within cognitive psychology is <strong>Theory of Mind (ToM)（心理理论）</strong> — the ability to attribute mental states (beliefs, intentions, desires, emotions) to oneself and others, and to understand that others have beliefs different from our own.</p>
+
+  <p>ToM develops in typically developing children around ages 3–5. It is considered a core <strong>cognitive deficit（认知缺陷）</strong> in Autism Spectrum Disorder (ASD). Baron-Cohen's Eyes Test was specifically designed to measure this ability — can people infer complex emotional states from limited visual information (just the eye region)?</p>
+
+  <div class="blue-box">
+    <strong>Cognitive Approach & This Study 认知取向与本研究的联系：</strong><br>
+    The Eyes Test measures a purely <strong>cognitive process</strong>: interpreting mental states from facial cues. It is not about social pressure (Social Approach) or learned behaviour (Learning Approach) — it is about how the mind <em>processes</em> social information. This is why Baron-Cohen sits firmly within the Cognitive Approach.<br>
+    <span style="color:var(--text-secondary);font-size:0.93em;">（Eyes Test 测量的是纯粹的认知过程：从面部线索解读心理状态。它不涉及社会压力或学习行为——而是关于大脑如何"加工"社会信息。）</span>
+  </div>
+
+  <!-- Chinese Summary Card -->
+  <div class="cn-summary-wrap">
+    <button class="cn-summary-toggle" onclick="toggleCnSummary(this)"><span class="cs-icon">▶</span> 中文逻辑总结</button>
+    <div class="cn-summary-body">
+      <div class="cs-title">§1 认知取向的两大核心假设</div>
+      <p><strong>核心逻辑：</strong>行为主义只看刺激→反应（S→R），但认知心理学认为中间还有<strong>心理过程</strong>（S → <span class="cs-en">O（Organism，有机体/大脑加工）</span> → R）。</p>
+      <ul>
+        <li><span class="cs-en">Mediational Processes（中介过程）</span>：思考、感知、注意、记忆——这些心理活动在刺激和反应之间起"中介"作用</li>
+        <li><span class="cs-en">Active Information Processing（主动信息加工）</span>：人像电脑一样主动输入、存储、提取信息，不是被动接收</li>
+      </ul>
+      <p><strong>本研究的关键概念：</strong></p>
+      <ul>
+        <li><span class="cs-en">Theory of Mind / ToM（心理理论）</span>：理解他人有与自己不同的信念、意图、情绪的能力</li>
+        <li>ToM 在典型发展儿童中 3-5 岁出现；在 ASD 中被认为是核心缺陷</li>
+        <li><span class="cs-en">Eyes Test</span> 就是测量 ToM 的工具——仅从眼睛区域推断复杂情绪状态</li>
+      </ul>
+      <p><strong>💡 考试要点：</strong>CIE 可能问 "outline two assumptions of the cognitive approach"。答案模板：(1) Mental processes mediate between S-R; (2) Humans are active information processors.</p>
+    </div>
+  </div>
+
+  <!-- Exam Key Points -->
+  <div class="summary-card" id="summary-s1">
+    <div class="summary-card-header" onclick="toggleSummary('summary-s1')">
+      <span class="summary-card-icon">▶</span>
+      <span class="summary-card-title">Exam Key Points — Cognitive Approach</span>
+      <span class="summary-card-badge">AO1+AO2</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ul>
+          <li>Two assumptions: (1) Mediational processes between S-R; (2) Humans as active info processors <span class="tag-must">Must Know</span></li>
+          <li>Theory of Mind = ability to attribute mental states to self/others; core deficit in ASD <span class="tag-must">Must Know</span></li>
+          <li>Eyes Test measures ToM via emotion recognition from eyes only — pure cognitive task <span class="tag-common">Common Q</span></li>
+          <li>AO2: Contrast with Social Approach (Milgram = external social pressure; Baron-Cohen = internal cognitive process) <span class="tag-ao2">AO2 Gold</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SECTION 2 ==================== -->
+<div class="section" id="s2">
+<h2>2️⃣ Background（研究背景）</h2>
 
 <!-- Visual Header (Tier 2 #5) -->
 <div class="visual-header">
@@ -436,218 +525,47 @@
 <div class="cn-summary-wrap">
   <button class="cn-summary-toggle" onclick="toggleCnSummary(this)"><span class="cs-icon">▶</span> 中文逻辑总结</button>
   <div class="cn-summary-body">
-    <div class="cn-summary-card">
-      <div class="cs-title">Background 核心逻辑</div>
-      <p><strong>研究起点：</strong><span class="cs-en">Autism Spectrum Disorder (ASD)</span> 患者约占人口 1%，他们在<strong>社交互动</strong>方面有困难。</p>
-      <p><strong>核心假设：</strong>ASD 人士缺乏 <span class="cs-en">Theory of Mind (ToM，心智理论)</span>——即"理解别人和自己有不同的想法/感受"这种认知能力。</p>
-      <p><strong>ToM 的作用：</strong>让你能推断他人的心理状态（mental state）。比如看到朋友哭 → 知道她难过 → 选择安慰而不是嘲笑。ASD 人士在这个环节有障碍。</p>
-      <p><strong>术语注意：</strong>2001 年论文中用的是 <span class="cs-en">HFA（高功能自闭症）</span>和 <span class="cs-en">AS（阿斯伯格综合征）</span>，现在统一称为 ASD。<span class="cs-en">Empathy（共情）</span>与 ToM 密切相关——共情是理解他人感受的能力，而 ToM 是理解他人心理状态的能力。</p>
-    </div>
+    <div class="cs-title">§4b 程序：Eyes Test 标准流程</div>
+    <p><strong>三步标准程序：</strong></p>
+    <ol>
+      <li><strong>读 Glossary（词汇表）</strong> → 确保认识所有情绪词的含义，随时可回查</li>
+      <li><strong>看 40 组眼睛照片</strong> → 每组 4 选 1（1 个目标词 + 3 个干扰词）</li>
+      <li><strong>计分 + AQ 问卷</strong> → 删除 4 道不一致的控制题 → 最终 36 题（男女各半）</li>
+    </ol>
+    <p><strong>关键设计细节：</strong></p>
+    <ul>
+      <li><span class="cs-en">Target word（目标词）</span>：正确答案，由 8 名评委中至少 5 人认可</li>
+      <li><span class="cs-en">Foil words（干扰词）</span>：3 个错误但看似合理的选项，增加难度</li>
+      <li>数据<strong>匿名</strong>处理，参与者知情同意</li>
+    </ul>
+    <p><strong>逻辑链：</strong>Glossary → 40 张眼图 → 每张 4 选 1 → 筛除 4 题 → 最终 36 分 → 同时测 AQ → 对比四组数据</p>
   </div>
 </div>
 
-<p><strong>Empathy（共情）</strong> is the ability to understand the world as another person does — to appreciate their feelings or emotional state separate from our own. There are several different tests available to measure a person's theory of mind but most of these are designed for children.</p>
-
-<h3>1.1 From Original (1997) to Revised (2001) Eyes Test</h3>
-<p>In 1997, Baron-Cohen published the first version of the '<strong>Reading the Mind in the Eyes</strong>' task. The test used photographs of eyes and asked participants to identify the emotion being shown from two options. The results showed that adults with <strong>ASD correctly identified fewer emotions</strong> than non-ASD participants. However, the researchers identified several practical issues with the original task:</p>
-
-<table style="table-layout:fixed" class="comparison-table">
-<thead><tr><th colspan="2">Problems with the original Eyes test vs Solutions</th></tr></thead>
-<tr><td style="width:55%"><strong>❌ Problem</strong></td><td style="width:45%"><strong>✅ Solution in revised version</strong></td></tr>
-<tr><td>Only 2 options (too easy — always opposite meanings like sympathetic vs unsympathetic)</td><td><strong>4 choices</strong>, not semantic opposites</td></tr>
-<tr><td>Only <strong>25 sets of eyes</strong> (ceiling effect: many scored 24/25)</td><td><strong>36 sets of eyes</strong> in final analysis</td></tr>
-<tr><td>Both basic AND complex emotions mixed (complex ones were too hard)</td><td>Only <strong>complex emotions</strong> used</td></tr>
-<tr><td>Some photos solved by checking gaze direction (ignoring, gazing at, etc.)</td><td>Sets with direction cues <strong>were deleted</strong></td></tr>
-<tr><td>Imbalance of male/female faces</td><td><strong>Equal number</strong> of male and female faces</td></tr>
-<tr><td>Participants might not know words</td><td>A <strong>glossary</strong> was provided</td></tr>
-</table>
-
-<!-- Section 1 Summary Card (Tier 1 #3) -->
-<div class="summary-card" id="sum-s1">
-  <div class="summary-card-header" onclick="toggleSummary('sum-s1')">
+<!-- Exam Key Points - Procedure -->
+<div class="summary-card" id="summary-s4b">
+  <div class="summary-card-header" onclick="toggleSummary('summary-s4b')">
     <span class="summary-card-icon">▶</span>
-    <span class="summary-card-title">Exam Key Points — Background</span>
+    <span class="summary-card-title">Exam Key Points — Procedure</span>
     <span class="summary-card-badge">AO1</span>
   </div>
   <div class="summary-card-body">
     <div class="summary-card-inner">
-      <ol>
-        <li><strong>ASD prevalence:</strong> ~1% of population; includes HFA + AS (terms used in 2001) <span class="tag-must">Must Know</span></li>
-        <li><strong>Theory of Mind (ToM):</strong> Cognitive ability to understand others have different feelings/beliefs. ASD individuals show ToM deficits. <span class="tag-common">Common Q</span></li>
-        <li><strong>Original vs Revised:</strong> Original had ceiling effect (25 items, 2 options). Revised = 36 items, 4 options, complex emotions only. <span class="tag-ao2">AO2 Eval</span></li>
-      </ol>
-    </div>
-  </div>
-</div>
-</div>
-
-<!-- ==================== SECTION 2 ==================== -->
-<div class="section" id="s2">
-<h2>2. Aim（研究目的）</h2>
-
-<div class="visual-header">
-  <div class="visual-header-icon">🎯</div>
-  <div class="visual-header-text">
-    <h4>Research Aim &amp; Hypotheses</h4>
-    <p>Test if revised Eyes Test detects ASD impairment → Check AQ correlation → Explore sex differences</p>
-  </div>
-</div>
-
-<div class="key-box">
-<p>The main aim of this research is to investigate whether an improved 'revised' version of the Eyes test would show a clear impairment in a group of adults with <strong>ASD</strong> to assess its effectiveness. <span class="tag-must">Must Know</span></p>
-<p>The researchers also wanted to test whether there was an association between performance on the revised Eyes test and measures of traits of ASD, and to investigate whether there were sex differences in those without ASD on this task.</p>
-</div>
-
-<h3>Five Hypotheses（五个假设）</h3>
-<ol>
-  <li>Participants with ASD will score significantly <strong>lower scores</strong> on the revised Eyes test than the control groups.</li>
-  <li>Participants with ASD will score significantly higher on the <span class="term">Autism Spectrum Quotient (AQ)（自闭症谱系商数）</span> measure than the control groups.</li>
-  <li>Females in the 'normal' groups (Groups 2 & 3) would score higher on the Eyes test than males in those groups.</li>
-  <li>Males on the 'normal' group (Group 3) would score higher on the AQ measure than females.</li>
-  <li>Scores on the AQ and the Eyes test would be <strong>negatively correlated</strong>.</li>
-</ol>
-
-<!-- Section 2 Summary Card -->
-<div class="summary-card" id="sum-s2">
-  <div class="summary-card-header" onclick="toggleSummary('sum-s2')">
-    <span class="summary-card-icon">▶</span>
-    <span class="summary-card-title">Exam Key Points — Aim &amp; Hypotheses</span>
-    <span class="summary-card-badge">AO1</span>
-  </div>
-  <div class="summary-card-body">
-    <div class="summary-card-inner">
-      <ol>
-        <li><strong>Main aim:</strong> Test if revised Eyes Test shows clear impairment in ASD adults. <span class="tag-must">Must Know</span></li>
-        <li><strong>H1 (critical):</strong> ASD group scores LOWER on Eyes Test than all control groups. This is the key hypothesis! <span class="tag-common">Common Q</span></li>
-        <li><strong>H5:</strong> AQ and Eyes Test negatively correlated (r = −0.53 found) → supports ToM deficit independent of IQ. <span class="tag-ao2">AO2 Eval</span></li>
-      </ol>
-    </div>
-  </div>
-</div>
-</div>
-
-<!-- ==================== SECTION 3 ==================== -->
-<div class="section" id="s3">
-<h2>3. Method（研究方法）</h2>
-
-<div class="visual-header">
-  <div class="visual-header-icon">🔬</div>
-  <div class="visual-header-text">
-    <h4>Experimental Design Overview</h4>
-    <p>Quasi-experiment · Independent measures · Lab setting · IV = Group type · DV = Eyes Test score + AQ score</p>
-  </div>
-</div>
-
-<!-- Visual Flow: Experiment Structure -->
-<div class="visual-flow">
-  <div class="flow-step">📋 Glossary</div>
-  <span class="flow-arrow">→</span>
-  <div class="flow-step">👁️ 36 Eye Photos</div>
-  <span class="flow-arrow">→</span>
-  <div class="flow-step">✏️ Pick 1 of 4</div>
-  <span class="flow-arrow">→</span>
-  <div class="flow-step">📊 Score /36</div>
-  <span class="flow-arrow">→</span>
-  <div class="flow-step">🧠 AQ Test</div>
-</div>
-
-<h3>3.1 Research method and design</h3>
-<p>This was a <strong>laboratory experiment（实验室实验）</strong> as the environment in which participants were tested was not comparable to everyday situations where we detect emotions of others.</p>
-
-<p>This is an example of a <strong>quasi-experiment</strong>. In a true experiment, participants can be randomly assigned to any experimental conditions. This is not the case of a quasi-experiment, where participants are usually assigned to a condition based on a given characteristic (e.g., whether they have ASD).</p>
-
-<p><strong>Independent variable (IV)（自变量）：</strong> The type of participant in each condition. There were three types of participant in comparison groups in this study:</p>
-<ul>
-  <li><strong>Group 1:</strong> Experimental group containing participants with AS/HFA</li>
-  <li><strong>Groups 2–4:</strong> Comparison/control groups</li>
-</ul>
-
-<p>The experimental design was an <strong>independent measures design（独立测量设计）</strong> because comparisons were made between different groups of participants. Group 1 consisted of participants with ASD compared to the control of Groups 2, 3 and 4.</p>
-
-<p><strong>Dependent variables (DV)（因变量）：</strong></p>
-<ol>
-  <li>Score on the revised Eyes test (out of 36)</li>
-  <li>Score on the <span class="term">AQ (Intelligence Quotient-matched)（智商匹配的自闭症量表）</span></li>
-</ol>
-<p>IQ was assessed using the short <strong>WAIS-R</strong>, measuring four aspects of intelligence using tests of block design, vocabulary, similarities and picture completion.</p>
-
-<h3>3.2 Sample（样本）</h3>
-<p>The study used four groups of participants. These differed in several ways:</p>
-
-<table>
-<thead><tr><th>Group</th><th>Number</th><th>Average characteristics</th></tr></thead>
-<tbody>
-  <tr><td><strong>Group 1: AS/HFA</strong></td><td>15</td><td>All adult males, Age 29.7, IQ 115 ↓</td></tr>
-  <tr><td><strong>Group 2: Adult comparison group</strong></td><td>122</td><td>Age 46.5</td></tr>
-  <tr><td><strong>Group 3: Student comparison group</strong></td><td>103</td><td>Age 20.8</td></tr>
-  <tr><td><strong>Group 4: IQ matched group</strong></td><td>14</td><td>Age 28, IQ 116</td></tr>
-</tbody>
-</table>
-
-<div class="key-box">
-  <h4>Group Details（各组的详细说明）</h4>
-  <p><strong>Group 1 (AS/HFA):</strong> Comprised 15 adult males with AS or HFA with mean IQ of 115 and mean age of 29.7 years. Sample self-selected through adverts in the Autistic Society magazine and support groups. All had been diagnosed using DSM or ICD criteria.</p>
-  <p><strong>Group 2 (Adult comparison):</strong> 'Normal' adults who did not have a diagnosis of AS/HFA, selected from adult community and education classes in Exeter (UK), mean age 46.5 years.</p>
-  <p><strong>Group 3 (Student comparison):</strong> 'Normal' students without AS/HFA diagnosis, from University of Cambridge, mean age 20.8 years.</p>
-  <p><strong>Group 4 (IQ matched):</strong> 14 IQ matched participants with AS/HFA, mean age 28, IQ 116, randomly selected from general population.</p>
-</div>
-
-<h3>3.3 Procedure（程序）</h3>
-
-<h4>How the Revised Eyes Test Works</h4>
-<p>To begin the Eyes test, each participant read through a <strong>glossary（词汇表）</strong> of words the experimenter used to describe the emotions to ensure they knew the meaning of each word. They were told they could refer back to the glossary whenever they needed to.</p>
-
-<p>They started with <strong>40 sets of eyes</strong>, target words and <strong>foil words</strong> chosen by Simon Baron-Cohen and Sally Wheelwright. One set of target words and three foil (alternative) words for each set of eyes were developed using groups of eight judges. At least five of the judges had to agree that the target word was the most appropriate word for the item.</p>
-
-<p>In addition, four control items produced inconsistent results. These four items were removed from the analysis so the final results were based on <strong>36 sets of eyes (18 male, 18 female)</strong>, each with four choices of emotion.</p>
-
-<p>All participants consented to take part in the study and were aware of the nature of the research. Data were also anonymous so that it was not possible to identify any individual from their scores.</p>
-
-<div class="cn-summary-wrap">
-  <button class="cn-summary-toggle" onclick="toggleCnSummary(this)"><span class="cs-icon">▶</span> 中文逻辑总结</button>
-  <div class="cn-summary-body">
-    <div class="cn-summary-card">
-      <div class="cs-title">Procedure 实验流程总结</div>
-      <p><strong>第一步 — 准备：</strong>参与者先读 <span class="cs-en">Glossary（情绪词汇表）</span>，确保认识所有选项词的含义。随时可以回查。</p>
-      <p><strong>第二步 — 测试：</strong>看 <strong>40 组眼睛照片</strong>（最终分析用 36 组，男女各半），每组选 <strong>1 个正确答案 + 3 个干扰选项</span>（<span class="cs-en">foil words</span>）。</p>
-      <p><strong>第三步 — 计分：</strong>每题 1 分，满分 <strong>36 分</span>。同时完成 <span class="cs-en">AQ（自闭症谱系商数）</span>问卷。</p>
-      <p><strong>关键设计细节：</strong></p>
       <ul>
-        <li><span class="cs-en">Target word（目标词）</span>：正确答案，由 8 名评委中至少 5 人认可</li>
-        <li><span class="cs-en">Foil words（干扰词）</span>：3 个错误但看似合理的选项，增加难度</li>
-        <li>删除了 4 道控制题（结果不一致），最终 36 题</li>
-        <li>数据<strong>匿名</strong>处理，参与者知情同意</li>
+        <li>Step 1: Read glossary of emotion terms (can refer back anytime) <span class="tag-must">Must Know</span></li>
+        <li>Step 2: View 40 eye photo sets, pick 1 of 4 emotion words per set <span class="tag-must">Must Know</span></li>
+        <li>Step 3: Score + complete AQ questionnaire; 4 control items removed → final 36 items (18M/18F) <span class="tag-common">Common Q</span></li>
+        <li>Target words validated by ≥5/8 judges; foil words = plausible distractors <span class="tag-context">Context</span></li>
+        <li>Data anonymous; all participants gave informed consent <span class="tag-context">Context</span></li>
       </ul>
-      <p><strong>逻辑链：</strong>Glossary → 40 张眼图 → 每张 4 选 1 → 筛除 4 题 → 最终 36 分 → 同时测 AQ → 对比四组数据</p>
-      <p><strong>⚠️ 为什么是准实验（<span class="cs-en">Quasi-experiment</span>）？</span>因为参与者不能被随机分配——Group 1 的 AS/HFA 参与者是根据"是否患有 ASD"这个已有特征来分组的，而非随机。这意味着<strong>混淆变量（confounding variables）</strong>无法完全排除（比如成长环境、教育背景可能不同）。研究者用 Group 4（IQ 匹配组）来部分控制这个问题。</p>
-      <p><strong>📎 缩写对照表：</strong><span class="cs-en">DSM</span> = Diagnostic and Statistical Manual（美国精神疾病诊断与统计手册）；<span class="cs-en">ICD</span> = International Classification of Disorders（国际疾病分类）；<span class="cs-en">WAIS-R</span> = Wechsler Adult Intelligence Scale-Revised（韦氏成人智力测验修订版，测 IQ 用）。</p>
-    </div>
-  </div>
-</div>
-
-<!-- Section 3 Summary Card -->
-<div class="summary-card" id="sum-s3">
-  <div class="summary-card-header" onclick="toggleSummary('sum-s3')">
-    <span class="summary-card-icon">▶</span>
-    <span class="summary-card-title">Exam Key Points — Method</span>
-    <span class="summary-card-badge">AO1+AO3</span>
-  </div>
-  <div class="summary-card-body">
-    <div class="summary-card-inner">
-      <ol>
-        <li><strong>Design:</strong> Quasi-experiment (cannot randomly assign ASD), Independent measures, Laboratory. <span class="tag-must">Must Know</span></li>
-        <li><strong>IV = Group type (4 groups):</strong> G1=AS/HFA (n=15), G2=Adults (n=122), G3=Students (n=103), G4=IQ-matched (n=14). <span class="tag-common">Common Q</span></li>
-        <li><strong>DV = Eyes Test score (0–36) + AQ score.</strong> IQ controlled via WAIS-R + Group 4 matching (IQ 115 vs 116). <span class="tag-ao2">AO2 Eval</span></li>
-        <li><strong>Procedure:</strong> Glossary first → 40 eye sets → judges select best target word → 4 control items removed → final 36 items. <span class="tag-context">Context</span></li>
-      </ol>
     </div>
   </div>
 </div>
 </div>
 
-<!-- ==================== SECTION 4 ==================== -->
-<div class="section" id="s4">
-<h2>4. Results（结果）</h2>
+<!-- ==================== SECTION 6 ==================== -->
+<div class="section" id="s6">
+<h2>6️⃣ Results（研究结果）</h2>
 
 <div class="visual-header">
   <div class="visual-header-icon">📊</div>
@@ -699,9 +617,9 @@
   </div>
 </div>
 
-<!-- Section 4 Summary Card -->
-<div class="summary-card" id="sum-s4">
-  <div class="summary-card-header" onclick="toggleSummary('sum-s4')">
+<!-- Section 6 Summary Card -->
+<div class="summary-card" id="summary-s6">
+  <div class="summary-card-header" onclick="toggleSummary('summary-s6')">
     <span class="summary-card-icon">▶</span>
     <span class="summary-card-title">Exam Key Points — Results</span>
     <span class="summary-card-badge">AO1</span>
@@ -718,9 +636,9 @@
 </div>
 </div>
 
-<!-- ==================== SECTION 5 ==================== -->
-<div class="section" id="s5">
-<h2>5. Conclusion（结论）</h2>
+<!-- ==================== SECTION 7 ==================== -->
+<div class="section" id="s7">
+<h2>7️⃣ Conclusion（结论）</h2>
 
 <div class="visual-header">
   <div class="visual-header-icon">💡</div>
@@ -755,9 +673,9 @@
   </div>
 </div>
 
-<!-- Section 5 Summary Card -->
-<div class="summary-card" id="sum-s5">
-  <div class="summary-card-header" onclick="toggleSummary('sum-s5')">
+<!-- Section 7 Summary Card -->
+<div class="summary-card" id="summary-s7">
+  <div class="summary-card-header" onclick="toggleSummary('summary-s7')">
     <span class="summary-card-icon">▶</span>
     <span class="summary-card-title">Exam Key Points — Conclusion</span>
     <span class="summary-card-badge">AO1+AO2</span>
@@ -774,9 +692,9 @@
 </div>
 </div>
 
-<!-- ==================== SECTION 6 ==================== -->
-<div class="section" id="s6">
-<h2>6. Strengths and Weaknesses（优缺点评价）</h2>
+<!-- ==================== SECTION 8 ==================== -->
+<div class="section" id="s8">
+<h2>8️⃣ Evaluation（优缺点评价）</h2>
 
 <div class="visual-header">
   <div class="visual-header-icon">⚖️</div>
@@ -837,8 +755,8 @@
 </div>
 
 <!-- Section 6 Summary Card -->
-<div class="summary-card" id="sum-s6">
-  <div class="summary-card-header" onclick="toggleSummary('sum-s6')">
+<div class="summary-card" id="summary-s8">
+  <div class="summary-card-header" onclick="toggleSummary('summary-s8')">
     <span class="summary-card-icon">▶</span>
     <span class="summary-card-title">Exam Key Points — Evaluation</span>
     <span class="summary-card-badge">AO3</span>
@@ -855,9 +773,9 @@
 </div>
 </div>
 
-<!-- ==================== SECTION 7 ==================== -->
-<div class="section" id="s7">
-<h2>7. Ethical Issues（伦理问题）</h2>
+<!-- ==================== SECTION 9 ==================== -->
+<div class="section" id="s9">
+<h2>9️⃣ Ethics（伦理问题）</h2>
 <p>As all participants were able to give informed consent（知情同意）and their data was kept confidential, few ethical issues were raised within the study itself. However, ethical issues could arise from the findings! Evidence identifying 'impaired' performance of the AS/HFA group could be seen as representing neurodiverse groups in a negative way.</p>
 
 <p>Alternatively, by identifying such differences, this research has the capacity to provide understanding of the nature of the experience of people with ASD, potentially leading to greater understanding in situations such as school or the workplace. This would be an ethical strength（伦理优势）.</p>
@@ -890,8 +808,8 @@
 </div>
 
 <!-- Section 7 Summary Card -->
-<div class="summary-card" id="sum-s7">
-  <div class="summary-card-header" onclick="toggleSummary('sum-s7')">
+<div class="summary-card" id="summary-s9">
+  <div class="summary-card-header" onclick="toggleSummary('summary-s9')">
     <span class="summary-card-icon">▶</span>
     <span class="summary-card-title">Exam Key Points — Ethics</span>
     <span class="summary-card-badge">AO3</span>
@@ -907,17 +825,17 @@
 </div>
 </div>
 
-<!-- ==================== SECTION 8 ==================== -->
-<div class="section" id="s8">
-<h2>8. Summary（总结）</h2>
+<!-- ==================== SECTION 10 ==================== -->
+<div class="section" id="s10">
+<h2>🔟 Summary（总结）</h2>
 
 <div class="key-box">
 <p>Baron-Cohen et al.'s study investigated how a lack of <strong>'theory of mind'</strong> in adults with <strong>autism spectrum disorder (ASD)</strong> relates to problems with recognising emotions. The ASD group's scores on the Eyes test were <strong>lower</strong> than those of the control group even though their IQ was no different. There was also a <strong>negative correlation</strong> between the Eyes test score and Autistic Spectrum Quotient. The findings suggest the revised Eyes test is better at detecting individual differences in social sensitivity than the previous version, i.e. it is <strong>more valid</strong>（更有效度）.</p>
 </div>
 
 <!-- Section 8 Summary Card -->
-<div class="summary-card" id="sum-s8">
-  <div class="summary-card-header" onclick="toggleSummary('sum-s8')">
+<div class="summary-card" id="summary-s10">
+  <div class="summary-card-header" onclick="toggleSummary('summary-s10')">
     <span class="summary-card-icon">▶</span>
     <span class="summary-card-title">Exam Key Points — Overall Summary</span>
     <span class="summary-card-badge">AO1+AO3</span>
@@ -934,9 +852,9 @@
 </div>
 </div>
 
-<!-- ==================== SECTION 9 ==================== -->
-<div class="section" id="s9">
-<h2>9. Key Terms（核心术语表）</h2>
+<!-- ==================== SECTION 11 ==================== -->
+<div class="section" id="s11">
+<h2>1️⃣1️⃣ Key Terms（核心术语表）</h2>
 
 <table class="comparison-table">
 <thead><tr><th style="width:35%">Term（英文术语）</th><th>中文释义</th></tr></thead>
@@ -963,26 +881,211 @@
 </table>
 </div>
 
-<!-- ==================== SECTION 10 ==================== -->
-<div class="section" id="s10">
-<h2>10. Exam Practice Questions（考试练习题）</h2>
+<!-- ==================== SECTION 12 ==================== -->
+<div class="section" id="s12">
+<h2>1️⃣2️⃣ Study Questions（考试练习题）</h2>
 
-<ol>
-  <li><strong>[AO1]</strong> What is meant by the term 'theory of mind'? (2 marks)</li>
-  <li><strong>[AO1]</strong> Outline one problem with the original Eyes test. (2 marks)</li>
-  <li><strong>[AO1]</strong> Describe how Baron-Cohen et al. operationalised the independent variable in this study. (3 marks)</li>
-  <li><strong>[AO1]</strong> Describe the sample used in Group 1 (AS/HFA). Include how they were recruited and any relevant demographic information. (4 marks)</li>
-  <li><strong>[AO1/AO3]</strong> Choose one possible emotion that Baron-Cohen et al. could have used.<br>
-      a) State the emotion you have chosen.<br>
-      b) Write a glossary entry for this emotion.<br>
-      c) List some possible foils that could be suitable for this emotion and justify why they are usable. (6 marks)</li>
-  <li><strong>[AO3]</strong> If Baron-Cohen et al. had found that there was still a ceiling effect, what could have been done to solve this problem? (4 marks)</li>
-  <li><strong>[AO3]</strong> Explain one strength of using a laboratory experiment in this study. (3 marks)</li>
-  <li><strong>[AO3]</strong> Explain one weakness of the sample used in this study. Suggest how it could be improved. (4 marks)</li>
-  <li><strong>[AO3]</strong> Discuss the ethical issues involved in this type of research. (6 marks)</li>
-  <li><strong>[AO3]</strong> Assess whether the Eyes test has good reliability and validity. Use evidence from the study in your answer. (8 marks)</li>
-  <li><strong>[AO3]</strong> To what extent do the findings support the view that people with ASD have a specific deficit in theory of mind? Refer to the data in your answer. (8 marks)</li>
-</ol>
+<div class="qa-card" onclick="this.classList.toggle('open')">
+  <div class="qa-question">
+    <span class="qa-num">1</span>
+    <span class="qa-text"><strong>[AO1, 2 marks]</strong> What is meant by the term 'theory of mind'?</span>
+    <span class="qa-toggle"><span class="qa-icon">▶ Answer</span></span>
+  </div>
+  <div class="qa-answer">
+    <div class="qa-answer-inner">
+      <p><strong>Model Answer:</strong> Theory of mind (ToM) is the cognitive ability to attribute mental states (beliefs, intentions, desires, emotions) to oneself and others, and to understand that other people have beliefs and mental states different from one's own. It is considered a core cognitive deficit in Autism Spectrum Disorder (ASD).</p>
+    </div>
+  </div>
+</div>
+
+<div class="qa-card" onclick="this.classList.toggle('open')">
+  <div class="qa-question">
+    <span class="qa-num">2</span>
+    <span class="qa-text"><strong>[AO1, 2 marks]</strong> Outline one problem with the original Eyes test.</span>
+    <span class="qa-toggle"><span class="qa-icon">▶ Answer</span></span>
+  </div>
+  <div class="qa-answer">
+    <div class="qa-answer-inner">
+      <p><strong>Model Answer:</strong> The original Eyes test (Baron-Cohen et al., 1997) had a <strong>ceiling effect（天花板效应）</strong> — it was too easy for adults and typically developing adolescents, meaning most participants scored near maximum. This made it impossible to distinguish between individuals with good ToM abilities. The Revised version (2001) used more complex emotions and harder foil words to solve this problem.</p>
+    </div>
+  </div>
+</div>
+
+<div class="qa-card" onclick="this.classList.toggle('open')">
+  <div class="qa-question">
+    <span class="qa-num">3</span>
+    <span class="qa-text"><strong>[AO1, 3 marks]</strong> Describe how Baron-Cohen et al. operationalised the independent variable in this study.</span>
+    <span class="qa-toggle"><span class="qa-icon">▶ Answer</span></span>
+  </div>
+  <div class="qa-answer">
+    <div class="qa-answer-inner">
+      <p><strong>Model Answer:</strong> The <strong>independent variable (IV)</strong> was whether the participant had Autism Spectrum Condition (ASC) or not. It was operationalised through <strong>three groups</strong>: Group 1 (16 participants with AS/HFA — formally diagnosed via clinical criteria), Group 2 (50 typical adults from general population), and Group 3 (10 typical university students). The IV used an <strong>independent measures design（独立测量设计）</strong> where participants were assigned to groups based on pre-existing diagnosis rather than random allocation — making this a quasi-experiment.</p>
+    </div>
+  </div>
+</div>
+
+<div class="qa-card" onclick="this.classList.toggle('open')">
+  <div class="qa-question">
+    <span class="qa-num">4</span>
+    <span class="qa-text"><strong>[AO1, 4 marks]</strong> Describe the sample used in Group 1 (AS/HFA). Include how they were recruited and any relevant demographic information.</span>
+    <span class="qa-toggle"><span class="qa-icon">▶ Answer</span></span>
+  </div>
+  <div class="qa-answer">
+    <div class="qa-answer-inner">
+      <p><strong>Model Answer:</strong> Group 1 consisted of <strong>16 participants</strong> (13 male, 3 female) with Asperger Syndrome (AS) or High-Functioning Autism (HFA), aged <strong>18–49 years (mean = 28.5)</strong>. All had formal diagnoses based on established clinical criteria (ICD-10 or DSM-IV). They were recruited via various sources including the <strong>National Autistic Society UK</strong>, clinics, and support groups. All participants had normal or above-normal verbal IQ (tested via WAIS-R vocabulary subscale) to ensure any differences in performance were due to ToM ability rather than general intellectual functioning.</p>
+    </div>
+  </div>
+</div>
+
+<div class="qa-card" onclick="this.classList.toggle('open')">
+  <div class="qa-question">
+    <span class="qa-num">5</span>
+    <span class="qa-text"><strong>[AO1/AO3, 6 marks]</strong> Choose one possible emotion that Baron-Cohen et al. could have used.<br>a) State the emotion.<br>b) Write a glossary entry.<br>c) List suitable foils with justification.</span>
+    <span class="qa-toggle"><span class="qa-icon">▶ Answer</span></span>
+  </div>
+  <div class="qa-answer">
+    <div class="qa-answer-inner">
+      <p><strong>Model Answer (example: "anxious"):</strong></p>
+      <p><strong>(a)</strong> Emotion: <strong>Anxious（焦虑的）</strong></p>
+      <p><strong>(b)</strong> Glossary entry: "Feeling worried, nervous, or uneasy about something that may happen or has uncertain outcome."</p>
+      <p><strong>(c)</strong> Suitable foils (干扰词):</p>
+      <ul style="margin:6px 0;padding-left:20px">
+        <li><em>"Terrified"</em> — plausible because also fear-related, but too extreme (anxious ≠ terrified)</li>
+        <li><em>"Shy"</em> — plausible because involves social discomfort, but shy is about people not future events</li>
+        <li><em>"Thoughtful"</em> — plausible because serious expression can look like worry, but lacks the unease component</li>
+      </ul>
+      <p><strong>Justification:</strong> Good foils must be <strong>plausible but clearly wrong</strong> — they should share some semantic or visual similarity with the target while being distinguishable by someone with good ToM.</p>
+    </div>
+  </div>
+</div>
+
+<div class="qa-card" onclick="this.classList.toggle('open')">
+  <div class="qa-question">
+    <span class="qa-num">6</span>
+    <span class="qa-text"><strong>[AO3, 4 marks]</strong> If Baron-Cohen et al. had found that there was still a ceiling effect, what could have been done to solve this problem?</span>
+    <span class="qa-toggle"><span class="qa-icon">▶ Answer</span></span>
+  </div>
+  <div class="qa-answer">
+    <div class="qa-answer-inner">
+      <p><strong>Model Answer:</strong> If a ceiling effect still existed, possible solutions include:</p>
+      <ol style="margin:6px 0;padding-left:20px">
+        <li><strong>Use even more subtle/complex emotions</strong> — e.g., emotions requiring second-order mental state inference ("she looks like she's pretending to be happy")</li>
+        <li><strong>Increase difficulty of foil words</strong> — make foils semantically closer to the correct answer so only those with truly superior ToM can discriminate</li>
+        <li><strong>Reduce exposure time</strong> — limit how long participants can view each photo, increasing cognitive load</li>
+        <li><strong>Add time pressure or dual-task conditions</strong> — make the test more cognitively demanding</li>
+      </ol>
+      <p>The key is to ensure the test can <strong>differentiate between high-performing individuals</strong> — if everyone scores ~35-36/36, the test lacks discriminant validity（区分效度）for adult populations.</p>
+    </div>
+  </div>
+</div>
+
+<div class="qa-card" onclick="this.classList.toggle('open')">
+  <div class="qa-question">
+    <span class="qa-num">7</span>
+    <span class="qa-text"><strong>[AO3, 3 marks]</strong> Explain one strength of using a laboratory experiment in this study.</span>
+    <span class="qa-toggle"><span class="qa-icon">▶ Answer</span></span>
+  </div>
+  <div class="qa-answer">
+    <div class="qa-answer-inner">
+      <p><strong>Model Answer:</strong> One strength is <strong>high control over extraneous variables（控制无关变量）</strong>. In the laboratory setting, all participants saw the same photos in the same order, with standardized instructions and a glossary provided. This control increases <strong>internal validity（内部效度）</strong> because it reduces confounding variables — any difference in scores between groups can be more confidently attributed to the IV (having ASC or not) rather than other factors like different testing environments or procedures.</p>
+    </div>
+  </div>
+</div>
+
+<div class="qa-card" onclick="this.classList.toggle('open')">
+  <div class="qa-question">
+    <span class="qa-num">8</span>
+    <span class="qa-text"><strong>[AO3, 4 marks]</strong> Explain one weakness of the sample used in this study. Suggest how it could be improved.</span>
+    <span class="qa-toggle"><span class="qa-icon">▶ Answer</span></span>
+  </div>
+  <div class="qa-answer">
+    <div class="qa-answer-inner">
+      <p><strong>Model Answer:</strong> One weakness is the <strong>small sample size</strong>, especially in Group 1 (only 16 participants with AS/HFA) and Group 3 (only 10 students). Small samples reduce <strong>population validity（总体效度）</strong> and increase the risk that findings are due to individual differences rather than genuine group effects. Additionally, Group 2 (typical adults) was an <strong>opportunity sample（机会抽样）</strong> which may introduce bias.</p>
+      <p><strong>Improvement:</strong> Use a larger sample with <strong>random sampling from a wider population</strong>, and aim for more balanced gender representation (Group 1 was 81% male). A minimum of 30+ participants per group would allow more meaningful statistical analysis and better generalisability.</p>
+    </div>
+  </div>
+</div>
+
+<div class="qa-card" onclick="this.classList.toggle('open')">
+  <div class="qa-question">
+    <span class="qa-num">9</span>
+    <span class="qa-text"><strong>[AO3, 6 marks]</strong> Discuss the ethical issues involved in this type of research.</span>
+    <span class="qa-toggle"><span class="qa-icon">▶ Answer</span></span>
+  </div>
+  <div class="qa-answer">
+    <div class="qa-answer-inner">
+      <p><strong>Model Answer:</strong></p>
+      <p><strong>Ethical strengths:</strong></p>
+      <ul style="margin:6px 0;padding-left:18px">
+        <li><strong>Informed consent（知情同意）</strong>: Participants were volunteers who agreed to take part; they could withdraw at any time</li>
+        <li><strong>No physical/psychological harm</strong>: Unlike Milgram's study, this research caused minimal stress — it was a relatively non-invasive cognitive task</li>
+        <li><strong>Confidentiality maintained</strong>: Data reported as group means, no individual identifiable</li>
+      </ul>
+      <p><strong>Ethical concerns:</strong></p>
+      <ul style="margin:6px 0;padding-left:18px">
+        <li><strong>Labelling/stigma（标签效应）</strong>: Participants with AS/HFA may feel their performance confirms they are "deficient", which could affect self-esteem</li>
+        <li><strong>Privacy of diagnosis</strong>: Asking about ASD diagnosis is sensitive personal information</li>
+      </ul>
+      <p><strong>Overall judgement:</strong> This study has <strong>fewer ethical issues</strong> than many psychological studies because it is low-risk and non-deceptive. The main concern is potential stigma around labelling neurodevelopmental differences as "deficits".</p>
+    </div>
+  </div>
+</div>
+
+<div class="qa-card" onclick="this.classList.toggle('open')">
+  <div class="qa-question">
+    <span class="qa-num">10</span>
+    <span class="qa-text"><strong>[AO3, 8 marks]</strong> Assess whether the Eyes test has good reliability and validity. Use evidence from the study in your answer.</span>
+    <span class="qa-toggle"><span class="qa-icon">▶ Answer</span></span>
+  </div>
+  <div class="qa-answer">
+    <div class="qa-answer-inner">
+      <p><strong>Model Answer:</strong></p>
+      <p><strong>Reliability（信度）:</strong></p>
+      <ul style="margin:6px 0;padding-left:18px">
+        <li><strong>Internal reliability</strong>: Split-half reliability can be assessed by comparing performance on odd vs. even items — the study doesn't report this explicitly, but consistent group differences suggest reasonable consistency</li>
+        <li><strong>Test-retest reliability</strong>: Not directly tested in this study, but the original 1997 version showed good stability over time</li>
+      </ul>
+      <p><strong>Validity（效度）:</strong></p>
+      <ul style="margin:6px 0;padding-left:18px">
+        <li><strong>Concurrent validity（同时效度）</strong>: Strong — Group 1 scored significantly lower (M=21.9) than both Group 2 (M=26.2) and Group 3 (M=27.8), supporting that the test measures what it claims (ToM ability)</li>
+        <li><strong>Face validity（表面效度）</strong>: Good — the task appears to measure emotion recognition from eyes, which aligns with ToM theory</li>
+        <li><strong>Ecological validity（生态效度）</strong>: Questionable — in real life, we read emotions from whole faces + body language + context, not just eyes in isolation</li>
+        <li><strong>Construct validity（构念效度）</strong>: Supported by correlation with AQ scores (r=-.34 in Group 2), showing higher autistic traits associate with lower Eyes Test scores</li>
+      </ul>
+      <p><strong>Conclusion:</strong> The Eyes Test shows acceptable reliability and good concurrent/construct validity, though ecological validity is limited. Overall, it is a useful research tool for assessing ToM in adults.</p>
+    </div>
+  </div>
+</div>
+
+<div class="qa-card" onclick="this.classList.toggle('open')">
+  <div class="qa-question">
+    <span class="qa-num">11</span>
+    <span class="qa-text"><strong>[AO3, 8 marks]</strong> To what extent do the findings support the view that people with ASD have a specific deficit in theory of mind? Refer to the data in your answer.</span>
+    <span class="qa-toggle"><span class="qa-icon">▶ Answer</span></span>
+  </div>
+  <div class="qa-answer">
+    <div class="qa-answer-inner">
+      <p><strong>Model Answer:</strong></p>
+      <p><strong>Supporting evidence (the findings DO support ToM deficit hypothesis):</strong></p>
+      <ul style="margin:6px 0;padding-left:18px">
+        <li>Group 1 (AS/HFA) scored <strong>significantly lower</strong> (M = 21.9, SD = 4.5) than Group 2 (M = 26.2, SD = 3.4), p &lt; .001</li>
+        <li>Group 1 also scored lower than Group 3 (students, M = 27.8, SD = 2.8), p &lt; .001</li>
+        <li>This large effect size (approximately <strong>Cohen's d ≈ 1.15</strong>) indicates a practically significant difference</li>
+        <li>All 16 Group 1 participants scored below the Group 2 mean — showing <strong>100% sensitivity</strong> in this sample</li>
+        <li>The correlation between AQ score and Eyes Test performance (r = -.34) supports that higher autistic traits → lower ToM performance</li>
+      </ul>
+      <p><strong>Counter-evidence / limitations (caution needed):</strong></p>
+      <ul style="margin:6px 0;padding-left:18px">
+        <li>Some Group 1 participants scored within the range of Group 2 (range overlap exists) — suggesting NOT all people with ASD have impaired ToM</li>
+        <li>Small sample (n=16) limits generalisability to wider ASD population</li>
+        <li>Difference could be due to <strong>comorbidity（共病）</strong> or other factors (e.g., anxiety, attention differences) rather than ToM specifically</li>
+        <li>The test measures only ONE aspect of social cognition (reading eyes) — not full ToM ability in real-world contexts</li>
+      </ul>
+      <p><strong>Conclusion:</strong> The findings provide <strong>moderate-to-strong support</strong> for the ToM deficit hypothesis in ASD, with clear statistically significant group differences. However, the small sample, range overlap, and narrow measurement mean the conclusion should be cautious — it suggests a <strong>tendency toward ToM difficulties</strong> in ASD rather than a universal deficit affecting all individuals equally.</p>
+    </div>
+  </div>
+</div>
+
 </div>
 
 <!-- ============================================================ -->
