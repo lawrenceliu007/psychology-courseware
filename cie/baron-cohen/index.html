@@ -1855,40 +1855,42 @@ startTest();
 
 </div><!-- END PAGE LAYOUT -->
 
-<style>
-  /* ===== RIGHT NOTES COLUMN (3rd column) — Baron-Cohen Blue Theme ===== */
-  .page-layout { display: grid !important; grid-template-columns: 170px minmax(0,1fr) 250px !important; gap: 20px !important; align-items: start !important; }
-  .main-content { max-width: 660px; }
-  .notes-col { width: 250px; flex-shrink: 0; background: #f0f4ff; border: 2px solid #42A5F5; border-radius: 12px; display: flex; flex-direction: column; position: sticky; top: 60px; max-height: calc(100vh - 80px); box-shadow: 0 2px 12px rgba(66,165,245,.15); }
-  .nc-header { background: linear-gradient(135deg,#1565C0,#0D47A1); padding: 12px 14px; display: flex; align-items: center; gap: 8px; }
-  .nc-title { font-size: .85em; font-weight: 700; color: #fff; }
-  .nc-count { margin-left: auto; background: rgba(255,255,255,.3); color: #fff; font-size: .7em; font-weight: 700; padding: 2px 8px; border-radius: 10px; }
-  .nc-body { flex: 1; overflow-y: auto; padding: 10px; max-height: calc(100vh - 240px); min-height: 60px; }
-  .nc-empty { text-align: center; color: #9ca3af; padding: 20px 8px; font-size: .78em; }
-  .nc-input-row { display: none; padding: 12px; border-top: 1px solid #90caf6; background: #e3f2fd; }
-  .nc-input-row.show { display: block; }
-  .nc-textarea { width: 100%; border: 1px solid #42A5F5; border-radius: 8px; padding: 10px; font-size: .82em; resize: vertical; min-height: 60px; box-sizing: border-box; outline: none; font-family: inherit; }
-  .nc-textarea:focus { border-color: #1565C0; box-shadow: 0 0 0 2px rgba(21,101,192,.15); }
-  .nc-actions { display: flex; gap: 8px; margin-top: 8px; }
-  .nc-actions button { flex: 1; padding: 8px; border-radius: 6px; font-size: .78em; font-weight: 600; cursor: pointer; border: 1px solid transparent; }
-  .nc-btn-save { background: #16a34a; color: white; }
-  .nc-btn-cancel { background: white; color: #6b7280; border-color: #d1d5db !important; }
-  .nc-add-btn { width: 100%; padding: 13px; background: linear-gradient(135deg,#1565C0,#0D47A1); color: white; border: none; font-size: .88em; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; }
-  .nc-footer { display: flex; gap: 4px; padding: 6px 10px; border-top: 1px solid #90caf6; }
-  .nc-footer button { flex: 1; padding: 4px 0; font-size: .68em; border: none; background: transparent; color: #0D47A1; cursor: pointer; }
-  .hl-text { background: linear-gradient(120deg,#bbdefb,#90caf9); border-radius: 2px; padding: 0 2px; cursor: pointer; }
-  .note-card { background: #fff; border-radius: 8px; padding: 10px 12px; margin-bottom: 8px; border-left: 3px solid #42A5F5; box-shadow: 0 1px 3px rgba(0,0,0,.08); font-size: .78em; line-height: 1.5; position: relative; animation: nFadeIn .2s ease; }
-  @keyframes nFadeIn { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:translateY(0)} }
-  .note-card-hl { font-size: .7em; color: #0D47A1; background: #e3f2fd; padding: 2px 6px; border-radius: 4px; margin-bottom: 4px; cursor: pointer; word-break: break-all; }
-  .note-card-hl:hover { background: #bbdefb; }
-  .note-card-text { color: #374151; word-break: break-word; }
-  .note-card-del { position: absolute; top: 4px; right: 4px; width: 18px; height: 18px; border: none; background: #fee2e2; color: #ef4444; border-radius: 50%; font-size: .65em; cursor: pointer; opacity: 0; display: flex; align-items: center; justify-content: center; }
-  .note-card:hover .note-card-del { opacity: 1; }
-  @media(max-width:900px){ .page-layout{grid-template-columns:1fr!important} .sidebar,.notes-col{display:none} }
-</style>
+<div class="footer-note">
+  Baron-Cohen, S., Wheelwright, S., Hill, J., Raste, Y., & Plumb, I. (2001). The "Reading the Mind in the Eyes" Test revised version: A study with normal adults, and adults with Asperger syndrome or high-functioning autism. <em>Journal of Child Psychology and Psychiatry, 42</em>, 241–251.<br>
+  CIE Cognitive Approach · Core Study · Interactive Eyes Test Included
+</div>
+
+</div><!-- END CONTAINER -->
+
+<!-- Study Navigator -->
+<div class="study-nav">
+  <div class="study-nav-inner">
+    <a class="study-nav-btn" href="../dement/">← Dement (1957)</a>
+    <div class="study-nav-dots">
+      <div class="study-nav-label">Cognitive</div>
+      <div class="study-dot-row">
+        <span class="study-dot" style="background:#C62828" data-title="Hassett (2008)" onclick="location.href='../hassett/'"></span>
+        <span class="study-dot" style="background:#C62828" data-title="Dement (1957)" onclick="location.href='../dement/'"></span>
+        <span class="study-dot active" style="background:#1565C0" data-title="Baron-Cohen (2001)"></span>
+        <span class="study-dot" style="background:#1565C0" data-title="Hölzel (2011)" onclick="location.href='../hoelzel/'"></span>
+        <span class="study-dot" style="background:#1565C0" data-title="Andrade (2010)" onclick="location.href='../andrade/'"></span>
+        <span class="study-dot" style="background:#ea580c" data-title="Piliavin (1969)" onclick="location.href='../piliavin/'"></span>
+        <span class="study-dot" style="background:#ea580c" data-title="Milgram (1963)" onclick="location.href='../milgram/'"></span>
+        <span class="study-dot" style="background:#E87722" data-title="Bandura (1961)" onclick="location.href='../bandura/'"></span>
+        <span class="study-dot" style="background:#E87722" data-title="Fagen (2014)" onclick="location.href='../fagen/'"></span>
+        <span class="study-dot" style="background:#E87722" data-title="Saavedra (2002)" onclick="location.href='../saavedra/'"></span>
+        <span class="study-dot" style="background:#7B1FA2" data-title="Perry (2015)" onclick="location.href='../perry/'"></span>
+        <span class="study-dot" style="background:#7B1FA2" data-title="Pozzulo (2011)" onclick="location.href='../pozzulo/'"></span>
+      </div>
+    </div>
+    <a class="study-nav-btn" href="../hoelzel/">Hölzel (2011) →</a>
+  </div>
+</div>
+
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
 
 <script>
-// ===== NOTES PANEL FUNCTIONALITY (Milgram Success Pattern) =====
+// ===== NOTES PANEL FUNCTIONALITY (IIFE) — Aligned with Milgram Success Pattern =====
 (function(){
   var SK='baron_cohen_notes_v3';var notes=[];var pendingHl=null;var hlC=0;
   function load(){try{notes=JSON.parse(localStorage.getItem(SK)||'[]')}catch(e){notes=[]}render()}
@@ -1953,7 +1955,7 @@ startTest();
   };
   window.scrollToHl=function(id){
     var h=document.querySelector('.hl-text[hid="'+id+'"]');
-    if(h){h.scrollIntoView({behavior:'smooth',block:'center'});h.style.background='#facc15';setTimeout(function(){h.style.background=''},2000)}
+    if(h){h.scrollIntoView({behavior:'smooth',block:'center'});h.style.background='#90caf9';setTimeout(function(){h.style.background=''},2000)}
   };
   window.clearAllNotes=function(){
     if(!notes.length)return;if(!confirm('Clear all notes?'))return;
@@ -1969,32 +1971,38 @@ startTest();
 })();
 </script>
 
-<!-- Study Navigator -->
-<div class="study-nav">
-  <div class="study-nav-inner">
-    <a class="study-nav-btn" href="../dement/">← Dement (1957)</a>
-    <div class="study-nav-dots">
-      <div class="study-nav-label">Cognitive</div>
-      <div class="study-dot-row">
-        <span class="study-dot" style="background:#C62828" data-title="Hassett (2008)" onclick="location.href='../hassett/'"></span>
-        <span class="study-dot" style="background:#C62828" data-title="Dement (1957)" onclick="location.href='../dement/'"></span>
-        <span class="study-dot active" style="background:#1565C0" data-title="Baron-Cohen (2001)"></span>
-        <span class="study-dot" style="background:#1565C0" data-title="Hölzel (2011)" onclick="location.href='../hoelzel/'"></span>
-        <span class="study-dot" style="background:#1565C0" data-title="Andrade (2010)" onclick="location.href='../andrade/'"></span>
-        <span class="study-dot" style="background:#2E7D32" data-title="Piliavin (1969)" onclick="location.href='../piliavin/'"></span>
-        <span class="study-dot" style="background:#2E7D32" data-title="Milgram (1963)" onclick="location.href='../milgram/'"></span>
-        <span class="study-dot" style="background:#E87722" data-title="Bandura (1961)" onclick="location.href='../bandura/'"></span>
-        <span class="study-dot" style="background:#E87722" data-title="Fagen (2014)" onclick="location.href='../fagen/'"></span>
-        <span class="study-dot" style="background:#E87722" data-title="Saavedra (2002)" onclick="location.href='../saavedra/'"></span>
-        <span class="study-dot" style="background:#7B1FA2" data-title="Perry (2015)" onclick="location.href='../perry/'"></span>
-        <span class="study-dot" style="background:#7B1FA2" data-title="Pozzulo (2011)" onclick="location.href='../pozzulo/'"></span>
-      </div>
-    </div>
-    <a class="study-nav-btn" href="../hoelzel/">Hölzel (2011) →</a>
-  </div>
-</div>
-
-</div><!-- end .container -->
+<style>
+/* ===== RIGHT NOTES COLUMN (3rd column) — Baron-Cohen Blue Theme ===== */
+/* ⚠️ This independent style block with !important is CRITICAL for Notes Panel visibility */
+.page-layout { display: grid !important; grid-template-columns: 170px minmax(0,1fr) 250px !important; gap: 20px !important; align-items: start !important; }
+.main-content { max-width: 660px; }
+.notes-col { width: 250px; flex-shrink: 0; background: #f0f4ff; border: 2px solid #42A5F5; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; position: sticky; top: 60px; max-height: calc(100vh - 80px); box-shadow: 0 2px 12px rgba(66,165,245,.15); }
+.nc-header { background: linear-gradient(135deg,#1565C0,#0D47A1); padding: 12px 14px; display: flex; align-items: center; gap: 8px; }
+.nc-title { font-size: .85em; font-weight: 700; color: #fff; }
+.nc-count { margin-left: auto; background: rgba(255,255,255,.3); color: #fff; font-size: .7em; font-weight: 700; padding: 2px 8px; border-radius: 10px; }
+.nc-body { flex: 1; overflow-y: auto; padding: 10px; max-height: calc(100vh - 240px); min-height: 60px; }
+.nc-empty { text-align: center; color: #9ca3af; padding: 20px 8px; font-size: .78em; }
+.nc-input-row { display: none; padding: 12px; border-top: 1px solid #90caf6; background: #e3f2fd; }
+.nc-input-row.show { display: block; }
+.nc-textarea { width: 100%; border: 1px solid #42A5F5; border-radius: 8px; padding: 10px; font-size: .82em; resize: vertical; min-height: 60px; box-sizing: border-box; outline: none; font-family: inherit; }
+.nc-textarea:focus { border-color: #1565C0; box-shadow: 0 0 0 2px rgba(21,101,192,.15); }
+.nc-actions { display: flex; gap: 8px; margin-top: 8px; }
+.nc-actions button { flex: 1; padding: 8px; border-radius: 6px; font-size: .78em; font-weight: 600; cursor: pointer; border: 1px solid transparent; }
+.nc-btn-save { background: #16a34a; color: white; }
+.nc-btn-cancel { background: white; color: #6b7280; border-color: #d1d5db !important; }
+.nc-add-btn { width: 100%; padding: 13px; background: linear-gradient(135deg,#1565C0,#0D47A1); color: white; border: none; font-size: .88em; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; }
+.nc-footer { display: flex; gap: 4px; padding: 6px 10px; border-top: 1px solid #90caf6; }
+.nc-footer button { flex: 1; padding: 4px 0; font-size: .68em; border: none; background: transparent; color: #0D47A1; cursor: pointer; }
+.hl-text { background: linear-gradient(120deg,#bbdefb,#90caf9); border-radius: 2px; padding: 0 2px; cursor: pointer; }
+.note-card { background: #fff; border-radius: 8px; padding: 10px 12px; margin-bottom: 8px; border-left: 3px solid #42A5F5; box-shadow: 0 1px 3px rgba(0,0,0,.08); font-size: .78em; line-height: 1.5; position: relative; animation: nFadeIn .2s ease; }
+@keyframes nFadeIn { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:translateY(0)} }
+.note-card-hl { font-size: .7em; color: #0D47A1; background: #e3f2fd; padding: 2px 6px; border-radius: 4px; margin-bottom: 4px; cursor: pointer; word-break: break-all; }
+.note-card-hl:hover { background: #bbdefb; }
+.note-card-text { color: #374151; word-break: break-word; }
+.note-card-del { position: absolute; top: 4px; right: 4px; width: 18px; height: 18px; border: none; background: #fee2e2; color: #ef4444; border-radius: 50%; font-size: .65em; cursor: pointer; opacity: 0; display: flex; align-items: center; justify-content: center; }
+.note-card:hover .note-card-del { opacity: 1; }
+@media(max-width:900px){ .page-layout{grid-template-columns:1fr!important} .sidebar,.notes-col{display:none} }
+</style>
 
 </body>
 </html>
