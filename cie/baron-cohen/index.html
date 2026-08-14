@@ -1631,171 +1631,6 @@ function showScore() {
 // Auto-start
 startTest();
 
-// ===== NOTES PANEL FUNCTIONALITY =====
-var SK = 'baron_cohen_notes_v3';
-var notes = [];
-var pendingHl = null;
-var hlC = 0;
-
-// Load notes from localStorage
-try { notes = JSON.parse(localStorage.getItem(SK) || '[]'); } catch(e) { notes = []; }
-render();
-
-function save() {
-  localStorage.setItem(SK, JSON.stringify(notes));
-}
-
-window.onAddNoteClick = function() {
-  var sel = window.getSelection();
-  var txt = sel.toString().trim();
-  if (txt.length >= 2) {
-    pendingHl = txt;
-    var r = sel.getRangeAt(0);
-    var hid = 'hl_' + (++hlC) + '_' + Date.now().toString(36);
-    var m = document.createElement('mark');
-    m.className = 'hl-text';
-    m.setAttribute('hid', hid);
-    m.textContent = txt;
-    r.deleteContents();
-    r.insertNode(m);
-    sel.removeAllRanges();
-    document.getElementById('notesInputRow').classList.add('show');
-    document.getElementById('noteTextarea').focus();
-  }
-};
-
-window.saveNoteFromInput = function() {
-  var t = document.getElementById('noteTextarea').value.trim();
-  if (!t) { alert('Please write a note.'); return; }
-  var sec = 's1';
-  var secs = ['s12','s11','s10','s9','s8','s7','s6','s4b','s4','s3','s2','s1'];
-  for (var i = 0; i < secs.length; i++) {
-    var el = document.getElementById(secs[i]);
-    if (el && el.getBoundingClientRect().top <= 150) { sec = secs[i]; break; }
-  }
-  var n = {
-    id: 'n_' + Date.now() + '_' + Math.random().toString(36).substr(2, 5),
-    section: sec,
-    text: t,
-    time: Date.now()
-  };
-  if (pendingHl) {
-    n.hlText = pendingHl;
-    var ms = document.querySelectorAll('.hl-text');
-    if (ms.length) n.hlId = ms[ms.length - 1].getAttribute('hid');
-    pendingHl = null;
-  }
-  notes.push(n);
-  save();
-  render();
-  document.getElementById('notesInputRow').classList.remove('show');
-  document.getElementById('noteTextarea').value = '';
-};
-
-window.cancelNoteInput = function() {
-  document.getElementById('notesInputRow').classList.remove('show');
-  document.getElementById('noteTextarea').value = '';
-  pendingHl = null;
-};
-
-function render() {
-  var b = document.getElementById('notesBody');
-  var e = document.getElementById('notesEmpty');
-  document.getElementById('notesCount').textContent = notes.length;
-  b.querySelectorAll('.note-card').forEach(function(x) { x.remove(); });
-  if (!notes.length) { e.style.display = ''; return; }
-  e.style.display = 'none';
-  notes.forEach(function(n) {
-    var c = document.createElement('div');
-    c.className = 'note-card';
-    c.dataset.nid = n.id;
-    if (n.hlId) {
-      c.addEventListener('dblclick', function() { scrollToHl(n.hlId); });
-      c.style.cursor = 'pointer';
-      c.title = 'Double-click to jump to highlighted text';
-    }
-    if (n.hlText) {
-      var h = document.createElement('div');
-      h.className = 'note-card-hl';
-      h.textContent = '📌 ' + n.hlText.substr(0, 60) + (n.hlText.length > 60 ? '...' : '');
-      h.addEventListener('click', function() { scrollToHl(n.hlId); });
-      c.appendChild(h);
-    }
-    var t = document.createElement('div');
-    t.className = 'note-card-text';
-    t.textContent = n.text;
-    c.appendChild(t);
-    var d = document.createElement('button');
-    d.className = 'note-card-del';
-    d.textContent = '×';
-    d.title = 'Delete';
-    d.addEventListener('click', function() { delNote(n.id); });
-    c.appendChild(d);
-    b.appendChild(c);
-  });
-}
-
-window.scrollToHl = function(id) {
-  var h = document.querySelector('.hl-text[hid="' + id + '"]');
-  if (h) {
-    h.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    h.style.background = '#facc15';
-    setTimeout(function() { h.style.background = ''; }, 2000);
-  }
-};
-
-function delNote(id) {
-  notes = notes.filter(function(n) { return n.id !== id; });
-  save(); render();
-}
-
-window.exportNotes = function() {
-  var data = JSON.stringify(notes, null, 2);
-  var blob = new Blob([data], { type: 'application/json' });
-  var url = URL.createObjectURL(blob);
-  var a = document.createElement('a');
-  a.href = url; a.download = 'baron_cohen_notes.json'; a.click();
-  URL.revokeObjectURL(url);
-};
-
-window.clearAllNotes = function() {
-  if (!notes.length || confirm('Delete all notes (' + notes.length + ')?')) {
-    notes = []; save(); render();
-    // Remove highlights
-    document.querySelectorAll('.hl-text').forEach(function(h) {
-      var p = h.parentNode;
-      p.replaceChild(document.createTextNode(h.textContent), h);
-    });
-  }
-};
-
-// ===== TOGGLE FUNCTIONS =====
-function toggleSummary(id) {
-  var el = document.getElementById(id);
-  if (el) el.classList.toggle('open');
-}
-
-function toggleCnSummary(btn) {
-  var body = btn.nextElementSibling;
-  if (body) { btn.classList.toggle('open'); body.classList.toggle('open'); }
-}
-
-function toggleQa(questionEl) {
-  var card = questionEl.closest('.qa-card');
-  if (card) card.classList.toggle('open');
-}
-
-// ===== BACK TO TOP BUTTON =====
-window.addEventListener('scroll', function() {
-  var btn = document.querySelector('.back-to-top');
-  if (btn) {
-    if (window.scrollY > 400) { btn.classList.add('show'); }
-    else { btn.classList.remove('show'); }
-  }
-});
-
-</script>
-
 </div><!-- end .main-content -->
 
 <!-- ===== RIGHT NOTES COLUMN ===== -->
@@ -1810,6 +1645,7 @@ window.addEventListener('scroll', function() {
     </div>
   </div>
   <div class="nc-input-row" id="notesInputRow">
+    <div id="hlPreview" style="font-size:.72em;color:#0D47A1;background:#e3f2fd;padding:4px 8px;border-radius:5px;margin-bottom:6px"></div>
     <textarea class="nc-textarea" id="noteTextarea" placeholder="Write your note here..."></textarea>
     <div class="nc-actions">
       <button class="nc-btn-save" onclick="saveNoteFromInput()">Save</button>
@@ -1822,6 +1658,88 @@ window.addEventListener('scroll', function() {
     <button onclick="clearAllNotes()" title="Delete all notes">🗑️ Clear</button>
   </div>
 </aside>
+
+<script>
+// ===== NOTES PANEL FUNCTIONALITY =====
+(function(){
+  var SK='baron_cohen_notes_v3';var notes=[];var pendingHl=null;var hlC=0;
+  function load(){try{notes=JSON.parse(localStorage.getItem(SK)||'[]')}catch(e){notes=[]}render()}
+  function save(){localStorage.setItem(SK,JSON.stringify(notes))}
+  function esc(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML}
+  function render(){
+    var b=document.getElementById('notesBody'),e=document.getElementById('notesEmpty');
+    document.getElementById('notesCount').textContent=notes.length;
+    b.querySelectorAll('.note-card').forEach(function(x){x.remove()});
+    if(!notes.length){e.style.display='';return}
+    e.style.display='none';
+    notes.forEach(function(n){
+      var c=document.createElement('div');c.className='note-card';c.dataset.nid=n.id;
+      if(n.hlId){
+        c.addEventListener('dblclick',function(){scrollToHl(n.hlId)});
+        c.style.cursor='pointer';c.title='Double-click to jump to highlighted text'
+      }
+      var h=n.hlText?(function(){var d=document.createElement('div');d.className='note-card-hl';d.textContent='📌 '+n.hlText.substr(0,60)+(n.hlText.length>60?'...':'');d.addEventListener('click',function(){scrollToHl(n.hlId)});return d})():null;
+      if(h)c.appendChild(h);
+      var t=document.createElement('div');t.className='note-card-text';t.textContent=n.text;c.appendChild(t);
+      var d=document.createElement('button');d.className='note-card-del';d.textContent='×';d.title='Delete';d.addEventListener('click',function(){delNote(n.id)});c.appendChild(d);
+      b.appendChild(c);
+    });
+  }
+  window.onAddNoteClick=function(){
+    var sel=window.getSelection(),txt=sel.toString().trim();
+    if(txt.length>=2){
+      pendingHl=txt;
+      var r=sel.getRangeAt(0),hid='hl_'+(++hlC)+'_'+Date.now().toString(36);
+      var m=document.createElement('mark');m.className='hl-text';m.setAttribute('hid',hid);m.textContent=txt;
+      r.deleteContents();r.insertNode(m);sel.removeAllRanges();
+      document.getElementById('hlPreview').innerHTML='<b>📌 Highlighted:</b> '+esc(txt.substr(0,50))+(txt.length>50?'...':'');
+      document.getElementById('notesInputRow').classList.add('show');
+      document.getElementById('noteTextarea').value='';
+      document.getElementById('noteTextarea').focus();
+    }else{
+      pendingHl=null;
+      document.getElementById('hlPreview').innerHTML='';
+      document.getElementById('notesInputRow').classList.add('show');
+      document.getElementById('noteTextarea').value='';
+      document.getElementById('noteTextarea').focus();
+    }
+  };
+  window.saveNoteFromInput=function(){
+    var t=document.getElementById('noteTextarea').value.trim();
+    if(!t){alert('Please write a note.');return}
+    var sec='s1';
+    var secs=['s12','s11','s10','s9','s8','s7','s6','s4b','s4','s3','s2','s1'];
+    for(var i=0;i<secs.length;i++){var el=document.getElementById(secs[i]);if(el&&el.getBoundingClientRect().top<=150){sec=secs[i];break}}
+    var n={id:'n_'+Date.now()+'_'+Math.random().toString(36).substr(2,5),section:sec,text:t,time:Date.now()};
+    if(pendingHl){n.hlText=pendingHl;var ms=document.querySelectorAll('.hl-text');if(ms.length)n.hlId=ms[ms.length-1].getAttribute('hid');pendingHl=null}
+    notes.push(n);save();render();
+    document.getElementById('notesInputRow').classList.remove('show');
+  };
+  window.cancelNoteInput=function(){
+    document.getElementById('notesInputRow').classList.remove('show');pendingHl=null;
+  };
+  window.delNote=function(id){
+    var n=notes.find(function(x){return x.id===id});
+    if(n&&n.hlId){var h=document.querySelector('.hl-text[hid="'+n.hlId+'"]');if(h){var p=h.parentNode;p.replaceChild(document.createTextNode(h.textContent),h);p.normalize()}}
+    notes=notes.filter(function(x){return x.id!==id});save();render();
+  };
+  window.scrollToHl=function(id){
+    var h=document.querySelector('.hl-text[hid="'+id+'"]');
+    if(h){h.scrollIntoView({behavior:'smooth',block:'center'});h.style.background='#facc15';setTimeout(function(){h.style.background=''},2000)}
+  };
+  window.clearAllNotes=function(){
+    if(!notes.length)return;if(!confirm('Clear all notes?'))return;
+    document.querySelectorAll('.hl-text').forEach(function(h){var p=h.parentNode;p.replaceChild(document.createTextNode(h.textContent),h);p.normalize()});
+    notes=[];save();render();
+  };
+  window.exportNotes=function(){
+    if(!notes.length){alert('No notes.');return}
+    var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(notes,null,2)],{type:'application/json'}));
+    a.download='baron_cohen_notes_'+new Date().toISOString().slice(0,10)+'.json';a.click();
+  };
+  load();
+})();
+</script>
 
 </div><!-- end .page-layout -->
 
