@@ -25,7 +25,8 @@
       --wrong: #dc2626;
     }
     * { box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; line-height: 1.75; color: var(--text); background: var(--bg); margin: 0; padding: 0; font-size: 16px; }
+    html { font-size: 16px; }  /* Base size - adjustable via A+/A- buttons */
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; line-height: 1.75; color: var(--text); background: var(--bg); margin: 0; padding: 0; font-size: 1em; /* Inherits from html - allows font resizing */ }
     .container { max-width: 1200px; margin: 0 auto; padding: 16px 24px; }
 
     /* ===== NAV BAR ===== */
@@ -43,9 +44,9 @@
     body.dark .nav-btn { border-color: #444; color: #aaa; }
     body.dark .nav-btn:hover { border-color: #f97316; color: #f97316; }
 
-    /* ===== PAGE LAYOUT (3-column Grid) ===== */
-    .page-layout { display: grid; grid-template-columns: 170px minmax(0,1fr) 250px; gap: 20px; align-items: start; }
-    
+    /* ===== PAGE LAYOUT (2-column Grid: sidebar + content) ===== */
+    .page-layout { display: grid; grid-template-columns: 170px minmax(0,1fr); gap: 24px; align-items: start; }
+
     /* ===== SIDEBAR ===== */
     .sidebar { width: 170px; flex-shrink: 0; position: sticky; top: 60px; max-height: calc(100vh - 80px); overflow-y: auto; padding: 12px 0; z-index: 50; }
     .sidebar::-webkit-scrollbar { width: 2px; }
@@ -60,8 +61,8 @@
     .sb-item a:hover { border-left-color: var(--primary); color: var(--primary-dark); font-weight: 600; background: linear-gradient(90deg, rgba(234,88,12,.07), transparent); }
     .sb-item a.sb-active { border-left-color: var(--primary); color: var(--primary-dark); font-weight: 700; background: linear-gradient(90deg, rgba(234,88,12,.12), transparent); }
 
-    /* ===== MAIN CONTENT ===== */
-    .main-content { min-width: 0; max-width: 660px; }
+    /* ===== MAIN CONTENT (wider without Notes Panel) ===== */
+    .main-content { min-width: 0; max-width: 900px; }
 
     /* ===== HEADER CARD ===== */
     .header { background: linear-gradient(135deg, var(--primary-dark), var(--primary), var(--primary-light)); color: white; padding: 32px 28px 24px; border-radius: 12px; margin-bottom: 20px; text-align: center; box-shadow: 0 4px 15px rgba(234,88,12,.35); }
@@ -153,35 +154,62 @@
     .cn-summary-content p { margin: 6px 0; font-size: .9em; color: #4c1d95; line-height: 1.7; }
     .cn-summary-content strong { color: #6d28d9; }
 
-    /* ===== RIGHT NOTES COLUMN (PILIAVIN SUCCESS PATTERN) ===== */
-    .notes-col { width: 250px; background: #fff7ed; border: 2px solid #fb923c; border-radius: 12px; display: flex; flex-direction: column; position: sticky; top: 60px; max-height: calc(100vh - 80px); box-shadow: 0 2px 12px rgba(251,146,60,.15); }
-    .nc-header { background: linear-gradient(135deg,#ea580c,#c2410c); padding: 12px 14px; display: flex; align-items: center; gap: 8px; }
-    .nc-title { font-size: .85em; font-weight: 700; color: #fff; }
-    .nc-count { margin-left: auto; background: rgba(255,255,255,.3); color: #fff; font-size: .7em; font-weight: 700; padding: 2px 8px; border-radius: 10px; }
-    .nc-body { flex: 1; overflow-y: auto; padding: 10px; max-height: calc(100vh - 240px); min-height: 60px; }
-    .nc-empty { text-align: center; color: #9ca3af; padding: 20px 8px; font-size: .78em; }
-    .nc-input-row { display: none; padding: 12px; border-top: 1px solid #fed7aa; background: #fff7ed; }
-    .nc-input-row.show { display: block; }
-    .nc-textarea { width: 100%; border: 1px solid #fdba74; border-radius: 8px; padding: 10px; font-size: .82em; resize: vertical; min-height: 60px; box-sizing: border-box; outline: none; font-family: inherit; }
-    .nc-textarea:focus { border-color: #ea580c; box-shadow: 0 0 0 2px rgba(234,88,12,.15); }
-    .nc-actions { display: flex; gap: 8px; margin-top: 8px; }
-    .nc-actions button { flex: 1; padding: 8px; border-radius: 6px; font-size: .78em; font-weight: 600; cursor: pointer; border: 1px solid transparent; }
-    .nc-btn-save { background: #16a34a; color: white; }
-    .nc-btn-cancel { background: white; color: #6b7280; border-color: #d1d5db !important; }
-    .nc-add-btn { width: 100%; padding: 13px; background: linear-gradient(135deg,#ea580c,#c2410c); color: white; border: none; border-radius: 0 0 10px 10px; font-size: .88em; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: opacity .2s; }
-    .nc-add-btn:hover { opacity: .9; }
-    .nc-footer { display: flex; gap: 4px; padding: 6px 10px; border-top: 1px solid #fed7aa; }
-    .nc-footer button { flex: 1; padding: 4px 0; font-size: .68em; border: none; background: transparent; color: #c2410c; cursor: pointer; }
-    .hl-text { background: linear-gradient(120deg,#fed7aa,#fdba74); border-radius: 2px; padding: 0 2px; cursor: pointer; transition: background .15s; }
-    .hl-text:hover { background: linear-gradient(120deg,#fdba74,#fb923c); }
-    .note-card { background: #fff; border-radius: 8px; padding: 10px 12px; margin-bottom: 8px; border-left: 3px solid #fb923c; box-shadow: 0 1px 3px rgba(0,0,0,.08); font-size: .78em; line-height: 1.5; position: relative; animation: nFadeIn .2s ease; transition: box-shadow .2s, border-color .2s; }
-    @keyframes nFadeIn { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:translateY(0)} }
-    .note-card[ondblclick]:hover { box-shadow: 0 4px 12px rgba(251,146,60,.25); border-left-color: #ea580c; }
-    .note-card-hl { font-size: .7em; color: #c2410c; background: #fff7ed; padding: 2px 6px; border-radius: 4px; margin-bottom: 4px; cursor: pointer; word-break: break-all; }
-    .note-card-hl:hover { background: #fed7aa; }
-    .note-card-text { color: #374151; word-break: break-word; }
-    .note-card-del { position: absolute; top: 4px; right: 4px; width: 18px; height: 18px; border: none; background: #fee2e2; color: #ef4444; border-radius: 50%; font-size: .65em; cursor: pointer; opacity: 0; display: flex; align-items: center; justify-content: center; }
-    .note-card:hover .note-card-del { opacity: 1; }
+    /* ===== LIGHTBOX (Image Zoom) ===== */
+    .lightbox-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      cursor: zoom-out;
+      opacity: 0;
+      transition: opacity .3s ease;
+    }
+    .lightbox-overlay.active { display: flex; opacity: 1; }
+    .lightbox-overlay img {
+      max-width: 95vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 8px 32px rgba(0,0,0,.5);
+      transform: scale(.95);
+      transition: transform .3s ease;
+    }
+    .lightbox-overlay.active img { transform: scale(1); }
+    .lightbox-close {
+      position: absolute;
+      top: 20px; right: 24px;
+      font-size: 2.5em;
+      color: #fff;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 10000;
+      line-height: 1;
+      padding: 4px 12px;
+      border-radius: 6px;
+      transition: background .2s;
+    }
+    .lightbox-close:hover { background: rgba(255,255,255,.15); }
+    .lightbox-caption {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #fff;
+      font-size: .92em;
+      text-align: center;
+      background: rgba(0,0,0,.6);
+      padding: 8px 20px;
+      border-radius: 6px;
+      max-width: 80vw;
+    }
+    /* Make figure images clickable */
+    .figure { cursor: zoom-in; }
+    .figure img:hover { opacity: .92; transition: opacity .2s; }
 
     /* Footer Note */
     .footer-note { font-size: .84em; color: var(--text-secondary); margin-top: 2em; padding-top: 1em; border-top: 1px solid var(--border); text-align: center; }
@@ -194,7 +222,7 @@
     /* Responsive */
     @media(max-width:900px){
       .page-layout { grid-template-columns: 1fr; }
-      .sidebar, .notes-col { display: none; }
+      .sidebar { display: none; }
       .main-content { max-width: 100%; }
     }
 
@@ -233,9 +261,6 @@
     body.dark .footer-note { border-top-color: #1e293b; color: #94a3b8; }
     body.dark .figure img { border-color: #334155; }
     body.dark .figure-caption { color: #94a3b8; }
-    body.dark .notes-col { background: #16213e; border-color: #334155; }
-    body.dark .notes-col h3 { color: #fb923c; border-bottom-color: #334155; }
-    body.dark .notes-col p { color: #cbd5e1; }
     body.dark .summary-card-header { background: linear-gradient(135deg, #052e16, #14532d); border-left-color: #22c55e; }
     body.dark .summary-card-header:hover { background: #166534; }
     body.dark .summary-icon { color: #86efac; }
@@ -2019,29 +2044,6 @@
 
   </main><!-- END MAIN CONTENT -->
 
-  <!-- ===== NOTES PANEL ===== -->
-  <aside class="notes-col">
-    <div class="nc-header">
-      <span class="nc-title">📝 Study Notes</span>
-      <span class="nc-count" id="noteCount">0</span>
-    </div>
-    <div class="nc-body" id="ncBody">
-      <div class="nc-empty" id="ncEmpty">Double-click any text to add notes here<br><small>(双击文本添加笔记)</small></div>
-    </div>
-    <div class="nc-input-row" id="ncInputRow">
-      <textarea class="nc-textarea" id="ncText" placeholder="Write your note..."></textarea>
-      <div class="nc-actions">
-        <button class="nc-btn-save" onclick="saveNote()">Save</button>
-        <button class="nc-btn-cancel" onclick="cancelNote()">Cancel</button>
-      </div>
-    </div>
-    <button class="nc-add-btn" onclick="showInput()">+ Add Note</button>
-    <div class="nc-footer">
-      <button onclick="exportNotes()">Export</button>
-      <button onclick="clearNotes()">Clear All</button>
-    </div>
-  </aside>
-
 </div><!-- END PAGE LAYOUT -->
 
 <div class="footer-note">
@@ -2052,81 +2054,6 @@
 </div><!-- END CONTAINER -->
 
 <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-
-<!-- ===== NOTES SYSTEM JAVASCRIPT ===== -->
-<script>
-(function() {
-  const STORAGE_KEY = 'edexcel-topic-c-notes';
-  let notes = [];
-  
-  function load() {
-    try { notes = JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; } catch(e) { notes = []; }
-    render();
-  }
-  
-  function save() {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(notes));
-  }
-  
-  function render() {
-    const body = document.getElementById('ncBody');
-    const empty = document.getElementById('ncEmpty');
-    const count = document.getElementById('noteCount');
-    count.textContent = notes.length;
-    if (notes.length === 0) { empty.style.display = 'block'; return; }
-    empty.style.display = 'none';
-    const existing = body.querySelectorAll('.note-card');
-    existing.forEach(el => el.remove());
-    notes.forEach((n, i) => {
-      const card = document.createElement('div');
-      card.className = 'note-card';
-      card.setAttribute('ondblclick', '');
-      card.innerHTML = `<div class="note-card-hl">${escapeHtml(n.hl)}</div><div class="note-card-text">${escapeHtml(n.text)}</div><button class="note-card-del" onclick="delNote(${i})">×</button>`;
-      body.insertBefore(card, document.getElementById('ncInputRow'));
-    });
-  }
-  
-  window.addNote = function(hl, text) {
-    notes.unshift({ hl, text, ts: Date.now() });
-    save(); render();
-  };
-  
-  window.delNote = function(i) { if(confirm('Delete this note?')) { notes.splice(i,1); save(); render(); } };
-  
-  window.showInput = function() { document.getElementById('ncInputRow').classList.add('show'); document.getElementById('ncText').focus(); };
-  
-  window.cancelNote = function() { document.getElementById('ncInputRow').classList.remove('show'); document.getElementById('ncText').value = ''; };
-  
-  window.saveNote = function() {
-    const t = document.getElementById('ncText').value.trim();
-    if (!t) return;
-    notes.unshift({ hl: 'Manual note', text: t, ts: Date.now() });
-    save(); render(); cancelNote();
-  };
-  
-  window.exportNotes = function() {
-    const txt = notes.map(n => `[${n.hl}]\n${n.text}`).join('\n\n---\n\n');
-    const b = new Blob([txt], {type:'text/plain'});
-    const a = document.createElement('a'); a.href = URL.createObjectURL(b); a.download = 'topic-c-notes.txt'; a.click();
-  };
-  
-  window.clearNotes = function() { if(confirm('Clear ALL notes?')) { notes=[]; save(); render(); } };
-  
-  function escapeHtml(s) { const d=document.createElement('div'); d.textContent=s; return d.innerHTML; }
-  
-  // Double-click to add note
-  document.addEventListener('dblclick', function(e) {
-    const t = e.target;
-    if (t.closest('.notes-col') || t.closest('button') || t.closest('a') || t.closest('textarea') || t.closest('.cn-summary-content') && !t.closest('.cn-summary-content.show')) return;
-    const sel = window.getSelection().toString().trim();
-    if (!sel) return;
-    const hl = sel.length > 50 ? sel.substring(0,50)+'...' : sel;
-    addNote(hl, sel);
-  });
-  
-  load();
-})();
-</script>
 
 <!-- ===== INTERACTION FUNCTIONS ===== -->
 <script>
@@ -2186,6 +2113,58 @@ function adjustFontSize(delta) {
     document.documentElement.style.fontSize = savedFontSize + 'px';
   }
 })();
+</script>
+
+<!-- ===== LIGHTBOX (Image Zoom) ===== -->
+<div class="lightbox-overlay" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()" title="Close (ESC)">✕</button>
+  <img id="lightbox-img" src="" alt="">
+  <div class="lightbox-caption" id="lightbox-caption"></div>
+</div>
+
+<script>
+// ===== LIGHTBOX FUNCTIONS =====
+function openLightbox(img) {
+  const overlay = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lightbox-img');
+  const caption = document.getElementById('lightbox-caption');
+
+  lbImg.src = img.src;
+  lbImg.alt = img.alt || '';
+
+  // Get caption from parent .figure-caption if exists
+  const figure = img.closest('.figure');
+  if (figure) {
+    const figCaption = figure.querySelector('.figure-caption');
+    caption.textContent = figCaption ? figCaption.textContent : img.alt || '';
+  } else {
+    caption.textContent = img.alt || '';
+  }
+
+  overlay.classList.add('active');
+  document.body.style.overflow = 'hidden'; // Prevent background scroll
+}
+
+function closeLightbox() {
+  const overlay = document.getElementById('lightbox');
+  overlay.classList.remove('active');
+  document.body.style.overflow = ''; // Restore scroll
+}
+
+// Close on ESC key
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeLightbox();
+});
+
+// Attach click event to all figure images
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.figure img').forEach(img => {
+    img.addEventListener('click', function(e) {
+      e.preventDefault();
+      openLightbox(this);
+    });
+  });
+});
 </script>
 
 </body>
