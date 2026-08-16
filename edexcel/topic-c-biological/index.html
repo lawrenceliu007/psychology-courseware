@@ -1,0 +1,2091 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edexcel Topic C — Biological Psychology: Nervous System & Brain</title>
+  <style>
+    :root {
+      /* Edexcel Orange Theme */
+      --primary: #ea580c;
+      --primary-light: #f97316;
+      --primary-dark: #c2410c;
+      --accent: #1e3a5f;
+      --bg: #f8fafc;
+      --card-bg: #FFFFFF;
+      --text: #1e293b;
+      --text-secondary: #475569;
+      --border: #e2e8f0;
+      --highlight: #fff7ed;
+      --warning: #fef2f2;
+      --note-bg: #fff7ed;
+      --note-border: #fb923c;
+      --term-color: #ea580c;
+      --correct: #16a34a;
+      --wrong: #dc2626;
+    }
+    * { box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; line-height: 1.75; color: var(--text); background: var(--bg); margin: 0; padding: 0; font-size: 16px; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 16px 24px; }
+
+    /* ===== NAV BAR ===== */
+    .nav-bar { position: sticky; top: 0; z-index: 100; background: white; border-bottom: 3px solid var(--primary); padding: .65rem 2rem; display: flex; align-items: center; gap: 1rem; margin: 0 0 28px 0; box-shadow: 0 2px 10px rgba(0,0,0,.06); }
+    .nav-pill { display: inline-flex; align-items: center; gap: .4rem; padding: .45rem 1.1rem; background: var(--primary); color: white; border-radius: 20px; text-decoration: none; font-size: .82em; font-weight: 600; transition: background .15s; white-space: nowrap; }
+    .nav-pill:hover { background: var(--primary-dark); }
+    .nav-breadcrumb { display: flex; align-items: center; gap: .4rem; font-size: .82em; color: var(--text-secondary); flex: 1; }
+    .nav-breadcrumb a { color: var(--text-secondary); text-decoration: none; transition: color .15s; }
+    .nav-breadcrumb a:hover { color: var(--primary); }
+    .nav-breadcrumb .sep { color: #ccc; font-weight: 300; }
+    .nav-breadcrumb span:last-child { color: var(--text); font-weight: 500; }
+
+    /* ===== PAGE LAYOUT (3-column Grid) ===== */
+    .page-layout { display: grid; grid-template-columns: 170px minmax(0,1fr) 250px; gap: 20px; align-items: start; }
+    
+    /* ===== SIDEBAR ===== */
+    .sidebar { width: 170px; flex-shrink: 0; position: sticky; top: 60px; max-height: calc(100vh - 80px); overflow-y: auto; padding: 12px 0; z-index: 50; }
+    .sidebar::-webkit-scrollbar { width: 2px; }
+    .sidebar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 2px; }
+    .sidebar-inner { background: #f8fafc; border-radius: 14px; border: 1px solid #e2e8f0; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,.05); }
+    .sb-header { padding: 13px 16px 10px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); }
+    .sb-header-title { font-size: .72em; font-weight: 700; color: white; letter-spacing: .8px; text-transform: uppercase; margin: 0; }
+    .sb-header-sub { font-size: .63em; color: rgba(255,255,255,.75); margin: 2px 0 0; font-weight: 500; }
+    .sb-list { list-style: none; padding: 6px 0 10px; margin: 0; }
+    .sb-divider { height: 1px; background: #e2e8f0; margin: 4px 12px; }
+    .sb-item a { display: block; padding: 7px 14px 7px 18px; color: #475569; text-decoration: none; font-size: .76em; font-weight: 500; border-left: 3px solid transparent; transition: all .15s ease; line-height: 1.45; border-radius: 0 7px 7px 0; margin: 1px 4px 1px 0; }
+    .sb-item a:hover { border-left-color: var(--primary); color: var(--primary-dark); font-weight: 600; background: linear-gradient(90deg, rgba(234,88,12,.07), transparent); }
+    .sb-item a.sb-active { border-left-color: var(--primary); color: var(--primary-dark); font-weight: 700; background: linear-gradient(90deg, rgba(234,88,12,.12), transparent); }
+
+    /* ===== MAIN CONTENT ===== */
+    .main-content { min-width: 0; max-width: 660px; }
+
+    /* ===== HEADER CARD ===== */
+    .header { background: linear-gradient(135deg, var(--primary-dark), var(--primary), var(--primary-light)); color: white; padding: 32px 28px 24px; border-radius: 12px; margin-bottom: 20px; text-align: center; box-shadow: 0 4px 15px rgba(234,88,12,.35); }
+    .header h1 { font-size: 1.7em; font-weight: 700; line-height: 1.3; margin-bottom: 6px; }
+    .header .subtitle { font-size: 1em; opacity: .95; }
+    .header .meta { margin-top: 12px; font-size: .88em; line-height: 1.6; background: rgba(255,255,255,.2); display: inline-block; padding: 8px 20px; border-radius: 8px; backdrop-filter: blur(6px); }
+    .badge { display: inline-block; padding: 4px 13px; border-radius: 20px; background: rgba(255,255,255,.22); margin: 3px; font-size: .83em; }
+
+    /* ===== SECTION CARDS ===== */
+    .section { background: white; border-radius: 12px; padding: 26px 28px; margin-bottom: 22px; box-shadow: 0 2px 10px rgba(0,0,0,.05); border-top: 3px solid var(--primary); }
+    .section h2 { color: var(--primary-dark); font-size: 1.42em; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 2px solid var(--border); }
+    .section h3 { color: var(--primary); font-size: 1.15em; margin: 20px 0 10px; }
+    .section h4 { color: var(--text); font-size: 1.02em; margin: 12px 0 7px; }
+
+    /* ===== CONTENT ELEMENTS ===== */
+    p { margin: 8px 0; }
+    ul, ol { margin: 8px 0; padding-left: 22px; }
+    li { margin: 5px 0; }
+    strong { color: var(--primary-dark); }
+    
+    /* Key Term Box */
+    .keyterm-box { background: linear-gradient(135deg, #fef3c7, #fde68a); border-left: 4px solid #f59e0b; border-radius: 8px; padding: 12px 16px; margin: 12px 0; }
+    .keyterm-box strong { color: #b45309; }
+    
+    /* Note Box */
+    .note-box { background: var(--highlight); border-left: 4px solid var(--primary); border-radius: 8px; padding: 14px 18px; margin: 14px 0; }
+    
+    /* Blue Box (for comparisons) */
+    .blue-box { background: #eff6ff; border-left: 4px solid var(--accent); border-radius: 8px; padding: 14px 18px; margin: 14px 0; }
+    
+    /* Green Box (for positive points) */
+    .green-box { background: #f0fdf4; border-left: 4px solid #16a34a; border-radius: 8px; padding: 14px 18px; margin: 14px 0; }
+    
+    /* Warning Box */
+    .warn-box { background: var(--warning); border-left: 4px solid var(--wrong); border-radius: 8px; padding: 14px 18px; margin: 14px 0; }
+    .warn-box h4 { color: #991b1b; margin-bottom: 5px; }
+    
+    /* Chinese Explanation Box */
+    .cn-explain { background: linear-gradient(135deg, #fff7ed, #ffedd5); border-left: 4px solid var(--primary); border-radius: 8px; padding: 14px 18px; margin: 14px 0; }
+    .cn-explain h4 { color: var(--primary-dark); margin-bottom: 6px; font-size: .95em; }
+    
+    /* Exam Tip Box */
+    .exam-tip { background: #eff6ff; border: 1px solid #3b82f6; border-radius: 8px; padding: 14px 18px; margin: 14px 0; }
+    .exam-tip h4 { color: #1d4ed8; margin-bottom: 6px; font-size: .95em; text-transform: uppercase; letter-spacing: .5px; }
+    
+    /* Figure */
+    .figure { margin: 18px 0; text-align: center; }
+    .figure img { max-width: 100%; border: 1px solid var(--border); border-radius: 10px; box-shadow: 0 3px 12px rgba(0,0,0,.08); }
+    .figure-caption { font-size: .87em; color: var(--text-secondary); margin-top: 7px; font-style: italic; }
+    
+    /* Table */
+    table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: .91em; box-shadow: 0 2px 8px rgba(0,0,0,.06); border-radius: 8px; overflow: hidden; }
+    th { background: var(--primary); color: #fff; padding: 11px 13px; text-align: left; font-weight: 600; }
+    td { padding: 10px 13px; border-bottom: 1px solid var(--border); }
+    tr:nth-child(even) { background: #fafbfc; }
+    tr:hover { background: #fff7ed; }
+    td:first-child { font-weight: 600; color: var(--primary-dark); }
+    
+    /* Two-column Grid for Comparisons */
+    .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 14px 0; }
+    .compare-card { background: #fafafa; border-radius: 8px; padding: 12px 14px; border-left: 3px solid var(--accent); }
+    .compare-card h4 { color: var(--accent); font-size: .91em; margin-bottom: 6px; }
+    
+    /* Activity Box */
+    .activity-box { background: #263238; color: #eceff1; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+    .activity-box h4 { color: var(--primary-light); margin-bottom: 8px; }
+    
+    /* Checkpoint / Quiz Box */
+    .checkpoint { background: linear-gradient(135deg, #f0fdf4, #dcfce7); border: 2px solid #16a34a; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+    .checkpoint h4 { color: #15803d; margin-bottom: 10px; }
+    
+    /* Summary Card Header (Exam Key Points button style) */
+    .summary-card-header { background: linear-gradient(135deg, #7c3aed, #6d28d9); color: white; padding: 12px 16px; border-radius: 10px 10px 0 0; display: flex; align-items: center; gap: 10px; cursor: pointer; transition: opacity .2s; font-size: .92em; font-weight: 600; }
+    .summary-card-header:hover { opacity: .9; }
+    .summary-card-header .arrow { transition: transform .3s; font-size: .8em; }
+    .summary-card-header.open .arrow { transform: rotate(90deg); }
+    .ao-badge { background: rgba(255,255,255,.25); padding: 2px 8px; border-radius: 10px; font-size: .72em; font-weight: 700; margin-left: auto; }
+    .summary-card-body { background: #faf5ff; border: 2px solid #c084fc; border-top: none; border-radius: 0 0 10px 10px; padding: 16px 18px; display: none; animation: slideDown .25s ease; }
+    .summary-card-body.show { display: block; }
+    @keyframes slideDown { from{opacity:0;transform:translateY(-8px)} to{opacity:1;transform:translateY(0)} }
+    .summary-card-body ol { margin: 0; padding-left: 20px; }
+    .summary-card-body li { margin: 8px 0; font-size: .9em; color: #4c1d95; }
+    
+    /* Chinese Logic Summary Toggle Button */
+    .cn-summary-toggle { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; background: linear-gradient(135deg, #9333ea, #7c3aed); color: white; border: none; border-radius: 8px; font-size: .85em; font-weight: 600; cursor: pointer; transition: all .2s; margin: 10px 0; }
+    .cn-summary-toggle:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(147,51,234,.3); }
+    .cn-summary-content { background: linear-gradient(135deg, #faf5ff, #f3e8ff); border: 2px solid #c084fc; border-radius: 10px; padding: 16px 18px; margin: 12px 0; display: none; animation: slideDown .25s ease; }
+    .cn-summary-content.show { display: block; }
+    .cn-summary-content p { margin: 6px 0; font-size: .9em; color: #4c1d95; line-height: 1.7; }
+    .cn-summary-content strong { color: #6d28d9; }
+
+    /* ===== RIGHT NOTES COLUMN (PILIAVIN SUCCESS PATTERN) ===== */
+    .notes-col { width: 250px; background: #fff7ed; border: 2px solid #fb923c; border-radius: 12px; display: flex; flex-direction: column; position: sticky; top: 60px; max-height: calc(100vh - 80px); box-shadow: 0 2px 12px rgba(251,146,60,.15); }
+    .nc-header { background: linear-gradient(135deg,#ea580c,#c2410c); padding: 12px 14px; display: flex; align-items: center; gap: 8px; }
+    .nc-title { font-size: .85em; font-weight: 700; color: #fff; }
+    .nc-count { margin-left: auto; background: rgba(255,255,255,.3); color: #fff; font-size: .7em; font-weight: 700; padding: 2px 8px; border-radius: 10px; }
+    .nc-body { flex: 1; overflow-y: auto; padding: 10px; max-height: calc(100vh - 240px); min-height: 60px; }
+    .nc-empty { text-align: center; color: #9ca3af; padding: 20px 8px; font-size: .78em; }
+    .nc-input-row { display: none; padding: 12px; border-top: 1px solid #fed7aa; background: #fff7ed; }
+    .nc-input-row.show { display: block; }
+    .nc-textarea { width: 100%; border: 1px solid #fdba74; border-radius: 8px; padding: 10px; font-size: .82em; resize: vertical; min-height: 60px; box-sizing: border-box; outline: none; font-family: inherit; }
+    .nc-textarea:focus { border-color: #ea580c; box-shadow: 0 0 0 2px rgba(234,88,12,.15); }
+    .nc-actions { display: flex; gap: 8px; margin-top: 8px; }
+    .nc-actions button { flex: 1; padding: 8px; border-radius: 6px; font-size: .78em; font-weight: 600; cursor: pointer; border: 1px solid transparent; }
+    .nc-btn-save { background: #16a34a; color: white; }
+    .nc-btn-cancel { background: white; color: #6b7280; border-color: #d1d5db !important; }
+    .nc-add-btn { width: 100%; padding: 13px; background: linear-gradient(135deg,#ea580c,#c2410c); color: white; border: none; border-radius: 0 0 10px 10px; font-size: .88em; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: opacity .2s; }
+    .nc-add-btn:hover { opacity: .9; }
+    .nc-footer { display: flex; gap: 4px; padding: 6px 10px; border-top: 1px solid #fed7aa; }
+    .nc-footer button { flex: 1; padding: 4px 0; font-size: .68em; border: none; background: transparent; color: #c2410c; cursor: pointer; }
+    .hl-text { background: linear-gradient(120deg,#fed7aa,#fdba74); border-radius: 2px; padding: 0 2px; cursor: pointer; transition: background .15s; }
+    .hl-text:hover { background: linear-gradient(120deg,#fdba74,#fb923c); }
+    .note-card { background: #fff; border-radius: 8px; padding: 10px 12px; margin-bottom: 8px; border-left: 3px solid #fb923c; box-shadow: 0 1px 3px rgba(0,0,0,.08); font-size: .78em; line-height: 1.5; position: relative; animation: nFadeIn .2s ease; transition: box-shadow .2s, border-color .2s; }
+    @keyframes nFadeIn { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:translateY(0)} }
+    .note-card[ondblclick]:hover { box-shadow: 0 4px 12px rgba(251,146,60,.25); border-left-color: #ea580c; }
+    .note-card-hl { font-size: .7em; color: #c2410c; background: #fff7ed; padding: 2px 6px; border-radius: 4px; margin-bottom: 4px; cursor: pointer; word-break: break-all; }
+    .note-card-hl:hover { background: #fed7aa; }
+    .note-card-text { color: #374151; word-break: break-word; }
+    .note-card-del { position: absolute; top: 4px; right: 4px; width: 18px; height: 18px; border: none; background: #fee2e2; color: #ef4444; border-radius: 50%; font-size: .65em; cursor: pointer; opacity: 0; display: flex; align-items: center; justify-content: center; }
+    .note-card:hover .note-card-del { opacity: 1; }
+
+    /* Footer Note */
+    .footer-note { font-size: .84em; color: var(--text-secondary); margin-top: 2em; padding-top: 1em; border-top: 1px solid var(--border); text-align: center; }
+
+    /* Back to Top Button */
+    .back-to-top { position: fixed; bottom: 30px; right: 30px; width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; border: none; border-radius: 50%; font-size: 1.3em; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(234,88,12,.3); opacity: 0; visibility: hidden; transform: translateY(15px); transition: all .3s; z-index: 90; }
+    .back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+    .back-to-top:hover { box-shadow: 0 6px 20px rgba(234,88,12,.4); transform: translateY(-2px); }
+
+    /* Responsive */
+    @media(max-width:900px){
+      .page-layout { grid-template-columns: 1fr; }
+      .sidebar, .notes-col { display: none; }
+      .main-content { max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+<!-- ===== NAV BAR ===== -->
+<nav class="nav-bar">
+  <div class="nav-breadcrumb">
+    <a href="../index.html">Home</a> <span class="sep">›</span>
+    <a href="index.html">Edexcel</a> <span class="sep">›</span>
+    <span>Topic C — Biological Psychology</span>
+  </div>
+  <span class="nav-pill">🧠 Biological Approach</span>
+</nav>
+
+<!-- ===== PAGE LAYOUT (3-column Grid) ===== -->
+<div class="page-layout">
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+      <div class="sb-header">
+        <div class="sb-header-title">Topic C Contents</div>
+        <div class="sb-header-sub">Chapter 15 · Brain & Aggression</div>
+      </div>
+      <ul class="sb-list">
+        <li class="sb-item"><a href="#s1" class="sb-active">1. Nervous System Overview</a></li>
+        <li class="sb-item"><a href="#s2">2. Neuron Structure</a></li>
+        <li class="sb-item"><a href="#s3">3. Action Potential</a></li>
+        <li class="sb-item"><a href="#s4">4. Synaptic Transmission</a></li>
+        <li class="sb-item"><a href="#s5">5. Brain Lobes</a></li>
+        <li class="sb-item"><a href="#s6">6. Brain Areas</a></li>
+        <li class="sb-item"><a href="#s7">7. Neurotransmitters</a></li>
+        <li class="sb-divider"></li>
+        <li class="sb-item"><a href="#s8">8. Hormones & Aggression ⭐</a></li>
+        <li class="sb-item"><a href="#s9">9. Genetics & Aggression ⭐⭐</a></li>
+        <li class="sb-item"><a href="#s10">🔟 Issues & Debates (AO3)</a></li>
+        <li class="sb-divider"></li>
+        <li class="sb-item"><a href="#exam">📝 Exam Practice (6Q)</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="main-content">
+
+<!-- HEADER -->
+<div class="header">
+  <h1>🧠 Topic C: Biological Psychology</h1>
+  <div class="subtitle">Structure and Function of the Nervous System & Brain<br>Chapter 15 — Brain Regions and Aggression</div>
+  <div class="meta">
+    <span class="badge">📘 Pearson Edexcel International A Level</span>
+    <span class="badge">📋 WPS01/01 Paper 1 · Section A (26 marks)</span>
+    <span class="badge">⚡ Biological Psychology 生物心理学</span>
+  </div>
+</div>
+
+<!-- LEARNING OBJECTIVES -->
+<div class="section" id="objectives">
+  <h2>🎯 Learning Objectives（学习目标）</h2>
+  <p>By the end of this chapter you should be able to:</p>
+  <ol>
+    <li><strong>Understand</strong> the central nervous system (CNS) and its divisions（理解中枢神经系统及其分区）</li>
+    <li><strong>Describe</strong> the structure and role of the neuron（描述神经元的结构和功能）</li>
+    <li><strong>Explain</strong> the function of neurotransmitters and synaptic transmission（解释神经递质和突触传递的功能）</li>
+    <li><strong>Identify</strong> brain structures (lobes and key areas)（识别大脑结构：脑叶和关键区域）</li>
+    <li><strong>Describe and evaluate</strong> brain functioning as an explanation of aggression（描述并评估大脑功能对攻击性的解释）</li>
+    <li><strong>Describe and evaluate</strong> the role of hormones and genetics in aggression（描述并评估激素和基因在攻击性中的作用）</li>
+  </ol>
+</div>
+
+<!-- SECTION 1: NERVOUS SYSTEM -->
+<div class="section" id="s1">
+  <h2>1️⃣ The Nervous System（神经系统）</h2>
+  
+  <h3>1.1 Central Nervous System (CNS)（中枢神经系统）</h3>
+  <div class="blue-box">
+    <p><strong>The CNS consists of the brain and spinal cord.</strong> It is the central processing and control point for all human behaviour.</p>
+    <ul>
+      <li><strong>Brain（大脑）:</strong> Processes all incoming information from the senses and is responsible for controlling behaviour that results from this information.</li>
+      <li><strong>Spinal Cord（脊髓）:</strong> Connects the brain to the rest of the body. Allows messages to be passed from the body to the brain, and also from the brain to other parts of the body.</li>
+    </ul>
+  </div>
+  
+  <div class="figure">
+    <img src="images/nervous_system.png" alt="Divisions of the nervous system">
+    <div class="figure-caption">Figure 15.2: The different divisions of the nervous system（神经系统的不同分区）</div>
+  </div>
+  
+  <h3>1.2 Peripheral Nervous System (PNS)（周围神经系统）</h3>
+  <p>The nerves branching out from the CNS are collectively referred to as the <strong>PNS</strong>. This is responsible for facilitating communication between the CNS and the rest of the body.</p>
+  
+  <div class="compare-grid">
+    <div class="compare-card">
+      <h4>Somatic Nervous System（躯体神经系统）</h4>
+      <p>Responsible for transmitting <strong>sensory information</strong> from the body to the brain, and for transmitting <strong>motor signals</strong> from the brain to the body which cause movement (such as wiggling your toes).</p>
+      <p><em>→ Voluntary control（自主控制）</em></p>
+    </div>
+    <div class="compare-card">
+      <h4>Autonomic Nervous System (ANS)（自主神经系统）</h4>
+      <p>Responsible for regulating <strong>involuntary processes</strong>, such as heart rate, and maintaining <strong>homeostasis</strong>（稳态）in the body.</p>
+      <p><em>→ Involuntary control（非自主控制）</em></p>
+    </div>
+  </div>
+  
+  <h3>1.3 Autonomic Nervous System Divisions（自主神经系统的分支）</h3>
+  <table>
+    <tr>
+      <th>Division（分支）</th>
+      <th>Function（功能）</th>
+      <th>Example（例子）</th>
+    </tr>
+    <tr>
+      <td><strong>Sympathetic（交感神经）</strong></td>
+      <td>'Fight or flight' response（战斗或逃跑反应）— prepares the body to deal with stressful or emergency situations by increasing heart rate and respiration, releasing <strong>adrenaline and norepinephrine</strong>（肾上腺素和去甲肾上腺素）into the bloodstream.</td>
+      <td>Heart racing when scared 😰</td>
+    </tr>
+    <tr>
+      <td><strong>Parasympathetic（副交感神经）</strong></td>
+      <td>'Rest and digest' response（休息和消化反应）— works to restore the body to its natural resting state（让身体恢复自然静止状态）.</td>
+      <td>Heart slowing down after relaxation 😌</td>
+    </tr>
+  </table>
+  
+  <div class="keyterm-box">
+    <strong>💡 Key Term: Homeostasis（稳态）</strong><br>
+    The process by which the body maintains the internal environment, including blood pressure, blood sugar levels and body temperature.
+  </div>
+  
+  <!-- Exam Key Points -->
+  <div class="summary-card-header" onclick="toggleSummary(this)">
+    <span class="arrow">▶</span>
+    <span>Section 1: Nervous System — Exam Key Points</span>
+    <span class="ao-badge">AO1/AO3</span>
+  </div>
+  <div class="summary-card-body">
+    <ol>
+      <li>CNS = Brain + Spinal Cord（中枢神经 = 大脑 + 脊髓）</li>
+      <li>PNS = Somatic (voluntary) + Autonomic (involuntary)（周围神经 = 躯体 + 自主）</li>
+      <li>ANS = Sympathetic (arousal) vs Parasympathetic (calm)（自主 = 交感 vs 副交感）</li>
+      <li>Sympathetic releases adrenaline → 'fight or flight'（交感释放肾上腺素 → 战斗或逃跑）</li>
+      <li>Parasympathetic restores homeostasis（副交感恢复稳态）</li>
+    </ol>
+  </div>
+  
+  <!-- Chinese Logic Summary -->
+  <button class="cn-summary-toggle" onclick="toggleCnSummary(this)">
+    ▶ 中文逻辑总结
+  </button>
+  <div class="cn-summary-content">
+    <p><strong>🧠 神经系统就像一个国家的通信网络：</strong></p>
+    <p>• <strong>CNS（中枢）= 首都</strong>：大脑是总统府（决策中心），脊髓是高速公路（信息通道）</p>
+    <p>• <strong>PNS（周围）= 地方通信线路</strong>：</p>
+    <p>　- <strong>Somatic（躯体）</strong> = 你主动打电话（动手指、走路）</p>
+    <p>　- <strong>Autonomic（自主）</strong> = 自动运行的系统（心跳、消化）</p>
+    <p>• <strong>ANS 的两个分支就像油门和刹车：</strong></p>
+    <p>　- <strong>Sympathetic（交感）= 油门</strong>：遇到危险时踩油门，心跳加速，准备战斗或逃跑 🏃‍♂️</p>
+    <p>　- <strong>Parasympathetic（副交感）= 刹车</strong>：安全后踩刹车，身体放松，恢复平静 😴</p>
+    <p><strong>🎯 考试技巧：</strong>一定要能画出 Figure 15.2 的层级图！CNS → PNS → Somatic/Autonomic → Sympathetic/Parasympathetic</p>
+  </div>
+</div>
+
+<!-- SECTION 2: NEURON STRUCTURE -->
+<div class="section" id="s2">
+  <h2>2️⃣ Structure and Role of the Neuron（神经元的结构与功能）</h2>
+  
+  <p>A <strong>neuron（神经元）</strong> is a specialised cell that transmits electrical and chemical messages around the body. Neurons communicate with around <strong>1,000 other cells at a time</strong> in huge networks.</p>
+  
+  <div class="figure">
+    <img src="images/neuron_structure.png" alt="Structure of a neuron">
+    <div class="figure-caption">Figure 15.3: Structure of a neuron（神经元结构）</div>
+  </div>
+  
+  <h3>2.1 Four Main Parts of a Neuron（神经元的四个主要部分）</h3>
+  
+  <table>
+    <tr>
+      <th>Part（部分）</th>
+      <th>Structure（结构）</th>
+      <th>Function（功能）</th>
+    </tr>
+    <tr>
+      <td><strong>Cell Body（细胞体）</strong></td>
+      <td>Contains the <strong>nucleus（细胞核）</which houses genetic material. Also contains <strong>mitochondria（线粒体）</strong> that provide energy.</td>
+      <td>The "control centre" of the neuron — processes information and keeps the cell alive.</td>
+    </tr>
+    <tr>
+      <td><strong>Dendrites（树突）</strong></td>
+      <td>Branched structures attached to the cell body（附着在细胞体上的分支结构）</td>
+      <td><strong>Receive messages</strong> from other neurons in order to trigger an action potential（接收来自其他神经元的信息以触发动作电位）</td>
+    </tr>
+    <tr>
+      <td><strong>Axon（轴突）</strong></td>
+      <td>An extension of the cell body that carries the nerve impulse towards the axon terminals. Covered by <strong>myelin sheath（髓鞘）</strong> — fatty insulating layer.</td>
+      <td><strong>Transmits electrical impulses</strong> away from the cell body（将电脉冲从细胞体传出）. Myelin sheath speeds up transmission.</td>
+    </tr>
+    <tr>
+      <td><strong>Axon Terminals / Terminal Buttons（轴突末梢/终扣）</strong></td>
+      <td>Very end of the axon. Contains tiny sacs called <strong>vesicles（囊泡）</strong> that store neurotransmitters.</td>
+      <td><strong>Pass nerve impulses</strong> to the next neuron or effector organ (muscle/gland) by releasing neurotransmitters（通过释放神经递质将神经冲动传递给下一个神经元或效应器）</td>
+    </tr>
+  </table>
+  
+  <div class="keyterm-box">
+    <strong>💡 Additional Key Terms（额外关键术语）:</strong><br>
+    • <strong>Myelin Sheath（髓鞘）:</strong> Fatty insulating layer around the axon. Has gaps called <strong>Nodes of Ranvier（郎飞结）</that speed up transmission.<br>
+    • <strong>Schwann's Cells（施万细胞）:</strong> Produce the myelin sheath in the PNS.<br>
+    • <strong>Action Potential（动作电位）:</strong> Tiny electrical impulse that passes along the axon.<br>
+    • <strong>Neurotransmitter（神经递质）:</strong> Chemical messengers that pass between neurons.
+  </div>
+  
+  <div class="activity-box">
+    <h4>🔬 Activity 1: Sensory Neurons Experiment（感官神经元实验）</h4>
+    <p>We have sensory neurons in our skin to detect touch. Investigate these sensory neurons in pairs:</p>
+    <ol>
+      <li>One partner places an object in a bag and closes eyes, feels the object without looking</li>
+      <li>Draw what they feel</li>
+      <li>Swap over and repeat</li>
+      <li>Now try drawing using only your feet!</li>
+    </ol>
+    <p><strong>Conclusion:</strong> Sensory neurons are closely bunched together in fingertips (easier to draw accurately). Feet have fewer sensory neurons spread further apart (harder to feel).</p>
+  </div>
+  
+  <!-- Exam Key Points -->
+  <div class="summary-card-header" onclick="toggleSummary(this)">
+    <span class="arrow">▶</span>
+    <span>Section 2: Neuron Structure — Exam Key Points</span>
+    <span class="ao-badge">AO1</span>
+  </div>
+  <div class="summary-card-body">
+    <ol>
+      <li>Neuron has 4 main parts: Cell Body, Dendrites, Axon, Axon Terminals（神经元4部分）</li>
+      <li>Dendrites receive messages ← Cell Body processes → Axon transmits → Terminals pass on（树突接收 → 细胞体处理 → 轴突传递 → 末梢传出）</li>
+      <li>Myelin sheath insulates axon, speeds up transmission（髓鞘绝缘轴突，加速传导）</li>
+      <li>Gaps in myelin = Nodes of Ranvier（髓鞘间隙 = 郎飞结）</li>
+      <li>Vesicles in terminals store neurotransmitters（末梢囊泡储存神经递质）</li>
+    </ol>
+  </div>
+  
+  <!-- Chinese Logic Summary -->
+  <button class="cn-summary-toggle" onclick="toggleCnSummary(this)">
+    ▶ 中文逻辑总结
+  </button>
+  <div class="cn-summary-content">
+    <p><strong>🔌 神经元就像一根电话线：</strong></p>
+    <p>• <strong>Dendrites（树突）= 电话听筒</strong>：接收别人的信号 📞</p>
+    <p>• <strong>Cell Body（细胞体）= 总机</strong>：处理信号，决定是否转发 ☎️</p>
+    <p>• <strong>Axon（轴突）= 电话线</strong>：把信号传出去（可能很长！）</p>
+    <p>• <strong>Myelin Sheath（髓鞘）= 电线绝缘皮</strong>：防止信号泄漏，加速传输 ⚡</p>
+    <p>• <strong>Terminal Buttons（终扣）= 电话插头</strong>：连接到下一部电话</p>
+    <p><strong>🎯 记忆口诀：</strong>"<strong>D</strong>etect（树突接收）→ <strong>C</strong>ontrol（细胞体处理）→ <strong>T</strong>ransmit（轴突传递）→ <strong>P</strong>ass on（末梢传出）" = DCTP</p>
+    <p><strong>⚠️ 考试常考：</strong>要能标注神经元图（Figure 15.3）的各个部分名称和功能！</p>
+  </div>
+</div>
+
+<!-- SECTION 3: ACTION POTENTIAL -->
+<div class="section" id="s3">
+  <h2>3️⃣ The Action Potential（动作电位）</h2>
+  
+  <p>The <strong>action potential（动作电位）</strong> refers to the actual method by which the nerve impulse passes down the axon to stimulate the release of neurotransmitters. This is a <strong>tiny electrical impulse</strong> that is triggered by a change in the electrical 'potential' of the neuron itself.</p>
+  
+  <div class="figure">
+    <img src="images/action_potential.png" alt="Action potential stages">
+    <div class="figure-caption">Figure 15.4: An action potential — how a message is carried by the neuron（动作电位：神经元如何传递信息）</div>
+  </div>
+  
+  <h3>3.1 Resting Potential（静息电位）</h3>
+  <div class="blue-box">
+    <p>Neurons have a <strong>resting membrane potential of about −70 millivolts</strong>（静息膜电位约-70毫伏）, meaning that the inside of the neuron has a slight negative charge relative to the outside.</p>
+    <p>This is because when the neuron is at rest, the inside is <strong>negatively charged</strong> compared to the outside (more negative ions inside than outside).</p>
+  </div>
+  
+  <h3>3.2 The Four Stages of Action Potential（动作电位的四个阶段）</h3>
+  
+  <table>
+    <tr>
+      <th>Stage（阶段）</th>
+      <th>What Happens（发生了什么）</th>
+      <th>Key Term（关键术语）</th>
+    </tr>
+    <tr>
+      <td><strong>1. Resting State（静息状态）</strong></td>
+      <td>When the neuron is at rest, the inside is negatively charged relative to the outside（神经元静息时，内部相对于外部带负电）.</td>
+      <td>Resting potential: −70mV</td>
+    </tr>
+    <tr>
+      <td><strong>2. Stimulation / Depolarisation（刺激/去极化）</strong></td>
+      <td>When the neuron is stimulated, positively charged particles enter. The action potential is initiated — <strong>the neuron is depolarised</strong>（神经元被去极化）.</td>
+      <td>Depolarisation: inside becomes less negative</td>
+    </tr>
+    <tr>
+      <td><strong>3. Repolarisation（再极化）</strong></td>
+      <td>After a brief period, some positively charged particles are pushed outside the neuron, and the neuron moves back towards its polarised state（神经元回到极化状态）.</td>
+      <td>Repolarisation: returning to negative</td>
+    </tr>
+    <tr>
+      <td><strong>4. Return to Resting（恢复静息）</strong></td>
+      <td>The neuron has finally returned to its initial polarised resting state（神经元最终恢复到初始的极化静息状态）.</td>
+      <td>Back to −70mV</td>
+    </tr>
+  </table>
+  
+  <h3>3.3 Threshold and Firing（阈值与触发）</h3>
+  <div class="note-box">
+    <p>When a neuron receives enough <strong>excitatory messages（兴奋性信息）</strong>, or at least more excitatory messages than inhibitory ones, and these messages are sufficiently strong to reach the neuron's own threshold（阈值）, an action potential is triggered.</p>
+    <p>This usually happens when the neuron's charge reaches approximately <strong>−55 millivolts</strong>.</p>
+  </div>
+  
+  <div class="compare-grid">
+    <div class="compare-card">
+      <h4>Excitatory Postsynaptic Potential (EPSP)（兴奋性突触后电位）</h4>
+      <p>Temporary depolarisation of a neuron — makes it <strong>more likely</strong> to fire an action potential（使神经元更可能触发动作电位）.</p>
+      <p><em>→ Increases internal charge（增加内部电荷）</em></p>
+    </div>
+    <div class="compare-card">
+      <h4>Inhibitory Postsynaptic Potential (IPSP)（抑制性突触后电位）</h4>
+      <p>Changes in the polarisation of a neuron to make it <strong>less likely</strong> to fire an action potential（使神经元更不可能触发动作电位）.</p>
+      <p><em>→ Decreases charge / hyperpolarises（减少电荷/超极化）</em></p>
+    </div>
+  </div>
+  
+  <div class="keyterm-box">
+    <strong>💡 Key Terms:</strong><br>
+    • <strong>Millivolt (mV):</strong> One thousandth of a volt（千分之一伏特）<br>
+    • <strong>Depolarisation（去极化）:</strong> Inside becomes less negative（内部变得不那么负）<br>
+    • <strong>Hyperpolarisation（超极化）:</strong> Inside becomes even more negative（内部变得更负）<br>
+    • <strong>Threshold（阈值）:</strong> The level of stimulation needed to fire (usually −55mV)
+  </div>
+  
+  <!-- Exam Key Points -->
+  <div class="summary-card-header" onclick="toggleSummary(this)">
+    <span class="arrow">▶</span>
+    <span>Section 3: Action Potential — Exam Key Points</span>
+    <span class="ao-badge">AO1</span>
+  </div>
+  <div class="summary-card-body">
+    <ol>
+      <li>Resting potential = −70mV (inside negative)（静息电位 = -70mV，内部负电）</li>
+      <li>Action potential triggered when reaches threshold (−55mV)（达到阈值-55mV时触发）</li>
+      <li>4 stages: Resting → Depolarisation → Repolarisation → Resting（4阶段：静息→去极化→再极化→静息）</li>
+      <li>EPSP = excitatory (more likely to fire)（EPSP = 兴奋性，更易触发）</li>
+      <li>IPSP = inhibitory (less likely to fire)（IPSP = 抑制性，不易触发）</li>
+    </ol>
+  </div>
+  
+  <!-- Chinese Logic Summary -->
+  <button class="cn-summary-toggle" onclick="toggleCnSummary(this)">
+    ▶ 中文逻辑总结
+  </button>
+  <div class="cn-summary-content">
+    <p><strong>⚡ 动作电位就像多米诺骨牌倒下：</strong></p>
+    <p>• <strong>静息状态（−70mV）</strong>：骨牌竖立着，等待推倒 ⬛</p>
+    <p>• <strong>去极化（−55mV）</strong>：第一块骨牌被推倒，开始连锁反应 💥</p>
+    <p>• <strong>再极化</strong>：骨牌倒完后，开始重新竖立 🔙</p>
+    <p>• <strong>恢复静息</strong>：所有骨牌重新站好，等待下一次推动 ✅</p>
+    <p><strong>🎯 关键数字记忆：</strong>"<strong>70-55</strong>" — 静息-70，触发-55</p>
+    <p><strong>🔀 EPSP vs IPSP 类比：</strong></p>
+    <p>• <strong>EPSP（兴奋性）</strong> = 加油打气 👍 "快触发！"</p>
+    <p>• <strong>IPSP（抑制性）</strong> = 泼冷水 🚫 "别冲动！"</p>
+    <p><strong>⚠️ 考试必考：</strong>要能用文字描述 Figure 15.4 的4个步骤，并解释每个步骤的电荷变化！</p>
+  </div>
+</div>
+
+<!-- SECTION 4: SYNAPTIC TRANSMISSION -->
+<div class="section" id="s4">
+  <h2>4️⃣ Synaptic Transmission（突触传递）</h2>
+  
+  <p>The cell's electrical impulse/action potential starts as small electrical impulses generated at the axon hillock, and travels the length of the axon. But once the message reaches the terminal button, it turns into a <strong>chemical message</strong>.</p>
+  
+  <div class="figure">
+    <img src="images/synapse.png" alt="The synaptic gap/cleft">
+    <div class="figure-caption">Figure 15.5: The synaptic gap/cleft（突触间隙）</div>
+  </div>
+  
+  <h3>4.1 Key Structures（关键结构）</h3>
+  <table>
+    <tr>
+      <th>Structure（结构）</th>
+      <th>Description（描述）</th>
+    </tr>
+    <tr>
+      <td><strong>Presynaptic Neuron（突触前神经元）</strong></td>
+      <td>The neuron where the chemical message starts from（化学信息起始的神经元）</td>
+    </tr>
+    <tr>
+      <td><strong>Postsynaptic Neuron（突触后神经元）</strong></td>
+      <td>The neuron receiving the message（接收信息的神经元）</td>
+    </tr>
+    <tr>
+      <td><strong>Synaptic Gap/Cleft（突触间隙）</strong></td>
+      <td>The tiny space between the dendrite of one neuron and the terminal button of another where chemical messages can be passed（两个神经元之间传递化学信息的微小空间）</td>
+    </tr>
+    <tr>
+      <td><strong>Synaptic Vesicles（突触囊泡）</strong></td>
+      <td>Tiny sacs containing neurotransmitter（含有神经递质的微小囊泡）</td>
+    </tr>
+    <tr>
+      <td><strong>Neurotransmitter Receptors（神经递质受体）</strong></td>
+      <td>Proteins on the postsynaptic membrane that bind to neurotransmitters（突触后膜上结合神经递质的蛋白质）</td>
+    </tr>
+  </table>
+  
+  <h3>4.2 The Process of Synaptic Transmission（突触传递的过程）</h3>
+  <div class="green-box">
+    <ol>
+      <li><strong>Action potential arrives</strong> at the axon terminal（动作电位到达轴突末梢）</li>
+      <li><strong>Calcium channels open</strong> — flooding the terminal button with calcium ions（钙离子通道打开，钙离子涌入终扣）</li>
+      <li><strong>Vesicles move to the membrane</strong> and fuse with it（囊泡移动到膜上并与之融合）</li>
+      <li><strong>Neurotransmitter is released</strong> into the synaptic cleft via exocytosis（神经递质通过胞吐作用释放到突触间隙）</li>
+      <li><strong>Neurotransmitter binds to receptors</strong> on the postsynaptic membrane（神经递质与突触后膜受体结合）</li>
+      <li><strong>New action potential triggered</strong> in postsynaptic neuron (if excitatory) OR inhibited (if inhibitory)（在突触后神经元中触发新动作电位或抑制）</li>
+      <li><strong>Neurotransmitter is reabsorbed or broken down</strong> (reuptake/deactivation)（神经递质被重吸收或分解）</li>
+    </ol>
+  </div>
+  
+  <div class="exam-tip">
+    <h4>📝 Exam Tip: Common Mistakes to Avoid（考试常见错误）</h4>
+    <ul>
+      <li>❌ Don't say "electricity crosses the synapse" — it's <strong>chemical</strong>!（不要说"电流穿过突触"——它是化学的！）</li>
+      <li>✅ Always mention <strong>calcium ions (Ca²⁺)</strong> triggering vesicle release（总是提到钙离子触发囊泡释放）</li>
+      <li>✅ Mention <strong>reuptake</strong> or enzyme breakdown as the termination method（提到重吸收或酶分解作为终止方式）</li>
+      <li>✅ Distinguish between <strong>electrical</strong> (within neuron) and <strong>chemical</strong> (between neurons) transmission（区分神经元内的电传导和神经元间的化学传递）</li>
+    </ul>
+  </div>
+  
+  <!-- Exam Key Points -->
+  <div class="summary-card-header" onclick="toggleSummary(this)">
+    <span class="arrow">▶</span>
+    <span>Section 4: Synaptic Transmission — Exam Key Points</span>
+    <span class="ao-badge">AO1</span>
+  </div>
+  <div class="summary-card-body">
+    <ol>
+      <li>Electrical signal (action potential) → Chemical signal (at synapse)（电信号→化学信号）</li>
+      <li>Synapse = presynaptic + synaptic cleft + postsynaptic（突触 = 突触前 + 突触间隙 + 突触后）</li>
+      <li>Ca²⁺ influx triggers vesicle release（Ca²⁺内流触发囊泡释放）</li>
+      <li>Neurotransmitter binds to receptors on postsynaptic membrane（神经递质与突触后膜受体结合）</li>
+      <li>Termination: reuptake or enzyme breakdown（终止方式：重吸收或酶分解）</li>
+    </ol>
+  </div>
+  
+  <!-- Chinese Logic Summary -->
+  <button class="cn-summary-toggle" onclick="toggleCnSummary(this)">
+    ▶ 中文逻辑总结
+  </button>
+  <div class="cn-summary-content">
+    <p><strong>🌉 窿触传递就像过河传信：</strong></p>
+    <p>• <strong>Presynaptic Neuron（突触前）= 河这边的人</strong>：带着信件（神经递质）来到河边 📨</p>
+    <p>• <strong>Synaptic Gap（突触间隙）= 河流</strong>：不能直接走过去，需要船（囊泡）🚢</p>
+    <p>• <strong>Calcium Ions（Ca²⁺）= 开船指令</strong>：Ca²⁺一来，船就出发 ⚓</p>
+    <p>• <strong>Vesicles（囊泡）= 渡船</strong>：装载神经递质，渡过河流 🛶</p>
+    <p>• <strong>Postsynaptic Neuron（突触后）= 河那边的人</strong>：收到信件，看内容决定下一步行动 📬</p>
+    <p><strong>🔄 终止机制（防止过度刺激）：</strong></p>
+    <p>• <strong>Reuptake（重吸收）</strong>：把信收回（像回收快递包装）♻️</p>
+    <p>• <strong>Enzyme Breakdown（酶分解）</strong>：把信撕碎（像碎纸机）🔥</p>
+    <p><strong>🎯 考试必背流程：</strong>"<strong>电信号到达 → Ca²⁺进入 → 囊泡融合 → 递质释放 → 受体结合 → 新信号产生 → 重吸收/分解</strong>"</p>
+  </div>
+</div>
+
+<!-- SECTION 5: BRAIN LOBES -->
+<div class="section" id="s5">
+  <h2>5️⃣ The Brain Lobes（脑叶）</h2>
+  
+  <p>The human brain is divided into <strong>four main lobes（四个主要脑叶）</each responsible for different functions:</p>
+  
+  <div class="figure">
+    <img src="images/brain_lobes.png" alt="Four lobes of the brain">
+    <div class="figure-caption">The four lobes of the cerebral cortex（大脑皮层的四个脑叶）</div>
+  </div>
+  
+  <table>
+    <tr>
+      <th>Lobe（脑叶）</th>
+      <th>Location（位置）</th>
+      <th>Key Functions（主要功能）</th>
+    </tr>
+    <tr>
+      <td><strong>Frontal Lobe（额叶）</strong></td>
+      <td>Front of the brain（大脑前部）</td>
+      <td>
+        • <strong>Reasoning（推理）</strong> and planning<br>
+        • <strong>Decision making（决策）</strong><br>
+        • <strong>Motor control（运动控制）</strong> (motor cortex)<br>
+        • <strong>Speech production（语言产生）</strong> (Broca's area)<br>
+        • <strong>Personality（人格）</strong> and social behaviour
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Parietal Lobe（顶叶）</strong></td>
+      <td>Behind frontal lobe（额叶后方）</td>
+      <td>
+        • Processing <strong>sensory information（感觉信息处理）</touch, temperature, pain)<br>
+        • <strong>Spatial awareness（空间意识）</strong><br>
+        • <strong>Attention（注意）</strong> and coordination
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Temporal Lobe（颞叶）</strong></td>
+      <td>Sides of the brain（大脑两侧）</td>
+      <td>
+        • <strong>Hearing/Auditory processing（听觉处理）</strong><br>
+        • <strong>Memory formation（记忆形成）</strong> (hippocampus located here)<br>
+        • <strong>Language comprehension（语言理解）</strong> (Wernicke's area)<br>
+        • Face recognition（面孔识别）
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Occipital Lobe（枕叶）</strong></td>
+      <td>Back of the brain（大脑后部）</td>
+      <td>
+        • <strong>Visual processing（视觉处理）</strong><br>
+        • Interpreting colour, shape, movement（解释颜色、形状、运动）<br>
+        • Object and face recognition（物体和面孔识别）
+      </td>
+    </tr>
+  </table>
+  
+  <div class="note-box">
+    <p><strong>💡 Memory Aid for Brain Lobes（脑叶记忆口诀）:</strong></p>
+    <p><strong>F</strong>rontal = <strong>F</strong>orefront/thinking（额叶 = 前方/思考）<br>
+    <strong>P</strong>arietal = <strong>P</strong>ointing/touch（顶叶 = 指向/触摸）<br>
+    <strong>T</strong>emporal = <strong>T</strong>ime/memory/hearing（颞叶 = 时间/记忆/听觉）<br>
+    <strong>O</strong>ccipital = <strong>O</bserving/vision（枕叶 = 观察/视觉）</p>
+  </div>
+  
+  <!-- Exam Key Points -->
+  <div class="summary-card-header" onclick="toggleSummary(this)">
+    <span class="arrow">▶</span>
+    <span>Section 5: Brain Lobes — Exam Key Points</span>
+    <span class="ao-badge">AO1</span>
+  </div>
+  <div class="summary-card-body">
+    <ol>
+      <li>4 lobes: Frontal (front), Parietal (top-back), Temporal (sides), Occipital (back)（4脑叶：额顶颞枕）</li>
+      <li>Frontal = reasoning, motor, speech (Broca's), personality（额叶 = 推理、运动、语言、人格）</li>
+      <li>Parietal = sensory, spatial, attention（顶叶 = 感觉、空间、注意）</li>
+      <li>Temporal = hearing, memory, language comprehension (Wernicke's)（颞叶 = 听觉、记忆、语言理解）</li>
+      <li>Occipital = visual processing only（枕叶 = 仅视觉处理）</li>
+    </ol>
+  </div>
+  
+  <!-- Chinese Logic Summary -->
+  <button class="cn-summary-toggle" onclick="toggleCnSummary(this)">
+    ▶ 中文逻辑总结
+  </button>
+  <div class="cn-summary-content">
+    <p><strong>🧠 四个脑叶就像公司的四个部门：</strong></p>
+    <p>• <strong>Frontal Lobe（额叶）= CEO办公室 🤵</strong>：在前方指挥全局——做决策、定计划、控制运动、产生语言、塑造人格</p>
+    <p>• <strong>Parietal Lobe（顶叶）= 感觉部门 👆</strong>：处理触摸、温度、痛觉，帮你感知空间位置（闭眼也能摸到鼻子）</p>
+    <p>• <strong>Temporal Lobe（颞叶）= 记忆档案库 + 听力部 👂</strong>：存储长期记忆（海马体在这里），理解语言，识别面孔和声音</p>
+    <p>• <strong>Occipital Lobe（枕叶）= 视觉处理中心 👁️</strong>：在大脑最后面，专门处理眼睛看到的一切——颜色、形状、运动</p>
+    <p><strong>🎯 记忆法："FPTO" = Front-Parietal-Temporal-Occipital = 从前往后数</strong></p>
+    <p><strong>⚠️ 考试重点：</strong>额叶功能最多最复杂（推理+运动+语言+人格），最容易出大题！</p>
+  </div>
+</div>
+
+<!-- SECTION 6: BRAIN AREAS -->
+<div class="section" id="s6">
+  <h2>6️⃣ Key Brain Areas（关键脑区）</h2>
+  <p>Beyond the four lobes, there are specific <strong>brain structures（脑结构）</strong> that play crucial roles in behaviour, emotion, and aggression:</p>
+  
+  <div class="figure">
+    <img src="images/brain_areas.png" alt="Key brain areas">
+    <div class="figure-caption">Key brain areas involved in aggression and emotional behaviour（参与攻击性和情绪行为的关键脑区）</div>
+  </div>
+  
+  <table>
+    <tr>
+      <th>Brain Area（脑区）</th>
+      <th>Location（位置）</th>
+      <th>Function（功能）</th>
+      <th>Role in Aggression（在攻击性中的作用）</th>
+    </tr>
+    <tr>
+      <td><strong>Amygdala（杏仁核）</strong></td>
+      <td>Deep within the temporal lobe（颞叶深处）</td>
+      <td>
+        • <strong>Emotional processing（情绪处理）</strong><br>
+        • <strong>Fear and threat detection（恐惧和威胁检测）</strong><br>
+        • Fight-or-flight response（战斗或逃跑反应）
+      </td>
+      <td>
+        <strong>Key area for aggression（攻击性的关键区域）</strong>.<br>
+        Damage → reduced aggression（损伤→减少攻击性）<br>
+        Stimulation → increased aggression（刺激→增加攻击性）
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Hypothalamus（下丘脑）</strong></td>
+      <td>Below the thalamus, centre of brain（丘脑下方，大脑中央）</td>
+      <td>
+        • <strong>Homeostasis regulation（稳态调节）</strong><br>
+        • Controls hunger, thirst, temperature（控制饥饿、渴、体温）<br>
+        • <strong>Hormone release（激素释放）</strong> (via pituitary gland)
+      </td>
+      <td>
+        Contains <strong>attack/aggression centres（攻击中心）</strong>.<br>
+        Stimulation → aggressive responses（刺激→攻击性反应）<br>
+        Regulates hormonal influences on aggression（调节激素对攻击性的影响）
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Hippocampus（海马体）</strong></td>
+      <td>Within temporal lobe（颞叶内部）</td>
+      <td>
+        • <strong>Memory formation（记忆形成）</strong><br>
+        • Converting short-term to long-term memory（短时记忆转长时记忆）<br>
+        • Spatial navigation（空间导航）
+      </td>
+      <td>
+        Involved in <strong>learning aggressive behaviours（学习攻击性行为）</strong>.<br>
+        Damage may affect context-dependent aggression（损伤可能影响情境依赖的攻击性）
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Thalamus（丘脑）</strong></td>
+      <td>Above hypothalamus, central relay station（下丘脑上方，中央中继站）</td>
+      <td>
+        • <strong>Sensory relay station（感觉中继站）</strong><br>
+        • Directs sensory info to appropriate cortex（将感觉信息导向相应皮层）<br>
+        • Regulates consciousness and sleep（调节意识和睡眠）
+      </td>
+      <td>
+        Relays threat-related sensory information to amygdala（将威胁相关的感觉信息传递给杏仁核）<br>
+        Indirect role in aggression via arousal（通过唤醒间接影响攻击性）
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Prefrontal Cortex (PFC)（前额叶皮层）</strong></td>
+      <td>Front part of frontal lobe（额叶前部）</td>
+      <td>
+        • <strong>Executive functions（执行功能）</strong>: decision-making, planning<br>
+        • <strong>Impulse control（冲动控制）</strong><br>
+        • <strong>Social behaviour regulation（社会行为调节）</strong><br>
+        • Moral reasoning（道德推理）
+      </td>
+      <td>
+        <strong>Inhibits aggression（抑制攻击性）</strong> — the "brakes"!<br>
+        Damage → disinhibition, impulsive aggression（损伤→去抑制、冲动性攻击）<br>
+        Underdeveloped in adolescents → more risky/aggressive behaviour（青少年未发育完全→更多冒险/攻击性行为）
+      </td>
+    </tr>
+  </table>
+  
+  <div class="exam-tip">
+    <h4>📝 Exam Tip: Brain Areas and Aggression（考试提示：脑区与攻击性）</h4>
+    <p><strong>For AO3 evaluation questions, remember:</strong></p>
+    <ul>
+      <li><strong>Aggression-promoting areas（促进攻击性）:</strong> Amygdala + Hypothalamus（杏仁核 + 下丘脑）</li>
+      <li><strong>Aggression-inhibiting areas（抑制攻击性）:</strong> Prefrontal Cortex（前额叶皮层）</li>
+      <li><strong>The balance theory（平衡理论）:</strong> Normal aggression results from balance between limbic system (emotional) and PFC (rational control)（正常攻击性源于边缘系统和前额叶皮层的平衡）</li>
+    </ul>
+  </div>
+  
+  <!-- Exam Key Points -->
+  <div class="summary-card-header" onclick="toggleSummary(this)">
+    <span class="arrow">▶</span>
+    <span>Section 6: Brain Areas — Exam Key Points</span>
+    <span class="ao-badge">AO1/AO3</span>
+  </div>
+  <div class="summary-card-body">
+    <ol>
+      <li>Amygdala = emotion/fear/threat → increases aggression（杏仁核 = 情绪/恐惧/威胁 → 增加攻击性）</li>
+      <li>Hypothalamus = attack centres/hormones → triggers aggression（下丘脑 = 攻击中心/激素 → 触发攻击性）</li>
+      <li>PFC = impulse control/inhibits aggression → "the brakes"（前额叶 = 冲动控制/抑制攻击性 = "刹车"）</li>
+      <li>Hippocampus = memory → learns aggressive behaviours（海马体 = 记忆 → 学习攻击性行为）</li>
+      <li>Thalamus = sensory relay → indirect role via arousal（丘脑 = 感觉中继 → 通过唤醒间接作用）</li>
+      <li>Balance: Limbic system (aggression) vs PFC (control)（平衡：边缘系统 vs 前额叶皮层）</li>
+    </ol>
+  </div>
+  
+  <!-- Chinese Logic Summary -->
+  <button class="cn-summary-toggle" onclick="toggleCnSummary(this)">
+    ▶ 中文逻辑总结
+  </button>
+  <div class="cn-summary-content">
+    <p><strong>🎭 关键脑区就像戏剧中的角色：</strong></p>
+    <p>• <strong>Amygdala（杏仁核）= 警报器 🚨</strong>：检测威胁和恐惧，一有危险就大喊"战斗！"或"逃跑！"</p>
+    <p>• <strong>Hypothalamus（下丘脑）= 指挥官 🎖️</strong>：接到警报后，下令释放激素，调动全身资源准备战斗</p>
+    <p>• <strong>Prefrontal Cortex（前额叶皮层）= 理智的成年人 🧑‍💼</strong>：冷静分析情况，说"等等，也许不该打架"，踩住刹车</p>
+    <p>• <strong>Hippocampus（海马体）= 历史记录员 📚</strong>：记住上次打架的后果，帮助学习什么情况下该/不该攻击</p>
+    <p>• <strong>Thalamus（丘脑）= 通讯中继站 📡</strong>：把所有感觉信息传递给正确的部门</p>
+    <p><strong>⚔️ 攻击性的平衡模型：</strong></p>
+    <p><strong>杏仁核 + 下丘脑（踩油门）</strong> ↔ <strong>前额叶皮层（踩刹车）</strong></p>
+    <p>正常情况下两者平衡；如果<strong>油门太强</strong>（杏仁核过度活跃）或<strong>刹车失灵</strong>（前额叶损伤）→ 攻击性行为失控</p>
+    <p><strong>🎯 考试应用：</strong>用这个模型解释为什么青少年更容易冲动（前额叶未发育完全 = 刹车不灵）！</p>
+  </div>
+</div>
+
+<!-- SECTION 7: NEUROTRANSMITTERS -->
+<div class="section" id="s7">
+  <h2>7️⃣ Neurotransmitters and Aggression（神经递质与攻击性）</h2>
+  
+  <p><strong>Neurotransmitters（神经递质）</are chemicals that transmit signals across a synapse. Some neurotransmitters have been linked to <strong>aggressive behaviour（攻击性行为）</strong>:</p>
+  
+  <table>
+    <tr>
+      <th>Neurotransmitter（神经递质）</th>
+      <th>Function in the Body（在身体中的功能）</th>
+      <th>Effect on Aggression（对攻击性的影响）</th>
+    </tr>
+    <tr>
+      <td><strong>Acetylcholine (ACh)<br>（乙酰胆碱）</strong></td>
+      <td>
+        • Muscle contraction and movement control<br>（肌肉收缩和运动控制）<br>
+        • Memory, attention, and arousal<br>（记忆、注意力和觉醒）<br>
+        • Involved in anger emotions<br>（参与愤怒情绪）
+      </td>
+      <td>
+        <em>Less direct link to aggression</em><br>
+        （与攻击性关联较少）<br>
+        More involved in motor control
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Noradrenaline (NA)<br>（去甲肾上腺素）</strong></td>
+      <td>
+        • Emotion regulation (especially emotional control)<br>（情绪调节，特别是情绪控制）<br>
+        • Sleep and dreaming<br>（睡眠和做梦）<br>
+        • Learning and memory<br>（学习和记忆）
+      </td>
+      <td>
+        High levels may increase arousal and emotional reactivity → potential for aggression<br>
+        （高水平可能增加唤醒和情绪反应性→攻击性潜力）
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Dopamine (DA)<br>（多巴胺）</strong></td>
+      <td>
+        • Emotion, cognition, and reward<br>（情绪、认知和奖励）<br>
+        • Posture and motor control<br>（姿势和运动控制）<br>
+        • Addiction and motivation<br>（成瘾和动机）
+      </td>
+      <td>
+        <strong>High levels → Increased aggression</strong><br>
+        （高水平 → 增加攻击性）<br>
+        Increases reward value of aggressive behaviour
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Serotonin (5-HT)<br>（血清素/5-羟色胺）</strong></td>
+      <td>
+        • Emotion control (especially in limbic system)<br>（情绪控制，特别是边缘系统）<br>
+        • Pain perception, sleep, body temperature<br>（痛觉、睡眠、体温）<br>
+        • Hunger and eating behaviour<br>（饥饿和进食行为）
+      </td>
+      <td>
+        <strong>Low levels → Increased aggression ⭐</strong><br>
+        （低水平 → 增加攻击性）⭐<br>
+        Has inhibitory effect on aggression
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Glutamate<br>（谷氨酸）</strong></td>
+      <td>
+        • Motor control and reasoning<br>（运动控制和推理）<br>
+        • Decision-making<br>（决策）<br>
+        • Main excitatory neurotransmitter<br>（主要兴奋性神经递质）
+      </td>
+      <td>
+        Involved in activating neural circuits that may lead to aggression<br>
+        （参与激活可能导致攻击性的神经回路）
+      </td>
+    </tr>
+    <tr>
+      <td><strong>GABA<br>（γ-氨基丁酸）</strong></td>
+      <td>
+        • Main inhibitory neurotransmitter<br>（主要抑制性神经递质）⭐<br>
+        • Reduces anxiety, stress, and pain<br>（减少焦虑、压力和疼痛）<br>
+        • Promotes sleep and relaxation<br>（促进睡眠和放松）
+      </td>
+      <td>
+        <strong>Low levels → Increased aggression</strong><br>
+        （低水平 → 增加攻击性）<br>
+        Reduces overall brain inhibition
+      </td>
+    </tr>
+  </table>
+
+  <div class="note-box">
+    <p><strong>💡 Exam Tip: Focus on These Three for Aggression Questions（考试提示：攻击性问题重点写这三种）:</strong></p>
+    <p>While the table shows 6 neurotransmitters, Edexcel questions on aggression typically focus on:</p>
+    <ol>
+      <li><strong>Serotonin (5-HT)</strong> — Most researched; low levels = high aggression ⭐⭐⭐</li>
+      <li><strong>Dopamine</strong> — Reward/motivation role; high levels = more aggression ⭐⭐</li>
+      <li><strong>GABA</strong> — Main inhibitor; low levels = less inhibition = more aggression ⭐⭐</li>
+    </ol>
+    <p>The others (ACh, Noradrenaline, Glutamate) are important to know but are less directly linked to aggression in exam questions.</p>
+  </div>
+  
+  <div class="blue-box">
+    <h4>🔬 The Serotonin-Aggression Link: Key Research（血清素-攻击性关联：关键研究）</h4>
+    <p><strong>Studies consistently show:</strong></p>
+    <ul>
+      <li>Violent offenders have <strong>lower serotonin activity</strong> than non-violent controls（暴力犯罪者的血清素活性低于非暴力对照组）</li>
+      <li>Animals with <strong>genetically low serotonin</strong> show more aggressive behaviour（遗传性低血清素的动物表现出更多攻击性行为）</li>
+      <li><strong>SSRIs</strong> (selective serotonin reuptake inhibitors, antidepressants) can reduce irritability and aggression in some individuals（SSRIs抗抑郁药可减少某些人的易怒和攻击性）</li>
+    </ul>
+  </div>
+  
+  <div class="warn-box">
+    <h4>⚠️ Correlation vs Causation Warning（相关性与因果关系的警告）</h4>
+    <p>Most evidence is <strong>correlational（相关性）</not causal! We cannot definitively say low serotonin <strong>causes</strong> aggression because:</p>
+    <ul>
+      <li>Aggressive behaviour itself might <strong>lower serotonin levels</strong>（攻击性行为本身可能降低血清素水平）（reverse causality 反向因果）</li>
+      <li>Third variables (e.g., stress, diet, genetics) could explain both（第三变量可能同时解释两者）</li>
+      <li>Most studies use <small>non-human animals</small> — limited generalisability to humans（大多数研究使用动物，推广到人类有限）</li>
+    </ul>
+  </div>
+  
+  <!-- Exam Key Points -->
+  <div class="summary-card-header" onclick="toggleSummary(this)">
+    <span class="arrow">▶</span>
+    <span>Section 7: Neurotransmitters — Exam Key Points</span>
+    <span class="ao-badge">AO1/AO3</span>
+  </div>
+  <div class="summary-card-body">
+    <ol>
+      <li>Low Serotonin (5-HT) → ↑ Aggression（低血清素 → 增加攻击性）— inhibitory role（抑制作用）</li>
+      <li>High Dopamine → ↑ Aggression（高多巴胺 → 增加攻击性）— reward/motivation role（奖励/动机作用）</li>
+      <li>Low GABA → ↑ Aggression（低GABA → 增加攻击性）— main inhibitor（主要抑制剂）</li>
+      <li>Evidence mostly correlational — cannot prove causation（证据大多相关性，不能证明因果关系）</li>
+      <li>Issue: Reverse causality possible（问题：反向因果可能存在）</li>
+    </ol>
+  </div>
+  
+  <!-- Chinese Logic Summary -->
+  <button class="cn-summary-toggle" onclick="toggleCnSummary(this)">
+    ▶ 中文逻辑总结
+  </button>
+  <div class="cn-summary-content">
+    <p><strong>🧪 神经递质就像汽车的控制系统：</strong></p>
+    <p>• <strong>Serotonin（血清素）= 冷静剂 😌</strong>：让你保持平和，不容易冲动。水平过低 → 冷静剂不够 → 容易路怒症、打架</p>
+    <p>• <strong>Dopamine（多巴胺）= 加速燃料 ⛽</strong>：给你动力和奖励感。水平过高 → 太追求刺激 → 把打架当成"好玩的事"</p>
+    <p>• <strong>GABA = 主刹车系统 🛑</strong>：全车最重要的抑制剂。水平过低 → 刹车失灵 → 控制不住攻击冲动</p>
+    <p><strong>📊 危险组合：</strong>低血清素（冷静不足）+ 高多巴胺（追求刺激）+ 低GABA（刹车失灵）= <strong>高度攻击风险！</strong> 🚨</p>
+    <p><strong>🎯 AO3 批判要点：</strong></p>
+    <p>• 大多数研究只是<strong>相关性</strong>，不是因果关系 ❗</p>
+    <p>• 可能是<strong>反向因果</strong>：不是低血清素导致攻击，而是攻击行为降低了血清素 🔄</p>
+    <p>• 很多研究用<strong>动物</strong>，推广到人类要谨慎 🐁→🧑</p>
+    <p><strong>💡 考试答题模板：</strong>"While studies show a correlation between low serotonin and aggression, we must be cautious about claiming causation due to reverse causality issues and third variable problems..."</p>
+  </div>
+</div>
+
+<!-- SECTION 8: HORMONES AND AGGRESSION -->
+<div class="section" id="s8">
+  <h2>8️⃣ Hormones as an Explanation for Aggression（激素对攻击性的解释）</h2>
+  
+  <p><strong>Hormones（激素）</strong> are chemical messengers produced by glands that travel through the bloodstream to target organs. Two key hormones have been linked to <strong>aggressive behaviour（攻击性行为）</strong>:</p>
+
+  <h3>8.1 Testosterone（睾酮）</h3>
+
+  <div class="key-box">
+    <h4>📌 Key Term: Androgen（雄激素）</h4>
+    <p><strong>Testosterone</strong> is the primary male sex hormone (androgen). It is responsible for developing and maintaining male characteristics during puberty.（睾酮是主要的男性性激素（雄激素），负责在青春期发育和维持男性特征。）</p>
+  </div>
+
+  <h4>The Role of Testosterone in Aggression（睾酮在攻击性中的作用）</h4>
+
+  <table>
+    <tr>
+      <th>Mechanism（机制）</th>
+      <th>Explanation（解释）</th>
+    </tr>
+    <tr>
+      <td><strong>Prenatal exposure<br>（产前暴露）</strong></td>
+      <td>
+        High testosterone levels in the womb affect brain development, particularly in areas controlling aggression.<br>
+        （子宫内高睾酮水平影响大脑发育，特别是控制攻击性的区域。）<br>
+        <em>This is an <strong>organisational effect（组织化效应）</strong> — permanent changes to brain structure.</em>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Adult activation effect<br>（成人激活效应）</strong></td>
+      <td>
+        Adult testosterone levels influence aggressive behaviour by:<br>
+        • Stimulating neural circuits in the hypothalamus and amygdala（刺激下丘脑和杏仁核的神经回路）<br>
+        • Increasing dominance-seeking behaviour（增加寻求支配地位的行为）<br>
+        • Reducing fear responses（降低恐惧反应）<br>
+        <em>This is an <strong>activational effect（激活效应）</strong> — temporary changes in behaviour.</em>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Interaction with neurotransmitters<br>（与神经递质的交互作用）</strong></td>
+      <td>
+        Testosterone influences the activity of serotonin and dopamine:<br>
+        • May reduce serotonin activity → less inhibition of aggression（可能降低血清素活性 → 减少对攻击性的抑制）<br>
+        • May increase dopamine sensitivity → more reward from aggression（可能增加多巴胺敏感性 → 从攻击行为中获得更多奖励）
+      </td>
+    </tr>
+  </table>
+
+  <div class="blue-box">
+    <h4>🔬 Research Evidence: Testosterone and Aggression（睾酮与攻击性的研究证据）</h4>
+    
+    <p><strong>1. D'Andrade (1966) — Gender Differences（性别差异）</strong></p>
+    <ul>
+      <li>Found that boys had significantly higher testosterone levels than girls（发现男孩的睾酮水平显著高于女孩）</li>
+      <li>Boys also showed more physically aggressive behaviour than girls（男孩也比女孩表现出更多身体攻击性行为）</li>
+      <li><strong>Evaluation:</strong> Correlational only; cannot prove causation（仅相关性，不能证明因果关系）</li>
+    </ul>
+
+    <p><strong>2. Mazur (1983) — Puberty and Fighting（青春期与打架）</strong></p>
+    <ul>
+      <li>Studied adolescent males during puberty（研究青春期男性）</li>
+      <li>Found testosterone levels increased significantly during puberty（发现青春期睾酮水平显著升高）</li>
+      <li>This increase correlated with increased fighting behaviour（这种升高与打架行为增加相关）</li>
+      <li><strong>Evaluation:</strong> Supports link but other factors (social pressure, peer influence) also play a role（支持关联，但其他因素也起作用）</li>
+    </ul>
+
+    <p><strong>3. Hawke (1951) — Castration Study（阉割研究）</strong></p>
+    <ul>
+      <li>Compared reoffending rates of castrated vs non-castrated offenders（比较阉割与非阉割罪犯的再犯率）</li>
+      <li>Castrated offenders: <strong>3% reoffended</strong>（阉割罪犯：3%再犯）</li>
+      <li>Non-castrated offenders: <strong>46% reoffended</strong>（非阉割罪犯：46%再犯）</li>
+      <li><strong>Evaluation:</strong> Strong evidence for causal role, but highly unethical today（强因果证据，但今天极不道德）</li>
+    </ul>
+
+    <p><strong>4. Reinhard Wille & Klaus Beier (1989) — Voluntary Castration（自愿阉割）</strong></p>
+    <ul>
+      <li>Studied men who voluntarily chose castration to control sexual aggression（研究自愿选择阉割以控制性攻击行为的男性）</li>
+      <li>Reoffending rate dropped dramatically after castration（阉割后再犯率急剧下降）</li>
+      <li>However, some participants still showed some aggressive tendencies（然而，一些参与者仍表现出某些攻击倾向）</li>
+      <li><strong>Evaluation:</strong> Suggests testosterone is not the ONLY factor（表明睾酮不是唯一因素）</li>
+    </ul>
+  </div>
+
+  <h3>8.2 Cortisol（皮质醇）</h3>
+
+  <div class="key-box">
+    <h4>📌 Key Term: Stress Hormone（压力激素）</h4>
+    <p><strong>Cortisol</strong> is known as the "stress hormone" because it is released by the adrenal glands in response to stress. It plays a crucial role in the body's fight-or-flight response.（皮质醇被称为"压力激素"，因为它由肾上腺在应对压力时释放。它在身体的战斗或逃跑反应中起关键作用。）</p>
+  </div>
+
+  <h4>The Role of Cortisol in Aggression（皮质醇在攻击性中的作用）</h4>
+
+  <table>
+    <tr>
+      <th>Cortisol Level（皮质醇水平）</th>
+      <th>Effect on Behaviour（对行为的影响）</th>
+      <th>Link to Aggression（与攻击性的关联）</th>
+    </tr>
+    <tr>
+      <td><strong>High cortisol<br>（高皮质醇）</strong></td>
+      <td>
+        • Promotes calmness and caution（促进冷静和谨慎）<br>
+        • Enhances fear response（增强恐惧反应）<br>
+        • Reduces risk-taking behaviour（减少冒险行为）
+      </td>
+      <td>
+        <strong>↓ Decreases aggression</strong><br>
+        （减少攻击性）<br>
+        People with high cortisol tend to avoid conflict
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Low cortisol<br>（低皮质醇）</strong></td>
+      <td>
+        • Reduces fear response（降低恐惧反应）<br>
+        • Increases sensation-seeking（增加寻求刺激）<br>
+        • Reduces inhibition of impulsive behaviour（减少对冲动行为的抑制）
+      </td>
+      <td>
+        <strong>↑ Increases aggression</strong><br>
+        （增加攻击性）<br>
+        People with low cortisol are more likely to act impulsively
+      </td>
+    </tr>
+  </table>
+
+  <div class="blue-box">
+    <h4>🔬 Research Evidence: Cortisol and Aggression（皮质醇与攻击性的研究证据）</h4>
+
+    <p><strong>James Dabbs et al. (1991) — The Interaction Effect（交互效应）</strong></p>
+    <ul>
+      <li>Studied cortisol and testosterone levels in prisoners（研究囚犯的皮质醇和睾酮水平）</li>
+      <li>Found that <strong>low cortisol + high testosterone</strong> was associated with the most aggressive prisoners（发现<strong>低皮质醇 + 高睾酮</strong>与最具攻击性的囚犯相关）</li>
+      <li>Suggested that cortisol may <strong>moderate（调节）</strong> the effects of testosterone on aggression（表明皮质醇可能调节睾酮对攻击性的影响）</li>
+      <li><strong>Evaluation:</strong> Important finding about hormone interactions（关于激素交互作用的重要发现）</li>
+    </ul>
+
+    <p><strong>Popma et al. (2007) — Adolescent Aggression（青少年攻击性）</strong></p>
+    <ul>
+      <li>Found that adolescents with disruptive behaviour disorders had lower cortisol levels（发现行为障碍青少年的皮质醇水平较低）</li>
+      <li>Lower cortisol predicted more aggressive acts over time（较低的皮质醇预测随时间推移更多的攻击行为）</li>
+      <li><strong>Evaluation:</strong> Longitudinal design strengthens causal claims（纵向设计加强因果主张）</li>
+    </ul>
+  </div>
+
+  <div class="warn-box">
+    <h4>⚠️ AO3 Evaluation: Hormonal Explanations of Aggression（激素解释的评估）</h4>
+    
+    <p><strong>✅ Strengths（优势）:</strong></p>
+    <ol>
+      <li><strong>Strong empirical support（强有力的实证支持）:</strong> Multiple studies consistently show correlations between hormones and aggression（多项研究一致显示激素与攻击性的相关性）</li>
+      <li><strong>Causal evidence from animal studies（来自动物研究的因果证据）:</strong> Castration/injection studies can demonstrate causality in controlled settings（阉割/注射研究可在受控环境中证明因果关系）</li>
+      <li><strong>Explains gender differences（解释性别差异）:</strong> Males have higher testosterone and show more physical aggression than females（男性睾酮更高，表现更多身体攻击性）</li>
+      <li><strong>Real-world applications（实际应用）:</strong> Understanding hormonal influences can inform treatment interventions（理解激素影响可以指导治疗干预）</li>
+    </ol>
+
+    <p><strong>❌ Limitations（局限性）:</strong></p>
+    <ol>
+      <li><strong>Correlation ≠ Causation（相关性≠因果关系）:</strong> Most human studies are correlational; we cannot definitively say hormones cause aggression（大多数人类研究是相关的；不能确定地说激素导致攻击性）</li>
+      <li><strong>Reductionism（还原论）:</strong> Oversimplifies complex behaviour by focusing only on biological factors; ignores social, cognitive, and environmental influences（通过只关注生物因素过度简化复杂行为；忽略社会、认知和环境因素）</li>
+      <li><strong>Determinism（决定论）:</strong> Suggests behaviour is biologically determined, ignoring free will and personal responsibility（暗示行为由生物决定，忽略自由意志和个人责任）</li>
+      <li><strong>Ethical issues（伦理问题）:</strong> Human castration studies are highly unethical; animal research raises welfare concerns（人类阉割研究高度不道德；动物研究引起福利担忧）</li>
+      <li><strong>Individual differences（个体差异）:</strong> Not everyone with high testosterone is aggressive; not everyone with low cortisol is violent（不是每个高睾酮的人都具有攻击性；不是每个低皮质醇的人都有暴力倾向）</li>
+      <li><strong>Social control concerns（社会控制担忧）:</strong> Could be used to justify extreme measures like chemical castration as punishment（可用于将化学阉割等极端措施作为惩罚的理由）</li>
+    </ol>
+  </div>
+
+  <!-- Exam Key Points -->
+  <div class="summary-card-header" onclick="toggleSummary(this)">
+    <span class="arrow">▶</span>
+    <span>Section 8: Hormones — Exam Key Points</span>
+    <span class="ao-badge">AO1/AO3</span>
+  </div>
+  <div class="summary-card-body">
+    <ol>
+      <li>Testosterone = primary male androgen（睾酮 = 主要雄激素）— organisational + activational effects（组织化 + 激活效应）</li>
+      <li>High testosterone → ↑ aggression via hypothalamus/amygdala stimulation（高睾酮 → 通过刺激下丘脑/杏仁核增加攻击性）</li>
+      <li>Cortisol = stress hormone（皮质醇 = 压力激素）— high = calm/cautious, low = impulsive/aggressive（高=冷静/谨慎，低=冲动/攻击性）</li>
+      <li>Key interaction: Low cortisol + high testosterone = highest aggression risk（关键交互：低皮质醇+高睾酮=最高攻击风险）</li>
+      <li>Research support: D'Andrade (1966), Mazur (1983), Hawke (1951), Dabbs (1991)</li>
+      <li>AO3 strengths: empirical support, causal animal evidence, explains gender differences</li>
+      <li>AO3 limitations: correlation ≠ causation, reductionism, determinism, ethical issues</li>
+    </ol>
+  </div>
+
+  <!-- Chinese Logic Summary -->
+  <button class="cn-summary-toggle" onclick="toggleCnSummary(this)">
+    ▶ 中文逻辑总结
+  </button>
+  <div class="cn-summary-content">
+    <p><strong>💊 激素就像汽车的"油门"和"刹车系统"：</strong></p>
+    <p>• <strong>Testosterone（睾酮）= 油门 ⛽</strong>：让你更有力量、更想支配、更少恐惧。产前暴露改变大脑结构（永久），成年后激活攻击行为（临时）</p>
+    <p>• <strong>Cortisol（皮质醇）= 刹车 🛑</strong>：压力大时分泌，让你保持冷静谨慎。水平过低 → 刹车失灵 → 容易冲动攻击</p>
+    <p><strong>🎯 最危险的组合：</strong></p>
+    <p><strong>高睾酮（踩死油门）+ 低皮质醇（刹车失灵）= 极度危险！🚨</strong></p>
+    <p>这就是为什么 Dabbs (1991) 发现最暴力的罪犯都是这个组合！</p>
+    <p><strong>💡 类比记忆：</strong></p>
+    <p>• 睾酮 = 赛车的引擎马力（越大越猛）</p>
+    <p>• 皮质醇 = 刹车系统灵敏度（越低越难控制）</p>
+    <p>• 攻击性 = 车速（马力大 + 刹车差 = 超速飙车 🏎️💨）</p>
+    <p><strong>⚠️ AO3 批判要点：</strong></p>
+    <p>• 大多数研究只是<strong>相关性</strong>（不能证明因果关系）❗</p>
+    <p>• <strong>还原论</strong>：把复杂行为简化为激素，忽略社会/认知因素 ❗</p>
+    <p>• <strong>决定论</strong>：暗示人无法控制自己的行为 ❗</p>
+    <p>• <strong>伦理问题</strong>：人类阉割研究违反伦理 ❗</p>
+    <p><strong>🎯 考试答题模板：</strong>"Hormonal explanations offer strong empirical support through consistent correlations between testosterone/cortisol and aggression. However, these explanations face criticism for being reductionist (ignoring social factors), deterministic (removing personal responsibility), and based primarily on correlational evidence..."</p>
+  </div>
+</div>
+
+<!-- SECTION 9: GENETICS AND AGGRESSION -->
+<div class="section" id="s9">
+  <h2>9️⃣ Genetics as an Explanation for Aggression（基因对攻击性的解释）</h2>
+
+  <p><strong>Genetics（遗传学）</strong> explores whether aggressive behaviour can be inherited or influenced by our genes. Researchers use several methods to investigate this relationship:</p>
+
+  <h3>9.1 Twin Studies（双生子研究）</h3>
+
+  <div class="key-box">
+    <h4>📌 Key Term: Twin Study Methodology（双生子研究方法）</h4>
+    <p>Twin studies compare the similarity (<strong>concordance rate 一致率</strong>) of <strong>MZ twins（同卵双生子，100% 相同基因）</strong> versus <strong>DZ twins（异卵双生子，50% 相同基因）</strong>. If MZ twins are more similar in aggression than DZ twins, this suggests a genetic component.（如果同卵双生子的攻击性比异卵双生子更相似，这表明存在遗传成分。）</p>
+  </div>
+
+  <h4>Table 15.2: Key Twin Studies on Aggression（攻击性的关键双生子研究）</h4>
+
+  <table>
+    <tr>
+      <th>Study（研究）</th>
+      <th>Method（方法）</th>
+      <th>MZ Correlation<br>（同卵相关系数）</th>
+      <th>DZ Correlation<br>（异卵相关系数）</th>
+      <th>Conclusion（结论）</th>
+    </tr>
+    <tr>
+      <td><strong>Boston twin study<br>(Scarr, 1966)</strong></td>
+      <td>Parent ratings<br>（父母评分）</td>
+      <td><strong>0.35</strong></td>
+      <td>-0.08</td>
+      <td>MZ > DZ suggests genetic influence（MZ>DZ提示遗传影响）</td>
+    </tr>
+    <tr>
+      <td><strong>California twin study<br>(Rhee, 1978)</strong></td>
+      <td>Self-report<br>（自评）</td>
+      <td><strong>0.31</strong></td>
+      <td>0.21</td>
+      <td>Modest genetic component（适度的遗传成分）</td>
+    </tr>
+    <tr>
+      <td><strong>London twin study<br>(Rushton, 1986)</strong></td>
+      <td>Self-report<br>（自评）</td>
+      <td><strong>0.40</strong></td>
+      <td>0.04</td>
+      <td>Strong genetic influence（强烈的遗传影响）</td>
+    </tr>
+    <tr>
+      <td><strong>Swedish twin study<br>(Eley, 1999)</strong></td>
+      <td>Parent ratings<br>（父母评分）</td>
+      <td><strong>0.82</strong></td>
+      <td>0.45</td>
+      <td>Very strong genetic component（非常强的遗传成分）</td>
+    </tr>
+    <tr>
+      <td><strong>Canadian twin study<br>(Dionne, 2003)</strong></td>
+      <td>Parent ratings<br>（父母评分）</td>
+      <td><strong>0.73</strong></td>
+      <td>0.24</td>
+      <td>Consistent with ~50% heritability（一致约50%遗传率）</td>
+    </tr>
+  </table>
+
+  <div class="note-box">
+    <p><strong>💡 Overall Conclusion from Twin Studies（双生子研究的总体结论）:</strong></p>
+    <p>All five studies show <strong>MZ correlation > DZ correlation</strong>, indicating that <strong>aggression has a genetic component（攻击性有遗传成分）</strong>.</p>
+    <p>Meta-analyses suggest approximately <strong>50% heritability（约50%遗传率）</strong> for aggressive behaviour — meaning about half of the variation in aggression can be explained by genetic differences.（荟萃分析表明攻击性约50%可归因于遗传——意味着约一半的攻击性变异可用遗传差异解释。）</p>
+  </div>
+
+  <h3>9.2 The MAOA Gene（MAOA 基因 — "Warrior Gene" 战士基因）</h3>
+
+  <div class="key-box">
+    <h4>📌 Key Term: MAOA (Monoamine Oxidase A)（单胺氧化酶A）</h4>
+    <p>The <strong>MAOA gene</strong> codes for an enzyme that breaks down (<strong>metabolises 分解</strong>) neurotransmitters including dopamine, serotonin, and noradrenaline in the brain.（MAOA 基因编码一种酶，分解大脑中的多巴胺、血清素和去甲肾上腺素等神经递质。）</p>
+  </div>
+
+  <h4>The MAOA-L Variant（MAOA-L 低活性变异型）</h4>
+
+  <p>Some people have a variant of the MAOA gene called <strong>MAOA-L (Low Activity 低活性)</strong>:</p>
+
+  <table>
+    <tr>
+      <th>Characteristic（特征）</th>
+      <th>Effect（效应）</th>
+    </tr>
+    <tr>
+      <td><strong>Enzyme efficiency（酶效率）</strong></td>
+      <td>MAOA-L produces a less efficient enzyme that breaks down neurotransmitters more slowly（产生效率较低的酶，分解神经递质更慢）</td>
+    </tr>
+    <tr>
+      <td><strong>Neurotransmitter levels（神经递质水平）</strong></td>
+      <td>Results in higher levels of dopamine, serotonin, and noradrenaline in the brain（导致大脑中多巴胺、血清素和去甲肾上腺素水平较高）</td>
+    </tr>
+    <tr>
+      <td><strong>Behavioural outcome（行为结果）</strong></td>
+      <td>Associated with increased impulsivity and aggressive behaviour（与增加的冲动性和攻击性行为相关）</td>
+    </tr>
+  </table>
+
+  <div class="blue-box">
+    <h4>🔬 Key Research: MAOA and Aggression（MAOA 与攻击性的关键研究）</h4>
+
+    <p><strong>1. Brunner et al. (1993) — The Dutch Family Study（荷兰家族研究）⭐</strong></p>
+    <ul>
+      <li>Studied a large Dutch family where many male relatives had a history of <strong>violent criminal behaviour（暴力犯罪行为）</strong></li>
+      <li>Found all affected males had a <strong>mutation in the MAOA gene</strong>（发现所有受影响男性都有MAOA基因突变）</li>
+      <li>This mutation produced a <strong>non-functional enzyme</strong>（产生无功能酶）</li>
+      <li>Behaviour included impulsive aggression, arson, and attempted rape（行为包括冲动纵火和强奸未遂）</li>
+      <li><strong>Evaluation:</strong> Strong evidence for genetic basis of aggression, but only one family studied（强遗传基础证据，但只研究了一个家族）</li>
+    </ul>
+
+    <p><strong>2. Caspi et al. (2002) — Gene × Environment Interaction（基因×环境交互）⭐⭐</strong></p>
+    <ul>
+      <li>Followed 1,037 children from birth to age 26（从出生跟踪到26岁）</li>
+      <li>Measured: MAOA gene type + childhood maltreatment（测量：MAOA基因类型+童年虐待）</li>
+      <li><strong>Key Finding:</strong></li>
+    </ul>
+
+    <div style="background:#fff3cd;border-left:4px solid #ffc107;padding:12px;margin:10px 0;border-radius:6px;">
+      <p><strong>🔑 Critical Discovery（关键发现）:</strong></p>
+      <p>• <strong>MAOA-L + Childhood maltreatment</strong> → <strong style="color:#dc2626;">HIGH risk of antisocial behaviour</strong>（高风险反社会行为）</p>
+      <p>• <strong>MAOA-L + No maltreatment</strong> → <strong style="color:#16a34a;">NORMAL behaviour</strong>（正常行为）</p>
+      <p>• <strong>Normal MAOA + Maltreatment</strong> → <strong style="color:#f59e0b;">MODERATE risk</strong>（中等风险）</p>
+      <p><em>This shows genes alone are NOT enough — environment matters!（这表明单靠基因不够——环境很重要！）</em></p>
+    </div>
+
+    <ul>
+      <li><strong>Evaluation:</strong> Landmark study demonstrating nature-nurture interaction（展示先天-后天交互的里程碑式研究）</li>
+      <li>Challenges simple genetic determinism（挑战简单的遗传决定论）</li>
+    </ul>
+  </div>
+
+  <h3>9.3 XYY Syndrome（XYY 综合征）</h3>
+
+  <div class="key-box">
+    <h4>📌 Key Term: XYY Syndrome（XYY 综合征）</h4>
+    <p><strong>XYY Syndrome</strong> is a genetic condition where males have an extra Y chromosome (47 chromosomes instead of the usual 46, genotype XYY instead of XY).（XYY 综合征是一种遗传状况，男性多一条Y染色体（47条而非通常的46条，基因型XYY而非XY）。）</p>
+    <p><strong>Prevalence（患病率）:</strong> Approximately <strong>1 in 1000 male births</strong>（约每1000名男性婴儿中有1例）</p>
+  </div>
+
+  <h4>XYY Syndrome Characteristics and Aggression Link（XYY 综合征特征与攻击性关联）</h4>
+
+  <table>
+    <tr>
+      <th>Characteristic（特征）</th>
+      <th>Description（描述）</th>
+    </tr>
+    <tr>
+      <td><strong>Physical features<br>（身体特征）</strong></td>
+      <td>
+        • Tall stature（身材高大）<br>
+        • Severe acne in adolescence（青春期严重痤疮）<br>
+        • Possible skeletal abnormalities（可能的骨骼异常）
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Cognitive/behavioural features<br>（认知/行为特征）</strong></td>
+      <td>
+        • Language development delay（语言发育延迟）<br>
+        • Learning difficulties（学习困难）<br>
+        • Behavioural problems（行为问题）<br>
+        • Sometimes impulsive or aggressive（有时冲动或攻击性）
+      </td>
+    </tr>
+  </table>
+
+  <div class="blue-box">
+    <h4>🔬 Research Evidence: XYY and Aggression（XYY 与攻击性的研究证据）</h4>
+
+    <p><strong>1. Patricia Jacobs (1961) — Prisoner Screening（囚犯筛查）⭐</strong></p>
+    <ul>
+      <li>Screened chromosomes of male patients in a high-security mental hospital（筛查高安全性精神医院男性患者的染色体）</li>
+      <li>Found <strong>3% had XYY syndrome</strong>（发现3%患有XYY综合征）</li>
+      <li>This was much higher than the general population rate (~0.1%)（远高于一般人群比率~0.1%）</li>
+      <li>Many were incarcerated for <strong>violent or sexual crimes</strong>（许多因暴力或性犯罪被监禁）</li>
+      <li><strong>Evaluation:</strong> Suggested link between XYY and crime, but sample biased (mental hospital)（提示XYY与犯罪的联系，但样本有偏差）</li>
+    </ul>
+
+    <p><strong>2. Alice Theilgaard (1984) — Population Study（人群研究）</strong></p>
+    <ul>
+      <li>Studied larger sample of XYY men identified at birth（研究更大样本的在出生时识别的XYY男性）</li>
+      <li>Found XYY men showed <strong>slightly higher rates of criminal behaviour</strong>（发现XYY男性犯罪率略高）</li>
+      <li>But difference was <strong>not dramatic</strong>（但差异并不显著）</li>
+      <li>Most XYY men led normal, law-abiding lives（大多数XYY男性过着正常守法的生活）</li>
+      <li><strong>Evaluation:</strong> Weakens the XYY-aggression link; most XYY men are NOT aggressive（削弱XYY-攻击性联系；大多数XYY男性不具有攻击性）</li>
+    </ul>
+
+    <div class="warn-box">
+      <h4>⚠️ Critical Evaluation of XYY Theory（XYY 理论的批判性评估）</h4>
+      <p><strong>The XYY theory of aggression is now considered WEAK because:</strong>（XYY攻击性理论现在被认为很弱，因为：）</p>
+      <ol>
+        <li><strong>Most XYY men are NOT violent（大多数XYY男性不暴力）</strong>: Only a small minority show aggressive behaviour（只有少数表现出攻击性行为）</li>
+        <li><strong>Correlation ≠ Causation（相关性≠因果关系）</strong>: Having an extra Y chromosome doesn't directly cause aggression（多一条Y染色体不会直接导致攻击性）</li>
+        <li><strong>Confounding variables（混淆变量）</strong>: XYY men often face stigma, learning difficulties, and social challenges that could explain behaviour（XYY男性常面临污名化、学习困难和社会挑战，这些可能解释行为）</li>
+        <li><strong>Small sample sizes（小样本量）</strong>: XYY is rare, making it hard to draw firm conclusions（XYY罕见，难以得出明确结论）</li>
+      </ol>
+    </div>
+  </div>
+
+  <h3>9.4 Adoption Studies（收养研究）</h3>
+
+  <p><strong>Adoption studies（收养研究）</strong> compare adopted children's behaviour with both their <strong>biological parents（亲生父母，提供基因）</strong> and their <strong>adoptive parents（养父母，提供环境）</strong>:</p>
+
+  <div class="blue-box">
+    <h4>🔬 Hutchings & Mednick (1975) — Danish Adoption Study（丹麦收养研究）</h4>
+    <ul>
+      <li>Studied sons whose biological fathers had criminal records（研究生父有犯罪记录的儿子）</li>
+      <li>Compared those adopted into non-criminal homes vs controls（比较被收养到非犯罪家庭与对照组）</li>
+      <li><strong>Finding:</strong> Sons with criminal biological fathers had <strong>higher rates of criminality</strong> even when raised in good homes（即使成长在良好家庭，生父有犯罪记录的儿子犯罪率更高）</li>
+      <li><strong>Conclusion:</strong> Supports genetic influence on antisocial/aggressive behaviour（支持遗传对反社会/攻击性行为的影响）</li>
+      <li><strong>Evaluation:</strong> Classic adoption study design; strong evidence for genetic component（经典收养研究设计；强遗传成分证据）</li>
+    </ul>
+  </div>
+
+  <div class="warn-box">
+    <h4>⚠️ AO3 Evaluation: Genetic Explanations of Aggression（基因解释的评估）</h4>
+
+    <p><strong>✅ Strengths（优势）:</strong></p>
+    <ol>
+      <li><strong>Consistent findings across methods（跨方法的一致发现）:</strong> Twin, adoption, and molecular genetics studies all support genetic influence（双生子、收养和分子遗传学研究都支持遗传影响）</li>
+      <li><strong>Scientific credibility（科学可信度）:</strong> Uses objective, measurable biological data (genes, chromosomes)（使用客观可测量的生物数据）</li>
+      <li><strong>Nature-nurture interaction evidence（先天-后天交互证据）:</strong> Caspi (2002) shows genes need environmental triggers（Caspi 2002 表明基因需要环境触发因素）</li>
+      <li><strong>Practical applications（实际应用）:</strong> Could lead to targeted interventions for at-risk individuals（可能导致针对高危个体的干预措施）</li>
+    </ol>
+
+    <p><strong>❌ Limitations（局限性）:</strong></p>
+    <ol>
+      <li><strong>Biological determinism（生物决定论）:</strong> Suggests behaviour is genetically determined, removing free will and personal responsibility（暗示行为由遗传决定，消除自由意志和个人责任）</li>
+      <li><strong>Could be used as legal defence（可作为法律辩护）:</strong> "My genes made me do it" argument（"我的基因让我这样做"的论点）</li>
+      <li><strong>Reductionism（还原论）:</strong> Complex behaviour reduced to single genes or chromosomes（复杂行为简化为单个基因或染色体）</li>
+      <li><strong>Ignoring environmental factors（忽略环境因素）:</strong> Social learning, culture, parenting, poverty also strongly influence aggression（社会学习、文化、教养、贫困也强烈影响攻击性）</li>
+      <li><strong>Individual differences（个体差异）:</strong> Not everyone with "aggressive genes" becomes aggressive（并非每个有"攻击性基因"的人都变得具有攻击性）</li>
+      <li><strong>Cultural bias（文化偏见）:</strong> Most studies conducted in Western, individualistic cultures（大多数研究在西方个人主义文化中进行）</li>
+      <li><strong>Ethical concerns（伦理担忧）:</strong> Genetic screening could lead to discrimination or stigmatization（基因筛查可能导致歧视或污名化）</li>
+    </ol>
+  </div>
+
+  <!-- Exam Key Points -->
+  <div class="summary-card-header" onclick="toggleSummary(this)">
+    <span class="arrow">▶</span>
+    <span>Section 9: Genetics — Exam Key Points</span>
+    <span class="ao-badge">AO1/AO3</span>
+  </div>
+  <div class="summary-card-body">
+    <ol>
+      <li>Twin studies: MZ correlation > DZ correlation → ~50% heritability（双生子研究：MZ相关>DZ相关→约50%遗传率）</li>
+      <li>MAOA gene codes for enzyme that breaks down neurotransmitters（MAOA基因编码分解神经递质的酶）</li>
+      <li>MAOA-L variant = low activity → high neurotransmitter levels → impulsivity/aggression（MAOA-L低活性→高递质水平→冲动/攻击性）</li>
+      <li>Brunner (1993): Dutch family with MAOA mutation → violent behaviour（Brunner 1993: 荷兰家族MAOA突变→暴力行为）</li>
+      <li>Caspi (2002): MAOA-L + maltreatment = high risk; MAOA-L alone = normal（Caspi 2002: MAOA-L+虐待=高风险; 单独MAOA-L=正常）</li>
+      <li>XYY syndrome: extra Y chromosome (~1/1000 males) → weak link to aggression（XYY: 多一条Y染色体→与攻击性弱关联）</li>
+      <li>Jacobs (1961): 3% XYY in mental hospital prisoners; Theilgaard (1984): most XYY men normal</li>
+      <li>AO3 strengths: consistent evidence, scientific credibility, practical applications</li>
+      <li>AO3 limitations: determinism, reductionism, ignores environment, ethical concerns</li>
+    </ol>
+  </div>
+
+  <!-- Chinese Logic Summary -->
+  <button class="cn-summary-toggle" onclick="toggleCnSummary(this)">
+    ▶ 中文逻辑总结
+  </button>
+  <div class="cn-summary-content">
+    <p><strong>🧬 基因对攻击性的解释——三把"遗传钥匙"：</strong></p>
+    
+    <p><strong>🔑 钥匙1：双生子研究（对比实验法）</strong></p>
+    <p>• 同卵双生子（MZ）：基因100%相同 → 如果都攻击性强 → 遗传因素大</p>
+    <p>• 异卵双生子（DZ）：基因50%相同 → 相关性应该较低</p>
+    <p>• <strong>结论</strong>：5个研究全部显示 MZ > DZ → <strong>约50%遗传率</strong></p>
+    <p>• 💡 记忆口诀：<strong>"MZ always beats DZ"</strong>（同卵总是胜过异卵）</p>
+
+    <p><strong>🔑 钥匙2：MAOA基因（"战士基因"）</strong></p>
+    <p>• 正常MAOA：像高效的清洁工🧹，及时清理多巴胺/血清素/去甲肾上腺素</p>
+    <p>• MAOA-L变异：清洁工偷懒😴 → 递质堆积 → 冲动+攻击性 ↑</p>
+    <p>• Brunner (1993)：荷兰家族全男性暴力犯罪 + MAOA突变</p>
+    <p>• ⭐ <strong>Caspi (2002) 的关键发现</strong>：</p>
+    <p>  - MAOA-L + 童年虐待 = 🔴 高风险反社会</p>
+    <p>  - MAOA-L + 幸福童年 = 🟢 完全正常</p>
+    <p>  - <strong>启示：基因不是命运！环境才是触发器！</strong></p>
+
+    <p><strong>🔑 钥匙3：XYY综合征（已被证伪的理论）</strong></p>
+    <p>• 正常男性：XY（46条染色体）</p>
+    <p>• XYY男性：多一条Y染色体（47条）→ 身材高大、学习困难</p>
+    <p>• Jacobs (1961)：监狱中3%有XYY（高于一般人群）</p>
+    <p>• ❌ <strong>但是！Theilgaard (1984)：大多数XYY男性完全正常！</strong></p>
+    <p>• <strong>结论：XYY理论太弱，考试不要重点写！</strong></p>
+
+    <p><strong>⚔️ AO3 辩论战场：</strong></p>
+    <p><strong>正方（支持遗传）：</strong></p>
+    <p>• ✅ 双生子/收养/分子研究证据一致</p>
+    <p>• ✅ 科学客观（基因数据可测量）</p>
+    <p>• ✅ Caspi 2002 展示了基因×环境的精妙交互</p>
+    <p><strong>反方（批评遗传）：</strong></p>
+    <p>• ❌ <strong>决定论</strong>："基因让我做的"→ 逃避责任</p>
+    <p>• ❌ <strong>还原论</strong>：复杂行为简化为一个基因</p>
+    <p>• ❌ 忽略环境（贫穷、教养、文化都很重要）</p>
+    <p>• ❌ 伦理问题（基因筛查→歧视？污名化？）</p>
+
+    <p><strong>🎯 考试高分策略：</strong></p>
+    <p>1. 先写<strong>双生子研究</strong>（证明遗传成分存在）</p>
+    <p>2. 重点写<strong>MAOA基因</strong>（特别是Caspi 2002的交互作用）⭐⭐⭐</p>
+    <p>3. 提及<strong>XYY但说明其弱点</strong>（显示批判思维）</p>
+    <p>4. AO3要平衡：写完优势后立即用"But..."转折到局限</p>
+    <p>5. <strong>金句结尾</strong>："While genetics provides a partial explanation, aggression is best understood as a complex interplay of biological predispositions and environmental triggers."（虽然遗传提供了部分解释，但攻击性最好理解为生物倾向和环境触发的复杂交互。）</p>
+  </div>
+</div>
+
+<!-- SECTION 10: WIDER ISSUES AND DEBATES -->
+<div class="section" id="s10">
+  <h2>🔟 Wider Issues and Debates in Biological Psychology（生物心理学的广泛议题与辩论）</h2>
+
+  <p>When evaluating biological explanations of aggression, you should consider these key debates（评估生物解释时应考虑这些关键辩论）:</p>
+
+  <h3>10.1 Reductionism vs Holism（还原论 vs 整体论）</h3>
+
+  <div class="debate-box">
+    <h4>🔄 The Debate（辩论）</h4>
+    <table>
+      <tr>
+        <th style="background:#dc2626;color:white;width:50%;">Reductionism（还原论）</th>
+        <th style="background:#16a34a;color:white;width:50%;">Holism（整体论）</th>
+      </tr>
+      <tr>
+        <td>
+          <strong>Definition:</strong> Explains complex phenomena by breaking them down into simpler components（通过将复杂现象分解为更简单的组成部分来解释）<br><br>
+          <strong>In Topic C:</strong><br>
+          • Aggression → just neurotransmitters（攻击性→仅仅是神经递质）<br>
+          • Brain function → just one area（大脑功能→仅仅一个区域）<br>
+          • Behaviour → just genes/hormones（行为→仅仅是基因/激素）
+        </td>
+        <td>
+          <strong>Definition:</strong> Considers all levels of explanation together（综合考虑所有层次的解释）<br><br>
+          <strong>In Topic C:</strong><br>
+          • Aggression = biology + psychology + society（攻击性=生物学+心理学+社会学）<br>
+          • Multiple factors interact（多个因素交互）<br>
+          • Cannot understand parts without understanding whole（不理解整体就无法理解部分）
+        </td>
+      </tr>
+    </table>
+
+    <p><strong>💡 Evaluation Point（评估要点）:</strong></p>
+    <p>Biological explanations are <strong>reductionist</strong> because they simplify complex aggressive behaviour to hormones, genes, or brain structures. While this allows for scientific measurement and objective research, it <strong>ignores important cognitive, social, and cultural factors</strong> that also influence aggression.（生物解释是还原论的，因为它们将复杂的攻击性行为简化为激素、基因或脑结构。虽然这允许科学测量和客观研究，但它忽略了同样影响攻击性的重要认知、社会和文化因素。）</p>
+  </div>
+
+  <h3>10.2 Determinism vs Free Will（决定论 vs 自由意志）</h3>
+
+  <div class="debate-box">
+    <h4>⚖️ The Debate（辩论）</h4>
+    <table>
+      <tr>
+        <th style="background:#dc2626;color:white;width:50%;">Determinism（决定论）</th>
+        <th style="background:#16a34a;color:white;width:50%;">Free Will（自由意志）</th>
+      </tr>
+      <tr>
+        <td>
+          <strong>Definition:</strong> All behaviour has causes that can be determined; no true free will（所有行为都有可确定的原因；没有真正的自由意志）<br><br>
+          <strong>Types in Topic C:</strong><br>
+          • <strong>Biological determinism</strong>: Genes/hormones determine behaviour（生物决定论：基因/激素决定行为）<br>
+          • <strong>Hard determinism</strong>: Completely predetermined（硬决定论：完全预定的）<br>
+          • <strong>Soft determinism</strong>: Influenced but not completely determined（软决定论：受影响但不完全预定）
+        </td>
+        <td>
+          <strong>Definition:</strong> Individuals have genuine choice and control over their actions（个人对其行为有真正的选择和控制权）<br><br>
+          <strong>Arguments for free will:</strong><br>
+          • People can resist biological impulses（人们可以抵抗生物冲动）<br>
+          • Rehabilitation programmes work（康复计划有效）<br>
+          • Moral responsibility requires free will（道德责任需要自由意志）
+        </td>
+      </tr>
+    </table>
+
+    <p><strong>⚠️ Implications of Determinism（决定论的隐含意义）:</strong></p>
+    <ul>
+      <li><strong>Legal defence（法律辩护）:</strong> "My genes made me do it" — could reduce criminal responsibility（"我的基因让我这样做"——可能减轻刑事责任）</li>
+      <li><strong>Treatment implications（治疗意义）:</strong> If determined, focus on medical intervention rather than punishment（如果被决定，侧重医疗干预而非惩罚）</li>
+      <li><strong>Social control concerns（社会控制担忧）:</strong> Could justify coercive treatments like chemical castration（可为化学阉割等强制治疗辩解）</li>
+    </ul>
+  </div>
+
+  <h3>10.3 Nature vs Nurture（先天 vs 后天）</h3>
+
+  <div class="debate-box">
+    <h4>🧬🌱 The Interactionist View（交互主义观点）⭐</h4>
+    <p><strong>Modern psychology rejects the nature OR nurture debate in favour of nature AND nurture interaction.</strong>（现代心理学拒绝先天或后天的辩论，转而支持先天与后天的交互。）</p>
+
+    <p><strong>Key Example: Caspi et al. (2002) MAOA Study（关键案例：Caspi 2002 MAOA研究）</strong></p>
+    <div style="background:#e0f2fe;border-left:4px solid #0284c7;padding:15px;margin:15px 0;border-radius:8px;">
+      <p><strong>🔬 Diathesis-Stress Model（素质-压力模型）:</strong></p>
+      <p>• <strong>Diathesis（素质/易感性）:</strong> MAOA-L gene (genetic vulnerability)（MAOA-L基因，遗传易感性）</p>
+      <p>• <strong>Stress（压力/触发因素）:</strong> Childhood maltreatment (environmental trigger)（童年虐待，环境触发因素）</p>
+      <p>• <strong>Outcome（结果）:</strong> Antisocial behaviour ONLY when BOTH present（反社会行为仅在两者同时存在时出现）</p>
+      <p><em>This is the gold standard for explaining gene-environment interaction!（这是解释基因-环境交互的金标准！）</em></p>
+    </div>
+
+    <p><strong>Other Examples of Interaction（其他交互案例）:</strong></p>
+    <ul>
+      <li><strong>Testosterone + Social learning:</strong> High T may increase dominance-seeking, but whether this becomes aggression depends on learned behaviours（高睾酮可能增加寻求支配，但是否变成攻击性取决于习得行为）</li>
+      <li><strong>Brain structure + Environment:</strong> PFC development continues into early adulthood; positive environments can strengthen impulse control（前额叶皮层发育持续到成年早期；积极环境可加强冲动控制）</li>
+      <li><strong>Cultural moderation:</strong> Genetic influences on aggression may be stronger in violent cultures than peaceful ones（遗传对攻击性的影响在暴力文化中可能比和平文化更强）</li>
+    </ul>
+  </div>
+
+  <h3>10.4 Ethical Issues in Biological Psychology Research（生物心理学研究的伦理问题）</h3>
+
+  <div class="warn-box">
+    <h4>🔬 Key Ethical Concerns（关键伦理关切）</h4>
+
+    <p><strong>1. Animal Research（动物研究）</strong></p>
+    <ul>
+      <li>Many findings come from laboratory animals (rats, primates)（许多发现来自实验室动物）</li>
+      <li><strong>Issues:</strong> Pain, suffering, death; speciesism concerns（疼痛、痛苦、死亡；物种歧视关切）</li>
+      <li><strong>Counter-argument:</strong> Cost-benefit analysis; benefits to human understanding（成本效益分析；对人类理解的益处）</li>
+      <li><strong>Question:</strong> Is it justified to harm animals to understand human aggression?（伤害动物以理解人类攻击性是否正当？）</li>
+    </ul>
+
+    <p><strong>2. Human Castration Studies（人类阉割研究）</strong></p>
+    <ul>
+      <li>Historical studies (Hawke 1951, Wille & Beier 1989) used castration to reduce aggression（历史研究用阉割减少攻击性）</li>
+      <li><strong>Issues:</strong> Violates bodily autonomy; informed consent questionable; irreversible（违反身体自主权；知情同意可疑；不可逆）</li>
+      <li><strong>Modern relevance:</strong> Chemical castration still used in some countries for sex offenders（一些国家对性犯罪者仍使用化学阉割）</li>
+    </ul>
+
+    <p><strong>3. Genetic Screening and Discrimination（基因筛查与歧视）</strong></p>
+    <ul>
+      <li>If we identify "aggression genes," should we screen for them?（如果我们识别出"攻击性基因"，我们应该筛查吗？）</li>
+      <li><strong>Risks:</strong> Insurance discrimination, employment discrimination, stigmatization（保险歧视、就业歧视、污名化）</li>
+      <li><strong>Gattaca scenario:</strong> Genetic discrimination creating underclass（《千钧一发》式的基因歧视创造底层阶级）</li>
+    </ul>
+
+    <p><strong>4. Social Control and Abuse of Power（社会控制与权力滥用）</strong></p>
+    <ul>
+      <li>Biological explanations could justify coercive control（生物解释可为强制控制辩解）</li>
+      <li><strong>Example:</strong> Forcing medication on "biologically aggressive" individuals（强迫"生物上具有攻击性"的人服药）</li>
+      <li><strong>Concern:</strong> Who decides what counts as "abnormal"?（谁决定什么算作"异常"？）</li>
+    </ul>
+  </div>
+
+  <!-- Exam Key Points -->
+  <div class="summary-card-header" onclick="toggleSummary(this)">
+    <span class="arrow">▶</span>
+    <span>Section 10: Issues & Debates — Exam Key Points</span>
+    <span class="ao-badge">AO3</span>
+  </div>
+  <div class="summary-card-body">
+    <ol>
+      <li><strong>Reductionism:</strong> Bio explanations break down complex behaviour to simple components (genes/hormones) — allows science but loses richness</li>
+      <li><strong>Determinism:</strong> Suggests behaviour pre-determined by biology — removes free will, impacts legal responsibility</li>
+      <li><strong>Nature-Nurture Interaction:</strong> Caspi (2002) shows genes need environmental triggers (diathesis-stress model)</li>
+      <li><strong>Animal Ethics:</strong> Cost-benefit analysis; welfare concerns vs scientific value</li>
+      <li><strong>Human Ethics:</strong> Castration violates autonomy; genetic screening risks discrimination</li>
+      <li><strong>Social Control:</strong> Bio explanations could justify coercion — who defines "normal"?</li>
+      <li><strong>AO3 Gold Standard:</strong> Always discuss BOTH sides of each debate; use specific examples from Topic C</li>
+    </ol>
+  </div>
+
+  <!-- Chinese Logic Summary -->
+  <button class="cn-summary-toggle" onclick="toggleCnSummary(this)">
+    ▶ 中文逻辑总结
+  </button>
+  <div class="cn-summary-content">
+    <p><strong>⚖️ 四大哲学辩论——考试AO3必考！</strong></p>
+
+    <p><strong>🔄 辩论1：还原论 vs 整体论</strong></p>
+    <p>• <strong>还原论（生物学的立场）</strong>：把攻击性简化为"就是血清素低"、"就是睾酮高"、"就是MAOA基因突变"</p>
+    <p>• <strong>优点</strong>：可以科学测量、客观研究、精确操作</p>
+    <p>• <strong>缺点</strong>：丢失丰富性！一个人为什么会打架，可能是因为贫穷、童年创伤、文化价值观、群体压力……</p>
+    <p>• 💡 <strong>考试金句</strong>："While reductionism allows for scientific investigation, it oversimplifies the multi-factorial nature of aggressive behaviour."（虽然还原论允许科学研究，但它过度简化了攻击性行为的多因素性质。）</p>
+
+    <p><strong>⚖️ 辩论2：决定论 vs 自由意志</strong></p>
+    <p>• <strong>决定论（生物学的隐含立场）</strong>：你的行为已经被基因/激素决定了，你没有选择</p>
+    <p>• <strong>实际问题</strong>：</p>
+    <p>  - 🚨 <strong>法律辩护</strong>："法官大人，是我的MAOA基因让我杀人的，不是我故意的！"</p>
+    <p>  - 💊 <strong>治疗导向</strong>：如果决定了，那就吃药/做手术吧，别惩罚了</p>
+    <p>  - 🔒 <strong>社会控制</strong>：强制"生物上有风险"的人接受治疗</p>
+    <p>• 💡 <strong>反驳决定论</strong>：康复项目有效果→人有改变能力；道德责任需要自由意志</p>
+
+    <p><strong>🧬🌱 辩论3：先天 vs 后天 → 交互主义（正确答案）</strong></p>
+    <p>• ❌ <strong>错误答案</strong>："完全是先天决定的" 或 "完全是后天决定的"</p>
+    <p>• ✅ <strong>正确答案</strong>："两者交互！"（Nature AND Nurture, not Nature OR Nurture）</p>
+    <p>• ⭐ <strong>王牌案例：Caspi 2002 MAOA研究</strong></p>
+    <p>  - 只有基因（MAOA-L）= 正常 ✅</p>
+    <p>  - 只有环境（虐待）= 中等风险 ⚠️</p>
+    <p>  - 基因+环境同时存在 = 高风险！🔴</p>
+    <p>• 💡 <strong>模型名称：Diathesis-Stress Model（素质-压力模型）</strong> ← 考试写出来加分！</p>
+
+    <p><strong>🔬 辩论4：伦理问题</strong></p>
+    <p>• <strong>动物实验</strong>：为了理解人类攻击性而伤害动物，值得吗？🐁</p>
+    <p>• <strong>人类阉割</strong>：虽然有效但极度不道德 ⚠️</p>
+    <p>• <strong>基因筛查</strong>：如果查出你有"暴力基因"，保险公司拒保？雇主不录用？🧬</p>
+    <p>• <strong>社会控制</strong>：谁有权定义什么是"正常"？谁有权强制治疗？🔒</p>
+
+    <p><strong>🎯 AO3答题终极模板：</strong></p>
+    <p><em>"Biological explanations of aggression offer valuable insights into the role of genetics, hormones, and brain structures. However, they face significant criticisms. Firstly, they are reductionist, simplifying complex behaviour to biological factors while ignoring social and cognitive influences [example]. Secondly, they imply biological determinism, which raises ethical concerns about free will and legal responsibility [example]. Thirdly, modern research like Caspi (2002) demonstrates that nature and nurture interact, challenging simplistic nature-or-nurture debates. In conclusion, while biology provides important pieces of the puzzle, a holistic understanding requires integrating multiple levels of explanation."</em></p>
+    <p><strong>（这段话可以直接背下来，几乎所有AO3题都能套用！）</strong> ⭐⭐⭐</p>
+  </div>
+</div>
+
+<!-- EXAM PRACTICE SECTION -->
+<div class="section" id="exam">
+  <h2>📝 Exam Practice（考试练习）</h2>
+  
+  <div class="checkpoint">
+    <h4>✍️ Practice Question 1 (AO1 — 6 marks)</h4>
+    <p><strong>Question:</strong> Outline the structure and function of neurons.（概述神经元的结构和功能。）</p>
+    <details>
+      <summary style="cursor:pointer;color:#15803d;font-weight:600;">Click to see model answer（点击查看参考答案）</summary>
+      <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:8px;">
+        <p><strong>Model Answer (6 marks):</strong></p>
+        <ol>
+          <li>Neurons are specialised cells that transmit electrical and chemical messages. They consist of four main parts:（神经元是传递电化学信息的特殊细胞，由四部分组成：）</li>
+          <li><strong>Cell body:</strong> Contains nucleus and mitochondria; processes information.（细胞体：含细胞核和线粒体；处理信息。）</li>
+          <li><strong>Dendrites:</strong> Branch-like structures that receive messages from other neurons.（树突：接收其他神经元信息的分支结构。）</li>
+          <li><strong>Axon:</strong> Long fibre covered by myelin sheath; transmits electrical impulses away from cell body.（轴突：被髓鞘覆盖的长纤维；将电脉冲从细胞体传出。）</li>
+          <li><strong>Axon terminals:</strong> Contain vesicles with neurotransmitters; pass messages to next neuron.（轴突末梢：含神经递质囊泡；将信息传递给下一个神经元。）</li>
+        </ol>
+        <p><em>(1 mark per correct part with description, up to 4 marks + 2 marks for coherent outline)</em></p>
+      </div>
+    </details>
+  </div>
+  
+  <div class="checkpoint">
+    <h4>✍️ Practice Question 2 (AO1 — 4 marks)</h4>
+    <p><strong>Question:</strong> Describe the process of synaptic transmission.（描述突触传递的过程。）</p>
+    <details>
+      <summary style="cursor:pointer;color:#15803d;font-weight:600;">Click to see model answer</summary>
+      <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:8px;">
+        <p><strong>Model Answer (4 marks):</strong></p>
+        <ol>
+          <li>Action potential arrives at presynaptic terminal → Ca²⁺ channels open（动作电位到达突触前末梢 → Ca²⁺通道打开）</li>
+          <li>Vesicles fuse with membrane → neurotransmitter released into synaptic cleft (exocytosis)（囊泡与膜融合 → 神经递质释放到突触间隙）</li>
+          <li>Neurotransmitter binds to receptors on postsynaptic membrane（神经递质与突触后膜受体结合）</li>
+          <li>If excitatory: new AP triggered; then neurotransmitter reabsorbed/broken down（如果是兴奋性：触发新AP；然后递质被重吸收/分解）</li>
+        </ol>
+      </div>
+    </details>
+  </div>
+  
+  <div class="checkpoint">
+    <h4>✍️ Practice Question 3 (AO3 — 12 marks)</h4>
+    <p><strong>Question:</strong> Evaluate brain functioning as an explanation of aggression.（评估大脑功能作为攻击性的解释。）</p>
+    <details>
+      <summary style="cursor:pointer;color:#15803d;font-weight:600;">Click to see model answer structure</summary>
+      <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:8px;">
+        <p><strong>Model Answer Structure (12 marks):</strong></p>
+        <p><strong>Introduction (2 marks):</strong> Define biological explanation; mention key brain areas (amygdala, hypothalamus, PFC).</p>
+        <p><strong>Supporting Evidence (4 marks):</strong></p>
+        <ul>
+          <li>Raine et al. (1997): PET scans showed murderers had reduced PFC activity and increased limbic activity</li>
+          <li>Animal studies: Amygdala stimulation → aggression; damage → reduced aggression</li>
+        </ul>
+        <p><strong>Counter-evidence/Limitations (4 marks):</strong></p>
+        <ul>
+          <li>Correlational evidence — cannot establish cause and effect</li>
+          <li>Reductionist — ignores social, cognitive, environmental factors</li>
+          <li>Individual differences — not all people with brain abnormalities become aggressive</li>
+        </ul>
+        <p><strong>Conclusion (2 marks):</strong> Brain functioning provides a partial explanation but should be integrated with other approaches.</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="checkpoint">
+    <h4>✍️ Practice Question 4 (AO1 — 6 marks)</h4>
+    <p><strong>Question:</strong> Outline the role of hormones in aggression.（概述激素在攻击性中的作用。）</p>
+    <details>
+      <summary style="cursor:pointer;color:#15803d;font-weight:600;">Click to see model answer</summary>
+      <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:8px;">
+        <p><strong>Model Answer (6 marks):</strong></p>
+        <ol>
+          <li><strong>Testosterone:</strong> Primary male androgen with organisational (prenatal brain development) and activational (adult behaviour) effects. High levels stimulate hypothalamus/amygdala, increasing aggression.（睾酮：主要雄激素，有组织化效应和激活效应。高水平刺激下丘脑/杏仁核，增加攻击性。）</li>
+          <li><strong>Cortisol:</strong> Stress hormone from adrenal glands. Low cortisol reduces fear and inhibition, leading to impulsive/aggressive behaviour.（皮质醇：肾上腺分泌的压力激素。低皮质醇降低恐惧和抑制，导致冲动/攻击性行为。）</li>
+          <li><strong>Interaction effect:</strong> Dabbs (1991) found low cortisol + high testosterone = highest aggression risk.（交互效应：Dabbs 1991 发现低皮质醇+高睾酮=最高攻击风险。）</li>
+        </ol>
+        <p><em>(2 marks per hormone with explanation, up to 6 marks)</em></p>
+      </div>
+    </details>
+  </div>
+
+  <div class="checkpoint">
+    <h4>✍️ Practice Question 5 (AO3 — 16 marks) ⭐⭐⭐</h4>
+    <p><strong>Question:</strong> Discuss genetic explanations of aggression. [16 marks]（讨论基因对攻击性的解释。[16分]）</p>
+    <details>
+      <summary style="cursor:pointer;color:#15803d;font-weight:600;">Click to see model answer structure</summary>
+      <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:8px;">
+        <p><strong>Model Answer Structure (16 marks):</strong></p>
+
+        <p><strong>Introduction (2-3 marks):</strong></p>
+        <ul>
+          <li>Define genetic explanation — aggressive behaviour may be inherited or influenced by genes（定义遗传解释——攻击性行为可能被遗传或受基因影响）</li>
+          <li>Mention key methods: twin studies, adoption studies, molecular genetics（提及关键方法：双生子研究、收养研究、分子遗传学）</li>
+        </ul>
+
+        <p><strong>AO1 Content (6 marks):</strong></p>
+        <ul>
+          <li><strong>Twin studies:</strong> MZ correlation > DZ correlation (~50% heritability). Cite specific studies (e.g., Eley 1999: MZ=0.82, DZ=0.45)（双生子研究：MZ相关>DZ相关，约50%遗传率。引用具体研究）</li>
+          <li><strong>MAOA gene:</strong> Brunner (1993) Dutch family with MAOA mutation → violence; Caspi (2002) gene × environment interaction（MAOA基因：Brunner 1993 荷兰家族MAOA突变→暴力；Caspi 2002 基因×环境交互）</li>
+          <li><strong>XYY syndrome:</strong> Jacobs (1961) found overrepresentation in prisons; but Theilgaard (1984) showed most XYY men normal（XYY综合征：Jacobs 1961 发现监狱中过多；但Theilgaard 1984 显示大多数XYY男性正常）</li>
+        </ul>
+
+        <p><strong>AO3 Evaluation (6-7 marks):</strong></p>
+        <p><strong>Strengths (3-4 marks):</strong></p>
+        <ul>
+          <li>Consistent evidence across multiple methods (twin, adoption, molecular)（跨多种方法的一致证据）</li>
+          <li>Scientific credibility — objective, measurable data（科学可信度——客观可测量数据）</li>
+          <li>Caspi (2002) demonstrates nature-nurture interaction, challenging determinism（Caspi 2002 展示先天-后天交互，挑战决定论）</li>
+        </ul>
+
+        <p><strong>Limitations (3-4 marks):</strong></p>
+        <ul>
+          <li><strong>Determinism:</strong> Suggests no free will; could be used as legal defence（决定论：暗示无自由意志；可用作法律辩护）</li>
+          <li><strong>Reductionism:</strong> Complex behaviour reduced to single genes/chromosomes（还原论：复杂行为简化为单个基因/染色体）</li>
+          <li><strong>Ignoring environment:</strong> Social learning, culture, parenting also important（忽略环境：社会学习、文化、教养也很重要）</li>
+        </ul>
+
+        <p><strong>Conclusion (1-2 marks):</strong></p>
+        <p>Genetics provides a partial explanation but must be integrated with environmental factors; diathesis-stress model best explains interaction.（遗传提供部分解释但必须与环境因素整合；素质-压力模型最好地解释交互。）</p>
+
+        <div style="background:#fef3c7;border-left:4px solid #f59e0b;padding:10px;margin-top:10px;border-radius:6px;">
+          <p><strong>💡 16-Mark Essay Tips（16分论文技巧）:</strong></p>
+          <ul>
+            <li>Aim for <strong>6-7 marks AO1</strong> + <strong>6-7 marks AO3</strong> + <strong>2-3 marks conclusion</strong></li>
+            <li>Use <strong>PEEL</strong> paragraphs for evaluation: Point, Evidence, Explanation, Link</li>
+            <li>Always include <strong>specific study names and findings</strong>（总是包含具体研究名称和发现）</li>
+            <li>Show <strong>critical thinking</strong> — don't just describe, evaluate!（展示批判思维——不要只是描述，要评估！）</li>
+          </ul>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="checkpoint">
+    <h4>✍️ Practice Question 6 (AO3 — 12 marks)</h4>
+    <p><strong>Question:</strong> Evaluate the use of animal studies in research into biological explanations of aggression. [12 marks]（评估动物研究在生物解释攻击性研究中的使用。[12分]）</p>
+    <details>
+      <summary style="cursor:pointer;color:#15803d;font-weight:600;">Click to see model answer structure</summary>
+      <div style="margin-top:10px;padding:12px;background:#f0fdf4;border-radius:8px;">
+        <p><strong>Model Answer Structure (12 marks):</strong></p>
+
+        <p><strong>Introduction (2 marks):</strong> Define animal studies; mention their role in biological psychology research (allowing controlled experiments not possible with humans).</p>
+
+        <p><strong>Arguments FOR animal studies (4-5 marks):</strong></p>
+        <ul>
+          <li><strong>Controlled environment:</strong> Can control all variables (diet, social interaction, genetics) — impossible with humans（可控环境：可以控制所有变量——人类不可能做到）</li>
+          <li><strong>Causal evidence:</strong> Can manipulate genes/hormones directly to establish cause and effect（因果证据：可以直接操纵基因/激素建立因果关系）</li>
+          <li><strong>Practical benefits:</strong> Shorter lifespans allow longitudinal studies; can investigate brain mechanisms invasively（实际益处：寿命短允许纵向研究；可以侵入性研究脑机制）</li>
+          <li><strong>Example:</strong> MAOA knockout mice show increased aggression — supports causal role of gene（例子：MAOA敲除小鼠显示增加的攻击性——支持基因的因果作用）</li>
+        </ul>
+
+        <p><strong>Arguments AGAINST animal studies (4-5 marks):</strong></p>
+        <ul>
+          <li><strong>Ethical issues:</strong> Animals suffer pain/distress; speciesism concerns (Peter Singer)（伦理问题：动物遭受痛苦/不安；物种歧视关切）</li>
+          <li><strong>Generalisability problems:</strong> Human brains more complex; human aggression influenced by cognition/culture（推广性问题：人脑更复杂；人类攻击性受认知/文化影响）</li>
+          <li><strong>Anthropomorphism risk:</strong> Attributing human emotions/intentions to animals（拟人化风险：将人类情感/意图归因于动物）</li>
+          <li><strong>Alternative methods:</strong> Modern technology (fMRI, PET scans) allows some human research without animals（替代方法：现代技术允许一些无需动物的人类研究）</li>
+        </ul>
+
+        <p><strong>Conclusion (1-2 marks):</strong> Animal studies provide valuable causal evidence but face ethical challenges; results should be applied to humans with caution.</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="exam-tip">
+    <h4>📚 Exam Tips for Topic C（Topic C 考试技巧）</h4>
+    <ul>
+      <li><strong>AO1 questions:</strong> Be precise with terminology (use "depolarisation" not "firing"; "synaptic cleft" not "gap")（精确使用术语）</li>
+      <li><strong>AO3 questions:</strong> Always consider <strong>reductionism vs holism</strong>（还原论vs整体论）and <strong>nature-nurture interaction</strong>（先天-后天交互）</li>
+      <li><strong>Diagrams:</strong> If asked to label, practise the neuron diagram (Fig 15.3) and brain areas diagram（练习标注神经元图和脑区图）</li>
+      <li><strong>Application:</strong> For 16-mark essays, link each point back to <strong>aggression examples</strong>（16分论文要将每点联系攻击性实例）</li>
+      <li><strong>Hormones:</strong> Remember the interaction: Low Cortisol + High Testosterone = Highest Risk ⭐（记住交互作用：低皮质醇+高睾酮=最高风险）</li>
+      <li><strong>Genetics:</strong> Caspi (2002) is your gold standard for gene × environment interaction — use it in every genetics essay! ⭐⭐⭐（Caspi 2002 是基因×环境交互的金标准——每篇遗传论文都用它！）</li>
+      <li><strong>Ethics debate:</strong> Prepare arguments for AND against animal studies; mention Peter Singer's speciesism（准备支持和反对动物研究的论点；提及Peter Singer的物种歧视）</li>
+      <li><strong>16-mark structure:</strong> Intro (2-3) + AO1 (6) + AO3 strengths (3-4) + AO3 limitations (3-4) + Conclusion (1-2) = 16 marks ✅</li>
+    </ul>
+
+    <div style="background:#e0f2fe;border-left:4px solid #0284c7;padding:12px;margin-top:15px;border-radius:8px;">
+      <h4>🎯 High-Priority Studies for Exams（考试高优先级研究）</h4>
+      <table style="width:100%;font-size:.85em;">
+        <tr>
+          <th style="background:#0284c7;color:white;">Topic</th>
+          <th style="background:#0284c7;color:white;">Study</th>
+          <th style="background:#0284c7;color:white;">Key Finding</th>
+        </tr>
+        <tr>
+          <td><strong>Brain areas</strong></td>
+          <td>Raine et al. (1997)</td>
+          <td>Murderers: ↓PFC activity, ↑limbic activity</td>
+        </tr>
+        <tr>
+          <td><strong>Neurotransmitters</strong></td>
+          <td>Crockett & Passamonti (2011)</td>
+          <td>Serotonin depletion → ↑amygdala activity</td>
+        </tr>
+        <tr>
+          <td><strong>Hormones</strong></td>
+          <td>Dabbs et al. (1991)</td>
+          <td>Low cortisol + high T = aggressive prisoners</td>
+        </tr>
+        <tr>
+          <td><strong>Genetics</strong></td>
+          <td>Caspi et al. (2002) ⭐⭐⭐</td>
+          <td>MAOA-L + maltreatment = antisocial behaviour</td>
+        </tr>
+        <tr>
+          <td><strong>Twin studies</strong></td>
+          <td>Eley (1999)</td>
+          <td>MZ=0.82, DZ=0.45 for aggression</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+  </main><!-- END MAIN CONTENT -->
+
+  <!-- ===== NOTES PANEL ===== -->
+  <aside class="notes-col">
+    <div class="nc-header">
+      <span class="nc-title">📝 Study Notes</span>
+      <span class="nc-count" id="noteCount">0</span>
+    </div>
+    <div class="nc-body" id="ncBody">
+      <div class="nc-empty" id="ncEmpty">Double-click any text to add notes here<br><small>(双击文本添加笔记)</small></div>
+    </div>
+    <div class="nc-input-row" id="ncInputRow">
+      <textarea class="nc-textarea" id="ncText" placeholder="Write your note..."></textarea>
+      <div class="nc-actions">
+        <button class="nc-btn-save" onclick="saveNote()">Save</button>
+        <button class="nc-btn-cancel" onclick="cancelNote()">Cancel</button>
+      </div>
+    </div>
+    <button class="nc-add-btn" onclick="showInput()">+ Add Note</button>
+    <div class="nc-footer">
+      <button onclick="exportNotes()">Export</button>
+      <button onclick="clearNotes()">Clear All</button>
+    </div>
+  </aside>
+
+</div><!-- END PAGE LAYOUT -->
+
+<div class="footer-note">
+  <strong>Reference:</strong> Pearson Edexcel International A Level Psychology (2022). Chapter 15: Structure and Function of Brain Regions – Aggression.<br>
+  <strong>Approach:</strong> Biological · <strong>Topic:</strong> Nervous System, Neurons, Synaptic Transmission, Brain Structure, Aggression
+</div>
+
+</div><!-- END CONTAINER -->
+
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<!-- ===== NOTES SYSTEM JAVASCRIPT ===== -->
+<script>
+(function() {
+  const STORAGE_KEY = 'edexcel-topic-c-notes';
+  let notes = [];
+  
+  function load() {
+    try { notes = JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; } catch(e) { notes = []; }
+    render();
+  }
+  
+  function save() {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(notes));
+  }
+  
+  function render() {
+    const body = document.getElementById('ncBody');
+    const empty = document.getElementById('ncEmpty');
+    const count = document.getElementById('noteCount');
+    count.textContent = notes.length;
+    if (notes.length === 0) { empty.style.display = 'block'; return; }
+    empty.style.display = 'none';
+    const existing = body.querySelectorAll('.note-card');
+    existing.forEach(el => el.remove());
+    notes.forEach((n, i) => {
+      const card = document.createElement('div');
+      card.className = 'note-card';
+      card.setAttribute('ondblclick', '');
+      card.innerHTML = `<div class="note-card-hl">${escapeHtml(n.hl)}</div><div class="note-card-text">${escapeHtml(n.text)}</div><button class="note-card-del" onclick="delNote(${i})">×</button>`;
+      body.insertBefore(card, document.getElementById('ncInputRow'));
+    });
+  }
+  
+  window.addNote = function(hl, text) {
+    notes.unshift({ hl, text, ts: Date.now() });
+    save(); render();
+  };
+  
+  window.delNote = function(i) { if(confirm('Delete this note?')) { notes.splice(i,1); save(); render(); } };
+  
+  window.showInput = function() { document.getElementById('ncInputRow').classList.add('show'); document.getElementById('ncText').focus(); };
+  
+  window.cancelNote = function() { document.getElementById('ncInputRow').classList.remove('show'); document.getElementById('ncText').value = ''; };
+  
+  window.saveNote = function() {
+    const t = document.getElementById('ncText').value.trim();
+    if (!t) return;
+    notes.unshift({ hl: 'Manual note', text: t, ts: Date.now() });
+    save(); render(); cancelNote();
+  };
+  
+  window.exportNotes = function() {
+    const txt = notes.map(n => `[${n.hl}]\n${n.text}`).join('\n\n---\n\n');
+    const b = new Blob([txt], {type:'text/plain'});
+    const a = document.createElement('a'); a.href = URL.createObjectURL(b); a.download = 'topic-c-notes.txt'; a.click();
+  };
+  
+  window.clearNotes = function() { if(confirm('Clear ALL notes?')) { notes=[]; save(); render(); } };
+  
+  function escapeHtml(s) { const d=document.createElement('div'); d.textContent=s; return d.innerHTML; }
+  
+  // Double-click to add note
+  document.addEventListener('dblclick', function(e) {
+    const t = e.target;
+    if (t.closest('.notes-col') || t.closest('button') || t.closest('a') || t.closest('textarea') || t.closest('.cn-summary-content') && !t.closest('.cn-summary-content.show')) return;
+    const sel = window.getSelection().toString().trim();
+    if (!sel) return;
+    const hl = sel.length > 50 ? sel.substring(0,50)+'...' : sel;
+    addNote(hl, sel);
+  });
+  
+  load();
+})();
+</script>
+
+<!-- ===== INTERACTION FUNCTIONS ===== -->
+<script>
+function toggleSummary(header) {
+  header.classList.toggle('open');
+  const body = header.nextElementSibling;
+  body.classList.toggle('show');
+}
+
+function toggleCnSummary(btn) {
+  const content = btn.nextElementSibling;
+  content.classList.toggle('show');
+  btn.textContent = content.classList.contains('show') ? '▼ Hide 中文逻辑总结' : '▶ 中文逻辑总结';
+}
+
+// Back to top button visibility
+window.addEventListener('scroll', function() {
+  const btn = document.getElementById('backToTop');
+  if (window.scrollY > 400) btn.classList.add('show');
+  else btn.classList.remove('show');
+});
+</script>
+
+</body>
+</html>
