@@ -612,7 +612,7 @@
   const navLinks=document.querySelectorAll('.sb-nav a');
   const observer=new IntersectionObserver((entries)=>{
     entries.forEach(e=>{
-      if(e.isIntersecting){navLinks.forEach(l=>l.classList.remove('active'));const active=document.querySelector(`a[href="#${e.target.id}"]`);if(active)active.classList.add('active';)}
+      if(e.isIntersecting){navLinks.forEach(l=>l.classList.remove('active'));const active=document.querySelector(`a[href="#${e.target.id}"]`);if(active)active.classList.add('active');}}
     });
   },{rootMargin:'-80px 0px -60% 0px',threshold:.1});
   sections.forEach(s=>observer.observe(s));
