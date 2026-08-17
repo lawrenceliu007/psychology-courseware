@@ -211,6 +211,34 @@
     .figure { cursor: zoom-in; }
     .figure img:hover { opacity: .92; transition: opacity .2s; }
 
+    /* ===== STUDY CARDS (for Research Evidence) ===== */
+    .study-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 10px; padding: 16px 18px; margin-bottom: 14px; box-shadow: 0 2px 8px rgba(0,0,0,.06); transition: all .25s ease; position: relative; }
+    .study-card:hover { box-shadow: 0 4px 16px rgba(234,88,12,.15); border-color: #fb923c; transform: translateY(-2px); }
+    .study-card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 2px solid #fef3c7; }
+    .study-icon { font-size: 1.3em; }
+    .study-name { font-weight: 700; font-size: .95em; color: #ea580c; flex: 1; }
+    .study-badge { font-size: .7em; font-weight: 600; padding: 3px 10px; border-radius: 12px; background: linear-gradient(135deg, #dbeafe, #bfdbfe); color: #1e40af; white-space: nowrap; }
+    .study-badge.experimental { background: linear-gradient(135deg, #dcfce7, #bbf7d0); color: #166534; }
+    .study-badge.correlational { background: linear-gradient(135deg, #fef3c7, #fde68a); color: #92400e; }
+    .study-badge.longitudinal { background: linear-gradient(135deg, #ede9fe, #ddd6fe); color: #5b21b6; }
+    .study-badge.case-study { background: linear-gradient(135deg, #fce7f3, #fbcfe8); color: #9d174d; }
+    .study-card-body p { margin: 6px 0; line-height: 1.65; font-size: .9em; }
+    .study-card-body ul { margin: 6px 0 6px 18px; padding: 0; }
+    .study-card-body li { margin: 4px 0; font-size: .89em; line-height: 1.6; }
+    .eval-tag { display: inline-block; background: #fef2f2; border-left: 3px solid #ef4444; padding: 4px 10px; margin-top: 6px; font-size: .85em; color: #991b1b; border-radius: 0 6px 6px 0; }
+
+    /* ===== AO1/AO3 ZONE MARKERS ===== */
+    .ao-zone-header { display: flex; align-items: center; gap: 10px; padding: 12px 16px; border-radius: 10px; margin: 20px 0 14px; font-weight: 700; font-size: 1.05em; }
+    .ao-zone-header.ao1 { background: linear-gradient(135deg, #eff6ff, #dbeafe); border-left: 5px solid #2563eb; color: #1e40af; }
+    .ao-zone-header.ao3 { background: linear-gradient(135deg, #fdf4ff, #fae8ff); border-left: 5px solid #c026d3; color: #a21caf; }
+    .ao-zone-desc { font-size: .82em; font-weight: 400; opacity: .8; margin-left: auto; }
+    .ao-checklist { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 14px 16px; margin: 12px 0; }
+    .ao-checklist li { margin: 6px 0; font-size: .89em; }
+    .ao-checklist li::marker { color: #16a34a; }
+    .gold-standard-para { background: linear-gradient(135deg, #fffbeb, #fef3c7); border: 2px solid #fcd34d; border-radius: 10px; padding: 16px 18px; margin: 14px 0; }
+    .gold-standard-para h4 { color: #92400e; margin: 0 0 8px; font-size: .95em; }
+    .gold-standard-para p { font-size: .89em; line-height: 1.7; margin: 6px 0; }
+
     /* Footer Note */
     .footer-note { font-size: .84em; color: var(--text-secondary); margin-top: 2em; padding-top: 1em; border-top: 1px solid var(--border); text-align: center; }
 
@@ -1173,40 +1201,80 @@
     </tr>
   </table>
 
-  <div class="blue-box">
-    <h4>🔬 Research Evidence: Testosterone and Aggression（睾酮与攻击性的研究证据）</h4>
-    
-    <p><strong>1. D'Andrade (1966) — Gender Differences（性别差异）</strong></p>
-    <ul>
-      <li>Found that boys had significantly higher testosterone levels than girls（发现男孩的睾酮水平显著高于女孩）</li>
-      <li>Boys also showed more physically aggressive behaviour than girls（男孩也比女孩表现出更多身体攻击性行为）</li>
-      <li><strong>Evaluation:</strong> Correlational only; cannot prove causation（仅相关性，不能证明因果关系）</li>
-    </ul>
+    <div class="ao-zone-header ao1">
+      <span>📘</span>
+      <span>AO1 Zone: Research Evidence（研究证据 — 必须知道的事实）</span>
+      <span class="ao-zone-desc">Focus on: What did the researchers find?（关注：研究者发现了什么？）</span>
+    </div>
 
-    <p><strong>2. Mazur (1983) — Puberty and Fighting（青春期与打架）</strong></p>
-    <ul>
-      <li>Studied adolescent males during puberty（研究青春期男性）</li>
-      <li>Found testosterone levels increased significantly during puberty（发现青春期睾酮水平显著升高）</li>
-      <li>This increase correlated with increased fighting behaviour（这种升高与打架行为增加相关）</li>
-      <li><strong>Evaluation:</strong> Supports link but other factors (social pressure, peer influence) also play a role（支持关联，但其他因素也起作用）</li>
-    </ul>
+    <!-- Study Card 1 -->
+    <div class="study-card">
+      <div class="study-card-header">
+        <span class="study-icon">📖</span>
+        <span class="study-name">D'Andrade (1966) — Gender Differences（性别差异）</span>
+        <span class="study-badge correlational">Correlational</span>
+      </div>
+      <div class="study-card-body">
+        <p><strong>Sample:</strong> Children of various ages（不同年龄的儿童）</p>
+        <ul>
+          <li>Boys had <strong>significantly higher testosterone levels</strong> than girls（男孩睾酮水平显著高于女孩）</li>
+          <li>Boys also showed <strong>more physically aggressive behaviour</strong> than girls（男孩身体攻击性行为更多）</li>
+        </ul>
+        <p class="eval-tag">⚠️ <strong>AO3 Issue:</strong> Correlational only — cannot prove causation（仅相关，不能证明因果）</p>
+      </div>
+    </div>
 
-    <p><strong>3. Hawke (1951) — Castration Study（阉割研究）</strong></p>
-    <ul>
-      <li>Compared reoffending rates of castrated vs non-castrated offenders（比较阉割与非阉割罪犯的再犯率）</li>
-      <li>Castrated offenders: <strong>3% reoffended</strong>（阉割罪犯：3%再犯）</li>
-      <li>Non-castrated offenders: <strong>46% reoffended</strong>（非阉割罪犯：46%再犯）</li>
-      <li><strong>Evaluation:</strong> Strong evidence for causal role, but highly unethical today（强因果证据，但今天极不道德）</li>
-    </ul>
+    <!-- Study Card 2 -->
+    <div class="study-card">
+      <div class="study-card-header">
+        <span class="study-icon">📖</span>
+        <span class="study-name">Mazur (1983) — Puberty and Fighting（青春期与打架）</span>
+        <span class="study-badge longitudinal">Longitudinal</span>
+      </div>
+      <div class="study-card-body">
+        <p><strong>Sample:</strong> Adolescent males during puberty（青春期男性）</p>
+        <ul>
+          <li>Testosterone levels <strong>increased significantly during puberty</strong>（青春期睾酮显著升高）</li>
+          <li>This increase <strong>correlated with increased fighting behaviour</strong>（与打架行为增加相关）</li>
+        </ul>
+        <p class="eval-tag">⚠️ <strong>AO3 Issue:</strong> Other factors (social pressure, peer influence) may explain the link（其他因素也可能解释关联）</p>
+      </div>
+    </div>
 
-    <p><strong>4. Reinhard Wille & Klaus Beier (1989) — Voluntary Castration（自愿阉割）</strong></p>
-    <ul>
-      <li>Studied men who voluntarily chose castration to control sexual aggression（研究自愿选择阉割以控制性攻击行为的男性）</li>
-      <li>Reoffending rate dropped dramatically after castration（阉割后再犯率急剧下降）</li>
-      <li>However, some participants still showed some aggressive tendencies（然而，一些参与者仍表现出某些攻击倾向）</li>
-      <li><strong>Evaluation:</strong> Suggests testosterone is not the ONLY factor（表明睾酮不是唯一因素）</li>
-    </ul>
-  </div>
+    <!-- Study Card 3 -->
+    <div class="study-card">
+      <div class="study-card-header">
+        <span class="study-icon">🔬</span>
+        <span class="study-name">Hawke (1951) — Castration Study（阉割研究）</span>
+        <span class="study-badge experimental">Experimental ⚠️ Unethical</span>
+      </div>
+      <div class="study-card-body">
+        <p><strong>Design:</strong> Compared reoffending rates（比较再犯率）</p>
+        <table style="width:100%; margin:8px 0; font-size:.88em;">
+          <tr><th style="background:#fef3c7; padding:6px;">Group</th><th style="background:#fef3c7; padding:6px;">Reoffending Rate</th></tr>
+          <tr><td>Castrated offenders（阉割罪犯）</td><td><strong style="color:#16a34a;">3%</strong></td></tr>
+          <tr><td>Non-castrated offenders（非阉割罪犯）</td><td><strong style="color:#dc2626;">46%</strong></td></tr>
+        </table>
+        <p class="eval-tag">✅ <strong>AO3 Strength:</strong> Strong evidence for causal role, but highly unethical today（强因果证据，但今天极不道德）</p>
+      </div>
+    </div>
+
+    <!-- Study Card 4 -->
+    <div class="study-card">
+      <div class="study-card-header">
+        <span class="study-icon">📖</span>
+        <span class="study-name">Wille & Beier (1989) — Voluntary Castration（自愿阉割）</span>
+        <span class="study-badge longitudinal">Longitudinal</span>
+      </div>
+      <div class="study-card-body">
+        <p><strong>Sample:</strong> Men who voluntarily chose castration to control sexual aggression（自愿选择阉割控制性攻击的男性）</p>
+        <ul>
+          <li>Reoffending rate <strong>dropped dramatically after castration</strong>（阉割后再犯率急剧下降）</li>
+          <li>However, some participants still showed <strong>some aggressive tendencies</strong>（一些参与者仍表现攻击倾向）</li>
+        </ul>
+        <p class="eval-tag">💡 <strong>AO3 Insight:</strong> Testosterone is NOT the only factor affecting aggression（睾酮不是唯一因素）</p>
+      </div>
+    </div>
 
   <h3>8.2 Cortisol（皮质醇）</h3>
 
@@ -1251,24 +1319,51 @@
     </tr>
   </table>
 
-  <div class="blue-box">
-    <h4>🔬 Research Evidence: Cortisol and Aggression（皮质醇与攻击性的研究证据）</h4>
+  <div class="ao-zone-header ao1">
+      <span>📘</span>
+      <span>AO1 Zone: Research Evidence（研究证据）</span>
+      <span class="ao-zone-desc">Focus on: How do cortisol levels affect aggression?（皮质醇水平如何影响攻击性？）</span>
+    </div>
 
-    <p><strong>James Dabbs et al. (1991) — The Interaction Effect（交互效应）</strong></p>
-    <ul>
-      <li>Studied cortisol and testosterone levels in prisoners（研究囚犯的皮质醇和睾酮水平）</li>
-      <li>Found that <strong>low cortisol + high testosterone</strong> was associated with the most aggressive prisoners（发现<strong>低皮质醇 + 高睾酮</strong>与最具攻击性的囚犯相关）</li>
-      <li>Suggested that cortisol may <strong>moderate（调节）</strong> the effects of testosterone on aggression（表明皮质醇可能调节睾酮对攻击性的影响）</li>
-      <li><strong>Evaluation:</strong> Important finding about hormone interactions（关于激素交互作用的重要发现）</li>
-    </ul>
+    <!-- Study Card 5 -->
+    <div class="study-card">
+      <div class="study-card-header">
+        <span class="study-icon">🔬</span>
+        <span class="study-name">Dabbs et al. (1991) — The Interaction Effect（交互效应）</span>
+        <span class="study-badge correlational">Correlational</span>
+      </div>
+      <div class="study-card-body">
+        <p><strong>Sample:</strong> Prisoners in a correctional facility（矫正机构的囚犯）</p>
+        <ul>
+          <li><strong>Key Finding:</strong> <code style="background:#fef3c7; padding:2px 6px; border-radius:4px; font-size:.9em;">Low cortisol + High testosterone → Most aggressive prisoners</code></li>
+          <li>Cortisol may <strong>moderate (调节)</strong> the effects of testosterone on aggression（皮质醇可能调节睾酮对攻击性的影响）</li>
+        </ul>
+        <p class="eval-tag">💡 <strong>AO3 Insight:</strong> Important finding about hormone interactions — hormones don't work in isolation!（激素交互作用的重要发现 — 激素不是孤立起作用的！）</p>
+      </div>
+    </div>
 
-    <p><strong>Popma et al. (2007) — Adolescent Aggression（青少年攻击性）</strong></p>
-    <ul>
-      <li>Found that adolescents with disruptive behaviour disorders had lower cortisol levels（发现行为障碍青少年的皮质醇水平较低）</li>
-      <li>Lower cortisol predicted more aggressive acts over time（较低的皮质醇预测随时间推移更多的攻击行为）</li>
-      <li><strong>Evaluation:</strong> Longitudinal design strengthens causal claims（纵向设计加强因果主张）</li>
-    </ul>
-  </div>
+    <!-- Study Card 6 -->
+    <div class="study-card">
+      <div class="study-card-header">
+        <span class="study-icon">📖</span>
+        <span class="study-name">Popma et al. (2007) — Adolescent Aggression（青少年攻击性）</span>
+        <span class="study-badge longitudinal">Longitudinal ⭐</span>
+      </div>
+      <div class="study-card-body">
+        <p><strong>Sample:</strong> Adolescents with disruptive behaviour disorders（行为障碍青少年）</p>
+        <ul>
+          <li>Adolescents with behaviour problems had <strong>lower cortisol levels</strong>（行为问题青少年皮质醇较低）</li>
+          <li>Lower cortisol <strong>predicted more aggressive acts over time</strong>（较低皮质醇预测随时间推移更多攻击行为）</li>
+        </ul>
+        <p class="eval-tag">✅ <strong>AO3 Strength:</strong> Longitudinal design strengthens causal claims（纵向设计加强因果主张）</p>
+      </div>
+    </div>
+
+    <div class="ao-zone-header ao3">
+      <span>📙</span>
+      <span>AO3 Zone: Evaluation & Debate（评估与辩论 — 必须理解的观点）</span>
+      <span class="ao-zone-desc">Focus on: How well do these explanations work?（这些解释有多好？）</span>
+    </div>
 
   <div class="warn-box">
     <h4>⚠️ AO3 Evaluation: Hormonal Explanations of Aggression（激素解释的评估）</h4>
@@ -1430,38 +1525,55 @@
     </tr>
   </table>
 
-  <div class="blue-box">
-    <h4>🔬 Key Research: MAOA and Aggression（MAOA 与攻击性的关键研究）</h4>
-
-    <p><strong>1. Brunner et al. (1993) — The Dutch Family Study（荷兰家族研究）⭐</strong></p>
-    <ul>
-      <li>Studied a large Dutch family where many male relatives had a history of <strong>violent criminal behaviour（暴力犯罪行为）</strong></li>
-      <li>Found all affected males had a <strong>mutation in the MAOA gene</strong>（发现所有受影响男性都有MAOA基因突变）</li>
-      <li>This mutation produced a <strong>non-functional enzyme</strong>（产生无功能酶）</li>
-      <li>Behaviour included impulsive aggression, arson, and attempted rape（行为包括冲动纵火和强奸未遂）</li>
-      <li><strong>Evaluation:</strong> Strong evidence for genetic basis of aggression, but only one family studied（强遗传基础证据，但只研究了一个家族）</li>
-    </ul>
-
-    <p><strong>2. Caspi et al. (2002) — Gene × Environment Interaction（基因×环境交互）⭐⭐</strong></p>
-    <ul>
-      <li>Followed 1,037 children from birth to age 26（从出生跟踪到26岁）</li>
-      <li>Measured: MAOA gene type + childhood maltreatment（测量：MAOA基因类型+童年虐待）</li>
-      <li><strong>Key Finding:</strong></li>
-    </ul>
-
-    <div style="background:#fff3cd;border-left:4px solid #ffc107;padding:12px;margin:10px 0;border-radius:6px;">
-      <p><strong>🔑 Critical Discovery（关键发现）:</strong></p>
-      <p>• <strong>MAOA-L + Childhood maltreatment</strong> → <strong style="color:#dc2626;">HIGH risk of antisocial behaviour</strong>（高风险反社会行为）</p>
-      <p>• <strong>MAOA-L + No maltreatment</strong> → <strong style="color:#16a34a;">NORMAL behaviour</strong>（正常行为）</p>
-      <p>• <strong>Normal MAOA + Maltreatment</strong> → <strong style="color:#f59e0b;">MODERATE risk</strong>（中等风险）</p>
-      <p><em>This shows genes alone are NOT enough — environment matters!（这表明单靠基因不够——环境很重要！）</em></p>
+  <div class="ao-zone-header ao1">
+      <span>📘</span>
+      <span>AO1 Zone: Key Research（关键研究）</span>
+      <span class="ao-zone-desc">Focus on: How do genes influence aggression?（基因如何影响攻击性？）</span>
     </div>
 
-    <ul>
-      <li><strong>Evaluation:</strong> Landmark study demonstrating nature-nurture interaction（展示先天-后天交互的里程碑式研究）</li>
-      <li>Challenges simple genetic determinism（挑战简单的遗传决定论）</li>
-    </ul>
-  </div>
+    <!-- Study Card: Brunner -->
+    <div class="study-card">
+      <div class="study-card-header">
+        <span class="study-icon">🧬</span>
+        <span class="study-name">Brunner et al. (1993) — The Dutch Family Study（荷兰家族研究）⭐</span>
+        <span class="study-badge case-study">Case Study</span>
+      </div>
+      <div class="study-card-body">
+        <p><strong>Sample:</strong> A large Dutch family with history of violent criminal behaviour（有暴力犯罪史的大型荷兰家族）</p>
+        <ul>
+          <li>All affected males had a <strong>mutation in the MAOA gene</strong>（所有受影响男性都有 MAOA 基因突变）</li>
+          <li>Mutation produced a <strong>non-functional enzyme</strong>（产生无功能酶）</li>
+          <li>Behaviours: impulsive aggression, arson, attempted rape（行为：冲动攻击、纵火、强奸未遂）</li>
+        </ul>
+        <p class="eval-tag">⚠️ <strong>AO3 Issue:</strong> Only one family studied — limited generalisability（只研究一个家族，推广性有限）</p>
+      </div>
+    </div>
+
+    <!-- Study Card: Caspi (Landmark) -->
+    <div class="study-card" style="border: 2px solid #fcd34d; background: linear-gradient(135deg, #fffbeb, #fef3c7);">
+      <div class="study-card-header" style="border-bottom-color: #fbbf24;">
+        <span class="study-icon">⭐</span>
+        <span class="study-name">Caspi et al. (2002) — Gene × Environment Interaction（基因×环境交互）⭐⭐</span>
+        <span class="study-badge longitudinal">Longitudinal ⭐ Landmark</span>
+      </div>
+      <div class="study-card-body">
+        <p><strong>Sample:</strong> 1,037 children followed from birth to age 26（1037名儿童从出生跟踪到26岁）</p>
+        <p><strong>Method:</strong> Measured MAOA gene type + childhood maltreatment（测量 MAOA 基因型 + 童年虐待）</p>
+
+        <div style="background:#fff; border-left:4px solid #f59e0b; padding:12px; margin:10px 0; border-radius:6px;">
+          <p><strong>🔑 Critical Discovery（关键发现）:</strong></p>
+          <table style="width:100%; font-size:.88em; margin-top:8px;">
+            <tr><th style="background:#fef3c7; padding:6px;">Gene Type</th><th style="background:#fef3c7; padding:6px;">Environment</th><th style="background:#fef3c7; padding:6px;">Risk Level</th></tr>
+            <tr><td><strong>MAOA-L</strong></td><td>+ Childhood maltreatment</td><td style="color:#dc2626; font-weight:700;">🔴 HIGH risk</td></tr>
+            <tr><td><strong>MAOA-L</strong></td><td>+ No maltreatment</td><td style="color:#16a34a; font-weight:700;">🟢 NORMAL</td></tr>
+            <tr><td><strong>Normal MAOA</strong></td><td>+ Maltreatment</td><td style="color:#f59e0b; font-weight:700;">🟡 MODERATE</td></tr>
+          </table>
+          <p style="margin-top:8px; font-style:italic;"><em>Genes alone are NOT enough — environment matters!（单靠基因不够——环境很重要！）</em></p>
+        </div>
+
+        <p class="eval-tag" style="background:#dcfce7; border-left-color:#16a34a; color:#166534;">✅ <strong>AO3 Strength:</strong> Landmark study demonstrating nature-nurture interaction（展示先天-后天交互的里程碑式研究）</p>
+      </div>
+    </div>
 
   <h3>9.3 XYY Syndrome（XYY 综合征）</h3>
 
@@ -1497,53 +1609,89 @@
     </tr>
   </table>
 
-  <div class="blue-box">
-    <h4>🔬 Research Evidence: XYY and Aggression（XYY 与攻击性的研究证据）</h4>
+  <div class="ao-zone-header ao1">
+      <span>📘</span>
+      <span>AO1 Zone: Research Evidence（研究证据）</span>
+      <span class="ao-zone-desc">Focus on: Does an extra Y chromosome cause aggression?（多一条Y染色体会导致攻击性吗？）</span>
+    </div>
 
-    <p><strong>1. Patricia Jacobs (1961) — Prisoner Screening（囚犯筛查）⭐</strong></p>
-    <ul>
-      <li>Screened chromosomes of male patients in a high-security mental hospital（筛查高安全性精神医院男性患者的染色体）</li>
-      <li>Found <strong>3% had XYY syndrome</strong>（发现3%患有XYY综合征）</li>
-      <li>This was much higher than the general population rate (~0.1%)（远高于一般人群比率~0.1%）</li>
-      <li>Many were incarcerated for <strong>violent or sexual crimes</strong>（许多因暴力或性犯罪被监禁）</li>
-      <li><strong>Evaluation:</strong> Suggested link between XYY and crime, but sample biased (mental hospital)（提示XYY与犯罪的联系，但样本有偏差）</li>
-    </ul>
+    <!-- Study Card: Jacobs -->
+    <div class="study-card">
+      <div class="study-card-header">
+        <span class="study-icon">🔬</span>
+        <span class="study-name">Jacobs (1961) — Prisoner Screening（囚犯筛查）⭐</span>
+        <span class="study-badge correlational">Correlational</span>
+      </div>
+      <div class="study-card-body">
+        <p><strong>Sample:</strong> Male patients in a high-security mental hospital（高安全性精神医院男性患者）</p>
+        <ul>
+          <li><strong>3% had XYY syndrome</strong> — much higher than general population (~0.1%)（3%患XYY，远高于一般人群~0.1%）</li>
+          <li>Many incarcerated for <strong>violent or sexual crimes</strong>（许多因暴力或性犯罪被监禁）</li>
+        </ul>
+        <p class="eval-tag">⚠️ <strong>AO3 Issue:</strong> Sample biased (mental hospital) — not representative（样本有偏差，不具代表性）</p>
+      </div>
+    </div>
 
-    <p><strong>2. Alice Theilgaard (1984) — Population Study（人群研究）</strong></p>
-    <ul>
-      <li>Studied larger sample of XYY men identified at birth（研究更大样本的在出生时识别的XYY男性）</li>
-      <li>Found XYY men showed <strong>slightly higher rates of criminal behaviour</strong>（发现XYY男性犯罪率略高）</li>
-      <li>But difference was <strong>not dramatic</strong>（但差异并不显著）</li>
-      <li>Most XYY men led normal, law-abiding lives（大多数XYY男性过着正常守法的生活）</li>
-      <li><strong>Evaluation:</strong> Weakens the XYY-aggression link; most XYY men are NOT aggressive（削弱XYY-攻击性联系；大多数XYY男性不具有攻击性）</li>
-    </ul>
+    <!-- Study Card: Theilgaard -->
+    <div class="study-card">
+      <div class="study-card-header">
+        <span class="study-icon">📖</span>
+        <span class="study-name">Theilgaard (1984) — Population Study（人群研究）</span>
+        <span class="study-badge longitudinal">Longitudinal</span>
+      </div>
+      <div class="study-card-body">
+        <p><strong>Sample:</strong> Larger sample of XYY men identified at birth（更大样本的在出生时识别的XYY男性）</p>
+        <ul>
+          <li>XYY men showed <strong>slightly higher rates of criminal behaviour</strong>（犯罪率略高）</li>
+          <li>But difference was <strong>not dramatic</strong>（但差异并不显著）</li>
+          <li><strong>Most XYY men led normal, law-abiding lives</strong>（大多数XYY男性过着正常守法的生活）</li>
+        </ul>
+        <p class="eval-tag" style="background:#dcfce7; border-left-color:#16a34a; color:#166534;">✅ <strong>AO3 Strength:</strong> Weakens the XYY-aggression link; most XYY men are NOT aggressive（削弱XYY-攻击性联系；大多数XYY男性不具有攻击性）</p>
+      </div>
+    </div>
 
     <div class="warn-box">
       <h4>⚠️ Critical Evaluation of XYY Theory（XYY 理论的批判性评估）</h4>
-      <p><strong>The XYY theory of aggression is now considered WEAK because:</strong>（XYY攻击性理论现在被认为很弱，因为：）</p>
+      <p><strong>The XYY theory is now considered WEAK because:</strong>（XYY理论现在被认为很弱，因为：）</p>
       <ol>
-        <li><strong>Most XYY men are NOT violent（大多数XYY男性不暴力）</strong>: Only a small minority show aggressive behaviour（只有少数表现出攻击性行为）</li>
-        <li><strong>Correlation ≠ Causation（相关性≠因果关系）</strong>: Having an extra Y chromosome doesn't directly cause aggression（多一条Y染色体不会直接导致攻击性）</li>
-        <li><strong>Confounding variables（混淆变量）</strong>: XYY men often face stigma, learning difficulties, and social challenges that could explain behaviour（XYY男性常面临污名化、学习困难和社会挑战，这些可能解释行为）</li>
-        <li><strong>Small sample sizes（小样本量）</strong>: XYY is rare, making it hard to draw firm conclusions（XYY罕见，难以得出明确结论）</li>
+        <li><strong>Most XYY men are NOT violent（大多数XYY男性不暴力）</strong>: Only a small minority show aggression（只有少数表现出攻击性）</li>
+        <li><strong>Correlation ≠ Causation（相关性≠因果关系）</strong>: Extra Y chromosome doesn't directly cause aggression（多一条Y染色体不会直接导致攻击性）</li>
+        <li><strong>Confounding variables（混淆变量）</strong>: Stigma, learning difficulties, social challenges could explain behaviour（污名化、学习困难、社会挑战可能解释行为）</li>
+        <li><strong>Small sample sizes（小样本量）</strong>: XYY is rare (~1/1000), hard to draw firm conclusions（XYY罕见，难以得出明确结论）</li>
       </ol>
     </div>
-  </div>
 
-  <h3>9.4 Adoption Studies（收养研究）</h3>
+    <h3>9.4 Adoption Studies（收养研究）</h3>
 
-  <p><strong>Adoption studies（收养研究）</strong> compare adopted children's behaviour with both their <strong>biological parents（亲生父母，提供基因）</strong> and their <strong>adoptive parents（养父母，提供环境）</strong>:</p>
+    <p><strong>Adoption studies（收养研究）</strong> compare adopted children's behaviour with both their <strong>biological parents（亲生父母，提供基因）</strong> and their <strong>adoptive parents（养父母，提供环境）</strong>:</p>
 
-  <div class="blue-box">
-    <h4>🔬 Hutchings & Mednick (1975) — Danish Adoption Study（丹麦收养研究）</h4>
-    <ul>
-      <li>Studied sons whose biological fathers had criminal records（研究生父有犯罪记录的儿子）</li>
-      <li>Compared those adopted into non-criminal homes vs controls（比较被收养到非犯罪家庭与对照组）</li>
+    <div class="ao-zone-header ao1" style="margin-top:18px;">
+      <span>📘</span>
+      <span>AO1 Zone: Key Adoption Study（关键收养研究）</span>
+      <span class="ao-zone-desc">Focus on: Nature vs Nurture in criminality（犯罪行为中的先天vs后天）</span>
+    </div>
+
+    <!-- Study Card: Hutchings & Mednick -->
+    <div class="study-card">
+      <div class="study-card-header">
+        <span class="study-icon">👨‍👦‍👦</span>
+        <span class="study-name">Hutchings & Mednick (1975) — Danish Adoption Study（丹麦收养研究）⭐</span>
+        <span class="study-badge longitudinal">Longitudinal ⭐</span>
+      </div>
+      <div class="study-card-body">
+        <p><strong>Sample:</strong> Sons whose biological fathers had criminal records（生父有犯罪记录的儿子）</p>
+        <p><strong>Design:</strong> Compared those adopted into non-criminal homes vs controls（比较被收养到非犯罪家庭与对照组）</p>
       <li><strong>Finding:</strong> Sons with criminal biological fathers had <strong>higher rates of criminality</strong> even when raised in good homes（即使成长在良好家庭，生父有犯罪记录的儿子犯罪率更高）</li>
       <li><strong>Conclusion:</strong> Supports genetic influence on antisocial/aggressive behaviour（支持遗传对反社会/攻击性行为的影响）</li>
       <li><strong>Evaluation:</strong> Classic adoption study design; strong evidence for genetic component（经典收养研究设计；强遗传成分证据）</li>
     </ul>
   </div>
+
+    <div class="ao-zone-header ao3">
+      <span>📙</span>
+      <span>AO3 Zone: Evaluation & Debate（评估与辩论）</span>
+      <span class="ao-zone-desc">Focus on: How well do genetic explanations work?（基因解释有多好？）</span>
+    </div>
 
   <div class="warn-box">
     <h4>⚠️ AO3 Evaluation: Genetic Explanations of Aggression（基因解释的评估）</h4>
