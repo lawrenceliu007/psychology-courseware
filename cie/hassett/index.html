@@ -17,7 +17,7 @@
       --border: #E0E0E0;
     }
     * { box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; line-height: 1.75; color: var(--text); background: var(--bg); margin: 0; padding: 0; font-size: 16px; transition: background .3s, color .3s; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; line-height: 1.75; color: var(--text); background: var(--bg); margin: 0; padding: 0; font-size: 1em; transition: background .3s, color .3s; }
     html { font-size: 16px; }
     .container { max-width: 1200px; margin: 0 auto; padding: 16px 24px; }
 
@@ -93,6 +93,22 @@
     .note-card-text { color: #374151; word-break: break-word; }
     .note-card-del { position: absolute; top: 4px; right: 4px; width: 18px; height: 18px; border: none; background: #fee2e2; color: #ef4444; border-radius: 50%; font-size: .65em; cursor: pointer; opacity: 0; display: flex; align-items: center; justify-content: center; }
     .note-card:hover .note-card-del { opacity: 1; }
+    .note-card-edit { position: absolute; top: 4px; right: 26px; width: 18px; height: 18px; border: none; background: #dbeafe; color: #2563eb; border-radius: 50%; font-size: .65em; cursor: pointer; opacity: 0; display: flex; align-items: center; justify-content: center; transition: opacity .15s, background .15s; }
+    .note-card:hover .note-card-edit { opacity: 1; }
+    .note-card-edit:hover { background: #bfdbfe; }
+    .note-card.editing { border-left-color: #2563eb; box-shadow: 0 4px 12px rgba(37,99,235,.2); }
+    .note-card.editing .note-card-text,
+    .note-card.editing .note-card-hl,
+    .note-card.editing .note-card-del,
+    .note-card.editing .note-card-edit { display: none; }
+    .note-edit-textarea { width: 100%; border: 1px solid #93c5fd; border-radius: 6px; padding: 8px; font-size: .9em; resize: vertical; min-height: 50px; box-sizing: border-box; outline: none; font-family: inherit; line-height: 1.5; background: #f8fafc; color: #1e293b; }
+    .note-edit-textarea:focus { border-color: #2563eb; box-shadow: 0 0 0 2px rgba(37,99,235,.15); }
+    .note-edit-actions { display: flex; gap: 6px; margin-top: 6px; }
+    .note-edit-actions button { flex: 1; padding: 5px 8px; border-radius: 5px; font-size: .72em; font-weight: 600; cursor: pointer; border: 1px solid transparent; transition: all .15s; }
+    .note-edit-save { background: #2563eb; color: white; }
+    .note-edit-save:hover { background: #1d4ed8; }
+    .note-edit-cancel { background: #f1f5f9; color: #64748b; border-color: #e2e8f0; }
+    .note-edit-cancel:hover { background: #e2e8f0; }
 
     /* ===== HEADER CARD ===== */
     .header { text-align: center; padding: 36px 24px; background: linear-gradient(135deg, var(--primary-dark), var(--primary)); color: white; border-radius: 12px; margin-bottom: 24px; box-shadow: 0 4px 15px rgba(220,38,38,0.3); }
@@ -299,6 +315,12 @@
     body.dark .note-card { background: #292524; border-left-color: #d97706; }
     body.dark .note-card-text { color: #d6d3d1; }
     body.dark .note-card-hl { background: #42200e; color: #fbbf24; }
+    body.dark .note-card-edit { background: #1e3a5f; color: #93c5fd; }
+    body.dark .note-card-edit:hover { background: #1e40af; }
+    body.dark .note-card.editing { border-left-color: #3b82f6; }
+    body.dark .note-edit-textarea { background: #1e293b; color: #e2e8f0; border-color: #475569; }
+    body.dark .note-edit-save { background: #3b82f6; }
+    body.dark .note-edit-cancel { background: #334155; color: #94a3b8; border-color: #475569; }
     body.dark .nc-textarea { background: #292524; color: #d6d3d1; border-color: #78350f; }
     body.dark .nc-add-btn { background: linear-gradient(135deg, #92400e, #78350f); }
 
@@ -1765,21 +1787,29 @@
     const body = document.getElementById('notesBody');
     const empty = document.getElementById('notesEmpty');
     const count = document.getElementById('noteCount');
-    
+
     if(!body) return;
-    
+
     count.textContent = notes.length;
-    
+
     if(notes.length === 0) {
       body.innerHTML = '<div class="nc-empty" id="notesEmpty">✏️ Select text in any section,<br>then click "Add Note"<br><br>选择任意文本后点击下方按钮</div>';
       return;
     }
-    
+
     body.innerHTML = notes.map((note, i) => `
-      <div class="note-card" ondblclick="scrollToHl('${note.hlId}')">
+      <div class="note-card" data-index="${i}" ondblclick="scrollToHl('${note.hlId}')">
+        <button class="note-card-edit" onclick="editNote(${i}); event.stopPropagation();" title="Edit note">✎</button>
         <button class="note-card-del" onclick="deleteNote(${i}); event.stopPropagation();">✕</button>
         ${note.hlText ? `<div class="note-card-hl">${escapeHtml(note.hlText)}</div>` : ''}
         <div class="note-card-text">${escapeHtml(note.text)}</div>
+        <div class="note-edit-panel" style="display:none;">
+          <textarea class="note-edit-textarea" id="editTextarea${i}">${escapeHtml(note.text)}</textarea>
+          <div class="note-edit-actions">
+            <button class="note-edit-save" onclick="saveEditedNote(${i}); event.stopPropagation();">💾 Save</button>
+            <button class="note-edit-cancel" onclick="cancelEditNote(${i}); event.stopPropagation();">Cancel</button>
+          </div>
+        </div>
         <div style="font-size:.65em;color:#9ca3af;margin-top:4px;">${note.time} · ${note.section || ''}</div>
       </div>
     `).join('');
@@ -1859,6 +1889,70 @@
     renderNotes();
   }
   window.deleteNote = deleteNote;
+
+  // ===== EDIT NOTE =====
+  function editNote(index) {
+    // Cancel any other editing note first
+    document.querySelectorAll('.note-card.editing').forEach(card => {
+      card.classList.remove('editing');
+      const panel = card.querySelector('.note-edit-panel');
+      if(panel) panel.style.display = 'none';
+      const textEl = card.querySelector('.note-card-text');
+      if(textEl) textEl.style.display = '';
+    });
+
+    const card = document.querySelector(`.note-card[data-index="${index}"]`);
+    if(!card) return;
+
+    card.classList.add('editing');
+    const panel = card.querySelector('.note-edit-panel');
+    const textEl = card.querySelector('.note-card-text');
+    const hlEl = card.querySelector('.note-card-hl');
+
+    if(panel) panel.style.display = '';
+    if(textEl) textEl.style.display = 'none';
+    if(hlEl) hlEl.style.display = 'none';
+
+    const textarea = document.getElementById('editTextarea' + index);
+    if(textarea) {
+      textarea.value = notes[index].text;
+      textarea.focus();
+      textarea.select();
+    }
+  }
+  window.editNote = editNote;
+
+  function saveEditedNote(index) {
+    const textarea = document.getElementById('editTextarea' + index);
+    if(!textarea) return;
+
+    const newText = textarea.value.trim();
+    if(!newText) {
+      alert('Note cannot be empty. 笔记不能为空。');
+      return;
+    }
+
+    notes[index].text = newText;
+    notes[index].time = new Date().toLocaleString() + ' (edited)';
+    saveNotes();
+    renderNotes();
+  }
+  window.saveEditedNote = saveEditedNote;
+
+  function cancelEditNote(index) {
+    const card = document.querySelector(`.note-card[data-index="${index}"]`);
+    if(!card) return;
+
+    card.classList.remove('editing');
+    const panel = card.querySelector('.note-edit-panel');
+    const textEl = card.querySelector('.note-card-text');
+    const hlEl = card.querySelector('.note-card-hl');
+
+    if(panel) panel.style.display = 'none';
+    if(textEl) textEl.style.display = '';
+    if(hlEl) hlEl.style.display = '';
+  }
+  window.cancelEditNote = cancelEditNote;
   
   function clearAllNotes() {
     if(!confirm('Delete ALL notes? 删除全部笔记？')) return;
