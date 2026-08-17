@@ -708,6 +708,7 @@ body.dark .back-to-top { background: linear-gradient(135deg, #991b1b, #7f1d1d); 
   </div>
   <span class="nav-pill">🧠 Biological Approach</span>
   <div class="nav-controls">
+    <a href="../index.html" class="nav-btn" style="text-decoration:none;color:inherit;cursor:pointer;">🏠 Home</a>
     <button onclick="toggleDarkMode()" id="darkBtn" class="nav-btn">🌙 Dark</button>
     <button onclick="adjustFontSize(-1)" class="nav-btn">A-</button>
     <button onclick="adjustFontSize(1)" class="nav-btn">A+</button>
@@ -1620,6 +1621,7 @@ body.dark .back-to-top { background: linear-gradient(135deg, #991b1b, #7f1d1d); 
     document.getElementById('darkBtn').textContent = isDark ? '☀️ Light' : '🌙 Dark';
     localStorage.setItem('dement-darkMode', isDark);
   }
+  window.toggleDarkMode = toggleDarkMode;
 
   // ─── Font Size Adjuster ───
   function adjustFontSize(delta) {
@@ -1629,6 +1631,7 @@ body.dark .back-to-top { background: linear-gradient(135deg, #991b1b, #7f1d1d); 
     html.style.fontSize = size + 'px';
     localStorage.setItem('dement-fontSize', size);
   }
+  window.adjustFontSize = adjustFontSize;
 
   // ─── Restore User Preferences ───
   (function initPrefs() {
