@@ -475,11 +475,28 @@ td:first-child { font-weight: 600; color: var(--primary-dark); }
 .note-card { background: #fff; border-radius: 8px; padding: 10px 12px; margin-bottom: 8px; border-left: 3px solid #f59e0b; box-shadow: 0 1px 3px rgba(0,0,0,.08); font-size: .78em; line-height: 1.5; position: relative; animation: nFadeIn .2s ease; transition: box-shadow .2s, border-color .2s; }
 @keyframes nFadeIn { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:translateY(0)} }
 .note-card[ondblclick]:hover { box-shadow: 0 4px 12px rgba(245,158,11,.25); border-left-color: #d97706; }
-.note-card-hl { font-size: .7em; color: #92400e; background: #fef3c7; padding: 2px 6px; border-radius: 4px; margin-bottom: 4px; cursor: pointer; word-break: break-all; }
-.note-card-hl:hover { background: #fde68a; }
+.note-card-hl { font-size: .7em; color: #92400e; background: #fef3c7; padding: 2px 6px; border-radius: 4px; margin-bottom: 4px; cursor: pointer; word-break: break-all; display: flex; align-items: center; gap: 4px; transition: background .15s, transform .15s; }
+.note-card-hl:hover { background: #fde68a; transform: translateX(2px); }
 .note-card-text { color: #374151; word-break: break-word; }
 .note-card-del { position: absolute; top: 4px; right: 4px; width: 18px; height: 18px; border: none; background: #fee2e2; color: #ef4444; border-radius: 50%; font-size: .65em; cursor: pointer; opacity: 0; display: flex; align-items: center; justify-content: center; }
 .note-card:hover .note-card-del { opacity: 1; }
+/* Edit button for notes */
+.note-card-edit { position: absolute; top: 4px; right: 26px; width: 18px; height: 18px; border: none; background: #dbeafe; color: #2563eb; border-radius: 50%; font-size: .65em; cursor: pointer; opacity: 0; display: flex; align-items: center; justify-content: center; transition: opacity .15s, background .15s; }
+.note-card:hover .note-card-edit { opacity: 1; }
+.note-card-edit:hover { background: #bfdbfe; }
+.note-card.editing { border-left-color: #2563eb; box-shadow: 0 4px 12px rgba(37,99,235,.2); }
+.note-card.editing .note-card-text,
+.note-card.editing .note-card-hl,
+.note-card.editing .note-card-del,
+.note-card.editing .note-card-edit { display: none; }
+.note-edit-textarea { width: 100%; border: 1px solid #93c5fd; border-radius: 6px; padding: 8px; font-size: .9em; resize: vertical; min-height: 50px; box-sizing: border-box; outline: none; font-family: inherit; line-height: 1.5; background: #f8fafc; color: #1e293b; }
+.note-edit-textarea:focus { border-color: #2563eb; box-shadow: 0 0 0 2px rgba(37,99,235,.15); }
+.note-edit-actions { display: flex; gap: 6px; margin-top: 6px; }
+.note-edit-actions button { flex: 1; padding: 5px 8px; border-radius: 5px; font-size: .72em; font-weight: 600; cursor: pointer; border: 1px solid transparent; transition: all .15s; }
+.note-edit-save { background: #2563eb; color: white; }
+.note-edit-save:hover { background: #1d4ed8; }
+.note-edit-cancel { background: #f1f5f9; color: #64748b; border-color: #e2e8f0; }
+.note-edit-cancel:hover { background: #e2e8f0; }
 
 /* ── Study Navigator ── */
 .study-nav {
@@ -651,6 +668,12 @@ body.dark .nc-header { background: linear-gradient(135deg, #92400e, #78350f); }
 body.dark .note-card { background: #292524; border-left-color: #d97706; }
 body.dark .note-card-text { color: #d6d3d1; }
 body.dark .note-card-hl { background: #422006; color: #fbbf24; }
+body.dark .note-card-edit { background: #1e3a5f; color: #93c5fd; }
+body.dark .note-card-edit:hover { background: #1e40af; }
+body.dark .note-card.editing { border-left-color: #3b82f6; }
+body.dark .note-edit-textarea { background: #1e293b; color: #e2e8f0; border-color: #475569; }
+body.dark .note-edit-save { background: #3b82f6; }
+body.dark .note-edit-cancel { background: #334155; color: #94a3b8; border-color: #475569; }
 body.dark .hl-text { background: linear-gradient(120deg,#854d0e,#a16207); color: #fef08a; }
 body.dark .nc-textarea { background: #292524; color: #d6d3d1; border-color: #78350f; }
 body.dark .nc-add-btn { background: linear-gradient(135deg, #92400e, #78350f); }
@@ -1564,7 +1587,7 @@ body.dark .back-to-top { background: linear-gradient(135deg, #991b1b, #7f1d1d); 
         <span class="study-dot" title="Saavedra"></span>
       </div>
     </div>
-    <a href="#" class="study-nav-btn">Next ▶</a>
+    <a href="../hassett/index.html" class="study-nav-btn">▶ Hassett</a>
   </div>
 </nav>
 
@@ -1706,19 +1729,94 @@ body.dark .back-to-top { background: linear-gradient(135deg, #991b1b, #7f1d1d); 
       b.querySelectorAll('.note-card').forEach(function(x){x.remove()});
       if(!notes.length){e.style.display='';return}
       e.style.display='none';
-      notes.forEach(function(n){
-        var c=document.createElement('div');c.className='note-card';c.dataset.nid=n.id;
+      notes.forEach(function(n, idx){
+        var c=document.createElement('div');c.className='note-card';c.dataset.nid=n.id; c.dataset.idx=idx;
         if(n.hlId){
           c.addEventListener('dblclick',function(){scrollToHl(n.hlId)});
           c.style.cursor='pointer';c.title='Double-click to jump to highlighted text'
         }
-        var h=n.hlText?(function(){var d=document.createElement('div');d.className='note-card-hl';d.textContent='📌 '+n.hlText.substr(0,60)+(n.hlText.length>60?'...':'');d.addEventListener('click',function(){scrollToHl(n.hlId)});return d})():null;
+        // Edit button
+        var eb=document.createElement('button');eb.className='note-card-edit';eb.textContent='✎';eb.title='Edit note';
+        eb.addEventListener('click',function(evt){evt.stopPropagation();editNote(idx)});
+        c.appendChild(eb);
+        // Delete button
+        var d=document.createElement('button');d.className='note-card-del';d.textContent='×';d.title='Delete';d.addEventListener('click',function(evt){evt.stopPropagation();delNote(n.id)});c.appendChild(d);
+        // Highlight preview (clickable)
+        var h=n.hlText?(function(){var dv=document.createElement('div');dv.className='note-card-hl';dv.textContent='🔗 '+n.hlText.substr(0,55)+(n.hlText.length>55?'...':'');dv.addEventListener('click',function(evt){evt.stopPropagation();scrollToHl(n.hlId)});dv.title='Click to jump to highlighted text';return dv})():null;
         if(h)c.appendChild(h);
+        // Note text
         var t=document.createElement('div');t.className='note-card-text';t.textContent=n.text;c.appendChild(t);
-        var d=document.createElement('button');d.className='note-card-del';d.textContent='×';d.title='Delete';d.addEventListener('click',function(){delNote(n.id)});c.appendChild(d);
+        // Edit panel (hidden by default)
+        var ep=document.createElement('div');ep.className='note-edit-panel';ep.style.display='none';
+        var ta=document.createElement('textarea');ta.className='note-edit-textarea';ta.id='dementEditTextarea'+idx;ta.value=n.text;
+        ep.appendChild(ta);
+        var acts=document.createElement('div');acts.className='note-edit-actions';
+        var sv=document.createElement('button');sv.className='note-edit-save';sv.textContent='💾 Save';
+        sv.addEventListener('click',function(evt){evt.stopPropagation();saveEditedNote(idx)});
+        var cn=document.createElement('button');cn.className='note-edit-cancel';cn.textContent='Cancel';
+        cn.addEventListener('click',function(evt){evt.stopPropagation();cancelEditNote(idx)});
+        acts.appendChild(sv);acts.appendChild(cn);
+        ep.appendChild(acts);
+        c.appendChild(ep);
+        // Timestamp
+        var tm=document.createElement('div');tm.style.cssText='font-size:.65em;color:#9ca3af;margin-top:4px;';
+        tm.textContent=(n.time instanceof Date?n.time.toLocaleString():new Date(n.time).toLocaleString())+(n.edited?' (edited)':'')+' · '+((n.section||''));
+        c.appendChild(tm);
         b.appendChild(c);
       });
     }
+
+    // ─── EDIT NOTE FUNCTIONS ───
+    window.editNote = function(idx) {
+      // Cancel any other editing note first
+      document.querySelectorAll('.note-card.editing').forEach(function(card){
+        card.classList.remove('editing');
+        var pnl = card.querySelector('.note-edit-panel');
+        if(pnl) pnl.style.display = 'none';
+        var txtEl = card.querySelector('.note-card-text');
+        if(txtEl) txtEl.style.display = '';
+        var hlEl = card.querySelector('.note-card-hl');
+        if(hlEl) hlEl.style.display = '';
+      });
+
+      var card = document.querySelector('.note-card[data-idx="'+idx+'"]');
+      if(!card) return;
+
+      card.classList.add('editing');
+      var panel = card.querySelector('.note-edit-panel');
+      var txtEl = card.querySelector('.note-card-text');
+      var hlEl = card.querySelector('.note-card-hl');
+
+      if(panel) panel.style.display = '';
+      if(txtEl) txtEl.style.display = 'none';
+      if(hlEl) hlEl.style.display = 'none';
+
+      var textarea = document.getElementById('dementEditTextarea'+idx);
+      if(textarea) { textarea.value = notes[idx].text; textarea.focus(); textarea.select(); }
+    };
+
+    window.saveEditedNote = function(idx) {
+      var textarea = document.getElementById('dementEditTextarea'+idx);
+      if(!textarea) return;
+      var newText = textarea.value.trim();
+      if(!newText) { alert('Note cannot be empty.'); return; }
+      notes[idx].text = newText;
+      notes[idx].time = new Date();
+      notes[idx].edited = true;
+      save(); render();
+    };
+
+    window.cancelEditNote = function(idx) {
+      var card = document.querySelector('.note-card[data-idx="'+idx+'"]');
+      if(!card) return;
+      card.classList.remove('editing');
+      var panel = card.querySelector('.note-edit-panel');
+      var txtEl = card.querySelector('.note-card-text');
+      var hlEl = card.querySelector('.note-card-hl');
+      if(panel) panel.style.display = 'none';
+      if(txtEl) txtEl.style.display = '';
+      if(hlEl) hlEl.style.display = '';
+    };
 
     window.onAddNoteClick=function(){
       var sel=window.getSelection(),txt=sel.toString().trim();
@@ -1787,8 +1885,17 @@ body.dark .back-to-top { background: linear-gradient(135deg, #991b1b, #7f1d1d); 
 
     window.exportNotes=function(){
       if(!notes.length){alert('No notes.');return}
-      var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(notes,null,2)],{type:'application/json'}));
-      a.download='dement_notes_'+new Date().toISOString().slice(0,10)+'.json';a.click();
+      var output='# Dement & Kleitman (1957) — Study Notes\nExported: '+new Date().toLocaleString()+'\n'+ '='.repeat(50)+'\n\n';
+      notes.forEach(function(n, i){
+        output+='## Note '+(i+1)+'\n';
+        output+='- **Section:** '+(n.section||'Unknown')+'\n';
+        output+='- **Time:** '+new Date(n.time).toLocaleString()+(n.edited?' (edited)':'')+'\n';
+        if(n.hlText) output+= '- **Highlighted:** "'+n.hlText+'"\n';
+        output+= '- **Note:** '+n.text+'\n\n';
+      });
+      var a=document.createElement('a');
+      a.href=URL.createObjectURL(new Blob([output],{type:'text/markdown'}));
+      a.download='dement_notes.md';a.click();
     };
 
     load();
