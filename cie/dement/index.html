@@ -106,38 +106,24 @@ body {
   align-items: start;
 }
 
-/* ── Sidebar (Left) ── */
-.sidebar {
-  position: sticky;
-  top: 60px;
-  overflow-y: auto;
-  max-height: calc(100vh - 80px);
-  background: linear-gradient(180deg, var(--highlight), #fff);
-  border: 2px solid rgba(220,38,38,.15);
-  border-radius: 12px;
-  padding: 18px 14px;
-  font-size: 0.76em;
-}
-.sb-title {
-  font-weight: 700;
-  color: var(--primary-dark);
-  margin-bottom: 12px;
-  font-size: 1.05em;
-  text-align: center;
-  padding-bottom: 8px;
-  border-bottom: 2px dashed rgba(220,38,38,.25);
-}
-.sb-item { margin: 6px 0; }
-.sb-item a {
-  display: block;
-  padding: 6px 10px;
-  color: var(--text-secondary);
-  text-decoration: none;
-  border-radius: 6px;
-  transition: all .2s;
-}
-.sb-item a:hover { background: rgba(220,38,38,.08); color: var(--primary); transform: translateX(3px); }
-.sb-item a.active { background: var(--primary); color: #fff; font-weight: 600; }
+/* ── Sidebar (Left) — Milgram Style ── */
+.sidebar { width: 170px; flex-shrink: 0; position: sticky; top: 60px; max-height: calc(100vh - 80px); overflow-y: auto; padding: 12px 0; z-index: 50; }
+.sidebar::-webkit-scrollbar { width: 2px; }
+.sidebar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 2px; }
+.sidebar-inner { background: #f8fafc; border-radius: 14px; border: 1px solid #e2e8f0; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,.05); }
+body.dark .sidebar-inner { background: #16213e; border-color: #334155; box-shadow: 0 2px 8px rgba(0,0,0,.25); }
+.sb-header { padding: 13px 16px 10px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); }
+.sb-header-title { font-size: .72em; font-weight: 700; color: white; letter-spacing: .8px; text-transform: uppercase; margin: 0; }
+.sb-header-sub { font-size: .63em; color: rgba(255,255,255,.75); margin: 2px 0 0; font-weight: 500; }
+.sb-list { list-style: none; padding: 6px 0 10px; margin: 0; }
+.sb-divider { height: 1px; background: #e2e8f0; margin: 4px 12px; }
+body.dark .sb-divider { background: #334155; }
+.sb-item a { display: block; padding: 7px 14px 7px 18px; color: #475569; text-decoration: none; font-size: .76em; font-weight: 500; border-left: 3px solid transparent; transition: all .15s ease; line-height: 1.45; border-radius: 0 7px 7px 0; margin: 1px 4px 1px 0; }
+.sb-item a:hover { border-left-color: var(--primary); color: var(--primary-dark); font-weight: 600; background: linear-gradient(90deg, rgba(220,38,38,.07), transparent); }
+.sb-item a.sb-active { border-left-color: var(--primary); color: var(--primary-dark); font-weight: 700; background: linear-gradient(90deg, rgba(220,38,38,.12), transparent); }
+body.dark .sb-item a { color: #94a3b8; }
+body.dark .sb-item a:hover { color: #f97316; background: linear-gradient(90deg, rgba(220,38,38,.10), transparent); border-left-color: #f97316; }
+body.dark .sb-item a.sb-active { color: #fca5a5; background: linear-gradient(90deg, rgba(220,38,38,.16), transparent); border-left-color: #f97316; }
 
 /* ── Main Content ── */
 .main-content { min-width: 0; max-width: 660px; }
@@ -202,16 +188,57 @@ body {
 .section ul, .section ol { margin: 10px 0 14px 22px; }
 .section li { margin-bottom: 6px; }
 
-/* ── Key Term Box ── */
-.keyterm-box {
-  background: linear-gradient(135deg, #fef2f2, #fee2e2);
-  border-left: 4px solid var(--primary);
+/* ── Key Term Box (Original Style) ── */
+.keyword-box {
+  background: linear-gradient(135deg, #FFEBEE, #FFCDD2);
+  border-left: 5px solid var(--primary);
   border-radius: 0 8px 8px 0;
-  padding: 14px 18px;
+  padding: 18px 22px;
+  margin: 18px 0;
+}
+.keyword-box h4 { color: var(--primary-dark); font-size: 1em; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+.keyword-box p { margin: 6px 0; font-size: 0.96em; }
+.keyword-box strong { color: var(--primary-dark); }
+
+/* ── Info Box (Blue) ── */
+.info-box {
+  background: #E3F2FD;
+  border-left: 4px solid #1976D2;
+  border-radius: 6px;
+  padding: 16px 20px;
+  margin: 16px 0;
+}
+.info-box h4 { color: #1565C0; margin-bottom: 8px; }
+
+/* ── CN Note (Yellow) ── */
+.cn-note {
+  background: #FFF8E1;
+  border-left: 4px solid #FFA000;
+  border-radius: 6px;
+  padding: 16px 20px;
   margin: 16px 0;
   font-size: 0.96em;
 }
-.keyterm-box strong { color: var(--primary-dark); }
+
+/* ── Warn Box (Orange) ── */
+.warn-box {
+  background: var(--warning);
+  border-left: 4px solid #F57C00;
+  border-radius: 6px;
+  padding: 16px 20px;
+  margin: 16px 0;
+}
+.warn-box h4 { color: #E65100; margin-bottom: 8px; }
+
+/* ── Activity Box (Green) ── */
+.activity-box {
+  background: #E8F5E9;
+  border-left: 4px solid #43A047;
+  border-radius: 6px;
+  padding: 16px 20px;
+  margin: 16px 0;
+}
+.activity-box h4 { color: #2E7D32; margin-bottom: 8px; }
 
 /* ── Figure / Image ── */
 .figure { margin: 22px 0; text-align: center; }
@@ -257,6 +284,11 @@ td {
 }
 tr:last-child td { border-bottom: none; }
 tr:hover td { background: var(--highlight); }
+td:first-child { font-weight: 600; color: var(--primary-dark); }
+
+/* Result highlights */
+.result-highlight { background: #DCEDC8; padding: 2px 6px; border-radius: 4px; font-weight: 700; color: #33691E; }
+.result-high { background: #FFCDD2; padding: 2px 6px; border-radius: 4px; font-weight: 700; color: #B71C1C; }
 
 /* ── Exam Key Points Card (Green) ── */
 .summary-card { margin: 18px 0; }
@@ -383,7 +415,7 @@ tr:hover td { background: var(--highlight); }
 /* ── Notes Panel (Right Column) ── */
 .notes-col {
   width: 250px;
-  background: linear-gradient(180deg, #fffbeb, #fefce8);
+  background: #fffef5;
   border: 2px solid #f59e0b;
   border-radius: 12px;
   display: flex;
@@ -392,94 +424,62 @@ tr:hover td { background: var(--highlight); }
   top: 60px;
   max-height: calc(100vh - 80px);
   box-shadow: 0 2px 12px rgba(245,158,11,.15);
+  overflow: hidden;
 }
 .nc-header {
-  background: linear-gradient(135deg, #f59e0b, #d97706);
-  color: #fff;
-  padding: 14px 16px;
-  border-radius: 10px 10px 0 0;
-  text-align: center;
-  font-weight: 700;
-  font-size: 0.92em;
+  background: linear-gradient(135deg,#f59e0b,#d97706);
+  padding: 12px 14px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  gap: 8px;
 }
-.nc-count { background: rgba(255,255,255,.25); padding: 2px 10px; border-radius: 10px; font-size: 0.82em; }
+.nc-title { font-size: .85em; font-weight: 700; color: #fff; }
+.nc-count { margin-left: auto; background: rgba(255,255,255,.3); color: #fff; font-size: .7em; font-weight: 700; padding: 2px 8px; border-radius: 10px; }
 .nc-body {
   flex: 1;
   overflow-y: auto;
-  padding: 12px;
+  padding: 10px;
+  max-height: calc(100vh - 240px);
   min-height: 60px;
 }
-.nc-empty { color: #9ca3af; text-align: center; padding: 20px 0; font-size: 0.84em; }
-.note-card {
-  background: #fff;
-  border-left: 3px solid #f59e0b;
-  border-radius: 6px;
-  padding: 10px 12px;
-  margin-bottom: 10px;
-  font-size: 0.8em;
-  box-shadow: 0 1px 3px rgba(0,0,0,.06);
-}
-.note-card .nc-text { margin-bottom: 6px; line-height: 1.5; word-break: break-word; }
-.note-card .nc-meta { display: flex; justify-content: space-between; align-items: center; font-size: 0.85em; color: #9ca3af; }
-.note-card .nc-del { cursor: pointer; color: #ef4444; font-weight: 700; }
-.note-card .nc-del:hover { color: #dc2626; }
-.nc-input-row { display: none; padding: 12px; border-top: 1px solid #fde68a; }
+.nc-empty { text-align: center; color: #9ca3af; padding: 20px 8px; font-size: .78em; }
+.nc-input-row { display: none; padding: 12px; border-top: 1px solid #fde68a; background: #fffbeb; }
 .nc-input-row.show { display: block; }
 .nc-textarea {
   width: 100%;
-  height: 70px;
-  border: 2px solid #fcd34d;
-  border-radius: 6px;
-  padding: 8px;
-  font-family: inherit;
-  font-size: 0.88em;
+  border: 1px solid #fcd34d;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: .82em;
   resize: vertical;
+  min-height: 60px;
+  box-sizing: border-box;
   outline: none;
+  font-family: inherit;
 }
-.nc-textarea:focus { border-color: #d97706; box-shadow: 0 0 0 2px rgba(217,119,6,.15); }
-.nc-btn-row { display: flex; gap: 6px; margin-top: 8px; }
-.nc-btn {
-  flex: 1;
-  padding: 7px 0;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 0.82em;
-  font-weight: 600;
-  transition: opacity .2s;
-}
-.nc-btn:hover { opacity: .85; }
-.nc-save { background: #16a34a; color: #fff; }
-.nc-cancel { background: #6b7280; color: #fff; }
-.nc-footer { padding: 12px; border-top: 1px solid #fde68a; display: flex; gap: 6px; }
-.nc-add-btn {
-  flex: 1;
-  padding: 9px 0;
-  background: linear-gradient(135deg, #f59e0b, #d97706);
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 700;
-  font-size: 0.84em;
-  transition: opacity .2s;
-}
+.nc-textarea:focus { border-color: #d97706; box-shadow: 0 0 0 2px rgba(245,158,11,.15); }
+.nc-actions { display: flex; gap: 8px; margin-top: 8px; }
+.nc-actions button { flex: 1; padding: 8px; border-radius: 6px; font-size: .78em; font-weight: 600; cursor: pointer; border: 1px solid transparent; }
+.nc-btn-save { background: #16a34a; color: white; }
+.nc-btn-cancel { background: white; color: #6b7280; border-color: #d1d5db !important; }
+.nc-add-btn { width: 100%; padding: 13px; background: linear-gradient(135deg,#ea580c,#c2410c); color: white; border: none; border-radius: 0 0 10px 10px; font-size: .88em; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: opacity .2s; }
 .nc-add-btn:hover { opacity: .9; }
-.nc-action-btn {
-  padding: 9px 10px;
-  background: #fff;
-  border: 2px solid #fcd34d;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 0.8em;
-  font-weight: 600;
-  color: #92400e;
-  transition: background .2s;
-}
-.nc-action-btn:hover { background: #fef3c7; }
+.nc-footer { display: flex; gap: 4px; padding: 6px 10px; border-top: 1px solid #fde68a; }
+.nc-footer button { flex: 1; padding: 4px 0; font-size: .68em; border: none; background: transparent; color: #92400e; cursor:pointer; }
+
+/* Highlight styles */
+.hl-text { background: linear-gradient(120deg,#fef08a,#fde047); border-radius: 2px; padding: 0 2px; cursor: pointer; transition: background .15s; }
+.hl-text:hover { background: linear-gradient(120deg,#fde047,#facc15); }
+
+/* Note card with highlight support */
+.note-card { background: #fff; border-radius: 8px; padding: 10px 12px; margin-bottom: 8px; border-left: 3px solid #f59e0b; box-shadow: 0 1px 3px rgba(0,0,0,.08); font-size: .78em; line-height: 1.5; position: relative; animation: nFadeIn .2s ease; transition: box-shadow .2s, border-color .2s; }
+@keyframes nFadeIn { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:translateY(0)} }
+.note-card[ondblclick]:hover { box-shadow: 0 4px 12px rgba(245,158,11,.25); border-left-color: #d97706; }
+.note-card-hl { font-size: .7em; color: #92400e; background: #fef3c7; padding: 2px 6px; border-radius: 4px; margin-bottom: 4px; cursor: pointer; word-break: break-all; }
+.note-card-hl:hover { background: #fde68a; }
+.note-card-text { color: #374151; word-break: break-word; }
+.note-card-del { position: absolute; top: 4px; right: 4px; width: 18px; height: 18px; border: none; background: #fee2e2; color: #ef4444; border-radius: 50%; font-size: .65em; cursor: pointer; opacity: 0; display: flex; align-items: center; justify-content: center; }
+.note-card:hover .note-card-del { opacity: 1; }
 
 /* ── Study Navigator ── */
 .study-nav {
@@ -513,8 +513,7 @@ tr:hover td { background: var(--highlight); }
 .study-nav-label { font-size: 0.65rem; letter-spacing: 1px; color: #9ca3af; margin-bottom: 6px; }
 .study-dot-row { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
 .study-dot {
-  width: 10px; height: 10px;
-  border-radius: 50%;
+  width: 10px; height: 10px; border-radius: 50%;
   background: #d1d5db;
   border: 2px solid transparent;
   transition: all .2s;
@@ -624,8 +623,12 @@ body.dark .toc a { color: var(--primary-light); }
 body.dark .section { background: #1e293b; border-color: #334155; }
 body.dark .section h2 { color: var(--primary-light); border-bottom-color: #334155; }
 body.dark .section h3 { color: var(--accent); }
-body.dark .keyterm-box { background: linear-gradient(135deg, #1e1b4b, #312e81); border-left-color: var(--primary-light); }
-body.dark .keyterm-box strong { color: var(--accent); }
+body.dark .keyword-box { background: linear-gradient(135deg, #1e1b4b, #312e81); border-left-color: var(--primary-light); }
+body.dark .keyword-box strong { color: var(--accent); }
+body.dark .info-box { background: #172554; border-left-color: #3b82f6; }
+body.dark .cn-note { background: #422006; border-left-color: #f59e0b; }
+body.dark .warn-box { background: #422006; border-left-color: #f97316; }
+body.dark .activity-box { background: #14532d; border-left-color: #22c55e; }
 body.dark table { background: #0f172a; border-color: #334155; }
 body.dark th { background: linear-gradient(135deg, #991b1b, #7f1d1d); color: #fff; }
 body.dark td { border-color: #334155; color: #cbd5e1; }
@@ -646,8 +649,11 @@ body.dark .qa-tip { background: #422006; border-left-color: #f59e0b; }
 body.dark .notes-col { background: #1c1917; border-color: #44403c; }
 body.dark .nc-header { background: linear-gradient(135deg, #92400e, #78350f); }
 body.dark .note-card { background: #292524; border-left-color: #d97706; }
-body.dark .note-card .nc-text { color: #d6d3d1; }
-body.dark .note-card .nc-meta { color: #a8a29e; }
+body.dark .note-card-text { color: #d6d3d1; }
+body.dark .note-card-hl { background: #422006; color: #fbbf24; }
+body.dark .hl-text { background: linear-gradient(120deg,#854d0e,#a16207); color: #fef08a; }
+body.dark .nc-textarea { background: #292524; color: #d6d3d1; border-color: #78350f; }
+body.dark .nc-add-btn { background: linear-gradient(135deg, #92400e, #78350f); }
 body.dark .study-nav { background: #1e293b; border-top-color: #334155; }
 body.dark .study-nav-btn { border-color: #475569; color: #cbd5e1; }
 body.dark .study-nav-btn:hover { border-color: var(--primary-light); color: var(--primary-light); }
@@ -658,9 +664,6 @@ body.dark button { background: #334155; color: #e2e8f0; border-color: #475569; }
 body.dark button:hover { background: #475569; }
 body.dark .progress-bar { background: linear-gradient(90deg, #ef4444, #f87171, #86efac); }
 body.dark .back-to-top { background: linear-gradient(135deg, #991b1b, #7f1d1d); }
-body.dark .nc-textarea { background: #292524; color: #d6d3d1; border-color: #78350f; }
-body.dark .nc-add-btn { background: linear-gradient(135deg, #92400e, #78350f); }
-body.dark .nc-action-btn { background: #292524; color: #d6d3d1; border-color: #57534e; }
 </style>
 </head>
 <body>
@@ -692,20 +695,27 @@ body.dark .nc-action-btn { background: #292524; color: #d6d3d1; border-color: #5
 <!-- SIDEBAR (Left Navigation)         -->
 <!-- ════════════════════════════════ -->
 <aside class="sidebar">
-  <div class="sb-title">📑 Contents</div>
-  <div class="sb-item"><a href="#s1">§1 Introduction</a></div>
-  <div class="sb-item"><a href="#s2">§2 Research Aim</a></div>
-  <div class="sb-item"><a href="#s3">§3 Method</a></div>
-  <div class="sb-item"><a href="#s4">§4 Procedure</a></div>
-  <div class="sb-item"><a href="#s5">§5 Results — Study 1</a></div>
-  <div class="sb-item"><a href="#s6">§6 Results — Study 2</a></div>
-  <div class="sb-item"><a href="#s7">§7 Results — Study 3</a></div>
-  <div class="sb-item"><a href="#s8">§8 Discussion</a></div>
-  <div class="sb-item"><a href="#s9">§9 Conclusions</a></div>
-  <div class="sb-item"><a href="#s10">§10 Evaluation</a></div>
-  <div class="sb-item"><a href="#s11">§11 Ethics</a></div>
-  <div class="sb-item"><a href="#s12">§12 Exam Practice</a></div>
-  <div class="sb-item"><a href="#s13">§13 Key Terms</a></div>
+  <div class="sidebar-inner">
+    <div class="sb-header">
+      <div class="sb-header-title">😴 Dement 1957</div>
+      <div class="sb-header-sub">Sleep &amp; Dreaming</div>
+    </div>
+    <ul class="sb-list" id="sidebarList">
+      <li class="sb-item"><a href="#s1">§1 Background</a></li>
+      <li class="sb-item"><a href="#s2">§2 Aim</a></li>
+      <li class="sb-divider"></li>
+      <li class="sb-item"><a href="#s3">§3 Method</a></li>
+      <li class="sb-item"><a href="#s4">§4 Procedure</a></li>
+      <li class="sb-item"><a href="#s5">§5 Results</a></li>
+      <li class="sb-divider"></li>
+      <li class="sb-item"><a href="#s6">§6 Conclusion</a></li>
+      <li class="sb-item"><a href="#s7">§7 Evaluation</a></li>
+      <li class="sb-item"><a href="#s8">§8 Ethics</a></li>
+      <li class="sb-divider"></li>
+      <li class="sb-item"><a href="#s9">§9 Summary</a></li>
+      <li class="sb-item"><a href="#s10">§10 Exam Practice</a></li>
+    </ul>
+  </div>
 </aside>
 
 <!-- ════════════════════════════════ -->
@@ -716,12 +726,12 @@ body.dark .nc-action-btn { background: #292524; color: #d6d3d1; border-color: #5
 <!-- Header -->
 <div class="header">
   <h1>Dement &amp; Kleitman (1957)</h1>
-  <p class="subtitle">The Relation of Eye Movements During Sleep to Dream Activity<br>睡眠期间眼球运动与梦活动的关系</p>
+  <p class="subtitle">The Relation of Eye Movements During Sleep to Dream Activity<br><span style="font-size:.9em;opacity:.85">睡眠眼动与做梦活动的关系</span></p>
   <div class="meta">
+    <span class="badge">🔄 REM = Dreaming (79.6%)</span>
+    <span class="badge">👁️ Eye Movements ↔ Dream Content</span>
+    <span class="badge">📊 EEG/EOG Objective Method</span>
     <span class="badge">🧠 Biological Approach</span>
-    <span class="badge">📐 Laboratory Experiment</span>
-    <span class="badge">🔬 Quantitative Data</span>
-    <span class="badge">📊 N = 9 participants</span>
   </div>
 </div>
 
@@ -729,58 +739,104 @@ body.dark .nc-action-btn { background: #292524; color: #d6d3d1; border-color: #5
 <div class="toc">
   <h2>📋 Table of Contents</h2>
   <ol>
-    <li><a href="#s1">Introduction &amp; Background</a></li>
-    <li><a href="#s2">Research Aim &amp; Hypotheses</a></li>
-    <li><a href="#s3">Method — Design, Sample &amp; Variables</a></li>
-    <li><a href="#s4">Procedure</a></li>
-    <li><a href="#s5">Results — Study 1 (Eye Movement &amp; Dream Recall)</a></li>
-    <li><a href="#s6">Results — Study 2 (Eye Movement Pattern &amp; Dream Content)</a></li>
-    <li><a href="#s7">Results — Study 3 (Dream Interruption)</a></li>
-    <li><a href="#s8">Discussion of Findings</a></li>
-    <li><a href="#s9">Conclusions</a></li>
-    <li><a href="#s10">Evaluation (AO3 Strengths &amp; Weaknesses)</a></li>
-    <li><a href="#s11">Ethical Issues</a></li>
-    <li><a href="#s12">Exam Practice Questions</a></li>
-    <li><a href="#s13">Key Terms Glossary</a></li>
+    <li><a href="#s1">Background — Sleep Stages and Brain Waves</a></li>
+    <li><a href="#s2">Aim — Three Research Questions</a></li>
+    <li><a href="#s3">Method — Laboratory Experiment</a></li>
+    <li><a href="#s4">Procedure — Three Experimental Conditions</a></li>
+    <li><a href="#s5">Results — Dream Recall, Duration Estimation, Eye-Movement Patterns</a></li>
+    <li><a href="#s6">Conclusion</a></li>
+    <li><a href="#s7">Strengths &amp; Weaknesses</a></li>
+    <li><a href="#s8">Ethical Issues</a></li>
+    <li><a href="#s9">Summary</a></li>
+    <li><a href="#s10">Exam Practice Questions</a></li>
   </ol>
 </div>
 
 <!-- ════════════════════════════════ -->
-<!-- §1 INTRODUCTION                   -->
+<!-- §1 BACKGROUND                      -->
 <!-- ════════════════════════════════ -->
 <section class="section" id="s1">
-  <h2>§1 Introduction &amp; Background</h2>
+  <h2>§1 Background — Sleep Stages and Brain Waves</h2>
 
-  <h3>The Mystery of Sleep and Dreams</h3>
-  <p>Prior to the 1950s, sleep was largely considered a passive state — a period of rest where the brain simply "shut down." Dreams were viewed as fleeting, unreliable mental phenomena that could not be studied scientifically.</p>
+  <h3>The Psychology Being Investigated</h3>
+  <p><strong>Sleep（睡眠）</strong> is an altered state of consciousness（意识改变状态）. We are less aware of our surroundings than when awake and move very little. In spite of the risk this would have presented in our evolutionary history, by making us vulnerable, we sleep every day. Our pattern of sleeping and waking on a 24-hour cycle is called a <strong>circadian rhythm（昼夜节律/生物钟）</strong>; it occurs approximately daily.</p>
 
-  <div class="keyterm-box">
-    <strong>Rapid Eye Movement (REM) Sleep:</strong> A stage of sleep characterised by rapid, random movement of the eyes, accompanied by low muscle tone throughout the body, and the propensity of the sleeper to experience vivid dreams.
+  <p>Within each 24 hours there are more frequent cycles, called <strong>ultradian rhythms（超昼夜节律）</strong>. The basic rest–activity cycle (BRAC) occurs approximately every 90 minutes throughout the day and night. During sleep, this rhythm controls the stages of sleep that we experience (see Figure below).</p>
+
+  <!-- IMAGE 1: Sleep Stages Chart -->
+  <div class="figure">
+    <img src="dement_images/sleep_stages_chart.jpg" alt="Sleep stages through the night">
+    <p class="figure-caption">Figure: The cyclical nature of sleep stages through the night, showing four phases of REM sleep and nREM stages (1–4)</p>
   </div>
 
-  <h3>Aserinsky &amp; Kleitman's Discovery (1953)</h3>
-  <p>In a groundbreaking study at the University of Chicago, Eugene Aserinsky (a graduate student working under Nathaniel Kleitman) discovered that sleep is not uniform. He observed that during certain periods of sleep, the sleeper's eyes would move rapidly beneath closed eyelids. This became known as <strong>REM sleep</strong> (快速眼动睡眠).</p>
+  <div class="keyword-box">
+    <h4>🔑 Key Words</h4>
+    <p><strong>sleep（睡眠）</strong>: a state of reduced conscious awareness and reduced movement, which occurs on a daily cycle</p>
+    <p><strong>circadian rhythm（昼夜节律）</strong>: a cycle that repeats daily, i.e. approximately every 24 hours, such as the sleep/wake cycle</p>
+    <p><strong>ultradian rhythm（超昼夜节律）</strong>: a cycle that repeats more often than daily, e.g. the occurrence of periods of dreaming every 90 minutes during sleep</p>
+    <p><strong>electroencephalograph (EEG)（脑电图仪）</strong>: a machine used to detect and record electrical activity in nerve and muscle cells when many are active at the same time. It uses macroelectrodes, which are large electrodes stuck to the skin or scalp</p>
+  </div>
 
-  <p>This discovery raised a fundamental question that Dement and Kleitman set out to answer in their 1957 study:</p>
+  <h3>How Do We Measure Sleep?</h3>
+  <p>Sleep is difficult to study as the participant is not responsive so cannot communicate their experience. To overcome this problem, a machine called an <strong>electroencephalograph (EEG)（脑电图仪）</strong> is used. This records changes in brain activity using electrodes stuck to the surface of the participant's head that, because they are recording electrodes, cannot give the participant an electric shock! An EEG produces a chart (an electroencephalogram) showing how electrical activity in the brain or 'brain waves' varies.</p>
 
-  <blockquote style="border-left:4px solid var(--primary); padding:12px 20px; margin:16px 0; background:var(--highlight); border-radius:0 8px 8px 0; font-style:italic;">
-    "Is there a relationship between eye movements during sleep and dream activity?"
-  </blockquote>
+  <p>The brain waves change in terms of their <strong>frequency（频率）</strong> (how rapidly they occur) and <strong>amplitude（振幅）</strong> (height). These two features of the electrical activity change in a patterned way over time. The chart records changes which indicate the sleep stage the participant is in.</p>
+
+  <!-- IMAGE 2: EEG Waveform -->
+  <div class="figure">
+    <img src="dement_images/eeg_waveform.jpg" alt="EEG recordings for different sleep stages">
+    <p class="figure-caption">Figure 2.2: EEG recordings showing the different stages of sleep — Awake, Stage 1–4, and REM Sleep (with Sleep Spindle marked)</p>
+  </div>
+
+  <h3>The Five Stages of Sleep</h3>
+  <table>
+    <tr><th>Stage<br>（阶段）</th><th>Characteristics<br>（特征）</th><th>Brain Waves<br>（脑波特征）</th></tr>
+    <tr><td><strong>Awake（清醒）</strong></td><td>Fully alert, eyes open</td><td>Beta waves (13–30 Hz), low amplitude, irregular</td></tr>
+    <tr><td><strong>Stage 1（浅睡）</strong></td><td>Light sleep, easily awakened, drifting in/out</td><td>Theta waves (4–7 Hz), mixed alpha/beta</td></tr>
+    <tr><td><strong>Stage 2（入睡）</strong></td><td>Eye movements stop, body temp drops, <strong>sleep spindles（睡眠纺锤波）</strong> appear</td><td>Theta + sleep spindles (12–14 Hz bursts)</td></tr>
+    <tr><td><strong>Stage 3（中睡）</strong></td><td>Deep sleep begins, very slow delta waves emerge</td><td>Delta waves (0.5–4 Hz), high amplitude</td></tr>
+    <tr><td><strong>Stage 4（深睡）</strong></td><td>Deepest sleep, hardest to wake from</td><td>Pure delta waves (>50% of record), highest amplitude</td></tr>
+    <tr><td><strong>REM Sleep<br>（快速眼动睡眠）</strong></td><td>Eyes move rapidly under lids, vivid dreams, body paralysed</td><td>Similar to awake/stage 1 (theta/beta mix), low amplitude</td></tr>
+  </table>
+
+  <p>We enter sleep in stage 1, then work through stages 2, 3 and 4 with our sleep becoming deeper so that we are harder to wake. From here, we re-enter stages 3, then 2 but instead of re-entering stage 1, we go into 'dream' sleep before repeating the cycle several times each night. During the night, the length of time we spend dream sleeping increases and the depth of each cycle reduces. The total length of each cycle therefore stays about the same, i.e., the ultradian rhythm is maintained.</p>
+
+  <h3>Dreams and Rapid Eye Movement (REM)</h3>
+  <p><strong>Dreams（梦）</strong> are vivid, generally visual sequences of imagery that occur at regular intervals during sleep and are associated with rapid eye movements. Like sleep in general, dreams are difficult to study. Although the EEG can detect when we are dreaming, there is no machine that can 'read' our dreams. The sleeper must be woken to give a description of their dream.</p>
+
+  <p>It is possible, however, to detect eye movements that occur during sleep. An EOG can be used to detect activity in the muscles moving the eyes, so can be used to measure the frequency and direction of these eye movements. The recording this produces is called an <strong>electrooculogram (EOG)（眼电图）</strong>. During dream sleep, these eye movements are faster than in any other stage of sleep, hence this is called <strong>rapid eye movement or REM sleep（快速眼动睡眠）</strong>. The other stages of sleep are referred to as <strong>non-rapid eye movement or nREM sleep（非快速眼动睡眠）</strong>.</p>
+
+  <div class="keyword-box">
+    <h4>🔑 Key Words</h4>
+    <p><strong>frequency（频率）</strong>: the number of events per fixed period of time, e.g. the number of eye movements per minute (approximately 60 per minute in REM sleep) or the number of brain waves (cycles) per second, or Hertz (Hz), e.g. 13–30 Hz for beta waves</p>
+    <p><strong>amplitude（振幅）</strong>: the 'height' of waves, e.g. on an EEG (indicating voltage)</p>
+    <p><strong>dream（梦）</strong>: a vivid, visual sequence of imagery that occurs at regular intervals during sleep and is associated with rapid eye movements</p>
+    <p><strong>rapid eye movement (REM) sleep（快速眼动睡眠）</strong>: a stage of sleep in which our eyes move rapidly under the lids, which is associated with vivid, visual dreams</p>
+    <p><strong>non-rapid eye movement (nREM) sleep（非快速眼动睡眠）</strong>: the stages of sleep (1–4) in which our eyes are still. It is also called quiescent (quiet) sleep. It is not associated with dreaming</p>
+    <p><strong>eye-movement patterns（眼球运动模式）</strong>: the pattern that most people tend to follow when looking at, for example, a menu. This can be helpful in designing menus</p>
+  </div>
+
+  <h3>Previous Research: Aserinsky &amp; Kleitman (1955)</h3>
+  <p>Aserinsky and Kleitman (1955) began the objective, physiological measurement of sleep using an EEG to explore the relationship between sleep and dreaming. They showed that participants woken from REM sleep were more likely to report a vivid, visual dream than when woken in other stages. They also found a characteristic brain wave pattern during REM sleep, called <strong>alpha waves（α波）</strong>, which is similar to brain activity when we are awake.</p>
+
+  <div class="cn-note">
+    <strong>💡 Why this matters:</strong> Aserinsky &amp; Kleitman established that REM sleep is linked to dreaming, but they couldn't prove whether dream content relates to actual eye-movement patterns. That's exactly what Dement &amp; Kleitman set out to investigate.
+  </div>
 
   <!-- Exam Key Points -->
   <div class="summary-card" id="summary-s1">
     <div class="summary-card-header" onclick="toggleSummary(this)">
       <span class="summary-card-icon">▶</span>
-      <span class="summary-card-title">Exam Key Points — Introduction</span>
+      <span class="summary-card-title">Exam Key Points — Background</span>
       <span class="ao-badge">AO1</span>
     </div>
     <div class="summary-card-body">
       <div class="summary-card-inner">
         <ol>
-          <li><span class="tag-must">必考</span> Before 1953, sleep was thought to be a <strong>uniform, passive state</strong> — no distinction between different stages.</li>
-          <li><span class="tag-must">必考</span> <strong>Aserinsky &amp; Kleitman (1953)</strong> first identified REM sleep by observing rapid eye movements during sleep.</li>
+          <li><span class="tag-must">必考</span> Sleep is an <strong>altered state of consciousness</strong> with circadian (24-hour) and ultradian (~90-minute) rhythms.</li>
+          <li><span class="tag-must">必考</span> <strong>Aserinsky &amp; Kleitman (1953/1955)</strong> first identified REM sleep by observing rapid eye movements during sleep.</li>
           <li><span class="tag-common">常考</span> The 1957 study aimed to establish whether <strong>eye movements correlate with dreaming</strong>.</li>
-          <li><span class="tag-context">背景</span> This was one of the first studies to treat dreams as an <strong>objective, measurable phenomenon</strong>.</li>
+          <li><span class="tag-context">背景</span> EEG measures brain waves; EOG measures eye movements during sleep.</li>
         </ol>
       </div>
     </div>
@@ -802,47 +858,46 @@ body.dark .nc-action-btn { background: #292524; color: #d6d3d1; border-color: #5
 </section>
 
 <!-- ════════════════════════════════ -->
-<!-- §2 RESEARCH AIM                    -->
+<!-- §2 AIM                            -->
 <!-- ════════════════════════════════ -->
 <section class="section" id="s2">
-  <h2>§2 Research Aim &amp; Hypotheses</h2>
+  <h2>§2 Aim — Three Research Questions</h2>
 
-  <h3>Overall Aim</h3>
-  <p>To investigate the relationship between <strong>eye movements during sleep</strong> and <strong>dream activity</strong>, specifically testing whether eye movements can serve as an objective indicator of dreaming.</p>
+  <blockquote>
+    The aim of this study was to find out more about dreaming, specifically to answer three questions:
+  </blockquote>
 
-  <h3>Three Specific Studies with Hypotheses</h3>
+  <div class="info-box">
+    <h4>🎯 Three Research Questions</h4>
+    <ol>
+      <li><strong>Does dream recall differ between REM and nREM stages of sleep?</strong><br>
+        <span style="color:var(--text-secondary)">Are participants more likely to recall a dream if woken from REM than from nREM?</span></li>
+      <li><strong>Is there a positive correlation between subjective estimates of dream duration and the length of the REM period before waking?</strong><br>
+        <span style="color:var(--text-secondary)">Can participants accurately judge how long they've been dreaming?</span></li>
+      <li><strong>Are eye-movement patterns related to dream content?</strong><br>
+        <span style="color:var(--text-secondary)">Does the direction of eye movements match what participants see in their dreams?</span></li>
+    </ol>
+  </div>
 
-  <table>
-    <tr><th style="width:28%">Study</th><th>Hypothesis</th></tr>
-    <tr>
-      <td><strong>Study 1</strong><br><em>Eye Movement &amp; Dream Recall</em></td>
-      <td>Participants will report <strong>more vivid dreams</strong> when awakened during periods of <strong>rapid eye movement (REM)</strong> compared to non-REM periods.<br><br>Awakenings from REM → higher dream recall rate (expected ~80%)<br>Awakenings from non-REM → lower recall rate (expected ~10%)</td>
-    </tr>
-    <tr>
-      <td><strong>Study 2</strong><br><em>Pattern &amp; Dream Content</em></td>
-      <td>The <strong>pattern of eye movements</strong> will correspond to the <strong>content of reported dreams</strong>. For example:<br>• Predominantly vertical eye movements → dreams involving vertical scanning (climbing, looking up)<br>• Predominantly horizontal movements → dreams involving horizontal scanning (watching a game, two people talking)</td>
-    </tr>
-    <tr>
-      <td><strong>Study 3</strong><br><em>Dream Interruption</em></td>
-      <td>If a participant is awakened <strong>during a REM period</strong> and reports a dream, then allowed to return to sleep and awakened again <strong>later in the same night</strong>, they may be able to report a <strong>second, distinct dream</strong> — suggesting multiple dream episodes per night.</td>
-    </tr>
-  </table>
+  <p>In addition to the changes in brain waves and reduction in body muscle activity that Aserinsky and Kleitman linked to dream sleep, they identified increases in breathing and heart rates during REM sleep. Together, these led them to suggest that this pattern of changes represented a particular level of activity in the brain. Aserinsky and Kleitman suggested that rapid eye movements were likely to be associated with the experience of dreaming, and specifically that the strikingly vivid visual reports of dreams that some participants reported when woken from REM sleep indicated that the eye movements were likely to be associated with the visual imagery of dreams.</p>
+
+  <p>However, they also recognised that this would be difficult to test. The study by Dement and Kleitman aimed to explore this exact problem.</p>
 
   <!-- Exam Key Points -->
   <div class="summary-card" id="summary-s2">
     <div class="summary-card-header" onclick="toggleSummary(this)">
       <span class="summary-card-icon">▶</span>
-      <span class="summary-card-title">Exam Key Points — Aim &amp; Hypotheses</span>
+      <span class="summary-card-title">Exam Key Points — Aim</span>
       <span class="ao-badge">AO1+AO3</span>
     </div>
     <div class="summary-card-body">
       <div class="summary-card-inner">
         <ul>
           <li><span class="tag-must">必考</span> <strong>Main aim:</strong> Investigate the link between eye movements during sleep and dream activity.</li>
-          <li><span class="tag-must">必考</span> <strong>Study 1 hypothesis:</strong> More frequent/vivid dream recall from REM awakenings vs. non-REM.</li>
-          <li><span class="tag-must">必考</span> <strong>Study 2 hypothesis:</strong> Eye movement pattern correlates with dream content (vertical/horizontal).</li>
-          <li><span class="tag-common">常考</span> <strong>Study 3 hypothesis:</strong> Multiple distinct dream episodes can occur in one night.</li>
-          <li><span class="tag-ao2">AO2技巧</span> The hypotheses are <strong>directional</strong> (one-tailed) — they predict the direction of the relationship.</li>
+          <li><span class="tag-must">必考</span> <strong>Question 1:</strong> Does dream recall differ between REM and nREM?</li>
+          <li><span class="tag-must">必考</span> <strong>Question 2:</strong> Can participants accurately estimate dream duration?</li>
+          <li><span class="tag-must">必考</span> <strong>Question 3:</strong> Are eye-movement patterns related to dream content?</li>
+          <li><span class="tag-ao2">AO2技巧</span> The three questions represent a progression: existence → duration → content correspondence.</li>
         </ul>
       </div>
     </div>
@@ -855,9 +910,9 @@ body.dark .nc-action-btn { background: #292524; color: #d6d3d1; border-color: #5
     </button>
     <div class="cn-summary-body">
       <div class="cs-content">
-        <p><strong>核心逻辑：</strong>研究分三个子实验，层层递进：<br>① 有无眼动 = 是否在做梦？（存在性问题）<br>② 眼动方式 = 梦的内容？（对应关系问题）<br>③ 一晚多梦？（频率问题）</p>
-        <p><strong>记忆口诀：</strong>"一问有无、二问内容、三问次数"</p>
-        <p><strong>考试技巧：</strong>三个假设要能分别复述，考试可能只问其中一个。</p>
+        <p><strong>核心逻辑：</strong>研究分三个子问题，层层递进：<br>① 有无差异 = 是否在做梦？（存在性问题）<br>② 时间估计准不准？（主观判断能力）<br>③ 眼动方式 = 梦的内容？（对应关系问题）</p>
+        <p><strong>记忆口诀：</strong>"一问有无、二问时间、三问内容"</p>
+        <p><strong>考试技巧：</strong>三个问题要能分别复述，考试可能只问其中一个。</p>
       </div>
     </div>
   </div>
@@ -867,72 +922,38 @@ body.dark .nc-action-btn { background: #292524; color: #d6d3d1; border-color: #5
 <!-- §3 METHOD                          -->
 <!-- ════════════════════════════════ -->
 <section class="section" id="s3">
-  <h2>§3 Method</h2>
+  <h2>§3 Method — Laboratory Experiment</h2>
 
-  <h3>3.1 Research Design</h3>
-  <p>This was a <strong>laboratory experiment</strong> conducted in a controlled sleep environment. The design incorporated elements of:</p>
+  <h3>Research Method and Design</h3>
+  <p>This study was conducted in a <strong>laboratory experiment（实验室实验）</strong> but several methods were used:</p>
+
   <ul>
-    <li><strong>Repeated measures</strong> — participants were tested under multiple conditions (REM vs. non-REM awakenings)</li>
-    <li><strong>Within-subjects comparison</strong> — each participant served as their own control</li>
-    <li><strong>Quasi-experimental</strong> in some aspects — the occurrence of REM periods could not be fully randomised</li>
+    <li><strong>To answer Question 1</strong> (difference in dream recall between REM and nREM): an experiment with a <strong>repeated measures design（重复测量设计）</strong> was used. The independent variable was <strong>whether the participant was woken from REM or nREM sleep</strong>. The dependent variable was <strong>whether they recalled a dream or not</strong>.</li>
+    <li><strong>To answer Question 2</strong> (relationship between dream duration and REM period length): a <strong>correlation（相关研究）</strong>. A further comparison of participants' estimates of whether they had been dreaming for 5 or 15 minutes was another repeated measures design experiment.</li>
+    <li><strong>To answer Question 3</strong> (eye-movement patterns and dream content): self-reports were compared to the direction of eye movements observed.</li>
   </ul>
 
-  <div class="keyterm-box">
-    <strong>Laboratory Experiment:</strong> A research method conducted in a controlled environment where variables are systematically manipulated and measured. High internal validity but potentially lower ecological validity.
+  <!-- IMAGE 3: EEG Lab Photo -->
+  <div class="figure">
+    <img src="dement_images/eeg_lab_photo.jpg" alt="EEG laboratory setup">
+    <p class="figure-caption">Figure 2.4: A participant sleeps in a lab bed with EEG electrodes attached beside the eyes and on the scalp, wires gathered into a single cord from the head</p>
   </div>
 
-  <h3>3.2 Sample</h3>
+  <h3>Sample</h3>
+  <p><strong>Seven male and two female adults</strong> took part in the study. Of these, <strong>five participants were studied in detail</strong>. Results from the remaining four participants were used to confirm the results of the first five.</p>
+
   <table>
-    <tr><th style="width:30%">Characteristic</th><th>Details</th></tr>
-    <tr><td><strong>Total Participants</strong></td><td>9 adult participants (7 male, 2 female)</td></tr>
-    <tr><td><strong>Age Range</strong></td><td>Approximately 23–32 years old</td></tr>
-    <tr><td><strong>Occupation</strong></td><td>Most were students or researchers associated with the university</td></tr>
-    <tr><td><strong>Recruitment Method</strong></td><td><strong>Opportunity sampling</strong> (机会抽样) — participants were recruited from the researchers' acquaintances and colleagues</td></tr>
-    <tr><td><strong>Inclusion Criteria</strong></td><td>Good physical health, no known sleep disorders, willing to spend multiple nights in the laboratory</td></tr>
+    <tr><th>Characteristic<br>（特征）</th><th>Details<br>（详情）</th></tr>
+    <tr><td>Total number（总人数）</td><td>9 adults (7 male, 2 female)</td></tr>
+    <tr><td>Studied in detail（详细研究对象）</td><td>5 participants (DN, IR, KC, WD, PM)</td></tr>
+    <tr><td>Confirmation group（验证组）</td><td>4 additional participants</td></tr>
+    <tr><td>Age range（年龄范围）</td><td>Adults (exact ages not specified)</td></tr>
+    <tr><td>Selection criteria<br>（筛选标准）</td><td>No specific criteria mentioned beyond willingness to participate</td></tr>
   </table>
 
-  <h3>3.3 Variables</h3>
-  <table>
-    <tr><th style="width:28%">Variable Type</th><th>Operationalisation</th></tr>
-    <tr>
-      <td><strong>Independent Variable (IV)</strong><br><em>Study 1</em></td>
-      <td>Type of awakening: <strong>REM period</strong> vs. <strong>non-REM period</strong><br>(Determined by EEG/EOG monitoring)</td>
-    </tr>
-    <tr>
-      <td><strong>Dependent Variable (DV)</strong><br><em>Study 1</em></td>
-      <td><strong>Dream recall rate</strong> — whether participant reported a dream upon awakening, measured as:<br>• Presence/absence of dream report<br>• Vividness rating (subjective scale)<br>• Length/detailed nature of dream narrative</td>
-    </tr>
-    <tr>
-      <td><strong>IV — Study 2</strong></td>
-      <td><strong>Pattern of eye movements</strong>: predominantly vertical vs. predominantly horizontal (observed via EOG)</td>
-    </tr>
-    <tr>
-      <td><strong>DV — Study 2</strong></td>
-      <td><strong>Dream content characteristics</strong> — whether the reported dream involved vertical or horizontal visual activity (coded from dream reports)</td>
-    </tr>
-    <tr>
-      <td><strong>Controlled Variables</strong></td>
-      <td>
-        • Sleep environment (temperature, light, noise level)<br>
-        • Time spent in lab before testing (adaptation nights)<br>
-        • Instructions given to participants<br>
-        • Equipment calibration (EEG, EOG)<br>
-        • Time of night for awakenings (counterbalanced across conditions)
-      </td>
-    </tr>
-  </table>
-
-  <h3>3.4 Materials &amp; Equipment</h3>
-  <ul>
-    <li><strong>Electroencephalograph (EEG)</strong> — to measure brain wave patterns and identify sleep stages</li>
-    <li><strong>Electrooculograph (EOG)</strong> — to record eye movements during sleep by detecting electrical potentials around the eyes</li>
-    <li><strong>Electromyograph (EMG)</strong> — optional, to monitor muscle tone</li>
-    <li><strong>Standardised dream report form</strong> — structured questionnaire completed after each awakening</li>
-    <li><strong>Intercom system</strong> — for communication between researcher and sleeping participant</li>
-  </ul>
-
-  <div class="keyterm-box">
-    <strong>Electroencephalogram (EEG):</strong> A method of recording electrical activity of the brain using electrodes placed on the scalp. Different brain wave patterns indicate different stages of sleep.
+  <div class="keyword-box">
+    <h4>🔬 Research Methods</h4>
+    <p><strong>Measures of frequency and amplitude produce quantitative data（频率和振幅测量产生定量数据）</strong>. Data such as this tends to be highly reliable, as the machines used to produce it, such as the EEG, do not vary in the way that they measure the variables. In general, would you expect qualitative data to be more or less reliable? Why?</p>
   </div>
 
   <!-- Exam Key Points -->
@@ -946,10 +967,10 @@ body.dark .nc-action-btn { background: #292524; color: #d6d3d1; border-color: #5
       <div class="summary-card-inner">
         <ul>
           <li><span class="tag-must">必考</span> <strong>Design:</strong> Laboratory experiment with repeated measures (within-subjects).</li>
-          <li><span class="tag-must">必考</span> <strong>Sample:</strong> N=9 (7M, 2F), opportunity sampling, adults aged ~23–32.</li>
-          <li><span class="tag-must">必考</span> <strong>IV Study 1:</strong> Type of awakening (REM vs. non-REM).</li>
-          <li><span class="tag-must">必考</span> <strong>DV Study 1:</strong> Dream recall rate (presence, vividness, length).</li>
-          <li><span class="tag-common">常考</span> <strong>Equipment:</strong> EEG (brain waves), EOG (eye movements), EMG (muscle tone).</li>
+          <li><span class="tag-must">必考</span> <strong>Sample:</strong> N=9 (7M, 2F), 5 studied in detail, opportunity sampling.</li>
+          <li><span class="tag-must">必考</span> <strong>IV Question 1:</strong> Type of awakening (REM vs. nREM).</li>
+          <li><span class="tag-must">必考</span> <strong>DV Question 1:</strong> Dream recall (yes/no).</li>
+          <li><span class="tag-common">常考</span> <strong>Equipment:</strong> EEG (brain waves), EOG (eye movements).</li>
           <li><span class="tag-ao2">AO2技巧</span> <strong>Opportunity sampling limitation:</strong> Small, biased sample — limits generalisability.</li>
         </ul>
       </div>
@@ -964,8 +985,8 @@ body.dark .nc-action-btn { background: #292524; color: #d6d3d1; border-color: #5
     <div class="cn-summary-body">
       <div class="cs-content">
         <p><strong>核心逻辑：</strong>实验室环境 + 被内设计（每个被试既是实验组又是对照组）+ 生理仪器客观测量（EEG/EOG）= 高内部效度但样本小、生态效度低。</p>
-        <p><strong>记忆口诀：</strong>"九人机会抽样、脑电眼电肌电三仪器"</p>
-        <p><strong>考试技巧：</strong>操作化定义是重点！要能说出如何用EOG判断REM、如何用量表评估梦境生动性。</p>
+        <p><strong>记忆口诀：</strong>"九人机会抽样、五人详细研究、脑电眼电两仪器"</p>
+        <p><strong>考试技巧：</strong>操作化定义是重点！要能说出如何用EOG判断REM、如何用量表评估梦境回忆。</p>
       </div>
     </div>
   </div>
@@ -975,47 +996,46 @@ body.dark .nc-action-btn { background: #292524; color: #d6d3d1; border-color: #5
 <!-- §4 PROCEDURE                      -->
 <!-- ════════════════════════════════ -->
 <section class="section" id="s4">
-  <h2>§4 Procedure</h2>
+  <h2>§4 Procedure — Three Experimental Conditions</h2>
 
-  <h3>Preparation Phase</h3>
-  <ol>
-    <li>Participants arrived at the laboratory in the evening and were familiarised with the equipment and procedures.</li>
-    <li>Electrodes were attached for <strong>EEG</strong> (to monitor brain waves), <strong>EOG</strong> (to detect eye movements), and optionally <strong>EMG</strong> (muscle tone).</li>
-    <li>Participants spent <strong>1–2 adaptation nights</strong> in the lab to acclimatise to sleeping while wired to equipment.</li>
-  </ol>
+  <p>On each day of the study a participant ate normally, excluding caffeine-containing drinks (such as coffee) and alcohol. The participant arrived at the laboratory just before their normal bedtime. The participant wanted to sleep in a dark, quiet room with <strong>electrodes attached beside the eyes and on the scalp (the EEG)</strong>, which fed into the experimenter's room. The wires were gathered together into a single cord from the participant's head (like a pony-tail) so they could move easily in bed.</p>
 
-  <h3>Data Collection Nights</h3>
-  <ol start="4">
-    <li>On experimental nights, researchers monitored participants continuously throughout the night from a separate observation room.</li>
-    <li>When specific criteria were met (see below for each study), researchers entered the room or used the intercom to <strong>awaken the participant</strong>.</li>
-    <li>Upon awakening, participants were immediately asked: <strong>"What was going through your mind just prior to waking?"</strong></li>
-    <li>Participants' responses were recorded verbatim, then rated for <strong>vividness</strong> on a standardised scale.</li>
-    <li>After reporting, participants were allowed to <strong>return to sleep</strong>.</li>
-  </ol>
+  <p>Participants were woken (by a doorbell) at various times during the night, asked to describe their dream if they were having one, then returned to sleep. They were not told about their EEG pattern or whether their eyes were moving.</p>
 
-  <h3>Specific Procedures by Study</h3>
+  <h3>Question 1: Does dream recall differ between REM and nREM?</h3>
+  <p>Participants were woken either from REM or nREM sleep but were not told which. The choice of REM or nREM wakings was decided in different ways for different participants:</p>
+  <ul>
+    <li>using a random number table (participants PM and KC)</li>
+    <li>in groups of three REM then three nREM (participant DN)</li>
+    <li>by telling the participant that they would only be woken in REM but actually waking them in REM or nREM randomly (participant WD)</li>
+    <li>in no specific order, the experimenter just chose (participant IR)</li>
+  </ul>
 
-  <table>
-    <tr><th>Study</th><th>Awakening Criteria</th><th>Number of Awakenings</th></tr>
-    <tr>
-      <td><strong>Study 1</strong></td>
-      <td>Randomly timed awakenings during both <strong>REM periods</strong> and <strong>non-REM periods</strong></td>
-      <td>Multiple per night across several nights (total: 191 awakenings analysed)</td>
-    </tr>
-    <tr>
-      <td><strong>Study 2</strong></td>
-      <td>Awakened only during <strong>REM periods</strong> with clearly observable <strong>vertical</strong> or <strong>horizontal</strong> eye movement patterns</td>
-      <td>35 awakenings with interpretable eye movement patterns</td>
-    </tr>
-    <tr>
-      <td><strong>Study 3</strong></td>
-      <td>Awakened during REM, allowed to resume sleep, then awakened <strong>a second time later</strong> (sometimes a third time)</td>
-      <td>Multiple sequential awakenings per participant</td>
-    </tr>
-  </table>
+  <p>Immediately after being woken, the participant stated whether they were having a dream or not and then, if appropriate, described the content of the dream into a recorder. When the participant had finished, the experimenter occasionally entered the room to ask further questions about the dream (they were given a brief <strong>interview（简短访谈）</strong>). There was no other communication between the experimenter and the participant.</p>
 
-  <h3>Debriefing</h3>
-  <p>After the final experimental night, participants were fully debriefed about the purpose of the study and the significance of their contributions to sleep research.</p>
+  <h3>Question 2: Is there a correlation between dream duration and REM period length?</h3>
+  <p>Initially, participants were woken after a variety of REM durations and asked to estimate the time they had been dreaming. Although roughly accurate, this was too difficult for participants. Subsequently, they were woken after either 5 or 15 minutes in REM sleep. The participant guessed which duration they had been dreaming for. Longer REM periods were also used. The number of words in the dream narrative after each duration, if given, was counted.</p>
+
+  <h3>Question 3: Are eye-movement patterns related to dream content?</h3>
+  <p>The direction of eye movements was detected using EEG electrodes around the eyes. Participants were woken after a single eye-movement pattern had lasted for more than 1 minute and asked to report their dream. The eye-movement patterns detected were:</p>
+  <ul>
+    <li>'<strong>mainly vertical</strong>'（主要为垂直运动）</li>
+    <li>'<strong>mainly horizontal</strong>'（主要为水平运动）</li>
+    <li>'<strong>both vertical and horizontal</strong>'（垂直+水平混合）</li>
+    <li>'<strong>very little or no movement</strong>'（极少或无运动）</li>
+  </ul>
+
+  <p>Comparison EEG records were taken from awake participants, 20 naive ones and five of the experimental sample, who were asked to watch distant and close-up activity.</p>
+
+  <div class="cn-note">
+    <strong>⚙️ Control measures（控制措施）:</strong>
+    <ul>
+      <li>The environment was highly controlled — the doorbell used to wake participants was sufficiently loud to rouse them immediately from any sleep stage</li>
+      <li>If the experimenter asked any questions, this was not done until the participant had definitely completed their recording</li>
+      <li>Reports were not counted as 'dreams' if the participant could only recall having dreamed, rather than any specific content, or had only a vague, fragmented impression of the dream</li>
+      <li>Participants were not told about their EEG pattern or whether their eyes were moving</li>
+    </ul>
+  </div>
 
   <!-- Exam Key Points -->
   <div class="summary-card" id="summary-s4">
@@ -1027,11 +1047,11 @@ body.dark .nc-action-btn { background: #292524; color: #d6d3d1; border-color: #5
     <div class="summary-card-body">
       <div class="summary-card-inner">
         <ol>
-          <li><span class="tag-must">必考</span> <strong>Adaptation nights:</strong> 1–2 nights to get used to sleeping with electrodes attached.</li>
-          <li><span class="tag-must">必考</span> <strong>Standard question:</strong> "What was going through your mind just prior to waking?"</li>
-          <li><span class="tag-must">必考</span> <strong>Study 1:</strong> Random awakenings during REM vs. non-REM (191 total awakenings).</li>
-          <li><span class="tag-common">常考</span> <strong>Study 2:</strong> Awakened only during REM with clear vertical/horizontal patterns (35 awakenings).</li>
-          <li><span class="tag-context">背景</span> Responses recorded verbatim + vividness rating → mixed methods approach.</li>
+          <li><span class="tag-must">必考</span> <strong>No caffeine/alcohol</strong> before lab arrival.</li>
+          <li><span class="tag-must">必考</span> Woken by <strong>doorbell</strong>, asked to report dream immediately.</li>
+          <li><span class="tag-must">必考</span> Different waking schedules for different participants (random, grouped, deceived, etc.).</li>
+          <li><span class="tag-common">常考</span> Question 2 changed from free estimation to <strong>forced choice (5 or 15 min)</strong>.</li>
+          <li><span class="tag-context">背景</span> Control group: awake participants watching distant/close-up activity.</li>
         </ol>
       </div>
     </div>
@@ -1044,8 +1064,8 @@ body.dark .nc-action-btn { background: #292524; color: #d6d3d1; border-color: #5
     </button>
     <div class="cn-summary-body">
       <div class="cs-content">
-        <p><strong>核心流程：</strong>适应夜（1-2晚）→ 实验夜（连续监测）→ 按标准唤醒 → 标准提问 → 记录逐字稿+评分 → 返回睡眠。</p>
-        <p><strong>关键细节：</strong>唤醒问题是开放式的（不暗示"做梦"），避免demand characteristics。</p>
+        <p><strong>核心流程：</strong>禁咖啡酒精 → 实验室佩戴电极 → 按标准唤醒 → 即时报告梦境 → 记录逐字稿 → 返回睡眠。</p>
+        <p><strong>关键细节：</strong>唤醒问题是开放式的（不暗示"做梦"），避免demand characteristics。Q2的方法中途改进体现了研究的严谨性。</p>
         <p><strong>考试技巧：</strong>能画出流程图：电极佩戴 → 监测室观察 → 满足条件即唤醒 → 即时访谈 → 继续睡眠。</p>
       </div>
     </div>
@@ -1053,58 +1073,134 @@ body.dark .nc-action-btn { background: #292524; color: #d6d3d1; border-color: #5
 </section>
 
 <!-- ════════════════════════════════ -->
-<!-- §5 RESULTS — STUDY 1              -->
+<!-- §5 RESULTS                         -->
 <!-- ════════════════════════════════ -->
 <section class="section" id="s5">
-  <h2>§5 Results — Study 1: Eye Movement &amp; Dream Recall</h2>
+  <h2>§5 Results</h2>
 
-  <h3>Key Finding: Dramatic Difference in Dream Recall</h3>
+  <h3>General Findings</h3>
+  <p>Dement and Kleitman reported some general findings, such as that all participants dreamed every night, as well as those relating to their three questions. They found that uninterrupted dream stages:</p>
+  <ul>
+    <li>lasted <strong>3–50 minutes</strong> (with a mean of approximately <strong>20 minutes</strong>)</li>
+    <li>were typically longer later in the night</li>
+    <li>showed intermittent bursts of around <strong>2–100 rapid eye movements</strong></li>
+  </ul>
 
-  <table>
-    <tr><th style="width:40%">Measure</th><th>REM Awakening</th><th>Non-REM Awakening</th></tr>
-    <tr>
-      <td><strong>Dream Recall Rate</strong></td>
-      <td style="text-align:center; font-weight:700; color:var(--correct); font-size:1.1em;">~80–90%</td>
-      <td style="text-align:center; font-weight:700; color:var(--wrong); font-size:1.1em;">~7–10%</td>
-    </tr>
-    <tr>
-      <td><strong>Vividness Rating</strong></td>
-      <td>High (dreams described as detailed, story-like, visually rich)</td>
-      <td>Low (reports often vague: "I was thinking about...", fragmentary thoughts)</td>
-    </tr>
-    <tr>
-      <td><strong>Length of Report</strong></td>
-      <td>Longer narratives (mean: ~200 words)</td>
-      <td>Shorter reports (mean: ~20–30 words, often single sentences)</td>
-    </tr>
-  </table>
+  <p>In addition, they observed that:</p>
+  <ul>
+    <li><strong>no rapid eye movements were seen during the onset of sleep</strong> even though the EEG passed through a stage of brain waves similar to those produced during REM sleep</li>
+    <li>the cycle length (from one REM stage to the next) varied between participants from <strong>70 to 104 minutes</strong> (with a mean of 92 minutes for all participants), but was consistent within individuals</li>
+    <li>when woken from nREM sleep participants returned to nREM but when woken from REM sleep they typically did not dream again until the next REM phase (except sometimes in the final REM phase of the night). As a consequence, the pattern of REM and nREM periods was very similar in experimental participants whose sleep was disturbed to those who had an uninterrupted night's sleep</li>
+  </ul>
 
-  <div class="keyterm-box">
-    <strong>Core Result (Study 1):</strong> Awakenings during REM periods produced dream reports in approximately <strong>80–90%</strong> of cases, whereas awakenings during non-REM periods yielded dream reports in only about <strong>7–10%</strong> of cases. This difference was highly statistically significant.
+  <h3>Question 1: Does dream recall differ between REM and nREM?</h3>
+  <p>Participants frequently described dreams when woken from REM but rarely did when woken from nREM sleep although there were some individual differences (see Table below). Participants were able to recall a dream from <strong>152 of 191 awakenings from REM (79.6%)</strong> whereas for <strong>93.1% (149/160) of awakenings from nREM they did <strong>not</strong> recall a dream</strong>. This difference was most noticeable at the end of the nREM period.</p>
+
+  <p>In 17 nREM awakenings soon after the end of a REM stage (within 8 minutes), five dreams were recalled (29% of occasions). However, from 132 awakenings following periods longer than 8 minutes after a REM stage, only six dreams were recalled (<strong>less than 5% of occasions</strong>). In nREM awakenings, participants tended to describe feelings but not specific dream content. These were least likely to remember a dream if they were woken at the stage of sleep in which the EEG has '<strong>spindles</strong>' (i.e. stage 2). They tended to be bewildered and report feelings such as anxiety, pleasantness or detachment.</p>
+
+  <div class="info-box">
+    <strong>📊 Important note on Participant DN:</strong> He was no more or less likely to report or not report dreams in REM or nREM than other participants even though he could have learned the pattern of awakenings. Also, participants did not become any more accurate over time, i.e. they did not improve with practice.
   </div>
 
-  <h3>Additional Observations</h3>
-  <ul>
-    <li>Dreams reported after REM awakenings typically had <strong>narrative structure</strong> — beginning, middle, and end-like sequences.</li>
-    <li>Non-REM reports were more like <strong>fragmentary thinking</strong> — isolated thoughts, images without context, or simple sensations.</li>
-    <li>The correlation between <strong>eye movement intensity</strong> and dream vividness was positive but not perfectly linear.</li>
-  </ul>
+  <h3>Table: Dream Recall Following Awakenings from REM or nREM Sleep</h3>
+  <table style="font-size:.88em">
+    <thead>
+      <tr>
+        <th rowspan="2">Participant<br>（参与者）</th>
+        <th colspan="2">Rapid eye movements<br>（快速眼动 / REM）</th>
+        <th colspan="2">No rapid eye movements<br>（非快速眼动 / nREM）</th>
+      </tr>
+      <tr>
+        <th>Dream recall<br>（回忆起梦）</th>
+        <th>No recall<br>（未回忆）</th>
+        <th>Dream recall<br>（回忆起梦）</th>
+        <th>No recall<br>（未回忆）</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>DN</td><td>17</td><td>9</td><td>3</td><td>21</td></tr>
+      <tr><td>IR</td><td>26</td><td>8</td><td>2</td><td>29</td></tr>
+      <tr><td>KC</td><td class="result-highlight">36</td><td>4</td><td>3</td><td>31</td></tr>
+      <tr><td>WD</td><td class="result-highlight">37</td><td>5</td><td>1</td><td>34</td></tr>
+      <tr><td>PM</td><td>24</td><td>6</td><td>2</td><td>23</td></tr>
+      <tr><td>KK</td><td>4</td><td>1</td><td>0</td><td>5</td></tr>
+      <tr><td>SM</td><td>2</td><td>2</td><td>0</td><td>2</td></tr>
+      <tr><td>DM</td><td>2</td><td>1</td><td>0</td><td>1</td></tr>
+      <tr><td>MG</td><td>4</td><td>3</td><td>0</td><td>3</td></tr>
+      <tr style="background:#FFCDD2;font-weight:700"><td>Totals（总计）</td><td class="result-highlight">152</td><td>39</td><td>11</td><td>149</td></tr>
+    </tbody>
+  </table>
+  <p style="text-align:center;font-size:.88em;color:#64748b"><strong>Table 2.1:</strong> Dream recall following awakenings from REM or nREM sleep</p>
+
+  <div class="cn-note">
+    <strong>💡 Interpreting Table 2.1:</strong> The data is striking — 79.6% dream recall rate from REM vs only ~7% from nREM. This provides strong evidence that dreaming is strongly associated with REM sleep. Individual differences exist (e.g., KC had the highest REM recall at 36/40 = 90%), but the overall pattern is consistent across all 9 participants.
+  </div>
+
+  <h3>Question 2: Correlation Between Dream Duration and REM Period Length</h3>
+  <p>Awakenings from REM sleep did not always produce dream recall; absence of dreaming in REM was more common early in the night. Of 39 REM awakenings when dreams were not reported, 19 occurred in the first 2 hours of sleep, 11 from the second 2 hours, 5 from the third 2 hours and 4 from the last 2 hours. In contrast, awakenings from nREM always produced a low incidence of dream recall.</p>
+
+  <p>Narratives from dreams recalled after <strong>30~50 minutes of REM</strong> were not much longer than those after 15 minutes even though the participants felt they had been dreaming for a long time. This is probably because they could not remember all the details from very long dreams.</p>
+
+  <p>The results of two tests help to answer this question. Firstly, the experimenters needed to determine whether participants' subjective experience of dream duration matched the measured REM duration. Second, the correlation between the measured REM duration and the estimate of duration based on the participants' dream narrative length. When participants were offered a choice of estimating that they had been dreaming for 5 or 15 minutes, the accuracy of estimation was very high (<strong>88% and 78%</strong> respectively).</p>
+
+  <h3>Table: Results of Dream Duration Estimation After 5 or 15 Minutes of REM Sleep</h3>
+  <table style="font-size:.88em">
+    <thead>
+      <tr>
+        <th rowspan="2">Participant<br>（参与者）</th>
+        <th colspan="2">5 minutes（5分钟组）</th>
+        <th colspan="2">15 minutes（15分钟组）</th>
+      </tr>
+      <tr>
+        <th>correct（正确）</th>
+        <th>incorrect（错误）</th>
+        <th>correct（正确）</th>
+        <th>incorrect（错误）</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>DN</td><td>8</td><td>2</td><td>5</td><td>5</td></tr>
+      <tr><td>IR</td><td>11</td><td>1</td><td>7</td><td>3</td></tr>
+      <tr><td>KC</td><td>7</td><td>0</td><td class="result-highlight">12</td><td>1</td></tr>
+      <tr><td>WD</td><td class="result-highlight">13</td><td>1</td><td class="result-highlight">15</td><td>1</td></tr>
+      <tr><td>MP</td><td>6</td><td>2</td><td>8</td><td>3</td></tr>
+      <tr style="background:#DCEDC8;font-weight:700"><td>Total（总计）</td><td class="result-highlight">45</td><td>6</td><td class="result-highlight">47</td><td>13</td></tr>
+    </tbody>
+  </table>
+  <p style="text-align:center;font-size:.88em;color:#64748b"><strong>Table 2.2:</strong> Results of the comparison of dream duration estimates after 5 or 15 minutes of REM sleep</p>
+
+  <p>The r values for the correlation of duration of REM period (in minutes) and number of words in the dream narrative for each participant varied from <strong>r = 0.4 to r = 0.71</strong>; all were significant positive correlations.</p>
+
+  <div class="keyword-box">
+    <h4>🔬 Research Methods</h4>
+    <p>The mean sleep cycle length was calculated for each individual. This would have been worked out by adding together the cycle lengths in minutes for every complete cycle a participant had slept through. This would then have been divided by the number of complete sleep cycles that had been observed for that participant.<br><br><em>Can you work out how variable the average cycle length was?</em></p>
+  </div>
+
+  <h3>Question 3: Are Eye-Movement Patterns Related to Dream Content?</h3>
+  <p>Eye-movement patterns were found to be related to dream content. This part of the study was based on 35 awakenings from nine participants. Periods of only vertical or only horizontal movements were very rare. There were three dreams with mainly vertical eye movements. In one dream, the participant was standing at the bottom of a tall cliff operating a hoist (a lifting machine) and looking up at climbers at various levels then down at the machine. In another dream, a man was climbing up a series of ladders looking up and down as he climbed. In the third dream, the participant was throwing basketballs at a net, shooting, looking up at the net, and then looking down to pick up another ball from the floor. There was one instance of a dream with horizontal movement, in which the dreamer was watching two people throwing tomatoes at each other.</p>
+
+  <p>Ten dreams had little or no eye movement and the dreamer reported watching something in the distance or staring at an object. Two of these awakenings also had several large eye movements to the left just a second or two before the awakening. In one, the participant had been driving a car and staring at the road ahead. He approached a road junction and was startled by a speeding car suddenly appearing on his left (as the bell rang). The other dreamer also reported driving a car and staring at the road ahead. Immediately before being woken, he saw a man standing to the left of the road and acknowledged him as he drove by.</p>
+
+  <p>Twenty-one of the awakenings had mixed eye movements. These participants reported looking at objects or people close to them, for example talking to a group of people, looking for something and fighting with someone. There was no recall of distant or vertical activity in these cases.</p>
+
+  <p>The eye-movement patterns recorded from the awake (control) participants were similar in amplitude and pattern to those occurring in dreams. Similarly, there was virtually no eye movement when watching distant activity, and much more when watching close-up activity. Vertical eye movements were rare in awake participants, except during blinking, and when the experimenter threw a ball in the air.</p>
 
   <!-- Exam Key Points -->
   <div class="summary-card" id="summary-s5">
     <div class="summary-card-header" onclick="toggleSummary(this)">
       <span class="summary-card-icon">▶</span>
-      <span class="summary-card-title">Exam Key Points — Results Study 1</span>
+      <span class="summary-card-title">Exam Key Points — Results</span>
       <span class="ao-badge">AO1</span>
     </div>
     <div class="summary-card-body">
       <div class="summary-card-inner">
         <ul>
-          <li><span class="tag-must">必考</span> <strong>REM dream recall rate: ~80–90%</strong> (the headline figure!)</li>
-          <li><span class="tag-must">必考</span> <strong>Non-REM dream recall rate: ~7–10%</strong></li>
-          <li><span class="tag-must">必考</span> <strong>Difference is highly statistically significant</strong> (p &lt; .01)</li>
-          <li><span class="tag-common">常考</span> REM dreams: longer (~200 words), narrative structure, visually vivid.</li>
-          <li><span class="tag-common">常考</span> Non-REM reports: short (~20–30 words), fragmentary, thought-like.</li>
+          <li><span class="tag-must">必考</span> <strong>REM dream recall: 79.6%</strong> (152/191) — the headline figure!</li>
+          <li><span class="tag-must">必考</span> <strong>nREM dream recall: ~7%</strong> (11/160)</li>
+          <li><span class="tag-must">必考</span> <strong>Duration estimation accuracy: 88% (5min), 78% (15min)</strong></li>
+          <li><span class="tag-must">必考</span> <strong>Eye-movement patterns matched dream visual content</strong> (vertical ↔ up/down, minimal ↔ distant viewing).</li>
+          <li><span class="tag-common">常考</span> Correlation r = 0.4 to 0.71 between REM duration and word count.</li>
+          <li><span class="tag-context">背景</span> Dreams within 8 min of REM end may actually be from previous REM period.</li>
         </ul>
       </div>
     </div>
@@ -1117,231 +1213,33 @@ body.dark .nc-action-btn { background: #292524; color: #d6d3d1; border-color: #5
     </button>
     <div class="cn-summary-body">
       <div class="cs-content">
-        <p><strong>核心数据：</strong>REM唤醒80-90%有梦 vs 非REM仅7-10% → 差距约<strong>8-10倍</strong>！这是整个研究的基石发现。</p>
-        <p><strong>记忆口诀：</strong>"REM八九成、非REM一成"</p>
-        <p><strong>考试技巧：</strong>如果只能记住一个数字，就记80-90%。这是最常考的数据点。</p>
+        <p><strong>核心数据：</strong>REM唤醒80%有梦 vs 非REM仅7% → 差距约<strong>11倍</strong>！这是整个研究的基石发现。</p>
+        <p><strong>三个问题的答案：</strong>①有显著差异 ②能较准确估计时长(r=0.4~0.71) ③眼动方向与梦境视觉内容对应</p>
+        <p><strong>记忆口诀：</strong>"REM八成梦、非REM一成、时长估得准、眼动对内容"</p>
+        <p><strong>考试技巧：</strong>如果只能记住一个数字，就记79.6%（或约80%）。这是最常考的数据点。</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ════════════════════════════════ -->
-<!-- §6 RESULTS — STUDY 2              -->
+<!-- §6 CONCLUSION                     -->
 <!-- ════════════════════════════════ -->
 <section class="section" id="s6">
-  <h2>§6 Results — Study 2: Eye Movement Pattern &amp; Dream Content</h2>
+  <h2>§6 Conclusion</h2>
 
-  <h3>Key Finding: Correspondence Between Eye Movements and Dream Imagery</h3>
+  <p>The results indicate that <strong>dreaming is experienced in REM but not nREM sleep</strong>, participants can judge the length of their dream duration and REM patterns relate to dream content. Dreaming is more likely at the end of the night, as the REM stages are longer. These latter two observations fit with those reported by other researchers.</p>
 
-  <p>Of the <strong>35 REM awakenings</strong> with clearly identifiable eye movement patterns:</p>
+  <p>The occasional recall of dreams from nREM is likely to happen because dreams are being remembered from the previous REM phase, and this is more likely closely following REM sleep. The finding that REM sleep occurs in phases during the night helps to explain why participants in other studies who were awoken randomly may not have reported dreaming. They may have been woken in nREM stages, or were dreaming about distant objects so had few REMs, making accurate detection difficult.</p>
 
-  <table>
-    <tr><th style="width:35%">Eye Movement Pattern</th><th>Dream Content Example</th><th>Correspondence?</th></tr>
-    <tr>
-      <td><strong>Predominantly Vertical</strong></td>
-      <td>Climbing a ladder, looking up at tall buildings, watching objects fall from above</td>
-      <td style="color:var(--correct);font-weight:700;">✓ Yes (majority)</td>
-    </tr>
-    <tr>
-      <td><strong>Predominantly Horizontal</strong></td>
-      <td>Watching a tennis match, two people having a conversation, scanning a landscape</td>
-      <td style="color:var(--correct);font-weight:700;">✓ Yes (majority)</td>
-    </tr>
-    <tr>
-      <td><strong>Mixed/Minimal</strong></td>
-      <td>Static scenes, abstract thoughts, no clear visual activity</td>
-      <td style="color:var(--text-secondary);">— No clear pattern</td>
-    </tr>
-  </table>
+  <p>Measurements using the EEG to record eye movements and brain waves show that differing stages of brain activity and the presence or absence of dreams provides objective evidence supporting the idea that <strong>dreams progress in 'real time'</strong>. This provides a more valid way to study dreaming than using dream recall alone, which is subjective and can be affected by forgetting.</p>
 
-  <div class="keyterm-box">
-    <strong>Core Result (Study 2):</strong> There was a <strong>significant correspondence</strong> between the direction/pattern of eye movements observed during REM sleep and the visual content of the subsequently reported dream. This suggested that dream imagery might involve actual <strong>scanning behaviour</strong> similar to wakeful vision.
-  </div>
-
-  <h3>Limitations of Study 2</h3>
-  <ul>
-    <li>Small sample size (n=35 interpretable awakenings)</li>
-    <li>Some dreams had ambiguous content that was difficult to categorise</li>
-    <li>The correspondence was not perfect — some vertical eye movement periods did NOT produce vertically-themed dreams</li>
-  </ul>
+  <blockquote>
+    <strong>Core conclusion:</strong> Dement and Kleitman demonstrated that (1) dreaming is strongly associated with REM sleep, (2) participants can reasonably estimate dream duration, and (3) eye-movement patterns during sleep correspond to visual dream content — particularly vertical movements for "looking up/down" dreams and minimal movements for "watching distantly" dreams.
+  </blockquote>
 
   <!-- Exam Key Points -->
   <div class="summary-card" id="summary-s6">
-    <div class="summary-card-header" onclick="toggleSummary(this)">
-      <span class="summary-card-icon">▶</span>
-      <span class="summary-card-title">Exam Key Points — Results Study 2</span>
-      <span class="ao-badge">AO1</span>
-    </div>
-    <div class="summary-card-body">
-      <div class="summary-card-inner">
-        <ul>
-          <li><span class="tag-must">必考</span> <strong>35 REM awakenings</strong> with clear eye movement patterns analysed.</li>
-          <li><span class="tag-must">必考</span> <strong>Vertical eye movements</strong> → dreams involving vertical activity (climbing, looking up/down).</li>
-          <li><span class="tag-must">必考</span> <strong>Horizontal eye movements</strong> → dreams involving horizontal activity (watching, scanning).</li>
-          <li><span class="tag-common">常考</span> Suggested dreams involve <strong>actual ocular scanning</strong> (like being awake).</li>
-          <li><span class="tag-ao2">AO2技巧</span> Not perfect correspondence — some vertical EM didn't match vertical dream content.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- Chinese Summary -->
-  <div class="cn-summary-wrap">
-    <button class="cn-summary-toggle" onclick="toggleCnSummary(this)">
-      <span class="cs-icon">▶</span> 中文逻辑总结
-    </button>
-    <div class="cn-summary-body">
-      <div class="cs-content">
-        <p><strong>核心发现：</strong>眼动方向与梦境内容有对应关系——垂直眼动→上下场景、水平眼动→左右场景。这暗示做梦时眼睛真的在"扫描"梦境画面。</p>
-        <p><strong>记忆口诀：</strong>"竖看横看梦中现"</p>
-        <p><strong>考试技巧：</strong>注意强调"correspondence"不是"causation"，而且不是100%匹配。</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════ -->
-<!-- §7 RESULTS — STUDY 3              -->
-<!-- ════════════════════════════════ -->
-<section class="section" id="s7">
-  <h2>§7 Results — Study 3: Dream Interruption &amp; Multiple Dreams</h2>
-
-  <h3>Key Finding: Multiple Distinct Dreams Per Night</h3>
-
-  <p>When participants were awakened during REM, reported a dream, returned to sleep, and were <strong>awakened again later</strong>:</p>
-
-  <ul>
-    <li>Most participants reported a <strong>second, distinctly different dream</strong> on the subsequent awakening.</li>
-    <li>Some participants experienced <strong>three or more separate dream episodes</strong> in a single night.</li>
-    <li>The dreams were <strong>thematically unrelated</strong> — suggesting discrete dream episodes rather than one continuous narrative interrupted by awakenings.</li>
-  </ul>
-
-  <div class="keyterm-box">
-    <strong>Core Result (Study 3):</strong> People experience <strong>multiple, distinct dream episodes</strong> per night, each associated with separate REM periods. An average adult experiences approximately <strong>4–6 REM cycles</strong> per night, meaning 4–6 potential dream episodes nightly.
-  </div>
-
-  <h3>Estimated Dream Frequency</h3>
-  <p>Based on these findings, Dement and Kleitman estimated that the average person experiences roughly <strong>4 to 6 REM periods per night</strong>, each lasting approximately <strong>20–30 minutes</strong>, potentially containing a distinct dream episode. Over a lifetime, this translates to approximately <strong>6 years spent dreaming</strong>!</p>
-
-  <!-- Exam Key Points -->
-  <div class="summary-card" id="summary-s7">
-    <div class="summary-card-header" onclick="toggleSummary(this)">
-      <span class="summary-card-icon">▶</span>
-      <span class="summary-card-title">Exam Key Points — Results Study 3</span>
-      <span class="ao-badge">AO1</span>
-    </div>
-    <div class="summary-card-body">
-      <div class="summary-card-inner">
-        <ul>
-          <li><span class="tag-must">必考</span> <strong>Multiple distinct dreams per night</strong> — not one continuous dream.</li>
-          <li><span class="tag-must">必考</span> Each REM period may contain a <strong>separate dream episode</strong>.</li>
-          <li><span class="tag-must">必考</span> Average: <strong>4–6 REM cycles per night</strong>, each ~20–30 minutes.</li>
-          <li><span class="tag-common">常考</span> Lifetime estimate: ~<strong>6 years spent dreaming</strong>!</li>
-          <li><span class="tag-context">背景</span> Dreams are thematically unrelated across episodes within the same night.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- Chinese Summary -->
-  <div class="cn-summary-wrap">
-    <button class="cn-summary-toggle" onclick="toggleCnSummary(this)">
-      <span class="cs-icon">▶</span> 中文逻辑总结
-    </button>
-    <div class="cn-summary-body">
-      <div class="cs-content">
-        <p><strong>核心发现：</strong>一晚做多个不同的梦！每个REM周期对应一个独立的梦。平均每晚4-6个REM周期 = 4-6个梦。</p>
-        <p><strong>记忆口诀：</strong>"一夜四到六梦、每梦二三十分钟"</p>
-        <p><strong>考试技巧：</strong>"人一生花6年时间做梦"是个很好的essay hook（引子）。</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════ -->
-<!-- §8 DISCUSSION                     -->
-<!-- ════════════════════════════════ -->
-<section class="section" id="s8">
-  <h2>§8 Discussion of Findings</h2>
-
-  <h3>8.1 Interpretation of Study 1 Results</h3>
-  <p>The dramatic difference in dream recall rates between REM and non-REM awakenings provides <strong>strong evidence</strong> that dreaming is closely associated with the physiological state characterised by rapid eye movements. The researchers concluded that:</p>
-  <blockquote style="border-left:4px solid var(--primary); padding:12px 20px; margin:16px 0; background:var(--highlight); border-radius:0 8px 8px 0;">
-    "There is a reasonable certainty that <strong>dreaming occurs regularly during periods accompanied by rapid eye movements</strong>."
-  </blockquote>
-
-  <h3>8.2 Interpretation of Study 2 Results</h3>
-  <p>The correspondence between eye movement patterns and dream content suggests that the <strong>ocular muscles are actively engaged during dreaming</strong> in a way that reflects the visual imagery being experienced. This supports the notion that dreaming involves <strong>simulated perceptual-motor activity</strong> — the dreamer's eyes move as if they were actually observing the dream scene.</p>
-
-  <h3>8.3 Interpretation of Study 3 Results</h3>
-  <p>The finding of multiple distinct dreams per night challenged the prevailing view that dreaming was a rare or sporadic phenomenon. Instead, it showed that <strong>dreaming is a regular, rhythmic feature of normal sleep architecture</strong>, occurring in discrete episodes tied to REM cycles.</p>
-
-  <h3>8.4 Broader Implications</h3>
-  <ul>
-    <li><strong>Dreams can now be studied objectively</strong> — through physiological measurement rather than subjective morning-after reports.</li>
-    <li><strong>Sleep has structure</strong> — it is not uniform but consists of alternating cycles of REM and non-REM sleep.</li>
-    <li><strong>New research door opened</strong> — this methodology enabled decades of subsequent sleep and dream research.</li>
-  </ul>
-
-  <!-- Exam Key Points -->
-  <div class="summary-card" id="summary-s8">
-    <div class="summary-card-header" onclick="toggleSummary(this)">
-      <span class="summary-card-icon">▶</span>
-      <span class="summary-card-title">Exam Key Points — Discussion</span>
-      <span class="ao-badge">AO1+AO3</span>
-    </div>
-    <div class="summary-card-body">
-      <div class="summary-card-inner">
-        <ul>
-          <li><span class="tag-must">必考</span> Study 1 proves <strong>dreaming is strongly linked to REM sleep</strong>.</li>
-          <li><span class="tag-must">必考</span> Study 2 suggests <strong>eyes move as if scanning dream scenes</strong> (simulated perception).</li>
-          <li><span class="tag-must">必考</span> Study 3 shows <strong>dreaming is regular and rhythmic</strong>, not sporadic.</li>
-          <li><span class="tag-ao2">AO2技巧</span> Major implication: <strong>dreams become objectively measurable</strong> — paradigm shift in dream research.</li>
-          <li><span class="tag-context">背景</span> Opened the door to modern sleep science (sleep labs, REM research, dream analysis).</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- Chinese Summary -->
-  <div class="cn-summary-wrap">
-    <button class="cn-summary-toggle" onclick="toggleCnSummary(this)">
-      <span class="cs-icon">▶</span> 中文逻辑总结
-    </button>
-    <div class="cn-summary-body">
-      <div class="cs-content">
-        <p><strong>三层递进解读：</strong><br>① 存在性证明：REM=做梦期（Study 1）<br>② 机制推测：眼动反映视觉扫描行为（Study 2）<br>③ 频率揭示：做梦是规律性的、周期性的（Study 3）</p>
-        <p><strong>最大意义：</strong>将"梦"从玄学/精神分析领域拉入实证科学研究范畴——可以用仪器测量了！</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════ -->
-<!-- §9 CONCLUSIONS                    -->
-<!-- ════════════════════════════════ -->
-<section class="section" id="s9">
-  <h2>§9 Conclusions</h2>
-
-  <div class="keyterm-box">
-    <strong>Primary Conclusion:</strong> There is a <strong>clear, demonstrable relationship</strong> between rapid eye movements during sleep and dream activity. Eye movements serve as a reliable <strong>physiological indicator (生理指标)</strong> of dreaming.
-  </div>
-
-  <h3>Summary of Conclusions</h3>
-  <ol>
-    <li><strong>Dreaming occurs predominantly during REM sleep</strong> — ~80–90% of REM awakenings produce dream reports vs. ~7–10% for non-REM.</li>
-    <li><strong>The pattern of eye movements corresponds to dream content</strong> — vertical/horizontal eye movements tend to match vertical/horizontal dream imagery.</li>
-    <li><strong>People have multiple distinct dreams per night</strong> — each REM cycle may contain a separate dream episode (4–6 cycles/night).</li>
-    <li><strong>Dreams can be studied using objective scientific methods</strong> — this study established the foundation for modern sleep science.</li>
-  </ol>
-
-  <h3>One-Sentence Summary for Exams</h3>
-  <blockquote style="border-left:4px solid var(--primary); padding:12px 20px; margin:16px 0; background:var(--highlight); border-radius:0 8px 8px 0; font-weight:600;">
-    Dement &amp; Kleitman (1957) demonstrated that <strong>rapid eye movements during sleep are a reliable indicator of dreaming</strong>, establishing that dreaming is a regular, measurable phenomenon occurring in discrete episodes throughout the night.
-  </blockquote>
-
-  <!-- Exam Key Points -->
-  <div class="summary-card" id="summary-s9">
     <div class="summary-card-header" onclick="toggleSummary(this)">
       <span class="summary-card-icon">▶</span>
       <span class="summary-card-title">Exam Key Points — Conclusions</span>
@@ -1351,9 +1249,9 @@ body.dark .nc-action-btn { background: #292524; color: #d6d3d1; border-color: #5
       <div class="summary-card-inner">
         <ul>
           <li><span class="tag-must">必考</span> <strong>REM = Dreaming</strong> (the fundamental equation of this study).</li>
-          <li><span class="tag-must">必考</span> Eye movements are a <strong>reliable objective indicator</strong> of dream activity.</li>
-          <li><span class="tag-common">常考</span> Four conclusions map directly onto three studies + overall contribution.</li>
-          <li><span class="tag-ao2">AO2技巧</span> Memorise the one-sentence summary — useful for essay introductions/conclusions.</li>
+          <li><span class="tag-must">必考</span> Participants can <strong>accurately estimate dream duration</strong>.</li>
+          <li><span class="tag-must">必考</span> <strong>Eye-movement patterns correspond to dream visual content</strong>.</li>
+          <li><span class="tag-ao2">AO2技巧</span> Dreams progress in <strong>"real time"</strong> — objective measurement validates subjective experience.</li>
         </ul>
       </div>
     </div>
@@ -1366,8 +1264,8 @@ body.dark .nc-action-btn { background: #292524; color: #d6d3d1; border-color: #5
     </button>
     <div class="cn-summary-body">
       <div class="cs-content">
-        <p><strong>一句话结论：</strong>"眼动=做梦"——REM期的快速眼动是梦活动的可靠生理标志。</p>
-        <p><strong>四个结论对应三个研究：</strong>S1→存在性、S2→机制、S3→频率 + 总体方法论贡献。</p>
+        <p><strong>一句话结论：</strong>"眼动=做梦"——REM期的快速眼动是梦活动的可靠生理标志，且梦境按实时推进。</p>
+        <p><strong>三个结论对应三个研究问题：</strong>Q1→存在性(Q2→准确性)、Q3→机制对应性 + 总体方法论贡献（客观测量替代主观回忆）。</p>
         <p><strong>考试技巧：</strong>Essay题用one-sentence summary作为thesis statement非常加分。</p>
       </div>
     </div>
@@ -1375,85 +1273,44 @@ body.dark .nc-action-btn { background: #292524; color: #d6d3d1; border-color: #5
 </section>
 
 <!-- ════════════════════════════════ -->
-<!-- §10 EVALUATION (AO3)               -->
+<!-- §7 EVALUATION (AO3)               -->
 <!-- ════════════════════════════════ -->
-<section class="section" id="s10">
-  <h2>§10 Evaluation (AO3)</h2>
+<section class="section" id="s7">
+  <h2>§7 Strengths and Weaknesses</h2>
 
-  <h3>Strengths (优势)</h3>
+  <h3>✅ Strengths</h3>
 
-  <table>
-    <tr><th style="width:6%">#</th><th style="width:28%">Strength</th><th>Explanation</th></tr>
-    <tr>
-      <td><strong>1</strong></td>
-      <td><strong>High Internal Validity</strong><br><span class="tag-must">必考</span></td>
-      <td>Laboratory setting allowed tight control over extraneous variables. Standardised procedures, consistent equipment, and controlled environment mean we can be confident that the IV (type of awakening) caused differences in the DV (dream recall). The use of <strong>physiological measures</strong> (EEG/EOG) eliminated subjectivity in determining sleep stage.</td>
-    </tr>
-    <tr>
-      <td><strong>2</strong></td>
-      <td><strong>Pioneering Methodology</strong><br><span class="tag-common">常考</span></td>
-      <td>This was one of the first studies to combine <strong>physiological recording with psychological reporting</strong>. It established a new research paradigm that enabled decades of subsequent sleep research. The innovation of awakening participants during specific sleep stages was revolutionary.</td>
-    </tr>
-    <tr>
-      <td><strong>3</strong></td>
-      <td><strong>Objective Measurement</strong><br><span class="tag-common">常考</span></td>
-      <td>By using EOG to detect eye movements and EEG to confirm sleep stages, the study introduced <strong>objective, quantifiable indicators</strong> of what had previously been considered purely subjective experience. This moved dream research from introspection/psychoanalysis into empirical science.</td>
-    </tr>
-    <tr>
-      <td><strong>4</strong></td>
-      <td><strong>Within-Subjects Design</strong><br><span class="tag-ao2">AO2技巧</span></td>
-      <td>Each participant experienced both REM and non-REM awakenings, serving as their own control. This controls for <strong>individual differences</strong> in dream recall ability, sleep patterns, and verbal fluency — increasing sensitivity to detect the true effect.</td>
-    </tr>
-    <tr>
-      <td><strong>5</strong></td>
-      <td><strong>Quantitative Data</strong><br><span class="tag-context">背景</span></td>
-      <td>The study produced clear numerical results (80–90% vs. 7–10%) that are easy to analyse statistically and compare across studies. The large number of awakenings (191 in Study 1 alone) provided substantial statistical power.</td>
-    </tr>
-  </table>
+  <h4>1. Laboratory Experiment — High Control（实验室实验——高度控制）</h4>
+  <p>One method used was the <strong>laboratory experiment（实验室实验）</strong>. It was therefore possible to limit the effect of some <strong>uncontrolled variables（无关变量）</strong>. If some individuals, or participants in different stages of sleep, had woken more slowly they may have forgotten more of their dream. This was avoided by using a loud doorbell that woke them instantly from any sleep stage. The participants were not told about their EEG pattern or whether their eyes were moving, or were given false information about this. Both of these procedures help to eliminate potential <strong>demand characteristics（需求特征）</strong>. For example, if the participant expected to remember more detailed dreams in REM sleep, they may have made greater effort to do so.</p>
 
-  <h3>Weaknesses (劣势)</h3>
+  <h4>2. Correlation Method — Objective Measurement（相关法——客观测量）</h4>
+  <p>Another method used was a <strong>correlation（相关）</strong>. This demonstrated a positive correlation between REM duration and the number of words in the dream narrative. As with any correlation, this could only demonstrate whether there was a link between variables, not a causal relationship.</p>
 
-  <table>
-    <tr><th style="width:6%">#</th><th style="width:28%">Weakness</th><th>Explanation</th></tr>
-    <tr>
-      <td><strong>1</strong></td>
-      <td><strong>Low Ecological Validity</strong><br><span class="tag-must">必考</span></td>
-      <td>Sleeping in a laboratory with electrodes attached is <strong>highly artificial</strong>. Participants may have slept differently due to anxiety, discomfort, or unfamiliarity. The "dreams" reported may differ from natural home-sleep dreams. This limits how well findings generalise to real-world dreaming.</td>
-    </tr>
-    <tr>
-      <td><strong>2</strong></td>
-      <td><strong>Very Small Sample</strong><br><span class="tag-must">必考</span></td>
-      <td>Only <strong>9 participants</strong> (7 male, 2 female) — extremely small sample. Findings may not generalise to the wider population. The sample was also homogeneous (mostly young, educated, university-associated individuals).</td>
-    </tr>
-    <tr>
-      <td><strong>3</strong></td>
-      <td><strong>Biased Sampling</strong><br><span class="tag-common">常考</span></td>
-      <td><strong>Opportunity sampling</strong> from the researchers' social/professional circle introduces bias. Participants likely knew they were involved in a sleep study, which may have affected their sleep quality or dream content (demand characteristics).</td>
-    </tr>
-    <tr>
-      <td><strong>4</strong></td>
-      <td><strong>Potential Demand Characteristics</strong><br><span class="tag-common">常考</span></td>
-      <td>Although the question "What was going through my mind..." was carefully worded to avoid suggesting dreams, participants who noticed the focus on eye movements might have felt <strong>pressured to report dreams</strong> during REM awakenings. The researchers' presence and expectations could influence responses.</td>
-    </tr>
-    <tr>
-      <td><strong>5</strong></td>
-      <td><strong>Researcher Bias</strong><br><span class="tag-ao2">AO2技巧</span></td>
-      <td>The researchers themselves coded and interpreted dream content for Study 2. Knowing the eye movement pattern beforehand could have <strong>unconsciously influenced</strong> their categorisation of dream content (experimenter bias/confirmation bias).</td>
-    </tr>
-    <tr>
-      <td><strong>6</strong></td>
-      <td><strong>Ethical Concerns</strong><br><span class="tag-context">背景</span></td>
-      <td>Repeated nighttime awakenings cause <strong>sleep deprivation</strong> and potential distress. Participants could not give fully informed consent about the extent of disruption. See §11 for full ethical analysis.</td>
-    </tr>
-    <tr>
-      <td><strong>7</strong></td>
-      <td><strong>Imperfect Correspondence in Study 2</strong><br><span class="tag-context">背景</span></td>
-      <td>The eye movement–dream content correlation was <strong>not perfect</strong>. Some vertical eye movement awakenings did not produce vertically-themed dreams. This raises questions about how robust and universal the relationship is.</td>
-    </tr>
-  </table>
+  <h4>3. Clear Operationalisation of Variables（变量操作化清晰）</h4>
+  <p>The definition of a 'dream' was clearly operationalised, as a recollection that included content, rather than just having the impression that they had been dreaming. This helped to raise validity, as Dement and Kleitman could be sure that the details being recorded were of dreams.</p>
+
+  <h4>4. EEG Provides Objective, Reliable Data（EEG提供客观可靠数据）</h4>
+  <p>An EEG is an <strong>objective way（客观方法）</strong> to investigate dreaming as it is a biological measure. Differences in narrative length, however, depended not only on the length of the REM phase but also how expressive the participant was making these reports more subjective. Nevertheless, this means that the study collected both quantitative data, from the brain waves, eye-movement patterns and REM sleep duration, and qualitative data, which helped to provide an insight into the reason for the eye movements detected. The EEG also provides a very reliable measure because it is unaffected by the experimenter's personal view. The consistent placing of the electrodes ensured that recordings taken from each participant would provide the same information. The reliability of the findings is supported by the similarity of the results to those of previous studies.</p>
+
+  <h4>5. Use of Control Group（对照组的使用）</h4>
+  <p>Comparison EEG records were taken from awake participants (both naive and experimental sample) who watched distant and close-up activity. This provided a baseline for interpreting what eye-movement patterns mean in terms of visual attention.</p>
+
+  <h3>❌ Weaknesses</h3>
+
+  <h4>1. Small Sample Size（样本量小）</h4>
+  <p>As there may be differences in the dreaming of men and women, or between the way they report their dreams, it was useful in terms of <strong>generalisability（普遍性/可推广性）</strong> that there were both genders in the sample. However, as there were only nine participants in total, the small size of the sample limits generalisability. As these individuals had chosen to participate in a study on dreaming, they may have dreamed more frequently than the population in general, remembered their dreams better, or had more visual dreams for example.</p>
+
+  <h4>2. Unstructured Time Estimation Task（非结构化时间估计任务）</h4>
+  <p>Although participants' estimates were roughly (and occasionally exactly) accurate, the task of unstructured time estimation was too difficult, so the method was changed to explore the link in a more controlled way. The task was limited to a choice between 5 and 15 minutes. This experimental study helped to raise validity as it reduced participant variables such as differences in the ability to recall dreams.</p>
+
+  <h4>3. Low Ecological Validity（低生态效度）</h4>
+  <p>Several aspects of the procedure potentially reduced the ecological validity of the findings. People who were used to drinking coffee or alcohol could have experienced sleep or dreams that were not typical for them as they had been asked to refrain from those drinks. Also, all participants would have found sleeping in a laboratory, connected to machines and under observation, quite different from sleeping in their normal bed. This could also have made their sleeping behaviour less typical.</p>
+
+  <h4>4. Practice Effect Concerns（练习效应担忧）</h4>
+  <p>The practice effect is when an individual's response improves due to familiarity with a task. It is possible that this could have happened for participant DN but not for other participants. Can you explain why is it unlikely that other participants would have been affected?</p>
 
   <!-- Exam Key Points -->
-  <div class="summary-card" id="summary-s10">
+  <div class="summary-card" id="summary-s7">
     <div class="summary-card-header" onclick="toggleSummary(this)">
       <span class="summary-card-icon">▶</span>
       <span class="summary-card-title">Exam Key Points — Evaluation</span>
@@ -1463,19 +1320,18 @@ body.dark .nc-action-btn { background: #292524; color: #d6d3d1; border-color: #5
       <div class="summary-card-inner">
         <p><strong>Top 5 Strengths (memorise these!):</strong></p>
         <ol>
-          <li>High internal validity (lab control, physiological measures)</li>
-          <li>Pioneering methodology (new paradigm for sleep research)</li>
-          <li>Objective measurement (EOG/EEG — quantitative data)</li>
-          <li>Within-subjects design (controls individual differences)</li>
-          <li>Large amount of data collected (191 awakenings)</li>
+          <li>High internal validity (lab control, loud doorbell, deception control)</li>
+          <li>Objective measurement (EEG/EOG — quantitative data)</li>
+          <li>Clear operationalisation of 'dream' definition</li>
+          <li>Mixed methods (quantitative EEG + qualitative dream narratives)</li>
+          <li>Control group (awake participants for baseline comparison)</li>
         </ol>
-        <p><strong>Top 5 Weaknesses (memorise these!):</strong></p>
+        <p><strong>Top 4 Weaknesses (memorise these!):</strong></p>
         <ol>
-          <li>Low ecological validity (artificial lab setting)</li>
           <li>Tiny sample (N=9, not representative)</li>
-          <li>Biased sampling (opportunity, acquaintances)</li>
-          <li>Demand characteristics possible</li>
-          <li>Researcher bias in coding dream content</li>
+          <li>Low ecological validity (artificial lab setting)</li>
+          <li>Initial method flaw (time estimation too hard — improved mid-study)</li>
+          <li>Possible practice effects (participant DN)</li>
         </ol>
       </div>
     </div>
@@ -1488,63 +1344,35 @@ body.dark .nc-action-btn { background: #292524; color: #d6d3d1; border-color: #5
     </button>
     <div class="cn-summary-body">
       <div class="cs-content">
-        <p><strong>优势口诀：</strong>"内效高、方法新、客观数据、被内设计、数据量大"</p>
-        <p><strong>劣势口诀：</strong>"生态低、样本小、抽样偏、需求特征、研究者偏差"</p>
-        <p><strong>考试技巧：</strong>AO3评价题至少写3优3劣，每条都要展开解释+举例。最高分的答案会讨论"这个劣势有多严重"以及"后续研究是否解决了这个问题"。</p>
+        <p><strong>优势口诀：</strong>"控制高、客观数据、操作化清、混合方法、有对照"</p>
+        <p><strong>劣势口诀：</strong>"样本小、生态低、方法改、练习效应"</p>
+        <p><strong>考试技巧：</strong>AO3评价题至少写3优3劣，每条都要展开解释+举例。最高分的答案会讨论"这个劣势有多严重"以及"后续研究是否解决了这个问题"。注意提到"方法中途改进"显示研究者严谨性——这可以作为一个加分点！</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ════════════════════════════════ -->
-<!-- §11 ETHICS                         -->
+<!-- §8 ETHICS                         -->
 <!-- ════════════════════════════════ -->
-<section class="section" id="s11">
-  <h2>§11 Ethical Issues</h2>
+<section class="section" id="s8">
+  <h2>§8 Ethical Issues</h2>
 
-  <h3>Key Ethical Considerations</h3>
+  <div class="warn-box">
+    <h4>⚠️ Main Ethical Issue: Deception（欺骗）</h4>
+    <p>One aspect of the method that raised an ethical issue was the deception of participant WD who was misled about the stage of sleep he was being woken in. Researchers should avoid using deception as it can cause distress and means they cannot give their informed consent. However, in some cases the aim cannot be achieved without doing so and, in this case, it provided a way to test whether expectation of being woken in REM (at least sometimes) would affect a participant's dream reports.</p>
+  </div>
 
-  <table>
-    <tr><th style="width:25%">Issue</th><th>Analysis</th><th>Modern Verdict</th></tr>
-    <tr>
-      <td><strong>Informed Consent</strong><br><em>知情同意</em></td>
-      <td>Participants consented to sleep in the lab with electrodes, but may not have fully understood the extent of <strong>repeated nighttime awakenings</strong> and resulting sleep deprivation.</td>
-      <td style="color:#f59e0b;">⚠️ Partial — consent was obtained but possibly incomplete regarding disruption level.</td>
-    </tr>
-    <tr>
-      <td><strong>Right to Withdraw</strong><br><em>退出权</em></td>
-      <td>Technically participants could withdraw, but once asleep and wired to equipment, exercising this right would be difficult. Social pressure to continue may have been significant.</td>
-      <td style="color:#f59e0b;">⚠️ Problematic — practical barriers to withdrawal during the study.</td>
-    </tr>
-    <tr>
-      <td><strong>Protection from Harm</strong><br><em>免受伤害</em></td>
-      <td>Repeated awakenings caused <strong>sleep deprivation</strong>, leading to daytime fatigue, irritability, and potential cognitive impairment. Some participants found the experience stressful or unpleasant.</td>
-      <td style="color:#ef4444;">❌ Concern — harm occurred (sleep deprivation), though temporary.</td>
-    </tr>
-    <tr>
-      <td><strong>Debriefing</strong><br><em>事后解释</em></td>
-      <td>Participants were debriefed about the study's purpose. However, the full significance of their contribution to sleep science may not have been immediately apparent.</td>
-      <td style="color:var(--correct);">✅ Adequate — debriefing was conducted.</td>
-    </tr>
-    <tr>
-      <td><strong>Privacy/Dignity</strong><br><em>隐私/尊严</em></td>
-      <td>Sleep is a private state. Being watched/electrodes attached while sleeping could feel invasive. However, participants were in a private room.</td>
-      <td style="color:var(--correct);">✅ Acceptable — private room maintained dignity.</td>
-    </tr>
-  </table>
-
-  <h3>BPS Guidelines Assessment</h3>
-  <p>By modern British Psychological Society standards, this study would require:</p>
+  <p>Other ethical considerations:</p>
   <ul>
-    <li>More explicit informed consent about sleep disruption levels</li>
-    <li>Clearer protocols for the right to withdraw at any point (including mid-night)</li>
-    <li>Risk assessment for sleep deprivation effects</li>
-    <li>Consideration of compensating participants for inconvenience</li>
+    <li><strong>Informed consent（知情同意）</strong>: Participants agreed to sleep in a lab with electrodes attached, but could not be fully informed about the true purpose without compromising the study</li>
+    <li><strong>Right to withdraw（退出权）</strong>: Technically possible but practically difficult once wired up and asleep</li>
+    <li><strong>Protection from harm（保护免受伤害）</strong>: Repeated wakening during sleep may cause fatigue and minor distress, but no lasting harm was reported</li>
+    <li><strong>Debriefing（事后解释）</strong>: Not explicitly mentioned in the original paper, but participants would have been debriefed afterwards</li>
   </ul>
-  <p><em>Note: Ethical standards were less developed in 1957. This study would face greater scrutiny today but was acceptable for its time.</em></p>
 
   <!-- Exam Key Points -->
-  <div class="summary-card" id="summary-s11">
+  <div class="summary-card" id="summary-s8">
     <div class="summary-card-header" onclick="toggleSummary(this)">
       <span class="summary-card-icon">▶</span>
       <span class="summary-card-title">Exam Key Points — Ethics</span>
@@ -1553,11 +1381,10 @@ body.dark .nc-action-btn { background: #292524; color: #d6d3d1; border-color: #5
     <div class="summary-card-body">
       <div class="summary-card-inner">
         <ul>
-          <li><span class="tag-must">必考</span> Main issue: <strong>sleep deprivation from repeated awakenings</strong> (protection from harm).</li>
-          <li><span class="tag-must">必考</span> <strong>Informed consent</strong> may have been incomplete regarding disruption extent.</li>
+          <li><span class="tag-must">必考</span> Main issue: <strong>deception of participant WD</strong> (misled about waking condition).</li>
+          <li><span class="tag-must">必考</span> <strong>Sleep deprivation/fatigue</strong> from repeated awakenings (protection from harm).</li>
           <li><span class="tag-common">常考</span> <strong>Right to withdraw</strong> practically difficult once asleep and wired up.</li>
           <li><span class="tag-ao2">AO2技巧</span> Contextualise: <strong>ethical standards were less strict in 1957</strong> — don't judge too harshly by today's standards.</li>
-          <li><span class="tag-context">背景</span> Debriefing was conducted; privacy reasonably protected (private room).</li>
         </ul>
       </div>
     </div>
@@ -1570,7 +1397,7 @@ body.dark .nc-action-btn { background: #292524; color: #d6d3d1; border-color: #5
     </button>
     <div class="cn-summary-body">
       <div class="cs-content">
-        <p><strong>核心伦理问题：</strong>反复夜间唤醒导致睡眠剥夺（主要问题）、知情同意可能不完全、退出权实际难以行使。</p>
+        <p><strong>核心伦理问题：</strong>欺骗WD参与者（误导唤醒类型）、反复夜间唤醒导致疲劳（保护免受伤害）、退出权实际难以行使。</p>
         <p><strong>得分要点：</strong>一定要加contextualisation——"1957年伦理标准不如今天严格"。这显示你的evaluative maturity（评价成熟度）。</p>
       </div>
     </div>
@@ -1578,25 +1405,45 @@ body.dark .nc-action-btn { background: #292524; color: #d6d3d1; border-color: #5
 </section>
 
 <!-- ════════════════════════════════ -->
-<!-- §12 EXAM PRACTICE                 -->
+<!-- §9 SUMMARY                        -->
 <!-- ════════════════════════════════ -->
-<section class="section" id="s12">
-  <h2>§12 Exam Practice Questions</h2>
+<section class="section" id="s9">
+  <h2>§9 Summary</h2>
+
+  <p>Dement and Kleitman's study explored the relationship between eye movements during sleep and dream recall. An EEG provided information about participants' sleep stages, such as REM sleep, and about eye movements. Dream recall was measured by self-report. The correlational results showed that estimates of dream duration based on the number of words in the dream narrative correlated positively with REM duration. Results from the laboratory experiments showed that dreams occurred in REM rather than nREM sleep and confirmed that participants had a sense of the duration of a dream as they could accurately estimate whether they had been dreaming for 5 or 15 minutes. Furthermore, the contents of the dream narratives related to EOG records of the direction and amount of eye movements during dream sleep showing that this is related to dream content, e.g. that vertical movements of the eyes occur when there are vertical events in a dream. Many variables, such as food and drink that could affect sleep, were controlled and demand characteristics were reduced where possible. However, the laboratory, and equipment, meant that the situation was unusual for sleeping. Nevertheless, objective, quantitative data was obtained from the EEG, eye movements and timing, allowing for valid and reliable comparisons to be made.</p>
+
+  <div class="info-box">
+    <h4>📋 Quick Recap</h4>
+    <table>
+      <tr><th>Item（项目）</th><th>Content（内容）</th></tr>
+      <tr><td>Researchers</td><td>Dement, W., &amp; Kleitman, N. (1957)</td></tr>
+      <tr><td>Journal</td><td>Journal of Experimental Psychology, 53, 339–346</td></tr>
+      <tr><td>Method（方法）</td><td>Laboratory experiment + Correlation + Self-report</td></tr>
+      <tr><td>Sample（样本）</td><td>9 adults (7M, 2F); 5 studied in detail</td></tr>
+      <tr><td>Main result 1（主要结果1）</td><td>REM: 79.6% dream recall vs nREM: ~93% no recall</td></tr>
+      <tr><td>Main result 2（主要结果2）</td><td>Duration estimation: 88% correct (5min), 78% correct (15min)</td></tr>
+      <tr><td>Main result 3（主要结果3）</td><td>Eye-movement patterns matched dream visual content</td></tr>
+      <tr><td>Approach（取向定位）</td><td>CIE Biological Approach — Sleep and Dreaming</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ════════════════════════════════ -->
+<!-- §10 EXAM PRACTICE                 -->
+<!-- ════════════════════════════════ -->
+<section class="section" id="s10">
+  <h2>§10 Exam Practice Questions</h2>
 
   <!-- Question 1 -->
   <div class="qa-card">
     <div class="qa-question" onclick="toggleQA(this)">
-      <span>Q1 (AO1 — 6 marks): Outline Dement and Kleitman's (1957) research into the relationship between eye movements during sleep and dream activity.</span>
+      <span>Q1: Eye-movement patterns were found to be related to dream content. What type of eye movements were observed in the dream about a man who was climbing up a series of ladders looking up and down as he climbed, and why?</span>
     </div>
     <div class="qa-answer">
       <div class="qa-answer-inner">
-        <p><strong>Model Answer:</strong></p>
-        <p>Dement and Kleitman (1957) conducted a <strong>laboratory experiment</strong> with <strong>9 participants</strong> to investigate whether eye movements during sleep relate to dreaming. Participants slept in a lab with <strong>EEG and EOG electrodes</strong> attached to monitor brain waves and eye movements.</p>
-        <p>In <strong>Study 1</strong>, participants were randomly awakened during both <strong>REM and non-REM periods</strong>. Results showed that awakenings during REM produced dream reports in <strong>~80–90%</strong> of cases, compared to only <strong>~7–10%</strong> for non-REM awakenings. REM dreams were also longer and more vivid.</p>
-        <p>In <strong>Study 2</strong>, the <strong>pattern of eye movements</strong> (vertical vs. horizontal) was found to correspond to the <strong>visual content of reported dreams</strong>.</p>
-        <p>The researchers concluded that <strong>rapid eye movements during sleep are a reliable indicator of dream activity</strong>, and that people experience multiple distinct dreams per night. <span class="qa-mark">[6 marks]</span></p>
+        <p><strong>Key points:</strong> <strong>Mainly vertical eye movements（主要为垂直眼动）</strong> were observed. Reason: the dreamer was repeatedly looking UP (at climbers above him on the cliff/ladder) and DOWN (at the machine/his feet). This supports the conclusion that eye-movement patterns during REM sleep correspond to the visual content of the dream — the eyes physically move in the same direction as the gaze in the dream narrative. <span class="qa-mark">[4 marks]</span></p>
         <div class="qa-tip">
-          <strong>💡 Exam Tip:</strong> For a 6-mark AO1 question, cover: aim + method (design, sample, apparatus) + key results (the % figures!) + conclusion. Use technical terms (laboratory experiment, EEG/EOG, REM).
+          <strong>💡 Exam Tip:</strong> Always mention BOTH the type of eye movement AND the reason (linking to dream content). Use technical terms like "vertical eye movements" and reference the ladder-climbing scenario specifically.
         </div>
       </div>
     </div>
@@ -1605,26 +1452,13 @@ body.dark .nc-action-btn { background: #292524; color: #d6d3d1; border-color: #5
   <!-- Question 2 -->
   <div class="qa-card">
     <div class="qa-question" onclick="toggleQA(this)">
-      <span>Q2 (AO3 — 12 marks): Evaluate Dement and Kleitman's (1957) study of sleep and dreaming.</span>
+      <span>Q2: What could a person be dreaming about if they have few eye movements during REM sleep?</span>
     </div>
     <div class="qa-answer">
       <div class="qa-answer-inner">
-        <p><strong>Model Answer:</strong></p>
-        <p><strong>Strengths:</strong></p>
-        <ol>
-          <li><strong>High internal validity</strong> — The laboratory setting allowed precise control over extraneous variables. Physiological measures (EEG/EOG) provided objective, quantifiable data about sleep stages, eliminating subjectivity. <span class="qa-mark">[3]</span></li>
-          <li><strong>Pioneering methodology</strong> — This study established a new research paradigm combining physiological recording with psychological reporting, enabling decades of future sleep research. <span class="qa-mark">[2]</span></li>
-          <li><strong>Within-subjects design</strong> — Each participant experienced both conditions, controlling for individual differences in dream recall ability. <span class="qa-mark">[2]</span></li>
-        </ol>
-        <p><strong>Weaknesses:</strong></p>
-        <ol start="4">
-          <li><strong>Very small sample</strong> — Only 9 participants (7M, 2F) limits generalisability to the wider population. <span class="qa-mark">[2]</span></li>
-          <li><strong>Low ecological validity</strong> — Sleeping in a lab with electrodes is artificial; dreams reported may differ from natural sleep. <span class="qa-mark">[2]</span></li>
-          <li><strong>Researcher bias</strong> — In Study 2, researchers coded dream content knowing the eye movement pattern, risking confirmation bias. <span class="qa-mark">[1]</span></li>
-        </ol>
-        <p><strong>Overall:</strong> Despite limitations, this study revolutionised our understanding of sleep and dreaming, demonstrating that dreams can be studied through objective scientific methods. <span class="qa-mark">[Total: 12]</span></p>
+        <p><strong>Key points:</strong> According to the study's findings, dreams with little or no eye movement involved the dreamer <strong>watching something in the distance or staring at an object</strong> (e.g., driving a car and staring at the road ahead). Minimal eye movements suggest static visual scenes without much scanning or tracking of objects. This contrasts sharply with vertical-movement dreams (climbing, throwing) or mixed-movement dreams (close-up social interactions). <span class="qa-mark">[4 marks]</span></p>
         <div class="qa-tip">
-          <strong>💡 Exam Tip:</strong> For 12-mark AO3: present 3 strengths + 3 weaknesses, each with explanation. End with a brief conclusion/judgement paragraph. Always use PEEL (Point-Evidence-Explanation-Link) structure for each evaluation point.
+          <strong>💡 Exam Tip:</strong> Contrast your answer with what happens in vertical/mixed eye-movement dreams to show deeper understanding. Mention the driving-a-car examples from the study.
         </div>
       </div>
     </div>
@@ -1633,17 +1467,13 @@ body.dark .nc-action-btn { background: #292524; color: #d6d3d1; border-color: #5
   <!-- Question 3 -->
   <div class="qa-card">
     <div class="qa-question" onclick="toggleQA(this)">
-      <span>Q3 (AO3 — 8 marks): Discuss ethical issues in Dement and Kleitman's (1957) study.</span>
+      <span>Q3: Why was it necessary for Dement and Kleitman to change the way they tested whether there was a positive correlation between estimates of dream duration and the length of the REM period?</span>
     </div>
     <div class="qa-answer">
       <div class="qa-answer-inner">
-        <p><strong>Model Answer:</strong></p>
-        <p>The main ethical issue in Dement and Kleitman's study is <strong>protection from harm</strong>. Participants were repeatedly awakened throughout the night, causing <strong>sleep deprivation</strong>. This led to daytime fatigue, irritability, and potential cognitive impairment — a form of psychological/physical harm. By modern BPS guidelines, a risk assessment should have been conducted, and the minimum necessary number of awakenings used. <span class="qa-mark">[3]</span></p>
-        <p>Secondly, <strong>informed consent</strong> may have been incomplete. While participants agreed to sleep in the lab, they may not have fully understood the extent of disruption they would experience. Modern ethics would require explicit information about expected numbers of awakenings and potential effects. <span class="qa-mark">[2]</span></p>
-        <p>Thirdly, the <strong>right to withdraw</strong> was practically compromised. Once asleep and connected to equipment, withdrawing would be difficult and disruptive. <span class="qa-mark">[2]</span></p>
-        <p>However, participants were <strong>debriefed</strong>, and the study was conducted before modern ethical codes existed. The scientific value of the findings must be weighed against these concerns. <span class="qa-mark">[1] [Total: 8]</span></p>
+        <p><strong>Key points:</strong> Initially, participants were asked to freely estimate dream duration after varying REM periods. This proved <strong>"too difficult for participants"</strong> — unstructured time estimation while drowsy is inherently unreliable. They changed to a <strong>forced-choice method</strong>: participants simply guessed whether they'd dreamed for 5 or 15 minutes. This increased control dramatically (accuracy rose to 88%/78%), reducing participant variables like individual differences in time perception ability, thereby improving the validity of the correlation analysis. <span class="qa-mark">[6 marks]</span></p>
         <div class="qa-tip">
-          <strong>💡 Exam Tip:</strong> Always contextualise for older studies — acknowledge that ethical standards have evolved. Show you understand the historical context while still identifying genuine concerns.
+          <strong>💡 Exam Tip:</strong> This is a great example to use in AO3 evaluation questions about research methods — it shows scientific rigour and willingness to adapt methodology when initial approaches prove flawed.
         </div>
       </div>
     </div>
@@ -1652,85 +1482,50 @@ body.dark .nc-action-btn { background: #292524; color: #d6d3d1; border-color: #5
   <!-- Question 4 -->
   <div class="qa-card">
     <div class="qa-question" onclick="toggleQA(this)">
-      <span>Q4 (AO1/AO3 — 16 marks Essay): "Dement and Kleitman's (1957) study was more important for its methods than its findings." Discuss.</span>
+      <span>Q4 (AO1 — 6 marks): Outline Dement and Kleitman's (1957) research into the relationship between eye movements during sleep and dream activity.</span>
     </div>
     <div class="qa-answer">
       <div class="qa-answer-inner">
-        <p><strong>Model Essay Structure:</strong></p>
-        <p><strong>Introduction:</strong> Briefly introduce the study, its aim, and state your argument (e.g., "While the findings about REM-dreaming linkage were groundbreaking, the methodological innovations arguably had even greater long-term impact."). <span class="qa-mark">[2]</span></p>
-        <p><strong>Paragraph 1 — Importance of Findings:</strong> The core finding (80–90% dream recall from REM vs. 7–10% from non-REM) fundamentally changed our understanding of sleep. Established that dreaming is a regular, measurable phenomenon. Has practical applications (diagnosing sleep disorders, understanding nightmares). <span class="qa-mark">[3]</span></p>
-        <p><strong>Paragraph 2 — Importance of Methods:</strong> Pioneered the combination of physiological measurement (EEG/EOG) with psychological reporting. Created the methodology for all future sleep lab research. Demonstrated that subjective experiences (dreams) can be studied objectively. The "awaken during REM" technique became standard practice. <span class="qa-mark">[4]</span></p>
-        <p><strong>Paragraph 3 — Evaluation/Critique:</strong> Methods had flaws (small sample, low EV, demand characteristics) but these don't diminish the methodological breakthrough. Later studies replicated with larger samples, confirming findings. The template this study created enabled entire fields of sleep medicine and dream research. <span class="qa-mark">[4]</span></p>
-        <p><strong>Conclusion:</strong> Both findings and methods were revolutionary, but the <strong>methodological legacy</strong> — enabling decades of subsequent research — gives methods the edge in importance. Without these methods, neither these nor any later findings would exist. <span class="qa-mark">[3] [Total: 16]</span></p>
+        <p><strong>Model Answer:</strong></p>
+        <p>Dement and Kleitman (1957) conducted a <strong>laboratory experiment</strong> with <strong>9 participants</strong> (7M, 2F) to investigate whether eye movements during sleep relate to dreaming. Participants slept in a lab with <strong>EEG and EOG electrodes</strong> attached to monitor brain waves and eye movements.</p>
+        <p>In <strong>Question 1</strong>, participants were randomly awakened during both <strong>REM and nREM periods</strong>. Results showed that awakenings during REM produced dream reports in <strong>79.6%</strong> of cases (152/191), compared to only <strong>~7%</strong> for nREM awakenings (11/160).</p>
+        <p>In <strong>Question 2</strong>, participants could accurately estimate whether they had dreamed for <strong>5 or 15 minutes</strong> (88% and 78% correct respectively). The correlation between REM duration and narrative length was r = 0.4 to 0.71.</p>
+        <p>In <strong>Question 3</strong>, the <strong>pattern of eye movements</strong> (vertical vs. horizontal) was found to correspond to the <strong>visual content of reported dreams</strong>.</p>
+        <p>The researchers concluded that <strong>rapid eye movements during sleep are a reliable indicator of dream activity</strong>. <span class="qa-mark">[6 marks]</span></p>
         <div class="qa-tip">
-          <strong>💡 Exam Tip:</strong> For 16-mark essays: plan before writing! Use clear paragraphs, topic sentences, and evaluative language ("however," "conversely," "this suggests that"). Always include a conclusion that directly answers the question.
+          <strong>💡 Exam Tip:</strong> For a 6-mark AO1 question, cover: aim + method (design, sample, apparatus) + key results (the % figures!) + conclusion. Use technical terms (laboratory experiment, EEG/EOG, REM).
         </div>
       </div>
     </div>
   </div>
-</section>
 
-<!-- ════════════════════════════════ -->
-<!-- §13 KEY TERMS                      -->
-<!-- ════════════════════════════════ -->
-<section class="section" id="s13">
-  <h2>§13 Key Terms Glossary</h2>
-
-  <table>
-    <tr><th style="width:28%">Term</th><th>Definition (Chinese Translation)</th></tr>
-    <tr>
-      <td><strong>REM Sleep</strong><br><em>快速眼动睡眠</em></td>
-      <td>A stage of sleep characterised by rapid, random eye movements, low muscle tone, and vivid dreaming. Typically occurs in cycles of ~90 minutes throughout the night.</td>
-    </tr>
-    <tr>
-      <td><strong>Non-REM Sleep</strong><br><em>非快速眼动睡眠</em></td>
-      <td>All stages of sleep that are not REM. Divided into N1 (light), N2 (intermediate), and N3 (deep/slow-wave) sleep. Less dreaming occurs here.</td>
-    </tr>
-    <tr>
-      <td><strong>Electroencephalogram (EEG)</strong><br><em>脑电图</em></td>
-      <td>A method of recording electrical activity of the brain using scalp electrodes. Different wave patterns (alpha, beta, delta, theta) indicate different states of consciousness.</td>
-    </tr>
-    <tr>
-      <td><strong>Electrooculogram (EOG)</strong><br><em>眼电图</em></td>
-      <td>A recording of the electrical potential between electrodes placed around the eyes, used to detect eye movements and position.</td>
-    </tr>
-    <tr>
-      <td><strong>Laboratory Experiment</strong><br><em>实验室实验</em></td>
-      <td>A research method conducted in a controlled environment where the IV is manipulated and DV measured, with high control over confounding variables.</td>
-    </tr>
-    <tr>
-      <td><strong>Opportunity Sampling</strong><br><em>机会抽样</em></td>
-      <td>A sampling technique where participants are selected based on who is readily available. Quick and convenient but prone to bias.</td>
-    </tr>
-    <tr>
-      <td><strong>Internal Validity</strong><br><em>内部效度</em></td>
-      <td>The extent to which a study measures what it claims to measure, free from confounding variables. Lab experiments typically score highly.</td>
-    </tr>
-    <tr>
-      <td><strong>Ecological Validity</strong><br><em>生态效度</em></td>
-      <td>The extent to which findings can be generalised to real-world settings outside the laboratory. Often lower in controlled experiments.</td>
-    </tr>
-    <tr>
-      <td><strong>Demand Characteristics</strong><br><em>需求特征</em></td>
-      <td>Cues in the research setting that lead participants to guess the aims and alter their behaviour accordingly (consciously or unconsciously).</td>
-    </tr>
-    <tr>
-      <td><strong>Within-Subjects Design</strong><br><em>被试内设计</em></td>
-      <td>An experimental design where each participant experiences all conditions, serving as their own control. Controls individual differences but risks order effects.</td>
-    </tr>
-    <tr>
-      <td><strong>Dream Recall Rate</strong><br><em>梦境回忆率</em></td>
-      <td>The percentage of awakenings that result in a dream report. In this study: ~80–90% for REM, ~7–10% for non-REM.</td>
-    </tr>
-    <tr>
-      <td><strong>Sleep Cycle</strong><br><em>睡眠周期</em></td>
-      <td>The progression through sleep stages (N1 → N2 → N3 → N2 → REM) taking approximately 90 minutes. Repeated 4–6 times per night.</td>
-    </tr>
-    <tr>
-      <td><strong>Debriefing</strong><br><em>事后解释</em></td>
-      <td>The process after a study where participants are informed of the full purpose, given opportunity to ask questions, and any deception is explained.</td>
-    </tr>
-  </table>
+  <!-- Question 5 -->
+  <div class="qa-card">
+    <div class="qa-question" onclick="toggleQA(this)">
+      <span>Q5 (AO3 — 12 marks): Evaluate Dement and Kleitman's (1957) study of sleep and dreaming.</span>
+    </div>
+    <div class="qa-answer">
+      <div class="qa-answer-inner">
+        <p><strong>Model Answer:</strong></p>
+        <p><strong>Strengths:</strong></p>
+        <ol>
+          <li><strong>High internal validity</strong> — The laboratory setting allowed precise control over extraneous variables. Physiological measures (EEG/EOG) provided objective, quantifiable data about sleep stages, eliminating subjectivity. <span class="qa-mark">[3]</span></li>
+          <li><strong>Objective measurement</strong> — EEG/EOG provided reliable, replicable data unaffected by researcher bias. Clear operationalisation of 'dream' (must include content, not just impression). <span class="qa-mark">[2]</span></li>
+          <li><strong>Within-subjects design</strong> — Each participant experienced both conditions, controlling for individual differences in dream recall ability. <span class="qa-mark">[2]</span></li>
+        </ol>
+        <p><strong>Weaknesses:</strong></p>
+        <ol start="4">
+          <li><strong>Very small sample</strong> — Only 9 participants (7M, 2F) limits generalisability to the wider population. Opportunity sampling introduces bias. <span class="qa-mark">[2]</span></li>
+          <li><strong>Low ecological validity</strong> — Sleeping in a lab with electrodes is artificial; dreams reported may differ from natural sleep. No caffeine/alcohol rule may affect typical sleep patterns. <span class="qa-mark">[2]</span></li>
+          <li><strong>Deception of participant WD</strong> — Ethical concern, though arguably necessary to test demand characteristics. <span class="qa-mark">[1]</span></li>
+        </ol>
+        <p><strong>Overall:</strong> Despite limitations, this study revolutionised our understanding of sleep and dreaming, demonstrating that dreams can be studied through objective scientific methods. <span class="qa-mark">[Total: 12]</span></p>
+        <div class="qa-tip">
+          <strong>💡 Exam Tip:</strong> For 12-mark AO3: present 3 strengths + 3 weaknesses, each with explanation. End with a brief conclusion/judgement paragraph. Always use PEEL (Point-Evidence-Explanation-Link) structure for each evaluation point.
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 </main><!-- END MAIN CONTENT -->
@@ -1739,25 +1534,17 @@ body.dark .nc-action-btn { background: #292524; color: #d6d3d1; border-color: #5
 <!-- NOTES PANEL (Right Column)         -->
 <!-- ════════════════════════════════ -->
 <aside class="notes-col">
-  <div class="nc-header">
-    <span>📝 My Notes</span>
-    <span class="nc-count" id="noteCount">0</span>
-  </div>
+  <div class="nc-header"><span>📝</span><span class="nc-title">My Notes</span><span class="nc-count" id="notesCount">0</span></div>
   <div class="nc-body" id="notesBody">
-    <div class="nc-empty" id="notesEmpty">Double-click any text to add a note, or use the button below.</div>
+    <div class="nc-empty" id="notesEmpty"><div style="font-size:1.5em">✏️</div><div>No notes yet</div><div style="font-size:.7em;margin-top:4px;opacity:.7">Select text → click Add Note below</div></div>
   </div>
   <div class="nc-input-row" id="notesInputRow">
+    <div id="hlPreview" style="font-size:.72em;color:#92400e;background:#fef3c7;padding:4px 8px;border-radius:5px;margin-bottom:6px;word-break:break-all"></div>
     <textarea class="nc-textarea" id="noteTextarea" placeholder="Write your note here..."></textarea>
-    <div class="nc-btn-row">
-      <button class="nc-btn nc-save" onclick="saveNote()">Save</button>
-      <button class="nc-btn nc-cancel" onclick="cancelNote()">Cancel</button>
-    </div>
+    <div class="nc-actions"><button class="nc-btn-save" onclick="saveNoteFromInput()">💾 Save</button><button class="nc-btn-cancel" onclick="cancelNoteInput()">Cancel</button></div>
   </div>
-  <div class="nc-footer">
-    <button class="nc-add-btn" onclick="showNoteInput()">✏️ Add Note</button>
-    <button class="nc-action-btn" onclick="exportNotes()">Export</button>
-    <button class="nc-action-btn" onclick="clearNotes()">Clear</button>
-  </div>
+  <button class="nc-add-btn" onclick="onAddNoteClick()">✏️ <b>Add Note</b></button>
+  <div class="nc-footer"><button onclick="exportNotes()">📤 Export</button><button onclick="clearAllNotes()">🗑 Clear</button></div>
 </aside>
 
 </div><!-- END PAGE LAYOUT -->
@@ -1872,6 +1659,22 @@ body.dark .nc-action-btn { background: #292524; color: #d6d3d1; border-color: #5
     else answer.style.maxHeight = '0';
   };
 
+  // ─── Scroll Spy for Sidebar ───
+  function initScrollSpy() {
+    const sections = document.querySelectorAll('.section[id]');
+    const navItems = document.querySelectorAll('.sb-item a');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navItems.forEach(a => a.classList.remove('sb-active'));
+          const active = document.querySelector(`.sb-item a[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('sb-active');
+        }
+      });
+    }, { rootMargin: '-80px 0px -60% 0px' });
+    sections.forEach(s => observer.observe(s));
+  }
+
   // ─── Image Lightbox ───
   window.openLightbox = function(img) {
     const overlay = document.getElementById('lightbox');
@@ -1892,100 +1695,101 @@ body.dark .nc-action-btn { background: #292524; color: #d6d3d1; border-color: #5
     if (e.key === 'Escape') closeLightbox();
   });
 
-  // ─── Notes System ───
-  var NOTES_KEY = 'dement-notes';
-  var notesBody = document.getElementById('notesBody');
-  var notesEmpty = document.getElementById('notesEmpty');
-  var noteCountEl = document.getElementById('noteCount');
-  var inputRow = document.getElementById('notesInputRow');
-  var noteTextarea = document.getElementById('noteTextarea');
+  // ─── Notes System with Highlight Support ───
+  (function(){
+    var SK='dement_notes_v3';
+    var notes=[];
+    var pendingHl=null;
+    var hlC=0;
 
-  function loadNotes() {
-    try {
-      var data = JSON.parse(localStorage.getItem(NOTES_KEY) || '[]');
-      renderNotes(data);
-    } catch(e) { renderNotes([]); }
-  }
-  function saveNotes(data) {
-    localStorage.setItem(NOTES_KEY, JSON.stringify(data));
-  }
-  function renderNotes(notes) {
-    notesBody.innerHTML = '';
-    if (notes.length === 0) {
-      notesBody.innerHTML = '<div class="nc-empty" id="notesEmpty">Double-click any text to add a note, or use the button below.</div>';
-    } else {
-      notes.forEach(function(note, idx) {
-        var card = document.createElement('div');
-        card.className = 'note-card';
-        card.innerHTML = '<div class="nc-text">' + escapeHTML(note.text) + '</div>' +
-          '<div class="nc-meta"><span>' + note.time + '</span><span class="nc-del" data-idx="' + idx + '">✕</span></div>';
-        notesBody.appendChild(card);
-      });
-      notesBody.querySelectorAll('.nc-del').forEach(function(delBtn) {
-        delBtn.addEventListener('click', function() {
-          var idx = parseInt(this.getAttribute('data-idx'));
-          var data = JSON.parse(localStorage.getItem(NOTES_KEY) || '[]');
-          data.splice(idx, 1);
-          saveNotes(data);
-          renderNotes(data);
-        });
+    function load(){try{notes=JSON.parse(localStorage.getItem(SK)||'[]')}catch(e){notes=[]}render()}
+    function save(){localStorage.setItem(SK,JSON.stringify(notes))}
+    function esc(s){var d=document.createElement('d');d.textContent=s;return d.innerHTML}
+
+    function render(){
+      var b=document.getElementById('notesBody'),e=document.getElementById('notesEmpty');
+      document.getElementById('notesCount').textContent=notes.length;
+      b.querySelectorAll('.note-card').forEach(function(x){x.remove()});
+      if(!notes.length){e.style.display='';return}
+      e.style.display='none';
+      notes.forEach(function(n){
+        var c=document.createElement('div');c.className='note-card';c.dataset.nid=n.id;
+        if(n.hlId){
+          c.addEventListener('dblclick',function(){scrollToHl(n.hlId)});
+          c.style.cursor='pointer';c.title='Double-click to jump to highlighted text'
+        }
+        var h=n.hlText?(function(){var d=document.createElement('div');d.className='note-card-hl';d.textContent='📌 '+n.hlText.substr(0,60)+(n.hlText.length>60?'...':'');d.addEventListener('click',function(){scrollToHl(n.hlId)});return d})():null;
+        if(h)c.appendChild(h);
+        var t=document.createElement('div');t.className='note-card-text';t.textContent=n.text;c.appendChild(t);
+        var d=document.createElement('button');d.className='note-card-del';d.textContent='×';d.title='Delete';d.addEventListener('click',function(){delNote(n.id)});c.appendChild(d);
+        b.appendChild(c);
       });
     }
-    updateCount(notes.length);
-  }
-  function updateCount(count) {
-    noteCountEl.textContent = count;
-  }
-  function escapeHTML(str) {
-    var div = document.createElement('div');
-    div.textContent = str;
-    return div.innerHTML;
-  }
-  window.showNoteInput = function() {
-    inputRow.classList.add('show');
-    noteTextarea.focus();
-  };
-  window.saveNote = function() {
-    var text = noteTextarea.value.trim();
-    if (!text) return;
-    var data = JSON.parse(localStorage.getItem(NOTES_KEY) || '[]');
-    data.unshift({ text: text, time: new Date().toLocaleString() });
-    saveNotes(data);
-    renderNotes(data);
-    noteTextarea.value = '';
-    inputRow.classList.remove('show');
-  };
-  window.cancelNote = function() {
-    noteTextarea.value = '';
-    inputRow.classList.remove('show');
-  };
-  window.exportNotes = function() {
-    var data = JSON.parse(localStorage.getItem(NOTES_KEY) || '[]');
-    if (data.length === 0) { alert('No notes to export.'); return; }
-    var text = data.map(function(n) { return '[' + n.time + '] ' + n.text; }).join('\n\n');
-    var blob = new Blob([text], { type: 'text/plain' });
-    var url = URL.createObjectURL(blob);
-    var a = document.createElement('a');
-    a.href = url; a.download = 'dement-notes.txt'; a.click(); URL.revokeObjectURL(url);
-  };
-  window.clearNotes = function() {
-    if (!confirm('Clear all notes? This cannot be undone.')) return;
-    localStorage.removeItem(NOTES_KEY);
-    renderNotes([]);
-  };
 
-  // Double-click to add note
-  document.addEventListener('dblclick', function(e) {
-    var target = e.target;
-    if (target.closest('.notes-col') || target.closest('button') || target.closest('textarea') || target.closest('a')) return;
-    var selectedText = window.getSelection().toString().trim();
-    if (!selectedText) return;
-    showNoteInput();
-    noteTextarea.value = selectedText;
-  });
+    window.onAddNoteClick=function(){
+      var sel=window.getSelection(),txt=sel.toString().trim();
+      if(txt.length>=2){
+        pendingHl=txt;
+        var r=sel.getRangeAt(0),hid='hl_'+(++hlC)+'_'+Date.now().toString(36);
+        var m=document.createElement('mark');m.className='hl-text';m.setAttribute('hid',hid);m.textContent=txt;
+        r.deleteContents();r.insertNode(m);sel.removeAllRanges();
+        document.getElementById('hlPreview').innerHTML='<b>📌 Highlighted:</b> '+esc(txt.substr(0,50))+(txt.length>50?'...':'');
+        document.getElementById('notesInputRow').classList.add('show');
+        document.getElementById('noteTextarea').value='';
+        document.getElementById('noteTextarea').focus();
+      }else{
+        pendingHl=null;
+        document.getElementById('hlPreview').innerHTML='';
+        document.getElementById('notesInputRow').classList.add('show');
+        document.getElementById('noteTextarea').value='';
+        document.getElementById('noteTextarea').focus();
+      }
+    };
+
+    window.saveNoteFromInput=function(){
+      var t=document.getElementById('noteTextarea').value.trim();
+      if(!t){alert('Please write a note.');return}
+      var sec='s1';
+      var secs=['s10','s9','s8','s7','s6','s5','s4','s3','s2','s1'];
+      for(var i=0;i<secs.length;i++){var el=document.getElementById(secs[i]);if(el&&el.getBoundingClientRect().top<=150){sec=secs[i];break}}
+      var n={id:'n_'+Date.now()+'_'+Math.random().toString(36).substr(2,5),section:sec,text:t,time:Date.now()};
+      if(pendingHl){n.hlText=pendingHl;var ms=document.querySelectorAll('.hl-text');if(ms.length)n.hlId=ms[ms.length-1].getAttribute('hid');pendingHl=null}
+      notes.push(n);save();render();
+      document.getElementById('notesInputRow').classList.remove('show');
+    };
+
+    window.cancelNoteInput=function(){
+      document.getElementById('notesInputRow').classList.remove('show');pendingHl=null;
+    };
+
+    window.delNote=function(id){
+      var n=notes.find(function(x){return x.id===id});
+      if(n&&n.hlId){var h=document.querySelector('.hl-text[hid="'+n.hlId+'"]');if(h){var p=h.parentNode;p.replaceChild(document.createTextNode(h.textContent),h);p.normalize()}}
+      notes=notes.filter(function(x){return x.id!==id});save();render();
+    };
+
+    window.scrollToHl=function(id){
+      var h=document.querySelector('.hl-text[hid="'+id+'"]');
+      if(h){h.scrollIntoView({behavior:'smooth',block:'center'});h.style.background='#facc15';setTimeout(function(){h.style.background=''},2000)}
+    };
+
+    window.clearAllNotes=function(){
+      if(!notes.length)return;if(!confirm('Clear all notes?'))return;
+      document.querySelectorAll('.hl-text').forEach(function(h){var p=h.parentNode;p.replaceChild(document.createTextNode(h.textContent),h);p.normalize()});
+      notes=[];save();render();
+    };
+
+    window.exportNotes=function(){
+      if(!notes.length){alert('No notes.');return}
+      var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(notes,null,2)],{type:'application/json'}));
+      a.download='dement_notes_'+new Date().toISOString().slice(0,10)+'.json';a.click();
+    };
+
+    load();
+  })();
 
   // Init
-  loadNotes();
+  initScrollSpy();
 })();
 </script>
 
