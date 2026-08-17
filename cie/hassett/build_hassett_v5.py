@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+#!/usr/bin/env python3
+"""Build Hassett v5.0 following Milgram template architecture exactly."""
+
+html = r'''<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -1993,4 +1996,10 @@
 })();
 </script>
 </body>
-</html>
+</html>''';
+
+with open('/Users/lawrenceliu/WorkBuddy/2026-07-11-09-28-56/gh-pages/cie/hassett/index.html', 'w', encoding='utf-8') as f:
+    f.write(html)
+
+print(f"✅ Hassett v5.0 generated successfully!")
+print(f"📄 File size: {len(html)} characters ({len(html)//1024} KB)")
