@@ -81,7 +81,7 @@
     p { margin: 8px 0; }
     ul, ol { margin: 8px 0; padding-left: 22px; }
     li { margin: 5px 0; }
-    strong { color: var(--primary-dark); }
+    strong { color: #1f2937; font-weight: 600; }
     
     /* Key Term Box */
     .keyterm-box { background: linear-gradient(135deg, #fef3c7, #fde68a); border-left: 4px solid #f59e0b; border-radius: 8px; padding: 12px 16px; margin: 12px 0; }
@@ -114,12 +114,12 @@
     .figure-caption { font-size: .87em; color: var(--text-secondary); margin-top: 7px; font-style: italic; }
     
     /* Table */
-    table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: .91em; box-shadow: 0 2px 8px rgba(0,0,0,.06); border-radius: 8px; overflow: hidden; }
-    th { background: var(--primary); color: #fff; padding: 11px 13px; text-align: left; font-weight: 600; }
-    td { padding: 10px 13px; border-bottom: 1px solid var(--border); }
+    table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: .93em; box-shadow: 0 2px 8px rgba(0,0,0,.06); border-radius: 8px; overflow: hidden; }
+    th { background: var(--primary); color: #fff; padding: 13px 15px; text-align: left; font-weight: 600; }
+    td { padding: 12px 15px; border-bottom: 1px solid var(--border); line-height: 1.65; vertical-align: top; }
     tr:nth-child(even) { background: #fafbfc; }
     tr:hover { background: #fff7ed; }
-    td:first-child { font-weight: 600; color: var(--primary-dark); }
+    td:first-child { font-weight: 600; color: #374151; }
     
     /* Two-column Grid for Comparisons */
     .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 14px 0; }
@@ -135,23 +135,23 @@
     .checkpoint h4 { color: #15803d; margin-bottom: 10px; }
     
     /* Summary Card Header (Exam Key Points button style) */
-    .summary-card-header { background: linear-gradient(135deg, #7c3aed, #6d28d9); color: white; padding: 12px 16px; border-radius: 10px 10px 0 0; display: flex; align-items: center; gap: 10px; cursor: pointer; transition: opacity .2s; font-size: .92em; font-weight: 600; }
+    .summary-card-header { background: linear-gradient(135deg, #a78bfa, #8b5cf6); color: white; padding: 12px 16px; border-radius: 10px 10px 0 0; display: flex; align-items: center; gap: 10px; cursor: pointer; transition: opacity .2s; font-size: .92em; font-weight: 600; }
     .summary-card-header:hover { opacity: .9; }
     .summary-card-header .arrow { transition: transform .3s; font-size: .8em; }
     .summary-card-header.open .arrow { transform: rotate(90deg); }
     .ao-badge { background: rgba(255,255,255,.25); padding: 2px 8px; border-radius: 10px; font-size: .72em; font-weight: 700; margin-left: auto; }
-    .summary-card-body { background: #faf5ff; border: 2px solid #c084fc; border-top: none; border-radius: 0 0 10px 10px; padding: 16px 18px; display: none; animation: slideDown .25s ease; }
+    .summary-card-body { background: #f5f3ff; border: 2px solid #c4b5fd; border-top: none; border-radius: 0 0 10px 10px; padding: 16px 18px; display: none; animation: slideDown .25s ease; }
     .summary-card-body.show { display: block; }
     @keyframes slideDown { from{opacity:0;transform:translateY(-8px)} to{opacity:1;transform:translateY(0)} }
     .summary-card-body ol { margin: 0; padding-left: 20px; }
-    .summary-card-body li { margin: 8px 0; font-size: .9em; color: #4c1d95; }
+    .summary-card-body li { margin: 8px 0; font-size: .9em; color: #5b21b6; }
     
     /* Chinese Logic Summary Toggle Button */
-    .cn-summary-toggle { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; background: linear-gradient(135deg, #9333ea, #7c3aed); color: white; border: none; border-radius: 8px; font-size: .85em; font-weight: 600; cursor: pointer; transition: all .2s; margin: 10px 0; }
+    .cn-summary-toggle { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; background: linear-gradient(135deg, #c4b5fd, #a78bfa); color: white; border: none; border-radius: 8px; font-size: .85em; font-weight: 600; cursor: pointer; transition: all .2s; margin: 10px 0; }
     .cn-summary-toggle:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(147,51,234,.3); }
-    .cn-summary-content { background: linear-gradient(135deg, #faf5ff, #f3e8ff); border: 2px solid #c084fc; border-radius: 10px; padding: 16px 18px; margin: 12px 0; display: none; animation: slideDown .25s ease; }
+    .cn-summary-content { background: linear-gradient(135deg, #f5f3ff, #ede9fe); border: 2px solid #c4b5fd; border-radius: 10px; padding: 16px 18px; margin: 12px 0; display: none; animation: slideDown .25s ease; }
     .cn-summary-content.show { display: block; }
-    .cn-summary-content p { margin: 6px 0; font-size: .9em; color: #4c1d95; line-height: 1.7; }
+    .cn-summary-content p { margin: 6px 0; font-size: .9em; color: #5b21b6; line-height: 1.7; }
     .cn-summary-content strong { color: #6d28d9; }
 
     /* ===== LIGHTBOX (Image Zoom) ===== */
@@ -278,7 +278,7 @@
     body.dark .cn-explain h4 { color: #fb923c; }
     body.dark .keyterm-box { background: rgba(245,158,11,.08); border-left-color: #fbbf24; }
     body.dark .keyterm-box strong { color: #fbbf24; }
-    body.dark strong { color: #fb923c; }
+    body.dark strong { color: #fbbf24; }
     body.dark table { border-color: #334155; }
     body.dark th { background: #c2410c; color: white; border-color: #7f1d1d; }
     body.dark td { border-color: #334155; color: #cbd5e1; }
@@ -2217,11 +2217,39 @@ function toggleCnSummary(btn) {
   btn.textContent = content.classList.contains('show') ? '▼ Hide 中文逻辑总结' : '▶ 中文逻辑总结';
 }
 
-// Back to top button visibility
+// Back to top button visibility + Sidebar scroll spy
 window.addEventListener('scroll', function() {
+  // Back to top button
   const btn = document.getElementById('backToTop');
   if (window.scrollY > 400) btn.classList.add('show');
   else btn.classList.remove('show');
+
+  // Sidebar active state update (scroll spy)
+  const sections = document.querySelectorAll('section[id^="s"]');
+  const sidebarLinks = document.querySelectorAll('.sb-item a');
+  let currentSection = '';
+
+  sections.forEach(function(section) {
+    const sectionTop = section.offsetTop - 100; // Offset for fixed nav
+    if (window.scrollY >= sectionTop) {
+      currentSection = section.getAttribute('id');
+    }
+  });
+
+  sidebarLinks.forEach(function(link) {
+    link.classList.remove('sb-active');
+    if (link.getAttribute('href') === '#' + currentSection) {
+      link.classList.add('sb-active');
+    }
+  });
+});
+
+// Also update on click (immediate feedback)
+document.querySelectorAll('.sb-item a').forEach(function(link) {
+  link.addEventListener('click', function() {
+    document.querySelectorAll('.sb-item a').forEach(function(l) { l.classList.remove('sb-active'); });
+    this.classList.add('sb-active');
+  });
 });
 </script>
 
