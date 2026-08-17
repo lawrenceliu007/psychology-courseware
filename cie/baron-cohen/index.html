@@ -234,6 +234,9 @@
     .tag-ao2 { display: inline-block; padding: 2px 8px; border-radius: 4px; background: #dcfce7; color: #16a34a; font-size: .76em; font-weight: 700; vertical-align: middle; margin-left: 4px; }
     .tag-context { display: inline-block; padding: 2px 8px; border-radius: 4px; background: #f1f5f9; color: #64748b; font-size: .76em; font-weight: 700; vertical-align: middle; margin-left: 4px; }
 
+    /* SYLLABUS DIMENSION TAG (Evaluation) */
+    .syl-tag { display: inline-block; font-size: .68em; font-weight: 700; letter-spacing: .4px; color: #0369a1; background: #e0f2fe; border: 1px solid #bae6fd; border-radius: 999px; padding: 1px 9px; vertical-align: middle; margin-left: 6px; text-transform: uppercase; }
+
     /* ===== STUDY QUESTIONS (Q&A Cards) ===== */
     .qa-card { background: white; border: 1.5px solid #e2e8f0; border-radius: 10px; margin: 12px 0; overflow: hidden; transition: box-shadow .2s, border-color .2s; }
     .qa-card:hover { box-shadow: 0 3px 12px rgba(0,0,0,.08); border-color: #cbd5e1; }
@@ -566,41 +569,58 @@
 <p>Baron-Cohen et al. suggest that people with ASD lack or have an underdeveloped cognitive process called <strong>a theory of mind（心智理论）</strong>. A theory of mind is a cognitive ability enabling people to comprehend that others have different feelings, beliefs, knowledge and desires from their own. Individuals with ASD find it difficult to understand that other people have their own plans, thoughts or feelings separate from their own.</p>
 </div>
 
+<h3>Empathy（共情）</h3>
+<p>Empathy is the ability to understand the world as another person does — to appreciate their feelings or emotional state separate from our own. The Eyes Test is an advanced test of empathy: identifying complex mental states from the eye region alone requires exactly this skill, which is why it was chosen to measure theory of mind in adults.</p>
+
+<h3>From the Original (1997) to the Revised (2001) Eyes Test</h3>
+<p>In 1997, Baron-Cohen published the first version of the 'Reading the Mind in the Eyes' task using photographs of eyes with <strong>two options</strong> per item. The results showed that adults with ASD correctly identified fewer emotions than non-ASD participants, but several practical problems limited the usefulness of the original test:</p>
+
+<table>
+<caption>Problems with the original (1997) Eyes Test and how the revised (2001) version solved them</caption>
+<thead><tr><th>Problem with the original test</th><th>Solution in the revised version</th></tr></thead>
+<tbody>
+  <tr><td>Only <strong>2 choices</strong> per item, always semantic opposites (e.g. sympathetic vs unsympathetic) — a 50% chance of guessing correctly</td><td><strong>4 choices</strong>, and the foil words are no longer semantic opposites</td></tr>
+  <tr><td>Only <strong>25 sets of eyes</strong>, producing a <strong>ceiling effect</strong>（天花板效应）— many participants scored 24/25, so individual differences could not be detected</td><td><strong>36 sets of eyes</strong> in the final analysis, making the test harder and more sensitive</td></tr>
+  <tr><td>Basic and complex emotions were mixed — the complex emotions were too hard for some participants</td><td>Only <strong>complex emotions / mental states</strong> are used (e.g. 'sceptical', 'reassured')</td></tr>
+  <tr><td>Some items could be solved using <strong>gaze direction</strong> alone — no theory of mind needed</td><td>Items solvable by direction of gaze were <strong>deleted</strong></td></tr>
+  <tr><td>Imbalance of male and female faces in the photographs</td><td><strong>Equal numbers</strong> of male and female eyes (18 of each)</td></tr>
+  <tr><td>Participants might not know the meaning of some target or foil words</td><td>A <strong>glossary</strong> of all the words was provided and could be consulted at any time</td></tr>
+</tbody>
+</table>
+
 <div class="cn-summary-wrap">
   <button class="cn-summary-toggle" onclick="toggleCnSummary(this)"><span class="cs-icon">▶</span> 中文逻辑总结</button>
   <div class="cn-summary-body">
-    <div class="cs-title">§4b 程序：Eyes Test 标准流程</div>
-    <p><strong>三步标准程序：</strong></p>
-    <ol>
-      <li><strong>读 Glossary（词汇表）</strong> → 确保认识所有情绪词的含义，随时可回查</li>
-      <li><strong>看 40 组眼睛照片</strong> → 每组 4 选 1（1 个目标词 + 3 个干扰词）</li>
-      <li><strong>计分 + AQ 问卷</strong> → 删除 4 道不一致的控制题 → 最终 36 题（男女各半）</li>
-    </ol>
-    <p><strong>关键设计细节：</strong></p>
+    <div class="cs-title">§2 背景：为什么需要修订版 Eyes Test？</div>
+    <p><strong>研究链条：</strong>ASD 约影响 1% 人口 → 核心困难在社会交往 → Baron-Cohen 认为根源是 ToM（心智理论）发育不足 → 需要一个能精确测量成人 ToM 的工具。</p>
+    <p><strong>1997 原版六大问题 → 2001 修订版方案：</strong></p>
     <ul>
-      <li><span class="cs-en">Target word（目标词）</span>：正确答案，由 8 名评委中至少 5 人认可</li>
-      <li><span class="cs-en">Foil words（干扰词）</span>：3 个错误但看似合理的选项，增加难度</li>
-      <li>数据<strong>匿名</strong>处理，参与者知情同意</li>
+      <li>2 选 1（50% 猜对率）→ <strong>4 选 1</strong>（干扰词不再是对义词）</li>
+      <li>只有 25 题，太简单（<span class="cs-en">ceiling effect</span>）→ <strong>36 题</strong></li>
+      <li>基本+复杂情绪混杂 → <strong>只用复杂情绪</strong></li>
+      <li>看视线方向就能猜对 → <strong>删除</strong>这类题</li>
+      <li>男女照片不均 → <strong>各 18 张</strong></li>
+      <li>怕不认识词汇 → 提供 <strong>Glossary</strong>（词汇表）</li>
     </ul>
-    <p><strong>逻辑链：</strong>Glossary → 40 张眼图 → 每张 4 选 1 → 筛除 4 题 → 最终 36 分 → 同时测 AQ → 对比四组数据</p>
+    <p><strong>Empathy（共情）</strong>：设身处地理解他人感受的能力。Eyes Test 本质上是一个<strong>进阶共情测试</strong>——仅凭眼部区域识别复杂心理状态。</p>
   </div>
 </div>
 
-<!-- Exam Key Points - Procedure -->
-<div class="summary-card" id="summary-s4b">
-  <div class="summary-card-header" onclick="toggleSummary('summary-s4b')">
+<!-- Exam Key Points - Background -->
+<div class="summary-card" id="summary-s2">
+  <div class="summary-card-header" onclick="toggleSummary('summary-s2')">
     <span class="summary-card-icon">▶</span>
-    <span class="summary-card-title">Exam Key Points — Procedure</span>
+    <span class="summary-card-title">Exam Key Points — Background</span>
     <span class="summary-card-badge">AO1</span>
   </div>
   <div class="summary-card-body">
     <div class="summary-card-inner">
       <ul>
-        <li>Step 1: Read glossary of emotion terms (can refer back anytime) <span class="tag-must">Must Know</span></li>
-        <li>Step 2: View 40 eye photo sets, pick 1 of 4 emotion words per set <span class="tag-must">Must Know</span></li>
-        <li>Step 3: Score + complete AQ questionnaire; 4 control items removed → final 36 items (18M/18F) <span class="tag-common">Common Q</span></li>
-        <li>Target words validated by ≥5/8 judges; foil words = plausible distractors <span class="tag-context">Context</span></li>
-        <li>Data anonymous; all participants gave informed consent <span class="tag-context">Context</span></li>
+        <li>ASD affects ~1% of the population; core difficulties = social functioning, communication, coping with change <span class="tag-context">Context</span></li>
+        <li>ToM = understanding that others have different feelings, beliefs, knowledge and desires; underdeveloped in ASD <span class="tag-must">Must Know</span></li>
+        <li>Original (1997) problems: 2 choices, 25 items, ceiling effect, gaze-direction items, M/F imbalance <span class="tag-common">Common Q</span></li>
+        <li>Revised (2001) fixes: 4 choices, 36 items, complex emotions only, 18M/18F photos, glossary provided <span class="tag-common">Common Q</span></li>
+        <li>Empathy = understanding the world as another person does — the Eyes Test is an advanced test of empathy <span class="tag-context">Context</span></li>
       </ul>
     </div>
   </div>
@@ -667,7 +687,7 @@
 <p>This was a <strong>quasi-experiment（准实验）</strong> — participants could NOT be randomly assigned to conditions. Group 1 (AS/HFA) participants were selected based on their pre-existing diagnosis, not random allocation.</p>
 
 <div class="note-box">
-  <p><strong>⚠️ Why quasi-experiment?</strong> You cannot randomly assign someone to have ASD or not! This is a <strong>naturally occurring variable</strong>. The trade-off: we lose some control over confounding variables, but gain <strong>ecological validity</strong> (testing real people with real diagnoses).</p>
+  <p><strong>Why quasi-experiment?</strong> You cannot randomly assign someone to have ASD or not! This is a <strong>naturally occurring variable</strong>. The trade-off: we lose some control over confounding variables, but gain <strong>ecological validity</strong> (testing real people with real diagnoses).</p>
 </div>
 
 <p><strong>Independent Variable (IV)（自变量）：</strong> Participant group membership</p>
@@ -935,67 +955,33 @@
 
 <!-- ==================== SECTION 8 ==================== -->
 <div class="section" id="s8">
-<h2>8️⃣ Evaluation（优缺点评价）</h2>
+<h2>8️⃣ Evaluation</h2>
 
 <div class="visual-header">
   <div class="visual-header-icon">⚖️</div>
   <div class="visual-header-text">
     <h4>Evaluation Overview</h4>
-    <p>7 Strengths (lab control, IQ matching, reliability, quantitative) vs 6 Weaknesses (sample size, EV, cultural bias)</p>
+    <p>4 Strengths (standardisation, control task, IQ-matched group, quantitative data) vs 4 Weaknesses (quasi-experiment, sample, ecological validity, correlation)</p>
   </div>
 </div>
 
-<h3>Strengths（优点）</h3>
+<h3>Strengths</h3>
 <ol>
-  <li><strong>Laboratory experiment with standardised procedure:</strong> All participants completed the task in a standardised way, allowing confounding variables to be controlled (quiet room, same instructions, glossary). This improves internal validity（内部效度）.</li>
-  <li><strong>Controlled variables:</strong> Administration of the Eyes test by the researcher reduced risk of distortions. Gender recognition task controlled for whether participants could even process visual information about eyes.</li>
-  <li><strong>Reliability check:</strong> Pilot study checked procedures beforehand.</li>
-  <li><strong>Multiple comparison groups:</strong> Having 4 groups (including IQ-matched) strengthens the conclusion that differences are due to ASD, not intelligence or age.</li>
-  <li><strong>Improved over original:</strong> Fixed ceiling effect, increased difficulty, removed gender/direction bias, added glossary — making the test more sensitive.</li>
-  <li><strong>Cross-sectional design allows quick data collection</strong> across different populations.</li>
-  <li><strong>Quantitative data:</strong> Easy to analyse statistically, objective scoring.</li>
+  <li><strong>Standardised procedure with high control.</strong> <span class="syl-tag">Control of Variables</span> Every participant completed the same items in a quiet room, with the same instructions and free access to the glossary, and each target word had been validated by at least 5 of 8 independent judges before testing. Because the test was administered identically to every group, the score differences (21.9 for Group 1 vs 26.2–30.9 for the comparison groups) can be attributed to the participant variable (AS/HFA) rather than to the way the test was run — improving internal validity.</li>
+  <li><strong>The gender-recognition control task.</strong> <span class="syl-tag">Control of Variables</span> Group 1 also completed a gender-recognition task using the same eye photographs and scored at least 33/36. This rules out the alternative explanation that the AS/HFA participants simply could not perceive the stimuli: they could process the physical features of the eyes, but not the mental states behind them. This makes the conclusion of a specific theory-of-mind deficit much stronger.</li>
+  <li><strong>Objective quantitative data.</strong> <span class="syl-tag">Types of Data</span> Both dependent variables produced numerical scores (Eyes test out of 36; AQ out of 50). Group comparisons and the correlation (r = −0.53) could therefore be analysed statistically rather than relying on researchers' subjective interpretations, making the conclusions more objective and easier for other researchers to verify.</li>
+  <li><strong>An IQ-matched comparison group.</strong> <span class="syl-tag">Validity</span> Group 4 was randomly selected from the general population and matched to Group 1 on intelligence (IQ 116 vs 115). Because these IQ-matched controls still scored far higher on the Eyes test (30.9 vs 21.9), and because there was no correlation between IQ and Eyes test scores, intelligence is ruled out as an explanation for Group 1's poorer performance — strongly supporting the claim of a specific deficit.</li>
 </ol>
 
-<h3>Weaknesses（缺点）</h3>
+<h3>Weaknesses</h3>
 <ol>
-  <li><strong>Quasi-experiment limitations:</strong> Not possible to randomly allocate participants, so confounding variables could differ between groups. Partly resolved by having IQ-matched Group 4, but not fully.</li>
-  <li><strong>Sample issues:</strong> Only 15 participants in AS/HFA group — very small! May not be representative of all people with AS/HFA.</li>
-  <li><strong>Ecological validity concerns:</strong> Isolation from the rest of the face means results may not apply to real-world emotion recognition (we normally see whole faces, not just eyes!).</li>
-  <li><strong>Potential demand characteristics:</strong> Participants knew they were doing a 'psychology test' which might influence behaviour.</li>
-  <li><strong>Cultural bias:</strong> All photos were of white/Caucasian faces — may not generalise to other ethnicities.</li>
-  <li><strong>No longitudinal data:</strong> Cannot show causation, only correlation between AQ and Eyes test scores.</li>
+  <li><strong>A quasi-experiment with no random allocation.</strong> <span class="syl-tag">Control of Variables</span> Participants could not be randomly assigned to have AS/HFA or not — the IV was a naturally occurring difference between people. Other uncontrolled participant variables could therefore partly explain the results: Group 1 were all male while the comparison groups were mixed, and Group 2 were much older (mean age 46.5 vs 29.7). This lowers the internal validity of any causal-style conclusion.</li>
+  <li><strong>A small, self-selecting clinical sample.</strong> <span class="syl-tag">Sampling</span> Group 1 contained only 15 adults, all male, who volunteered in response to adverts in an autism magazine. People who volunteer for a study about autism may differ from the wider AS/HFA population, and 15 participants cannot capture the full range of ability, so the findings may not generalise to all adults with AS/HFA (particularly females) — limiting population validity.</li>
+  <li><strong>Low ecological validity of the stimuli.</strong> <span class="syl-tag">Validity</span> In everyday life, emotions are read from whole moving faces, bodies, voices and situational context — not from static black-and-white photographs of the eye region alone. Performance on this laboratory task may not reflect real-world emotion recognition, so the findings may not generalise beyond the test situation.</li>
+  <li><strong>Correlation does not establish cause.</strong> <span class="syl-tag">Validity</span> The significant negative correlation between AQ and Eyes test scores (r = −0.53) shows only an association. The study cannot show the direction of the relationship or rule out a third variable affecting both measures, so the link between autistic traits and mentalising ability remains suggestive rather than proven.</li>
 </ol>
 
-<div class="cn-summary-wrap">
-  <button class="cn-summary-toggle" onclick="toggleCnSummary(this)"><span class="cs-icon">▶</span> 中文逻辑总结</button>
-  <div class="cn-summary-body">
-    <div class="cn-summary-card">
-      <div class="cs-title">Evaluation 评价框架总结</div>
-      <p><strong>✅ 七大优点（Strengths）：</strong></p>
-      <ol>
-        <li><span class="cs-en">Standardised procedure（标准化程序）</span> → 控制混淆变量 → ↑<span class="cs-en">Internal Validity（内部效度）</span></li>
-        <li><span class="cs-en">Controlled variables（控制变量）</span> → 研究者亲自施测 + 性别识别任务控制视觉能力</li>
-        <li><span class="cs-en">Reliability check（信度检验）</span> → 前期 pilot study 验证流程</li>
-        <li><span class="cs-en">Multiple comparison groups（多对照组）</span> → 4 组含 IQ 匹配组 → 排除智力/年龄干扰</li>
-        <li><span class="cs-en">Improved over original（比原版改进）</span> → 解决 ceiling effect、增加难度、消除偏差</li>
-        <li><span class="cs-en">Cross-sectional design（横断设计）</span> → 快速收集不同人群数据</li>
-        <li><span class="cs-en">Quantitative data（量化数据）</span> → 客观计分，易做统计分析</li>
-      </ol>
-      <p><strong>❌ 六大缺点（Weaknesses）：</strong></p>
-      <ol>
-        <li><span class="cs-en">Quasi-experiment（准实验）</span> → 不能随机分配 → 混淆变量未完全控制</li>
-        <li><span class="cs-en">Sample size（样本量）</span> → AS/HFA 仅 n=15！太小，可能不具代表性</li>
-        <li><span class="cs-en">Ecological validity（生态效度）</span> → 只看眼睛 vs 现实中看整张脸 → 外部推广受限</li>
-        <li><span class="cs-en">Demand characteristics（需求特征）</span> → 参与者知道在做心理学实验 → 可能改变行为</li>
-        <li><span class="cs-en">Cultural bias（文化偏见）</span> → 照片全是白人面孔 → 不能推广到其他种族</li>
-        <li><span class="cs-en">No longitudinal data（无纵向数据）</span> → 只能说明相关，不能证明因果</li>
-      </ol>
-      <p><strong>📝 考试答题技巧：</strong>AO3 评价题通常要求 "Discuss strengths and weaknesses"。建议结构：选 2-3 个最强优点 + 2-3 个最明显缺点，每个都要<strong>解释为什么</strong>它影响研究结论的可信度。</p>
-    </div>
-  </div>
-</div>
-
-<!-- Section 6 Summary Card -->
+<!-- Section 8 Summary Card -->
 <div class="summary-card" id="summary-s8">
   <div class="summary-card-header" onclick="toggleSummary('summary-s8')">
     <span class="summary-card-icon">▶</span>
@@ -1005,9 +991,13 @@
   <div class="summary-card-body">
     <div class="summary-card-inner">
       <ol>
-        <li><strong>Top Strengths for exams:</strong> Standardised procedure (↑IV), IQ-matched Group 4 (controls confound), quantitative data, multiple comparison groups. <span class="tag-ao2">AO2 Gold</span></li>
-        <li><strong>Top Weaknesses for essays:</strong> Only n=15 in ASD group (unrepresentative!), quasi-experiment (no random allocation), ecological validity issues (eyes only vs whole face). <span class="tag-common">Common Q</span></li>
-        <li><strong>Ethical issue:</strong> Findings could stigmatise neurodiverse groups — but also promote understanding. Good for 6-mark ethics questions. <span class="tag-context">Context</span></li>
+        <li><strong>Strength — control task:</strong> gender recognition ≥33/36 proves the AS/HFA group could see the eyes but not read the minds — a specific deficit, not a visual one. <span class="tag-must">Must Know</span></li>
+        <li><strong>Strength — Group 4 (IQ-matched, 116 vs 115):</strong> rules out intelligence as an explanation (30.9 vs 21.9). <span class="tag-must">Must Know</span></li>
+        <li><strong>Weakness — quasi-experiment:</strong> no random allocation; Group 1 all male, Group 2 much older (46.5 vs 29.7) — confounding participant variables. <span class="tag-must">Must Know</span></li>
+        <li><strong>Weakness — sample:</strong> n = 15, all male, self-selected via magazine adverts — limited generalisability. <span class="tag-common">Common Q</span></li>
+        <li><strong>Weakness — ecological validity:</strong> static eye-region photos vs whole moving faces in real life. <span class="tag-common">Common Q</span></li>
+        <li><strong>Weakness — r = −0.53 is a correlation:</strong> association, not cause. <span class="tag-common">Common Q</span></li>
+        <li>Further points: participants knew they were taking a 'psychology test' (demand characteristics); all photographs showed Caucasian faces (cultural generalisability limited). <span class="tag-context">Context</span></li>
       </ol>
     </div>
   </div>
@@ -1032,7 +1022,7 @@
         <li>数据<strong>保密匿名</strong>处理</li>
         <li>无欺骗、无伤害性操作</li>
       </ul>
-      <p><strong>⚠️ 但研究发现可能引发伦理争议：</strong></p>
+      <p><strong>但研究发现可能引发伦理争议：</strong></p>
       <ul>
         <li><strong>污名化风险：</strong>结果表明 AS/HFA 组"表现受损" → 可能被用来负面描述神经多样性群体</li>
         <li><strong>标签效应：</strong>"自闭症人士缺乏心智理论"这个结论可能加剧社会歧视</li>
@@ -1160,7 +1150,7 @@
   </div>
   <div class="qa-answer">
     <div class="qa-answer-inner">
-      <p><strong>Model Answer:</strong> The <strong>independent variable (IV)</strong> was whether the participant had Autism Spectrum Condition (ASC) or not. It was operationalised through <strong>three groups</strong>: Group 1 (16 participants with AS/HFA — formally diagnosed via clinical criteria), Group 2 (50 typical adults from general population), and Group 3 (10 typical university students). The IV used an <strong>independent measures design（独立测量设计）</strong> where participants were assigned to groups based on pre-existing diagnosis rather than random allocation — making this a quasi-experiment.</p>
+      <p><strong>Model Answer:</strong> The <strong>independent variable (IV)</strong> was the type of participant, operationalised as group membership: <strong>Group 1</strong> (15 adults with AS/HFA, all formally diagnosed using DSM/ICD criteria) compared with three comparison groups — <strong>Group 2</strong> (122 adults from Exeter), <strong>Group 3</strong> (103 students from Cambridge University) and <strong>Group 4</strong> (14 adults randomly selected from the general population and matched to Group 1 on IQ). The IV was a <strong>naturally occurring (quasi) variable</strong> — participants could not be randomly allocated to conditions — and an <strong>independent measures design（独立测量设计）</strong> was used, because each participant belonged to only one group.</p>
     </div>
   </div>
 </div>
@@ -1173,7 +1163,7 @@
   </div>
   <div class="qa-answer">
     <div class="qa-answer-inner">
-      <p><strong>Model Answer:</strong> Group 1 consisted of <strong>16 participants</strong> (13 male, 3 female) with Asperger Syndrome (AS) or High-Functioning Autism (HFA), aged <strong>18–49 years (mean = 28.5)</strong>. All had formal diagnoses based on established clinical criteria (ICD-10 or DSM-IV). They were recruited via various sources including the <strong>National Autistic Society UK</strong>, clinics, and support groups. All participants had normal or above-normal verbal IQ (tested via WAIS-R vocabulary subscale) to ensure any differences in performance were due to ToM ability rather than general intellectual functioning.</p>
+      <p><strong>Model Answer:</strong> Group 1 consisted of <strong>15 adults with Asperger syndrome (AS) or high-functioning autism (HFA) — all male</strong>, with a mean age of <strong>29.7 years</strong> and a mean IQ of <strong>115</strong> (measured with four subtests of the WAIS-R: block design, vocabulary, similarities and picture completion). They were <strong>self-selected volunteers</strong> who responded to adverts in an autism magazine, and all had been diagnosed according to <strong>DSM/ICD criteria</strong>. Because they volunteered for a study on autism rather than being randomly selected, this was a self-selecting (volunteer) sample.</p>
     </div>
   </div>
 </div>
@@ -1228,7 +1218,7 @@
   </div>
   <div class="qa-answer">
     <div class="qa-answer-inner">
-      <p><strong>Model Answer:</strong> One strength is <strong>high control over extraneous variables（控制无关变量）</strong>. In the laboratory setting, all participants saw the same photos in the same order, with standardized instructions and a glossary provided. This control increases <strong>internal validity（内部效度）</strong> because it reduces confounding variables — any difference in scores between groups can be more confidently attributed to the IV (having ASC or not) rather than other factors like different testing environments or procedures.</p>
+      <p><strong>Model Answer:</strong> One strength is <strong>high control over extraneous variables（控制无关变量）</strong>. In the laboratory setting, all participants saw the same photos in the same order, with standardized instructions and a glossary provided. This control increases <strong>internal validity（内部效度）</strong> because it reduces confounding variables — any difference in scores between groups can be more confidently attributed to the IV (having AS/HFA or not) rather than other factors like different testing environments or procedures.</p>
     </div>
   </div>
 </div>
@@ -1241,8 +1231,8 @@
   </div>
   <div class="qa-answer">
     <div class="qa-answer-inner">
-      <p><strong>Model Answer:</strong> One weakness is the <strong>small sample size</strong>, especially in Group 1 (only 16 participants with AS/HFA) and Group 3 (only 10 students). Small samples reduce <strong>population validity（总体效度）</strong> and increase the risk that findings are due to individual differences rather than genuine group effects. Additionally, Group 2 (typical adults) was an <strong>opportunity sample（机会抽样）</strong> which may introduce bias.</p>
-      <p><strong>Improvement:</strong> Use a larger sample with <strong>random sampling from a wider population</strong>, and aim for more balanced gender representation (Group 1 was 81% male). A minimum of 30+ participants per group would allow more meaningful statistical analysis and better generalisability.</p>
+      <p><strong>Model Answer:</strong> One weakness is the <strong>small, self-selecting clinical sample</strong>: Group 1 contained only <strong>15 participants, all male</strong>, recruited through adverts in an autism magazine. Volunteers for an autism study may differ from the wider AS/HFA population (for example in motivation or self-awareness), and 15 people cannot represent the full range of ability — so the findings may not generalise to all adults with AS/HFA, especially women (low population validity).</p>
+      <p><strong>Improvement:</strong> Recruit a larger sample (30+ per group) through clinics and diagnostic services rather than adverts alone, and include <strong>female participants with AS/HFA</strong> so that gender comparisons are possible. A larger, more representative sample would make group differences more reliable and the findings easier to generalise.</p>
     </div>
   </div>
 </div>
@@ -1283,17 +1273,16 @@
       <p><strong>Model Answer:</strong></p>
       <p><strong>Reliability（信度）:</strong></p>
       <ul style="margin:6px 0;padding-left:18px">
-        <li><strong>Internal reliability</strong>: Split-half reliability can be assessed by comparing performance on odd vs. even items — the study doesn't report this explicitly, but consistent group differences suggest reasonable consistency</li>
-        <li><strong>Test-retest reliability</strong>: Not directly tested in this study, but the original 1997 version showed good stability over time</li>
+        <li><strong>Standardised items and scoring:</strong> the same 36 photos, the same four fixed choices and the same correct answers were used for every participant, and target words were validated in advance by at least 5 of 8 judges — so the test would produce similar results if repeated under the same conditions</li>
+        <li><strong>Test-retest reliability:</strong> not assessed within this study — each participant completed the test only once</li>
       </ul>
       <p><strong>Validity（效度）:</strong></p>
       <ul style="margin:6px 0;padding-left:18px">
-        <li><strong>Concurrent validity（同时效度）</strong>: Strong — Group 1 scored significantly lower (M=21.9) than both Group 2 (M=26.2) and Group 3 (M=27.8), supporting that the test measures what it claims (ToM ability)</li>
-        <li><strong>Face validity（表面效度）</strong>: Good — the task appears to measure emotion recognition from eyes, which aligns with ToM theory</li>
-        <li><strong>Ecological validity（生态效度）</strong>: Questionable — in real life, we read emotions from whole faces + body language + context, not just eyes in isolation</li>
-        <li><strong>Construct validity（构念效度）</strong>: Supported by correlation with AQ scores (r=-.34 in Group 2), showing higher autistic traits associate with lower Eyes Test scores</li>
+        <li><strong>Concurrent validity</strong>: strong — Group 1 scored significantly lower (M = 21.9, SD = 6.6) than Group 2 (M = 26.2, SD = 3.6), Group 3 (M = 28.0, SD = 3.5) and the IQ-matched Group 4 (M = 30.9, SD = 3.0), supporting the claim that the test measures what it intends</li>
+        <li><strong>Construct validity</strong>: supported by the significant negative correlation with AQ scores (r = −0.53) — more autistic traits associated with poorer mentalising — and by the absence of any correlation with IQ, showing the test measures a specific social-cognitive ability rather than intelligence</li>
+        <li><strong>Ecological validity（生态效度）</strong>: questionable — in real life, we read emotions from whole faces + body language + voice + context, not just the eye region in static photos</li>
       </ul>
-      <p><strong>Conclusion:</strong> The Eyes Test shows acceptable reliability and good concurrent/construct validity, though ecological validity is limited. Overall, it is a useful research tool for assessing ToM in adults.</p>
+      <p><strong>Conclusion:</strong> The Eyes Test shows good standardisation and strong concurrent and construct validity, though ecological validity is limited and test-retest reliability was not assessed. Overall, it is a useful instrument for detecting individual differences in adult social intelligence.</p>
     </div>
   </div>
 </div>
@@ -1307,22 +1296,20 @@
   <div class="qa-answer">
     <div class="qa-answer-inner">
       <p><strong>Model Answer:</strong></p>
-      <p><strong>Supporting evidence (the findings DO support ToM deficit hypothesis):</strong></p>
+      <p><strong>Supporting evidence (the findings DO support the ToM deficit hypothesis):</strong></p>
       <ul style="margin:6px 0;padding-left:18px">
-        <li>Group 1 (AS/HFA) scored <strong>significantly lower</strong> (M = 21.9, SD = 4.5) than Group 2 (M = 26.2, SD = 3.4), p &lt; .001</li>
-        <li>Group 1 also scored lower than Group 3 (students, M = 27.8, SD = 2.8), p &lt; .001</li>
-        <li>This large effect size (approximately <strong>Cohen's d ≈ 1.15</strong>) indicates a practically significant difference</li>
-        <li>All 16 Group 1 participants scored below the Group 2 mean — showing <strong>100% sensitivity</strong> in this sample</li>
-        <li>The correlation between AQ score and Eyes Test performance (r = -.34) supports that higher autistic traits → lower ToM performance</li>
+        <li>Group 1 (AS/HFA) scored <strong>significantly lower</strong> (M = 21.9, SD = 6.6) than Group 2 (M = 26.2, SD = 3.6), Group 3 (M = 28.0, SD = 3.5) and Group 4 (M = 30.9, SD = 3.0)</li>
+        <li>Most importantly, Group 4 was <strong>IQ-matched</strong> (116 vs 115) yet still scored 9 points higher — and there was <strong>no correlation between IQ and Eyes test scores</strong> — so the deficit cannot be explained by intelligence</li>
+        <li>The AS/HFA group performed almost perfectly on the <strong>gender-recognition control task</strong> (≥33/36), showing the difficulty is specific to reading mental states, not to processing the photographs</li>
+        <li>The significant <strong>negative correlation between AQ and Eyes test scores (r = −0.53)</strong> supports the link between autistic traits and poorer mentalising</li>
       </ul>
       <p><strong>Counter-evidence / limitations (caution needed):</strong></p>
       <ul style="margin:6px 0;padding-left:18px">
-        <li>Some Group 1 participants scored within the range of Group 2 (range overlap exists) — suggesting NOT all people with ASD have impaired ToM</li>
-        <li>Small sample (n=16) limits generalisability to wider ASD population</li>
-        <li>Difference could be due to <strong>comorbidity（共病）</strong> or other factors (e.g., anxiety, attention differences) rather than ToM specifically</li>
-        <li>The test measures only ONE aspect of social cognition (reading eyes) — not full ToM ability in real-world contexts</li>
+        <li>Group 1's scores varied widely (SD = 6.6), and some individual scores fell within the range of the comparison groups — suggesting the deficit is not equally severe for everyone with AS/HFA</li>
+        <li>The clinical sample was small (n = 15) and all male, limiting generalisability to the wider ASD population</li>
+        <li>The Eyes test measures only <strong>one channel</strong> of social cognition (static eye-region photographs) — performance may not reflect theory of mind in real-world social interaction</li>
       </ul>
-      <p><strong>Conclusion:</strong> The findings provide <strong>moderate-to-strong support</strong> for the ToM deficit hypothesis in ASD, with clear statistically significant group differences. However, the small sample, range overlap, and narrow measurement mean the conclusion should be cautious — it suggests a <strong>tendency toward ToM difficulties</strong> in ASD rather than a universal deficit affecting all individuals equally.</p>
+      <p><strong>Conclusion:</strong> The findings provide <strong>strong support</strong> for a specific theory-of-mind deficit in adults with AS/HFA: the group difference is large, cannot be explained by IQ or visual processing, and converges with the AQ correlation. However, the small all-male sample, the overlap in score ranges and the narrow laboratory measure mean the conclusion should be stated as a <strong>general tendency</strong> rather than a universal deficit.</p>
     </div>
   </div>
 </div>
@@ -1453,8 +1440,6 @@
 </div>
 </section>
 
-
-  </main><!-- END MAIN CONTENT -->
 
   </main><!-- END MAIN CONTENT -->
 
@@ -2305,4 +2290,5 @@ function showScore() {
 startTest();
 </script>
 </body>
+</html>
 
