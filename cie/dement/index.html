@@ -1759,7 +1759,19 @@ body.dark .back-to-top { background: linear-gradient(135deg, #991b1b, #7f1d1d); 
     };
 
     window.cancelNoteInput=function(){
-      document.getElementById('notesInputRow').classList.remove('show');pendingHl=null;
+      // 如果有未保存的高亮标记，移除它
+      if(pendingHl){
+        var ms=document.querySelectorAll('.hl-text');
+        if(ms.length){
+          var lastMark=ms[ms.length-1];
+          var p=lastMark.parentNode;
+          p.replaceChild(document.createTextNode(lastMark.textContent),lastMark);
+          p.normalize();
+        }
+      }
+      document.getElementById('notesInputRow').classList.remove('show');
+      document.getElementById('hlPreview').innerHTML='';
+      pendingHl=null;
     };
 
     window.delNote=function(id){
