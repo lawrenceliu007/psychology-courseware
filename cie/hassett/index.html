@@ -1963,6 +1963,10 @@
       alert('Please select some text first.\n请先选择一些文本。');
       return;
     }
+
+    // IMMEDIATELY highlight the selected text (Milgram pattern)
+    applyHighlight(selectedHlId, selectedText);
+
     const row = document.getElementById('noteInputRow');
     const textarea = document.getElementById('noteTextarea');
     row.classList.add('show');
@@ -1971,7 +1975,7 @@
     textarea.focus();
   }
   window.showNoteInput = showNoteInput;
-  
+
   function saveNote() {
     const textarea = document.getElementById('noteTextarea');
     const text = textarea.value.trim();
@@ -1979,9 +1983,8 @@
       alert('Please enter note content.\n请输入笔记内容。');
       return;
     }
-    
-    // Apply highlight to selected text
-    applyHighlight(selectedHlId, selectedText);
+
+    // Highlight already applied in showNoteInput() — just save the note data
     
     // Create note object
     const note = {
