@@ -1,7 +1,7 @@
 # 🚀 CIE Psychology Courseware — 任务启动完整模板
 
-> **版本**: v2.0（2026-08-17 最终版）
-> **基于**: GitHub 成功版本 + 2个月实战经验总结
+> **版本**: v3.0（2026-08-17 最终版）🆕
+> **基于**: GitHub 成功版本 + 2个月实战经验总结 + Dement (1957) 最新开发经验
 > **适用**: 所有新建/优化 CIE Core Studies 课件的任务
 
 ---
@@ -41,7 +41,7 @@ GitHub仓库：https://github.com/lawrenceliu007/psychology-courseware
 ✅ 生物类（红色 #dc2626）：
    - Hassett (2008) - Monkey Toy Preferences
    - Hölzel (2011) - Mindfulness Brain Scans
-   - Dement (1957) - Sleep and Dreams
+   - Dement (1957) - Sleep and Dreams ⭐ **v3.0 模板验证实验**
    - Andrade (2010) - Doodling
 
 ✅ 认知类（蓝色 #1565C0）：
@@ -49,14 +49,25 @@ GitHub仓库：https://github.com/lawrenceliu007/psychology-courseware
    - Pozzulo (2011) - Child Witnesses & Line-ups
 
 ✅ 社会类（橙色 #ea580c）：
-   - Milgram (1963) - Obedience ⭐⭐⭐ 最复杂最完整
-   - Piliavin (1969) - Subway Samaritans ⭐⭐⭐ 推荐参考
+   - Milgram (1963) - Obedience ⭐⭐⭐ 最复杂最完整（v2.0 模板）
+   - Piliavin (1969) - Subway Samaritans ⭐⭐⭐ 推荐参考（v2.0 模板）
    - Perry (2015) - Personal Space & Oxytocin
 
 ✅ 学习类（绿色 #2E7D32）：
    - Bandura (1961) - Bobo Doll Aggression
    - Fagen (2014) - Elephant Learning / SPR Training
    - Saavedra (2002) - Button Phobia / Disgust & Evaluative Learning
+
+🆕 **v3.0 关键更新**（基于 Dement 开发经验，2026-08-17）：
+- 🐛 **Cancel 高亮修复**：`cancelNoteInput()` 必须移除 `<mark>` 元素
+- 📍 **Scroll Spy 功能**：IntersectionObserver 自动高亮 sidebar 当前章节
+- 🏷️ **Header Badges 特色化**：标签要突出实验核心发现（不是通用信息）
+- 📝 **Notes Panel v3 完整结构**：新增 hlPreview、nc-actions、nc-footer
+- 🎨 **CSS 类名统一**：`.active` → `.sb-active`
+- 🌙 **Dark Mode 无死角**：`.hl-text`, `.note-card-hl` 等新组件暗色适配
+
+📖 **详细规范请参考**：
+- `.workbuddy/memory/MILGRAM_SUCCESS_TEMPLATE.md`（v3.0 完整版，1400+行）
 
 你的任务是：
 - 新建缺失的 CIE 实验
@@ -716,7 +727,7 @@ A: 检查文件路径是否用相对路径（不用绝对路径）。检查文�
 
 ---
 
-**文档版本**: v2.0 Final
-**最后更新**: 2026-08-17
+**文档版本**: v3.0 Final 🆕
+**最后更新**: 2026-08-17 12:49 (基于 Dement v3.0 开发经验)
 **维护者**: AI Assistant (WorkBuddy)
-**状态**: ✅ 生产可用（已包含所有截至今天的经验教训）
+**状态**: ✅ 生产可用（已包含所有截至今天的经验教训，包括 Cancel 高亮修复）
