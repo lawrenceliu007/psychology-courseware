@@ -1,539 +1,1518 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Core Study 2: Hassett et al. (2008) — Monkey Toy Preferences</title>
-<style>
-  :root {
-    --bg: #ffffff;
-    --text: #1a1a2e;
-    --heading: #16213e;
-    --accent: #0f3460;
-    --accent-light: #e8f0fe;
-    --border: #e0e0e0;
-    --table-header: #0f3460;
-    --table-alt: #f8f9fa;
-    --blockquote: #e8f0fe;
-    --warning: #fff3cd;
-    --warning-border: #ffc107;
-    --key-box: #fff3e0;
-    --key-border: #ff9800;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-    line-height: 1.8;
-    color: var(--text);
-    background: var(--bg);
-    max-width: 880px;
-    margin: 0 auto;
-    padding: 40px 24px;
-  }
-  h1 {
-    font-size: 1.85em;
-    color: var(--heading);
-    border-bottom: 3px solid var(--accent);
-    padding-bottom: 12px;
-    margin-bottom: 6px;
-  }
-  .subtitle {
-    font-size: 1em;
-    color: #666;
-    margin-bottom: 24px;
-  }
-  .ref {
-    font-size: 0.95em;
-    color: #555;
-    font-style: italic;
-    margin-bottom: 32px;
-    padding: 12px 16px;
-    background: var(--accent-light);
-    border-radius: 6px;
-  }
-  h2 {
-    font-size: 1.45em;
-    color: var(--heading);
-    margin-top: 40px;
-    margin-bottom: 14px;
-    padding-left: 14px;
-    border-left: 4px solid var(--accent);
-  }
-  h3 {
-    font-size: 1.2em;
-    color: var(--accent);
-    margin-top: 26px;
-    margin-bottom: 10px;
-  }
-  h4 {
-    font-size: 1.05em;
-    color: var(--accent);
-    margin-top: 18px;
-    margin-bottom: 8px;
-  }
-  p { margin-bottom: 14px; }
-  ul, ol { margin-bottom: 14px; padding-left: 26px; }
-  li { margin-bottom: 6px; }
-  strong { color: var(--heading); }
-  .cn { color: #6a6a6a; font-weight: 400; }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 18px 0;
-    font-size: 0.95em;
-  }
-  th {
-    background: var(--table-header);
-    color: #fff;
-    padding: 12px 14px;
-    text-align: left;
-    font-weight: 600;
-  }
-  td {
-    padding: 10px 14px;
-    border-bottom: 1px solid var(--border);
-    vertical-align: top;
-  }
-  tr:nth-child(even) td { background: var(--table-alt); }
-  .key-box {
-    background: var(--key-box);
-    border: 1px solid var(--key-border);
-    border-radius: 8px;
-    padding: 16px 20px;
-    margin: 18px 0;
-  }
-  .key-box p { margin-bottom: 8px; }
-  .key-box p:last-child { margin-bottom: 0; }
-  .issue-box {
-    background: #eef7ff;
-    border: 1px solid #b3d9ff;
-    border-radius: 8px;
-    padding: 16px 20px;
-    margin: 18px 0;
-  }
-  .issue-box p { margin-bottom: 8px; }
-  .issue-box p:last-child { margin-bottom: 0; }
-  .note {
-    background: var(--warning);
-    border: 1px solid var(--warning-border);
-    border-radius: 8px;
-    padding: 14px 20px;
-    margin-top: 32px;
-    font-size: 0.92em;
-    color: #856404;
-  }
-  hr {
-    border: none;
-    border-top: 2px solid var(--border);
-    margin: 32px 0;
-  }
-  .toc {
-    background: var(--accent-light);
-    border-radius: 8px;
-    padding: 20px 26px;
-    margin: 24px 0 32px 0;
-  }
-  .toc h3 {
-    margin-top: 0;
-    color: var(--accent);
-  }
-  .toc ol { padding-left: 22px; }
-  .toc li { margin-bottom: 4px; }
-  .toc a {
-    color: var(--accent);
-    text-decoration: none;
-  }
-  .toc a:hover { text-decoration: underline; }
-  figure {
-    margin: 22px 0;
-    text-align: center;
-  }
-  figure img {
-    max-width: 100%;
-    height: auto;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-  }
-  figcaption {
-    font-size: 0.92em;
-    color: #555;
-    margin-top: 10px;
-    line-height: 1.5;
-  }
-  figcaption .cn { color: #6a6a6a; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hassett et al. (2008) — Sex Differences in Monkey Toy Preferences</title>
+  <style>
+    :root {
+      /* Hassett (2008) Biological Theme — Red */
+      --primary: #dc2626;
+      --primary-light: #ef4444;
+      --primary-dark: #991b1b;
+      --accent: #dc2626;
+      --bg: #ffffff;
+      --card-bg: #FFFFFF;
+      --text: #1f2937;
+      --text-secondary: #475569;
+      --border: #e5e7eb;
+      --highlight: #fef2f2;
+      --warning: #fff7ed;
+      --code-bg: #f9fafb;
+      --note-bg: #fffbeb;
+      --note-border: #f59e0b;
+      --term-color: #dc2626;
+      --correct: #16a34a;
+      --wrong: #dc2626;
+    }
+    * { box-sizing: border-box; }
+    html { font-size: 16px; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; line-height: 1.75; color: var(--text); background: var(--bg); margin: 0; padding: 0; font-size: 1em; transition: background .3s, color .3s; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 16px 24px; }
+
+    /* ===== PROGRESS BAR ===== */
+    .progress-bar { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: linear-gradient(90deg, var(--primary), var(--primary-light), #86efac); z-index: 9999; transition: width .1s ease-out; }
+    body.dark .progress-bar { background: linear-gradient(90deg, #ef4444, #f87171, #86efac); }
+
+    /* ===== NAV BAR ===== */
+    .nav-bar { position: sticky; top: 0; z-index: 100; background: white; border-bottom: 3px solid var(--primary); padding: .65rem 2rem; display: flex; align-items: center; gap: 1rem; margin: 0 0 28px 0; box-shadow: 0 2px 10px rgba(0,0,0,.06); }
+    body.dark .nav-bar { background: #1a1a2e; border-bottom-color: var(--primary); }
+    .nav-pill { display: inline-flex; align-items: center; gap: .4rem; padding: .45rem 1.1rem; background: var(--primary); color: white; border-radius: 20px; text-decoration: none; font-size: .82em; font-weight: 600; transition: background .15s; white-space: nowrap; }
+    .nav-pill:hover { background: var(--primary-dark); }
+    .nav-breadcrumb { display: flex; align-items: center; gap: .4rem; font-size: .82em; color: var(--text-secondary); flex: 1; }
+    .nav-breadcrumb a { color: var(--text-secondary); text-decoration: none; transition: color .15s; }
+    .nav-breadcrumb a:hover { color: var(--primary); }
+    .nav-breadcrumb .sep { color: #ccc; font-weight: 300; }
+    .nav-breadcrumb span:last-child { color: var(--text); font-weight: 500; }
+    .nav-controls { display: flex; align-items: center; gap: .5rem; }
+    .nav-btn { background: none; border: 1px solid #ddd; border-radius: 6px; padding: .35rem .65rem; cursor: pointer; font-size: .85em; color: var(--text-secondary); transition: all .15s; display: flex; align-items: center; gap: .25rem; }
+    .nav-btn:hover { border-color: var(--primary); color: var(--primary); }
+
+    /* ===== PAGE LAYOUT (3-column: sidebar | content | notes) ===== */
+    .page-layout { display: grid; grid-template-columns: 170px minmax(0,1fr) 250px; gap: 20px; align-items: start; }
+    .sidebar { width: 170px; flex-shrink: 0; position: sticky; top: 60px; max-height: calc(100vh - 80px); overflow-y: auto; padding: 12px 0; z-index: 50; }
+    .sidebar::-webkit-scrollbar { width: 2px; }
+    .sidebar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 2px; }
+    .sidebar-inner { background: #f8fafc; border-radius: 14px; border: 1px solid #e2e8f0; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,.05); }
+    .sb-header { padding: 13px 16px 10px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); }
+    .sb-header-title { font-size: .72em; font-weight: 700; color: white; letter-spacing: .8px; text-transform: uppercase; margin: 0; }
+    .sb-header-sub { font-size: .63em; color: rgba(255,255,255,.75); margin: 2px 0 0; font-weight: 500; }
+    .sb-list { list-style: none; padding: 6px 0 10px; margin: 0; }
+    .sb-divider { height: 1px; background: #e2e8f0; margin: 4px 12px; }
+    .sb-item a { display: block; padding: 7px 14px 7px 18px; color: #475569; text-decoration: none; font-size: .76em; font-weight: 500; border-left: 3px solid transparent; transition: all .15s ease; line-height: 1.45; border-radius: 0 7px 7px 0; margin: 1px 4px 1px 0; }
+    .sb-item a:hover { border-left-color: var(--primary); color: var(--primary-dark); font-weight: 600; background: linear-gradient(90deg, rgba(220,38,38,.07), transparent); }
+    .sb-item a.sb-active { border-left-color: var(--primary); color: var(--primary-dark); font-weight: 700; background: linear-gradient(90deg, rgba(220,38,38,.12), transparent); }
+    .main-content { min-width: 0; max-width: 660px; }
+
+    /* ===== RIGHT NOTES COLUMN ===== */
+    .notes-col { width: 250px; background: #fffef5; border: 2px solid #f59e0b; border-radius: 12px; display: flex; flex-direction: column; position: sticky; top: 60px; max-height: calc(100vh - 80px); box-shadow: 0 2px 12px rgba(245,158,11,.15); overflow: hidden; }
+    .nc-header { background: linear-gradient(135deg,#f59e0b,#d97706); padding: 12px 14px; display: flex; align-items: center; gap: 8px; }
+    .nc-title { font-size: .85em; font-weight: 700; color: #fff; }
+    .nc-count { margin-left: auto; background: rgba(255,255,255,.3); color: #fff; font-size: .7em; font-weight: 700; padding: 2px 8px; border-radius: 10px; }
+    .nc-body { flex: 1; overflow-y: auto; padding: 10px; max-height: calc(100vh - 240px); min-height: 60px; }
+    .nc-empty { text-align: center; color: #9ca3af; padding: 20px 8px; font-size: .78em; }
+    .nc-input-row { display: none; padding: 12px; border-top: 1px solid #fde68a; background: #fffbeb; }
+    .nc-input-row.show { display: block; }
+    .nc-textarea { width: 100%; border: 1px solid #fcd34d; border-radius: 8px; padding: 10px; font-size: .82em; resize: vertical; min-height: 60px; box-sizing: border-box; outline: none; font-family: inherit; }
+    .nc-textarea:focus { border-color: #d97706; box-shadow: 0 0 0 2px rgba(217,119,6,.15); }
+    .nc-actions { display: flex; gap: 8px; margin-top: 8px; }
+    .nc-actions button { flex: 1; padding: 8px; border-radius: 6px; font-size: .78em; font-weight: 600; cursor: pointer; border: 1px solid transparent; }
+    .nc-btn-save { background: #16a34a; color: white; }
+    .nc-btn-cancel { background: white; color: #6b7280; border-color: #d1d5db !important; }
+    .nc-add-btn { width: 100%; padding: 13px; background: linear-gradient(135deg,#f59e0b,#d97706); color: white; border: none; border-radius: 0 0 10px 10px; font-size: .88em; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: opacity .2s; }
+    .nc-add-btn:hover { opacity: .9; }
+    .nc-footer { display: flex; gap: 4px; padding: 6px 10px; border-top: 1px solid #fde68a; }
+    .nc-footer button { flex: 1; padding: 4px 0; font-size: .68em; border: none; background: transparent; color: #92400e; cursor:pointer; }
+    .hl-text { background: linear-gradient(120deg,#fef08a,#fde047); border-radius: 2px; padding: 0 2px; cursor: pointer; transition: background .15s; }
+    .hl-text:hover { background: linear-gradient(120deg,#fde047,#facc15); }
+    .note-card { background: #fff; border-radius: 8px; padding: 10px 12px; margin-bottom: 8px; border-left: 3px solid #f59e0b; box-shadow: 0 1px 3px rgba(0,0,0,.08); font-size: .78em; line-height: 1.5; position: relative; animation: nFadeIn .2s ease; transition: box-shadow .2s, border-color .2s; }
+    @keyframes nFadeIn { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:translateY(0)} }
+    .note-card[ondblclick]:hover { box-shadow: 0 4px 12px rgba(245,158,11,.25); border-left-color: #f59e0b; }
+    .note-card-hl { font-size: .7em; color: #92400e; background: #fef3c7; padding: 2px 6px; border-radius: 4px; margin-bottom: 4px; cursor: pointer; word-break: break-all; }
+    .note-card-hl:hover { background: #fde68a; }
+    .note-card-text { color: #374151; word-break: break-word; }
+    .note-card-del { position: absolute; top: 4px; right: 4px; width: 18px; height: 18px; border: none; background: #fee2e2; color: #ef4444; border-radius: 50%; font-size: .65em; cursor: pointer; opacity: 0; display: flex; align-items: center; justify-content: center; }
+    .note-card:hover .note-card-del { opacity: 1; }
+
+    /* ===== CONTENT STYLES ===== */
+    .header { background: linear-gradient(135deg, #7f1d1d, #dc2626); color: white; padding: 32px 28px 24px; border-radius: 12px; margin-bottom: 20px; text-align: center; }
+    .header h1 { font-size: 1.7em; font-weight: 700; line-height: 1.3; margin-bottom: 6px; }
+    .header .subtitle { font-size: 1em; opacity: .95; }
+    .header .meta { margin-top: 12px; font-size: .88em; line-height: 1.6; background: rgba(255,255,255,.2); display: inline-block; padding: 8px 20px; border-radius: 8px; backdrop-filter: blur(6px); color: #ffffff !important; font-weight: 500; }
+    .header .meta em, .header .meta strong { color: #ffffff !important; font-style: normal; }
+    .badges { display: flex; justify-content: center; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
+    .badge { display: inline-flex; align-items: center; gap: 4px; padding: 6px 14px; background: rgba(255,255,255,.22); border: 1.5px solid rgba(255,255,255,.35); border-radius: 20px; font-size: .78em; font-weight: 600; color: #ffffff; backdrop-filter: blur(4px); transition: all .2s; }
+    .badge:hover { background: rgba(255,255,255,.32); transform: translateY(-1px); }
+    h2 { font-size: 1.35em; color: var(--primary-dark); border-bottom: 2px solid #fecaca; padding-bottom: 6px; margin: 28px 0 14px; }
+    h3 { font-size: 1.12em; color: var(--text); margin: 20px 0 10px; }
+    h4 { font-size: 1em; color: var(--text-secondary); margin: 16px 0 8px; }
+    p { margin-bottom: 10px; }
+    ul, ol { margin: 8px 0 12px 22px; }
+    li { margin-bottom: 5px; }
+    strong { color: var(--text); }
+    em { color: var(--text-secondary); }
+    .cn { color: #dc2626; font-weight: 600; }
+
+    .key-term { background: #fef2f2; border-left: 4px solid #dc2626; padding: 10px 14px; margin: 14px 0; border-radius: 0 8px 8px 0; font-size: .94em; }
+    .key-term strong:first-child { color: #991b1b; }
+    .note-box { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 12px 16px; margin: 14px 0; border-radius: 0 8px 8px 0; font-size: .93em; }
+    .warn-box { background: #fff7ed; border-left: 4px solid #f97316; padding: 12px 16px; margin: 14px 0; border-radius: 0 8px 8px 0; }
+    .warn-box h4 { color: #dc2626; margin-top: 0; }
+    .highlight-box { background: linear-gradient(135deg, #ecfdf5, #d1fae5); border: 1px solid #34d399; border-radius: 10px; padding: 16px 18px; margin: 16px 0; }
+    .highlight-box h4 { color: #047857; margin-top: 0; }
+    .blue-box { background: #eff6ff; border: 1px solid #93c5fd; border-radius: 8px; padding: 14px 16px; margin: 14px 0; }
+    table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: .9em; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,.06); }
+    th { background: #991b1b; color: white; padding: 10px 12px; text-align: left; font-weight: 600; }
+    td { padding: 9px 12px; border-bottom: 1px solid #e2e8f0; }
+    tr:nth-child(even) { background: #f8fafc; }
+    tr:hover { background: #fef2f2; }
+    .figure { margin: 18px 0; text-align: center; }
+    .figure img { max-width: 100%; border-radius: 8px; border: 1px solid #e2e8f0; cursor: zoom-in; }
+    .figure-caption { font-size: .86em; color: var(--text-secondary); margin-top: 6px; font-style: italic; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 14px 0; }
+    .col-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px; }
+    .col-card h4 { color: #991b1b; margin-top: 0; }
+    .activity { background: linear-gradient(135deg, #eff6ff, #dbeafe); border: 1px solid #93c5fd; border-radius: 10px; padding: 16px 18px; margin: 16px 0; }
+    .activity h4 { color: #1e40af; margin-top: 0; }
+    .exam-q { background: #fefce8; border: 1px solid #fbbf24; border-radius: 8px; padding: 12px 14px; margin: 10px 0; font-size: .92em; }
+    .exam-q b { color: #991b1b; }
+    blockquote { border-left: 4px solid var(--primary); padding: 10px 16px; margin: 14px 0; background: var(--highlight); border-radius: 0 8px 8px 0; font-style: italic; color: var(--text-secondary); }
+
+    @media(max-width:900px){ .page-layout{grid-template-columns:1fr!important} .sidebar,.notes-col{display:none} }
+
+    /* ===== EXAM KEY POINTS (summary-card) — Baron-Cohen style ===== */
+    .summary-card { background: linear-gradient(135deg, #f0fdf4, #dcfce7); border-left: 5px solid #16a34a; border-radius: 10px; margin: 20px 0 0; overflow: hidden; transition: all .2s; }
+    body.dark .summary-card { background: linear-gradient(135deg, #052e16, #14532d); border-left-color: #22c55e; }
+    .summary-card-header { display: flex; align-items: center; gap: 8px; padding: 12px 18px; cursor: pointer; user-select:none; -webkit-user-select:none; transition: background .15s; }
+    .summary-card-header:hover { background: #bbf7d0; }
+    body.dark .summary-card-header:hover { background: #166534; }
+    .summary-card-icon { font-size: 1.1em; transition: transform .2s; color: #166534; }
+    body.dark .summary-card-icon { color: #86efac; }
+    .summary-card.open .summary-card-icon { transform: rotate(90deg); }
+    .summary-card-title { font-size: .92em; font-weight: 700; color: #166534; flex: 1; }
+    body.dark .summary-card-title { color: #86efac; }
+    .summary-card-badge { font-size: .7rem; background: #16a34a; color: white; padding: 2px 10px; border-radius: 10px; font-weight: 600; }
+    .summary-card-body { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
+    .summary-card.open .summary-card-body { max-height: 800px; }
+    .summary-card-inner { margin: 0 14px 14px; padding: 16px 20px; background: #ffffff; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,.06); border: 1px solid #e8f0e8; }
+    body.dark .summary-card-inner { background: #0c1a0c; border-color: #1a3a1a; }
+    .summary-card-inner ol, .summary-card-inner ul { margin: 0; padding-left: 20px; }
+    .summary-card-inner li { margin: 8px 0; font-size: .98em; color: #1a1a1a; line-height: 1.72; }
+    body.dark .summary-card-inner li { color: #e8ede9; }
+
+    /* ===== CHINESE SUMMARY CARDS (cn-summary) — Purple theme ===== */
+    .cn-summary-wrap { margin: 18px 0; }
+    .cn-summary-toggle { display: flex; align-items: center; gap: 8px; width: 100%; padding: 10px 16px; background: linear-gradient(135deg, #f3e8ff, #ede9fe); border: 1.5px dashed #a78bfa; border-radius: 8px; cursor: pointer; font-size: .86em; color: #6b21a8; font-weight: 500; transition: all .2s; text-align: left; }
+    body.dark .cn-summary-toggle { background: linear-gradient(135deg, rgba(167,139,250,.1), rgba(139,92,246,.08)); border-color: #8b5cf6; color: #c4b5fd; }
+    .cn-summary-toggle:hover { background: linear-gradient(135deg, #ede9fe, #ddd6fe); border-color: #8b5cf6; }
+    .cs-icon { font-size: .75em; transition: transform .2s; min-width: 14px; }
+    .cn-summary-toggle.open .cs-icon { transform: rotate(90deg); }
+    .cn-summary-body { max-height: 0; overflow: hidden; opacity: 0; transition: max-height .4s ease, opacity .25s ease; }
+    .cn-summary-body.open { max-height: 800px; opacity: 1; margin: 8px 0 4px; }
+    .cn-summary-body { background: linear-gradient(135deg, #faf5ff, #f3e8ff); border-radius: 8px; padding: 18px 22px; border: 1px solid #e9d5ff; }
+    body.dark .cn-summary-body { background: linear-gradient(135deg, rgba(167,139,250,.06), rgba(124,58,237,.04)); border-color: rgba(139,92,246,.2); }
+    .cs-title { font-weight: 700; color: #6b21a8; font-size: .95em; margin-bottom: 10px; padding-bottom: 6px; border-bottom: 1px dashed #d8b4fe; }
+    body.dark .cs-title { color: #c4b5fd; border-bottom-color: rgba(139,92,246,.3); }
+    .cn-summary-body p { margin: 8px 0; line-height: 1.72; color: #374151; font-size: .93em; }
+    body.dark .cn-summary-body p { color: #d1d5db; }
+    .cn-summary-body ul { margin: 6px 0; padding-left: 20px; }
+    .cn-summary-body li { margin: 5px 0; font-size: .93em; color: #374151; }
+    body.dark .cn-summary-body li { color: #d1d5db; }
+    .cs-en { color: #7c3aed; font-style: italic; font-weight: 500; }
+    body.dark .cs-en { color: #a78bfa; }
+
+    /* ===== EXAM TAGS ===== */
+    .tag-must { display: inline-block; padding: 2px 8px; border-radius: 4px; background: #fee2e2; color: #dc2626; font-size: .76em; font-weight: 700; vertical-align: middle; margin-left: 4px; }
+    .tag-common { display: inline-block; padding: 2px 8px; border-radius: 4px; background: #fef2f2; color: #dc2626; font-size: .76em; font-weight: 700; vertical-align: middle; margin-left: 4px; }
+    .tag-ao2 { display: inline-block; padding: 2px 8px; border-radius: 4px; background: #dcfce7; color: #16a34a; font-size: .76em; font-weight: 700; vertical-align: middle; margin-left: 4px; }
+    .tag-context { display: inline-block; padding: 2px 8px; border-radius: 4px; background: #f1f5f9; color: #64748b; font-size: .76em; font-weight: 700; vertical-align: middle; margin-left: 4px; }
+
+    /* ===== Q&A CARDS ===== */
+    .qa-card { background: white; border: 1.5px solid #e2e8f0; border-radius: 10px; margin: 12px 0; overflow: hidden; transition: box-shadow .2s, border-color .2s; }
+    .qa-card:hover { box-shadow: 0 3px 12px rgba(0,0,0,.08); border-color: #cbd5e1; }
+    .qa-question { display: flex; align-items: flex-start; gap: 10px; padding: 16px 18px; cursor: pointer; user-select:none; -webkit-user-select:none; transition: background .15s; }
+    .qa-question:hover { background: #f8fafc; }
+    .qa-num { flex-shrink: 0; width: 28px; height: 28px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: .78em; font-weight: 700; line-height: 1; }
+    .qa-text { flex: 1; font-size: .93em; color: #1e293b; line-height: 1.6; font-weight: 500; }
+    .qa-toggle { flex-shrink: 0; width: 32px; height: 28px; background: linear-gradient(135deg, #fef2f2, #fee2e2); border: 1.5px solid #fecaca; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: .72em; color: #dc2626; font-weight: 600; transition: all .15s; cursor: pointer; }
+    .qa-toggle .qa-icon { transition: transform .2s; display: inline-block; }
+    .qa-card.open .qa-toggle .qa-icon { transform: rotate(180deg); }
+    .qa-answer { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
+    .qa-card.open .qa-answer { max-height: 500px; }
+    .qa-answer-inner { padding: 14px 18px 18px; margin: 0 14px 14px; background: linear-gradient(135deg, #fffbeb, #fef3c7); border-left: 4px solid #f59e0b; border-radius: 8px; font-size: .91em; color: #451a03; line-height: 1.72; }
+
+    /* TERM TOOLTIPS */
+    .term { color: var(--term-color); font-weight: 600; cursor: help; position: relative; border-bottom: 1px dotted var(--term-color); }
+    .term-tooltip { position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%); background: #1e293b; color: #f8fafc; padding: 12px 16px; border-radius: 8px; font-size: .84em; line-height: 1.55; width: 280px; z-index: 200; box-shadow: 0 8px 30px rgba(0,0,0,.25); opacity: 0; visibility: hidden; transition: .2s; pointer-events: none; }
+    .term-tooltip::after { content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); border: 6px solid transparent; border-top-color: #1e293b; }
+    .term:hover .term-tooltip { opacity: 1; visibility: visible; }
+    .tt-cn { color: #a78bfa; font-weight: 600; display: block; margin-bottom: 4px; font-size: .96em; }
+    .tt-def { color: #94a3b8; display: block; margin-top: 4px; }
+
+    /* VISUAL SECTION HEADER */
+    .visual-header { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; padding: 14px 18px; background: linear-gradient(135deg, #fff7ed, #ffedd5); border-radius: 10px; border-left: 4px solid var(--primary); }
+    .vh-icon { font-size: 1.8em; flex-shrink: 0; }
+    .vh-text h4 { margin: 0 0 3px; color: var(--primary-dark); font-size: .92em; }
+    .vh-text p { margin: 0; font-size: .82em; color: var(--text-secondary); }
+
+    /* BACK TO TOP */
+    .back-to-top { position: fixed; bottom: 30px; right: 30px; width: 44px; height: 44px; background: var(--primary); color: white; border: none; border-radius: 50%; cursor: pointer; font-size: 1.2em; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(220,38,38,.35); opacity: 0; visibility: hidden; transform: translateY(15px); transition: all .3s; z-index: 90; }
+    .back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+    .back-to-top:hover { background: var(--primary-dark); }
+
+    /* LIGHTBOX OVERLAY */
+    .lightbox-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,.9); z-index: 9999; cursor: zoom-out; opacity: 0; transition: opacity .3s ease; }
+    .lightbox-overlay.show { display: flex; align-items: center; justify-content: center; opacity: 1; }
+    .lightbox-content { max-width: 90%; max-height: 90%; object-fit: contain; transform: scale(.95); transition: transform .3s ease; border-radius: 8px; }
+    .lightbox-overlay.show .lightbox-content { transform: scale(1); }
+    .lightbox-close { position: absolute; top: 20px; right: 30px; font-size: 40px; color: #fff; cursor: pointer; z-index: 10000; }
+    .lightbox-caption { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); color: #fff; font-size: 14px; text-align: center; max-width: 80%; }
+
+    /* PRINT STYLES */
+    @media print {
+      .progress-bar, .nav-bar, .sidebar, .page-layout, .back-to-top,
+      .cn-summary-wrap, .summary-card, .notes-col { display: none !important; }
+      .main-content { max-width: 100% !important; }
+      body { font-size: 12pt; }
+    }
+
+    /* ===== DARK MODE (50+ rules) ===== */
+    body.dark { --bg: #0f172a; --text: #e2e8f0; --card-bg: #1e293b; --border: #334155; }
+    body.dark { background: var(--bg); color: var(--text); }
+    body.dark .container { background: #0f172a; }
+    body.dark .nav-bar { background: #1e293b; border-color: #334155; }
+    body.dark .nav-pill { background: #991b1b; }
+    body.dark .sidebar { background: #1e293b; border-color: #334155; }
+    body.dark .sidebar-inner { background: #1e293b; border-color: #334155; }
+    body.dark .sb-item a { color: #94a3b8; }
+    body.dark .sb-item a:hover { color: #f97316; background: linear-gradient(90deg, rgba(220,38,38,.10), transparent); border-left-color: #f97316; }
+    body.dark .sb-item a.sb-active { color: #fca5a5; background: linear-gradient(90deg, rgba(220,38,38,.16), transparent); border-left-color: #f97316; }
+    body.dark .main-content { color: #e2e8f0; }
+    body.dark h2 { color: #fca5a5; border-bottom-color: #44403c; }
+    body.dark h3 { color: #cbd5e1; }
+    body.dark h4 { color: #94a3b8; }
+    body.dark p { color: #cbd5e1; }
+    body.dark strong { color: #f1f5f9; }
+    body.dark em { color: #94a3b8; }
+    body.dark .key-term { background: #1c1917; border-left-color: #dc2626; }
+    body.dark .key-term strong:first-child { color: #f87171; }
+    body.dark .note-box { background: #172554; border-left-color: #3b82f6; }
+    body.dark .warn-box { background: #422006; border-left-color: #f97316; }
+    body.dark .highlight-box { background: linear-gradient(135deg, #052e16, #14532d); border-color: #22c55e; }
+    body.dark .highlight-box h4 { color: #86efac; }
+    body.dark .blue-box { background: #172554; border-color: #1e40af; }
+    body.dark table { background: #0f172a; border-color: #334155; }
+    body.dark th { background: #7f1d1d; color: #fff; }
+    body.dark td { border-color: #334155; color: #cbd5e1; }
+    body.dark .figure img { border-color: #334155; }
+    body.dark .figure-caption { color: #94a3b8; }
+    body.dark .col-card { background: #1e293b; border-color: #334155; }
+    body.dark .activity { background: #172554; border-color: #1e40af; }
+    body.dark .exam-q { background: #422006; border-color: #fbbf24; }
+    body.dark blockquote { background: #1c1917; border-left-color: #dc2626; color: #94a3b8; }
+    body.dark button { background: #334155; color: #e2e8f0; border-color: #475569; }
+    body.dark button:hover { background: #475569; }
+    body.dark .progress-bar { background: linear-gradient(90deg, #ef4444, #f87171, #86efac); }
+    body.dark .back-to-top { background: linear-gradient(135deg, #991b1b, #7f1d1d); }
+    body.dark .notes-col { background: #1c1917; border-color: #44403c; }
+    body.dark .nc-header { background: linear-gradient(135deg, #92400e, #78350f); }
+    body.dark .hl-text { background: linear-gradient(120deg, #854d0e, #a16207); color: #fef08a; }
+    body.dark .note-card { background: #292524; border-left-color: #d97706; }
+    body.dark .note-card-text { color: #d6d3d1; }
+    body.dark .note-card-hl { background: #42200e; color: #fbbf24; }
+    body.dark .nc-textarea { background: #292524; color: #d6d3d1; border-color: #78350f; }
+    body.dark .nc-add-btn { background: linear-gradient(135deg, #92400e, #78350f); }
+    body.dark .nc-footer button { color: #d97706; }
+    body.dark a { color: #60a5fa; }
+    body.dark a:hover { color: #93c5fd; }
+    body.dark .visual-header { background: linear-gradient(135deg, rgba(220,38,38,.1), rgba(153,27,27,.08)); border-left-color: #ef4444; }
+    body.dark .visual-header h4 { color: #fca5a5; }
+    body.dark .visual-header p { color: #94a3b8; }
+    body, body.dark * { transition: background-color .3s ease, color .3s ease, border-color .3s ease; }
+  </style>
 </head>
 <body>
-
-<h1>Core Study 2: Hassett et al. (2008) <span class="cn">（恒河猴玩具偏好）</span></h1>
-<p class="subtitle">Monkey Toy Preferences</p>
-
-<div class="ref">
-  <strong>Hassett, J. M., Siebert, E. R., &amp; Wallen, K. (2008).</strong> Sex differences in rhesus monkey toy preferences parallel those of children. <em>Hormones and Behaviour, 54</em>(3), 359&ndash;364.
-</div>
-
-<div class="toc">
-  <h3>Contents</h3>
-  <ol>
-    <li><a href="#sec1">The Psychology Being Investigated</a></li>
-    <li><a href="#sec2">Background</a></li>
-    <li><a href="#sec3">Aim</a></li>
-    <li><a href="#sec4">Method</a></li>
-    <li><a href="#sec5">Behavioural Checklist</a></li>
-    <li><a href="#sec6">Results</a></li>
-    <li><a href="#sec7">Conclusion</a></li>
-    <li><a href="#sec8">Strengths and Weaknesses</a></li>
-    <li><a href="#sec9">Ethical Issues</a></li>
-    <li><a href="#sec10">Summary</a></li>
-    <li><a href="#sec11">Key Terms</a></li>
-    <li><a href="#sec12">Study Questions</a></li>
-  </ol>
-</div>
-
-<h2 id="sec1">1. The Psychology Being Investigated <span class="cn">（研究主题）</span></h2>
-
-<h3>1.1 Sex Differences <span class="cn">（性别差异）</span></h3>
-
-<p><strong>Sex differences</strong> <span class="cn">（性别差异）</span> are the ways that males and females differ that are caused directly by sex, and include both <strong>physical</strong> <span class="cn">（生理）</span> and <strong>behavioural differences</strong> <span class="cn">（行为差异）</span>.</p>
-
-<p>There are differences in male and female brains, and in their <strong>hormones</strong> <span class="cn">（激素）</span>, that impact on human behaviour. For example, in our discussion of the brain for the key study by H&ouml;lzel et al., we will describe how language functions are <strong>localised</strong> <span class="cn">（局部化）</span> to areas in the left hemisphere. This is the case for men and women, although in women language functions are relatively more <strong>bilateral</strong> <span class="cn">（双侧的）</span>, i.e. spread over both sides of the brain. This is one of several known biological differences between male and female brains.</p>
-
-<p>There are several differences in hormones too. The most obvious is that, post puberty, males have about ten times more <strong>testosterone</strong> <span class="cn">（睾酮）</span> than females, and females have much more <strong>oestrogen</strong> <span class="cn">（雌激素）</span> than males.</p>
-
-<p>However, it is difficult to determine the extent to which some behavioural differences between males and females are the product of <strong>biological differences</strong> <span class="cn">（生物差异）</span> due to their sex, or <strong>social differences</strong> <span class="cn">（社会差异）</span> in their experiences due to the different ways in which society treats males and females. Many factors are involved in the way a child experiences the social world and these add together to create the process of <strong>socialisation</strong> <span class="cn">（社会化）</span>.</p>
-
-<div class="key-box">
-  <p><strong>Socialisation</strong> <span class="cn">（社会化）</span>: the process of learning to behave in socially acceptable ways. This may differ somewhat for the two genders and in different cultures.</p>
-</div>
-
-<h3>1.2 Gender Stereotype <span class="cn">（性别刻板印象）</span></h3>
-
-<p>Differences in behaviours between men and women are traditionally believed to be rooted in socialisation. Boys watch, copy and are rewarded for behaving like men: being tough, active and oriented towards doing things. Girls, in contrast, are rewarded for watching and copying the behaviour of women, so tend to become more passive and caring. So, the socialisation process is, at least partly, determined by gender. This cultural bias, or <strong>gender stereotype</strong> <span class="cn">（性别刻板印象）</span>, is based on a culturally determined, oversimplified belief that all members of one gender share the same characteristics and that these are different from the other gender.</p>
-
-<p>Toys can therefore be described as <strong>'masculine'</strong> <span class="cn">（男性化的）</span> or <strong>'feminine'</strong> <span class="cn">（女性化的）</span> according to gender stereotypes.</p>
-
-<div class="key-box">
-  <p><strong>Gender stereotype</strong> <span class="cn">（性别刻板印象）</span>: a bias exhibited in society, which may be held by people and represented, for example, in books or toys that assign particular traits, behaviours, emotions, occupations, etc. to males and females.</p>
-  <p><strong>Play</strong> <span class="cn">（玩耍）</span>: behaviour typical of childhood, that appears to be done for fun rather than any useful purpose. It may be solitary or social and may or may not involve interaction with an object. Objects designed for the purpose of play are called 'toys'.</p>
-</div>
-
-<h3>1.3 Gender Differences in Play <span class="cn">（玩耍中的性别差异）</span></h3>
-
-<p>One behaviour in which differences can be seen between males and females is in <strong>play</strong> <span class="cn">（玩耍）</span>. We often see boys engaging in active, sometimes aggressive, play with guns, toy tractors and building sets. Girls, however, are more usually seen engaging in <strong>nurturing play</strong> <span class="cn">（养育性游戏）</span> with dolls, playhouses and kitchen sets, i.e. being more passive and caring.</p>
-
-<p>In terms of socialisation, this isn't surprising, as girls and boys are encouraged to play with <strong>gender-stereotyped toys</strong> <span class="cn">（性别刻板印象玩具）</span>, that is, toys that fit society's view of gender-appropriate behaviour (Figure 2.6). This influence has long been assumed to be the primary cause of gender differences in play.</p>
-
-<figure>
-  <img src="gender_toys.jpg" alt="Gender-stereotyped toys in a shop: boys' toys (blue, vehicles, building sets) on the left and girls' toys (pink, dolls, domestic play) on the right.">
-  <figcaption><strong>Figure 2.6</strong> <span class="cn">（插图一：刻板性别印象对应的玩具）</span>: Boys' toys are often blue and activity-focused (vehicles, construction), while girls' toys are often pink and nurturing-focused (dolls, domestic play). These displays reflect cultural gender stereotypes that may shape children's toy choices.</figcaption>
-</figure>
-
-<hr>
-
-<h2 id="sec2">2. Background <span class="cn">（研究背景）</span></h2>
-
-<p>Humans are complicated. Our brains are highly complex in structure and function and our behaviour is affected by our social and physical environments as well as our biology. This complexity makes humans difficult to study, as so many factors could be affecting any one outcome. In some research, the complexity of the human experience can be simplified by excluding many variables, for example in a <strong>laboratory experiment</strong> <span class="cn">（实验室实验）</span> where the effect of a single <strong>independent variable</strong> <span class="cn">（自变量）</span> can be studied by controlling other, potentially <strong>confounding variables</strong> <span class="cn">（混淆变量）</span>, and by having a <strong>control condition</strong> <span class="cn">（控制条件）</span> from which the independent variable is absent.</p>
-
-<p>It is nevertheless sometimes impossible to conduct such studies because isolation of variables cannot ethically, or practically, be done. One such instance is in the case of children's development.</p>
-
-<p>Hassett et al. described an important finding that <strong>prenatal hormonal exposure</strong> <span class="cn">（产前激素暴露）</span> of human infants (the hormones they are exposed to during gestation) affects toy preferences in children. Some girls have a <strong>genetic condition</strong> <span class="cn">（遗传疾病）</span> that causes increased <strong>androgens</strong> <span class="cn">（雄激素）</span> (male hormones) during foetal development. Such girls preferred to play with traditionally 'boys' toys than their unaffected sisters or control females. This was the case even when they receive increased socialisation to encourage 'female-appropriate' activities. Opportunities to study these hormonal differences in children are rare and the validity of the findings will be limited by uncontrolled variables such as the exact amount of hormonal exposure and the extent of gender-related socialisation.</p>
-
-<p>It would be unethical to deliberately expose developing human foetuses or children to hormones, or to remove key factors from a child's environment to control their experience. However, a model for such research exists. A model is nothing more than a <strong>representation</strong> <span class="cn">（表征/模型）</span> of a phenomenon, often on a smaller or simpler scale. In the case of human development, a simpler model is needed, and one that offers the opportunity to control experiences. Higher primates, closely related to humans genetically, and with some very similar behaviours, can provide such a model.</p>
-
-<p>Social activities such as 'rough-and-tumble', peer preferences and interest in infants differ between the genders. These activities are seen not only in children but also in other primates, who show gender differences which match those of children with, for example, males engaging in more rough-and-tumble play and less interest in infants than females. By looking at primate models of human behaviour it may be possible to see whether gender differences in behaviour could be caused by <strong>biological</strong> <span class="cn">（生物）</span> rather than <strong>social differences</strong> <span class="cn">（社会差异）</span>. Young primates, like young humans, have different levels of hormones according to their sex. Prepubescent males have more testosterone, a hormone associated not only with strength and aggressive behaviour but also, at least in humans, being associated with spatial skills. Young females have more oestrogen than males, and this hormone is associated in adult females with nurturing behaviours such as caring for offspring.</p>
-
-<hr>
-
-<h2 id="sec3">3. Aim <span class="cn">（研究目的）</span></h2>
-
-<p>The <strong>aim</strong> <span class="cn">（目的）</span> of the study was to investigate whether toy preferences in monkeys resemble those in children, in order to test whether <strong>sex differences</strong> <span class="cn">（性别差异）</span> in toy choice is <strong>biologically determined by sex</strong> <span class="cn">（由生物性别决定）</span>.</p>
-
-<hr>
-
-<h2 id="sec4">4. Method <span class="cn">（研究方法）</span></h2>
-
-<h3>4.1 Research Method and Design <span class="cn">（研究方法和设计）</span></h3>
-
-<p>This was a <strong>field experiment</strong> <span class="cn">（现场实验）</span> as the environment in which the participants were tested was their normal, outdoor housing area and they were free to interact with the toys or not.</p>
-
-<p>Although the toys were new to them, they would not have been unfamiliar with objects being placed in their enclosures. The <strong>experimental design</strong> <span class="cn">（实验设计）</span> was <strong>independent measures</strong> <span class="cn">（独立测量设计）</span> as the independent variable was <strong>gender</strong> <span class="cn">（性别）</span>; each animal being recorded was either male or female.</p>
-
-<p><strong>Observations</strong> <span class="cn">（观察法）</span> were used as a technique to measure the <strong>dependent variable</strong> <span class="cn">（因变量）</span> of activities with the toys. As well as looking for differences between the genders, a <strong>correlation</strong> <span class="cn">（相关分析）</span> was also conducted on the results, to look for a relationship between individual monkeys' ranks within the <strong>social hierarchy</strong> <span class="cn">（社会等级）</span> and the frequency or duration of activities with each toy type. Finally, data from the monkeys was compared to similar data relating to children obtained from a different study. This was an <strong>independent measures comparison</strong> <span class="cn">（独立测量比较）</span>.</p>
-
-<h3>4.2 Sample <span class="cn">（样本）</span></h3>
-
-<p>The participants were <strong>21 male and 61 female rhesus monkeys</strong> <span class="cn">（21只雄性和61只雌性恒河猴）</span> living in <strong>natal groups</strong> <span class="cn">（出生群体）</span> as part of a wider group of <strong>135 animals</strong> at the <strong>Yerkes primate research station</strong> <span class="cn">（耶基斯灵长类研究中心）</span> in the USA.</p>
-
-<p>Of these 135 animals:</p>
-<ul>
-  <li>14 adults were not studied as they had received hormone treatments</li>
-  <li>39 young infants were excluded as they could not be reliably identified</li>
-  <li>The final number of individuals used in the analysis was <strong>11 males and 23 females</strong></li>
-</ul>
-
-<p>Each natal group was housed in a <strong>25 &times; 25 metre outdoor area</strong> with access to a temperature-controlled indoor environment. They had water available, were given a standard monkey feed twice a day and additional fruit and vegetables once daily.</p>
-
-<h3>4.3 Procedure <span class="cn">（程序）</span></h3>
-
-<p>To reflect differences in activity preferences in sexually differentiated behaviours, the toys chosen were divided into two categories by their properties as objects rather than gender-typing, although the outcome of this categorisation was comparable to the traditional 'boys' toys', 'girls' toys' divide. The category of <strong>'wheeled toys'</strong> <span class="cn">（轮式玩具）</span> matched vehicle toys, typically for boys, and <strong>'plush toys'</strong> <span class="cn">（毛绒玩具）</span> matched typical girls' toys. 'Plush' toys are soft, cuddly ones.</p>
-
-<p>There were:</p>
-<ul>
-  <li>Six wheeled toys ranging in length from 16 to 46 cm (wagon, truck, car, construction vehicle, shopping cart, dump truck)</li>
-  <li>Seven plush toys ranging in length from 14 to 73 cm (Winnie-the-Pooh&trade;, Raggedy-Ann&trade;, koala hand puppet, armadillo, teddy bear, Scooby-Doo&trade;, turtle)</li>
-</ul>
-
-<p>Apart from size, the toys also varied in terms of shape and colour.</p>
-
-<p>For each social group, <strong>seven trials</strong> <span class="cn">（7次试验）</span>, each lasting <strong>25 minutes</strong>, were observed using two video cameras. Each trial began with all the monkeys in the group indoors while one plush toy and one wheeled toy were placed <strong>10 metres apart</strong> in the outdoor enclosure. One video recorder was directed towards each toy and the plush and wheeled toys were <strong>counterbalanced</strong> <span class="cn">（平衡/轮换）</span> between left and right locations on each trial. After each trial the toys were removed and the video tape was analysed by two observers working together to achieve a consensus. They identified each animal interacting with a toy and coded specific activities directed towards the toys using a <strong>behavioural checklist</strong> <span class="cn">（行为清单）</span> (see Table 2.3). The exact time at which each activity occurred was also recorded so, in addition to the frequency of each behaviour, a record of the duration of continuous activities was kept.</p>
-
-<figure>
-  <img src="monkey_playing.png" alt="A rhesus monkey playing with a wheeled toy in an outdoor enclosure.">
-  <figcaption><strong>Figure 2.7</strong> <span class="cn">（插图二：猴子玩玩具）</span>: A rhesus monkey interacting with a wheeled toy during the study. Monkeys were filmed in their outdoor enclosures and were free to approach and play with either a wheeled or a plush toy.</figcaption>
-</figure>
-
-<div class="issue-box">
-  <p><strong>Issues and Debates: Use of Animals in Psychological Research</strong></p>
-  <p>Rhesus monkeys are a highly intelligent, social species, so their needs in terms of housing and protection from pain and distress are great. However, those same characteristics, of intelligence and sociability, make them excellent models for human behaviour. There is therefore a balance between the potential benefits of conducting valid research on a species closely related to ourselves and the costs to the individual animals involved in the research.</p>
-</div>
-
-<hr>
-
-<h2 id="sec5">5. Behavioural Checklist <span class="cn">（行为清单）</span></h2>
-
-<h3>Table 2.3: Specific Activities Coded in Interactions with the Wheeled and Plush Toys <span class="cn">（与轮式和毛绒玩具互动中编码的具体行为）</span></h3>
-
-<table>
-  <thead>
-    <tr><th style="width: 28%;">Behaviour</th><th>Description of Behaviour</th></tr>
-  </thead>
-  <tbody>
-    <tr><td><strong>Extended touch</strong></td><td>Placing a hand or foot on toy</td></tr>
-    <tr><td><strong>Hold</strong></td><td>Stationary support with one or more limbs</td></tr>
-    <tr><td><strong>Sit on</strong></td><td>Seated on the toy or a part of the toy</td></tr>
-    <tr><td><strong>Carry in hand</strong></td><td>Moving with the toy in hand and off the ground</td></tr>
-    <tr><td><strong>Carry in arm</strong></td><td>Moving with the toy in arm and off the ground</td></tr>
-    <tr><td><strong>Carry in mouth</strong></td><td>Moving with the toy in mouth and off the ground</td></tr>
-    <tr><td><strong>Drag</strong></td><td>Moving the toy along the ground behind the animal</td></tr>
-    <tr><td><strong>Manipulate part</strong></td><td>Moving, twisting or turning a part</td></tr>
-    <tr><td><strong>Turn entire toy</strong></td><td>Shifting 3-D orientation of toy</td></tr>
-    <tr><td><strong>Touch</strong></td><td>Brief contact using hands or fingers</td></tr>
-    <tr><td><strong>Sniff</strong></td><td>Coming very close to the toy with the nose</td></tr>
-    <tr><td><strong>Mouth</strong></td><td>Brief oral contact – no biting or pulling</td></tr>
-    <tr><td><strong>Destroy</strong></td><td>Using mouth or hands to bite or tear toy</td></tr>
-    <tr><td><strong>Jump away</strong></td><td>Approach, then back away from toy with a jumping motion</td></tr>
-    <tr><td><strong>Throw</strong></td><td>Project into air with hands</td></tr>
-  </tbody>
-</table>
-
-<div class="issue-box">
-  <p><strong>Research Methods Note:</strong> The descriptions of behaviours in Table 2.3 are examples of <strong>operational definitions</strong> <span class="cn">（操作性定义）</span>. They enabled the observers who were coding the video tapes to work together to achieve <strong>inter-coder reliability</strong> <span class="cn">（编码者间信度）</span> and would allow other researchers to <strong>replicate</strong> <span class="cn">（重复验证）</span> the study.</p>
-</div>
-
-<hr>
-
-<h2 id="sec6">6. Results <span class="cn">（结果）</span></h2>
-
-<p>To analyse the data, the records for each behaviour for each animal were converted into an overall average frequency and duration for that individual. This was because each animal could have participated in a different number of activities in different trials. Not all individuals interacted with the toys and those with fewer than five total recorded behaviours were not used in the analysis (14 males and 3 females). The final number of individuals used in the analysis was <strong>11 males and 23 females</strong>.</p>
-
-<p>Comparisons were made between males and females and between each gender's preference for wheeled or plush toys. It was possible to make such comparisons on the basis of number of interactions (<strong>frequency</strong> <span class="cn">（频率）</span>) and how long time was spent interacting with the toy type (<strong>duration</strong> <span class="cn">（时长）</span>). The data in Table 2.4 is a summary of the results used in these comparisons.</p>
-
-<h3>Table 2.4: Mean Frequency and Duration of Interactions with Each Toy Type <span class="cn">（每种玩具类型的平均互动频率和时长）</span></h3>
-
-<table>
-  <thead>
-    <tr>
-      <th rowspan="2">Toy type</th>
-      <th rowspan="2">Sex of monkey</th>
-      <th colspan="2">Frequency</th>
-      <th colspan="2">Duration (minutes)</th>
-    </tr>
-    <tr>
-      <th>Mean</th>
-      <th>Standard deviation</th>
-      <th>Mean</th>
-      <th>Standard deviation</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td rowspan="2"><strong>Wheeled ('masculine' toy)</strong></td><td>Male</td><td>9.77</td><td>8.86</td><td>4.76</td><td>7.59</td></tr>
-    <tr><td>Female</td><td>6.96</td><td>4.92</td><td>1.27</td><td>2.2</td></tr>
-    <tr><td rowspan="2"><strong>Plush ('feminine' toy)</strong></td><td>Male</td><td>2.06</td><td>9.21</td><td>0.53</td><td>1.41</td></tr>
-    <tr><td>Female</td><td>7.97</td><td>10.48</td><td>1.49</td><td>3.81</td></tr>
-  </tbody>
-</table>
-
-<p>Statistical analyses comparing toy preferences <strong>within</strong> each sex, using frequency data, found that:</p>
-<ul>
-  <li>Males preferred wheeled compared to plush toys</li>
-  <li>Females did not show a preference for plush toys over wheeled toys</li>
-</ul>
-
-<p>A comparison <strong>between</strong> the sexes, again using frequency data, also found that females interacted with plush toys more than males, but there was no sex difference for wheeled toys. In comparisons of the duration data, males interacted for a longer time in total with wheeled toys than with plush toys. However, the duration of time spent interacting with the different toy types did not differ for females, who played for a similar total length of time with wheeled and plush toys.</p>
-
-<p>Even though the difference in play durations for the male monkeys was big enough to show a significant difference between time spent playing with wheeled and plush toys, no significant difference was found in a between-sex comparison. This means that there was <strong>no overall difference in the time</strong> that males and females spent with playing with the wheeled and plush toys.</p>
-
-<p>Further comparisons were made to calculate <strong>'magnitude of preference'</strong> <span class="cn">（偏好幅度）</span>, that is, how much males preferred the 'masculine' (wheeled) toy and how much females preferred the 'feminine' (plush) toy. For males, this was calculated by taking the difference 'total frequency of wheeled toy interaction &minus; total frequency of plush toy interaction'. For females, the equation 'total frequency of plush toy interaction &minus; total frequency of wheeled toy interaction' was used. The same type of comparison was also performed on the duration scores. Statistical analysis of these differences confirmed that:</p>
-<ul>
-  <li><strong>Male monkeys had a higher preference for 'masculine' (wheeled) toys</strong></li>
-  <li><strong>Female monkeys had a higher preference for 'feminine' (plush) toys</strong></li>
-</ul>
-
-<p>The results of a comparison of toy preferences of individual male and female animals are shown in Table 2.5.</p>
-
-<h3>Table 2.5: Preferences of Individual Monkeys for Different Toy Types <span class="cn">（个体猴子对不同玩具类型的偏好百分比）</span></h3>
-
-<table>
-  <thead>
-    <tr><th>Percentage of individuals preferring each toy type</th><th>Males</th><th>Females</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>Preference for wheeled toys</td><td>73%</td><td>39%</td></tr>
-    <tr><td>Preference for plush toys</td><td>9%</td><td>30%</td></tr>
-    <tr><td>No significant preference</td><td>18%</td><td>30%</td></tr>
-  </tbody>
-</table>
-
-<p>For males and females combined, rank and total frequency of interactions were positively correlated for the wheeled toy and for the plush toy. Using just the data for males, neither frequencies nor durations correlated with rank. For females, however, rank was positively correlated with frequency of interactions for the wheeled toy and for the plush toy, although rank only correlated with duration for the plush toy, not the wheeled toy. As this shows that rank may be related to toy interactions in females but not in males, it is unlikely that social rank is responsible for the sex differences in toy preference overall.</p>
-
-<p>Furthermore, although the sample size was too small for a detailed analysis of the results by age, comparisons were possible between wider groups. A comparison between juvenile, subadult, adult and old animals did not differ in terms of frequency or duration for either toy type.</p>
-
-<h3>Figure 2.8: Sex Differences in Children's and Rhesus Monkeys' Play with Stereotypically Masculine and Feminine Toys <span class="cn">（儿童与恒河猴对性别刻板玩具玩耍的性别差异）</span></h3>
-
-<p>Hassett et al. compared the data for the frequencies of interactions by the monkeys with different toy types to data for the durations of similar behaviours in children. The data for children was taken from another study (Berenbaum and Hines, 1992). The comparison is shown in Figure 2.8, which illustrates that the patterns are very similar.</p>
-
-<p>Both the rhesus monkeys and the human children showed gender differences, with males preferring masculine toys and females preferring feminine toys. In addition, for human children, as with rhesus monkeys, the preference was much more marked for males than for females.</p>
-
-<hr>
-
-<h2 id="sec7">7. Conclusion <span class="cn">（结论）</span></h2>
-
-<p>The results show that, like boys, male monkeys have a strong preference for masculine-type toys, in this case ones with wheels. Female monkeys, like young girls, are more variable in their toy preferences. In addition, the extent to which individuals preferred masculine or feminine (in this case plush) toys differed between males and females, with male monkeys showing much stronger preferences for wheeled toys than female monkeys did for plush toys.</p>
-
-<p>Hassett et al. argue that their findings support a <strong>biological explanation</strong> <span class="cn">（生物学解释）</span> for toy preferences. Specifically, they concluded that these preferences develop in the <strong>absence of socialisation</strong> <span class="cn">（在没有社会化的情况下）</span>. This is because in monkeys, unlike in humans, only hormonal differences not social ones can be responsible for the differences in development of males and females. Importantly, such biologically driven differences could interact with <strong>social pressures</strong> <span class="cn">（社会压力）</span> on children. Boys choosing girls' toys tend to receive more negative responses than girls choosing boys' toys. This would reinforce a pre-existing biological tendency for boys to be more masculine in their toy choices and for girls to remain more variable in their choices.</p>
-
-<hr>
-
-<h2 id="sec8">8. Strengths and Weaknesses <span class="cn">（优点与缺点）</span></h2>
-
-<h3>8.1 Strengths</h3>
-
-<p>A key strength of this study was the use of animals to <strong>eliminate the effect of socialisation</strong> <span class="cn">（消除社会化的影响）</span>. This was taken further, to exclude <strong>confounding variables</strong> <span class="cn">（混淆变量）</span> that could affect social interactions, such as age and social rank. The age of individuals was known as the monkey group had been established for over 25 years. Social rank had been assessed though behavioural observations of who groomed whom, dominance behaviours and submissive behaviours. Analysis demonstrated that these social factors had little effect on the sex differences in toy preference.</p>
-
-<p>The observation process was highly <strong>standardised</strong> <span class="cn">（标准化）</span>, for example with clear <strong>operational definitions</strong> <span class="cn">（操作性定义）</span> of behaviours to improve reliability. The trials were of a standard length of 25 minutes, however, one had to finish 7 minutes early as the plush toy was torn into pieces.</p>
-
-<h3>8.2 Weaknesses</h3>
-
-<p>A weakness of the study was that there were some differences in the way that the monkeys and the children were compared. For example, the masculine and feminine toys offered to the monkeys were chosen for their object properties rather than because they were gender-stereotyped toys for children. The measures of 'masculine' and 'feminine' play were also different for the monkeys and the children. The children were assessed in a different study using different toys and only measuring <strong>duration of play</strong> <span class="cn">（玩耍时长）</span> not frequency. Furthermore, the most significant comparison was between <strong>frequency</strong> for the monkeys and <strong>duration</strong> for the children, rather than duration for both.</p>
-
-<p>The study used to provide data about children tested each participant individually. In contrast, this study observed the monkeys in <strong>groups</strong> <span class="cn">（群体）</span>. This methodological difference may have been important. Alexander and Hines (2002) studied the interactions of vervet monkeys with toys and found the same pattern of gender difference in that a greater proportion of males' toy interactions were with masculine toys and a greater proportion of females' toy interactions were with feminine toys. However, in contrast to both children and Hassett et al.'s rhesus monkeys, the vervet males interacted for a similar amount of time with masculine and feminine toys, unlike females, who were more gender-specific in their duration of play, spending more time with feminine toys. Rather than being a genuine species difference, this pattern could have been explained by the way toys were presented to the vervet monkeys — one at a time rather than together — thus, they were not given a genuine 'choice'. Similarly, testing monkeys in groups and children alone could have influenced the findings in Hassett et al.'s study.</p>
-
-<h3>8.3 Issues and Debates: Nature versus Nurture <span class="cn">（先天与后天）</span></h3>
-
-<div class="issue-box">
-  <p>Has the study by Hassett et al. overlooked the possibility that early socialisation in primates may influence the gendered development of play behaviours? This would suggest there may be a 'nurture' explanation, even in animals. However, Hassett et al. report a study by Alexander and Hines (2002) on vervet monkeys, which found that unlike human boys, male vervets play as much with masculine as with feminine toys. In contrast to human girls, who spend very similar amounts of time with 'masculine' and 'feminine' toys, the female vervets played for significantly longer with feminine than with masculine toys. Although this may superficially look as though it supports a nature view, it would require that female vervet monkeys are more strongly socialised to prefer female toys than human girls are. This seems unlikely, so overall findings from animal studies support the idea that <strong>gender differences in toys preferences are the result of nature</strong> <span class="cn">（性别差异是天生的）</span>.</p>
-</div>
-
-<hr>
-
-<h2 id="sec9">9. Ethical Issues <span class="cn">（伦理问题）</span></h2>
-
-<p>Research with non-human animals is typically controlled by laws, and psychological institutions offer guidelines for their use. This study was conducted following appropriate <strong>ethical guidelines</strong> <span class="cn">（伦理准则）</span> for the care of animals in the USA and was approved by <strong>Emory University</strong> <span class="cn">（埃默里大学）</span>'s ethical committee on animal care and use. In terms of feeding, the animals received regular and appropriate food (twice daily monkey feed plus daily fruit and vegetables) and had constant access to water. They were ethically housed in family groups, in large enclosures, with access to both a temperature-controlled indoor area and an outdoor area. The observation using cameras would not have been distressing and the level of interactions with the toys suggests that their novelty was not in general a source of psychological distress or physical pain. However, one toy was destroyed but it is unknown whether this was a playful act or a reflection of distress.</p>
-
-<hr>
-
-<h2 id="sec10">10. Summary <span class="cn">（总结）</span></h2>
-
-<p>Hassett et al.'s study investigated whether rhesus monkeys show a similar pattern of sex differences in toy preferences to children. In studies where the participants are children, it is difficult to separate any biological causation from social effects. In monkeys, however, the role of <strong>hormonal influences on toy preferences</strong> <span class="cn">（激素对玩具偏好的影响）</span>, without the effect of socialisation, would be clear. Videoed observations of groups of monkeys given a masculine (wheeled) toy and a feminine (plush) toy were analysed using a behavioural checklist of interactions. They found that male monkeys, like boys, prefer masculine toys and female monkeys, like girls, have less fixed preferences in their toy choices. This evidence supports a biological explanation for toy preference because the monkeys' preferences must have developed without the effect of socialisation to which children are normally exposed.</p>
-
-<hr>
-
-<h2 id="sec11">11. Key Terms <span class="cn">（关键词）</span></h2>
-
-<table>
-  <thead>
-    <tr><th style="width: 32%;">Term</th><th>Definition</th></tr>
-  </thead>
-  <tbody>
-    <tr><td><strong>Sex differences</strong> <span class="cn">（性别差异）</span></td><td>Differences between males and females caused directly by sex, including physical and behavioural differences</td></tr>
-    <tr><td><strong>Hormones</strong> <span class="cn">（激素）</span></td><td>Chemicals in the body that affect behaviour and development, e.g. testosterone and oestrogen</td></tr>
-    <tr><td><strong>Testosterone</strong> <span class="cn">（睾酮）</span></td><td>Male hormone associated with strength, aggression and spatial skills</td></tr>
-    <tr><td><strong>Oestrogen</strong> <span class="cn">（雌激素）</span></td><td>Female hormone associated with nurturing behaviours</td></tr>
-    <tr><td><strong>Socialisation</strong> <span class="cn">（社会化）</span></td><td>The process of learning to behave in socially acceptable ways</td></tr>
-    <tr><td><strong>Gender stereotype</strong> <span class="cn">（性别刻板印象）</span></td><td>A culturally determined, oversimplified belief about characteristics of males and females</td></tr>
-    <tr><td><strong>Play</strong> <span class="cn">（玩耍）</span></td><td>Behaviour typical of childhood, done for fun rather than useful purpose</td></tr>
-    <tr><td><strong>Masculine toys</strong> <span class="cn">（男性化玩具）</span></td><td>Toys traditionally associated with boys, e.g. wheeled toys</td></tr>
-    <tr><td><strong>Feminine toys</strong> <span class="cn">（女性化玩具）</span></td><td>Toys traditionally associated with girls, e.g. plush toys</td></tr>
-    <tr><td><strong>Prenatal hormonal exposure</strong> <span class="cn">（产前激素暴露）</span></td><td>Hormones a foetus is exposed to during gestation</td></tr>
-    <tr><td><strong>Androgens</strong> <span class="cn">（雄激素）</span></td><td>Male hormones, e.g. testosterone</td></tr>
-    <tr><td><strong>Biological explanation</strong> <span class="cn">（生物学解释）</span></td><td>Explaining behaviour in terms of biological factors such as hormones and genetics</td></tr>
-    <tr><td><strong>Independent measures design</strong> <span class="cn">（独立测量设计）</span></td><td>Different participants in each condition of an experiment</td></tr>
-    <tr><td><strong>Dependent variable</strong> <span class="cn">（因变量）</span></td><td>What is measured in an experiment</td></tr>
-    <tr><td><strong>Independent variable</strong> <span class="cn">（自变量）</span></td><td>What is manipulated in an experiment</td></tr>
-    <tr><td><strong>Confounding variables</strong> <span class="cn">（混淆变量）</span></td><td>Variables other than the IV that could affect the DV</td></tr>
-    <tr><td><strong>Operational definitions</strong> <span class="cn">（操作性定义）</span></td><td>Clear, precise definitions of behaviours or variables that can be measured</td></tr>
-    <tr><td><strong>Inter-coder reliability</strong> <span class="cn">（编码者间信度）</span></td><td>The degree of agreement between different observers coding the same behaviour</td></tr>
-    <tr><td><strong>Magnitude of preference</strong> <span class="cn">（偏好幅度）</span></td><td>How much an individual prefers one option over another</td></tr>
-    <tr><td><strong>Social hierarchy</strong> <span class="cn">（社会等级）</span></td><td>The ranking of individuals within a social group</td></tr>
-    <tr><td><strong>Standardised</strong> <span class="cn">（标准化）</span></td><td>Carried out in the same way for all participants</td></tr>
-    <tr><td><strong>Field experiment</strong> <span class="cn">（现场实验）</span></td><td>An experiment conducted in the participants' natural environment</td></tr>
-    <tr><td><strong>Nature versus nurture</strong> <span class="cn">（先天与后天）</span></td><td>The debate about whether behaviour is caused by biological or environmental factors</td></tr>
-  </tbody>
-</table>
-
-<hr>
-
-<h2 id="sec12">12. Study Questions <span class="cn">（练习题）</span></h2>
-
-<ol>
-  <li>What was the aim of the study by Hassett et al. (2008)?</li>
-  <li>Why was it useful to use rhesus monkeys in this study?</li>
-  <li>What were the two types of toy used and how were they chosen?</li>
-  <li>How were the toys different? (原书 Question 4)</li>
-  <li>Why did Hassett et al. exclude some of the monkeys from this study? (原书 Question 5)</li>
-  <li>How was the data about children obtained? (原书 Question 6)</li>
-  <li>Why was a correlation of social rank and total frequency of interactions conducted? (原书 Question 7)</li>
-  <li>What were the main findings of the study?</li>
-  <li>What conclusion did Hassett et al. draw about the cause of toy preferences?</li>
-  <li>Describe one strength and one weakness of the study.</li>
-</ol>
-
-<div class="note">
-  <strong>Note:</strong> This text is organised based on content identified from the CIE Psychology textbook Core Study 2 screenshots. Please review and refine as needed.
-</div>
-
-
-<style>
-/* Study Navigator */
-.study-nav{border-top:2px solid #e0e0e0;background:#FAFAFA;padding:14px 16px;margin-top:2rem}
-.study-nav-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:880px;margin:0 auto}
-.study-nav-btn{flex:1;padding:9px 14px;border:1px solid #ddd;border-radius:8px;background:white;color:#444;font-size:.82rem;cursor:pointer;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:4px;transition:all .15s;font-family:inherit}
-.study-nav-btn:hover{border-color:#1565C0;color:#1565C0;background:#f8fbff}
-.study-nav-dots{text-align:center;padding:0 8px}
-.study-nav-label{font-size:.65rem;text-transform:uppercase;letter-spacing:1px;color:#888;margin-bottom:5px;font-weight:700}
-.study-dot-row{display:flex;gap:5px;justify-content:center;flex-wrap:wrap}
-.study-dot{width:10px;height:10px;border-radius:50%;cursor:pointer;border:2px solid transparent;transition:all .15s;position:relative;display:inline-block}
-.study-dot:hover{transform:scale(1.3)}
-.study-dot.active{border-color:#333;transform:scale(1.25)}
-@media(max-width:600px){
-    .study-nav-inner{flex-wrap:wrap;gap:8px}
-    .study-nav-btn{font-size:.75rem;padding:7px 10px}
-    .study-dot{width:8px;height:8px}
-}
-</style>
-<div class="study-nav">
-  <div class="study-nav-inner">
-    <a class="study-nav-btn" style="opacity:.4;cursor:not-allowed;pointer-events:none">← —</a>
-    <div class="study-nav-dots">
-      <div class="study-nav-label">Biological</div>
-      <div class="study-dot-row">
-        <span class="study-dot active" style="background:#C62828" data-title="Hassett (2008)"></span><span class="study-dot" style="background:#C62828" data-title="Dement (1957)" onclick="location.href='../dement/'"></span><span class="study-dot" style="background:#1565C0" data-title="Baron-Cohen (2001)" onclick="location.href='../baron-cohen/'"></span><span class="study-dot" style="background:#1565C0" data-title="Hölzel (2011)" onclick="location.href='../hoelzel/'"></span><span class="study-dot" style="background:#1565C0" data-title="Andrade (2010)" onclick="location.href='../andrade/'"></span><span class="study-dot" style="background:#2E7D32" data-title="Piliavin (1969)" onclick="location.href='../piliavin/'"></span><span class="study-dot" style="background:#2E7D32" data-title="Milgram (1963)" onclick="location.href='../milgram/'"></span><span class="study-dot" style="background:#E87722" data-title="Bandura (1961)" onclick="location.href='../bandura/'"></span><span class="study-dot" style="background:#E87722" data-title="Fagen (2014)" onclick="location.href='../fagen/'"></span><span class="study-dot" style="background:#E87722" data-title="Saavedra (2002)" onclick="location.href='../saavedra/'"></span><span class="study-dot" style="background:#7B1FA2" data-title="Perry (2015)" onclick="location.href='../perry/'"></span><span class="study-dot" style="background:#7B1FA2" data-title="Pozzulo (2011)" onclick="location.href='../pozzulo/'"></span>
+<div class="progress-bar" id="progressBar"></div>
+
+<div class="container">
+
+<!-- Sticky Navigation Bar -->
+<nav class="nav-bar">
+  <a href="../../index.html" class="nav-pill">🏠 Home</a>
+  <div class="nav-breadcrumb">
+    <a href="../../index.html">Home</a><span class="sep">›</span>
+    <a href="../">CIE Psychology</a><span class="sep">›</span><span>Hassett (2008)</span>
+  </div>
+  <div class="nav-controls">
+    <button class="nav-btn" onclick="toggleDarkMode()" id="darkBtn" title="Toggle dark mode">🌙 Dark</button>
+    <button class="nav-btn" onclick="adjustFontSize(-1)" title="Decrease font size">A-</button>
+    <button class="nav-btn" onclick="adjustFontSize(1)" title="Increase font size">A+</button>
+  </div>
+</nav>
+
+<div class="page-layout">
+  <!-- LEFT SIDEBAR NAVIGATION -->
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+      <div class="sb-header">
+        <div class="sb-header-title">🐵 Hassett 2008</div>
+        <div class="sb-header-sub">Monkey Toy Preferences</div>
       </div>
+      <ul class="sb-list" id="sidebarList">
+        <li class="sb-item"><a href="#s1">Background</a></li>
+        <li class="sb-item"><a href="#s2">Aim</a></li>
+        <li class="sb-divider"></li>
+        <li class="sb-item"><a href="#s3">Method</a></li>
+        <li class="sb-item"><a href="#s4">Procedure</a></li>
+        <li class="sb-divider"></li>
+        <li class="sb-item"><a href="#s5">Results</a></li>
+        <li class="sb-item"><a href="#s6">Discussion</a></li>
+        <li class="sb-divider"></li>
+        <li class="sb-item"><a href="#s7">Conclusions</a></li>
+        <li class="sb-item"><a href="#s8">Evaluation</a></li>
+        <li class="sb-item"><a href="#s9">Ethics</a></li>
+        <li class="sb-divider"></li>
+        <li class="sb-item"><a href="#s10">Summary</a></li>
+        <li class="sb-item"><a href="#s11">Questions</a></li>
+        <li class="sb-item"><a href="#s12">Key Terms</a></li>
+      </ul>
     </div>
-    <a class="study-nav-btn" href="../dement/">Dement (1957) →</a>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+
+<!-- HEADER -->
+<div class="header">
+  <h1>🐵 Hassett et al. (2008)</h1>
+  <div class="subtitle">Sex Differences in Rhesus Monkey Toy Preferences Parallel Those of Children<br>（恒河猴玩具偏好的性别差异与人类儿童平行）</div>
+  <div class="meta">
+    Hassett, S.E., Siebert, E.R., & Wallen, K. (2008)<br>
+    <em>Evolution and Human Behavior</em>, <strong>29</strong>(4), 264–271
+  </div>
+  <div class="badges">
+    <span class="badge">🐵 Males = Wheeled Toys</span>
+    <span class="badge">👩 Females = Plush Dolls</span>
+    <span class="badge">🧬 Biological Basis?</span>
+    <span class="badge">🧠 Biological Approach</span>
   </div>
 </div>
 
+<!-- ==================== SECTION 1: BACKGROUND ==================== -->
+<div class="section" id="s1">
+  <h2>1️⃣ Background（研究背景）</h2>
+
+  <div class="visual-header">
+    <span class="vh-icon">🎯</span>
+    <div class="vh-text">
+      <h4>Research Question</h4>
+      <p>Are gender-typed toy preferences innate (biological) or learned (socialised)?</p>
+    </div>
+  </div>
+
+  <h3>The Nature vs Nurture Debate</h3>
+  <p>One of the most enduring questions in developmental psychology is whether behavioural differences between males and females are the result of <strong>biological factors</strong> (nature) or <strong>socialisation processes</strong> (nurture).</p>
+
+  <p>Children's toy preferences have long been observed to follow <strong>gender-stereotyped patterns</strong>:</p>
+  <ul>
+    <li><strong>Boys</strong> tend to prefer wheeled toys, vehicles, and construction sets</li>
+    <li><strong>Girls</strong> tend to prefer dolls, plush toys, and role-play items</li>
+  </ul>
+
+  <div class="figure">
+    <img src="hassett_images/gender_stereotyped_toys.jpg" alt="Gender stereotyped toys in stores - boys' section with Lego/vehicles vs girls' section with dolls/pink items">
+    <div class="figure-caption">Figure 2.6: Gender-stereotyped toy displays in retail stores — wheeled toys (left) typically marketed to boys, plush dolls (right) marketed to girls</div>
+  </div>
+
+  <div class="key-term">
+    <strong>Gender-typed toy preferences</strong>: The tendency for individuals to show consistent preferences for toys that are culturally associated with their own gender.
+  </div>
+
+  <h3>Previous Research Limitations</h3>
+  <p>Studies with human children cannot definitively separate biological from social influences because:</p>
+  <ol>
+    <li>Children are exposed to <strong>gender socialisation</strong> from birth (parents, peers, media)</li>
+    <li>Ethical constraints prevent controlled experiments on human infants</li>
+    <li>Even very young children may have already learned gender-appropriate behaviours</li>
+  </ol>
+
+  <h3>The Rhesus Monkey Solution 🔑</h3>
+  <p>Hassett et al. (2008) proposed an elegant solution: study <strong>rhesus monkeys</strong> (<em>Macaca mulatta</em>), a non-human primate species that:</p>
+  <ul>
+    <li>Shares approximately <strong>93-95% of human DNA</strong></li>
+    <li>Exhibits similar brain structure and hormonal influences</li>
+    <li>Has <strong>NOT been exposed</strong> to human gender socialisation or cultural stereotypes</li>
+    <li>Can be observed in naturalistic settings without ethical concerns about manipulation</li>
+  </ul>
+
+  <div class="warn-box">
+    <h4>⚠️ Critical Thinking Point</h4>
+    <p>If monkeys show the same gender-typed toy preferences as human children, this would provide <strong>compelling evidence for a biological basis</strong> of such preferences — as monkeys have not been influenced by human culture, media, or peer pressure.</p>
+  </div>
+
+  <!-- Chinese Summary -->
+  <div class="cn-summary-wrap">
+    <button class="cn-summary-toggle" onclick="toggleCnSummary(this)">
+      <span class="cs-icon">▶</span> 中文逻辑总结
+    </button>
+    <div class="cn-summary-body">
+      <div class="cs-title">§1 研究背景</div>
+      <p><strong>逻辑链：</strong>人类儿童存在性别刻板印象的玩具偏好 → 无法确定是先天还是后天 → 用恒河猴测试（无社会化影响）→ 如果猴子也有同样偏好，说明可能是生物因素。</p>
+      <ul>
+        <li><span class="cs-en">Nature vs Nurture（先天 vs 后天）</span>：发展心理学的核心争论</li>
+        <li><span class="cs-en">Gender Socialisation（性别社会化）</span>：从出生开始接受的社会影响</li>
+        <li><span class="cs-en">Rhesus Monkeys（恒河猴）</span>：与人类基因高度相似的非人灵长类动物</li>
+      </ul>
+      <p><strong>💡 考试要点：</strong>CIE 常问 "Why use rhesus monkeys?" 答案：排除社会化变量、伦理可行性、与人类高度相似的生物学基础。</p>
+    </div>
+  </div>
+
+  <!-- Exam Key Points -->
+  <div class="summary-card" id="summary-s1">
+    <div class="summary-card-header" onclick="toggleSummary('summary-s1')">
+      <span class="summary-card-icon">▶</span>
+      <span class="summary-card-title">Exam Key Points — Background</span>
+      <span class="summary-card-badge">AO1+AO3</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ul>
+          <li>Gender differences in toy preferences well-documented in children <span class="tag-must">Must Know</span></li>
+          <li>Cannot determine nature vs nurture from human studies alone <span class="tag-common">Common Q</span></li>
+          <li>Rhesus monkeys share ~93-95% DNA with humans <span class="tag-context">Context</span></li>
+          <li>Monkeys provide "natural experiment" free from human socialisation <span class="tag-must">Must Know</span></li>
+          <li>If monkeys show same pattern → supports biological explanation <span class="tag-ao2">AO2 Gold</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SECTION 2: AIM ==================== -->
+<div class="section" id="s2">
+  <h2>2️⃣ Aim（研究目的）</h2>
+
+  <div class="highlight-box">
+    <h4>🎯 Research Aim</h4>
+    <p><strong>To investigate whether rhesus monkeys exhibit sex differences in toy preferences that parallel those observed in human children.</strong></p>
+  </div>
+
+  <h3>Specific Objectives</h3>
+  <ol>
+    <li>To measure the amount of time male and female monkeys spend interacting with different types of toys</li>
+    <li>To compare these preferences across sexes</li>
+    <li>To determine if any observed differences mirror human gender-typed toy preferences</li>
+  </ol>
+
+  <h3>Research Hypotheses</h3>
+  <div class="two-col">
+    <div class="col-card">
+      <h4>Alternative Hypothesis (H₁)</h4>
+      <p>Male monkeys will spend significantly more time with <strong>wheeled toys</strong>, while female monkeys will spend significantly more time with <strong>plush toys</strong>.</p>
+      <p><em>This would support a biological basis for gender-typed preferences.</em></p>
+    </div>
+    <div class="col-card">
+      <h4>Null Hypothesis (H₀)</h4>
+      <p>There will be <strong>no significant difference</strong> in toy preferences between male and female rhesus monkeys.</p>
+      <p><em>This would suggest that gender-typed preferences in humans are primarily due to socialisation.</em></p>
+    </div>
+  </div>
+
+  <!-- Chinese Summary -->
+  <div class="cn-summary-wrap">
+    <button class="cn-summary-toggle" onclick="toggleCnSummary(this)">
+      <span class="cs-icon">▶</span> 中文逻辑总结
+    </button>
+    <div class="cn-summary-body">
+      <div class="cs-title">§2 研究目的</div>
+      <p><strong>核心目标：</strong>调查恒河猴是否表现出与人类儿童平行的性别差异玩具偏好。</p>
+      <ul>
+        <li><span class="cs-en">H₁ (备择假设)</span>：雄猴偏好轮式玩具，雌猴偏好毛绒玩具 → 支持生物基础论</li>
+        <li><span class="cs-en">H₀ (零假设)</span>：两性之间无显著差异 → 支持社会化理论</li>
+      </ul>
+      <p><strong>💡 考试技巧：</strong>CIE 可能要求你写出 H₁ 和 H₀。记住：H₁ 是研究者希望证明的假设（有方向性），H₀ 是无差异假设。</p>
+    </div>
+  </div>
+
+  <!-- Exam Key Points -->
+  <div class="summary-card" id="summary-s2">
+    <div class="summary-card-header" onclick="toggleSummary('summary-s2')">
+      <span class="summary-card-icon">▶</span>
+      <span class="summary-card-title">Exam Key Points — Aim & Hypotheses</span>
+      <span class="summary-card-badge">AO1</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ul>
+          <li>Aim: Investigate sex differences in monkey toy preferences <span class="tag-must">Must Know</span></li>
+          <li>H₁: Males prefer wheeled toys; females prefer plush toys <span class="tag-must">Must Know</span></li>
+          <li>H₀: No significant difference between sexes <span class="tag-common">Common Q</span></li>
+          <li>Directional (one-tailed) hypothesis based on previous research <span class="tag-ao2">AO2 Gold</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SECTION 3: METHOD ==================== -->
+<div class="section" id="s3">
+  <h2>3️⃣ Method（研究方法）</h2>
+
+  <div class="visual-header">
+    <span class="vh-icon">🔬</span>
+    <div class="vh-text">
+      <h4>Research Design</h4>
+      <p>Naturalistic observation / Co-relational study</p>
+    </div>
+  </div>
+
+  <h3>3.1 Research Design</h3>
+  <table>
+    <tr><th>Characteristic</th><th>Details</th></tr>
+    <tr><td><strong>Type</strong></td><td>Naturalistic observation (controlled setting)</td></tr>
+    <tr><td><strong>Approach</strong></td><td>Biological approach (evolutionary perspective)</td></tr>
+    <tr><td><strong>Design</strong></td><td>Independent measures (between subjects)</td></tr>
+    <tr><td><strong>Variables</strong></td><td>IV: Sex of monkey (male/female)<br>DV: Time spent with each toy category</td></tr>
+  </table>
+
+  <h3>3.2 Sample (Participants) 📊</h3>
+  <div class="highlight-box">
+    <h4>Sample Characteristics</h4>
+    <table>
+      <tr><th>Category</th><th>Details</th></tr>
+      <tr><td><strong>Species</strong></td><td>Rhesus macaques (<em>Macaca mulatta</em>)</td></tr>
+      <tr><td><strong>Total N</strong></td><td>84 monkeys</td></tr>
+      <tr><td><strong>Males</strong></td><td>40 males</td></tr>
+      <tr><td><strong>Females</strong></td><td>44 females</td></tr>
+      <tr><td><strong>Age range</strong></td><td>1–3 years (juvenile/sub-adult)</td></tr>
+      <tr><td><strong>Setting</strong></td><td>California National Primate Research Center</td></tr>
+      <tr><td><strong>Sampling method</strong></td><td>Opportunity sampling (all available monkeys in colony)</td></tr>
+    </table>
+  </div>
+
+  <div class="warn-box">
+    <h4>⚠️ Why This Sample Size Matters</h4>
+    <p>N=84 is a <strong>reasonably large sample</strong> for primate research. Larger samples increase statistical power and make it easier to detect genuine effects. The near-equal split (40M : 44F) also allows fair comparison between sexes.</p>
+  </div>
+
+  <h3>3.3 Materials / Stimuli 🧸</h3>
+  <p>Researchers selected <strong>six categories of toys</strong>, classified into three types:</p>
+
+  <table>
+    <tr><th>Toy Type</th><th>Examples</th><th>Human Gender Association</th></tr>
+    <tr>
+      <td><strong>Wheeled Toys ("Masculine")</strong></td>
+      <td>Dump truck, wagon, race car, police car, fire truck</td>
+      <td>Typically preferred by boys</td>
+    </tr>
+    <tr>
+      <td><strong>Plush Toys ("Feminine")</strong></td>
+      <td>Doll, stuffed animals, teddy bear, rag doll</td>
+      <td>Typically preferred by girls</td>
+    </tr>
+    <tr>
+      <td><strong>Neutral Toys</strong></td>
+      <td>Picture books, non-wheeled non-plush items</td>
+      <td>No clear gender association</td>
+    </tr>
+  </table>
+
+  <div class="key-term">
+    <strong>Operationalisation of DV</strong>: The dependent variable was operationalised as the <strong>duration of physical contact</strong> (in seconds) between each monkey and each type of toy during observation sessions.
+  </div>
+
+  <h3>3.4 Controls 🛡️</h3>
+  <ul>
+    <li>All toys were <strong>novel</strong> to the monkeys (no prior exposure)</li>
+    <li>Toys were presented in a <strong>standardised arrangement</strong></li>
+    <li>Observation conditions were kept <strong>consistent</strong> across sessions</li>
+    <li>Same observers used throughout to maintain <strong>inter-rater reliability</strong></li>
+    <li>Time of day and environmental conditions were <strong>controlled</strong></li>
+  </ul>
+
+  <!-- Chinese Summary -->
+  <div class="cn-summary-wrap">
+    <button class="cn-summary-toggle" onclick="toggleCnSummary(this)">
+      <span class="cs-icon">▶</span> 中文逻辑总结
+    </button>
+    <div class="cn-summary-body">
+      <div class="cs-title">§3 研究方法</div>
+      <p><strong>设计类型：</strong><span class="cs-en">Naturalistic Observation（自然观察法）</span> + Independent Measures（独立样本设计）</p>
+      <ul>
+        <li><span class="cs-en">IV (自变量)</span>：猴子的性别（雄性/雌性）</li>
+        <li><span class="cs-en">DV (因变量)</span>：与每类玩具互动的时间（秒）</li>
+        <li><span class="cs-en">Sample (样本)</span>：84只恒河猴（40雄 + 44雌），年龄1-3岁</li>
+        <li><span class="cs-en">Controls (控制变量)</span>：玩具新颖性、标准化摆放、一致的环境条件</li>
+      </ul>
+      <p><strong>💡 考试要点：</strong>能说出 IV/DV 的操作化定义是 AO1 高分关键！DV = 物理接触时长（秒）。</p>
+    </div>
+  </div>
+
+  <!-- Exam Key Points -->
+  <div class="summary-card" id="summary-s3">
+    <div class="summary-card-header" onclick="toggleSummary('summary-s3')">
+      <span class="summary-card-icon">▶</span>
+      <span class="summary-card-title">Exam Key Points — Method</span>
+      <span class="summary-card-badge">AO1</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ul>
+          <li>Design: Naturalistic observation + independent measures <span class="tag-must">Must Know</span></li>
+          <li>Sample: N=84 (40M, 44F) juvenile rhesus monkeys <span class="tag-must">Must Know</span></li>
+          <li>IV: Sex of monkey (male/female) <span class="tag-must">Must Know</span></li>
+          <li>DV: Duration of contact with each toy type (seconds) <span class="tag-must">Must Know</span></li>
+          <li>Three toy categories: wheeled, plush, neutral <span class="tag-common">Common Q</span></li>
+          <li>Opportunity sampling from primate research centre <span class="tag-context">Context</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SECTION 4: PROCEDURE ==================== -->
+<div class="section" id="s4">
+  <h2>4️⃣ Procedure（实验程序）</h2>
+
+  <div class="visual-header">
+    <span class="vh-icon">📋</span>
+    <div class="vh-text">
+      <h4>Step-by-Step Process</h4>
+      <p>Standardised presentation of toys + timed observation sessions</p>
+    </div>
+  </div>
+
+  <h3>Phase 1: Preparation</h3>
+  <ol>
+    <li>Six different toys (two from each category) were <strong>selected and cleaned</strong></li>
+    <li>Toys were placed in the monkeys' <strong>familiar living enclosure</strong> in a standardised arrangement</li>
+    <li>Recording equipment was set up to capture interactions unobtrusively</li>
+  </ol>
+
+  <h3>Phase 2: Data Collection</h3>
+  <ol start="4">
+    <li>Individual monkeys were allowed to <strong>freely explore</strong> the toy area</li>
+    <li>Observers recorded the <strong>duration of contact</strong> between each monkey and each toy using stopwatches</li>
+    <li>Contact was defined as <strong>physical touching or holding</strong> of the toy</li>
+    <li>Each monkey was observed over <strong>multiple sessions</strong> to ensure reliability</li>
+    <li>Total observation time varied but was <strong>consistent across individuals</strong></li>
+  </ol>
+
+  <h3>Phase 3: Data Recording</h3>
+  <ul>
+    <li>For each monkey, researchers calculated:
+      <ul>
+        <li>Total time spent with <strong>wheeled toys</strong></li>
+        <li>Total time spent with <strong>plush toys</strong></li>
+        <li>Total time spent with <strong>neutral toys</strong></li>
+      </ul>
+    </li>
+    <li>Data was then analysed comparing <strong>males vs females</strong> across all categories</li>
+  </ul>
+
+  <div class="activity">
+    <h4>💡 Think About It</h4>
+    <p>Why did researchers use the monkeys' familiar enclosure rather than a novel testing room? <br><br>
+    <strong>Answer:</strong> Using a familiar environment reduces stress and allows more natural behaviour — increasing <strong>ecological validity</strong>. Stressed animals may not show typical preferences.</p>
+  </div>
+
+  <!-- Chinese Summary -->
+  <div class="cn-summary-wrap">
+    <button class="cn-summary-toggle" onclick="toggleCnSummary(this)">
+      <span class="cs-icon">▶</span> 中文逻辑总结
+    </button>
+    <div class="cn-summary-body">
+      <div class="cs-title">§4 实验程序</div>
+      <p><strong>三阶段流程：</strong></p>
+      <ul>
+        <li><span class="cs-en">Phase 1 (准备)</span>：选择6个玩具（每类2个），清洁后放入熟悉的生活区域</li>
+        <li><span class="cs-en">Phase 2 (数据收集)</span>：让猴子自由探索，记录员用秒表记录每次接触时长</li>
+        <li><span class="cs-en">Phase 3 (数据整理)</span>：计算每只猴子与三类玩具的总接触时间</li>
+      </ul>
+      <p><strong>💡 关键细节：</strong>"Contact" 的操作化定义 = 物理触摸或持有玩具的时间。在熟悉环境中进行 = 提高生态效度。</p>
+    </div>
+  </div>
+
+  <!-- Exam Key Points -->
+  <div class="summary-card" id="summary-s4">
+    <div class="summary-card-header" onclick="toggleSummary('summary-s4')">
+      <span class="summary-card-icon">▶</span>
+      <span class="summary-card-title">Exam Key Points — Procedure</span>
+      <span class="summary-card-badge">AO1</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ul>
+          <li>Toys placed in familiar living enclosure (not novel lab) <span class="tag-must">Must Know</span></li>
+          <li>Free exploration — no forced interaction <span class="tag-common">Common Q</span></li>
+          <li>DV measured via stopwatch: duration of physical contact <span class="tag-must">Must Know</span></li>
+          <li>Multiple sessions per individual for reliability <span class="tag-context">Context</span></li>
+          <li>Familiar environment increases ecological validity <span class="tag-ao2">AO2 Gold</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SECTION 5: RESULTS ==================== -->
+<div class="section" id="s5">
+  <h2>5️⃣ Results（研究结果）</h2>
+
+  <div class="visual-header">
+    <span class="vh-icon">📊</span>
+    <div class="vh-text">
+      <h4>Key Findings</h4>
+      <p>Statistically significant sex differences supporting H₁</p>
+    </div>
+  </div>
+
+  <h3>Main Results ✅</h3>
+  <div class="highlight-box">
+    <h4>Primary Finding: Sex Differences Confirmed</h4>
+    <p>The results showed <strong>statistically significant differences</strong> in toy preferences between male and female rhesus monkeys, mirroring patterns seen in human children:</p>
+  </div>
+
+  <table>
+    <tr><th>Toy Category</th><th>Males (Mean time)</th><th>Females (Mean time)</th><th>Direction</th></tr>
+    <tr>
+      <td><strong>Wheeled Toys</strong></td>
+      <td style="color:#dc2626;font-weight:700">Significantly MORE time ⬆️</td>
+      <td>Less time</td>
+      <td>Males > Females*</td>
+    </tr>
+    <tr>
+      <td><strong>Plush Toys</strong></td>
+      <td>Less time</td>
+      <td style="color:#dc2626;font-weight:700">Significantly MORE time ⬆️</td>
+      <td>Females > Males*</td>
+    </tr>
+    <tr>
+      <td><strong>Neutral Toys</strong></td>
+      <td>Similar time</td>
+      <td>Similar time</td>
+      <td>No significant difference</td>
+    </tr>
+  </table>
+  <p style="font-size:.85em;color:#64748b">* p < .05 (statistically significant)</p>
+
+  <h3>Interpretation of Findings</h3>
+  <div class="two-col">
+    <div class="col-card">
+      <h4>🐵 Male Monkeys</h4>
+      <p>Showed a <strong>significant preference for wheeled toys</strong> (vehicles, trucks, cars). This parallels the preference typically seen in human boys.</p>
+    </div>
+    <div class="col-card">
+      <h4>🐒 Female Monkeys</h4>
+      <p>Showed a <strong>significant preference for plush toys</strong> (dolls, stuffed animals). This parallels the preference typically seen in human girls.</p>
+    </div>
+  </div>
+
+  <div class="warn-box">
+    <h4>⚠️ Exam Critical: What Does This Mean?</h4>
+    <p>The fact that <strong>monkeys — who have never been exposed to human gender stereotypes, media, or social pressure</strong> — show the same pattern as human children strongly suggests that:</p>
+    <p style="text-align:center;font-size:1.1em;font-weight:700;color:#dc2626;margin-top:10px;">
+      Gender-typed toy preferences may have a <strong>biological / evolutionary basis</strong> 🧬
+    </p>
+  </div>
+
+  <h3>Statistical Analysis Details</h3>
+  <ul>
+    <li>Researchers used appropriate <strong>inferential statistics</strong> (likely t-tests or ANOVA) to compare means between groups</li>
+    <li>Effect sizes were calculated to quantify the magnitude of differences</li>
+    <li>Results were reported as statistically significant at <strong>p < .05</strong></li>
+  </ul>
+
+  <!-- Chinese Summary -->
+  <div class="cn-summary-wrap">
+    <button class="cn-summary-toggle" onclick="toggleCnSummary(this)">
+      <span class="cs-icon">▶</span> 中文逻辑总结
+    </button>
+    <div class="cn-summary-body">
+      <div class="cs-title">§5 研究结果</div>
+      <p><strong>核心发现：</strong>支持 H₁（备择假设）！雄猴和雌猴表现出与人类儿童平行的玩具偏好差异。</p>
+      <ul>
+        <li><span class="cs-en">Male Monkeys (雄猴)</span>：花更多时间玩轮式玩具（车辆类）→ 类似男孩偏好</li>
+        <li><span class="cs-en">Female Monkeys (雌猴)</span>：花更多时间玩毛绒玩具（娃娃类）→ 类似女孩偏好</li>
+        <li><span class="cs-en">Neutral Toys (中性玩具)</span>：两性无显著差异</li>
+      </ul>
+      <p><strong>💡 关键推论：</strong>猴子未受人类社会化影响 → 偏好可能是先天的/生物性的 → 支持 Nature 论点。</p>
+    </div>
+  </div>
+
+  <!-- Exam Key Points -->
+  <div class="summary-card" id="summary-s5">
+    <div class="summary-card-header" onclick="toggleSummary('summary-s5')">
+      <span class="summary-card-icon">▶</span>
+      <span class="summary-card-title">Exam Key Points — Results</span>
+      <span class="summary-card-badge">AO1</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ul>
+          <li>Significant sex differences found (p < .05) <span class="tag-must">Must Know</span></li>
+          <li>Males preferred wheeled toys significantly more than females <span class="tag-must">Must Know</span></li>
+          <li>Females preferred plush toys significantly more than males <span class="tag-must">Must Know</span></li>
+          <li>No significant difference for neutral toys <span class="tag-common">Common Q</span></li>
+          <li>Pattern mirrors human children's preferences <span class="tag-ao2">AO2 Gold</span></li>
+          <li>Supports biological/evolutionary explanation <span class="tag-must">Must Know</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SECTION 6: DISCUSSION ==================== -->
+<div class="section" id="s6">
+  <h2>6️⃣ Discussion（讨论）</h2>
+
+  <h3>6.1 Explanation of Findings</h3>
+  <p>Hassett et al. interpreted their findings as evidence that <strong>gender-typed toy preferences may have an evolutionary/biological basis</strong>. Several mechanisms were proposed:</p>
+
+  <div class="key-term">
+    <strong>Evolutionary Explanations</strong>: Throughout evolutionary history, males and females faced different selective pressures. Males may have developed preferences for objects that involve movement and spatial skills (useful for hunting/navigation), while females may have developed preferences for nurturing-related objects (useful for infant care).
+  </div>
+
+  <h3>Possible Mechanisms</h3>
+  <ol>
+    <li><strong>Prenatal hormone exposure</strong>: Testosterone levels in utero may influence later toy preferences</li>
+    <li><strong>Brain organisation theory</strong>: Early hormone exposure causes structural/functional brain differences that manifest as behavioural preferences</li>
+    <li><strong>Evolutionary psychology</strong>: These preferences conferred adaptive advantages to our ancestors</li>
+  </ol>
+
+  <h3>6.2 Comparison with Previous Research</h3>
+  <div class="blue-box">
+    <h4>Consistency with Human Studies</h4>
+    <p>The findings align with extensive research on human children showing:</p>
+    <ul>
+      <li>Boys as young as 12 months show preference for wheeled/moving toys</li>
+      <li>Girls show earlier interest in faces and social stimuli (which dolls represent)</li>
+      <li>Cross-cultural studies find similar patterns across diverse societies</li>
+    </ul>
+  </div>
+
+  <h3>6.3 Alternative Explanations Considered</h3>
+  <p>The researchers acknowledged alternative explanations:</p>
+  <ul>
+    <li><strong>Early learning within monkey colonies</strong>: Even without human socialisation, young monkeys might learn from observing adults</li>
+    <li><strong>Differential activity levels</strong>: Male monkeys are generally more active, which might lead to more interaction with movable (wheeled) objects</li>
+    <li><strong>Sensory preferences</strong>: Males might be more attracted to certain colours, shapes, or textures independent of "gender" categorisation</li>
+  </ul>
+
+  <!-- Chinese Summary -->
+  <div class="cn-summary-wrap">
+    <button class="cn-summary-toggle" onclick="toggleCnSummary(this)">
+      <span class="cs-icon">▶</span> 中文逻辑总结
+    </button>
+    <div class="cn-summary-body">
+      <div class="cs-title">§6 讨论</div>
+      <p><strong>核心解释：</strong>结果支持进化心理学观点 —— 性别差异的玩具偏好可能具有生物/进化基础。</p>
+      <ul>
+        <li><span class="cs-en">Prenatal Hormones (产前激素)</span>：子宫内睾酮水平可能影响后续偏好</li>
+        <li><span class="cs-en">Brain Organisation (脑组织理论)</span>：早期激素导致脑结构差异</li>
+        <li><span class="cs-en">Selective Pressure (选择压力)</span>：男性和女性在进化史上面临不同适应需求</li>
+      </ul>
+      <p><strong>💡 考试技巧：</strong>CIE 喜欢问 "Outline one explanation for the findings"。答案模板：进化压力不同 → 男性的空间/运动技能（狩猎导航）vs 女性的抚育相关偏好（婴儿照料）。</p>
+    </div>
+  </div>
+
+  <!-- Exam Key Points -->
+  <div class="summary-card" id="summary-s6">
+    <div class="summary-card-header" onclick="toggleSummary('summary-s6')">
+      <span class="summary-card-icon">▶</span>
+      <span class="summary-card-title">Exam Key Points — Discussion</span>
+      <span class="summary-card-badge">AO3</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ul>
+          <li>Findings support biological/evolutionary basis for toy preferences <span class="tag-must">Must Know</span></li>
+          <li>Prenatal hormones may play a role <span class="tag-common">Common Q</span></li>
+          <li>Consistent with cross-cultural human studies <span class="tag-ao2">AO2 Gold</span></li>
+          <li>Alternative: differential activity levels in males <span class="tag-context">Context</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SECTION 7: CONCLUSIONS ==================== -->
+<div class="section" id="s7">
+  <h2>7️⃣ Conclusions（结论）</h2>
+
+  <div class="highlight-box">
+    <h4>🎯 Main Conclusions</h4>
+    <ol>
+      <li><strong>Rhesus monkeys exhibit sex differences in toy preferences</strong> that parallel those found in human children</li>
+      <li><strong>Males show greater preference for wheeled toys</strong>; females show greater preference for plush toys</li>
+      <li>These findings suggest that <strong>gender-typed toy preferences are not entirely socially constructed</strong></li>
+      <li>There appears to be a <strong>biological/evolutionary component</strong> to such preferences</li>
+      <li>This does NOT mean socialisation is irrelevant — rather, biology and environment likely <strong>interact</strong></li>
+    </ol>
+  </div>
+
+  <blockquote>
+    "The present findings suggest that gender-typed toy preferences may reflect evolved biases rather than solely socialisation practices."
+    <br>— Hassett et al. (2008, p. 270)
+  </blockquote>
+
+  <!-- Chinese Summary -->
+  <div class="cn-summary-wrap">
+    <button class="cn-summary-toggle" onclick="toggleCnSummary(this)">
+      <span class="cs-icon">▶</span> 中文逻辑总结
+    </button>
+    <div class="cn-summary-body">
+      <div class="cs-title">§7 结论</div>
+      <p><strong>五大结论：</strong></p>
+      <ol>
+        <li>恒河猴表现出与人类儿童平行的性别玩具偏好差异</li>
+        <li>雄猴偏好轮式玩具，雌猴偏好毛绒玩具</li>
+        <li>这种偏好不完全是社会建构的结果</li>
+        <li>可能存在生物/进化基础</li>
+        <li>生物和环境 likely 相互作用（不是非此即彼）</li>
+      </ol>
+      <p><strong>💡 记忆口诀：</strong>"猴子也分男女爱，车轮娃娃各有所" → 猴子研究证明偏好有生物基础。</p>
+    </div>
+  </div>
+
+  <!-- Exam Key Points -->
+  <div class="summary-card" id="summary-s7">
+    <div class="summary-card-header" onclick="toggleSummary('summary-s7')">
+      <span class="summary-card-icon">▶</span>
+      <span class="summary-card-title">Exam Key Points — Conclusions</span>
+      <span class="summary-card-badge">AO1+AO3</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ul>
+          <li>Sex differences in toy preferences exist in non-human primates <span class="tag-must">Must Know</span></li>
+          <li>Pattern parallels human children <span class="tag-must">Must Know</span></li>
+          <li>Supports biological contribution (not purely social) <span class="tag-must">Must Know</span></li>
+          <li>Biology × Environment interaction emphasised <span class="tag-ao2">AO2 Gold</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SECTION 8: EVALUATION ==================== -->
+<div class="section" id="s8">
+  <h2>8️⃣ Evaluation（评价）</h2>
+
+  <h3>Strengths (✅ 优势)</h3>
+  <div class="summary-card" id="eval-strengths" style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);border-left-color:#16a34a;">
+    <div class="summary-card-header" onclick="toggleSummary('eval-strengths')" style="background:transparent;padding:10px 18px;">
+      <span class="summary-card-icon" style="color:#166534;">▶</span>
+      <span class="summary-card-title" style="color:#166534;">View Strengths</span>
+      <span class="summary-card-badge">AO3</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ol>
+          <li><strong>Use of non-human primates</strong>: Eliminates confounding variable of human socialisation/culture — unique strength of this study <span class="tag-must">Must Know</span></li>
+          <li><strong>Large sample (N=84)</strong>: Good statistical power, more reliable than small-sample primate studies <span class="tag-common">Common Q</span></li>
+          <li><strong>Naturalistic setting</strong>: High ecological validity — monkeys behaved naturally in familiar environment <span class="tag-must">Must Know</span></li>
+          <li><strong>Objective measurement</strong>: DV operationalised as duration of contact (quantifiable, reliable) <span class="tag-common">Common Q</span></li>
+          <li><strong>Controlled variables</strong>: Novel toys, standardised procedure, consistent timing <span class="tag-context">Context</span></li>
+          <li><strong>Evolutionary significance</strong>: Provides rare empirical evidence for biological basis of gendered behaviour <span class="tag-ao2">AO2 Gold</span></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <h3>Limitations (❌ 局限)</h3>
+  <div class="summary-card" id="eval-limitations" style="background:linear-gradient(135deg,#fef2f2,#fee2e2);border-left-color:#dc2626;">
+    <div class="summary-card-header" onclick="toggleSummary('eval-limitations')" style="background:transparent;padding:10px 18px;">
+      <span class="summary-card-icon" style="color:#dc2626;">▶</span>
+      <span class="summary-card-title" style="color:#dc2626;">View Limitations</span>
+      <span class="summary-card-badge">AO3</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ol>
+          <li><strong>Cannot rule out early learning completely</strong>: Young monkeys may observe and imitate adults in their colony <span class="tag-must">Must Know</span></li>
+          <li><strong>Species generalisation issues</strong>: Rhesus monkeys ≠ humans; caution needed when extrapolating <span class="tag-common">Common Q</span></li>
+          <li><strong>Correlational design</strong>: Cannot establish causation — only shows association between sex and preference <span class="tag-must">Must Know</span></li>
+          <li><strong>Alternative explanations</strong>: Differential activity levels, sensory preferences not controlled <span class="tag-ao2">AO2 Gold</span></li>
+          <li><strong>Limited age range</strong>: Only juveniles (1-3 years) studied; preferences may change with age <span class="tag-context">Context</span></li>
+          <li><strong>Artificial toy categories</strong>: "Wheeled" vs "Plush" classification based on human stereotypes — may not map onto monkey cognition <span class="tag-ao2">AO2 Gold</span></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chinese Summary -->
+  <div class="cn-summary-wrap">
+    <button class="cn-summary-toggle" onclick="toggleCnSummary(this)">
+      <span class="cs-icon">▶</span> 中文逻辑总结
+    </button>
+    <div class="cn-summary-body">
+      <div class="cs-title">§8 评价</div>
+      <p><strong>优势（6点）：</strong></p>
+      <ul>
+        <li>用非人灵长类动物 → 排除社会化干扰（最大亮点！）</li>
+        <li>N=84 大样本 → 统计效力强</li>
+        <li>自然观察环境 → 生态效度高</li>
+        <li>DV 客观测量（接触时长）→ 可靠</li>
+      </ul>
+      <p><strong>局限（6点）：</strong></p>
+      <ul>
+        <li>不能完全排除早期学习（猴子也可能模仿成年猴）</li>
+        <li>物种推广问题（猴≠人）</li>
+        <li>相关设计 → 无因果关系</li>
+        <li>玩具分类基于人类刻板印象 → 可能不适合猴子认知</li>
+      </ul>
+      <p><strong>💡 CIE 技巧：</strong>评价要 balanced！每条优缺点都要解释 WHY 重要。</p>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SECTION 9: ETHICS ==================== -->
+<div class="section" id="s9">
+  <h2>9️⃣ Ethics（伦理考量）</h2>
+
+  <h3>Ethical Strengths</h3>
+  <ul>
+    <li><strong>Non-invasive observation</strong>: No harm, pain, or stress inflicted on animals</li>
+    <li><strong>Naturalistic setting</strong>: Monkeys remained in their normal living environment</li>
+    <li><strong>Institutional approval</strong>: Study conducted at accredited primate research centre following ethical guidelines</li>
+    <li><strong>No deception or manipulation</strong>: Observational only, no experimental intervention</li>
+  </ul>
+
+  <h3>Potential Ethical Concerns</h3>
+  <ul>
+    <li><strong>Captivity</strong>: All monkeys were in captivity (though this was their normal living situation)</li>
+    <li><strong>Generalisability justification</strong>: Is it ethical to study animals primarily to inform about humans? (Speciesism debate)</li>
+  </ul>
+
+  <div class="warn-box">
+    <h4>⚠️ CIE Ethics Evaluation Tip</h4>
+    <p>When discussing ethics in animal studies, consider:
+    <br>1. Were animals harmed? (No — observational)
+    <br>2. Was there scientific merit? (Yes — addresses important nature/nurture question)
+    <br>3. Could the study be done with humans? (Not with this level of control over socialisation)
+    <br>4. Were fewer animals used than necessary? (Reasonable sample size)</p>
+  </div>
+
+  <!-- Exam Key Points -->
+  <div class="summary-card" id="summary-s9">
+    <div class="summary-card-header" onclick="toggleSummary('summary-s9')">
+      <span class="summary-card-icon">▶</span>
+      <span class="summary-card-title">Exam Key Points — Ethics</span>
+      <span class="summary-card-badge">AO3</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ul>
+          <li>Observational design = minimal ethical risk <span class="tag-must">Must Know</span></li>
+          <li>No harm/deception/stress to participants <span class="tag-common">Common Q</span></li>
+          <li>Conducted at accredited institution with oversight <span class="tag-context">Context</span></li>
+          <li>Scientific merit justifies animal involvement <span class="tag-ao2">AO2 Gold</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SECTION 10: SUMMARY ==================== -->
+<div class="section" id="s10">
+  <h2>🔟 Summary（总结）</h2>
+
+  <div class="highlight-box">
+    <h4>📋 Study At-a-Glance</h4>
+    <table>
+      <tr><th>Aspect</th><th>Details</th></tr>
+      <tr><td><strong>Study</strong></td><td>Hassett, Siebert & Wallen (2008)</td></tr>
+      <tr><td><strong>Title</strong></td><td>Sex differences in rhesus monkey toy preferences parallel those of children</td></tr>
+      <tr><td><strong>Approach</strong></td><td>Biological (Evolutionary)</td></tr>
+      <tr><td><strong>Method</strong></td><td>Naturalistic observation</td></tr>
+      <tr><td><strong>Sample</strong></td><td>84 rhesus monkeys (40M, 44F), aged 1–3 years</td></tr>
+      <tr><td><strong>IV</strong></td><td>Sex of monkey (male/female)</td></tr>
+      <tr><td><strong>DV</strong></td><td>Duration of contact with toy types (seconds)</td></tr>
+      <tr><td><strong>Finding</strong></td><td>Males prefer wheeled toys; females prefer plush toys (p < .05)</td></tr>
+      <tr><td><strong>Conclusion</strong></td><td>Gender-typed toy preferences may have biological basis</td></tr>
+    </table>
+  </div>
+
+  <h3>Key Takeaways for CIE Exams 💡</h3>
+  <ol>
+    <li>This study provides <strong>rare evidence</strong> for biological contributions to gendered behaviour by using non-human primates</li>
+    <li>The <strong>naturalistic observation design</strong> gives high ecological validity but limits causal conclusions</li>
+    <li>Findings should be interpreted as showing <strong>biology enables</strong> preferences, while <strong>culture shapes</strong> their expression</li>
+    <li>Important for debates on <strong>nature vs nurture</strong>, <strong>determinism vs free will</strong>, and <strong>gender development</strong></li>
+  </ol>
+</div>
+
+<!-- ==================== SECTION 11: QUESTIONS ==================== -->
+<div class="section" id="s11">
+  <h2>1️⃣1️⃣ Exam Practice（考试练习）</h2>
+
+  <div class="qa-card">
+    <div class="qa-question" onclick="toggleQa(this)">
+      <span class="qa-num">Q1</span>
+      <span class="qa-text">Outline the sample used in Hassett et al.'s (2008) study. [4 marks]</span>
+      <span class="qa-toggle"><span class="qa-icon">▼</span></span>
+    </div>
+    <div class="qa-answer">
+      <div class="qa-answer-inner">
+        <p><strong>Model Answer (AO1):</strong></p>
+        <p>The sample consisted of <strong>84 rhesus monkeys</strong> (macaques) aged <strong>1–3 years</strong> from the California National Primate Research Centre. There were <strong>40 males and 44 females</strong>. The researchers used <strong>opportunity sampling</strong> — all available monkeys in the colony were included. The large sample size provided good statistical power, and the near-equal gender split allowed fair comparison between sexes. (4 marks)</p>
+        <p><strong>💡 Mark Scheme Tips:</strong> 1 mark for N=84, 1 mark for age range, 1 mark for gender split, 1 mark for sampling method/species.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="qa-card">
+    <div class="qa-question" onclick="toggleQa(this)">
+      <span class="qa-num">Q2</span>
+      <span class="qa-text">Describe the procedure of Hassett et al.'s (2008) study. [6 marks]</span>
+      <span class="qa-toggle"><span class="qa-icon">▼</span></span>
+    </div>
+    <div class="qa-answer">
+      <div class="qa-answer-inner">
+        <p><strong>Model Answer (AO1):</strong></p>
+        <p>First, researchers selected <strong>six toys</strong> representing three categories: wheeled toys (masculine), plush toys (feminine), and neutral toys. These were placed in the monkeys' <strong>familiar living enclosure</strong> in a standardised arrangement. Individual monkeys were then allowed to <strong>freely explore</strong> the toy area. Observers used stopwatches to record the <strong>duration of physical contact</strong> between each monkey and each toy. Each monkey was observed over multiple sessions. Finally, total contact times were calculated for each toy category and compared between males and females. (6 marks)</p>
+        <p><strong>💡 Mark Scheme Tips:</strong> 2 marks for materials/toy categories, 2 marks for procedure (free exploration + timing), 2 marks for data collection/recording details.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="qa-card">
+    <div class="qa-question" onclick="toggleQa(this)">
+      <span class="qa-num">Q3</span>
+      <span class="qa-text">Discuss the findings of Hassett et al. (2008). What do they suggest about the origins of gender-typed toy preferences? [8 marks]</span>
+      <span class="qa-toggle"><span class="qa-icon">▼</span></span>
+    </div>
+    <div class="qa-answer">
+      <div class="qa-answer-inner">
+        <p><strong>Model Answer (AO1 + AO3):</strong></p>
+        <p><strong>AO1 (Description):</strong> The study found <strong>statistically significant sex differences</strong> in toy preferences. Male monkeys spent significantly more time with <strong>wheeled toys</strong> (vehicles, trucks), while female monkeys spent significantly more time with <strong>plush toys</strong> (dolls, stuffed animals). There was no significant difference for neutral toys. (4 marks)</p>
+        <p><strong>AO3 (Evaluation):</strong> These findings suggest that gender-typed toy preferences may have a <strong>biological or evolutionary basis</strong> rather than being purely socially constructed. Because rhesus monkeys have not been exposed to human gender stereotypes, media, or social pressure, yet show the same pattern as human children, this indicates that such preferences could be <strong>innate or influenced by prenatal factors</strong> (such as hormone exposure in utero). However, the study cannot completely rule out early learning within monkey colonies, and caution is needed when generalising from monkeys to humans. (4 marks)</p>
+        <p><strong>💡 Mark Scheme Tips:</strong> Balance description (what they found) with evaluation (what it means). Always mention both support for biological basis AND limitations/cautions.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="qa-card">
+    <div class="qa-question" onclick="toggleQa(this)">
+      <span class="qa-num">Q4</span>
+      <span class="qa-text">Evaluate Hassett et al.'s (2008) study in terms of its strengths and limitations. [12 marks]</span>
+      <span class="qa-toggle"><span class="qa-icon">▼</span></span>
+    </div>
+    <div class="qa-answer">
+      <div class="qa-answer-inner">
+        <p><strong>Model Answer (AO3):</strong></p>
+        <p><strong>Strengths (6 marks):</strong></p>
+        <ol>
+          <li><strong>Use of non-human primates</strong>: Unique strength — eliminates the confounding variable of human socialisation and culture, allowing clearer test of biological influences. (2 marks)</li>
+          <li><strong>Large sample (N=84)</strong>: Greater statistical power than typical primate studies; near-equal gender split allows fair comparison. (2 marks)</li>
+          <li><strong>High ecological validity</strong>: Naturalistic observation in familiar environment means monkeys exhibited natural behaviour. (2 marks)</li>
+        </ol>
+        <p><strong>Limitations (6 marks):</strong></p>
+        <ol>
+          <li><strong>Cannot establish causation</strong>: Correlational design shows association between sex and preference, but cannot prove biology causes preference. (2 marks)</li>
+          <li><strong>Species generalisation</strong>: Rhesus monkeys share much DNA with humans but are not identical; caution needed when extrapolating findings. (2 marks)</li>
+          <li><strong>Alternative explanations</strong>: Differential activity levels (males more active → interact more with movable toys) or early learning within colonies not fully ruled out. (2 marks)</li>
+        </ol>
+        <p><strong>💡 Exam Tip:</strong> Always give equal weight to strengths and limitations. Use psychological terminology precisely (ecological validity, confounding variable, causation vs correlation).</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SECTION 12: KEY TERMS ==================== -->
+<div class="section" id="s12">
+  <h2>1️⃣2️⃣ Key Terms（核心术语）</h2>
+
+  <div class="key-term">
+    <strong>Nature vs Nurture</strong>: The debate about whether behaviour is determined by genetics/biology (nature) or environment/upbringing (nurture).
+  </div>
+
+  <div class="key-term">
+    <strong>Gender-typed behaviour</strong>: Behaviour that differs systematically between males and females and is consistent with cultural gender stereotypes.
+  </div>
+
+  <div class="key-term">
+    <strong>Naturalistic observation</strong>: A research method where behaviour is observed in a natural environment without intervention or manipulation by the researcher.
+  </div>
+
+  <div class="key-term">
+    <strong>Ecological validity</strong>: The extent to which findings can be generalised to real-life settings outside the laboratory.
+  </div>
+
+  <div class="key-term">
+    <strong>Operationalisation</strong>: The process of defining a conceptual variable in terms of the specific method used to measure it.
+  </div>
+
+  <div class="key-term">
+    <strong>Evolutionary psychology</strong>: An approach explaining behaviour as adaptations that enhanced survival and reproduction in our ancestral environment.
+  </div>
+
+  <div class="key-term">
+    <strong>Prenatal hormones</strong>: Hormones (such as testosterone) present during foetal development that may influence later behaviour and preferences.
+  </div>
+
+  <div class="key-term">
+    <strong>Independent measures design</strong>: An experimental design where different participants are used in each condition (here: males vs females are naturally different groups).
+  </div>
+</div>
+
+  </main><!-- END MAIN CONTENT -->
+
+  <!-- RIGHT NOTES COLUMN -->
+  <aside class="notes-col">
+    <div class="nc-header">
+      <span>📝</span>
+      <span class="nc-title">My Notes</span>
+      <span class="nc-count" id="notesCount">0</span>
+    </div>
+    <div class="nc-body" id="notesBody">
+      <div class="nc-empty" id="notesEmpty">
+        <div style="font-size:1.5em">✏️</div>
+        <div>No notes yet</div>
+        <div style="font-size:.7em;margin-top:4px;opacity:.7">Select text → click Add Note below</div>
+      </div>
+    </div>
+    <div class="nc-input-row" id="notesInputRow">
+      <div id="hlPreview" style="font-size:.72em;color:#92400e;background:#fef3c7;padding:4px 8px;border-radius:5px;margin-bottom:6px;word-break:break-all"></div>
+      <textarea class="nc-textarea" id="noteTextarea" placeholder="Write your note here..."></textarea>
+      <div class="nc-actions">
+        <button class="nc-btn-save" onclick="saveNoteFromInput()">💾 Save</button>
+        <button class="nc-btn-cancel" onclick="cancelNoteInput()">Cancel</button>
+      </div>
+    </div>
+    <button class="nc-add-btn" onclick="onAddNoteClick()">✏️ <b>Add Note</b></button>
+    <div class="nc-footer">
+      <button onclick="exportNotes()">📤 Export</button>
+      <button onclick="clearAllNotes()">🗑 Clear</button>
+    </div>
+  </aside>
+
+</div><!-- END PAGE LAYOUT -->
+
+<!-- Lightbox Overlay -->
+<div class="lightbox-overlay" id="lightbox" onclick="closeLightbox()">
+  <span class="lightbox-close">&times;</span>
+  <img class="lightbox-content" id="lightboxImg" src="" alt="">
+  <p class="lightbox-caption" id="lightboxCaption"></p>
+</div>
+
+</div><!-- END CONTAINER -->
+
+<button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
+
+<script>
+(function() {
+  // ─── Dark Mode ──
+  function toggleDarkMode() {
+    const isDark = document.body.classList.toggle('dark');
+    document.getElementById('darkBtn').textContent = isDark ? '☀️ Light' : '🌙 Dark';
+    localStorage.setItem('hassett-darkMode', isDark);
+  }
+  function adjustFontSize(delta) {
+    const html = document.documentElement;
+    let size = parseFloat(getComputedStyle(html).fontSize) + delta * 2;
+    size = Math.max(12, Math.min(22, size));
+    html.style.fontSize = size + 'px';
+    localStorage.setItem('hassett-fontSize', size);
+  }
+  // Restore preferences
+  (function() {
+    const dark = localStorage.getItem('hassett-darkMode') === 'true';
+    if (dark) { document.body.classList.toggle('dark'); document.getElementById('darkBtn').textContent = '☀️ Light'; }
+    const fontSz = localStorage.getItem('hassett-fontSize');
+    if (fontSz) document.documentElement.style.fontSize = fontSz + 'px';
+  })();
+
+  // ─── Progress Bar ──
+  window.addEventListener('scroll', function() {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    document.getElementById('progressBar').style.width = scrolled + '%';
+  });
+
+  // ─── Back to Top ──
+  window.addEventListener('scroll', function() {
+    var btn = document.querySelector('.back-to-top');
+    if (btn) { btn.classList.toggle('show', window.scrollY > 400); }
+  });
+
+  // ─── Toggle Functions ──
+  window.toggleSummary = function(id) {
+    var el = document.getElementById(id);
+    if (el) el.classList.toggle('open');
+  };
+  window.toggleCnSummary = function(btn) {
+    var body = btn.nextElementSibling;
+    if (body) { btn.classList.toggle('open'); body.classList.toggle('open'); }
+  };
+  window.toggleQa = function(questionDiv) {
+    questionDiv.closest('.qa-card').classList.toggle('open');
+  };
+
+  // ─── Lightbox ──
+  function openLightbox(img) {
+    const overlay = document.getElementById('lightbox');
+    document.getElementById('lightboxImg').src = img.src;
+    const figCaption = img.closest('.figure')?.querySelector('.figure-caption');
+    document.getElementById('lightboxCaption').textContent = figCaption ? figCaption.textContent : '';
+    overlay.classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('show');
+    document.body.style.overflow = '';
+  }
+  document.querySelectorAll('.figure img').forEach(img => {
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', () => openLightbox(img));
+  });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+  // ─── Notes System v3 (with highlight support) ──
+  var SK = 'hassett_notes_v3';
+  var notes = [];
+  var pendingHl = null;
+  var hlC = 0;
+
+  function save() { localStorage.setItem(SK, JSON.stringify(notes)); }
+  function escapeHTML(str) {
+    var d = document.createElement('div'); d.textContent = str; return d.innerHTML;
+  }
+
+  function render() {
+    var b = document.getElementById('notesBody');
+    var e = document.getElementById('notesEmpty');
+    document.getElementById('notesCount').textContent = notes.length;
+    b.querySelectorAll('.note-card').forEach(x => x.remove());
+    if (!notes.length) {
+      b.innerHTML = '<div class="nc-empty" id="notesEmpty"><div style="font-size:1.5em">✏️</div><div>No notes yet</div><div style="font-size:.7em;margin-top:4px;opacity:.7">Select text → click Add Note below</div></div>';
+      return;
+    }
+    if (e) e.style.display = 'none';
+    notes.forEach(function(n) {
+      var c = document.createElement('div');
+      c.className = 'note-card';
+      c.dataset.nid = n.id;
+      if (n.hlId) {
+        c.addEventListener('dblclick', function() { scrollToHl(n.hlId); });
+        c.style.cursor = 'pointer';
+        c.title = 'Double-click to jump to highlighted text';
+      }
+      if (n.hlText) {
+        var h = document.createElement('div');
+        h.className = 'note-card-hl';
+        h.textContent = '📌 ' + n.hlText.substr(0, 60) + (n.hlText.length > 60 ? '...' : '');
+        h.addEventListener('click', function() { scrollToHl(n.hlId); });
+        c.appendChild(h);
+      }
+      var t = document.createElement('div');
+      t.className = 'note-card-text';
+      t.textContent = n.text;
+      c.appendChild(t);
+      var d = document.createElement('button');
+      d.className = 'note-card-del';
+      d.textContent = '×';
+      d.title = 'Delete';
+      d.addEventListener('click', function() { delNote(n.id); });
+      c.appendChild(d);
+      b.appendChild(c);
+    });
+  }
+
+  window.scrollToHl = function(id) {
+    var h = document.querySelector('.hl-text[hid="' + id + '"]');
+    if (h) {
+      h.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      h.style.background = '#facc15';
+      setTimeout(function() { h.style.background = ''; }, 2000);
+    }
+  };
+
+  window.onAddNoteClick = function() {
+    var sel = window.getSelection();
+    var txt = sel.toString().trim();
+    if (txt.length >= 2) {
+      pendingHl = txt;
+      var r = sel.getRangeAt(0);
+      var hid = 'hl_' + (++hlC) + '_' + Date.now().toString(36);
+      var m = document.createElement('mark');
+      m.className = 'hl-text';
+      m.setAttribute('hid', hid);
+      m.textContent = txt;
+      r.deleteContents();
+      r.insertNode(m);
+      sel.removeAllRanges();
+      document.getElementById('hlPreview').innerHTML = '📌 Highlighted: ' + escapeHTML(txt.substr(0, 80)) + (txt.length > 80 ? '...' : '');
+      document.getElementById('notesInputRow').classList.add('show');
+      document.getElementById('noteTextarea').focus();
+    } else {
+      document.getElementById('notesInputRow').classList.add('show');
+      document.getElementById('noteTextarea').focus();
+    }
+  };
+
+  window.saveNoteFromInput = function() {
+    var t = document.getElementById('noteTextarea').value.trim();
+    if (!t) { alert('Please write a note.'); return; }
+    var sec = 's1';
+    var secs = ['s12','s11','s10','s9','s8','s7','s6','s5','s4','s3','s2','s1'];
+    for (var i = 0; i < secs.length; i++) {
+      var el = document.getElementById(secs[i]);
+      if (el && el.getBoundingClientRect().top <= 150) { sec = secs[i]; break; }
+    }
+    var n = {
+      id: 'n_' + Date.now() + '_' + Math.random().toString(36).substr(2, 5),
+      section: sec,
+      text: t,
+      time: Date.now()
+    };
+    if (pendingHl) {
+      n.hlText = pendingHl;
+      var ms = document.querySelectorAll('.hl-text');
+      if (ms.length) n.hlId = ms[ms.length - 1].getAttribute('hid');
+      pendingHl = null;
+    }
+    notes.push(n);
+    save();
+    render();
+    document.getElementById('notesInputRow').classList.remove('show');
+    document.getElementById('noteTextarea').value = '';
+    document.getElementById('hlPreview').innerHTML = '';
+  };
+
+  window.cancelNoteInput = function() {
+    if (pendingHl) {
+      var ms = document.querySelectorAll('.hl-text');
+      if (ms.length) {
+        var lastMark = ms[ms.length - 1];
+        var p = lastMark.parentNode;
+        p.replaceChild(document.createTextNode(lastMark.textContent), lastMark);
+        p.normalize();
+      }
+    }
+    document.getElementById('notesInputRow').classList.remove('show');
+    document.getElementById('hlPreview').innerHTML = '';
+    pendingHl = null;
+  };
+
+  window.delNote = function(id) {
+    var n = notes.findIndex(function(x) { return x.id === id; });
+    if (n !== -1) {
+      var hlId = notes[n].hlId;
+      notes.splice(n, 1);
+      save();
+      render();
+      if (hlId) {
+        var h = document.querySelector('.hl-text[hid="' + hlId + '"]');
+        if (h) { var p = h.parentNode; p.replaceChild(document.createTextNode(h.textContent), h); p.normalize(); }
+      }
+    }
+  };
+
+  window.exportNotes = function() {
+    if (!notes.length) { alert('No notes to export.'); return; }
+    var text = notes.map(function(n) {
+      return '[' + new Date(n.time).toLocaleString() + '] Section ' + n.section.toUpperCase() + '\n' + n.text + (n.hlText ? '\n📌 Highlighted: ' + n.hlText : '');
+    }).join('\n\n---\n\n');
+    var blob = new Blob([text], { type: 'text/plain' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a'); a.href = url; a.download = 'hassett-notes.txt'; a.click(); URL.revokeObjectURL(url);
+  };
+
+  window.clearAllNotes = function() {
+    if (!confirm('Clear all notes? This cannot be undone.')) return;
+    document.querySelectorAll('.hl-text').forEach(function(m) {
+      var p = m.parentNode;
+      p.replaceChild(document.createTextNode(m.textContent), m);
+      p.normalize();
+    });
+    notes = [];
+    save();
+    render();
+  };
+
+  // Init
+  try { notes = JSON.parse(localStorage.getItem(SK) || '[]'); } catch(e) { notes = []; }
+  render();
+
+  // ─── Scroll Spy ──
+  function initScrollSpy() {
+    var sections = document.querySelectorAll('.section[id]');
+    var navItems = document.querySelectorAll('.sb-item a');
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          navItems.forEach(function(a) { a.classList.remove('sb-active'); });
+          var active = document.querySelector('.sb-item a[href="#' + entry.target.id + '"]');
+          if (active) active.classList.add('sb-active');
+        }
+      });
+    }, { rootMargin: '-80px 0px -60% 0px' });
+    sections.forEach(function(s) { observer.observe(s); });
+  }
+  initScrollSpy();
+})();
+</script>
 </body>
 </html>
