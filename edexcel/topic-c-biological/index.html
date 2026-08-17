@@ -239,6 +239,36 @@
     .gold-standard-para h4 { color: #92400e; margin: 0 0 8px; font-size: .95em; }
     .gold-standard-para p { font-size: .89em; line-height: 1.7; margin: 6px 0; }
 
+    /* ===== INFO CARDS (Expandable) for Tables ===== */
+    .info-cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; margin: 18px 0; }
+    .info-card { background: #fff; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,.06); border: 1.5px solid #e5e7eb; overflow: hidden; transition: all .25s ease; cursor: pointer; }
+    .info-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,.1); transform: translateY(-2px); }
+    .info-card-header { padding: 14px 16px; display: flex; align-items: center; gap: 10px; background: linear-gradient(135deg, #f9fafb, #f3f4f6); border-bottom: 1.5px solid #e5e7eb; }
+    .info-card-icon { font-size: 1.6em; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 8px; flex-shrink: 0; }
+    .info-card-title { flex: 1; }
+    .info-card-title h4 { margin: 0; font-size: .95em; color: #1f2937; font-weight: 600; }
+    .info-card-title p { margin: 2px 0 0; font-size: .8em; color: #6b7280; line-height: 1.4; }
+    .info-card-badge { font-size: .7em; font-weight: 700; padding: 3px 8px; border-radius: 12px; text-transform: uppercase; letter-spacing: .3px; }
+    .badge-promote { background: #fef2f2; color: #dc2626; }   /* Red = promotes aggression */
+    .badge-inhibit { background: #f0fdf4; color: #16a34a; }  /* Green = inhibits aggression */
+    .badge-neutral { background: #f9fafb; color: #6b7280; }   /* Gray = neutral/indirect */
+    .info-card-body { max-height: 0; overflow: hidden; transition: max-height .35s ease, padding .35s ease; padding: 0 16px; }
+    .info-card.open .info-card-body { max-height: 500px; padding: 14px 16px; }
+    .info-card.open { border-color: var(--primary-light); }
+    .info-card-body dl { margin: 0; display: grid; gap: 10px; }
+    .info-card-body dt { font-weight: 600; font-size: .85em; color: #374151; margin-bottom: 3px; }
+    .info-card-body dd { margin: 0 0 0 0; font-size: .84em; color: #4b5563; line-height: 1.6; padding-left: 12px; border-left: 2.5px solid #e5e7eb; }
+    .info-card-arrow { font-size: .75em; color: #9ca3af; transition: transform .25s ease; }
+    .info-card.open .info-card-arrow { transform: rotate(90deg); }
+
+    /* Icon backgrounds by type */
+    .icon-brain { background: linear-gradient(135deg, #dbeafe, #bfdbfe); }
+    .icon-chemical { background: linear-gradient(135deg, #fce7f3, #fbcfe8); }
+    .icon-control { background: linear-gradient(135deg, #d1fae5, #a7f3d0); }
+    .icon-neutral { background: linear-gradient(135deg, #f3f4f6, #e5e7eb); }
+
+    @media(max-width:700px){ .info-cards-grid { grid-template-columns: 1fr; } }
+
     /* Footer Note */
     .footer-note { font-size: .84em; color: var(--text-secondary); margin-top: 2em; padding-top: 1em; border-top: 1px solid var(--border); text-align: center; }
 
@@ -875,83 +905,163 @@
     <div class="figure-caption">Key brain areas involved in aggression and emotional behaviour（参与攻击性和情绪行为的关键脑区）</div>
   </div>
   
-  <table>
-    <tr>
-      <th>Brain Area（脑区）</th>
-      <th>Location（位置）</th>
-      <th>Function（功能）</th>
-      <th>Role in Aggression（在攻击性中的作用）</th>
-    </tr>
-    <tr>
-      <td><strong>Amygdala（杏仁核）</strong></td>
-      <td>Deep within the temporal lobe（颞叶深处）</td>
-      <td>
-        • <strong>Emotional processing（情绪处理）</strong><br>
-        • <strong>Fear and threat detection（恐惧和威胁检测）</strong><br>
-        • Fight-or-flight response（战斗或逃跑反应）
-      </td>
-      <td>
-        <strong>Key area for aggression（攻击性的关键区域）</strong>.<br>
-        Damage → reduced aggression（损伤→减少攻击性）<br>
-        Stimulation → increased aggression（刺激→增加攻击性）
-      </td>
-    </tr>
-    <tr>
-      <td><strong>Hypothalamus（下丘脑）</strong></td>
-      <td>Below the thalamus, centre of brain（丘脑下方，大脑中央）</td>
-      <td>
-        • <strong>Homeostasis regulation（稳态调节）</strong><br>
-        • Controls hunger, thirst, temperature（控制饥饿、渴、体温）<br>
-        • <strong>Hormone release（激素释放）</strong> (via pituitary gland)
-      </td>
-      <td>
-        Contains <strong>attack/aggression centres（攻击中心）</strong>.<br>
-        Stimulation → aggressive responses（刺激→攻击性反应）<br>
-        Regulates hormonal influences on aggression（调节激素对攻击性的影响）
-      </td>
-    </tr>
-    <tr>
-      <td><strong>Hippocampus（海马体）</strong></td>
-      <td>Within temporal lobe（颞叶内部）</td>
-      <td>
-        • <strong>Memory formation（记忆形成）</strong><br>
-        • Converting short-term to long-term memory（短时记忆转长时记忆）<br>
-        • Spatial navigation（空间导航）
-      </td>
-      <td>
-        Involved in <strong>learning aggressive behaviours（学习攻击性行为）</strong>.<br>
-        Damage may affect context-dependent aggression（损伤可能影响情境依赖的攻击性）
-      </td>
-    </tr>
-    <tr>
-      <td><strong>Thalamus（丘脑）</strong></td>
-      <td>Above hypothalamus, central relay station（下丘脑上方，中央中继站）</td>
-      <td>
-        • <strong>Sensory relay station（感觉中继站）</strong><br>
-        • Directs sensory info to appropriate cortex（将感觉信息导向相应皮层）<br>
-        • Regulates consciousness and sleep（调节意识和睡眠）
-      </td>
-      <td>
-        Relays threat-related sensory information to amygdala（将威胁相关的感觉信息传递给杏仁核）<br>
-        Indirect role in aggression via arousal（通过唤醒间接影响攻击性）
-      </td>
-    </tr>
-    <tr>
-      <td><strong>Prefrontal Cortex (PFC)（前额叶皮层）</strong></td>
-      <td>Front part of frontal lobe（额叶前部）</td>
-      <td>
-        • <strong>Executive functions（执行功能）</strong>: decision-making, planning<br>
-        • <strong>Impulse control（冲动控制）</strong><br>
-        • <strong>Social behaviour regulation（社会行为调节）</strong><br>
-        • Moral reasoning（道德推理）
-      </td>
-      <td>
-        <strong>Inhibits aggression（抑制攻击性）</strong> — the "brakes"!<br>
-        Damage → disinhibition, impulsive aggression（损伤→去抑制、冲动性攻击）<br>
-        Underdeveloped in adolescents → more risky/aggressive behaviour（青少年未发育完全→更多冒险/攻击性行为）
-      </td>
-    </tr>
-  </table>
+  <div class="info-cards-grid">
+
+    <!-- Card 1: Amygdala -->
+    <div class="info-card" onclick="this.classList.toggle('open')">
+      <div class="info-card-header">
+        <div class="info-card-icon icon-brain">🧠</div>
+        <div class="info-card-title">
+          <h4>Amygdala（杏仁核）</h4>
+          <p>Key area for aggression — emotional processing centre</p>
+        </div>
+        <span class="info-card-badge badge-promote">Promotes</span>
+        <span class="info-card-arrow">▶</span>
+      </div>
+      <div class="info-card-body">
+        <dl>
+          <dt>📍 Location（位置）</dt>
+          <dd>Deep within the temporal lobe（颞叶深处）</dd>
+          <dt>⚙️ Function（功能）</dt>
+          <dd>
+            • Emotional processing（情绪处理）<br>
+            • Fear and threat detection（恐惧和威胁检测）<br>
+            • Fight-or-flight response（战斗或逃跑反应）
+          </dd>
+          <dt>🎯 Role in Aggression（在攻击性中的作用）</dt>
+          <dd>
+            <strong>Key area for aggression（攻击性的关键区域）</strong><br>
+            • Damage → reduced aggression（损伤→减少攻击性）<br>
+            • Stimulation → increased aggression（刺激→增加攻击性）
+          </dd>
+        </dl>
+      </div>
+    </div>
+
+    <!-- Card 2: Hypothalamus -->
+    <div class="info-card" onclick="this.classList.toggle('open')">
+      <div class="info-card-header">
+        <div class="info-card-icon icon-brain">🎯</div>
+        <div class="info-card-title">
+          <h4>Hypothalamus（下丘脑）</h4>
+          <p>Contains attack/aggression centres</p>
+        </div>
+        <span class="info-card-badge badge-promote">Promotes</span>
+        <span class="info-card-arrow">▶</span>
+      </div>
+      <div class="info-card-body">
+        <dl>
+          <dt>📍 Location（位置）</dt>
+          <dd>Below the thalamus, centre of brain（丘脑下方，大脑中央）</dd>
+          <dt>⚙️ Function（功能）</dt>
+          <dd>
+            • Homeostasis regulation（稳态调节）<br>
+            • Controls hunger, thirst, temperature（控制饥饿、渴、体温）<br>
+            • Hormone release via pituitary gland（通过垂体释放激素）
+          </dd>
+          <dt>🎯 Role in Aggression（在攻击性中的作用）</dt>
+          <dd>
+            Contains <strong>attack/aggression centres（攻击中心）</strong><br>
+            • Stimulation → aggressive responses（刺激→攻击性反应）<br>
+            • Regulates hormonal influences on aggression（调节激素对攻击性的影响）
+          </dd>
+        </dl>
+      </div>
+    </div>
+
+    <!-- Card 3: Hippocampus -->
+    <div class="info-card" onclick="this.classList.toggle('open')">
+      <div class="info-card-header">
+        <div class="info-card-icon icon-brain">🧠</div>
+        <div class="info-card-title">
+          <h4>Hippocampus（海马体）</h4>
+          <p>Learning and memory for aggressive behaviours</p>
+        </div>
+        <span class="info-card-badge badge-neutral">Indirect</span>
+        <span class="info-card-arrow">▶</span>
+      </div>
+      <div class="info-card-body">
+        <dl>
+          <dt>📍 Location（位置）</dt>
+          <dd>Within temporal lobe（颞叶内部）</dd>
+          <dt>⚙️ Function（功能）</dt>
+          <dd>
+            • Memory formation（记忆形成）<br>
+            • Converting short-term to long-term memory（短时记忆转长时记忆）<br>
+            • Spatial navigation（空间导航）
+          </dd>
+          <dt>🎯 Role in Aggression（在攻击性中的作用）</dt>
+          <dd>
+            Involved in <strong>learning aggressive behaviours（学习攻击性行为）</strong><br>
+            Damage may affect context-dependent aggression（损伤可能影响情境依赖的攻击性）
+          </dd>
+        </dl>
+      </div>
+    </div>
+
+    <!-- Card 4: Thalamus -->
+    <div class="info-card" onclick="this.classList.toggle('open')">
+      <div class="info-card-header">
+        <div class="info-card-icon icon-neutral">📡</div>
+        <div class="info-card-title">
+          <h4>Thalamus（丘脑）</h4>
+          <p>Sensory relay station — indirect role</p>
+        </div>
+        <span class="info-card-badge badge-neutral">Indirect</span>
+        <span class="info-card-arrow">▶</span>
+      </div>
+      <div class="info-card-body">
+        <dl>
+          <dt>📍 Location（位置）</dt>
+          <dd>Above hypothalamus, central relay station（下丘脑上方，中央中继站）</dd>
+          <dt>⚙️ Function（功能）</dt>
+          <dd>
+            • Sensory relay station（感觉中继站）<br>
+            • Directs sensory info to appropriate cortex（将感觉信息导向相应皮层）<br>
+            • Regulates consciousness and sleep（调节意识和睡眠）
+          </dd>
+          <dt>🎯 Role in Aggression（在攻击性中的作用）</dt>
+          <dd>
+            Relays threat-related sensory information to amygdala（将威胁相关的感觉信息传递给杏仁核）<br>
+            Indirect role in aggression via arousal（通过唤醒间接影响攻击性）
+          </dd>
+        </dl>
+      </div>
+    </div>
+
+    <!-- Card 5: Prefrontal Cortex -->
+    <div class="info-card" onclick="this.classList.toggle('open')">
+      <div class="info-card-header">
+        <div class="info-card-icon icon-control">🛡️</div>
+        <div class="info-card-title">
+          <h4>Prefrontal Cortex (PFC)（前额叶皮层）</h4>
+          <p>The "brakes" on aggression — inhibits impulsive behaviour</p>
+        </div>
+        <span class="info-card-badge badge-inhibit">Inhibits</span>
+        <span class="info-card-arrow">▶</span>
+      </div>
+      <div class="info-card-body">
+        <dl>
+          <dt>📍 Location（位置）</dt>
+          <dd>Front part of frontal lobe（额叶前部）</dd>
+          <dt>⚙️ Function（功能）</dt>
+          <dd>
+            • Executive functions: decision-making, planning（执行功能：决策、规划）<br>
+            • Impulse control（冲动控制）<br>
+            • Social behaviour regulation（社会行为调节）<br>
+            • Moral reasoning（道德推理）
+          </dd>
+          <dt>🎯 Role in Aggression（在攻击性中的作用）</dt>
+          <dd>
+            <strong>Inhibits aggression（抑制攻击性）</strong> — the "brakes"!<br>
+            • Damage → disinhibition, impulsive aggression（损伤→去抑制、冲动性攻击）<br>
+            • Underdeveloped in adolescents → more risky/aggressive behaviour（青少年未发育完全→更多冒险/攻击性行为）
+          </dd>
+        </dl>
+      </div>
+    </div>
+
+  </div><!-- END info-cards-grid -->
   
   <div class="exam-tip">
     <h4>📝 Exam Tip: Brain Areas and Aggression（考试提示：脑区与攻击性）</h4>
@@ -1004,89 +1114,170 @@
   
   <p><strong>Neurotransmitters（神经递质）</are chemicals that transmit signals across a synapse. Some neurotransmitters have been linked to <strong>aggressive behaviour（攻击性行为）</strong>:</p>
   
-  <table>
-    <tr>
-      <th>Neurotransmitter（神经递质）</th>
-      <th>Function in the Body（在身体中的功能）</th>
-      <th>Effect on Aggression（对攻击性的影响）</th>
-    </tr>
-    <tr>
-      <td><strong>Acetylcholine (ACh)<br>（乙酰胆碱）</strong></td>
-      <td>
-        • Muscle contraction and movement control<br>（肌肉收缩和运动控制）<br>
-        • Memory, attention, and arousal<br>（记忆、注意力和觉醒）<br>
-        • Involved in anger emotions<br>（参与愤怒情绪）
-      </td>
-      <td>
-        <em>Less direct link to aggression</em><br>
-        （与攻击性关联较少）<br>
-        More involved in motor control
-      </td>
-    </tr>
-    <tr>
-      <td><strong>Noradrenaline (NA)<br>（去甲肾上腺素）</strong></td>
-      <td>
-        • Emotion regulation (especially emotional control)<br>（情绪调节，特别是情绪控制）<br>
-        • Sleep and dreaming<br>（睡眠和做梦）<br>
-        • Learning and memory<br>（学习和记忆）
-      </td>
-      <td>
-        High levels may increase arousal and emotional reactivity → potential for aggression<br>
-        （高水平可能增加唤醒和情绪反应性→攻击性潜力）
-      </td>
-    </tr>
-    <tr>
-      <td><strong>Dopamine (DA)<br>（多巴胺）</strong></td>
-      <td>
-        • Emotion, cognition, and reward<br>（情绪、认知和奖励）<br>
-        • Posture and motor control<br>（姿势和运动控制）<br>
-        • Addiction and motivation<br>（成瘾和动机）
-      </td>
-      <td>
-        <strong>High levels → Increased aggression</strong><br>
-        （高水平 → 增加攻击性）<br>
-        Increases reward value of aggressive behaviour
-      </td>
-    </tr>
-    <tr>
-      <td><strong>Serotonin (5-HT)<br>（血清素/5-羟色胺）</strong></td>
-      <td>
-        • Emotion control (especially in limbic system)<br>（情绪控制，特别是边缘系统）<br>
-        • Pain perception, sleep, body temperature<br>（痛觉、睡眠、体温）<br>
-        • Hunger and eating behaviour<br>（饥饿和进食行为）
-      </td>
-      <td>
-        <strong>Low levels → Increased aggression ⭐</strong><br>
-        （低水平 → 增加攻击性）⭐<br>
-        Has inhibitory effect on aggression
-      </td>
-    </tr>
-    <tr>
-      <td><strong>Glutamate<br>（谷氨酸）</strong></td>
-      <td>
-        • Motor control and reasoning<br>（运动控制和推理）<br>
-        • Decision-making<br>（决策）<br>
-        • Main excitatory neurotransmitter<br>（主要兴奋性神经递质）
-      </td>
-      <td>
-        Involved in activating neural circuits that may lead to aggression<br>
-        （参与激活可能导致攻击性的神经回路）
-      </td>
-    </tr>
-    <tr>
-      <td><strong>GABA<br>（γ-氨基丁酸）</strong></td>
-      <td>
-        • Main inhibitory neurotransmitter<br>（主要抑制性神经递质）⭐<br>
-        • Reduces anxiety, stress, and pain<br>（减少焦虑、压力和疼痛）<br>
-        • Promotes sleep and relaxation<br>（促进睡眠和放松）
-      </td>
-      <td>
-        <strong>Low levels → Increased aggression</strong><br>
-        （低水平 → 增加攻击性）<br>
-        Reduces overall brain inhibition
-      </td>
-    </tr>
-  </table>
+  <div class="info-cards-grid">
+
+    <!-- Card 1: Acetylcholine -->
+    <div class="info-card" onclick="this.classList.toggle('open')">
+      <div class="info-card-header">
+        <div class="info-card-icon icon-chemical">⚗️</div>
+        <div class="info-card-title">
+          <h4>Acetylcholine (ACh)（乙酰胆碱）</h4>
+          <p>Motor control & memory — less direct link to aggression</p>
+        </div>
+        <span class="info-card-badge badge-neutral">Weak</span>
+        <span class="info-card-arrow">▶</span>
+      </div>
+      <div class="info-card-body">
+        <dl>
+          <dt>⚙️ Function in Body（在身体中的功能）</dt>
+          <dd>
+            • Muscle contraction and movement control（肌肉收缩和运动控制）<br>
+            • Memory, attention, and arousal（记忆、注意力和觉醒）<br>
+            • Involved in anger emotions（参与愤怒情绪）
+          </dd>
+          <dt>🎯 Effect on Aggression（对攻击性的影响）</dt>
+          <dd><em>Less direct link to aggression</em>（与攻击性关联较少）<br>More involved in motor control than aggression regulation</dd>
+        </dl>
+      </div>
+    </div>
+
+    <!-- Card 2: Noradrenaline -->
+    <div class="info-card" onclick="this.classList.toggle('open')">
+      <div class="info-card-header">
+        <div class="info-card-icon icon-chemical">⚡</div>
+        <div class="info-card-title">
+          <h4>Noradrenaline (NA)（去甲肾上腺素）</h4>
+          <p>Arousal & emotional reactivity — indirect role</p>
+        </div>
+        <span class="info-card-badge badge-neutral">Indirect</span>
+        <span class="info-card-arrow">▶</span>
+      </div>
+      <div class="info-card-body">
+        <dl>
+          <dt>⚙️ Function in Body（在身体中的功能）</dt>
+          <dd>
+            • Emotion regulation, especially emotional control（情绪调节，特别是情绪控制）<br>
+            • Sleep and dreaming（睡眠和做梦）<br>
+            • Learning and memory（学习和记忆）
+          </dd>
+          <dt>🎯 Effect on Aggression（对攻击性的影响）</dt>
+          <dd>High levels may increase arousal and emotional reactivity → potential for aggression<br>（高水平可能增加唤醒和情绪反应性→攻击性潜力）</dd>
+        </dl>
+      </div>
+    </div>
+
+    <!-- Card 3: Dopamine ⭐⭐ -->
+    <div class="info-card" onclick="this.classList.toggle('open')">
+      <div class="info-card-header">
+        <div class="info-card-icon icon-chemical">🎯</div>
+        <div class="info-card-title">
+          <h4>Dopamine (DA)（多巴胺）⭐⭐</h4>
+          <p>Reward & motivation — high levels increase aggression</p>
+        </div>
+        <span class="info-card-badge badge-promote">Promotes</span>
+        <span class="info-card-arrow">▶</span>
+      </div>
+      <div class="info-card-body">
+        <dl>
+          <dt>⚙️ Function in Body（在身体中的功能）</dt>
+          <dd>
+            • Emotion, cognition, and reward（情绪、认知和奖励）<br>
+            • Posture and motor control（姿势和运动控制）<br>
+            • Addiction and motivation（成瘾和动机）
+          </dd>
+          <dt>🎯 Effect on Aggression（对攻击性的影响）</dt>
+          <dd>
+            <strong>High levels → Increased aggression</strong>（高水平 → 增加攻击性）<br>
+            Increases reward value of aggressive behaviour（增加攻击性行为的奖励价值）
+          </dd>
+        </dl>
+      </div>
+    </div>
+
+    <!-- Card 4: Serotonin ⭐⭐⭐ -->
+    <div class="info-card" onclick="this.classList.toggle('open')">
+      <div class="info-card-header">
+        <div class="info-card-icon icon-control">😌</div>
+        <div class="info-card-title">
+          <h4>Serotonin (5-HT)（血清素/5-羟色胺）⭐⭐⭐</h4>
+          <p>MOST important — low levels = high aggression</p>
+        </div>
+        <span class="info-card-badge badge-inhibit">Inhibits</span>
+        <span class="info-card-arrow">▶</span>
+      </div>
+      <div class="info-card-body">
+        <dl>
+          <dt>⚙️ Function in Body（在身体中的功能）</dt>
+          <dd>
+            • Emotion control, especially in limbic system（情绪控制，特别是边缘系统）<br>
+            • Pain perception, sleep, body temperature（痛觉、睡眠、体温）<br>
+            • Hunger and eating behaviour（饥饿和进食行为）
+          </dd>
+          <dt>🎯 Effect on Aggression（对攻击性的影响）</dt>
+          <dd>
+            <strong>Low levels → Increased aggression</strong>（低水平 → 增加攻击性）<br>
+            Has <strong>inhibitory effect</strong> on aggression（对攻击性有抑制作用）<br>
+            Most researched neurotransmitter in aggression studies
+          </dd>
+        </dl>
+      </div>
+    </div>
+
+    <!-- Card 5: Glutamate -->
+    <div class="info-card" onclick="this.classList.toggle('open')">
+      <div class="info-card-header">
+        <div class="info-card-icon icon-chemical">🔥</div>
+        <div class="info-card-title">
+          <h4>Glutamate（谷氨酸）</h4>
+          <p>Main excitatory neurotransmitter — activates neural circuits</p>
+        </div>
+        <span class="info-card-badge badge-neutral">Indirect</span>
+        <span class="info-card-arrow">▶</span>
+      </div>
+      <div class="info-card-body">
+        <dl>
+          <dt>⚙️ Function in Body（在身体中的功能）</dt>
+          <dd>
+            • Motor control and reasoning（运动控制和推理）<br>
+            • Decision-making（决策）<br>
+            • Main excitatory neurotransmitter（主要兴奋性神经递质）
+          </dd>
+          <dt>🎯 Effect on Aggression（对攻击性的影响）</dt>
+          <dd>Involved in activating neural circuits that may lead to aggression<br>（参与激活可能导致攻击性的神经回路）</dd>
+        </dl>
+      </div>
+    </div>
+
+    <!-- Card 6: GABA ⭐⭐ -->
+    <div class="info-card" onclick="this.classList.toggle('open')">
+      <div class="info-card-header">
+        <div class="info-card-icon icon-control">🛡️</div>
+        <div class="info-card-title">
+          <h4>GABA（γ-氨基丁酸）⭐⭐</h4>
+          <p>Main inhibitor — low levels = less inhibition = more aggression</p>
+        </div>
+        <span class="info-card-badge badge-inhibit">Inhibits</span>
+        <span class="info-card-arrow">▶</span>
+      </div>
+      <div class="info-card-body">
+        <dl>
+          <dt>⚙️ Function in Body（在身体中的功能）</dt>
+          <dd>
+            • Main inhibitory neurotransmitter（主要抑制性神经递质）<br>
+            • Reduces anxiety, stress, and pain（减少焦虑、压力和疼痛）<br>
+            • Promotes sleep and relaxation（促进睡眠和放松）
+          </dd>
+          <dt>🎯 Effect on Aggression（对攻击性的影响）</dt>
+          <dd>
+            <strong>Low levels → Increased aggression</strong>（低水平 → 增加攻击性）<br>
+            Reduces overall brain inhibition（降低整体大脑抑制）<br>
+            When GABA is low, the "brakes" come off!
+          </dd>
+        </dl>
+      </div>
+    </div>
+
+  </div><!-- END info-cards-grid -->
 
   <div class="note-box">
     <p><strong>💡 Exam Tip: Focus on These Three for Aggression Questions（考试提示：攻击性问题重点写这三种）:</strong></p>
