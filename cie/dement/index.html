@@ -701,17 +701,15 @@ body.dark .back-to-top { background: linear-gradient(135deg, #991b1b, #7f1d1d); 
 
 <!-- Nav Bar -->
 <nav class="nav-bar">
+  <a href="../../index.html" class="nav-pill">🏠 Home</a>
   <div class="nav-breadcrumb">
-    <a href="../index.html">Home</a> <span class="sep">›</span>
-    <a href="index.html">CIE Core Studies</a> <span class="sep">›</span>
-    <span>Dement &amp; Kleitman</span>
+    <a href="../../index.html">Home</a><span class="sep">›</span>
+    <a href="../">CIE Psychology</a><span class="sep">›</span><span>Dement &amp; Kleitman</span>
   </div>
-  <span class="nav-pill">🧠 Biological Approach</span>
   <div class="nav-controls">
-    <a href="../index.html" class="nav-btn" style="text-decoration:none;color:inherit;cursor:pointer;">🏠 Home</a>
-    <button onclick="toggleDarkMode()" id="darkBtn" class="nav-btn">🌙 Dark</button>
-    <button onclick="adjustFontSize(-1)" class="nav-btn">A-</button>
-    <button onclick="adjustFontSize(1)" class="nav-btn">A+</button>
+    <button onclick="toggleDarkMode()" id="darkBtn" class="nav-btn" title="Toggle dark mode">🌙 Dark</button>
+    <button onclick="adjustFontSize(-1)" class="nav-btn" title="Decrease font size">A-</button>
+    <button onclick="adjustFontSize(1)" class="nav-btn" title="Increase font size">A+</button>
   </div>
 </nav>
 
