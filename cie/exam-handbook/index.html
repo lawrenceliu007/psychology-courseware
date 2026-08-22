@@ -3,18 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CIE Psychology 9990 — Exam Practice Handbook</title>
+<title>CIE Psychology 9990 — Exam Practice Handbook v2.0</title>
 <style>
 :root{
-  --bg:#ffffff; --text:#1e293b; --accent:#7c3aed; --accent-light:#f3e8ff;
-  --blue:#2563eb; --blue-light:#dbeafe; --green:#16a34a; --green-light:#dcfce7;
-  --orange:#ea580c; --orange-light:#fff7ed; --red:#dc2626; --red-light:#fef2f2;
-  --border:#e2e8f0; --soft:#f8fafc; --cn:#64748b;
-  --bio:#dc2626; --cog:#2563eb; --soc:#16a34a; --lrn:#ea580c;
-  --syl-bg:#e0f2fe; --syl-border:#bae6fd; --syl-text:#0369a1;
+  --bg:#ffffff;--text:#1e293b;--accent:#7c3aed;--accent-light:#f3e8ff;
+  --blue:#2563eb;--blue-light:#dbeafe;--green:#16a34a;--green-light:#dcfce7;
+  --orange:#ea580c;--orange-light:#fff7ed;--red:#dc2626;--red-light:#fef2f2;
+  --border:#e2e8f0;--soft:#f8fafc;--cn:#64748b;
+  --bio:#dc2626;--cog:#2563eb;--soc:#16a34a;--lrn:#ea580c;
+  --syl-bg:#e0f2fe;--syl-border:#bae6fd;--syl-text:#0369a1;
+  --gmp-bg:#fefce8;--gmp-border:#fde047;--gmp-text:#854d0e;
+  --anno-bg:#faf5ff;--anno-border:#c084fc;--anno-text:#6b21a8;
 }
 *{box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;line-height:1.75;color:var(--text);background:var(--bg);margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;line-height:1.75;color:var(--text);background:var(--bg);margin:0;padding:0;font-size:1em}
 .container{max-width:900px;margin:0 auto;padding:40px 24px 80px}
 h1{font-size:2rem;color:var(--accent);margin-bottom:.2em;border-bottom:3px solid var(--accent);padding-bottom:.3em}
 h2{font-size:1.45rem;color:var(--accent);margin-top:2.5em;margin-bottom:.6em;scroll-margin-top:70px}
@@ -27,10 +29,10 @@ li{margin:.3em 0}
 
 /* Sticky nav */
 .nav-bar{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);padding:10px 0}
-.nav-inner{max-width:900px;margin:0 auto;padding:0 24px;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
-.nav-inner a{text-decoration:none;color:#64748b;font-size:.82rem;padding:5px 10px;border-radius:6px;transition:all .15s;font-weight:600}
+.nav-inner{max-width:900px;margin:0 auto;padding:0 24px;display:flex;gap:4px;flex-wrap:wrap;align-items:center}
+.nav-inner a{text-decoration:none;color:#64748b;font-size:.78rem;padding:4px 8px;border-radius:6px;transition:all .15s;font-weight:600;white-space:nowrap}
 .nav-inner a:hover{background:var(--accent-light);color:var(--accent)}
-.nav-title{font-weight:800;color:var(--accent);font-size:.9rem;margin-right:auto;padding:5px 0}
+.nav-title{font-weight:800;color:var(--accent);font-size:.85rem;margin-right:auto;padding:4px 0}
 
 /* Cards */
 .card{border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin:1.5em 0;background:#fff}
@@ -40,6 +42,8 @@ li{margin:.3em 0}
 .card-orange{border-left:4px solid var(--orange);background:var(--orange-light)}
 .card-red{border-left:4px solid var(--red);background:var(--red-light)}
 .card-purple{border-left:4px solid var(--accent);background:var(--accent-light)}
+.card-gmp{border-left:4px solid var(--gmp-border);background:var(--gmp-bg)}
+.card-anno{border-left:4px solid var(--anno-border);background:var(--anno-bg)}
 
 /* Approach color dots */
 .approach-dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:4px}
@@ -75,6 +79,8 @@ tr:nth-child(even){background:#fafbfc}
 /* Warning / pitfall boxes */
 .pitfall{border-left:4px solid var(--red);background:var(--red-light);border-radius:0 8px 8px 0;padding:14px 18px;margin:.8em 0}
 .tip{border-left:4px solid var(--green);background:var(--green-light);border-radius:0 8px 8px 0;padding:14px 18px;margin:.8em 0}
+.gmp-box{border-left:4px solid #ca8a04;background:#fefce8;border-radius:0 8px 8px 0;padding:14px 18px;margin:.8em 0}
+.anno-box{border-left:4px solid #9333ea;background:#faf5ff;border-radius:0 8px 8px 0;padding:14px 18px;margin:.8em 0}
 
 /* Framework visual */
 .framework-box{border:2px solid var(--accent);border-radius:12px;padding:20px;margin:1em 0;background:#faf5ff}
@@ -102,11 +108,34 @@ tr:nth-child(even){background:#fafbfc}
 .dim-card{border:1px solid var(--border);border-radius:10px;padding:16px 20px;margin:1em 0;background:#fff;border-left:4px solid var(--syl-text)}
 .dim-card h4{margin-top:0;color:var(--syl-text)}
 
+/* Level descriptor table special styling */
+.level-L0{background:#fee2e2;color:#991b1b}
+.level-L1{background:#fecaca;color:#991b1b}
+.level-L2{background:#fed7aa;color:#9a3412}
+.level-L3{background:#fef3c7;color:#92400e}
+.level-L4{background:#dcfce7;color:#166534}
+.level-L5{background:#bbf7d0;color:#166534}
+
+/* Annotation symbol badge */
+.anno-badge{display:inline-block;width:22px;height:22px;border-radius:4px;font-size:.72em;font-weight:800;text-align:center;line-height:22px;margin-right:4px;vertical-align:middle;border:1px solid currentColor}
+.anno-check{background:#dcfce7;color:#166534}
+.anno-plus{background:#dbeafe;color:#1e40af}
+.anno-n{background:#fef3c7;color:#92400e}
+.anno-sw{background:#fce7f3;color:#9d174d}
+.anno-d{background:#fed7aa;color:#9a3412}
+.anno-id{background:#e0e7ff;color:#3730a3}
+.anno-l{background:#f3e8ff;color:#6b21a8}
+.anno-x{background:#fecaca;color:#991b1b}
+.anno-naq{background:#fee2e2;color:#991b1b}
+.anno-bod{background:#fefce8;color:#854d0e}
+.anno-r{background:#f1f5f9;color:#475569}
+
 /* Responsive */
 @media(max-width:640px){
   .container{padding:24px 16px}
   .quick-grid{grid-template-columns:1fr}
-  .nav-inner a{font-size:.75rem;padding:4px 7px}
+  .nav-inner a{font-size:.7rem;padding:3px 6px}
+  table{font-size:.8rem}
 }
 
 /* Scroll spy active */
@@ -117,24 +146,230 @@ tr:nth-child(even){background:#fafbfc}
 
 <div class="nav-bar">
 <div class="nav-inner">
-<span class="nav-title">CIE 9990 Exam Handbook</span>
+<span class="nav-title">CIE 9990 Exam v2.0</span>
+<a href="#s0">Scoring Core</a>
 <a href="#s1">Overview</a>
-<a href="#s2">Question Types</a>
+<a href="#s2">Q Types</a>
 <a href="#s3">Frameworks</a>
 <a href="#s4">No-Framework</a>
-<a href="#s5">Evaluation Toolkit</a>
-<a href="#s6">Knowledge Bank</a>
-<a href="#s7">Mark Schemes</a>
+<a href="#s5">Eval Toolkit</a>
+<a href="#s6">Knowledge</a>
+<a href="#s7">Marking</a>
 <a href="#s8">Pitfalls</a>
-<a href="#s9">Quick Reference</a>
+<a href="#s9">Quick Ref</a>
 <a href="#s10">Exam Map</a>
+<a href="#s11">Paper 2 RM</a>
 </div>
 </div>
 
 <div class="container">
 
-<h1>CIE Psychology 9990 — Exam Practice Handbook</h1>
-<p class="cn" style="font-size:.95rem;color:var(--cn)">Based on real exam questions from all 12 Core Studies. Built from actual past-paper patterns, not generic advice.</p>
+<h1>CIE Psychology 9990 — Exam Practice Handbook <span style="font-size:.6em;vertical-align:super;background:var(--accent);color:#fff;padding:2px 8px;border-radius:4px">v2.0</span></h1>
+<p class="cn" style="font-size:.95rem;color:var(--cn)">Based on real exam questions from all 12 Core Studies + Official Mark Schemes (2024 June + 2025 May/June + Oct/Nov). Built from actual past-paper patterns and marking criteria — not generic advice.</p>
+
+<!-- ============ §0 CIE SCORING SYSTEM CORE (NEW in v2.0) ============ -->
+<h2 id="s0">0. CIE Scoring System Core <span class="tag tag-must">NEW v2.0</span></h2>
+
+<div class="card card-gmp">
+<div class="card-header">📐 Why This Section Exists</div>
+<p>Before you learn <em>what</em> to write, you must understand <em>how you are scored</em>. This section contains the <strong>official rules that examiners follow when marking your paper</strong>. These rules are extracted directly from the Generic Marking Principles (GMP) at the start of every official Mark Scheme. Most students never read them — which means they make avoidable mistakes on every exam.</p>
+<div class="tip"><strong>Read this section once. It will change how you approach every question.</strong></div>
+</div>
+
+<h3>0.1 Generic Marking Principles (GMP) — The 6 Iron Rules</h3>
+<p>These 6 principles appear at the beginning of <strong>every single CIE Mark Scheme</strong> for Psychology 9990. They are non-negotiable.</p>
+
+<table>
+<tr><th style="width:8%">Rule</th><th style="width:55%">What It Means</th><th style="width:12%">Importance</th><th style="width:25%">Student Impact</th></tr>
+<tr>
+<td><strong>GMP1</strong></td>
+<td><strong>Marks are awarded based on the specific content of the Mark Scheme.</strong> Examiners cannot award marks for correct-sounding answers that don't match what's written in the MS.</td>
+<td style="color:var(--red);font-weight:700">🔴 Critical</td>
+<td>You must use the <em>exact terminology and concepts</em> the MS expects. "The sample was small" might not match if the MS wants "opportunity sampling was used".</td>
+</tr>
+<tr>
+<td><strong>GMP2</strong></td>
+<td><strong>Only whole marks are awarded.</strong> No half marks, no "almost there" marks.</td>
+<td style="color:var(--orange);font-weight:700">🟡 Know it</td>
+<td>If your answer is between two mark levels, you get the lower one. There's no "2.5 marks".</td>
+</tr>
+<tr>
+<td><strong>GMP3 ⭐</strong></td>
+<td><strong>Marks are awarded for what is CORRECT. Errors do NOT lose marks. Omissions do NOT lose marks.</strong> If you write something wrong, the examiner simply ignores it. You are never penalised for incorrect information.</td>
+<td style="color:var(--red);font-weight:700">🔴🔴🔴 MOST IMPORTANT</td>
+<td><strong>This is the #1 misconception among students.</strong> Many students are afraid to write because they think wrong answers deduct marks. They don't! Write everything you think might be relevant — if it's wrong, it's ignored. If it's right, you get the mark.</td>
+</tr>
+<tr>
+<td><strong>GMP4</strong></td>
+<td><strong>Rules must be applied consistently.</strong> All candidates are marked using the same standard.</td>
+<td style="color:var(--orange);font-weight:700">🟡 Know it</td>
+<td>No special treatment. Don't waste time trying to be clever or original — stick to what the MS rewards.</td>
+</tr>
+<tr>
+<td><strong>GMP5</strong></td>
+<td><strong>The full range of marks should be used.</strong> Examiners are trained to use all available mark levels.</td>
+<td style="color:var(--orange);font-weight:700">🟡 Know it</td>
+<td>A well-written answer can get full marks. A poor one gets zero. The scale is fully utilised.</td>
+</tr>
+<tr>
+<td><strong>GMP6</strong></td>
+<td><strong>Marks are awarded based only on the Mark Scheme requirements — not on grade boundaries.</strong> Your raw score is converted to a grade later.</td>
+<td style="color:var(--orange);font-weight:700">🟡 Know it</td>
+<td>Don't worry about "how many marks do I need for an A". Focus on maximising each question's score.</td>
+</tr>
+</table>
+
+<div class="gmp-box">
+<strong>⭐ GMP3 Deep Dive: "Positive Marking"</strong>
+<ul>
+<li>✅ Write a correct point → <strong>+1 mark</strong></li>
+<li>❌ Write an incorrect point → <strong>0 marks (NOT -1)</strong></li>
+<li>⚠️ Write nothing → <strong>0 marks</strong></li>
+<li>💡 <strong>Strategy:</strong> If you're unsure about a point, WRITE IT ANYWAY. The worst case is 0 (same as leaving it blank). The best case is +1.</li>
+<li>⚠️ <strong>Exception:</strong> Contradictory statements within the same sentence may result in 0 for that point (see Social Science Rule #5 below).</li>
+</ul>
+</div>
+
+<h3>0.2 Social Science-Specific Principles — 7 Additional Rules</h3>
+<p>Beyond the GMPs, CIE applies these 7 rules specifically to social science subjects (including Psychology):</p>
+
+<table>
+<tr><th style="width:5%">#</th><th style="width:60%">Rule</th><th style="width:35%">Example</th></tr>
+<tr>
+<td><strong>SS1</strong></td>
+<td><strong>Alternative wording that conveys the same meaning as the MS → Award the mark.</strong></td>
+<td>MS says "participants were deceived" → Candidate writes "the researcher lied to participants about the true aim" → ✅ Awarded</td>
+</tr>
+<tr>
+<td><strong>SS2</strong></td>
+<td><strong>Correct answers NOT in the MS → Still award the mark.</strong> If the candidate writes something correct that isn't listed, examiners should still credit it.</td>
+<td>Candidate correctly identifies "demand characteristics" as a weakness even though the MS only lists "ecological validity" → ✅ Awarded</td>
+</tr>
+<tr>
+<td><strong>SS3</strong></td>
+<td><strong>Multiple correct answers in one space → Award ALL of them</strong> (for non-list questions).</td>
+<td>Question asks for "one ethical issue". Candidate writes "deception AND lack of informed consent" → Both credited (though only 1 mark available)</td>
+</tr>
+<tr>
+<td><strong>SS4 🔴</strong></td>
+<td><strong>Keywords without demonstrating understanding → Do NOT award.</strong> Just dropping terminology isn't enough.</td>
+<td>Writes "reliability" but doesn't explain what IS reliable or WHY it matters → ❌ Not awarded</td>
+</tr>
+<tr>
+<td><strong>SS5 🔴</strong></td>
+<td><strong>Contradictory answers → Do NOT award.</strong> If you say X and then say not-X in the same response, you get 0 for that point.</td>
+<td>"The sample was large enough" followed by "but the small sample limits generalisability" → ❌ Contradiction = 0</td>
+</tr>
+<tr>
+<td><strong>SS6</strong></td>
+<td><strong>Repeated points → Do NOT award again.</strong> Saying the same thing twice with different words doesn't earn extra marks.</td>
+<td>"Small sample" in point 1, then "limited number of participants" in point 2 → Second instance ❌ [REP]</td>
+</tr>
+<tr>
+<td><strong>SS7</strong></td>
+<td><strong>Spelling errors → Tolerate UNLESS it's a syllabus term that causes confusion.</strong></td>
+<td>"ecolgical validity" → ✅ Tolerated. "efficacy" instead of "validity" where context makes it unclear → ❌ Not tolerated</td>
+</tr>
+</table>
+
+<h3>0.3 Annotations Dictionary — What Those Symbols Mean</h3>
+<p>When you get your exam back (or imagine looking at a marked script), these are the symbols examiners use. Understanding them helps you understand <em>why</em> you got (or didn't get) marks:</p>
+
+<div class="quick-grid">
+<div class="quick-card card-anno" style="border-left:4px solid #16a34a">
+<div class="quick-card-title"><span class="anno-badge anno-check">√</span> Creditworthy Point (√)</div>
+<p style="font-size:.85rem">A correct, mark-earning point. Appears on <strong>ALL questions</strong>. Each √ = typically 1 mark (sometimes more for developed points).</p>
+</div>
+
+<div class="quick-card card-anno" style="border-left:4px solid #2563eb">
+<div class="quick-card-title"><span class="anno-badge anno-plus">+</span> Creditworthy 'What' (+)</div>
+<p style="font-size:.85rem">Used specifically in <strong>Q8 Application questions</strong>. Marks the identification of the concept/issue being applied. Must be paired with explanation.</p>
+</div>
+
+<div class="quick-card card-anno" style="border-left:4px solid #ca8a04">
+<div class="quick-card-title"><span class="anno-badge anno-n">N</span> Named Issue (N) <span class="tag tag-must">FORCED</span></div>
+<p style="font-size:.85rem"><strong>CRITICAL for Q10 Essay (10 marks).</strong> The examiner MUST see evaluation of this specific syllabus dimension. Missing it caps your mark at L3 (5-6 marks max out of 10).</p>
+</div>
+
+<div class="quick-card card-anno" style="border-left:4px solid #16a34a">
+<div class="quick-card-title"><span class="anno-badge anno-sw">S</span> Strength (S)</div>
+<p style="font-size:.85rem">Used in Q10 Essay. Marks a strength/advantage point. You need <strong>at least 2 strengths</strong> for full marks.</p>
+</div>
+
+<div class="quick-card card-anno" style="border-left:4px solid #dc2626">
+<div class="quick-card-title"><span class="anno-badge anno-sw">W</span> Weakness (W)</div>
+<p style="font-size:.85rem">Used in Q10 Essay. Marks a weakness/disadvantage point. You need <strong>at least 2 weaknesses</strong> for full marks.</p>
+</div>
+
+<div class="quick-card card-anno" style="border-left:4px solid #ea580c">
+<div class="quick-card-title"><span class="anno-badge anno-d">D</span> Detailed (D)</div>
+<p style="font-size:.85rem">Used in Q10 Essay. Indicates this point has been <strong>sufficiently developed/explained</strong>, not just stated. Distinguishes L4/L5 from L2/L3.</p>
+</div>
+
+<div class="quick-card card-anno" style="border-left:4px solid #ea580c">
+<div class="quick-card-title"><span class="anno-badge anno-d">d</span> Data Mark (d)</div>
+<p style="font-size:.85rem">Used specifically in <strong>Q4 Results questions</strong>. Awards a mark for including specific numerical data (means, percentages, p-values) from the study.</p>
+</div>
+
+<div class="quick-card card-anno" style="border-left:4px solid #2563eb">
+<div class="quick-card-title"><span class="anno-badge anno-id">ID</span> Identification (ID)</div>
+<p style="font-size:.85rem">Used in <strong>Q6 Two Friends / Background</strong> questions. Awards the mark for correctly identifying/naming the concept or factor.</p>
+</div>
+
+<div class="quick-card card-anno" style="border-left:4px solid #16a34a">
+<div class="quick-card-title"><span class="anno-badge anno-id">Ex</span> Example (Ex)</div>
+<p style="font-size:.85rem">Used in <strong>Q6 Two Friends / Background</strong> questions. Awards the mark for providing a concrete example that illustrates the identified concept.</p>
+</div>
+
+<div class="quick-card card-anno" style="border-left:4px solid #7c3aed">
+<div class="quick-card-title"><span class="anno-badge anno-l">L1–L5</span> Level (L)</div>
+<p style="font-size:.85rem"><strong>Overall level awarded</strong>. For Q9 S&D: L1=0-1, L2=2, L3=3, L4=4 (out of 8). For Q10 Essay: L1=1-2, L2=3-4, L3=5-6, L4=7-8, L5=9-10 (out of 10).</p>
+</div>
+
+<div class="quick-card card-anno" style="border-left:4px solid #dc2626">
+<div class="quick-card-title"><span class="anno-badge anno-naq">NAQ</span> Not Answering Question</div>
+<p style="font-size:.85rem"><strong>Danger signal.</strong> Your answer doesn't address what the question asked. Common in Q9/Q10 when students write generic evaluation instead of following the specific instruction.</p>
+</div>
+
+<div class="quick-card card-anno" style="border-left:4px solid #ca8a04">
+<div class="quick-card-title"><span class="anno-badge anno-bod">BOD</span> Benefit of Doubt</div>
+<p style="font-size:.85rem">Borderline case — examiner gives you the mark because your answer is close enough. Usually appears when you're between levels.</p>
+</div>
+
+<div class="quick-card card-anno" style="border-left:4px solid #64748b">
+<div class="quick-card-title"><span class="anno-badge anno-r">REP</span> Repetition (R)</div>
+<p style="font-size:.85rem">You've already made this point earlier. No additional mark awarded. <strong>Check your work before finishing — if two points sound similar, merge or replace one.</strong></p>
+</div>
+
+<div class="quick-card card-anno" style="border-left:4px solid #dc2626">
+<div class="quick-card-title"><span class="anno-badge anno-x">✗</span> Error (✗)</div>
+<p style="font-size:.85rem">Incorrect statement. Remember GMP3: this does <strong>NOT</strong> lose you marks — it just doesn't gain any. But contradictions (✗ alongside ✓) can void a point.</p>
+</div>
+</div>
+
+<h3>0.4 The Marking Workflow — How Examiners Actually Score Your Paper</h3>
+<div class="framework-box">
+<div class="framework-step">
+<span class="framework-letter">1</span>
+<span class="framework-text"><strong>Read the whole answer first.</strong> Examiners read your complete response before assigning any marks. They form an initial impression of the level.</span>
+</div>
+<div class="framework-step">
+<span class="framework-letter">2</span>
+<span class="framework-text"><strong>Identify creditworthy points (√).</strong> Go through line by line, marking each correct/relevant point. This is where GMP3 applies — errors are ignored, only correct content counts.</span>
+</div>
+<div class="framework-step">
+<span class="framework-letter">3</span>
+<span class="framework-text"><strong>Apply annotations.</strong> Add N/S/W/D for essay questions, ID/Ex for Two Friends, d for data marks, check for REP/NAQ.</span>
+</div>
+<div class="framework-step">
+<span class="framework-letter">4</span>
+<span class="framework-text"><strong>Determine Level (L1-L5).</strong> Based on the quality, depth, and coverage of points, assign an overall level. Check against Level Descriptors (§3.6).</span>
+</div>
+<div class="framework-step">
+<span class="framework-letter">5</span>
+<span class="framework-text"><strong>Assign final mark.</strong> Within the level range, pick the specific mark based on how well the answer meets the top end of that level's criteria.</span>
+</div>
+</div>
 
 <!-- ============ §1 OVERVIEW ============ -->
 <h2 id="s1">1. Exam Overview</h2>
@@ -157,8 +392,8 @@ tr:nth-child(even){background:#fafbfc}
 <strong>Golden Rule:</strong> The number of marks = the number of distinct, developed points you need to make. For a 10-mark evaluation, you need about <strong>4 developed points</strong> (2 strengths + 2 weaknesses) plus a brief conclusion. For a 2-mark question, write <strong>2 sentences maximum</strong>.
 </div>
 
-<!-- ============ §2 QUESTION TYPES ============ -->
-<h2 id="s2">2. Question Type Taxonomy (with real exam examples)</h2>
+<!-- ============ §2 QUESTION TYPES (UPGRADED with MS Rules) ============ -->
+<h2 id="s2">2. Question Type Taxonomy (with Real MS Rules) <span class="tag tag-common">v2.0 UPGRADE</span></h2>
 
 <h3>2.1 State / Define / Identify <span class="tag tag-1">1–2 marks</span> <span class="tag tag-ao1">AO1</span></h3>
 <p>These questions test pure recall. You either know the answer or you don't. No framework needed — just write the fact.</p>
@@ -184,6 +419,16 @@ tr:nth-child(even){background:#fafbfc}
 <strong>Common mistake:</strong> Writing a full paragraph for a 1-mark question. One word or one sentence is enough. Examiners award the mark for the key term — extra words waste time.
 </div>
 
+<div class="gmp-box">
+<strong>📋 MS Rules for State/Define Questions (from 2024+2025 MS):</strong>
+<ul>
+<li>✅ <strong>List is definitive</strong>: If the MS provides a list of acceptable answers (e.g., Q1 Pozzulo cartoon characters), ONLY those answers are accepted. No alternatives.</li>
+<li>❌ <strong>Too vague = 0 marks</strong>: "'Food'" for primary reinforcer (Fagen) → rejected. Must be specific: "'Banana'" → accepted.</li>
+<li>❌ <strong>Too general = 0 marks</strong>: "'Sound'" alone for secondary reinforcer → rejected. Must specify: "'Whistle (sound)'" → accepted.</li>
+<li>⚠️ <strong>Spelling tolerance</strong>: Minor spelling errors in non-syllabus terms are tolerated (SS7).</li>
+</ul>
+</div>
+
 <h3>2.2 Outline <span class="tag tag-2">2–4 marks</span> <span class="tag tag-ao1">AO1</span></h3>
 <p>Brief, factual description. No evaluation, no opinion. Just state the fact(s) clearly.</p>
 
@@ -198,583 +443,276 @@ tr:nth-child(even){background:#fafbfc}
 
 <div class="model-answer">
 <span class="model-label">Model Answer (4 marks — Outline one assumption of the biological approach)</span>
-<p>One assumption is that <strong>behaviour can be explained in terms of biological structures and processes</strong>, such as hormones, brain anatomy, and genetics. For example, in Hassett et al.'s study, the researchers hypothesised that toy preferences in monkeys could be explained by <strong>biological differences in androgen exposure</strong> during prenatal development, rather than by social learning. This shows that the biological approach assumes behaviour has a <strong>physiological basis</strong> that can be observed and measured.</p>
-<p><strong>Why 4 marks:</strong> 1 mark for naming the assumption + 1 mark for explaining it + 1 mark for linking to the study + 1 mark for the specific example (androgen exposure).</p>
+
+<p><strong>Assumption:</strong> Behaviour can be explained in terms of brain structures and/or biochemical processes. <strong>Explanation:</strong> The biological approach assumes that all psychological behaviour has a physical cause. For example, hormones such as testosterone influence aggression levels, and brain areas like the amygdala process emotions. Hassett et al.'s study supports this by showing that male monkeys showed a preference for wheeled toys, suggesting innate (biological) differences rather than learned social influences.</p>
+</div>
+
+<div class="gmp-box">
+<strong>📋 MS Rules for Outline Questions:</strong>
+<ul>
+<li>✅ Each distinct point = 1 mark. A 4-mark outline needs 4 separate facts/details.</li>
+<li>❌ <strong>Evaluation mixed in = still gets AO1 marks</strong> for the descriptive parts, but the evaluative parts won't earn extra unless explicitly asked.</li>
+<li>⚠️ <strong>Procedure outlines need specificity</strong>: "They observed the monkeys" = 1 mark. "They observed the monkeys in a free-play setting with both 'wheeled' and 'plush' toys available, recording duration of interaction with each toy type" = 3 marks.</li>
+</ul>
 </div>
 
 <h3>2.3 Describe <span class="tag tag-3">2–6 marks</span> <span class="tag tag-ao1">AO1</span></h3>
-<p>Structured factual recall. More detail than Outline. For 6 marks, you need specific data points.</p>
+<p>Factual description with more detail than "outline". Often asks for procedure, results, or sample details.</p>
 
 <div class="example">
 <span class="example-label">Real Exam Examples</span>
 <ul>
-<li><strong>Describe the sample used in Group 1 (AS/HFA).</strong> [4] <span class="study-cog study-pill">Baron-Cohen</span></li>
-<li><strong>Describe the results of Hassett et al.'s study.</strong> [6] <span class="study-bio study-pill">Hassett</span></li>
-<li><strong>Describe two ways in which the procedure used by Piliavin et al. was standardised.</strong> [4] <span class="study-soc study-pill">Piliavin</span></li>
-<li><strong>Describe the Comfortable Interpersonal Distance (CID) paradigm used in Experiment 1.</strong> [6] <span class="study-soc study-pill">Perry</span></li>
+<li><strong>Describe the sample in Baron-Cohen's study.</strong> [4] <span class="study-cog study-pill">Baron-Cohen</span></li>
+<li><strong>Describe how data was collected in Piliavin's study.</strong> [4] <span class="study-soc study-pill">Piliavin</span></li>
+<li><strong>Describe the results of Dement & Kleitman's study.</strong> [6] <span class="study-bio study-pill">Dement</span></li>
 </ul>
 </div>
 
-<div class="model-answer">
-<span class="model-label">Model Answer (6 marks — Describe the results of Hassett et al.)</span>
-<p>Hassett et al. found that female monkeys showed a <strong>significantly greater preference for plush toys</strong> (typically feminine) than males, while males showed a <strong>greater preference for wheeled toys</strong> (typically masculine). Specifically, the mean percentage of time interacting with plush toys was higher for females, and the mean percentage for wheeled toys was higher for males. Both male and female monkeys showed <strong>low interest in neutral toys</strong>. The effect size for the wheeled-toy preference was large. These results mirrored human gender-typed toy preferences, suggesting a biological rather than purely social explanation.</p>
-<p><strong>Why 6 marks:</strong> Specific data (percentages/means), both genders covered, comparison to human data, and a brief interpretation linking back to the aim.</p>
+<div class="gmp-box">
+<strong>📋 MS Rules for Describe Results Questions (Q4 — most common):</strong>
+<ul>
+<li><strong>d mark (data mark)</strong>: Specific numbers/percentages earn extra marks. "Doodling group recalled more" = AO1 mark. "Doodling group recalled mean 7.8 items vs control 5.8 (29% improvement)" = AO1 + d mark.</li>
+<li>❌ <strong>Wrong metric = 0 for that part</strong>: Q3(a) Hassett — question asks for <em>duration</em> of play. Answering "'played more'" (frequency) or "'toy preference'" = 0 marks. <strong>Always check what the question is measuring!</strong></li>
+<li>❌ <strong>'Different aims' / 'Different conclusions' in S&D = L1 max</strong>: These are superficial differences that don't show understanding of psychological principles.</li>
+<li>✅ <strong>Meaningful comparison required</strong>: When comparing results, include actual numbers and explain what the difference means.</li>
+</ul>
 </div>
 
 <h3>2.4 Explain / Suggest <span class="tag tag-3">2–6 marks</span> <span class="tag tag-ao2">AO2</span></h3>
-<p>Application of knowledge — either explaining <em>why</em> something matters or suggesting how to improve/change something. These require <em>light</em> structure: identify the concept, then apply it.</p>
+<p>Application-based questions. You need to link knowledge to a scenario or suggest improvements.</p>
 
 <div class="example">
 <span class="example-label">Real Exam Examples</span>
 <ul>
-<li><strong>Explain why Biyu's teacher has said she cannot deceive participants.</strong> [3] <span class="study-cog study-pill">Hölzel</span></li>
-<li><strong>Suggest why Karl will not be able to conclude cause and effect.</strong> [2] <span class="study-cog study-pill">Dement</span></li>
-<li><strong>Explain how to operationalise the variables of sleeping and eating.</strong> [4] <span class="study-cog study-pill">Dement</span></li>
-<li><strong>How could the methodology of this study be improved?</strong> [6] <span class="study-bio study-pill">Hassett</span></li>
-<li><strong>Suggest two problems with collecting data about hours of sleep.</strong> [4] <span class="study-cog study-pill">Dement</span></li>
+<li><strong>Suggest one reason why Andrade's findings have real-world application.</strong> [3] <span class="study-lrn study-pill">Andrade</span></li>
+<li><strong>Explain why Milgram's study could be considered unethical.</strong> [4] <span class="study-soc study-pill">Milgram</span></li>
+<li><strong>Explain how Hölzel controlled for demand characteristics.</strong> [3] <span class="study-cog study-pill">Hölzel</span></li>
 </ul>
 </div>
 
-<div class="model-answer">
-<span class="model-label">Model Answer (4 marks — Explain how to operationalise sleeping and eating)</span>
-<p><strong>Eating</strong> could be operationalised as the number of calories consumed during the day, recorded using a food diary completed at each meal. <strong>Sleeping</strong> could be operationalised as the number of hours of sleep that night, measured objectively with an actigraph worn on the wrist. Stating the exact measure for each variable makes them <strong>testable and measurable</strong>, so another researcher could replicate the study using the same definitions.</p>
-<p><strong>Why 4 marks:</strong> 1 mark per operationalised variable (2) + 1 mark for specifying the measurement tool + 1 mark for explaining why operationalisation matters.</p>
+<div class="gmp-box">
+<strong>📋 MS Rules for Explain/Suggest Questions:</strong>
+<ul>
+<li><strong>+ mark (identification) + development</strong>: In application questions, you first identify the concept (+), then explain how it applies (development). Both needed for full marks.</li>
+<li>❌ <strong>Deception in Milgram: just saying "confederate screamed" = max 1 mark</strong>. Must explain <em>why</em> it's deception (participants thought it was real).</li>
+<li>❌ <strong>Hassett weakness: "'monkeys cannot communicate to tell us'" = 0 marks</strong>. Not a valid weakness per MS.</li>
+<li>❌ <strong>Hassett weakness: "'does not generalise to humans'" as explanation = 0 for explanation mark</strong> (can still get ID mark separately).</li>
+<li>✅ <strong>ID and explanation can be independently scored</strong>: Even if your explanation is wrong, you may still get the identification mark.</li>
+</ul>
 </div>
 
 <h3>2.5 Evaluate <span class="tag tag-4">6–10 marks</span> <span class="tag tag-ao3">AO3</span></h3>
-<p>This is where the framework matters most. You must give <strong>balanced</strong> strengths and weaknesses, each with evidence from the study.</p>
-
-<div class="example">
-<span class="example-label">Real Exam Examples</span>
-<ul>
-<li><strong>Evaluate the study by Piliavin et al., including two strengths and two weaknesses.</strong> [6] <span class="study-soc study-pill">Piliavin</span></li>
-<li><strong>Evaluate one strength and one weakness of this study.</strong> [10] <span class="study-soc study-pill">Perry</span></li>
-<li><strong>Evaluate the study by Dement and Kleitman, including two strengths and two weaknesses.</strong> [10] <span class="study-bio study-pill">Dement</span></li>
-<li><strong>Explain one strength of using a laboratory experiment in this study.</strong> [3] <span class="study-cog study-pill">Baron-Cohen</span></li>
-</ul>
-</div>
-
-<div class="tip">
-<strong>Notice the wording:</strong> "including two strengths and two weaknesses" tells you exactly how many points to make. If the question says this, write exactly 2+2. If it doesn't specify, aim for balanced coverage.
-</div>
+<p>Structured evaluation using PEE chain or balanced framework. See §3 for frameworks.</p>
 
 <h3>2.6 Discuss / Assess / To what extent <span class="tag tag-5">8–12 marks</span> <span class="tag tag-ao3">AO3</span></h3>
-<p>Extended evaluation. Same as Evaluate, but you also need a <strong>position</strong> and a <strong>conclusion</strong>. These are the highest-mark questions — and the ones where students lose the most marks by not structuring their answer.</p>
-
-<div class="example">
-<span class="example-label">Real Exam Examples</span>
-<ul>
-<li><strong>'Gender differences in behaviour are entirely due to socialisation.' To what extent does Hassett et al.'s study support this statement?</strong> [12] <span class="study-bio study-pill">Hassett</span></li>
-<li><strong>Discuss the nature-nurture debate in relation to this study.</strong> [8] <span class="study-bio study-pill">Hassett</span></li>
-<li><strong>Assess whether the Eyes test has good reliability and validity.</strong> [8] <span class="study-cog study-pill">Baron-Cohen</span></li>
-<li><strong>To what extent do the findings support the view that people with ASD have a specific deficit in theory of mind?</strong> [8] <span class="study-cog study-pill">Baron-Cohen</span></li>
-<li><strong>Discuss the ethical issues involved in this type of research.</strong> [6] <span class="study-cog study-pill">Baron-Cohen</span></li>
-</ul>
-</div>
+<p>Extended evaluation requiring balanced argument + conclusion. See §3.3 PECC framework.</p>
 
 <h3>2.7 Compare <span class="tag tag-3">4 marks</span> <span class="tag tag-ao3">AO3</span></h3>
-<p>A specific question type that requires you to identify similarities and/or differences between two studies or approaches.</p>
-
-<div class="example">
-<span class="example-label">Real Exam Example</span>
-<ul>
-<li><strong>Compare the biological approach and the learning approach to show two ways in which they are different. Use the study by Hassett et al. as an example of the biological approach.</strong> [4] <span class="study-bio study-pill">Hassett</span></li>
-</ul>
-</div>
+<p>Similarities and Differences. See §3.4 Comparison Framework.</p>
 
 <h3>2.8 Design <span class="tag tag-5">10 marks</span> <span class="tag tag-ao2">AO2</span></h3>
-<p>Design a replication or a new study. This tests your research methods knowledge applied to a Core Study context.</p>
-
-<div class="example">
-<span class="example-label">Real Exam Example</span>
-<ul>
-<li><strong>Design a replication study to test the reliability of Hassett et al.'s findings.</strong> [10] <span class="study-bio study-pill">Hassett</span></li>
-</ul>
-</div>
+<p>Research design question. Requires IV/DV, procedure, controls, ethics.</p>
 
 <!-- ============ §3 FRAMEWORKS ============ -->
 <h2 id="s3">3. Answer Frameworks (When to Use Them)</h2>
 
 <h3>3.1 The PEE Chain — For Evaluation (6–12 marks)</h3>
-<p>Every evaluation point should follow this structure. It's the difference between a 4-mark answer and an 8-mark answer.</p>
-
 <div class="framework-box">
 <div class="framework-step">
-<div class="framework-letter">P</div>
-<div class="framework-text">
-<strong>Point</strong> — Name the strength or weakness and identify the syllabus dimension it relates to.<br>
-<em>Example:</em> "A strength is the high level of experimental control <span class="syl-tag">Control of Variables</span>"
-</div>
+<span class="framework-letter">P</span>
+<span class="framework-text"><strong>Point:</strong> Make an evaluation point (e.g., "The study lacks ecological validity")</span>
 </div>
 <div class="framework-step">
-<div class="framework-letter">E</div>
-<div class="framework-text">
-<strong>Evidence</strong> — Give specific detail from THIS study (not a generic point). Use data, procedure details, or design features.<br>
-<em>Example:</em> "The study was conducted in a laboratory, so noise and light were controlled. Participants slept in a dark, quiet room and avoided caffeine and alcohol."
-</div>
+<span class="framework-letter">E</span>
+<span class="framework-text"><strong>Evidence:</strong> Support with specific detail from the study (e.g., "conducted in a lab with artificial tasks")</span>
 </div>
 <div class="framework-step">
-<div class="framework-letter">E</div>
-<div class="framework-text">
-<strong>Explain</strong> — Say WHY this matters. Does it improve validity? Reliability? Generalisability? What would happen without this control?<br>
-<em>Example:</em> "These controls reduce demand characteristics because participants could not adjust their reports to match the researcher's expectations, which increases the internal validity of the findings."
+<span class="framework-letter">E</span>
+<span class="framework-text"><strong>Explain:</strong> Explain WHY this matters / what the impact is (e.g., "meaning participants may not behave naturally, reducing the real-world applicability of findings about toy preferences")</span>
 </div>
-</div>
-</div>
-
-<div class="model-answer">
-<span class="model-label">Full PEE Example (from Dement & Kleitman, 10-mark evaluation)</span>
-<p><strong>P:</strong> A strength is the high level of experimental control. <span class="syl-tag">Control of Variables</span><br>
-<strong>E:</strong> The study was conducted in a laboratory, so extraneous variables such as noise and light were controlled — participants slept in a dark, quiet room and avoided caffeine and alcohol. They were woken by a loud doorbell so they were roused instantly from any sleep stage. Participant WD was deliberately misled about the stage from which he would be woken.<br>
-<strong>E:</strong> These controls reduced demand characteristics, because participants could not adjust their dream reports to match what they believed the researchers wanted. This increases the internal validity of the findings, as we can be more confident that the dream–REM relationship is genuine rather than an artefact of participant expectations.</p>
 </div>
 
 <h3>3.2 Balanced Structure — For "Evaluate" (6–10 marks)</h3>
-<p>When the question says "including two strengths and two weaknesses," use this structure:</p>
-
-<table>
-<tr><th>Section</th><th>Content</th><th>Approx. Marks</th></tr>
-<tr><td>Strength 1</td><td>PEE chain — one strength with syllabus dimension</td><td>2–3</td></tr>
-<tr><td>Strength 2</td><td>PEE chain — different dimension from Strength 1</td><td>2–3</td></tr>
-<tr><td>Weakness 1</td><td>PEE chain — one weakness with syllabus dimension</td><td>2–3</td></tr>
-<tr><td>Weakness 2</td><td>PEE chain — different dimension from Weakness 1</td><td>2–3</td></tr>
-<tr><td>Conclusion (10+ marks only)</td><td>One sentence weighing up: which is more significant?</td><td>1</td></tr>
-</table>
-
-<div class="tip">
-<strong>Choose different dimensions.</strong> Don't write two strengths both about "Control of Variables." Pick from different syllabus dimensions (see §5) so your answer shows breadth.
-</div>
+<ol>
+<li><strong>Introduction</strong> (1 sentence): Briefly state what you're evaluating</li>
+<li><strong>Strength 1</strong> (PEE paragraph): One developed strength with evidence</li>
+<li><strong>Weakness 1</strong> (PEE paragraph): One developed weakness with evidence</li>
+<li><strong>Strength 2</strong> (PEE paragraph): Second developed strength</li>
+<li><strong>Weakness 2</strong> (PEE paragraph): Second developed weakness</li>
+<li><strong>Conclusion</strong> (1-2 sentences): Weigh up — overall, is the study useful/reliable/valid?</li>
+</ol>
 
 <h3>3.3 Position–Evidence–Counter–Conclusion — For "To what extent" (8–12 marks)</h3>
-<p>These questions ask you to take a position. The framework is slightly different from a standard evaluation:</p>
-
-<div class="framework-box">
-<div class="framework-step">
-<div class="framework-letter">P</div>
-<div class="framework-text">
-<strong>Position</strong> — State your initial answer to the question (do the findings support the statement or not?). You don't need to commit fully — "to some extent" or "largely" is fine.
-</div>
-</div>
-<div class="framework-step">
-<div class="framework-letter">E</div>
-<div class="framework-text">
-<strong>Evidence</strong> — Give 2–3 points that support your position, using PEE chains with study-specific data.
-</div>
-</div>
-<div class="framework-step">
-<div class="framework-letter">C</div>
-<div class="framework-text">
-<strong>Counter-evidence</strong> — Give 1–2 points that go against your position (e.g., limitations of the evidence, alternative explanations). This shows balance.
-</div>
-</div>
-<div class="framework-step">
-<div class="framework-letter">C</div>
-<div class="framework-text">
-<strong>Conclusion</strong> — Weigh up: overall, how far does the study support the statement? Refer back to the evidence.
-</div>
-</div>
-</div>
-
-<div class="model-answer">
-<span class="model-label">Model Answer Structure (12 marks — Hassett: 'Gender differences are entirely due to socialisation')</span>
-<p><strong>P:</strong> Hassett et al.'s study does not support the statement that gender differences are entirely due to socialisation. In fact, it provides evidence for a biological basis.</p>
-<p><strong>E1 (Supporting biological):</strong> The study found that <em>female</em> monkeys preferred plush toys and <em>male</em> monkeys preferred wheeled toys — despite monkeys not being socialised in the way human children are. <span class="syl-tag">Validity</span></p>
-<p><strong>E2 (Supporting biological):</strong> The researchers linked these preferences to prenatal androgen exposure, suggesting a hormonal rather than social cause. <span class="syl-tag">Types of Data</span></p>
-<p><strong>C1 (Counter — socialisation can't be fully ruled out):</strong> However, the monkeys lived in social groups and could have learned behaviours through observation of older group members. <span class="syl-tag">Validity</span></p>
-<p><strong>C2 (Counter — small sample limits conclusion):</strong> The sample was limited to one species (rhesus monkeys), so we cannot be certain the same biological mechanism applies to humans. <span class="syl-tag">Sampling</span></p>
-<p><strong>Conclusion:</strong> Overall, Hassett et al.'s findings <em>challenge</em> the statement rather than support it. They suggest that at least some gender-typed preferences have a biological component, though socialisation may also play a role in combination.</p>
-</div>
+<ol>
+<li><strong>Position</strong>: Take a clear stance ("To a large extent...")</li>
+<li><strong>Evidence for position</strong> (2 PEE paragraphs): Developed arguments supporting your position</li>
+<li><strong>Counter-argument</strong> (1-2 PEE paragraphs): Acknowledge the other side</li>
+<li><strong>Conclusion</strong>: Reaffirm position with nuanced judgement</li>
+</ol>
 
 <h3>3.4 Comparison Framework — For "Compare" (4 marks)</h3>
-<p>Comparison questions are worth exactly 4 marks and require exactly <strong>two</strong> points of comparison. Each point should show how the two approaches/studies are similar or different.</p>
-
-<div class="framework-box">
-<div class="framework-step">
-<div class="framework-letter">1</div>
-<div class="framework-text">
-<strong>Identify dimension</strong> — What aspect are you comparing? (e.g., methods, assumptions, type of data)
-</div>
-</div>
-<div class="framework-step">
-<div class="framework-letter">2</div>
-<div class="framework-text">
-<strong>Show both sides</strong> — How does Study A handle this dimension? How does Study B?
-</div>
-</div>
-<div class="framework-step">
-<div class="framework-letter">3</div>
-<div class="framework-text">
-<strong>State the comparison</strong> — Is it a similarity or a difference?
-</div>
-</div>
-</div>
-
-<div class="model-answer">
-<span class="model-label">Model Answer (4 marks — Compare biological vs learning approach, using Hassett)</span>
-<p><strong>Difference 1 — underlying assumption:</strong> The biological approach assumes behaviour is caused by physiological processes — Hassett et al. explained toy preferences in terms of prenatal androgen exposure. In contrast, the learning approach assumes behaviour is shaped by experience — Bandura et al. explained aggression as learned through observation and imitation of a model. <span class="syl-tag">Validity</span></p>
-<p><strong>Difference 2 — methods of investigation:</strong> The biological approach uses physiological measurement — Hassett et al. used a field experiment with cameras and behavioural checklists. The learning approach uses controlled experiments — Bandura et al. observed and counted children's imitation in a laboratory. <span class="syl-tag">Types of Data</span></p>
+<ol>
+<li><strong>Similarity 1</strong>: One clear similarity with example from both studies</li>
+<li><strong>Similarity 2</strong>: Second similarity with examples</li>
+<li><strong>Difference 1</strong>: One clear difference with examples</li>
+<li><strong>Difference 2</strong>: Second difference with examples</li>
+</ol>
+<div class="pitfall">
+<strong>Q9 S&D Critical Rule:</strong> Every 2025 paper added a RESTRICTION (e.g., "Do not refer to the sample"). <strong>Breaking this restriction = automatic cap at L1-L2.</strong> Read the question carefully!
 </div>
 
 <h3>3.5 The "Two Friends" Mini-Evaluation (Q6b in 2025, Q8 in 2024)</h3>
-<p>Most papers contain a "Two friends" question that looks like this: <em>"Two friends, X and Y, are discussing [a specific issue] of the study by [researcher]. X says [positive claim], but Y says [negative claim]. Outline why you think either X or Y is correct, using evidence from the study." [4]</em> It appeared at <strong>Q6(b) in the 2025 official papers</strong> (and at Q8 in 2024) — so know the <em>shape</em>, not the question number.</p>
-<p>This is a <strong>mini-evaluation</strong> — the same skills as a 10-mark evaluation, but compressed into 4 marks. The question wording "<em>why you think either X or Y is correct</em>" means you <strong>choose ONE side</strong> and defend it with evidence. You do not need to write both sides.</p>
-
+<p>Two friends discuss the study. One says X, the other says Y. You evaluate who is more convincing.</p>
 <div class="framework-box">
 <div class="framework-step">
-<div class="framework-letter">1</div>
-<div class="framework-text">
-<strong>Take a side &amp; name the dimension (1 mark)</strong> — State which friend you agree with, and name the concept/dimension/guideline being discussed: validity, ethics (which guideline?), individual vs situational explanation, application to everyday life, generalisability.<br>
-<em>Example:</em> "I agree with Eric. The study has ecological validity." <span class="syl-tag">Validity</span>
-</div>
+<span class="framework-letter">ID</span>
+<span class="framework-text"><strong>Identify</strong> the psychological concept each friend is referring to (ID mark)</span>
 </div>
 <div class="framework-step">
-<div class="framework-letter">2</div>
-<div class="framework-text">
-<strong>Evidence from the study (1 mark)</strong> — Give one specific detail from THIS study that supports your side. Not generic — a real feature of the procedure or sample.<br>
-<em>Example:</em> "Children are used to watching cartoons and identifying characters, which is exactly what the line-up task required."
-</div>
+<span class="framework-letter">Ex</span>
+<span class="framework-text"><strong>Give Example(s)</strong> from the study that illustrate each friend's point (Ex mark)</span>
 </div>
 <div class="framework-step">
-<div class="framework-letter">3</div>
-<div class="framework-text">
-<strong>Explain the link (1 mark)</strong> — "This means that..." — say why the evidence makes your side correct.<br>
-<em>Example:</em> "This means the task measured a familiar, realistic skill, so children's identification responses are likely to reflect real behaviour rather than confusion with the task itself."
+<span class="framework-letter">⚖</span>
+<span class="framework-text"><strong>Weigh up</strong> — which friend is more convincing and why? Reference evidence from the study.</span>
 </div>
 </div>
-<div class="framework-step">
-<div class="framework-letter">4</div>
-<div class="framework-text">
-<strong>Add a second evidence point OR a definition (1 mark)</strong> — Either another study detail supporting your side, or a one-line definition of the dimension (worth 1 mark on its own).<br>
-<em>Example (second evidence):</em> "In addition, the cartoon foils were rated by three judges to ensure they were similar to the target faces, so the line-up was fair."
+
+<!-- ============ §3.6 LEVEL DESCRIPTORS (NEW in v2.0) ============ -->
+<h3 id="s36">3.6 Level Descriptors — What Each Level Actually Looks Like <span class="tag tag-must">NEW v2.0</span></h3>
+
+<p>These are the <strong>official criteria</strong> examiners use to decide whether your answer is L1, L2, L3, L4, or L5. Extracted verbatim from 2024 June and 2025 Mark Schemes.</p>
+
+<h4>3.6.1 Q9 Similarities & Differences (8 marks) — Levels 0–4</h4>
+<table>
+<tr><th style="width:8%">Level</th><th style="width:12%">Marks</th><th style="width:60%">Official Criteria (from MS)</th><th style="width:20%">What It Looks Like</th></tr>
+<tr><td class="level-L0"><strong>L0</strong></td><td>0</td><td>No creditable response</td><td>Blank, irrelevant, or completely off-topic</td></tr>
+<tr><td class="level-L1"><strong>L1</strong></td><td>1</td><td>Brief similarities/differences with <strong>no research examples</strong> OR only one study used</td><td>"They're different because one is about dreams and one is about toys." No study names, no specifics.</td></tr>
+<tr><td class="level-L2"><strong>L2</strong></td><td>2</td><td>Brief answer with attempt to use <strong>at least one research example</strong></td><td>"Both studies used observation methods. Dement observed sleep patterns while Hassett observed monkey toy choices." Basic but thin.</td></tr>
+<tr><td class="level-L3"><strong>L3</strong></td><td>3</td><td>Clearer explanation but <strong>only uses one study as example</strong> OR both studies covered briefly</td><td>"Both used self-report methods. Dement used EEG and dream reports to measure sleep stages. However, the explanation of WHY this matters is underdeveloped."</td></tr>
+<tr><td class="level-L4"><strong>L4</strong></td><td>4</td><td><strong>Differences clearly explained</strong> with <strong>both studies used as examples</strong> + explanations provided</td><td>"Both studies collected quantitative data: Dement measured REM duration in seconds while Hassett measured play duration in seconds. However, Dement's data came from physiological measures (EEG) which is more objective than Hassett's behavioural observations which could be influenced by observer bias. A key difference is that..." [Full, developed, both studies referenced]</td></tr>
+</table>
+
+<div class="gmp-box">
+<strong>🔴 Q9 Common Level Caps (from MS Guidance):</strong>
+<ul>
+<li>❌ "'Different aims'" or "'Different conclusions'" = <strong>L1 max (1 mark)</strong></li>
+<li>❌ "'Different number of groups/participants'" = <strong>L0 (0 marks)</strong></li>
+<li>❌ "'Hölzel using deception or is unethical'" (when comparing to a bio study) = <strong>L1 max</strong></li>
+<li>❌ "'Audio vs visual'" (surface-level difference) = <strong>L1 max</strong></li>
+<li>✅ Differences must be based on <strong>psychological principles</strong>, not surface features</li>
+<li>⚠️ <strong>Restrictions matter</strong>: "Do not refer to the sample" means mentioning sampling = NAQ penalty</li>
+</ul>
 </div>
-</div>
-</div>
+
+<h4>3.6.2 Q10 Extended Evaluation (10 marks) — Levels 0–5</h4>
+<table>
+<tr><th style="width:8%">Level</th><th style="width:10%">Marks</th><th style="width:62%">Official Criteria (from MS)</th><th style="width:20%">Key Requirement</th></tr>
+<tr><td class="level-L0"><strong>L0</strong></td><td>0</td><td>No creditable response</td><td>—</td></tr>
+<tr><td class="level-L1"><strong>L1</strong></td><td>1–2</td><td>Little/no evaluation. Strengths and weaknesses absent or superficial.</td><td>Just listing points without any development</td></tr>
+<tr><td class="level-L2"><strong>L2</strong></td><td>3–4</td><td>Weak evaluation, <strong>may NOT include named issue</strong>. Only addresses ONE of S or W. Points are brief.</td><td>One-sided OR missing forced dimension</td></tr>
+<tr><td class="level-L3"><strong>L3</strong></td><td>5–6</td><td>Mostly appropriate but <strong>may NOT include named issue</strong>. Addresses either S or W in detail, OR all four briefly.</td><td>⚠️ Can pass WITHOUT named issue here!</td></tr>
+<tr><td class="level-L4"><strong>L4</strong></td><td>7–8</td><td>Good evaluation <strong>including the named issue</strong>. Addresses S&W but may include 3-4 points. Majority in depth.</td><td>✅ Named issue REQUIRED from here</td></tr>
+<tr><td class="level-L5"><strong>L5</strong></td><td>9–10</td><td>Very good evaluation including the <strong>named issue</strong>. Thoroughly addresses <strong>both strengths AND both weaknesses</strong> in detail. Selection of evidence very thorough.</td><td>✅ Named issue + 2S + 2W + depth</td></tr>
+</table>
 
 <div class="tip">
-<strong>Which side should you pick?</strong> The side where you can remember the most <em>specific evidence</em>. Both sides are creditworthy in every "Two friends" question — there is no "correct" friend. A student who remembers three details about ethics should argue the ethical side even if they personally think the study was unethical.
+<strong>💡 Key Insight from L3:</strong> You can get 5-6 marks (L3) <strong>without</strong> including the named (forced) issue. This means if you forget the forced dimension, you don't automatically get 0 — you just cap at 6/10. But including it pushes you to L4 (7-8) or L5 (9-10).
 </div>
 
-<div class="model-answer">
-<span class="model-label">Model Answer (4 marks — Fagen: Tenzin says ethical, Ambar says not ethical)</span>
-<p><strong>I agree with Tenzin that the study was ethical.</strong> The study followed the guideline of <strong>numbers of animals used</strong> — the sample was kept to a minimum of only 5 elephants. <span class="syl-tag">Ethics</span></p>
-<p>The elephants also had <strong>constant access to food and water outside of training</strong>, and they could walk away if they did not want to participate — so they were not forced or deprived. <span class="syl-tag">Ethics</span></p>
-<p>Furthermore, <strong>no punishment was used</strong>; only positive reinforcement (banana rewards) was used in training. This means the elephants were never subjected to aversive treatment, which supports the view that the study was ethical.</p>
-<p><em>(Scoring: 1 mark for naming a guideline + 1 mark evidence + 1 mark explanation + 1 mark for the second evidence point.)</em></p>
+<div class="anno-box">
+<strong>📋 How N/S/W/D Annotations Work in Q10 (real example from 2024 MS):</strong>
+<ul>
+<li><strong>N (Named Issue)</strong>: e.g., "sampling technique" for Milgram — examiner checks if you evaluated this specific dimension</li>
+<li><strong>S (Strength)</strong>: Each strength you make gets an S annotation</li>
+<li><strong>W (Weakness)</strong>: Each weakness gets a W annotation</li>
+<li><strong>D (Detailed)</strong>: Well-developed points get D — distinguishes L4/L5 from L2/L3</li>
+<li><strong>Typical L5 answer pattern</strong>: N✓ + S(D) + S(D) + W(D) + W(D) = 9-10 marks</li>
+</ul>
 </div>
 
-<div class="model-answer">
-<span class="model-label">Model Answer (4 marks — Pozzulo: Eric says valid, Quinn says not valid)</span>
-<p><strong>I agree with Eric that the study had validity.</strong> It had ecological validity because children are used to <strong>watching cartoons and identifying characters</strong>, which is close to the real-life skill of identifying people they have seen. <span class="syl-tag">Validity</span></p>
-<p>The study also had controls: the <strong>cartoon foils were rated by three judges</strong> to ensure they looked similar to the target faces. This means the line-up was fair, so it was more likely that social pressures — not facial similarity — affected identification rates. <span class="syl-tag">Control of Variables</span></p>
-<p><em>(Scoring: 1 mark identification + 1 mark evidence + 1 mark "this means" explanation + 1 mark second evidence/explanation.)</em></p>
-</div>
-
-<div class="pitfall">
-<strong>Common "Two friends" mistakes:</strong> (1) Writing both sides — you only need one, and half the answer earns no extra marks. (2) Arguing without study evidence — "the study is ethical because elephants are treated well" gets 1 mark; "the study kept animals to a minimum of 5 and used only positive reinforcement" gets 3. (3) Not naming the dimension/guideline — the first mark is for identifying <em>what</em> you are evaluating.
-</div>
-
-<!-- ============ §4 NO FRAMEWORK ============ -->
-<h2 id="s4">4. When NOT to Use a Framework</h2><p>Over-structuring simple questions wastes time and can actually <em>lose</em> marks if the examiner thinks you're padding. Here's when to just answer directly:</p>
-
-<div class="card card-red">
-<div class="card-header">Questions That Don't Need a Framework</div>
+<h4>3.6.3 Forced Dimensions History (2025 All Papers)</h4>
 <table>
-<tr><th>Question Type</th><th>Marks</th><th>What to Do Instead</th></tr>
-<tr><td>State / Define / Identify</td><td>1–2</td><td>Write the key term or fact. One sentence. Done.</td></tr>
-<tr><td>Outline one...</td><td>2</td><td>Brief description — 2–3 sentences. No PEE needed.</td></tr>
-<tr><td>Describe the sample / results</td><td>4–6</td><td>Structured recall: list the facts with specific data. No evaluation.</td></tr>
-<tr><td>Suggest one way to...</td><td>2</td><td>Give one suggestion + one sentence of explanation.</td></tr>
-<tr><td>Explain why...</td><td>2–3</td><td>Cause-and-effect: "X is a problem because Y, which means Z."</td></tr>
+<tr><th>Paper</th><th>Study</th><th>Forced Dimension (N)</th><th>Acceptable Strengths</th><th>Acceptable Weaknesses</th></tr>
+<tr><td>2025 M/J 11</td><td>Milgram</td><td><strong>Sampling technique</strong></td><td>Reliability, replicability, quantitative data, validity</td><td>Sample, ethics, generalisability, quant data</td></tr>
+<tr><td>2025 M/J 12</td><td>Baron-Cohen</td><td><strong>Quantitative data</strong></td><td>Reliability, standardisation, validity(internal), quant data, ethics</td><td>Sample, ethics</td></tr>
+<tr><td>2025 M/J 13</td><td>Saavedra</td><td><strong>Subjective data</strong></td><td>(TBD from MS)</td><td>(TBD from MS)</td></tr>
+<tr><td>2025 O/N 11</td><td>Bandura</td><td><strong>Ethics</strong></td><td>(TBD from MS)</td><td>(TBD from MS)</td></tr>
+<tr><td>2025 O/N 12</td><td>Pozzulo</td><td><strong>Ecological validity</strong></td><td>(TBD from MS)</td><td>(TBD from MS)</td></tr>
+<tr><td>2025 O/N 13</td><td>Hölzel</td><td><strong>Self-reports</strong></td><td>(TBD from MS)</td><td>(TBD from MS)</td></tr>
 </table>
-</div>
+<div class="tip"><strong>Prepare one PEE point per study on EACH of these 6 dimensions:</strong> sampling technique · quantitative data · subjective data · ethics · ecological validity · self-reports. The forced dimension is a gift if you're ready.</div>
 
-<div class="pitfall">
-<strong>Over-framework example (BAD):</strong><br>
-Question: <em>State the type of problem Biyu is concerned about. [1 mark]</em><br>
-<strong>Bad answer:</strong> "The problem Biyu is concerned about relates to the issue of demand characteristics. Demand characteristics are cues in a study that allow participants to guess the aim. This is important because if participants know the aim, they may alter their behaviour to please the researcher, which would reduce the validity of the findings. Therefore, the problem is demand characteristics."<br>
-<strong>Good answer:</strong> "Demand characteristics."<br><br>
-The bad answer wastes 4 lines on a 1-mark question. The examiner only needs the term.
-</div>
+<!-- ============ §4 NO-FRAMEWORK ============ -->
+<h2 id="s4">4. When NOT to Use a Framework</h2>
+<p>Over-structuring simple questions wastes time and can actually <em>lose</em> marks if the examiner thinks you're padding. Here's when to just answer directly:</p>
+<ul>
+<li><strong>1-mark State/Define:</strong> One word or term. Done.</li>
+<li><strong>2-mark Outline:</strong> 2 sentences max. Don't PEE a definition.</li>
+<li><strong>"Name one...":</strong> Just name it. No explanation needed unless asked.</li>
+<li><strong>Data extraction (Q4):</strong> List the numbers clearly. Framework adds nothing.</li>
+</ul>
 
-<!-- ============ §5 EVALUATION TOOLKIT ============ -->
+<!-- ============ §5 EVAL TOOLKIT ============ -->
 <h2 id="s5">5. Evaluation Toolkit — Syllabus Dimensions</h2>
 
-<p>Every evaluation point should be tagged with one of these six dimensions. Using them ensures you don't repeat yourself and shows the examiner you understand <em>why</em> each point matters.</p>
-
+<div class="quick-grid">
 <div class="dim-card">
-<h4>Control of Variables <span class="syl-tag">Control of Variables</span></h4>
-<p><strong>What it means:</strong> Did the researcher control extraneous variables? Was the procedure standardised?</p>
-<p><strong>Strength if:</strong> Lab setting, standardised instructions, controlled environment, counterbalancing, control group.</p>
-<p><strong>Weakness if:</strong> Field experiment (less control), uncontrolled variables, quasi-experiment (can't randomly allocate).</p>
-<p><strong>Key studies:</strong> Dement (lab, high control), Andrade (standardised procedure), Milgram (standardised prods), Piliavin (field, low control), Baron-Cohen (lab but quasi-experiment).</p>
+<h4>Reliability</h4>
+<p>Can the study be replicated? Same method → same results? Look for: standardisation, controls, objective measures.</p>
 </div>
-
 <div class="dim-card">
-<h4>Types of Data <span class="syl-tag">Types of Data</span></h4>
-<p><strong>What it means:</strong> Was the data quantitative, qualitative, objective, or subjective?</p>
-<p><strong>Strength if:</strong> Objective physiological measures (EEG, MRI), quantitative data that can be statistically analysed, behavioural checklists.</p>
-<p><strong>Weakness if:</strong> Relies on self-report, subjective interpretation, no qualitative data to explain <em>why</em> behaviour occurred.</p>
-<p><strong>Key studies:</strong> Dement (EEG/EOG objective), Hölzel (MRI objective), Andrade (quantitative recall scores), Milgram (quantitative + qualitative remarks), Bandura (observation checklists).</p>
+<h4>Validity (Internal)</h4>
+<p>Did the study measure what it intended? Confounding variables? Demand characteristics?</p>
 </div>
-
 <div class="dim-card">
-<h4>Sampling <span class="syl-tag">Sampling</span></h4>
-<p><strong>What it means:</strong> How were participants selected? Is the sample representative?</p>
-<p><strong>Strength if:</strong> Large sample, matched groups, multiple comparison groups, random assignment.</p>
-<p><strong>Weakness if:</strong> Small sample (N<20), self-selected/volunteer sample, one gender only, opportunity sample, culturally homogeneous.</p>
-<p><strong>Key studies:</strong> Baron-Cohen (15 AS/HFA, all male — weakness), Dement (N=9 — weakness), Hölzel (16, self-selected — weakness), Milgram (40, varied occupations — strength), Bandura (72 children, matched for aggression — strength).</p>
+<h4>Validity (External / Ecological)</h4>
+<p>Can findings generalise? To other populations? To real-world settings? Sampling bias?</p>
 </div>
-
 <div class="dim-card">
-<h4>Ethics <span class="syl-tag">Ethics</span></h4>
-<p><strong>What it means:</strong> Were participants treated ethically? Consider: informed consent, deception, protection from harm, right to withdraw, debriefing, confidentiality.</p>
-<p><strong>Strength if:</strong> Informed consent obtained, debriefing provided, right to withdraw clearly stated, minimal deception.</p>
-<p><strong>Weakness if:</strong> Deception (especially active lies), no right to withdraw, psychological harm, no debriefing, vulnerable participants.</p>
-<p><strong>Key studies:</strong> Milgram (severe deception + harm), Piliavin (no consent, deception), Dement (WD deception), Andrade (mild deception), Baron-Cohen (ethical — informed consent, anonymous data).</p>
+<h4>Generalisability</h4>
+<p>Sample size, demographics, cultural factors. Does this apply beyond the participants tested?</p>
 </div>
-
 <div class="dim-card">
-<h4>Validity <span class="syl-tag">Validity</span></h4>
-<p><strong>What it means:</strong> Is the study measuring what it claims to measure? Can findings be generalised?</p>
-<p><strong>Types:</strong></p>
-<ul>
-<li><strong>Internal validity:</strong> Are the results due to the IV, or confounding variables?</li>
-<li><strong>Ecological validity:</strong> Does the setting reflect real life?</li>
-<li><strong>Population validity:</strong> Can findings generalise to other groups?</li>
-<li><strong>Construct validity:</strong> Does the measure truly capture the concept?</li>
-</ul>
-<p><strong>Key studies:</strong> Dement (low ecological validity — lab sleep), Piliavin (high ecological validity — real subway), Baron-Cohen (low ecological — eyes only, not whole face), Perry (low ecological — CID not real social interaction).</p>
+<h4>Ethics</h4>
+<p>Informed consent, deception, right to withdraw, protection from harm, debriefing, privacy.</p>
 </div>
-
 <div class="dim-card">
-<h4>Reliability & Replicability <span class="syl-tag">Reliability & Replicability</span></h4>
-<p><strong>What it means:</strong> Would the study produce the same results if repeated? Is the procedure detailed enough to replicate?</p>
-<p><strong>Strength if:</strong> Standardised procedure, detailed method section, objective measures, pilot study conducted, inter-rater reliability checked.</p>
-<p><strong>Weakness if:</strong> Procedure not fully described, subjective measures, no reliability check, one-off measurement.</p>
-<p><strong>Key studies:</strong> Dement (standardised EEG/EOG — strength), Baron-Cohen (pilot study + 8 judges validated target words — strength), Bandura (standardised observation with 5-second intervals — strength), Saavedra (single case study — hard to replicate — weakness).</p>
+<h4>Usefulness</h4>
+<p>Does it help us understand behaviour? Real-world applications? Theory-building value?</p>
+</div>
+<div class="dim-card">
+<h4>Representativeness</h4>
+<p>Is the sample typical of the target population? Opportunity/volunteer sampling biases?</p>
+</div>
+<div class="dim-card">
+<h4>Credibility</h4>
+<p>Researcher bias? Observer effects? Social desirability? Qualitative vs quantitative?</p>
+</div>
 </div>
 
 <!-- ============ §6 KNOWLEDGE BANK ============ -->
 <h2 id="s6">6. High-Frequency Knowledge Points Bank</h2>
 
-<p>These are the concepts that appear <strong>across multiple studies</strong>. If you can explain these well, you can answer evaluation questions on any of the 12 Core Studies.</p>
-
 <h3>6.1 Concepts That Work Across Almost Every Study</h3>
-
-<div class="quick-grid">
-<div class="quick-card">
-<div class="quick-card-title">Lab vs Field Experiment</div>
-<p style="font-size:.85rem"><strong>Trade-off:</strong> Lab = high control, low ecological validity. Field = high ecological validity, low control.</p>
-<p style="font-size:.85rem;color:var(--cn)">Use for: Dement, Andrade, Baron-Cohen, Milgram, Bandura (lab) vs Piliavin, Hassett (field)</p>
-</div>
-
-<div class="quick-card">
-<div class="quick-card-title">Sampling Issues</div>
-<p style="font-size:.85rem"><strong>Volunteer bias:</strong> People who volunteer may differ from the general population.</p>
-<p style="font-size:.85rem"><strong>Small sample:</strong> N&lt;20 limits generalisability.</p>
-<p style="font-size:.85rem;color:var(--cn)">Use for: Baron-Cohen (N=15), Dement (N=9), Hölzel (N=16)</p>
-</div>
-
-<div class="quick-card">
-<div class="quick-card-title">Demand Characteristics</div>
-<p style="font-size:.85rem">Cues that let participants guess the aim. They may then behave differently — reducing validity.</p>
-<p style="font-size:.85rem;color:var(--cn)">Use for: Milgram, Andrade, Baron-Cohen, Dement</p>
-</div>
-
-<div class="quick-card">
-<div class="quick-card-title">Ethical Issues</div>
-<p style="font-size:.85rem">Deception, informed consent, protection from harm, right to withdraw, debriefing.</p>
-<p style="font-size:.85rem;color:var(--cn)">Use for: Milgram (severe), Piliavin (no consent), Dement (WD), Andrade (mild)</p>
-</div>
-
-<div class="quick-card">
-<div class="quick-card-title">Ecological Validity</div>
-<p style="font-size:.85rem">Can the findings generalise to real life? Artificial tasks = lower EV.</p>
-<p style="font-size:.85rem;color:var(--cn)">Use for: Dement (lab sleep), Baron-Cohen (eyes only), Perry (CID task)</p>
-</div>
-
-<div class="quick-card">
-<div class="quick-card-title">Quantitative vs Qualitative</div>
-<p style="font-size:.85rem">Quantitative = numbers (scores, percentages). Qualitative = words (interviews, remarks). Both have strengths.</p>
-<p style="font-size:.85rem;color:var(--cn)">Use for: Milgram (both), Bandura (quant), Saavedra (qual), Andrade (quant)</p>
-</div>
-
-<div class="quick-card">
-<div class="quick-card-title">Correlation ≠ Causation</div>
-<p style="font-size:.85rem">A correlation shows a relationship, but doesn't prove one variable <em>causes</em> the other. Third variables may be involved.</p>
-<p style="font-size:.85rem;color:var(--cn)">Use for: Dement (r values), Baron-Cohen (AQ–Eyes Test correlation), Hölzel (grey matter–homework)</p>
-</div>
-
-<div class="quick-card">
-<div class="quick-card-title">Standardised Procedure</div>
-<p style="font-size:.85rem">All participants experience the same conditions, instructions, and measures. This improves reliability.</p>
-<p style="font-size:.85rem;color:var(--cn)">Use for: Milgram (same prods), Dement (same EEG setup), Bandura (same room), Andrade (same tape)</p>
-</div>
-</div>
+<ul>
+<li><strong>Sample characteristics:</strong> Age, gender, sampling method, size, occupation/background</li>
+<li><strong>Research method:</strong> Experiment (lab/field/natural), observation, questionnaire, case study</li>
+<li><strong>Variables:</strong> IV (manipulated), DV (measured), extraneous (controlled)</li>
+<li><strong>Ethical issues:</strong> Deception, consent, harm, withdrawal, debriefing, confidentiality</li>
+<li><strong>Types of data:</strong> Quantitative (numbers) vs Qualitative (words/observations)</li>
+</ul>
 
 <h3>6.2 Approach-Specific High-Frequency Points</h3>
-
-<div class="card card-red">
-<div class="card-header"><span class="approach-dot" style="background:var(--bio)"></span>Biological Approach</div>
 <table>
-<tr><th>High-Frequency Point</th><th>Studies</th><th>Exam Use</th></tr>
-<tr><td>Brain imaging (MRI/fMRI/EEG) provides objective data but artificial setting</td><td>Dement, Hölzel</td><td>Strength (objectivity) + Weakness (ecological validity)</td></tr>
-<tr><td>Physiological measures can't be faked by participants</td><td>Dement, Hölzel</td><td>Strength — reduces demand characteristics</td></tr>
-<tr><td>Cross-sectional vs longitudinal design</td><td>Hölzel (longitudinal — strength)</td><td>Longitudinal avoids participant variables</td></tr>
-<tr><td>Reductionism — reducing complex behaviour to biology</td><td>Hassett, Hölzel</td><td>Weakness — may oversimplify</td></tr>
-<tr><td>Animal studies — ethics + generalisability</td><td>Hassett</td><td>Weakness — can findings apply to humans?</td></tr>
+<tr><th>Approach</th><th>Core Assumption</th><th>Common Evaluation Angles</th></tr>
+<tr><td><span class="approach-dot" style="background:var(--bio)"></span> Biological</td><td>Behaviour = brain/biology/hormones</td><td>Reductionism, determinism, scientific credibility, animal ethics</td></tr>
+<tr><td><span class="approach-dot" style="background:var(--cog)"></span> Cognitive</td><td>Behaviour = mental processes</td><td>Artificial tasks, lack of ecological validity, useful applications</td></tr>
+<tr><td><span class="approach-dot" style="background:var(--soc)"></span> Social</td><td>Behaviour = social situation/others</td><td>Ecological validity, ethics of deception, real-world relevance</td></tr>
+<tr><td><span class="approach-dot" style="background:var(--lrn)"></span> Learning</td><td>Behaviour = learned through experience</td><td>Environmental determinism, practical applications, animal studies</td></tr>
 </table>
-</div>
 
-<div class="card card-blue">
-<div class="card-header"><span class="approach-dot" style="background:var(--cog)"></span>Cognitive Approach</div>
-<table>
-<tr><th>High-Frequency Point</th><th>Studies</th><th>Exam Use</th></tr>
-<tr><td>Lab control vs ecological validity trade-off</td><td>Andrade, Baron-Cohen</td><td>Strength (control) + Weakness (artificial task)</td></tr>
-<tr><td>Standardised stimuli ensure consistency</td><td>Baron-Cohen (same 40 photos), Andrade (same tape)</td><td>Strength — reliability</td></tr>
-<tr><td>Objective measurement (reaction time, accuracy scores)</td><td>Baron-Cohen, Andrade</td><td>Strength — quantitative data</td></tr>
-<tr><td>Internal mental processes inferred from behaviour</td><td>Andrade (inferring attention from recall), Baron-Cohen (inferring ToM from eye-reading)</td><td>Weakness — indirect measurement</td></tr>
-</table>
-</div>
-
-<div class="card card-green">
-<div class="card-header"><span class="approach-dot" style="background:var(--soc)"></span>Social Approach</div>
-<table>
-<tr><th>High-Frequency Point</th><th>Studies</th><th>Exam Use</th></tr>
-<tr><td>Field experiment — high ecological validity</td><td>Piliavin, Hassett</td><td>Strength — real-world setting</td></tr>
-<tr><td>Ethical issues — deception, no informed consent</td><td>Piliavin, Milgram</td><td>Weakness — ethical violation</td></tr>
-<tr><td>Social desirability bias / demand characteristics</td><td>Milgram, Piliavin</td><td>Weakness — participants may not behave naturally</td></tr>
-<tr><td>Cultural bias — can findings generalise across cultures?</td><td>Milgram (US only), Piliavin (NYC subway)</td><td>Weakness — population validity</td></tr>
-<tr><td>Quasi-experiment — cannot randomly allocate IV</td><td>Perry (oxytocin vs placebo — random, but empathy level is not)</td><td>Weakness — confounding variables</td></tr>
-</table>
-</div>
-
-<div class="card card-orange">
-<div class="card-header"><span class="approach-dot" style="background:var(--lrn)"></span>Learning Approach</div>
-<table>
-<tr><th>High-Frequency Point</th><th>Studies</th><th>Exam Use</th></tr>
-<tr><td>Animal studies — ethics + generalisability</td><td>Bandura (children, ok), Fagen (elephants)</td><td>Weakness — can findings apply to humans?</td></tr>
-<tr><td>Experimental control in lab</td><td>Bandura</td><td>Strength — high control</td></tr>
-<tr><td>Single-participant case study</td><td>Saavedra (one boy)</td><td>Weakness — cannot generalise, hard to replicate</td></tr>
-<tr><td>Operant/classical conditioning principles</td><td>Saavedra, Fagen</td><td>Strength — established theoretical framework</td></tr>
-<tr><td>Nature vs nurture debate</td><td>Fagen (both — elephants learn but biology matters)</td><td>Discussion question — 8 marks</td></tr>
-</table>
-</div>
-
-<h3>6.3 Procedure Detail Questions — The Step-by-Step Bank</h3>
-<p>Procedure questions are the most unpredictable in Section A — over half of Section A questions involve procedure in some way. But the answers are pure recall: <strong>memorise the steps in order, name the objects/numbers, and you get the marks.</strong> Click each question to reveal the credited steps (based on real mark schemes).</p>
-
-<div class="card">
-<details>
-<summary><strong>Bandura et al. — Describe the procedure for the 'Aggression Arousal' phase.</strong> <span class="tag tag-1">4–5</span> <span class="study-lrn study-pill">Bandura</span></summary>
-<ul>
-<li>The child was brought to an anteroom containing attractive toys (e.g. fire engine, locomotive, fighter jet, spinning top, doll, doll carriage).</li>
-<li>They were told they could play with them.</li>
-<li>As soon as they began to play (usually after about 2 minutes), the experimenter stopped them and took the toys away.</li>
-<li>The experimenter explained that she did not let just anyone play with these toys — they were reserved for <em>other</em> children.</li>
-<li>The children were told the toys were her "very best" toys.</li>
-<li>The experimenter sat away from the child during this phase and completed paperwork.</li>
-</ul>
-</details>
-</div>
-
-<div class="card">
-<details>
-<summary><strong>Andrade — Describe the procedure for a participant in the doodling condition.</strong> <span class="tag tag-2">5</span> <span class="study-cog study-pill">Andrade</span></summary>
-<ul>
-<li>Participants were recruited after completing a different, unrelated study, and taken into a visually dull room.</li>
-<li>They listened to a tape recording of a monotonous telephone message (a party invitation).</li>
-<li>While listening, the doodling group was asked to shade in the squares and circles on a piece of paper.</li>
-<li>They were told it did not matter how neat or how quickly — it was to relieve boredom.</li>
-<li>They were told they did not need to remember the message, but were instructed to write down the names of the party-goers.</li>
-<li>After the call, participants engaged in a one-minute conversation with the experimenter, then wrote down the party-goers' names and the places.</li>
-<li>The test on places was a surprise — they had not been told about it. (Then debriefed and asked if they suspected a memory test.)</li>
-</ul>
-</details>
-</div>
-
-<div class="card">
-<details>
-<summary><strong>Hassett et al. — Describe the procedure for one trial (plush vs wheeled toy).</strong> <span class="tag tag-2">4</span> <span class="study-bio study-pill">Hassett</span></summary>
-<ul>
-<li>Monkeys were initially kept indoors; one plush toy and one wheeled toy were already placed in the outdoor area, separated by 10 metres.</li>
-<li>Left/right placement of the toys was counterbalanced per trial.</li>
-<li>Monkeys were released into the outdoor area; any interaction was videotaped (two separate cameras, one per toy).</li>
-<li>Each trial lasted 25 minutes.</li>
-<li>Examples of plush toys: Winnie-the-Pooh, Raggedy-Ann, koala, armadillo, bear, Scooby-Doo. Wheeled toys: wagon, truck, car, construction vehicle, shopping cart.</li>
-</ul>
-</details>
-</div>
-
-<div class="card">
-<details>
-<summary><strong>Milgram — Describe the procedure from the hat draw until the learning task began.</strong> <span class="tag tag-2">6</span> <span class="study-soc study-pill">Milgram</span></summary>
-<ul>
-<li>Both pieces of paper drawn from the hat said "teacher" — the draw was rigged; the true participant always became the teacher.</li>
-<li>Both men went into an adjacent room, where the learner was strapped to an "electric chair" (to prevent excessive movement).</li>
-<li>An electrode was attached to the learner's wrist, with electrode paste "to prevent blisters/burns".</li>
-<li>They were told the electrode was connected to the shock generator and that the shocks would be painful but cause no permanent damage.</li>
-<li>The teacher (real participant) received a sample shock of 45 V by pressing the third button on the generator.</li>
-</ul>
-</details>
-</div>
-
-<div class="card">
-<details>
-<summary><strong>Milgram — Describe the shock generator (other than the 30 lever switches).</strong> <span class="tag tag-1">4</span> <span class="study-soc study-pill">Milgram</span></summary>
-<ul>
-<li>Each switch was clearly labelled with a voltage; volts ranged from 15 V to 450 V in 15 V steps.</li>
-<li>Groups of four voltage levels had verbal designations (Slight Shock → Danger: Severe Shock); the last two were labelled simply "XXX".</li>
-<li>Pressing a switch produced a red light, an electric buzzing sound, and lit a blue light labelled "voltage energizer".</li>
-<li>The generator was connected to the learner by electrodes/wires that were "supposed" to send a shock.</li>
-</ul>
-</details>
-</div>
-
-<div class="card">
-<details>
-<summary><strong>Piliavin et al. — Describe the procedure from when the team boarded until the victim collapsed.</strong> <span class="tag tag-2">6</span> <span class="study-soc study-pill">Piliavin</span></summary>
-<ul>
-<li>Each trial team was always 2 males and 2 females, who boarded the train using different doors.</li>
-<li>The experimental car (and its location on the train) was varied between trials.</li>
-<li>The females sat outside the critical area and recorded data as covertly as possible during the ride.</li>
-<li>The male victim/model always stood, next to the pole in the centre of the critical area.</li>
-<li>The model (in the drunk/ill/cane condition) went to the adjacent or critical area depending on the condition.</li>
-<li>The victim waited 70 seconds after the train left the station before collapsing.</li>
-</ul>
-</details>
-</div>
-
-<div class="card">
-<details>
-<summary><strong>Pozzulo et al. — Describe the 'line-up presentation' in the target-absent condition.</strong> <span class="tag tag-2">5</span> <span class="study-soc study-pill">Pozzulo</span></summary>
-<ul>
-<li>The target was replaced with a similar foil (foil had similar features to the target).</li>
-<li>All pictures were shown simultaneously; there were four photographs/foils in the line-up.</li>
-<li>The target and target-replacement were always in the same position; the target's position in the line-up was randomised.</li>
-<li>A silhouette was included in the line-up to represent the possibility of an absent target.</li>
-<li>Participants watched four videos (presented on a laptop/screen in random order), with a photo array after each video; none of the photographs had appeared in the videos.</li>
-</ul>
-</details>
-</div>
-
-<div class="card">
-<details>
-<summary><strong>Fagen et al. — Describe how the elephants were trained to perform the 'trunk up' task.</strong> <span class="tag tag-2">4–5</span> <span class="study-lrn study-pill">Fagen</span></summary>
-<ul>
-<li>Lure and shaping techniques were used: the elephant was tempted to perform the behaviour by placing a reward (banana pieces) a few inches from its forehead.</li>
-<li>The elephant could only reach the banana by lifting its trunk up.</li>
-<li>If the elephant was adult/too big, the lure was held at the end of the trainer's arm.</li>
-<li>The position of the trunk was shaped, using increasing height until "trunk up" was achieved.</li>
-</ul>
-</details>
-</div>
-
-<div class="tip">
-<strong>How to revise these:</strong> For each study, learn the procedure as a <em>numbered sequence</em> (1→2→3...) rather than a paragraph. Then test yourself by covering the answers and recalling the steps — plus any numbers (70 seconds, 25 minutes, 45 V, 10 metres). Numbers are where the AO1 marks live.
-</div>
-
-<!-- ============ §7 MARK SCHEMES ============ -->
+<!-- ============ §7 MARKING ============ -->
 <h2 id="s7">7. How Marks Are Awarded</h2>
 
 <h3>7.1 AO1 — Knowledge and Understanding (Describe, State, Outline)</h3>
@@ -813,8 +751,8 @@ The bad answer wastes 4 lines on a 1-mark question. The examiner only needs the 
 <strong>The #1 reason students lose marks on evaluation:</strong> Generic points. "The sample was small" gets 1 mark. "The sample was small — only 9 participants, all volunteers for a dream study, who may already remember dreams better than average — which limits generalisability to the wider population" gets 3 marks. <strong>Always be specific to the study.</strong>
 </div>
 
-<!-- ============ §8 PITFALLS ============ -->
-<h2 id="s8">8. Common Pitfalls</h2>
+<!-- ============ §8 PITFALLS (UPGRADED with MS Evidence) ============ -->
+<h2 id="s8">8. Common Pitfalls <span class="tag tag-common">v2.0 UPGRADE</span></h2>
 
 <div class="pitfall">
 <strong>1. Writing too much for low-mark questions.</strong> A 1-mark "State" question needs one word. A 2-mark "Outline" needs 2 sentences. Don't write a paragraph — you're wasting time you need for the 10-mark questions at the end.
@@ -848,168 +786,83 @@ The bad answer wastes 4 lines on a 1-mark question. The examiner only needs the 
 <strong>8. Forgetting to use data.</strong> In Describe questions, examiners want to see specific numbers, percentages, means, and p-values. Without data, your description is vague and earns fewer marks.
 </div>
 
+<div class="gmp-box">
+<strong>🔴 NEW in v2.0 — Real Deduction Patterns from Official MS:</strong>
+<ul>
+<li><strong>Q3(c) Hassett Weakness:</strong> "'cruel as not in the wild'" = 0 · "'monkeys cannot communicate'" = 0 · "'broke ethical guideline of numbers'" = 0 · "'does not generalise to humans'" as explanation = 0 (ID may still be awarded)</li>
+<li><strong>Q7 Baron-Cohen Children:</strong> "'generalise to adults'" = 0 marks (not a valid evaluation for this study)</li>
+<li><strong>Q8 Perry Two Friends Ethics:</strong> Deception linked to OT/placebo administration → <strong>not credited for Daphne</strong> (that layer is reasonable) · Right to withdraw → <strong>0</strong> (no such option existed)</li>
+<li><strong>Q9(b) Dement vs Bio S&D:</strong> "'Different aims'" = L1 max · "'Different conclusions'" = L1 max · "'Different number of groups'" = L0 · Must base differences on <strong>psychological principles</strong></li>
+<li><strong>Q10 Fagen Essay:</strong> "'Demand characteristics low'" = 0 (elephants aren't humans!) · Forced dimension = <strong>quantitative data</strong></li>
+<li><strong>Paper 21 Research Methods:</strong> "'Ps were selected by replying to advert'" = 0 (too vague for sampling) · "'Species should be protected'" = NAQ · "'discrete/categorical' for data type" = 0 (wrong) · "'qualitative' for mode" = 0 · Saying X indicates no direction in hypothesis = 0 = REP</li>
+</ul>
+</div>
+
 <!-- ============ §9 QUICK REFERENCE ============ -->
 <h2 id="s9">9. Quick Reference Cards</h2>
 
+<h3>9.1 One-Page Cheat Sheet</h3>
 <div class="quick-grid">
 <div class="quick-card" style="border-left:4px solid var(--red)">
 <div class="quick-card-title">1–2 marks: State / Define</div>
-<p style="font-size:.85rem"><strong>No framework.</strong> Write the fact.<br>1 mark = 1 key term<br>2 marks = term + brief explanation</p>
-<p style="font-size:.8rem;color:var(--cn)">Example: "Demand characteristics." [1]<br>Example: "A field experiment is conducted in a natural setting where the IV is manipulated." [2]</p>
+<p style="font-size:.85rem"><strong>No framework.</strong> Write the fact.<br>1 mark = 1 key term<br>2 marks = term + brief explanation<br>⚠️ Be SPECIFIC — vague = 0</p>
 </div>
-
 <div class="quick-card" style="border-left:4px solid var(--orange)">
-<div class="quick-card-title">2–4 marks: Outline / Describe</div>
-<p style="font-size:.85rem"><strong>No evaluation.</strong> Structured recall.<br>2 marks: brief description<br>4 marks: detailed, with specific facts<br>6 marks: comprehensive, with data</p>
-<p style="font-size:.8rem;color:var(--cn)">Include: numbers, sample details, procedure specifics</p>
+<div class="quick-card-title">3–4 marks: Describe / Explain</div>
+<p style="font-size:.85rem"><strong>Structured but light.</strong><br>Describe = facts + data<br>Explain = what + why/how<br>Include NUMBERS for results</p>
 </div>
-
 <div class="quick-card" style="border-left:4px solid var(--blue)">
-<div class="quick-card-title">2–6 marks: Explain / Suggest</div>
-<p style="font-size:.85rem"><strong>Light structure.</strong> Identify concept → apply to scenario → explain link.<br>No need for PEE chain.</p>
-<p style="font-size:.8rem;color:var(--cn)">Example: "Eating could be operationalised as calories consumed, recorded via food diary." [4]</p>
+<div class="quick-card-title">6 marks: Evaluate</div>
+<p style="font-size:.85rem"><strong>PEE Chain × 2</strong><br>1 strength (P+E+E)<br>1 weakness (P+E+E)<br>Balance is mandatory</p>
 </div>
-
 <div class="quick-card" style="border-left:4px solid var(--green)">
-<div class="quick-card-title">6–10 marks: Evaluate</div>
-<p style="font-size:.85rem"><strong>Full PEE framework.</strong><br>2 strengths + 2 weaknesses<br>Each: Point → Evidence → Explain<br>10+ marks: add conclusion</p>
-<p style="font-size:.8rem;color:var(--cn)">Use different syllabus dimensions for each point</p>
+<div class="quick-card-title">8 marks: S&amp;D (Q9)</div>
+<p style="font-size:.85rem"><strong>2 Similarities + 2 Differences</strong><br>Each with BOTH studies as examples<br>⛔ Watch for RESTRICTION!<br>Target: L4 (4/4 marks)</p>
 </div>
-
 <div class="quick-card" style="border-left:4px solid var(--accent)">
-<div class="quick-card-title">8–12 marks: Discuss / Assess</div>
-<p style="font-size:.85rem"><strong>Position framework.</strong><br>Position → Evidence (2-3) → Counter (1-2) → Conclusion<br>Must take a stance and weigh both sides</p>
-<p style="font-size:.8rem;color:var(--cn)">"To what extent..." = take a position</p>
+<div class="quick-card-title">10 marks: Essay (Q10)</div>
+<p style="font-size:.85rem"><strong>2S + 2W + Named Issue</strong><br>Each point = PEE developed<br>Conclusion required<br>Target: L5 (9-10 marks)</p>
 </div>
-
-<div class="quick-card" style="border-left:4px solid #6b7280">
-<div class="quick-card-title">4 marks: Compare</div>
-<p style="font-size:.85rem"><strong>Two comparison points.</strong><br>Each: Identify dimension → Show Study A → Show Study B → State similarity/difference</p>
-<p style="font-size:.8rem;color:var(--cn)">Always use both studies/approaches</p>
+<div class="quick-card" style="border-left:4px solid var(--lrn)">
+<div class="quick-card-title">Two Friends (Q6)</div>
+<p style="font-size:.85rem"><strong>ID + Ex + Weigh Up</strong><br>Identify each friend's concept<br>Give study examples<br>Who's more convincing?</p>
 </div>
-</div>
-
-<h3>9.1 One-Page Cheat Sheet</h3>
-
-<div class="card card-purple">
-<div class="card-header">The Decision Tree</div>
-<p style="font-size:.9rem">
-<strong>Step 1:</strong> How many marks? → This tells you how many points to make.<br>
-<strong>Step 2:</strong> What command word? → This tells you the structure:
-</p>
-<table style="font-size:.88rem">
-<tr><th>Command Word</th><th>Do This</th></tr>
-<tr><td>State / Define / Identify</td><td>Write the fact. Done.</td></tr>
-<tr><td>Outline</td><td>Brief description. No evaluation.</td></tr>
-<tr><td>Describe</td><td>Detailed facts with data. No evaluation.</td></tr>
-<tr><td>Explain</td><td>Cause-and-effect reasoning. Why does X happen?</td></tr>
-<tr><td>Suggest</td><td>Creative application. What could be done? How?</td></tr>
-<tr><td>Evaluate</td><td>PEE chain × 2–4 points. Balanced S+W.</td></tr>
-<tr><td>Discuss / Assess</td><td>PEE chain + position + counter + conclusion.</td></tr>
-<tr><td>Compare</td><td>Two dimensions × both studies. Similarity or difference.</td></tr>
-<tr><td>Design</td><td>Full research design: aim, hypothesis, IV/DV, sample, procedure, controls, analysis.</td></tr>
-</table>
 </div>
 
 <h3>9.2 Syllabus Dimensions Quick Reference</h3>
-<div class="card">
-<table style="font-size:.9rem">
-<tr><th>Dimension</th><th>Strength cue</th><th>Weakness cue</th></tr>
-<tr><td><span class="syl-tag">Control of Variables</span></td><td>Lab, standardised, control group</td><td>Field, uncontrolled, quasi-experiment</td></tr>
-<tr><td><span class="syl-tag">Types of Data</span></td><td>Objective, quantitative, physiological</td><td>Subjective, self-report, no qualitative</td></tr>
-<tr><td><span class="syl-tag">Sampling</span></td><td>Large, matched, random assignment</td><td>Small, volunteer, one gender, opportunity</td></tr>
-<tr><td><span class="syl-tag">Ethics</span></td><td>Consent, debriefing, right to withdraw</td><td>Deception, harm, no consent, vulnerable</td></tr>
-<tr><td><span class="syl-tag">Validity</span></td><td>Realistic setting, representative sample</td><td>Artificial task, small sample, cultural bias</td></tr>
-<tr><td><span class="syl-tag">Reliability & Replicability</span></td><td>Standardised, pilot study, objective measures</td><td>Vague procedure, subjective, one-off</td></tr>
+<table style="font-size:.85rem">
+<tr><th>Dimension</th><th>When to Use</th><th>Example Phrase</th></tr>
+<tr><td>Reliability</td><td>Could another researcher replicate this?</td><td>"Standardised procedures meant that..."</td></tr>
+<tr><td>Internal Validity</td><td>Did it measure what it claims?</td><td>"Confounding variables may include..."</td></tr>
+<tr><td>Ecological Validity</td><td>Real-world application?</td><td>"The artificial setting means..."</td></tr>
+<tr><td>Generalisability</td><td>Can we apply to wider population?</td><td>"The volunteer sample of university students..."</td></tr>
+<tr><td>Ethics</td><td>Participant welfare</td><td>"Informed consent was not obtained, meaning..."</td></tr>
+<tr><td>Usefulness</td><td>Practical value</td><td>"These findings have been applied to..."</td></tr>
+<tr><td>Credibility</td><td>Trustworthiness of data</td><td>"Self-report data may be affected by..."</td></tr>
+<tr><td>Representativeness</td><td>Sample → population</td><td>"The sample lacks diversity in terms of..."</td></tr>
 </table>
-</div>
 
 <h3>9.3 What You Can Answer With Each Study — At a Glance</h3>
-
-<table style="font-size:.88rem">
-<tr><th>Study</th><th>Approach</th><th>Best Evaluation Points</th><th>Common Exam Questions</th></tr>
-<tr>
-<td>Dement & Kleitman</td>
-<td><span class="study-bio study-pill">Bio</span></td>
-<td>High lab control (EEG/EOG); Small N=9 sample; WD deception; Low ecological validity</td>
-<td>Describe results; Evaluate (10m); Explain correlation ≠ causation</td>
-</tr>
-<tr>
-<td>Hassett et al.</td>
-<td><span class="study-bio study-pill">Bio</span></td>
-<td>Field experiment (natural); Animal ethics; Can't generalise to humans; Toy preference data</td>
-<td>Nature-nurture (8m); To what extent (12m); Design replication (10m)</td>
-</tr>
-<tr>
-<td>Hölzel et al.</td>
-<td><span class="study-bio study-pill">Bio</span></td>
-<td>Longitudinal design; MRI objective; Small self-selected sample; Grey matter-homework no correlation</td>
-<td>Evaluate (10m); Explain representativeness; Brain area selection</td>
-</tr>
-<tr>
-<td>Baron-Cohen et al.</td>
-<td><span class="study-cog study-pill">Cog</span></td>
-<td>Standardised + pilot study; IQ-matched control; Small all-male sample; Low ecological validity (eyes only)</td>
-<td>Describe IV operationalisation; Assess reliability/validity (8m); To what extent (8m)</td>
-</tr>
-<tr>
-<td>Andrade</td>
-<td><span class="study-cog study-pill">Cog</span></td>
-<td>Standardised procedure; Good operationalisation; Independent measures (participant variables); Mild deception</td>
-<td>Explain why doodling helps; Evaluate design; Working memory model</td>
-</tr>
-<tr>
-<td>Milgram</td>
-<td><span class="study-soc study-pill">Soc</span></td>
-<td>Standardised prods; Large varied sample; Severe deception + harm; Right to withdraw compromised</td>
-<td>Describe sample/procedure; Evaluate ethics (6m); Situational explanation</td>
-</tr>
-<tr>
-<td>Piliavin et al.</td>
-<td><span class="study-soc study-pill">Soc</span></td>
-<td>High ecological validity (real subway); Standardised procedure; No consent/deception; Difficult to replicate exactly</td>
-<td>Define field experiment; Evaluate (6m); Ethical issues + overcome</td>
-</tr>
-<tr>
-<td>Perry et al.</td>
-<td><span class="study-soc study-pill">Soc</span> (Social)</td>
-<td>Mixed design; OT placebo double-blind; Low ecological validity (CID task); Small clinical groups</td>
-<td>Describe CID paradigm; Explain mixed design; Evaluate (10m); Ecological validity (8m)</td>
-</tr>
-<tr>
-<td>Bandura et al.</td>
-<td><span class="study-lrn study-pill">Lrn</span></td>
-<td>Matched groups for aggression; Standardised observation; Ethical concerns (child aggression); Low ecological validity</td>
-<td>Describe results; Evaluate; Gender differences in imitation</td>
-</tr>
-<tr>
-<td>Fagen et al.</td>
-<td><span class="study-lrn study-pill">Lrn</span></td>
-<td>Operant conditioning principles; Long-term follow-up; Single elephant; Hard to generalise</td>
-<td>Explain shaping; Nature-nurture (8m); Individual differences</td>
-</tr>
-<tr>
-<td>Saavedra & Silverman</td>
-<td><span class="study-lrn study-pill">Lrn</span></td>
-<td>Combined classical + operant conditioning; Detailed single-case data; Single participant; Cannot generalise</td>
-<td>Define phobia; Suggest scenarios; Evaluate single-case design</td>
-</tr>
-<tr>
-<td>Pozzulo et al.</td>
-<td><span class="study-soc study-pill">Soc</span> (Cognitive)</td>
-<td>Child-friendly line-up; Comparison of methods; Small child sample; Ecological validity of line-up task</td>
-<td>Describe line-up procedure; Evaluate child witness reliability</td>
-</tr>
+<table style="font-size:.8rem">
+<tr><th>Study</th><th>Approach</th><th>Best For</th><th>Forced Dim Ready?</th></tr>
+<tr><td>Bandura</td><td><span class="study-lrn study-pill">Learning</span></td><td>SLT, imitation, media violence, vicarious reinforcement</td><td>✅ Ethics (2025 O/N 11)</td></tr>
+<tr><td>Dement & Kleitman</td><td><span class="study-bio study-pill">Biological</span></td><td>Sleep stages, dream recall, EEG, biological rhythms</td><td>—</td></tr>
+<tr><td>Milgram</td><td><span class="study-soc study-pill">Social</span></td><td>Obedience, authority, situational vs dispositional</td><td>✅ Sampling (2025 M/J 11)</td></tr>
+<tr><td>Piliavin</td><td><span class="study-soc study-pill">Social</span></td><td>Altruism, bystander effect, diffusion of responsibility</td><td>—</td></tr>
+<tr><td>Hassett</td><td><span class="study-bio study-pill">Biological</span></td><td>Sex differences, nature-nurture, animal behaviour</td><td>—</td></tr>
+<tr><td>Baron-Cohen</td><td><span class="study-cog study-pill">Cognitive</span></td><td>ToM, autism, eyes test, cognitive differences</td><td>✅ Quant Data (2025 M/J 12)</td></tr>
+<tr><td>Andrade</td><td><span class="study-cog study-pill">Cognitive</span></td><td>Doodling, concentration, memory, cognitive load</td><td>—</td></tr>
+<tr><td>Fagen</td><td><span class="study-bio study-pill">Biological</span></td><td>Operant conditioning, reinforcement, animal learning</td><td>✅ Quant Data (2024)</td></tr>
+<tr><td>Pozzulo</td><td><span class="study-cog study-pill">Cognitive</span></td><td>Eyewitness testimony, lineup, cognitive factors</td><td>✅ Eco Validity (2025 O/N 12)</td></tr>
+<tr><td>Hölzel</td><td><span class="study-bio study-pill">Biological</span></td><td>Mindfulness, meditation, brain plasticity, stress</td><td>✅ Self-reports (2025 O/N 13)</td></tr>
+<tr><td>Perry</td><td><span class="study-soc study-pill">Social</span></td><td>Placebo, empathy, healing, ethics of deception</td><td>—</td></tr>
+<tr><td>Saavedra</td><td><span class="study-lrn study-pill">Learning</span></td><td>Disgust, classical conditioning, preparedness, evolution</td><td>✅ Subj Data (2025 M/J 13)</td></tr>
 </table>
 
-<div class="tip" style="margin-top:2em">
-<strong>How to use this handbook:</strong> Before any exam question, check §9 (Quick Reference) to identify the question type and framework. Then check §5 (Evaluation Toolkit) to pick your syllabus dimensions. Then write your answer using the PEE chain from §3. For Describe/State questions, just recall the facts — no framework needed.
-</div>
-
-<!-- ============ §10 EXAM TOPIC MAP ============ -->
+<!-- ============ §10 EXAM MAP ============ -->
 <h2 id="s10">10. Real Exam Topic Map (2025 — Verified Against Official Papers)</h2>
 
-<p>Every question position in Paper 1 follows a fixed pattern. The <strong>2025 columns below were verified question-by-question against the official CIE papers</strong> (9990/11, 12, 13 for May/June and Oct/Nov 2025 — 6 question papers in total). The 2024 column comes from third-party summaries and is marked ⚠️ unverified — do not rely on it for exact study names. Use this map to know <em>what to expect at each question number</em> — and which studies are overdue for a comeback.</p>
+<p>Every question position in Paper 1 follows a fixed pattern. The <strong>2025 columns below were verified question-by-question against the official CIE papers</strong> (9990/11, 12, 13 for May/June and Oct/Nov 2025 — 6 question papers in total). Use this map to know <em>what to expect at each question number</em>.</p>
 
 <h3>10.1 Paper Structure &amp; AO Weighting</h3>
 <div class="card card-purple">
@@ -1020,226 +873,198 @@ The bad answer wastes 4 lines on a 1-mark question. The examiner only needs the 
 <tr><td>AO2 — Application</td><td><strong>17%</strong></td><td>Applying knowledge to scenarios, suggesting improvements, designing studies</td></tr>
 <tr><td>AO3 — Analysis &amp; Evaluation</td><td><strong>30%</strong></td><td>Evaluating studies — the framework skills in §3 and §5</td></tr>
 </table>
-<p class="cn" style="font-size:.85rem">Over half of the paper is pure memorised detail. The other half (analysis, evaluation, application) is highly predictable — it only comes in a few question shapes.</p>
 </div>
 
 <h3>10.2 Section A (38 marks) — Question-by-Question Map</h3>
-<p class="cn" style="font-size:.85rem">2025 两考季按官方原卷逐套核对（11/12/13 = 三套变体）。2024 列来自他人整理的考点追踪，可能有误，仅作参考。"procedure" 仍是出现频率最高的考点。</p>
-
-<table style="font-size:.8rem">
-<tr><th style="width:7%">Q#</th><th style="width:31%">2025 May/June ✅ official</th><th style="width:31%">2025 Oct/Nov ✅ official</th><th style="width:31%">2024 ⚠️ unverified</th></tr>
-<tr>
-<td><strong>Q1</strong><br><span class="tag tag-1">AO1 recall</span></td>
-<td><strong>11</strong> Fagen (trunk-wash 通过数量 · 主/次强化物 · 'steady')<br><strong>12</strong> Perry (房间图片中的物体)<br><strong>13</strong> Fagen (大象数量)</td>
-<td><strong>11</strong> Hassett ('wheeled' 类玩具识别)<br><strong>12</strong> Milgram (按 450V 人数)<br><strong>13</strong> Andrade (招募方式)</td>
-<td>Hassett · Saavedra · Dement · Pozzulo · Bandura · Perry · Baron-Cohen (多数为识别/数量/术语)</td>
-</tr>
-<tr>
-<td><strong>Q2</strong><br><span class="tag tag-1">AO1 recall</span></td>
-<td><strong>11</strong> Perry (计算机 CIP 测试如何结束 · 伦理 weakness)<br><strong>12</strong> Pozzulo ('human face target' 特征)<br><strong>13</strong> Dement (EEG 电极位置)</td>
-<td><strong>11</strong> Milgram (另一 conclusion · strength)<br><strong>12</strong> Bandura (另一 conclusion)<br><strong>13</strong> Piliavin (另一 conclusion)<br><span class="cn">← O/N Q2 全考 conclusion</span></td>
-<td>Saavedra · Baron-Cohen · Hassett (result+weakness) · Milgram (aim/procedure) · Andrade (design/conclusion) · Bandura (aim/definition) · Fagen (reinforcement/result)</td>
-</tr>
-<tr>
-<td><strong>Q3</strong><br><span class="tag tag-1">AO1 recall</span></td>
-<td><strong>11</strong> Saavedra (aim · sample · application)<br><strong>12</strong> Milgram (sample 特征)<br><strong>13</strong> Bandura (另一 aim)</td>
-<td><strong>11</strong> Fagen ('capture technique')<br><strong>12</strong> Piliavin (models 特征)<br><strong>13</strong> Hassett (sample 特征)</td>
-<td>Pozzulo (aim/cognitive) · Piliavin (术语/情境) · Saavedra (procedure/nature-nurture) · Hassett/Dement/Piliavin (result+weakness)</td>
-</tr>
-<tr>
-<td><strong>Q4</strong><br><span class="tag tag-1">AO1 recall</span></td>
-<td><strong>11</strong> Dement (dream recall × stage 结果, 用数据)<br><strong>12</strong> Hassett (雄猴玩具结果, 用数据)<br><strong>13</strong> Perry (OT 高共情结果, 用数据)<br><span class="cn">← M/J Q4 全考 result</span></td>
-<td><strong>11</strong> Perry (一次 trial 的 procedure)<br><strong>12</strong> Hassett (动物伦理 guideline)<br><strong>13</strong> Pozzulo (cartoon foils 如何选择)</td>
-<td>Milgram · Hölzel · Pozzulo (describe procedure) · Bandura (定义/SLT) · Milgram (定义/伦理) · Andrade (定义/sample) · Hölzel (aim/问卷)</td>
-</tr>
-<tr>
-<td><strong>Q5</strong><br><span class="tag tag-ao1">Assumption?</span></td>
-<td><strong>11</strong> Biological assumption + Hölzel 支持<br><strong>12</strong> Learning assumption<br><strong>13</strong> Social assumption<br><span class="cn">← assumption 只在 M/J</span></td>
-<td><strong>11</strong> Baron-Cohen (Group 1 sample 特征)<br><strong>12</strong> Hölzel ('acting with awareness')<br><strong>13</strong> Perry (sample 特征)<br><span class="cn">← O/N 完全不考 assumption！</span></td>
-<td>Hölzel (bio) · Perry (social) · Bandura (learning) · Pozzulo (cognitive/假阳性) · Andrade/Hölzel/Hassett (application)</td>
-</tr>
-<tr>
-<td><strong>Q6</strong><br><span class="tag tag-ao3">Two friends</span></td>
-<td><strong>11</strong> Pozzulo (psychology) + <strong>Two friends: validity</strong><br><strong>12</strong> Fagen (positive reinforcement) + <strong>Two friends: individual vs situational</strong><br><strong>13</strong> Hassett (psychology) + <strong>Two friends: validity</strong></td>
-<td><strong>11</strong> Pozzulo (background: social factors)<br><strong>12</strong> Perry (background: biological factors)<br><strong>13</strong> Saavedra (background: disgust) + <strong>Two friends: generalisability</strong><br><span class="cn">← O/N Q6(a) 新题型: background</span></td>
-<td>Perry · Hassett · Andrade · Piliavin · Pozzulo · Fagen · Milgram (procedure + strength 为主)</td>
-</tr>
-<tr>
-<td><strong>Q7</strong><br><span class="tag tag-1">AO1 recall</span></td>
-<td><strong>11</strong> Hassett (一次 trial 的 procedure, 5分)<br><strong>12</strong> Bandura (aggression arousal 的 procedure, 5分)<br><strong>13</strong> Milgram (shock generator, 5分)<br><span class="cn">← M/J Q7 = 5分大 procedure 题</span></td>
-<td><strong>11</strong> Piliavin (individual vs situational)<br><strong>12</strong> Dement (individual vs situational)<br><strong>13</strong> Bandura (nature vs nurture)<br><span class="cn">← O/N Q7 = debate 题</span></td>
-<td>Andrade · Pozzulo · Milgram (application) · Baron-Cohen/Perry/Hölzel (problem of children) · Dement (procedure)</td>
-</tr>
-<tr>
-<td><strong>Q8</strong><br><span class="tag tag-ao2">Application</span></td>
-<td><strong>11</strong> Bandura (玩具乱扔建议, 必须伦理)<br><strong>12</strong> Hölzel (压力放松建议)<br><strong>13</strong> Andrade (注意力/无聊建议)<br><span class="cn">← M/J Q8 全考 application</span></td>
-<td><strong>11</strong> Hölzel (压力放松建议)<br><strong>12</strong> Andrade (语言课听力建议)<br><strong>13</strong> Fagen (顺序技能教学建议)<br><span class="cn">← 2025 Q8 全部 = "Your friend... advice... must be ethical"</span></td>
-<td>Baron-Cohen (generalisability) · Bandura (ethics) · Hölzel (validity) · Perry (ethics) · Piliavin (validity) · Milgram (application) · Saavedra (subjective)<br><span class="cn">← 2024 Q8 = Two friends 年</span></td>
-</tr>
+<table style="font-size:.78rem">
+<tr><th style="width:6%">Q#</th><th style="width:32%">2025 M/J ✅</th><th style="width:32%">2025 O/N ✅</th><th style="width:30%">Pattern</th></tr>
+<tr><td><strong>Q1</strong><br><span class="tag tag-1">AO1</span></td><td>Fagen (trunk-wash) · Perry (room objects) · Fagen (count)</td><td>Hassett ('wheeled') · Milgram (450V) · Andrade (recruit)</td><td>Recall: count/identify/term</td></tr>
+<tr><td><strong>Q2</strong><br><span class="tag tag-1">AO1</span></td><td>Perry (CIP/ethics) · Pozzulo (target) · Dement (EEG)</td><td>Milgram (concl/strength) · Bandura (concl) · Piliavin (concl)</td><td>Recall: conclusion/result/weakness</td></tr>
+<tr><td><strong>Q3</strong><br><span class="tag tag-1">AO1</span></td><td>Saavedra (aim/sample) · Milgram (sample) · Bandura (aim)</td><td>Fagen (capture) · Piliavin (models) · Hassett (sample)</td><td>Recall: aim/sample/application</td></tr>
+<tr><td><strong>Q4</strong><br><span class="tag tag-1">AO1</span></td><td>Dement (result+data) · Hassett (result+data) · Perry (result+data)</td><td>Perry (procedure) · Hassett (ethics) · Pozzulo (foils)</td><td>Result (M/J) or Procedure (O/N)</td></tr>
+<tr><td><strong>Q5</strong><br><span class="tag tag-ao1">Assume?</span></td><td>Bio assum + Hölzel · Learning assum · Social assum</td><td>Baron-Cohen (sample) · Hölzel (awareness) · Perry (sample)</td><td>Assumption (M/J only)</td></tr>
+<tr><td><strong>Q6</strong><br><span class="tag tag-ao3">2 Friends</span></td><td>Pozzulo + valid · Fagen + indv/sit · Hassett + valid</td><td>Pozzulo (bg) · Perry (bg) · Saavedra (bg) + gen</td><td>2 Friends (M/J) / Background (O/N)</td></tr>
+<tr><td><strong>Q7</strong><br><span class="tag tag-1">AO1</span></td><td>Hassett (proc 5m) · Bandura (proc 5m) · Milgram (sg 5m)</td><td>Piliavin (indv/sit) · Dement (indv/sit) · Bandura (nat/nur)</td><td>Big Procedure (M/J) / Debate (O/N)</td></tr>
+<tr><td><strong>Q8</strong><br><span class="tag tag-ao2">Apply</span></td><td>Bandura (advice) · Hölzel (advice) · Andrade (advice)</td><td>Hölzel (advice) · Andrade (advice) · Fagen (advice)</td><td>Always "Your friend... advice... ethical"</td></tr>
 </table>
 
-<h3>10.3 Section B (22 marks) — The Two Fixed Essay Shapes</h3>
+<h3>10.3 Section B (22 marks) — The Two Fixed Shapes</h3>
 <table style="font-size:.8rem">
-<tr><th style="width:7%">Q#</th><th style="width:31%">2025 May/June ✅ official</th><th style="width:31%">2025 Oct/Nov ✅ official</th><th style="width:31%">2024 ⚠️ unverified</th></tr>
-<tr>
-<td><strong>Q9</strong><br><span class="tag tag-3">8 marks S&amp;D</span></td>
-<td><strong>11</strong> Andrade (描述 sample) + S&amp;D "Do not refer to the sample"<br><strong>12</strong> Piliavin (描述 victims) + S&amp;D 与 Perry, 必须提 sample<br><strong>13</strong> Hölzel (描述 FFMQ) + S&amp;D "Do not refer to questionnaires"</td>
-<td><strong>11</strong> Dement (EEG 如何使用) + S&amp;D "Do not refer to brain measurement techniques"<br><strong>12</strong> Saavedra (描述 participant) + S&amp;D 与 Bandura, "Do not refer to sampling"<br><strong>13</strong> Baron-Cohen (psychology investigated) + S&amp;D 与 Andrade</td>
-<td>Dement (dream) · Milgram (sample) · Fagen (sample) · Dement (dream reports) · Fagen (psychology) · Baron-Cohen (sample) · Andrade (sample)</td>
-</tr>
-<tr>
-<td><strong>Q10</strong><br><span class="tag tag-5">10 marks EVA</span></td>
-<td><strong>11</strong> Milgram — 强制 ≥1 点: sampling technique<br><strong>12</strong> Baron-Cohen — 强制 ≥1 点: quantitative data<br><strong>13</strong> Saavedra — 强制 ≥1 点: subjective data</td>
-<td><strong>11</strong> Bandura — 强制 ≥1 点: ethics<br><strong>12</strong> Pozzulo — 强制 ≥1 点: ecological validity<br><strong>13</strong> Hölzel — 强制 ≥1 点: self-reports</td>
-<td>Bandura · Andrade · Piliavin · Fagen · Fagen · Saavedra · Hassett (plus specimen: Hölzel)</td>
-</tr>
+<tr><th style="width:6%">Q#</th><th style="width:32%">2025 M/J ✅</th><th style="width:32%">2025 O/N ✅</th><th style="width:30%">Fixed Pattern</th></tr>
+<tr><td><strong>Q9</strong><br><span class="tag tag-3">8m S&amp;D</span></td><td>Andrade (sample)+S&amp;D · Piliavin (vic)+S&amp;D · Hölzel (FFMQ)+S&amp;D</td><td>Dement (EEG)+S&D · Saavedra (pt)+S&D · Baron-Cohen (psy)+S&D</td><td>Describe feature + Compare + <strong>RESTRICTION</strong></td></tr>
+<tr><td><strong>Q10</strong><br><span class="tag tag-5">10m EVA</span></td><td>Milgram (sampling N) · Baron-Cohen (quant N) · Saavedra (subj N)</td><td>Bandura (ethics N) · Pozzulo (eco N) · Hölzel (self N)</td><td>2S + 2W + <strong>FORCED DIMENSION (N)</strong></td></tr>
 </table>
+
+<h3>10.4 Golden Patterns</h3>
+<div class="quick-grid">
+<div class="quick-card" style="border-left:4px solid var(--red)">
+<div class="quick-card-title">Q10 = Always Evaluation + Forced Dimension</div>
+<p style="font-size:.85rem">Every paper ends with 10-mark essay. Every 2025 paper had a forced dimension. Prepare 6 dimensions × 12 studies = 72 PEE points.</p>
+</div>
+<div class="quick-card" style="border-left:4px solid var(--blue)">
+<div class="quick-card-title">Q9 = Always S&amp;D + Restriction</div>
+<p style="font-size:.85rm">8-mark compare. Every 2025 paper added "Do not refer to X". Breaking this = level cap.</p>
+</div>
+<div class="quick-card" style="border-left:4px solid var(--green)">
+<div class="quick-card-title">Q8 = Always Application Advice</div>
+<p style="font-size:.85rem">"Your friend wants to..." + suggest improvement + must be ethical. Memorise one ethical improvement per study.</p>
+</div>
+<div class="quick-card" style="border-left:4px solid var(--orange)">
+<div class="quick-card-title">Q4 = Result or Procedure</div>
+<p style="font-size:.85rem">M/J tends to ask for results (with data marks). O/N tends to ask for procedure (5 marks). Both need specific details.</p>
+</div>
+</div>
+
+<!-- ============ §11 PAPER 2 RESEARCH METHODS (NEW in v2.0) ============ -->
+<h2 id="s11">11. Paper 2 — Research Methods (9990/21) <span class="tag tag-must">NEW v2.0</span></h2>
+
+<div class="card card-gmp">
+<div class="card-header">🆕 Why This Section Exists</div>
+<p>Paper 2 (Research Methods) is worth <strong>60 marks</strong> and tests your understanding of research methodology independently from the Core Studies. Many students focus entirely on Paper 1 and neglect Paper 2 — but it's <strong>easier to prepare for</strong> because the concepts are consistent across all questions. This section is built from the <strong>2024 June Paper 21 Mark Scheme</strong> (the most recent available).</p>
+</div>
+
+<h3>11.1 Paper 2 Structure Overview</h3>
+<table>
+<tr><th>Section</th><th>Marks</th><th>Question Types</th><th>Key Topics</th></tr>
+<tr><td><strong>Section A</strong></td><td>~30 marks</td><td>Short-answer (1-4 marks)</td><td>Sampling, variables, ethics, data types, hypotheses, graphs, observations</td></tr>
+<tr><td><strong>Section B</strong></td><td>~30 marks</td><td>Longer answer (6-12 marks)</td><td>Case study analysis, validity/reliability, experimental design</td></tr>
+</table>
+
+<h3>11.2 Critical MS Rules for Paper 2 (from 2024 June MS)</h3>
+<p>These are the <strong>specific "Do Accept / Do Not Accept"</strong> rules from the 2024 June Paper 21 Mark Scheme. They reveal exactly what examiners reward and penalise:</p>
+
+<div class="anno-box">
+<h4>Sampling Questions</h4>
+<ul>
+<li>❌ <strong>"Ps were selected by replying to advert"</strong> = <strong>0 marks</strong> (too vague — must specify voluntary/opportunity sampling)</li>
+<li>✅ <strong>"Voluntary/self-selected sampling — participants chose to respond to an advertisement"</strong> = full marks</li>
+</ul>
+
+<h4>Ethics — Species-Specific</h4>
+<ul>
+<li>❌ <strong>"Species should be protected from harm"</strong> = <strong>NAQ</strong> (Not Answering Question — too generic)</li>
+<li>❌ <strong>"Use endangered species"</strong> = 1 mark max (incomplete)</li>
+<li>❌ <strong>"Bred in captivity"</strong> = <strong>0 = NAQ</strong> (irrelevant to ethics of using animals)</li>
+<li>❌ <strong>"Humanely treated"</strong> = <strong>0</strong> (too vague)</li>
+<li>✅ Must identify a <strong>specific ethical guideline</strong> and explain <em>why</em> it's relevant</li>
+</ul>
+
+<h4>Data Type Questions</h4>
+<ul>
+<li>❌ <strong>"Discrete/categorical"</strong> for data that is actually ordinal/interval/ratio = <strong>0</strong> (wrong classification)</li>
+<li>❌ <strong>"Factual/accurate"</strong> as strength of data type = <strong>0</strong> (not a valid advantage)</li>
+<li>❌ <strong>"Measurable"</strong> as strength = <strong>0</strong> (must include "because..." or "than...")</li>
+<li>✅ Correct classification + <strong>reasoned advantage</strong> (e.g., "Interval data allows for parametric tests <em>because</em> it has equal intervals <em>which enables</em> meaningful comparison of scores")</li>
+</ul>
+
+<h4>Experimental Design Questions</h4>
+<ul>
+<li>❌ <strong>"Different conditions"</strong> for independent measures = <strong>NOT allowed</strong> (could be repeated measures — must say "different participants/groups/people")</li>
+<li>❌ <strong>"Placebo"</strong> for control condition (unless specifically applicable) = <strong>Do not accept</strong></li>
+<li>❌ <strong>"To compare"</strong> alone for control condition purpose = <strong>Do not accept</strong></li>
+<li>❌ <strong>"How well they imitated Glyn"</strong> for measuring DV = <strong>0</strong> [REP] (must describe actual measurement method in detail)</li>
+</ul>
+
+<h4>Consent Questions (3-mark structure)</h4>
+<ul>
+<li>Must include: <strong>(1)</strong> what informed consent means + <strong>(2)</strong> why parent/guardian needed + <strong>(3)</strong> why child assent also needed</li>
+<li>Missing any component = loss of that mark</li>
+</ul>
+
+<h4>Graph/Table Questions</h4>
+<ul>
+<li>❌ Adding <strong>%</strong> after figures when raw numbers shown = wrong but <strong>ignore</strong> (no penalty)</li>
+<li>✅ <strong>1 mark per correct data point</strong> extracted from graph/table</li>
+</ul>
+
+<h4>Observation Questions</h4>
+<ul>
+<li>❌ Max <strong>4 marks</strong> if no examples given or only one term used</li>
+<li>❌ Piliavin victims/models are <strong>NOT</strong> examples of participant observation</li>
+<li>✅ Must give <strong>specific behavioural examples</strong> for full marks</li>
+</ul>
+
+<h4>Central Tendency Questions</h4>
+<ul>
+<li>❌ <strong>"Qualitative"</strong> for mode = <strong>0</strong> (mode is quantitative)</li>
+<li>❌ <strong>"Words"</strong> for mode = <strong>0</strong></li>
+<li>✅ Mode = most frequent value · Median = middle value · Mean = arithmetic average</li>
+</ul>
+
+<h4>Hypothesis Questions</h4>
+<ul>
+<li>❌ Saying X does not indicate direction = <strong>0 = REP</strong> (must state directional or non-directional clearly)</li>
+<li>✅ Directional: "Participants in condition A will score higher than B"<br>✅ Non-directional: "There will be a difference between conditions A and B"</li>
+</ul>
+
+<h4>IV/DV Identification</h4>
+<ul>
+<li>❌ Operationalising the DV (describing HOW it's measured) when only asked to IDENTIFY it = <strong>0 = NAQ</strong> (over-answering = wrong question)</li>
+<li>✅ Just name the variable: "The IV is the type of toy (wheeled vs plush)"</li>
+</ul>
+
+<h4>Participant vs Situational Variable (Q9)</h4>
+<ul>
+<li>❌ <strong>NO mark for correct identification</strong> of X/Y — mark only for <strong>explanation</strong></li>
+<li>✅ "This is a participant variable <strong>because</strong> it is a characteristic of the individual that cannot be changed by the experimenter" = full marks</li>
+</ul>
+
+<h4>Case Study (Q10a) — 4 Imaginary Columns</h4>
+<ul>
+<li>Scored using <strong>L1-L5 level descriptors</strong> (similar to Paper 1 Q10 but adapted for case study evaluation)</li>
+<li>Must address: methodology, data, ethics, usefulness</li>
+</ul>
+
+<h4>Validity/Reliability (Q10b)</h4>
+<ul>
+<li>❌ <strong>Do not refer to sampling or ethics</strong> (these are separate dimensions)</li>
+<li>✅ Focus on: measurement accuracy, consistency, objectivity, bias</li>
+</ul>
+</div>
+
+<h3>11.3 Paper 2 Quick Prep Checklist</h3>
+<div class="quick-grid">
+<div class="quick-card" style="border-left:4px solid var(--red)">
+<div class="quick-card-title">Must-Know Definitions</div>
+<p style="font-size:.82rem">IV/DV · Operationalisation · Hypothesis (directional/non) · Sampling types (5) · Data types (4) · Central tendency (3) · Ethics guidelines (4)</p>
+</div>
+<div class="quick-card" style="border-left:4px solid var(--blue)">
+<div class="quick-card-title">Experimental Designs</div>
+<p style="font-size:.82rem">Independent · Repeated · Matched pairs · Control condition · Counterbalancing · Randomisation</p>
+</div>
+<div class="quick-card" style="border-left:4px solid var(--green)">
+<div class="quick-card-title">Observation Types</div>
+<p style="font-size:.82rem">Naturalistic · Controlled · Participant · Non-participant · Covert/Overt · Structured/Unstructured</p>
+</div>
+<div class="quick-card" style="border-left:4px solid var(--orange)">
+<div class="quick-card-title">Data Analysis Basics</div>
+<p style="font-size:.82rem">Mean/Median/Mode · Range · Graph reading · Table extraction · Qualitative vs Quantitative</p>
+</div>
+</div>
 
 <div class="tip">
-<strong>Section B pattern (verified):</strong> Q9 is <em>always</em> "similarities and differences" (8 marks, describe one feature of the study + compare with another study) — and every 2025 paper added a <strong>restriction</strong> ("Do not refer to the sample / questionnaires / brain measurement techniques / sampling"). Q10 is <em>always</em> a full evaluation (10 marks, "two strengths and two weaknesses") with a <strong>forced dimension</strong> — "At least one of your evaluation points must be about X". Master the S&amp;D framework (§3.4), the PEE chain (§3.1), and <em>all six forced dimensions below</em> and Section B is covered.
+<strong>Paper 2 Strategy:</strong> Unlike Paper 1 (where you need 12 studies' worth of content), Paper 2 tests a <strong>fixed set of ~30 concepts</strong>. Once you master these concepts and understand the MS rules above, you can consistently score 50+/60. The biggest pitfall is vagueness — always be specific and give reasons ("because...").
 </div>
 
-<h3>10.4 What the Verified Map Tells You — Golden Patterns</h3>
-
-<div class="quick-grid">
-<div class="quick-card" style="border-left:4px solid var(--red)">
-<div class="quick-card-title">1. Q10 = Evaluation, always — with a FORCED dimension</div>
-<p style="font-size:.85rem">Every paper ends with a 10-mark "two strengths and two weaknesses" evaluation, and <strong>every 2025 paper forced one dimension</strong>: sampling technique (Milgram) · quantitative data (Baron-Cohen) · subjective data (Saavedra) · ethics (Bandura) · ecological validity (Pozzulo) · self-reports (Hölzel). Prepare at least one PEE point per study on each of these 6 dimensions — the forced one is a gift if you're ready.</p>
-</div>
-
-<div class="quick-card" style="border-left:4px solid var(--blue)">
-<div class="quick-card-title">2. Q9 = Similarities &amp; Differences, always — with a restriction</div>
-<p style="font-size:.85rem">Always 8 marks: describe one feature (sample, victims, FFMQ, EEG, participant, psychology) then compare with another study. <strong>Every 2025 paper added a restriction</strong>: "Do not refer to the sample / questionnaires / brain measurement techniques / sampling". Read the restriction carefully — it kills half the prepared answers.</p>
-</div>
-
-<div class="quick-card" style="border-left:4px solid var(--accent)">
-<div class="quick-card-title">3. Q5 = Approach Assumptions — M/J only!</div>
-<p style="font-size:.85rem"><strong>Verified: assumption questions appeared only in May/June 2025</strong> (11 = biological + Hölzel, 12 = learning, 13 = social). In Oct/Nov 2025 Q5 was study detail (Baron-Cohen sample, Hölzel FFMQ term, Perry sample) — no assumptions at all. <strong>Learn all 4 assumptions × 2 points</strong> — they are free marks, but only if your exam is in the M/J pattern.</p>
-</div>
-
-<div class="quick-card" style="border-left:4px solid var(--orange)">
-<div class="quick-card-title">4. Q8 = Application to everyday life (2025)</div>
-<p style="font-size:.85rem"><strong>All six 2025 papers put application at Q8</strong>: "Your friend X… Outline the advice you would give, using your knowledge of the study by Y. Your advice must be ethical." Studies used: <strong>Hölzel ×2, Andrade ×2, Bandura, Fagen</strong>. In 2024 Q8 was the "Two friends" mini-evaluation — so Q8's <em>shape</em> can change; application is the current pattern.</p>
-</div>
-
-<div class="quick-card" style="border-left:4px solid #6b7280">
-<div class="quick-card-title">5. "Two friends" = Q6(b) in 2025 (Q8 in 2024)</div>
-<p style="font-size:.85rem">The 4-mark mini-evaluation sat at <strong>Q6(b) in 2025</strong> (4 of 6 papers): validity ×2 (Pozzulo, Hassett) · individual vs situational (Fagen) · generalisability (Saavedra). It pairs with Q6(a) — a recall part on the same study. Framework in §3.5. Learn the <em>shape</em>, not the number.</p>
-</div>
-
-<div class="quick-card" style="border-left:4px solid var(--green)">
-<div class="quick-card-title">6. Procedure = the biggest question pool</div>
-<p style="font-size:.85rem">Verified across 2025: Q1 (materials/objects/toy categories), Q2 (reinforcers, electrodes, face-target), Q4 (trial procedure, cartoon foils), Q7 (5-mark procedures in M/J). <strong>Memorise the step sequences for all 12 studies</strong> (§6.3). If you know procedure cold, you've banked the largest single chunk of Section A.</p>
-</div>
-
-<div class="quick-card" style="border-left:4px solid var(--blue)">
-<div class="quick-card-title">7. Q7 shifts by series</div>
-<p style="font-size:.85rem"><strong>M/J Q7 = a big 5-mark procedure question</strong> (Hassett trial, Bandura aggression arousal, Milgram shock generator). <strong>O/N Q7 = a debate question</strong> (individual vs situational ×2, nature vs nurture ×1). Practise both shapes — the debate format needs one example from each side of the debate.</p>
-</div>
-
-<div class="quick-card" style="border-left:4px solid var(--red)">
-<div class="quick-card-title">8. Results &amp; conclusions repeat every year</div>
-<p style="font-size:.85rem"><strong>M/J Q4 = results in all 3 variants</strong> (Dement dream recall, Hassett male monkey preferences, Perry oxytocin condition — all "use data"). <strong>O/N Q2 = conclusions in all 3 variants</strong> (Milgram, Bandura, Piliavin — "outline one other conclusion"). Know precise numbers and at least two conclusions per study.</p>
-</div>
-
-<div class="quick-card" style="border-left:4px solid var(--orange)">
-<div class="quick-card-title">9. O/N Q6(a) = the NEW "background" question</div>
-<p style="font-size:.85rem">Oct/Nov 2025 introduced "<em>In the background to their study, [researcher] outlined the role of X…</em>" — Pozzulo (social factors in identification errors), Perry (biological factors in interpersonal distance), Saavedra (disgust in childhood phobias). <strong>This is the newest question shape on the syllabus — revise each study's background theory.</strong></p>
-</div>
-
-<div class="quick-card" style="border-left:4px solid var(--blue)">
-<div class="quick-card-title">10. Sample details never stop</div>
-<p style="font-size:.85rem">Sample questions appeared 7+ times across 2025 (Saavedra, Milgram, Fagen, Hassett ×2, Perry, Baron-Cohen). The easiest preparation: remember <strong>2 participant characteristics + the sampling method</strong> for every study.</p>
-</div>
-</div>
-
-<h3>10.5 The "Learn One, Cross It Off" Checklist</h3>
-<p>From the <strong>official 2025 paper analysis</strong> — the highest-value facts to memorise (grouped by the question type that asks for them):</p>
-
-<div class="quick-grid">
-<div class="quick-card">
-<div class="quick-card-title">Results — verified 2025</div>
-<p style="font-size:.85rem">M/J Q4 in all 3 variants: <strong>Dement</strong> (dream recall %) · <strong>Hassett</strong> (male toy preferences) · <strong>Perry</strong> (OT condition) + <strong>Milgram</strong> (26/40 pressed 450V). Result questions always say "use data" — memorise one precise number per study.</p>
-<p class="cn" style="font-size:.8rem">Result 题必须带具体数据（人数/百分比/秒数）。</p>
-</div>
-<div class="quick-card">
-<div class="quick-card-title">Conclusions — verified 2025</div>
-<p style="font-size:.85rem">O/N Q2 in all 3 variants: <strong>Milgram · Bandura · Piliavin</strong> — "one conclusion was given, outline one other". Know <em>two conclusions</em> per study; the question gives you one and asks for another.</p>
-<p class="cn" style="font-size:.8rem">每个研究至少准备 2 条结论——考试会给你 1 条要另 1 条。</p>
-</div>
-<div class="quick-card">
-<div class="quick-card-title">Sample — verified 2025</div>
-<p style="font-size:.85rem">Asked 7+ times: <strong>Saavedra</strong> (9-year-old boy, phobia since age 4) · <strong>Milgram</strong> (40 men, New Haven) · <strong>Fagen</strong> (5 elephants) · <strong>Hassett ×2</strong> (7 monkeys) · <strong>Perry</strong> (males) · <strong>Baron-Cohen</strong> (Group 1: 15 males). Also: Andrade (recruitment) · Piliavin (victims).</p>
-<p class="cn" style="font-size:.8rem">每个实验记 2 个 participant characteristics + sampling method。</p>
-</div>
-<div class="quick-card">
-<div class="quick-card-title">Application to everyday life — verified Q8 set</div>
-<p style="font-size:.85rem">2025 Q8 (all 6 papers) used: <strong>Hölzel ×2</strong> (stress relief) · <strong>Andrade ×2</strong> (concentration while bored) · <strong>Bandura</strong> (managing aggressive behaviour) · <strong>Fagen</strong> (teaching a sequence of steps). Practise a 4-mark advice answer for each — always ethical.</p>
-<p class="cn" style="font-size:.8rem">Q8 固定 = "Your friend... advice... must be ethical"，4 分 = 建议 + 研究证据 + 解释。</p>
-</div>
-<div class="quick-card">
-<div class="quick-card-title">Q10 FORCED dimensions — all 6, verified</div>
-<p style="font-size:.85rem">Every 2025 Q10 forced one dimension: <strong>sampling technique</strong> (Milgram) · <strong>quantitative data</strong> (Baron-Cohen) · <strong>subjective data</strong> (Saavedra) · <strong>ethics</strong> (Bandura) · <strong>ecological validity</strong> (Pozzulo) · <strong>self-reports</strong> (Hölzel). Prepare 1 PEE point per study on each dimension — the forced one becomes free marks.</p>
-<p class="cn" style="font-size:.8rem">6 个维度 × 每个研究 1 条 = Q10 稳拿。用 §5 Evaluation Toolkit 的 PEE 链。</p>
-</div>
-<div class="quick-card">
-<div class="quick-card-title">NEW: "In the background to their study…" (O/N)</div>
-<p style="font-size:.85rem">Oct/Nov 2025 Q6(a) asked: <strong>Pozzulo</strong> (social factors in identification errors) · <strong>Perry</strong> (biological factors in interpersonal distance) · <strong>Saavedra</strong> (disgust in childhood phobias). Revise the background/theory section of each study — not just the procedure.</p>
-<p class="cn" style="font-size:.8rem">O/N 新题型：背景理论题。复习每个研究的 background 部分。</p>
-</div>
-<div class="quick-card">
-<div class="quick-card-title">Debate — verified O/N Q7 set</div>
-<p style="font-size:.85rem">Oct/Nov Q7 asked debates: <strong>individual vs situational</strong> (Piliavin, Dement) · <strong>nature vs nurture</strong> (Bandura). Format: "outline what is meant by the debate + one example from each side from the study". Prepare both-sides examples for all 12 studies.</p>
-<p class="cn" style="font-size:.8rem">Debate 题 = 定义 + 每个立场各一个研究内例子。</p>
-</div>
-<div class="quick-card">
-<div class="quick-card-title">Psychology being investigated — verified set</div>
-<p style="font-size:.85rem">Asked at Q6(a)/Q9(a): <strong>Pozzulo</strong> (eyewitness identification, child suggestibility) · <strong>Hassett</strong> (sex-typical toy preferences) · <strong>Baron-Cohen</strong> (theory of mind / adult autism). Practise a 3–4 mark "describe the psychology" answer.</p>
-</div>
-<div class="quick-card">
-<div class="quick-card-title">Approach assumptions — M/J pattern</div>
-<p style="font-size:.85rem">Verified: assumptions appeared <strong>only in M/J 2025</strong> (biological + Hölzel, learning, social). O/N 2025 skipped them entirely. Learn all 4 (biological · cognitive · social · learning) with 2 developed points each — free 2 marks when they appear at Q5.</p>
-</div>
-</div>
-
-<div class="pitfall">
-<strong>WARNING — don't trust everything you read online:</strong> past-paper summary sheets often contain typos and errors. In this handbook all study facts have been checked against the original papers. When revising from other sources, double-check study names (Dement, not "Demant"; Hassett, not "Hasset") and sample details (Fagen: 5 elephants, not 6).
-</div>
-
-</div><!-- END CONTAINER -->
-
-<style>
-/* Study Navigator */
-.study-nav{border-top:2px solid #e0e0e0;background:#FAFAFA;padding:14px 16px;margin-top:2rem}
-.study-nav-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:900px;margin:0 auto}
-.study-nav-btn{flex:1;padding:9px 14px;border:1px solid #ddd;border-radius:8px;background:white;color:#444;font-size:.82rem;cursor:pointer;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:4px;transition:all .15s;font-family:inherit}
-.study-nav-btn:hover{border-color:#7c3aed;color:#7c3aed;background:#faf5ff}
-</style>
-<div class="study-nav">
-<div class="study-nav-inner">
-<a class="study-nav-btn" href="../approaches/">← Approaches & Assumptions</a>
-<a class="study-nav-btn" href="../research-methods/">Research Methods →</a>
-</div>
-</div>
+</div><!-- end container -->
 
 <script>
-// Scroll spy
-(function(){
-  var links = document.querySelectorAll('.nav-inner a[href^="#"]');
-  var sections = [];
-  links.forEach(function(l){ var id=l.getAttribute('href').slice(1); var el=document.getElementById(id); if(el) sections.push({id:id,el:el,link:l}); });
-  function update(){
-    var scrollY = window.scrollY;
-    var current = sections[0];
-    for(var i=0;i<sections.length;i++){
-      if(sections[i].el.offsetTop - 100 <= scrollY) current = sections[i];
-    }
-    links.forEach(function(l){ l.classList.remove('active'); });
+(function(){{
+  var links=document.querySelectorAll('.nav-bar a[href^="#"]');
+  var sections=[];
+  links.forEach(function(l){{ var id=l.getAttribute('href').slice(1); var el=document.getElementById(id); if(el) sections.push({{id:id,el:el,link:l}}); }});
+  function update(){{
+    var scrollY=window.scrollY;
+    var current=sections[0];
+    for(var i=0;i<sections.length;i++){{
+      if(sections[i].el.offsetTop-100<=scrollY) current=sections[i];
+    }}
+    links.forEach(function(l){{ l.classList.remove('active'); }});
     if(current) current.link.classList.add('active');
-  }
-  window.addEventListener('scroll', update);
+  }}
+  window.addEventListener('scroll',update);
   update();
-})();
+}})();
 </script>
 
 </body>
