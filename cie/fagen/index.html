@@ -1,145 +1,303 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fagen et al. (2014) — Positive Reinforcement Training for a Trunk Wash in Nepal's Working Elephants</title>
-<style>
-  :root {
-    --primary: #2E7D32;
-    --primary-light: #4CAF50;
-    --primary-dark: #1B5E20;
-    --accent: #FF9800;
-    --bg: #FAFAFA;
-    --card-bg: #FFFFFF;
-    --text: #212121;
-    --text-secondary: #616161;
-    --border: #E0E0E0;
-    --highlight: #FFF3E0;
-    --warning: #FFEBEE;
-    --code-bg: #F5F5F5;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: -apple-system, "Segoe UI", "Noto Sans SC", sans-serif; background: var(--bg); color: var(--text); line-height: 1.75; font-size: 16px; }
-  .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Core Study: Fagen et al. (2014) — Positive Reinforcement Training for Elephant Trunk Wash</title>
+  <style>
+    :root {
+      --primary: #ea580c;
+      --primary-light: #f97316;
+      --primary-dark: #c2410c;
+      --accent: #ea580c;
+      --bg: #FAFAFA;
+      --card-bg: #FFFFFF;
+      --text: #212121;
+      --text-secondary: #616161;
+      --border: #E0E0E0;
+    }
+    * { box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; line-height: 1.75; color: var(--text); background: var(--bg); margin: 0; padding: 0; font-size: 1em; transition: background .3s, color .3s; }
+    html { font-size: 16px; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 16px 24px; }
 
-  /* Header */
-  .header { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, var(--primary-dark), var(--primary)); color: white; border-radius: 12px; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(46,125,50,0.3); }
-  .header h1 { font-size: 1.8em; margin-bottom: 10px; }
-  .header .subtitle { font-size: 1.05em; opacity: 0.95; }
-  .header .meta { margin-top: 15px; font-size: 0.9em; opacity: 0.8; }
-  .badge { display: inline-block; padding: 4px 14px; border-radius: 20px; background: rgba(255,255,255,0.2); margin: 3px; font-size: 0.85em; }
+    /* ===== PROGRESS BAR ===== */
+    .progress-bar { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: linear-gradient(90deg, var(--primary), var(--primary-light), #fcd34d); z-index: 9999; transition: width .1s ease-out; }
+    body.dark .progress-bar { background: linear-gradient(90deg, #f97316, #fcd34d, #fef08a); }
 
-  /* TOC */
-  .toc { background: var(--card-bg); border-radius: 10px; padding: 25px; margin-bottom: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-left: 4px solid var(--primary); }
-  .toc h2 { color: var(--primary-dark); margin-bottom: 15px; font-size: 1.3em; }
-  .toc ol { padding-left: 20px; }
-  .toc li { margin: 8px 0; }
-  .toc li a { color: var(--primary); text-decoration: none; transition: color 0.2s; }
-  .toc li a:hover { color: var(--primary-dark); text-decoration: underline; }
+    /* ===== NAV BAR ===== */
+    .nav-bar { position: sticky; top: 0; z-index: 100; background: white; border-bottom: 3px solid var(--primary); padding: .65rem 2rem; display: flex; align-items: center; gap: 1rem; margin: 0 0 28px 0; box-shadow: 0 2px 10px rgba(0,0,0,.06); }
+    body.dark .nav-bar { background: #1a1a2e; border-bottom-color: var(--primary); }
+    .nav-pill { display: inline-flex; align-items: center; gap: .4rem; padding: .45rem 1.1rem; background: var(--primary); color: white; border-radius: 20px; text-decoration: none; font-size: .82em; font-weight: 600; transition: background .15s; white-space: nowrap; }
+    .nav-pill:hover { background: var(--primary-dark); }
+    .nav-breadcrumb { display: flex; align-items: center; gap: .4rem; font-size: .82em; color: var(--text-secondary); flex: 1; }
+    .nav-breadcrumb a { color: var(--text-secondary); text-decoration: none; transition: color .15s; }
+    .nav-breadcrumb a:hover { color: var(--primary); }
+    .nav-breadcrumb .sep { color: #ccc; font-weight: 300; }
+    .nav-breadcrumb span:last-child { color: var(--text); font-weight: 500; }
+    body.dark .nav-breadcrumb a { color: #aaa; }
+    body.dark .nav-breadcrumb span:last-child { color: #ddd; }
+    .nav-controls { display: flex; align-items: center; gap: .5rem; }
+    .nav-btn { background: none; border: 1px solid #ddd; border-radius: 6px; padding: .35rem .65rem; cursor: pointer; font-size: .85em; color: var(--text-secondary); transition: all .15s; display: flex; align-items: center; gap: .25rem; }
+    .nav-btn:hover { border-color: var(--primary); color: var(--primary); }
+    body.dark .nav-btn { border-color: #444; color: #aaa; }
+    body.dark .nav-btn:hover { border-color: #f97316; color: #f97316; }
 
-  /* Sections */
-  .section { background: var(--card-bg); border-radius: 10px; padding: 30px; margin-bottom: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
-  .section h2 { color: var(--primary-dark); font-size: 1.5em; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--primary-light); }
-  .section h3 { color: var(--primary); font-size: 1.2em; margin: 20px 0 12px; }
-  .section h4 { color: var(--text); font-size: 1.05em; margin: 15px 0 8px; }
+    /* ===== PAGE LAYOUT (3-column) ===== */
+    .page-layout { display: grid; grid-template-columns: 170px minmax(0,1fr) 250px; gap: 20px; align-items: start; }
+    .sidebar { width: 170px; flex-shrink: 0; position: sticky; top: 60px; max-height: calc(100vh - 80px); overflow-y: auto; padding: 12px 0; z-index: 50; }
+    .sidebar::-webkit-scrollbar { width: 2px; }
+    .sidebar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 2px; }
+    .sidebar-inner { background: #f8fafc; border-radius: 14px; border: 1px solid #e2e8f0; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,.05); }
+    body.dark .sidebar-inner { background: #16213e; border-color: #334155; box-shadow: 0 2px 8px rgba(0,0,0,.25); }
+    .sb-header { padding: 13px 16px 10px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); }
+    .sb-header-title { font-size: .72em; font-weight: 700; color: white; letter-spacing: .8px; text-transform: uppercase; margin: 0; }
+    .sb-header-sub { font-size: .63em; color: rgba(255,255,255,.75); margin: 2px 0 0; font-weight: 500; }
+    .sb-list { list-style: none; padding: 6px 0 10px; margin: 0; }
+    .sb-divider { height: 1px; background: #e2e8f0; margin: 4px 12px; }
+    body.dark .sb-divider { background: #334155; }
+    .sb-item a { display: block; padding: 7px 14px 7px 18px; color: #475569; text-decoration: none; font-size: .76em; font-weight: 500; border-left: 3px solid transparent; transition: all .15s ease; line-height: 1.45; border-radius: 0 7px 7px 0; margin: 1px 4px 1px 0; }
+    .sb-item a:hover { border-left-color: var(--primary); color: var(--primary-dark); font-weight: 600; background: linear-gradient(90deg, rgba(234,88,12,.07), transparent); }
+    .sb-item a.sb-active { border-left-color: var(--primary); color: var(--primary-dark); font-weight: 700; background: linear-gradient(90deg, rgba(234,88,12,.12), transparent); }
+    body.dark .sb-item a { color: #94a3b8; }
+    body.dark .sb-item a:hover { color: #f97316; background: linear-gradient(90deg, rgba(249,115,22,.10), transparent); border-left-color: #f97316; }
+    body.dark .sb-item a.sb-active { color: #fdba74; background: linear-gradient(90deg, rgba(249,115,22,.16), transparent); border-left-color: #f97316; }
+    .main-content { min-width: 0; max-width: 660px; }
 
-  /* Key Words Box */
-  .keyword-box { background: linear-gradient(135deg, #FFF8E1, #FFECB3); border-left: 5px solid var(--accent); border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
-  .keyword-box h4 { color: #E65100; font-size: 1em; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
-  .keyword-box p { margin: 6px 0; }
-  .keyword-box strong { color: #BF360C; }
+    /* ===== RIGHT NOTES COLUMN ===== */
+    .notes-col { width: 250px; background: #fffef5; border: 2px solid #f59e0b; border-radius: 12px; display: flex; flex-direction: column; position: sticky; top: 60px; max-height: calc(100vh - 80px); box-shadow: 0 2px 12px rgba(245,158,11,.15); overflow: hidden; }
+    .nc-header { background: linear-gradient(135deg,#f59e0b,#d97706); padding: 12px 14px; display: flex; align-items: center; gap: 8px; }
+    .nc-title { font-size: .85em; font-weight: 700; color: #fff; }
+    .nc-count { margin-left: auto; background: rgba(255,255,255,.3); color: #fff; font-size: .7em; font-weight: 700; padding: 2px 8px; border-radius: 10px; }
+    .nc-body { flex: 1; overflow-y: auto; padding: 10px; max-height: calc(100vh - 240px); min-height: 60px; }
+    .nc-empty { text-align: center; color: #9ca3af; padding: 20px 8px; font-size: .78em; }
+    .nc-input-row { display: none; padding: 12px; border-top: 1px solid #fde68a; background: #fffbeb; }
+    .nc-input-row.show { display: block; }
+    .nc-textarea { width: 100%; border: 1px solid #fcd34d; border-radius: 8px; padding: 10px; font-size: .82em; resize: vertical; min-height: 60px; box-sizing: border-box; outline: none; font-family: inherit; }
+    .nc-textarea:focus { border-color: #d97706; box-shadow: 0 0 0 2px rgba(245,158,11,.15); }
+    .nc-actions { display: flex; gap: 8px; margin-top: 8px; }
+    .nc-actions button { flex: 1; padding: 8px; border-radius: 6px; font-size: .78em; font-weight: 600; cursor: pointer; border: 1px solid transparent; }
+    .nc-btn-save { background: #16a34a; color: white; }
+    .nc-btn-cancel { background: white; color: #6b7280; border-color: #d1d5db !important; }
+    .nc-add-btn { width: 100%; padding: 13px; background: linear-gradient(135deg,#ea580c,#c2410c); color: white; border: none; border-radius: 0 0 10px 10px; font-size: .88em; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: opacity .2s; }
+    .nc-add-btn:hover { opacity: .9; }
+    .nc-footer { display: flex; gap: 4px; padding: 6px 10px; border-top: 1px solid #fde68a; }
+    .nc-footer button { flex: 1; padding: 4px 0; font-size: .68em; border: none; background: transparent; color: #92400e; cursor:pointer; }
+    .hl-text { background: linear-gradient(120deg,#fef08a,#fde047); border-radius: 2px; padding: 0 2px; cursor: pointer; transition: background .15s; }
+    .hl-text:hover { background: linear-gradient(120deg,#fde047,#facc15); }
+    .note-card { background: #fff; border-radius: 8px; padding: 10px 12px; margin-bottom: 8px; border-left: 3px solid #f59e0b; box-shadow: 0 1px 3px rgba(0,0,0,.08); font-size: .78em; line-height: 1.5; position: relative; animation: nFadeIn .2s ease; transition: box-shadow .2s, border-color .2s; }
+    @keyframes nFadeIn { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:translateY(0)} }
+    .note-card[ondblclick]:hover { box-shadow: 0 4px 12px rgba(245,158,11,.25); border-left-color: #d97706; }
+    .note-card-hl { font-size: .7em; color: #92400e; background: #fef3c7; padding: 2px 6px; border-radius: 4px; margin-bottom: 4px; cursor: pointer; word-break: break-all; display: flex; align-items: center; gap: 4px; transition: background .15s, transform .15s; }
+    .note-card-hl:hover { background: #fde68a; transform: translateX(2px); }
+    .note-card-hl::before { content: '🔗'; font-size: .85em; flex-shrink: 0; opacity: .7; }
+    .note-card-text { color: #374151; word-break: break-word; }
+    .note-card-del { position: absolute; top: 4px; right: 4px; width: 18px; height: 18px; border: none; background: #fee2e2; color: #ef4444; border-radius: 50%; font-size: .65em; cursor: pointer; opacity: 0; display: flex; align-items: center; justify-content: center; }
+    .note-card:hover .note-card-del { opacity: 1; }
+    .note-card-edit { position: absolute; top: 4px; right: 26px; width: 18px; height: 18px; border: none; background: #dbeafe; color: #2563eb; border-radius: 50%; font-size: .65em; cursor: pointer; opacity: 0; display: flex; align-items: center; justify-content: center; transition: opacity .15s, background .15s; }
+    .note-card:hover .note-card-edit { opacity: 1; }
+    .note-card-edit:hover { background: #bfdbfe; }
+    .note-card.editing { border-left-color: #2563eb; box-shadow: 0 4px 12px rgba(37,99,235,.2); }
+    .note-card.editing .note-card-text,
+    .note-card.editing .note-card-hl,
+    .note-card.editing .note-card-del,
+    .note-card.editing .note-card-edit { display: none; }
+    .note-edit-textarea { width: 100%; border: 1px solid #93c5fd; border-radius: 6px; padding: 8px; font-size: .9em; resize: vertical; min-height: 50px; box-sizing: border-box; outline: none; font-family: inherit; line-height: 1.5; background: #f8fafc; color: #1e293b; }
+    .note-edit-textarea:focus { border-color: #2563eb; box-shadow: 0 0 0 2px rgba(37,99,235,.15); }
+    .note-edit-actions { display: flex; gap: 6px; margin-top: 6px; }
+    .note-edit-actions button { flex: 1; padding: 5px 8px; border-radius: 5px; font-size: .72em; font-weight: 600; cursor: pointer; border: 1px solid transparent; transition: all .15s; }
+    .note-edit-save { background: #2563eb; color: white; }
+    .note-edit-save:hover { background: #1d4ed8; }
+    .note-edit-cancel { background: #f1f5f9; color: #64748b; border-color: #e2e8f0; }
+    .note-edit-cancel:hover { background: #e2e8f0; }
 
-  /* Images */
-  .img-container { text-align: center; margin: 22px 0; }
-  .img-container img { max-width: 100%; border-radius: 10px; box-shadow: 0 3px 12px rgba(0,0,0,0.12); }
-  .img-caption { font-size: 0.9em; color: var(--text-secondary); margin-top: 8px; font-style: italic; }
+    /* ===== HEADER CARD ===== */
+    .header { text-align: center; padding: 36px 24px; background: linear-gradient(135deg, var(--primary-dark), var(--primary)); color: white; border-radius: 12px; margin-bottom: 24px; box-shadow: 0 4px 15px rgba(234,88,12,0.3); }
+    .header h1 { font-size: 1.85em; margin-bottom: 10px; }
+    .header .subtitle { font-size: 1.05em; opacity: 0.92; }
+    .header .meta { margin-top: 15px; font-size: 0.88em; opacity: 0.82; }
+    .badge { display: inline-block; padding: 4px 14px; border-radius: 20px; background: rgba(255,255,255,0.2); margin: 3px; font-size: 0.84em; }
+    .kw-tags { margin-top: 18px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+    .kw-tag { display: inline-flex; align-items: center; gap: 5px; padding: 6px 16px; border-radius: 20px; font-size: .82em; font-weight: 600; color: white; opacity: .95; }
+    .kw-app { background: linear-gradient(135deg, #ea580c, #f97316); }
+    .kw-meth { background: linear-gradient(135deg, #E65100, #FB8C00); }
+    .kw-conc { background: linear-gradient(135deg, #7B1FA2, #AB47BC); }
 
-  /* Tables */
-  table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 0.93em; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-radius: 8px; overflow: hidden; }
-  th { background: var(--primary); color: white; padding: 12px 14px; text-align: left; font-weight: 600; }
-  td { padding: 11px 14px; border-bottom: 1px solid var(--border); }
-  tr:nth-child(even) { background: #F9FBF9; }
-  tr:hover { background: var(--highlight); }
-  td:first-child { font-weight: 600; color: var(--primary-dark); }
-  .num-cell { text-align: center; font-weight: 700; color: var(--primary-dark); }
+    /* ===== SECTIONS ===== */
+    .section { background: var(--card-bg); border-radius: 10px; padding: 28px 32px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-top: 3px solid var(--primary-light); }
+    body.dark .section { background: #1a1a2e; box-shadow: 0 2px 8px rgba(0,0,0,.3); }
+    .section h2 { color: var(--primary-dark); font-size: 1.45em; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid var(--border); }
+    body.dark .section h2 { color: #fb923c; border-bottom-color: #334155; }
+    .section h3 { color: var(--primary); font-size: 1.18em; margin: 22px 0 12px; }
+    body.dark .section h3 { color: #fdba74; }
+    .section h4 { color: var(--text); font-size: 1.04em; margin: 14px 0 8px; }
 
-  /* Highlight boxes */
-  .info-box { background: #E8F5E9; border-left: 4px solid var(--primary); border-radius: 6px; padding: 16px 20px; margin: 16px 0; }
-  .cn-note { background: #FFFDE7; border-left: 4px solid #FBC02D; border-radius: 6px; padding: 16px 20px; margin: 16px 0; font-size: 0.96em; }
-  .warn-box { background: var(--warning); border-left: 4px solid #D32F2F; border-radius: 6px; padding: 16px 20px; margin: 16px 0; }
-  .warn-box h4 { color: #C62828; margin-bottom: 8px; }
+    /* ===== INFO BOXES ===== */
+    .quote { border-left: 4px solid var(--primary); background: linear-gradient(135deg, #fffbeb, #ffedd5); padding: 16px 22px; margin: 16px 0; border-radius: 0 8px 8px 0; font-style: italic; color: var(--primary-dark); }
+    body.dark .quote { background: linear-gradient(135deg, rgba(234,88,12,.15), rgba(234,88,12,.08)); border-left-color: #f97316; color: #fdba74; }
+    .note-box { background: #fffbeb; border-left: 4px solid var(--primary); border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+    body.dark .note-box { background: rgba(251,191,36,.06); border-left-color: #FBC02D; }
+    .blue-box { background: #eff6ff; border-left: 4px solid var(--accent); border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+    body.dark .blue-box { background: rgba(59,130,246,.06); border-left-color: #42A5F5; }
+    .warn-box { background: #FFF3E0; border-left: 4px solid #E65100; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+    .warn-box h4 { color: #E65100; margin-bottom: 8px; }
+    .er-box { background: linear-gradient(135deg,#fef3c7,#fde68a); border-left: 4px solid #b45309; border-radius: 8px; padding: 14px 18px; margin: 14px 0; font-size: .92em; }
+    .er-box strong { color: #b45309; }
 
-  /* Activity box */
-  .activity-box { background: #E3F2FD; border-left: 4px solid #1976D2; border-radius: 6px; padding: 16px 20px; margin: 16px 0; }
-  .activity-box h4 { color: #1565C0; margin-bottom: 8px; }
+    /* ===== TABLES ===== */
+    table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 0.93em; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-radius: 8px; overflow: hidden; }
+    th { background: var(--primary); color: white; padding: 12px 14px; text-align: left; font-weight: 600; }
+    td { padding: 11px 14px; border-bottom: 1px solid var(--border); }
+    tr:nth-child(even) { background: #fff8f0; }
+    tr:hover { background: #fff3e0; }
+    td:first-child { font-weight: 600; color: var(--primary-dark); }
+    .num-cell { text-align: center; font-weight: 700; color: var(--primary-dark); }
 
-  /* Lists */
-  ul, ol { padding-left: 24px; margin: 10px 0; }
-  li { margin: 6px 0; }
+    /* ===== LISTS ===== */
+    ul, ol { padding-left: 24px; margin: 10px 0; }
+    li { margin: 6px 0; }
 
-  /* Chart container */
-  .chart-container { position: relative; height: 380px; margin: 22px 0; background: white; border-radius: 10px; padding: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    /* ===== CHART CONTAINER ===== */
+    .chart-container { position: relative; height: 350px; margin: 22px 0; background: white; border-radius: 10px; padding: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    body.dark .chart-container { background: #16213e; }
 
-  /* Two-column layout for debates */
-  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 18px 0; }
-  .col-card { background: #F5F5F5; border-radius: 8px; padding: 18px; }
-  .col-card.nature { border-top: 4px solid #7B1FA2; }
-  .col-card.nurture { border-top: 4px solid var(--primary); }
-  .col-card h4 { margin-bottom: 10px; font-size: 1em; }
-  .col-card.nature h4 { color: #7B1FA2; }
-  .col-card.nurture h4 { color: var(--primary-dark); }
+    /* ===== TWO-COL LAYOUT ===== */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 18px 0; }
+    .col-card { background: #FFF8F0; border-radius: 8px; padding: 18px; border-top: 4px solid var(--primary); }
+    .col-card.nature { border-top-color: #7B1FA2; }
+    .col-card.nurture { border-top-color: var(--primary); }
+    .col-card h4 { margin-bottom: 10px; font-size: 1em; color: var(--primary-dark); }
+    .col-card.nature h4 { color: #7B1FA2; }
 
-  /* Questions section */
-  .question-item { background: #FAFAFA; border-radius: 8px; padding: 18px; margin: 14px 0; border-left: 4px solid var(--accent); }
-  .question-item strong { color: var(--accent); }
+    /* ===== QA CARDS ===== */
+    .qa-card { background: #fafafa; border-radius: 10px; padding: 20px 24px; margin: 16px 0; border-left: 4px solid var(--primary); transition: box-shadow .2s; cursor: pointer; }
+    .qa-card:hover { box-shadow: 0 4px 16px rgba(234,88,12,.12); }
+    body.dark .qa-card { background: #1a1a2e; }
+    .qa-q { font-weight: 700; color: var(--primary-dark); font-size: .98em; margin-bottom: 10px; }
+    body.dark .qa-q { color: #fb923c; }
+    .qa-a { color: var(--text-secondary); font-size: .9em; line-height: 1.65; max-height: 0; overflow: hidden; transition: max-height .35s ease; }
+    .qa-card.expanded .qa-a { max-height: 800px; }
+    .qa-toggle { font-size: .76em; color: var(--primary); font-weight: 600; margin-top: 6px; }
+    body.dark .qa-toggle { color: #f97316; }
 
-  /* Footer */
-  .footer { text-align: center; padding: 25px; color: var(--text-secondary); font-size: 0.88em; border-top: 1px solid var(--border); margin-top: 30px; }
+    /* ===== SUMMARY CARD ===== */
+    .summary-card { background: linear-gradient(135deg, #fffbeb, #fef3c7); border-radius: 10px; padding: 18px 22px; margin: 14px 0; border-left: 4px solid #f59e0b; }
+    .summary-card h4 { color: #b45309; margin-bottom: 8px; font-size: .95em; }
 
-  @media (max-width: 768px) {
-    .two-col { grid-template-columns: 1fr; }
-    .container { padding: 12px; }
-    .section { padding: 20px; }
-  }
-</style>
+    /* ===== CN SUMMARY WRAP ===== */
+    .cn-summary-wrap { background: linear-gradient(135deg,#f0fdf4,#dcfce7); border-radius: 10px; padding: 20px 24px; margin: 18px 0; border: 1px solid #bbf7d0; }
+    body.dark .cn-summary-wrap { background: linear-gradient(135deg,rgba(22,101,52,.15),rgba(22,101,52,.08)); border-color: #166534; }
+    .cn-summary-wrap h3 { color: #166534; font-size: 1.1em; margin-bottom: 12px; }
+    body.dark .cn-summary-wrap h3 { color: #86efac; }
+    .cn-summary-wrap ul { margin: 0; padding-left: 20px; }
+    .cn-summary-wrap li { margin: 5px 0; font-size: .93em; }
+
+    /* ===== FOOTER ===== */
+    .footer { text-align: center; padding: 25px; color: var(--text-secondary); font-size: 0.88em; border-top: 1px solid var(--border); margin-top: 30px; }
+
+    /* ===== STUDY NAVIGATOR ===== */
+    .study-nav { border-top: 2px solid #e0e0e0; background: #FAFAFA; padding: 14px 16px; margin-top: 2rem; }
+    .study-nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; max-width: 880px; margin: 0 auto; }
+    .study-nav-btn { flex: 1; padding: 9px 14px; border: 1px solid #ddd; border-radius: 8px; background: white; color: #444; font-size: .82rem; cursor: pointer; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 4px; transition: all .15s; font-family: inherit; }
+    .study-nav-btn:hover { border-color: var(--primary); color: var(--primary); background: #fff8f0; }
+    .study-nav-dots { text-align: center; padding: 0 8px; }
+    .study-nav-label { font-size: .65rem; text-transform: uppercase; letter-spacing: 1px; color: #888; margin-bottom: 5px; font-weight: 700; }
+    .study-dot-row { display: flex; gap: 5px; justify-content: center; flex-wrap: wrap; }
+    .study-dot { width: 10px; height: 10px; border-radius: 50%; cursor: pointer; border: 2px solid transparent; transition: all .15s; position: relative; display: inline-block; }
+    .study-dot:hover { transform: scale(1.3); }
+    .study-dot.active { border-color: #333; transform: scale(1.25); }
+
+    /* ===== BACK TO TOP ===== */
+    .back-to-top { position: fixed; bottom: 30px; right: 30px; width: 44px; height: 44px; background: var(--primary); color: white; border: none; border-radius: 50%; font-size: 1.2em; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(234,88,12,.3); transition: transform .2s, opacity .2s; opacity: 0; z-index: 99; }
+    .back-to-top.show { opacity: 1; }
+    .back-to-top:hover { transform: translateY(-3px); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .page-layout { grid-template-columns: 1fr; }
+      .sidebar, .notes-col { display: none; }
+      .main-content { max-width: 100%; }
+    }
+    @media (max-width: 768px) {
+      .two-col { grid-template-columns: 1fr; }
+      .container { padding: 12px; }
+      .section { padding: 20px; }
+      .nav-bar { flex-wrap: wrap; gap: .5rem; padding: .5rem 1rem; }
+      .kw-tags { gap: 6px; }
+      .kw-tag { padding: 5px 10px; font-size: .75em; }
+    }
+  </style>
 </head>
 <body>
 
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- ===== NAV BAR ===== -->
+<nav class="nav-bar">
+  <div class="nav-breadcrumb">
+    <a href="../../index.html">Home</a> <span class="sep">/</span>
+    <a href="../">CIE Core Studies</a> <span class="sep">/</span>
+    <span>Fagen (2014)</span>
+  </div>
+  <div class="nav-controls">
+    <button class="nav-btn" onclick="toggleDarkMode()" title="Toggle Dark Mode">🌙</button>
+    <button class="nav-btn" onclick="adjustFontSize(-1)" title="Decrease Font Size">A-</button>
+    <button class="nav-btn" onclick="adjustFontSize(1)" title="Increase Font Size">A+</button>
+    <a class="nav-pill" href="../../index.html">Home</a>
+  </div>
+</nav>
+
 <div class="container">
+  <div class="page-layout">
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="sidebar">
+      <div class="sidebar-inner">
+        <div class="sb-header">
+          <p class="sb-header-title">Fagen 2014</p>
+          <p class="sb-header-sub">Elephant SPR Training</p>
+        </div>
+        <ul class="sb-list">
+          <li class="sb-item"><a href="#s1" class="sb-active">Background</a></li>
+          <li class="sb-item"><a href="#s2">Why Elephants?</a></li>
+          <li class="sb-divider"></li>
+          <li class="sb-item"><a href="#s3">Aim</a></li>
+          <li class="sb-item"><a href="#s4">Method</a></li>
+          <li class="sb-item"><a href="#s5">Procedure</a></li>
+          <li class="sb-divider"></li>
+          <li class="sb-item"><a href="#s6">Results</a></li>
+          <li class="sb-item"><a href="#s7">Conclusion</a></li>
+          <li class="sb-divider"></li>
+          <li class="sb-item"><a href="#s8">Strengths & Weaknesses</a></li>
+          <li class="sb-item"><a href="#s9">Ethical Issues</a></li>
+          <li class="sb-item"><a href="#s10">Issues & Debates</a></li>
+          <li class="sb-divider"></li>
+          <li class="sb-item"><a href="#s11">Summary</a></li>
+          <li class="sb-item"><a href="#s12">Exam Practice</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main-content">
 
 <!-- HEADER -->
 <div class="header">
-  <h1>🐘 Fagen et al. (2014)</h1>
+  <h1>Fagen et al. (2014)</h1>
   <div class="subtitle">Positive Reinforcement Training for a Trunk Wash in Nepal's Working Elephants<br><span style="font-size:.9em;opacity:.85">尼泊尔工作大象的次级正强化训练——象鼻冲洗程序</span></div>
   <div class="meta">
-    <span class="badge">📘 CIE Learning Approach</span>
-    <span class="badge">📄 Journal of Applied Animal Welfare Science</span>
-    <span class="badge">🔬 Core Study 2</span>
+    <span class="badge">Journal of Applied Animal Welfare Science, 17(2), 83–97</span>
+    <span class="badge">Core Study — Learning Approach</span>
+  </div>
+  <div class="kw-tags">
+    <span class="kw-tag kw-app">Learning Approach</span>
+    <span class="kw-tag kw-meth">Controlled Observation</span>
+    <span class="kw-tag kw-conc">Operant Conditioning / SPR</span>
   </div>
 </div>
 
-<!-- TABLE OF CONTENTS -->
-<div class="toc">
-  <h2>📑 Contents</h2>
-  <ol>
-    <li><a href="#s1">Background — Operant Conditioning（操作性条件反射）</a></li>
-    <li><a href="#s2">Why Elephants? — TB Testing Needs</a></li>
-    <li><a href="#s3">Aim</a></li>
-    <li><a href="#s4">Method — Controlled Observation & Sample</a></li>
-    <li><a href="#s5">Procedure — SPR Training Five Steps</a></li>
-    <li><a href="#s6">Results — Data & Charts</a></li>
-    <li><a href="#s7">Conclusion</a></li>
-    <li><a href="#s8">Strengths & Weaknesses</a></li>
-    <li><a href="#s9">Ethical Issues</a></li>
-    <li><a href="#s10">Issues & Debates</a></li>
-    <li><a href="#s11">Summary</a></li>
-    <li><a href="#s12">Exam Practice Questions</a></li>
-  </ol>
-</div>
-
 <!-- SECTION 1: BACKGROUND -->
-<div class="section" id="s1">
+<section class="section" id="s1">
   <h2>1. Background — Operant Conditioning</h2>
 
   <h3>What is Operant Conditioning?</h3>
@@ -147,8 +305,8 @@
 
   <p>For example: when you do something with <strong>positive consequences</strong> (e.g., studying hard and getting a high exam score), you are more likely to do it again. Psychologists call this mechanism shaping behaviour through its consequences.</p>
 
-  <div class="keyword-box">
-    <h4>🔑 Key Words</h4>
+  <div class="note-box">
+    <h4>Key Terms</h4>
     <p><strong>operant conditioning（操作性条件反射）</strong>: the process of learning through the consequences of our actions. If a behaviour is followed by a reward, it is strengthened; if followed by punishment, it decreases.</p>
     <p><strong>positive reinforcer（正强化物）</strong>: rewards that satisfy biological needs are called <strong>primary positive reinforcers（初级正强化物）</strong>, such as food and water. Neutral stimuli that become rewarding through pairing with primary reinforcers are called <strong>secondary reinforcers（次级正强化物）</strong>, such as sound markers, money, or grades.</p>
   </div>
@@ -156,93 +314,60 @@
   <h3>Two Types of Reinforcement</h3>
   <ul>
     <li><strong>Positive reinforcement（正强化）</strong>: presenting a <strong>pleasurable stimulus</strong> after a behaviour to increase its frequency. E.g., praise, food rewards, "Well done!"</li>
-    <li><strong>Negative reinforcement（负强化）</strong>: <strong>removing or avoiding an unpleasant stimulus</strong> after a behaviour to increase its frequency. E.g., putting on a thick coat stops you feeling cold (cold is the unpleasant stimulus), so you are more willing to wear one.</li>
+    <li><strong>Negative reinforcement（负强化）</strong>: <strong>removing or avoiding an unpleasant stimulus</strong> after a behaviour to increase its frequency. E.g., putting on a thick coat stops you feeling cold (cold is the unpleasant stimulus).</li>
   </ul>
 
   <p>Traditional elephant training methods rely on <strong>punishment（惩罚）</strong> and negative reinforcement — using pain or fear to force elephants to comply. Modern animal management increasingly favours <strong>positive reinforcement（正强化）</strong> approaches.</p>
 
-  <div class="keyword-box">
-    <h4>🔑 Key Words</h4>
-    <p><strong>captive animal welfare（圈养动物福利）</strong>: when psychologists work with captive or confined animals, they must ensure the animals' health and wellbeing are safeguarded — including appropriate housing, space, food, water, and care.</p>
-    <p><strong>positive reinforcement（正强化）</strong>: a form of operant conditioning where desirable behaviours are encouraged by providing rewards. E.g., praising a child for saying "please" and "thank you" positively reinforces polite behaviour.</p>
-  </div>
-
-  <h3>Traditional Training vs Positive Reinforcement Training</h3>
+  <h3>Traditional vs SPR Training</h3>
   <table>
-    <tr><th>Aspect<br>（方面）</th><th>Traditional Method<br>（传统方法）</th><th>SPR Method<br>（正强化方法）</th></tr>
-    <tr><td>Core approach<br>（核心手段）</td><td>Punishment (stick/kocha), fear</td><td>Rewards (food + sound marker)</td></tr>
-    <tr><td>Animal state<br>（动物状态）</td><td>Forced compliance, fear-based</td><td>Voluntary participation, anticipates rewards</td></tr>
-    <tr><td>Contact type<br>（接触方式）</td><td>Free contact（无隔离接触）</td><td>Protected contact（有屏障保护）</td></tr>
-    <tr><td>Animal welfare<br>（动物福利）</td><td>Lower; may cause physical/psychological harm</td><td>Higher; improves psychological wellbeing</td></tr>
-    <tr><td>Reliability<br>（可靠性）</td><td>Surface compliance with inner resistance</td><td>Stable, voluntarily repeatable behaviour</td></tr>
+    <tr><th>Aspect</th><th>Traditional Method</th><th>SPR Method</th></tr>
+    <tr><td>Core approach</td><td>Punishment (stick/kocha), fear</td><td>Rewards (food + sound marker)</td></tr>
+    <tr><td>Animal state</td><td>Forced compliance, fear-based</td><td>Voluntary participation, anticipates rewards</td></tr>
+    <tr><td>Contact type</td><td>Free contact（无隔离接触）</td><td>Protected contact（有屏障保护）</td></tr>
+    <tr><td>Animal welfare</td><td>Lower; may cause physical/psychological harm</td><td>Higher; improves psychological wellbeing</td></tr>
+    <tr><td>Reliability</td><td>Surface compliance with inner resistance</td><td>Stable, voluntarily repeatable behaviour</td></tr>
   </table>
-
-  <div class="activity-box">
-    <h4>📝 Activity 4.2</h4>
-    <p>Humans sometimes attempt to train animal behaviour in certain situations. Think of at least two different training techniques (for pets or domestic animals) and complete the table below:</p>
-    <table>
-      <tr><th>Description of training technique<br>（训练技术描述）</th><th>How it works / how we can see if it works<br>（原理及判断方式）</th><th>Which method is likely to be more effective?<br>（哪种方法更有效？）</th></tr>
-      <tr><td style="color:#999;">(student fills in)</td><td style="color:#999;">(student fills in)</td><td style="color:#999;">(student fills in)</td></tr>
-      <tr><td style="color:#999;">(student fills in)</td><td style="color:#999;">(student fills in)</td><td style="color:#999;">(student fills in)</td></tr>
-    </table>
-  </div>
-</div>
+</section>
 
 <!-- SECTION 2: WHY ELEPHANTS -->
-<div class="section" id="s2">
-  <h2>2. Why Elephants?</h2>
+<section class="section" id="s2">
+  <h2>2. Why Elephants? — The TB Problem</h2>
 
-  <h3>Why do elephants need training?</h3>
+  <h3>Why do elephants need trunk wash training?</h3>
   <p>Diagnosing and treating diseases in captive elephants is an important part of animal welfare. To <strong>avoid using traditional punitive methods</strong>, Fagen et al. investigated whether <strong>SPR (Secondary Positive Reinforcement，次级正强化)</strong> training could teach elephants to reliably and voluntarily participate in a procedure called <strong>"trunk wash（象鼻冲洗）"</strong> — an operation used to maintain elephant health.</p>
 
-  <div class="info-box">
-    <strong>💡 What is Trunk Wash（象鼻冲洗）?</strong><br>
-    This is a method of collecting sputum samples from an elephant's nasal cavity, primarily used to detect <strong>tuberculosis (TB，结核病)</strong>. TB is a serious respiratory disease with an 11%–25% infection rate among captive elephant populations, and it can be transmitted from elephants to humans (<strong>zoonotic transfer，人畜共患病</strong>). Regular testing is therefore essential.
+  <div class="blue-box">
+    <strong>What is Trunk Wash?</strong><br>
+    This is a method of collecting sputum samples from an elephant's nasal cavity, primarily used to detect <strong>tuberculosis (TB，结核病)</strong>. TB is a serious respiratory disease with an <strong>11%–25% infection rate</strong> among captive elephant populations in Nepal, and it can be transmitted from elephants to humans (<strong>zoonotic transfer，人畜共患病</strong>). Regular testing is therefore essential.
   </div>
 
   <p>SPR had previously been successfully applied to pandas, primates, antelopes, and many other species, but had <strong>never been systematically studied and quantitatively documented in elephants</strong>. This study aimed to fill that gap.</p>
 
-  <div class="keyword-box">
-    <h4>🔑 Key Word</h4>
+  <div class="note-box">
+    <h4>Key Term</h4>
     <p><strong>secondary positive reinforcement (SPR) training（次级正强化训练）</strong>: a training method where an animal first learns to associate a neutral stimulus (such as a sound marker/whistle) with a primary reinforcer (such as food), then only this secondary reinforcer is used to indicate correct behaviour, followed later by the actual food reward.</p>
   </div>
-</div>
+</section>
 
 <!-- SECTION 3: AIM -->
-<div class="section" id="s3">
+<section class="section" id="s3">
   <h2>3. Aim</h2>
 
-  <blockquote style="background:#E8F5E9;border-left:4px solid var(--primary);padding:16px 22px;margin:18px 0;border-radius:0 8px 8px 0;font-style:italic;color:var(--primary-dark);">
-    The aim of this study was to see whether free-contact, traditionally trained elephants can be trained to participate in a trunk wash by using positive reinforcement.
-  </blockquote>
+  <div class="quote">
+    The aim of this study was to determine the feasibility of using SPR training to teach free-contact, traditionally trained elephants in Nepal to voluntarily participate in a trunk wash for the purpose of tuberculosis testing.
+  </div>
 
-  <h3>Implicit Research Hypotheses（隐含假设）</h3>
+  <h3>Research Hypotheses</h3>
   <ul>
     <li>Even traditionally trained elephants without prior SPR experience can learn complex veterinary cooperation behaviours through positive reinforcement</li>
     <li>Juvenile elephants will learn new behaviours more easily than adult elephants</li>
     <li>SPR training can achieve reliable performance within a reasonable timeframe (several weeks)</li>
   </ul>
-
-  <div class="activity-box">
-    <h4>📝 Activity 4.3</h4>
-    <p>Humans and many animals share cognitive and behavioural characteristics:</p>
-    <ol>
-      <li>Explain why psychologists might use animals rather than humans as participants in research.</li>
-      <li>As discussed in Chapter 1, the British Psychological Society's (BPS) <strong>Guidelines for the Treatment of Animals in Research (2020)</strong> include several ethical principles:
-        <ul>
-          <li><strong>replacement（替代）</strong> — use animals only when necessary</li>
-          <li><strong>species（物种选择）</strong> — choose appropriate species</li>
-          <li><strong>number（数量）</strong> — use the minimum number required</li>
-          <li><strong>procedures（程序）</strong> — adopt methods causing minimal suffering</li>
-        </ul>
-      </li>
-      <li>Design an advertisement recruiting captive elephants to participate in Fagen et al.'s study, focusing on animal welfare and citing at least two of the ethical principles above.</li>
-    </ol>
-  </div>
-</div>
+</section>
 
 <!-- SECTION 4: METHOD -->
-<div class="section" id="s4">
+<section class="section" id="s4">
   <h2>4. Method</h2>
 
   <h3>Research Method and Design</h3>
@@ -252,21 +377,21 @@
   <p>The study included <strong>five female elephants</strong>: four juveniles and one adult, all housed at the same elephant stable in Nepal.</p>
 
   <table>
-    <tr><th>Characteristic<br>（特征）</th><th>Details<br>（详情）</th></tr>
-    <tr><td>Number（数量）</td><td>5 females (4 juvenile + 1 adult)</td></tr>
-    <tr><td>Age（年龄）</td><td>Juveniles: 5–7 years; Adult: ~50 years</td></tr>
-    <tr><td>Origin（来源）</td><td>All born at this elephant stable</td></tr>
-    <tr><td>Selection criteria<br>（筛选标准）</td><td>Docile temperament, not pregnant/nursing, mahout willing to cooperate</td></tr>
-    <tr><td>Prior training<br>（既往训练）</td><td>All traditionally trained; no prior SPR experience</td></tr>
-    <tr><td>Daily routine<br>（日常安排）</td><td>Most daytime spent grazing in jungle (mahout-controlled); rest of time leg-chained in stall, mobile within 1.8–2.4m diameter</td></tr>
-    <tr><td>Diet（饮食）</td><td>Fresh grass, grain supplement (dhana); water access at river during grazing</td></tr>
+    <tr><th>Characteristic</th><th>Details</th></tr>
+    <tr><td>Number</td><td>5 females (4 juvenile + 1 adult)</td></tr>
+    <tr><td>Age</td><td>Juveniles: 5–7 years; Adult: ~50 years</td></tr>
+    <tr><td>Origin</td><td>All born at this elephant stable</td></tr>
+    <tr><td>Selection criteria</td><td>Docile temperament, not pregnant/nursing, mahout willing to cooperate</td></tr>
+    <tr><td>Prior training</td><td>All traditionally trained; no prior SPR experience</td></tr>
+    <tr><td>Daily routine</td><td>Most daytime spent grazing in jungle (mahout-controlled); rest of time leg-chained in stall, mobile within 1.8–2.4m diameter</td></tr>
+    <tr><td>Diet</td><td>Fresh grass, grain supplement (dhana); water access at river during grazing</td></tr>
   </table>
 
   <p>The elephants were selected because they were <strong>docile, not pregnant or nursing calves</strong>, and their <strong>mahouts（驯象师）</strong> were willing to participate. All elephants had been traditionally trained and maintained <strong>free contact</strong> with their mahouts. <strong>No elephant had any previous SPR training experience</strong>.</p>
-</div>
+</section>
 
 <!-- SECTION 5: PROCEDURE -->
-<div class="section" id="s5">
+<section class="section" id="s5">
   <h2>5. Procedure — SPR Training Process</h2>
 
   <h3>Training Tools: The SPR Trio</h3>
@@ -277,145 +402,93 @@
     <li><strong>Three core techniques</strong>: Capture（捕捉）, Lure（诱导）, Shaping（塑形）</li>
   </ul>
 
-  <div class="img-container">
-    <img src="fagen_images/spr_conditioning.png" alt="SPR Classical Conditioning Diagram - three stages with bananas, whistle and elephant">
-    <div class="img-caption">SPR Classical Conditioning（SPR 经典条件反射）— Three stages: (1) Bananas (UCS) → Happy elephant (UCR); (2) Whistle (NS) + Bananas (UCS) → Happy elephant; (3) Whistle alone (CS) → Happy elephant (CR)</div>
-  </div>
-
-  <h3>The Three Training Techniques Explained</h3>
+  <h3>The Three Training Techniques</h3>
   <div class="two-col">
     <div class="col-card">
-      <h4>🎯 Capture（捕捉法）</h4>
+      <h4>Capture（捕捉法）</h4>
       <p>Wait for the animal to <strong>naturally exhibit</strong> the target behaviour, then immediately mark and reward it. Suitable for behaviours the animal spontaneously performs.</p>
-      <p><em>E.g.: immediately whistle + give banana when the elephant naturally exhales</em></p>
+      <p><em>E.g.: whistle + banana when the elephant naturally exhales</em></p>
     </div>
     <div class="col-card">
-      <h4>🍌 Lure（诱导法）</h4>
+      <h4>Lure（诱导法）</h4>
       <p>Place the reward in a specific position to <strong>guide</strong> the animal into the desired body posture. Suitable for unnatural body positions.</p>
-      <p><em>E.g.: place banana in palm to entice elephant to extend trunk towards hand</em></p>
+      <p><em>E.g.: place banana in palm to entice elephant to extend trunk</em></p>
     </div>
   </div>
   <div class="col-card" style="margin-top:18px;">
-    <h4>✨ Shaping（塑形法）</h4>
-    <p>Building on capture or lure, <strong>gradually raise the standard</strong> — only reward responses that increasingly approximate the target behaviour, "sculpting" the complete behaviour step by step like carving a statue. This is the most refined and powerful technique.</p>
-    <p><em>E.g.: first reward any trunk-lifting motion → then only reward lifting to waist height → finally only reward fully upright posture</em></p>
+    <h4>Shaping（塑形法）</h4>
+    <p>Building on capture or lure, <strong>gradually raise the standard</strong> — only reward responses that increasingly approximate the target behaviour, "sculpting" the complete behaviour step by step like carving a statue.</p>
+    <p><em>E.g.: reward any trunk lift → then only waist height → finally fully upright</em></p>
   </div>
 
-  <h3>Five Behavioural Tasks（五大行为任务）</h3>
-  <p>The training goal was to break down the trunk wash into five basic behaviours, train each separately, then chain them together:</p>
-
+  <h3>Five Behavioural Tasks</h3>
   <table>
-    <tr><th>Behavioural Task<br>（行为任务）</th><th>Role in Trunk Wash<br>（在象鼻冲洗中的作用）</th><th>Description（描述）</th><th>Method（训练方法）</th></tr>
-    <tr>
-      <td><strong>Trunk Here<br>（鼻尖放这儿）</strong></td>
-      <td>Allows saline/water to be injected into the trunk</td>
-      <td>Elephant gently places trunk tip in trainer's palm</td>
-      <td>Lure (banana in palm)</td>
-    </tr>
-    <tr>
-      <td><strong>Trunk Up<br>（抬起鼻子）</strong></td>
-      <td>Lets liquid flow to the base of the trunk</td>
-      <td>Elephant lifts trunk upwards</td>
-      <td>Lure + Shaping (banana raised progressively higher)</td>
-    </tr>
-    <tr>
-      <td><strong>Bucket<br>（放入桶中）</strong></td>
-      <td>Prepares for blowing</td>
-      <td>Elephant places trunk tip into bucket</td>
-      <td>Lure (banana at bottom of bucket)</td>
-    </tr>
-    <tr>
-      <td><strong>Blow<br>（用力吹气）</strong></td>
-      <td>Expels liquid to collect sample</td>
-      <td>Elephant forcefully exhales through trunk</td>
-      <td>Capture + Shaping (capture natural exhalation, then build intensity)</td>
-    </tr>
-    <tr>
-      <td><strong>Steady<br>（保持不动）</strong></td>
-      <td>Maintains any requested position for a duration</td>
-      <td>Elephant holds the requested position unchanged</td>
-      <td>Shaping (gradually extend holding time)</td>
-    </tr>
+    <tr><th>Task</th><th>Role in Trunk Wash</th><th>Description</th><th>Method</th></tr>
+    <tr><td><strong>Trunk Here</strong></td><td>Allows saline injection</td><td>Trunk tip placed in trainer's palm</td><td>Lure (banana in palm)</td></tr>
+    <tr><td><strong>Trunk Up</strong></td><td>Lets liquid flow to base</td><td>Elephant lifts trunk upward</td><td>Lure + Shaping</td></tr>
+    <tr><td><strong>Bucket</strong></td><td>Prepares for blowing</td><td>Trunk tip placed in bucket</td><td>Lure (banana in bucket)</td></tr>
+    <tr><td><strong>Blow</strong></td><td>Expels sample</td><td>Forceful exhale through trunk</td><td>Capture + Shaping</td></tr>
+    <tr><td><strong>Steady</strong></td><td>Maintains position</td><td>Holds requested position</td><td>Shaping (extend hold time)</td></tr>
   </table>
 
-  <div class="img-container">
-    <img src="fagen_images/trunk_wash_steps.jpg" alt="Trunk wash four steps diagram">
-    <div class="img-caption">Figure 4.4: The trunk wash procedure（象鼻冲洗步骤）— (1) Trunk here 鼻尖放这儿 → (2) Trunk up 抬起鼻子 → (3) Bucket 放桶 → (4) Blow 吹气 (+ Steady 保持不动)</div>
-  </div>
+  <h3>Training Phases</h3>
 
-  <h3>Training Process in Detail</h3>
+  <h4>Phase 1: Building the Bridge</h4>
+  <p>Repeatedly pair <strong>whistle + banana</strong> so the elephant learns: whistle = food coming soon. Establishes the <strong>conditioned reinforcer（条件强化物）</strong>.</p>
 
-  <h4>Phase 1: Building the Bridge（建立标记-奖励联结）</h4>
-  <p>First, repeatedly pair the <strong>whistle + banana</strong> so the elephant learns: hearing the whistle = food coming soon. This establishes the <strong>conditioned reinforcer（条件强化物）</strong>.</p>
-
-  <h4>Phase 2: Training Each Behaviour Individually</h4>
-  <p>Use Capture/Lure/Shaping to train each of the five basic tasks above. Each elephant learns at their own pace; <strong>no preset time limits</strong> — everything depends on individual mastery.</p>
+  <h4>Phase 2: Individual Task Training</h4>
+  <p>Use Capture/Lure/Shaping to train each of the five basic tasks. Each elephant learns at their own pace; <strong>no preset time limits</strong>.</p>
 
   <h4>Phase 3: Behaviour Chaining（行为串联）</h4>
-  <div class="keyword-box">
-    <h4>🔑 Key Word</h4>
-    <p><strong>behaviour chaining（行为串联）</strong>: the process of enabling separately trained behaviours to be executed in sequence. The theory behind it: once a behaviour is firmly associated with a primary reinforcer, that behaviour itself becomes the reinforcer for the preceding behaviour — completing the first behaviour earns the "right" to perform the second.</p>
+  <div class="note-box">
+    <p><strong>behaviour chaining</strong>: enabling separately trained behaviours to be executed in sequence. Once a behaviour is firmly associated with a primary reinforcer, that behaviour itself becomes the reinforcer for the preceding behaviour.</p>
   </div>
-
-  <p>Specific approach: first pair bucket + blow → then add various combinations of other behaviours → finally chain the full sequence:</p>
-  <p style="text-align:center;background:var(--highlight);padding:14px;border-radius:8px;font-weight:bold;color:var(--primary-dark);">
-    Trunk Here → Short Steady → Trunk Up → Long Steady → Bucket → Blow ✅
+  <p style="text-align:center;background:#fff7ed;padding:14px;border-radius:8px;font-weight:bold;color:#c2410c;">
+    Trunk Here → Short Steady → Trunk Up → Long Steady → Bucket → Blow
   </p>
 
-  <h4>Phase 4: Desensitisation to Syringe（注射器脱敏）</h4>
-  <div class="keyword-box">
-    <h4>🔑 Key Word</h4>
-    <p><strong>desensitisation（脱敏）</strong>: gradually reducing and eliminating a response to a stimulus (e.g., fear of syringes). Through gradual exposure — seeing syringe from distance → touching outer side of trunk tip → touching inside nostril → inserting into nostril → injecting small amounts of liquid (starting at 1ml, gradually increasing to 60ml) — the elephant gradually adapts.</p>
-  </div>
+  <h4>Phase 4: Desensitisation to Syringe</h4>
+  <p>Gradual exposure: seeing syringe from distance → touching outer side of trunk → touching inside nostril → inserting → injecting liquid (starting at 1ml, increasing to 60ml). One elephant who preferred saline over water was switched to plain water, dramatically improving success rate.</p>
 
-  <h4>Key Control Measures（关键控制措施）</h4>
+  <h3>Control Measures</h3>
   <ul>
-    <li><strong>Verbal cues（语言提示词）</strong>: single-syllable, nonsense made-up words (neither English nor Nepali), preventing mahouts from assuming elephants understand human language</li>
-    <li><strong>Mahouts do not intervene</strong>: mahouts present but silent and non-signalling, ensuring training purity</li>
-    <li><strong>Voluntary participation</strong>: elephants could turn away or leave to refuse — no coercion</li>
-    <li><strong>Anti-drinking strategy</strong>: fresh water provided before training to prevent elephants drinking the saline sample; one elephant who preferred saltwater was switched to water, dramatically improving success rate</li>
+    <li><strong>Verbal cues</strong>: single-syllable nonsense words (neither English nor Nepali) — prevents mahout language confusion</li>
+    <li><strong>Mahouts present but silent</strong>: no signalling during sessions — controls extraneous variables</li>
+    <li><strong>Voluntary participation</strong>: elephants could turn away to refuse — proves behaviour is voluntary</li>
+    <li><strong>Anti-drinking strategy</strong>: fresh water before each session</li>
   </ul>
 
-  <h3>Performance Tests（测试方式）</h3>
+  <h3>Performance Tests</h3>
   <ul>
-    <li>From session 10 onwards, formal testing approximately every 5 sessions</li>
-    <li>Each test presented 8–16 <strong>offers（提示/指令）</strong> per behaviour</li>
-    <li><strong>Pass criterion = 80%</strong> (8 or more correct out of 10 attempts)</li>
+    <li>From Session 10 onwards, formal testing approximately every 5 sessions</li>
+    <li>Each test presented 8–16 <strong>offers（提示）</strong> per behaviour</li>
+    <li><strong>Pass criterion = 80%</strong> (8+ correct out of 10 attempts)</li>
     <li>Once full sequence ≥80%, training considered complete</li>
   </ul>
-</div>
+</section>
 
 <!-- SECTION 6: RESULTS -->
-<div class="section" id="s6">
+<section class="section" id="s6">
   <h2>6. Results</h2>
 
   <h3>Overall Findings</h3>
   <p><strong>All four juvenile elephants successfully learned the trunk wash</strong>; however, the adult elephant (Elephant 5) failed to learn it.</p>
 
-  <h3>Table 4.4: Individual Elephant Training Data</h3>
+  <h3>Individual Elephant Data</h3>
   <table>
-    <tr><th>Elephant<br>（大象）</th><th>Number of sessions<br>（训练次数）</th><th>Mean duration (mins)<br>（平均时长/分钟）</th><th>Total time (mins)<br>（总训练时间/分钟）</th></tr>
-    <tr><td>1 (juvenile) 幼象1</td><td class="num-cell">30</td><td class="num-cell">12.42</td><td class="num-cell">373</td></tr>
-    <tr><td>2 (juvenile) 幼象2</td><td class="num-cell">25</td><td class="num-cell">10.29</td><td class="num-cell">257</td></tr>
-    <tr><td>3 (juvenile) 幼象3</td><td class="num-cell">35</td><td class="num-cell">13.27</td><td class="num-cell">389</td></tr>
-    <tr><td>4 (juvenile) 幼象4</td><td class="num-cell">35</td><td class="num-cell">11.11</td><td class="num-cell">451</td></tr>
-    <tr><td>5 (adult) 成年象5</td><td class="num-cell">n/a</td><td class="num-cell">n/a</td><td class="num-cell">424</td></tr>
+    <tr><th>Elephant</th><th>Sessions Needed</th><th>Mean Duration (min)</th><th>Total Time (min)</th></tr>
+    <tr><td>Elephant 1 (juvenile)</td><td class="num-cell">30</td><td class="num-cell">12.42</td><td class="num-cell">373</td></tr>
+    <tr><td>Elephant 2 (juvenile)</td><td class="num-cell">25</td><td class="num-cell">10.29</td><td class="num-cell">257</td></tr>
+    <tr><td>Elephant 3 (juvenile)</td><td class="num-cell">35</td><td class="num-cell">13.27</td><td class="num-cell">389</td></tr>
+    <tr><td>Elephant 4 (juvenile)</td><td class="num-cell">35</td><td class="num-cell">11.11</td><td class="num-cell">451</td></tr>
+    <tr><td>Elephant 5 (adult)</td><td class="num-cell">n/a</td><td class="num-cell">—</td><td class="num-cell">424*</td></tr>
   </table>
+  <p style="font-size:.85em;color:#666;">*Elephant 5 received 424 min of training but never passed the full trunk-wash test.</p>
 
-  <h3>Key Data Interpretation</h3>
-  <ul>
-    <li><strong>Fastest learner</strong>: Elephant 2 passed after only <strong>25 sessions</strong> (mean 10.29 mins each), total 257 minutes</li>
-    <li><strong>Slowest learner</strong>: Elephant 4 required <strong>35 sessions</strong>, total 451 minutes</li>
-    <li><strong>Adult failure</strong>: Elephant 5 never passed the full trunk wash test (despite 424 minutes of training input)</li>
-    <li><strong>Mean session length</strong>: approximately 12 minutes</li>
-  </ul>
-
-  <h3>Figure 4.5: Learning Progress Curve 📈</h3>
+  <h3>Learning Progress Curve</h3>
   <div class="chart-container">
     <canvas id="learningCurve"></canvas>
   </div>
-  <div class="img-caption">Figure 4.5: Mean percentage correct across all elephants at each test session</div>
-
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <script>
     const ctx = document.getElementById('learningCurve').getContext('2d');
@@ -424,12 +497,12 @@
       data: {
         labels: ['Session 10', 'Session 15', 'Session 20', 'Session 25', 'Session 30', 'Session 35'],
         datasets: [{
-          label: 'Mean % Correct（平均正确率）',
-          data: [36.00, 47.33, 59.39, 86.55, 83.18, 89.33],
-          borderColor: '#2E7D32',
-          backgroundColor: 'rgba(46,125,50,0.1)',
+          label: 'Mean % Correct',
+          data: [39.0, 47.3, 59.4, 86.6, 83.2, 89.3],
+          borderColor: '#ea580c',
+          backgroundColor: 'rgba(234,88,12,0.1)',
           borderWidth: 3,
-          pointBackgroundColor: '#2E7D32',
+          pointBackgroundColor: '#ea580c',
           pointBorderColor: '#fff',
           pointBorderWidth: 2,
           pointRadius: 6,
@@ -443,311 +516,520 @@
         maintainAspectRatio: false,
         plugins: {
           legend: { labels: { font: { size: 14, family: '-apple-system,sans-serif' } } },
-          tooltip: {
-            callbacks: {
-              label: function(context) { return context.dataset.label + ': ' + context.parsed.y + '%'; }
-            }
-          }
+          tooltip: { callbacks: { label: c => c.dataset.label + ': ' + c.parsed.y + '%' } }
         },
         scales: {
-          y: {
-            beginAtZero: true,
-            max: 100,
-            title: { display: true, text: 'Mean % Correct (%)（正确率）', font: { size: 13 } },
-            grid: { color: '#eee' },
-            ticks: { callback: v => v + '%' }
-          },
-          x: {
-            title: { display: true, text: 'Training Session（训练次数）', font: { size: 13 } },
-            grid: { color: '#eee' }
-          }
+          y: { beginAtZero: true, max: 100, title: { display: true, text: 'Mean % Correct (%)', font: { size: 13 } }, ticks: { callback: v => v + '%' } },
+          x: { title: { display: true, text: 'Training Session', font: { size: 13 } } }
         }
       }
     });
   </script>
 
-  <div class="info-box">
-    <strong>📊 Interpreting the curve:</strong> Mean correct rate rose steadily from <strong>36.00%</strong> after session 10 to <strong>89.33%</strong> after session 35. Note the curve never reaches 100% because once a behaviour sequence was passed, individual behaviours within it were assigned a default score of 90% (the midpoint of the 80%–100% pass range).
+  <div class="er-box">
+    <strong>ER Insight:</strong> Mean correct rate rose from <strong>39.0%</strong> (Session 10) to <strong>89.3%</strong> (Session 35). Note: never reaches 100% because once a sequence passed, individual behaviours received default 90%. In exams, quote these exact figures.
   </div>
 
-  <h3>Relative Difficulty of Tasks（各任务相对难度）</h3>
-  <p>Based on Table 3 data from the original paper, practice requirements differed significantly across tasks (ANOVA p = 0.017):</p>
-
+  <h3>Relative Difficulty of Tasks</h3>
+  <p>ANOVA showed significant difference (<em>p</em> = 0.017) in task difficulty:</p>
   <table>
-    <tr><th>Task（任务）</th><th>Average # of Offers<br>（平均所需提示次数）</th><th>Standard Error<br>（标准误）</th><th>Difficulty Rating<br>（难度评级）</th></tr>
-    <tr><td>Trunk Here 鼻尖放这儿</td><td class="num-cell">295.40</td><td>62.38</td><td>⭐⭐⭐ Hardest</td></tr>
-    <tr><td>Blow 吹气</td><td class="num-cell">183.20</td><td>49.28</td><td>⭐⭐ Hard</td></tr>
-    <tr><td>Trunk Up 抬起鼻子</td><td class="num-cell">166.20</td><td>24.79</td><td>⭐⭐ Moderately hard</td></tr>
-    <tr><td>Syringe Desensitisation 注射器脱敏</td><td class="num-cell">108.25</td><td>11.87</td><td>⭐ Moderate</td></tr>
-    <tr><td>Bucket 放入桶中</td><td class="num-cell">61.40</td><td>15.51</td><td>Easier</td></tr>
-    <tr><td>Blow in Bucket 吹入桶中</td><td class="num-cell">54.25</td><td>25.26</td><td>✅ Easiest</td></tr>
+    <tr><th>Task</th><th>Avg Offers Needed</th><th>Standard Error</th><th>Difficulty</th></tr>
+    <tr><td>Trunk Here</td><td class="num-cell">295.40</td><td>62.38</td><td>Hardest</td></tr>
+    <tr><td>Blow</td><td class="num-cell">183.20</td><td>49.28</td><td>Hard</td></tr>
+    <tr><td>Trunk Up</td><td class="num-cell">166.20</td><td>24.79</td><td>Moderately hard</td></tr>
+    <tr><td>Syringe Desensitisation</td><td class="num-cell">108.25</td><td>11.87</td><td>Moderate</td></tr>
+    <tr><td>Bucket</td><td class="num-cell">61.40</td><td>15.51</td><td>Easier</td></tr>
+    <tr><td>Blow in Bucket</td><td class="num-cell">54.25</td><td>25.26</td><td>Easiest</td></tr>
   </table>
 
-  <p><strong>"Trunk Here" was the hardest task</strong> — it required the elephant to overcome instinctive distrust and actively place its most sensitive body part (the trunk tip) in a stranger's hand. This explains why it needed nearly 300 offers to pass.</p>
+  <p><strong>"Trunk Here"</strong> was hardest — required overcoming instinctive distrust to place sensitive trunk tip in stranger's hand (~295 offers needed).</p>
 
   <h3>Why Did Elephant 5 Fail?</h3>
-  <p>The original paper discussed multiple possible factors:</p>
   <ol>
-    <li><strong>Severe interference</strong>: a neighbouring stall's calf frequently intruded into the training area, disrupting attention</li>
-    <li><strong>Health issues</strong>: a foot abscess（足部脓肿）developed during late training, causing irritability and poor focus</li>
-    <li><strong>Age factor</strong>: approximately 50 years old, possible vision impairment and reduced trunk strength</li>
-    <li><strong>Lack of peer reference</strong>: the other four were all juveniles; the trainer could rapidly apply insights from one juvenile to others, but could not do this for the sole adult</li>
+    <li><strong>Severe interference</strong>: neighbouring stall's calf frequently intruded, disrupting attention</li>
+    <li><strong>Health issues</strong>: foot abscess developed during late training, causing irritability</li>
+    <li><strong>Age factor</strong>: ~50 years old, possible vision impairment and reduced trunk strength</li>
+    <li><strong>Lack of peer reference</strong>: trainer could apply insights from juveniles to other juveniles, but not to sole adult</li>
   </ol>
-</div>
+</section>
 
 <!-- SECTION 7: CONCLUSION -->
-<div class="section" id="s7">
+<section class="section" id="s7">
   <h2>7. Conclusion</h2>
-
-  <p>The researchers drew the following conclusions:</p>
 
   <ol>
     <li><strong>SPR is effective for juvenile elephants</strong>: four juvenile, free-contact, traditionally trained elephants learned the trunk wash within 35 sessions or fewer</li>
-    <li><strong>Training is efficient</strong>: mean session length only ~12 minutes; total training completable within about a week</li>
-    <li><strong>Behaviour is reliable</strong>: elephants' responses were <strong>voluntary（自愿的）</strong>, producing reliable results without punishment</li>
-    <li><strong>High generalisability potential</strong>: SPR can be applied to captive elephant management programmes worldwide, improving health monitoring, trainer-elephant relationships, and animal welfare</li>
+    <li><strong>Training is efficient</strong>: mean session length ~12 minutes; total training completable within about a week of real time</li>
+    <li><strong>Behaviour is reliable and voluntary</strong>: elephants participated willingly without punishment, producing consistent results</li>
+    <li><strong>High practical value</strong>: SPR can improve health monitoring, trainer-elephant relationships, and animal welfare worldwide</li>
   </ol>
 
-  <blockquote style="background:linear-gradient(135deg,#E8F5E9,#C8E6C9);border-left:5px solid var(--primary-dark);padding:18px 24px;margin:20px 0;border-radius:0 10px 10px 0;">
-    <strong>Core conclusion:</strong> This study proves that it is feasible to efficiently train juvenile, free-contact, traditionally trained elephants to voluntarily participate in a trunk wash using only SPR training techniques.
-  </blockquote>
-</div>
+  <div class="quote">
+    <strong>Core conclusion:</strong> It is feasible to efficiently train juvenile, free-contact, traditionally trained elephants to voluntarily and reliably participate in a trunk wash using only SPR techniques.
+  </div>
+</section>
 
 <!-- SECTION 8: STRENGTHS & WEAKNESSES -->
-<div class="section" id="s8">
+<section class="section" id="s8">
   <h2>8. Strengths & Weaknesses</h2>
 
-  <h3>✅ Strengths</h3>
+  <h3>Strengths</h3>
 
-  <h4>1. High Ecological Validity（高生态效度）</h4>
-  <p>The study took place at a real working elephant stable, not a laboratory setting. Elephants were in their natural daily environment, making findings more realistic and generalisable.</p>
+  <h4>1. High Ecological Validity</h4>
+  <p>Study took place at a real working elephant stable, not a laboratory. Elephants were in their natural daily environment, making findings realistic and generalisable to similar settings.</p>
 
-  <h4>2. Quantitative Data Collection（定量数据收集）</h4>
-  <p>As a structured observation, the study collected <strong>quantitative data</strong> — minutes per session, number of offers per behaviour, success rates per test. Quantitative data is easier to analyse and compare than unstructured observation data.</p>
+  <h4>2. Quantitative Data Collection</h4>
+  <p>As structured observation: collected quantitative data — minutes per session, number of offers per behaviour, success rates per test. Easier to analyse and compare than unstructured qualitative data.</p>
 
-  <h4>3. Good Control of Variables（控制变量充分）</h4>
+  <h4>3. Good Control of Extraneous Variables</h4>
   <ul>
-    <li><strong>Mahouts did not intervene</strong>: mahouts present but not signalling, excluding interference from traditional training signals</li>
-    <li><strong>Nonsense verbal cues</strong>: made-up words excluded the possibility of elephants understanding human language</li>
-    <li><strong>Voluntary participation</strong>: elephants could refuse, proving behaviour genuinely stemmed from positive reinforcement rather than coercion</li>
+    <li><strong>Mahouts did not intervene</strong> — present but silent, excluding traditional training signal interference</li>
+    <li><strong>Nonsense verbal cues</strong> — excluded possibility of elephants understanding human language</li>
+    <li><strong>Voluntary participation</strong> — elephants could refuse, proving behaviour stemmed from SPR not coercion</li>
   </ul>
 
-  <h4>4. High Practical Value（实践价值高）</h4>
-  <p>The research directly served animal welfare goals — improving TB detection methods while reducing harm to elephants. This was not an "ivory tower" study but one with clear practical application value.</p>
+  <h4>4. High Practical / Application Value</h4>
+  <p>Directly served animal welfare goals — improving TB detection while reducing harm to elephants. Not "ivory tower" research but clear real-world application.</p>
 
   <h4>5. Innovative Application of Behaviour Chaining</h4>
-  <p>This was the first systematic documentation of behaviour chaining effects in elephants, providing methodological reference for future research.</p>
+  <p>First systematic documentation of behaviour chaining effects in elephants, providing methodological reference for future research.</p>
 
-  <h3>❌ Weaknesses</h3>
+  <h3>Weaknesses</h3>
 
-  <h4>1. Very Small Sample（样本量极小）</h4>
-  <p>Only <strong>5 elephants</strong> (4 juvenile, 1 adult), all from the same stable. <strong>Difficult to generalise to the elephant population</strong>. Can they represent all captive elephants? Hard to say.</p>
+  <h4>1. Very Small Sample (n = 5)</h4>
+  <p>Only 5 elephants (4 juvenile, 1 adult), all female, from the same single stable in Nepal. <strong>Difficult to generalise</strong> to broader elephant populations.</p>
 
-  <h4>2. No Control Group（缺乏对照组）</h4>
-  <p>No control group using traditional punitive training methods for comparison. So while we know SPR works, we cannot quantify <strong>how much better</strong> it is than traditional methods.</p>
+  <h4>2. No Control Group</h4>
+  <p>No comparison group using traditional punitive training methods. Cannot quantify <strong>how much better</strong> SPR is than traditional approaches.</p>
 
-  <h4>3. Subjective Assessment Criteria（主观评分标准）</h4>
-  <p>The pass/fail criterion was determined subjectively by the trainer (first author) — whether behaviour was "good enough for use in actual trunk washing." No third-party assessment and no video review scoring may affect <strong>reliability（信度）</strong> and <strong>objectivity（客观性）</strong>.</p>
+  <h4>3. Subjective Assessment Criteria</h4>
+  <p>Pass/fail determined subjectively by the trainer (first author) — whether behaviour was "of sufficient quality." No third-party assessment or video review scoring may affect <strong>reliability</strong> and <strong>objectivity</strong>.</p>
 
-  <h4>4. Unreasonable Steady Task Test Criteria</h4>
-  <p>The Steady task pass criterion required meeting standards at three positions (up/down/here), but actual trunk wash only requires steady at up and here positions. This means Steady task test data cannot accurately reflect elephants' real ability — most elephants were already reliable at the two practically relevant positions.</p>
+  <div class="er-box">
+    <strong>ER Warning:</strong> Fagen used operant conditioning + rewards (NOT punishment). A common student error is saying "Fagen used punishment" — this is factually wrong and will receive zero credit.
+  </div>
 
-  <h4>5. Many Extraneous Variables（外部干扰因素多）</h4>
-  <p>Tourist spectators, other animal noise, neighbouring calf intrusion and other distractions may have affected elephants' focus and willingness to participate. Meanwhile, each elephant's training plan was flexibly adjusted for individual differences — this flexibility optimised learning outcomes but also meant <strong>low standardisation（标准化程度低）</strong>, affecting <strong>replicability（可复制性）</strong>.</p>
+  <h4>4. Unreasonable Steady Test Criteria</h4>
+  <p>Steady task required passing at three positions (up/down/here), but trunk wash only uses up and here positions. Most elephants were already reliable at the two practically relevant positions — test data doesn't reflect real ability.</p>
 
-  <h4>6. Gender Limitation（性别局限）</h4>
-  <p>All participants were female; results may not apply to male elephants.</p>
-</div>
+  <h4>5. Many Extraneous Variables</h4>
+  <p>Tourist spectators, other animal noise, neighbouring calf intrusion. Flexible individual training plans optimised learning but meant <strong>low standardisation</strong>, affecting <strong>replicability</strong>.</p>
+
+  <h4>6. Gender Limitation</h4>
+  <p>All participants were female; results may not generalise to male elephants.</p>
+
+  <div class="er-box">
+    <strong>ER Note on "Training time as weakness":</strong> Some students cite "short training time reduced validity" as a weakness. The ER indicates this concern is <strong>"minimal"</strong> — training duration was sufficient for 4/5 elephants to reach criterion. Not a strong weakness point.
+  </div>
+</section>
 
 <!-- SECTION 9: ETHICAL ISSUES -->
-<div class="section" id="s9">
+<section class="section" id="s9">
   <h2>9. Ethical Issues</h2>
 
-  <h3>✅ Ethical Strengths</h3>
+  <h3>Ethical Strengths</h3>
   <ol>
-    <li><strong>Used captive rather than wild animals</strong>: subjects were already-captive elephants, not wild-caught animals. A more ethically sound choice.</li>
-    <li><strong>Avoided punishment</strong>: <strong>no punitive methods were used at any point</strong>, focusing exclusively on harm-minimising positive reinforcement.</li>
-    <li><strong>Animal welfare prioritised</strong>: elephants reported in good health with no physical injuries. They spent most of the day freely grazing in the jungle, able to move and socialise with other elephants.</li>
-    <li><strong>Voluntary participation</strong>: elephants could choose not to participate (turn away or leave); no coercion.</li>
-    <li><strong>Beneficial purpose</strong>: the research aimed to develop useful methods for elephant herd health management — helping rapid diagnosis and treatment of TB, highly beneficial to the elephants themselves.</li>
+    <li><strong>Used captive rather than wild animals</strong> — subjects already in captivity, not wild-caught</li>
+    <li><strong>No punishment used at any point</strong> — exclusively harm-minimising positive reinforcement</li>
+    <li><strong>Animal welfare prioritised</strong> — elephants in good health, no injuries; most time spent freely grazing</li>
+    <li><strong>Voluntary participation</strong> — elephants could choose not to participate (turn away or leave)</li>
+    <li><strong>Beneficial purpose</strong> — aimed at improving elephant herd health management (TB diagnosis/treatment)</li>
   </ol>
 
-  <h3>⚠️ Ethical Considerations</h3>
+  <h3>Ethical Considerations</h3>
   <ol>
-    <li><strong>Leg chains（腿链限制）</strong>: elephants were leg-chained in stalls for much of the day, mobile only within a limited range. This is local standard practice but raises ethical questions about animal freedom.</li>
-    <li><strong>Discomfort during desensitisation</strong>: the syringe desensitisation process may have caused some discomfort (though gradual and paired with rewards).</li>
-    <li><strong>Small sample limitations</strong>: with only 5 elephants, statistical power was limited — meaning each elephant's data was highly "valuable," but also that individual anomalies could disproportionately affect overall results.</li>
+    <li><strong>Leg chains</strong>: elephants leg-chained for much of day, mobile only within limited range. Local standard practice but raises freedom concerns</li>
+    <li><strong>Desensitisation discomfort</strong>: syringe process may have caused some discomfort (though gradual + paired with rewards)</li>
+    <li><small sample statistical power</strong>: with n=5, each elephant's data highly influential</li>
   </ol>
 
-  <div class="warn-box">
-    <h4>🐘 BPS Animal Research Ethics Guidelines Checklist</h4>
-    <table>
-      <tr><th>Principle（准则）</th><th>Met in this study?<br>（是否符合？）</th></tr>
-      <tr><td>Replacement（替代）</td><td>✅ Must use real elephants — models/computers cannot substitute</td></tr>
-      <tr><td>Species（物种选择）</td><td>✅ Used existing captive elephants, none wild-caught</td></tr>
-      <tr><td>Number（数量）</td><td>✅ Used minimum necessary number (5)</td></tr>
-      <tr><td>Procedures（程序）</td><td>✅ Used least harmful methods (SPR, no punishment)</td></tr>
-      <tr><td>Pain and distress（疼痛和痛苦）</td><td>✅ Minimised</td></tr>
-      <tr><td>Housing（居住条件）</td><td>⚠️ Meets local standards but leg chains restrict freedom</td></tr>
-      <tr><td>Reward（奖励）</td><td>✅ Positive reinforcement fully utilised</td></tr>
-    </table>
-  </div>
-</div>
+  <h3>BPS Guidelines Checklist</h3>
+  <table>
+    <tr><th>Principle</th><th>Met?</th></tr>
+    <tr><td>Replacement（替代）</td><td>Must use real elephants — cannot substitute models</td></tr>
+    <tr><td>Species（物种选择）</td><td>Used existing captive elephants, none wild-caught</td></tr>
+    <tr><td>Number（数量）</td><td>Used minimum necessary (5)</td></tr>
+    <tr><td>Procedures（程序）</td><td>Used least harmful methods (SPR, no punishment)</td></tr>
+  </table>
+</section>
 
 <!-- SECTION 10: ISSUES & DEBATES -->
-<div class="section" id="s10">
+<section class="section" id="s10">
   <h2>10. Issues & Debates</h2>
 
-  <h3>10.1 Can Animals Serve as Subjects in Psychological Research?</h3>
-  <p>Fagen's core premise: <strong>elephants can learn complex behavioural sequences through operant conditioning</strong>. This supports a broader argument — <strong>humans and animals share fundamental learning mechanisms（学习机制）</strong>.</p>
+  <h3>10.1 Animals as Subjects in Psychological Research</h3>
+  <p>Fagen's core premise: <strong>elephants can learn complex behavioural sequences through operant conditioning</strong>. Skinner's theory originally established through pigeon/rat experiments — Fagen demonstrated cross-species generalisability to highly intelligent elephants.</p>
 
-  <p>Skinner's operant conditioning theory was originally established through pigeon and rat experiments. Fagen successfully applied the same principles to elephants — a species with far greater intelligence than rodents — demonstrating the theory's <strong>cross-species generalisability（跨物种普适性）</strong>.</p>
-
-  <p>However, this also sparks debate:</p>
-  <ul>
-    <li><strong>Supporters</strong>: animal research allows us to study basic learning processes under controlled conditions, free from human language, culture, and social factors. Elephant research directly improves animal welfare.</li>
-    <li><strong>Critics</strong>: elephants are highly social and cognitively complex animals. Is treating them merely as "learning machines" ignoring their inner experience? Does leg-chained captivity itself violate animal rights?</li>
-  </ul>
-
-  <h3>10.2 Nature vs Nurture: How Much of Elephant Behaviour Is "Innate"?</h3>
-
+  <h3>10.2 Nature vs Nurture</h3>
   <div class="two-col">
     <div class="col-card nature">
-      <h4>🧬 Nature Arguments（先天论点）</h4>
+      <h4>Nature Arguments</h4>
       <ol>
-        <li>Elephants naturally possess excellent <strong>memory and learning ability</strong> — wild elephants need no training to remember water sources and social relationships</li>
-        <li>The trunk itself is a highly flexible organ with over 40,000 muscles — <strong>physiological structure（生理结构）</strong> determines their capacity for fine motor operations</li>
-        <li>Elephant 5 (adult) may have been unable to learn due to age-related <strong>cognitive decline（认知衰退）</strong> — suggesting biological limits on learning ability</li>
-        <li>Individual differences in learning speed (25 vs 35 sessions) may reflect differences in <strong>innate personality/temperament（先天性格/气质）</strong></li>
+        <li>Elephants naturally possess excellent memory and learning ability</li>
+        <li>Trunk has 40,000+ muscles — physiological structure determines fine motor capacity</li>
+        <li>Elephant 5 (adult) may have failed due to age-related cognitive decline</li>
+        <li>Individual learning speed differences may reflect innate temperament</li>
       </ol>
     </div>
     <div class="col-card nurture">
-      <h4>🌱 Nurture Arguments（后天论点）</h4>
+      <h4>Nurture Arguments</h4>
       <ol>
-        <li><strong>All five elephants learned every behavioural component entirely through SPR</strong> — proving nurture alone can shape complex behaviour</li>
-        <li>Four juveniles' success vs one adult's failure strongly suggests <strong>age/past experience（nurture factors）</strong> matter more than innate factors</li>
-        <li>Traditional training (punishment-based) vs SPR (reward-based) produced radically different outcomes — demonstrating that <strong>training method (environmental factor) determines behavioural output</strong></li>
-        <li>Elephant 5's failure was primarily due to environmental disruption (calf intrusion) and health issues (foot abscess), not innate inability</li>
+        <li>All five elephants learned every behaviour entirely through SPR — nurture alone shaped complex behaviour</li>
+        <li>4 juveniles succeeded vs 1 adult failed — age/experience (nurture) mattered more than innate factors</li>
+        <li>Traditional punishment vs SPR produced radically different outcomes — environment determines behaviour</li>
+        <li>Elephant 5's failure due to environmental disruption (calf intrusion) and health issues, not innate inability</li>
       </ol>
     </div>
   </div>
 
-  <div class="cn-note" style="margin-top:15px;padding:14px;background:var(--highlight);border-radius:8px;border-left:4px solid var(--primary-dark);">
-    <strong>🎯 Fagen's position:</strong> This study clearly supports a <strong>Nurture（后天）</strong> argument. Even elephants with zero SPR experience and years of traditional punitive training can learn complex behaviours through purely positive reinforcement methods. The key lies in <strong>training method</strong> and <strong>individual environment</strong>, not innate determinism.
+  <div class="cn-summary-wrap">
+    <h3>Fagen's Position: Supports Nurture</h3>
+    <ul>
+      <li>Even elephants with zero SPR experience and years of punitive training can learn through purely positive reinforcement</li>
+      <li>Key factor is <strong>training method and individual environment</strong>, not innate determinism</li>
+      <li>However: innate trunk flexibility and cognitive ability were <strong>prerequisites</strong> — without biological foundation, even best training fails</li>
+    </ul>
   </div>
 
-  <h3>10.3 Balancing Animal Welfare and Scientific Research</h3>
-  <p>Fagen's study sits at an interesting intersection:</p>
+  <h3>10.3 Animal Welfare vs Scientific Research</h3>
   <table>
-    <tr><th>Perspective（角度）</th><th>Viewpoint（观点）</th></tr>
-    <tr><td><strong>Animal welfare advocates</strong></td><td>This research itself serves animal welfare — SPR replaces punitive methods, directly improving elephants' quality of life. It proves that being "gentle" with elephants is not just morally right but actually <strong>more effective</strong>.</td></tr>
-    <tr><td><strong>Method critics</strong></td><td>Subjects remain leg-chained working elephants. "Free contact" essentially means no safety barrier between trainer and elephant — if an elephant suddenly becomes aggressive, both parties could be injured. True highest-welfare standard should be "<strong>protected contact（有屏障保护接触）</strong>" systems.</td></tr>
-    <tr><td><strong>Scientific value defenders</strong></td><td>Without such research, we would never know whether SPR works for elephants. Knowing this helps thousands of working elephants worldwide receive better treatment. Short-term research participation trades off against long-term welfare gains.</td></tr>
+    <tr><th>Perspective</th><th>Viewpoint</th></tr>
+    <tr><td><strong>Welfare advocates</strong></td><td>SPR replaces punitive methods, proving "gentle" is more effective than coercive</td></tr>
+    <tr><td><strong>Method critics</strong></td><td>Leg-chained working elephants; "free contact" lacks safety barrier; true standard should be protected contact</td></tr>
+    <tr><td><strong>Science defenders</strong></td><td>Without this research, thousands of working elephants worldwide would continue suffering under punitive methods</td></tr>
   </table>
-
-  <h3>10.4 Special Significance: Providing Evidence for the "Impossible"</h3>
-  <p>Before Fagen's study, many mahouts likely believed "elephants could never voluntarily cooperate with a trunk wash." This study provided <strong>hard data（硬数据）</strong> proving this "impossible" was actually possible — given the right method.</p>
-
-  <p>This parallels Bandura's Bobo Doll experiment: both demonstrate the power of <strong>observational/reinforcement learning</strong> exceeding intuitive expectations. Bandura showed children can learn aggression through observation; Fagen showed elephants can learn complex veterinary cooperation through positive reinforcement. Together they support the Learning Approach's core proposition: <strong>behaviour is largely learned, not fixed</strong>.</p>
-</div>
+</section>
 
 <!-- SECTION 11: SUMMARY -->
-<div class="section" id="s11">
+<section class="section" id="s11">
   <h2>11. Summary</h2>
 
-  <p>Fagen et al. used a group of five female elephants (4 juvenile, 1 adult) to demonstrate that <strong>a trunk wash can be learned through positive reinforcement training</strong>. Through extensive training and testing, researchers confirmed that most animals could execute a series of actions designed for health examination. This was a <strong>controlled observation（受控观察）</strong> study; the small sample size limits its generalisability and may make replication difficult. However, using objective quantitative measurements (percentage of correct responses) does show that <strong>juvenile elephants can learn the trunk wash using SPR training</strong>.</p>
+  <p>Fagen et al. used five female elephants (4 juvenile, 1 adult) to demonstrate that <strong>a trunk wash can be learned through positive reinforcement training</strong>. Four out of five elephants successfully learned the procedure within 25–35 training sessions. This was a <strong>controlled observation</strong> study; the small sample limits generalisability. However, objective quantitative measurements show <strong>juvenile elephants can reliably learn complex veterinary cooperation behaviours using SPR</strong>.</p>
 
-  <div class="info-box">
-    <h4>📋 Quick Recap</h4>
+  <div class="summary-card">
+    <h4>Quick Recap</h4>
     <table>
-      <tr><th>Item（项目）</th><th>Content（内容）</th></tr>
-      <tr><td>Researchers</td><td>Ariel Fagen, Narayan Acharya &amp; Gretchen E. Kaufman (2014)</td></tr>
-      <tr><td>Method（方法）</td><td>Controlled Observation / Structured Observation</td></tr>
-      <tr><td>Sample（样本）</td><td>5 female elephants (4 juvenile + 1 adult), Nepal</td></tr>
-      <tr><td>Core method（核心方法）</td><td>SPR (Secondary Positive Reinforcement): whistle marker + banana reward + Capture/Lure/Shaping</td></tr>
-      <tr><td>Main result（主要结果）</td><td>4/5 juveniles succeeded (25–35 sessions); adult failed</td></tr>
-      <tr><td>Accuracy improvement（正确率提升）</td><td>36.00% (Session 10) → 89.33% (Session 35)</td></tr>
-      <tr><td>Hardest task（最难任务）</td><td>Trunk Here (295.40 offers)</td></tr>
-      <tr><td>Approach（取向定位）</td><td>CIE Learning Approach — Operant Conditioning</td></tr>
+      <tr><td><strong>Researchers</strong></td><td>Ariel Fagen, Narayan Acharya & Gretchen E. Kaufman (2014)</td></tr>
+      <tr><td><strong>Method</strong></td><td>Controlled Observation / Structured Observation</td></tr>
+      <tr><td><strong>Sample</strong></td><td>5 female elephants (4 juvenile + 1 adult), Nepal</td></tr>
+      <tr><td><strong>Core method</strong></td><td>SPR: whistle marker + banana + Capture/Lure/Shaping</td></tr>
+      <tr><td><strong>Main result</strong></td><td>4/5 succeeded (25–35 sessions); adult failed</td></tr>
+      <tr><td><strong>Improvement</strong></td><td>39.0% (S10) → 89.3% (S35)</td></tr>
+      <tr><td><strong>Hardest task</strong></td><td>Trunk Here (295.40 offers)</td></tr>
+      <tr><td><strong>Approach</strong></td><td>Learning Approach — Operant Conditioning</td></tr>
     </table>
   </div>
-</div>
+</section>
 
-<!-- SECTION 12: QUESTIONS -->
-<div class="section" id="s12">
+<!-- SECTION 12: EXAM PRACTICE -->
+<section class="section" id="s12">
   <h2>12. Exam Practice Questions</h2>
 
-  <div class="question-item">
-    <p><strong>Q4. What was the purpose of teaching elephants the trunk washing task?</strong></p>
-    <p style="color:var(--text-secondary);margin-top:8px;"><strong>Key points:</strong> To detect tuberculosis (TB). TB is a serious respiratory disease in captive elephants (11%–25% infection rate); sputum samples collected via trunk wash enable bacterial culture diagnosis. Additionally, the study aimed to prove SPR methods could replace traditional punitive training for elephant veterinary cooperation.</p>
+  <div class="qa-card" onclick="this.classList.toggle('expanded')">
+    <div class="qa-q">Q4. What was the purpose of teaching elephants the trunk washing task?</div>
+    <div class="qa-toggle">Click to expand/collapse ▼</div>
+    <div class="qa-a"><p><strong>Key points:</strong> To detect tuberculosis (TB). TB has 11%–25% infection rate among captive elephants; sputum samples via trunk wash enable bacterial culture diagnosis. Additionally aimed to prove SPR could replace traditional punitive training for veterinary cooperation.</p>
+    <p><strong>Exam Tip:</strong> Don't just say "to wash their trunk" — that's a result, not a conclusion. The purpose is TB detection + demonstrating SPR feasibility.</p></div>
   </div>
 
-  <div class="question-item">
-    <p><strong>Q5. The elephants' mahouts were present in each session. However, they didn't look at the elephants or speak to them. Can you explain why the mahouts were asked to behave this way?</strong></p>
-    <p style="color:var(--text-secondary);margin-top:8px;"><strong>Key points:</strong> To control <strong>extraneous variables（额外变量）</strong>. Mahouts normally use traditional methods (including verbal commands and physical signals) to train elephants. If they continued giving these signals while present, it would be impossible to determine whether elephants were responding to SPR training or to the mahouts' habitual signals. Their neutrality ensured the study's <strong>internal validity（内部效度）</strong> — confirming it was genuinely the whistle + banana SPR at work.</p>
+  <div class="qa-card" onclick="this.classList.toggle('expanded')">
+    <div class="qa-q">Q5. The elephants' mahouts were present but did not speak to or signal the elephants. Explain why.</div>
+    <div class="qa-toggle">Click to expand/collapse ▼</div>
+    <div class="qa-a"><p><strong>Key points:</strong> To control <strong>extraneous variables</strong>. Mahouts normally use traditional signals (verbal/physical). If they continued signalling, impossible to determine whether elephants responded to SPR or to habitual mahout signals. Their neutrality ensured <strong>internal validity</strong> — confirming it was genuinely whistle + banana SPR at work.</p></div>
   </div>
 
-  <div class="question-item">
-    <p><strong>Q6. What influence do you think individual differences between the elephants had on the results of this study?</strong></p>
-    <p style="color:var(--text-secondary);margin-top:8px;"><strong>Key points:</strong> (1) <strong>Age difference</strong>: all 4 juveniles succeeded, only adult failed — age/learning speed may be a key factor; (2) <strong>Learning speed variation</strong>: Elephant 2 passed in 25 sessions vs others needing 35 — individual temperament/cognitive ability differs; (3) <strong>Environmental impact</strong>: Elephant 5 affected by neighbouring calf intrusion and own health issues (foot abscess); (4) These differences are both limitations (reduce generalisability) and interesting findings (SPR may suit younger animals better).</p>
+  <div class="qa-card" onclick="this.classList.toggle('expanded')">
+    <div class="qa-q">Q6. What influence did individual differences between the elephants have on the results?</div>
+    <div class="qa-toggle">Click to expand/collapse ▼</div>
+    <div class="qa-a"><p><strong>Key points:</strong> (1) <strong>Age</strong>: all 4 juveniles succeeded, only adult failed — age/learning speed key factor; (2) <strong>Learning speed variation</strong>: Elephant 2 passed in 25 sessions vs others needing 35; (3) <strong>Environmental impact</strong>: Elephant 5 affected by calf intrusion + foot abscess; (4) These differences both limit generalisability AND suggest SPR suits younger animals better.</p></div>
   </div>
 
-  <div class="question-item">
-    <p><strong>Q7. Explain what is meant by 'shaping' in the context of this study. Give an example from the elephant training.</strong></p>
-    <p style="color:var(--text-secondary);margin-top:8px;"><strong>Key points:</strong> Shaping is a training method that <strong>gradually raises standards</strong> — only rewarding responses closest to the target each time, "sculpting" the complete behaviour step by step. For example, when training "Trunk Up": first reward any slight trunk lift → then only reward lifting to waist height → then only reward lifting to head height → finally only reward fully vertical posture. Each step demands slightly more, and the elephant gradually approaches the target through trial and error.</p>
+  <div class="qa-card" onclick="this.classList.toggle('expanded')">
+    <div class="qa-q">Q7. Explain what is meant by 'shaping' in this study. Give an example.</div>
+    <div class="qa-toggle">Click to expand/collapse ▼</div>
+    <div class="qa-a"><p><strong>Key points:</strong> Shaping = gradually raising standards, only rewarding responses closest to target each time. <strong>Example</strong>: Training "Trunk Up" — reward any slight lift → then only waist height → then head height → finally fully vertical. Each step demands slightly more; elephant approaches target through trial and error.</p>
+    <p><strong>ER Tip:</strong> Must give a concrete example FROM THE STUDY, not a generic definition. "Rewarding progressively closer approximations" alone won't get full marks.</p></div>
   </div>
 
-  <div class="question-item">
-    <p><strong>Q8. Describe one strength and one weakness of this study.</strong></p>
-    <p style="color:var(--text-secondary);margin-top:8px;"><strong>Key points:</strong><br>
-    <strong>Strength example</strong>: Use of quantitative data (percentages, session counts, durations) makes results objective and analysable; OR: High ecological validity (real environment, real elephants); OR: Good control of variables (mahouts neutral, nonsense verbal cues).<br>
-    <strong>Weakness example</strong>: Very small sample (n=5) from single location, poor generalisability; OR: No control group for comparison with traditional methods; OR: Pass criteria subjectively judged by trainer, lacking third-party assessment affecting reliability.</p>
+  <div class="qa-card" onclick="this.classList.toggle('expanded')">
+    <div class="qa-q">Q8. Describe one strength and one weakness of this study.</div>
+    <div class="qa-toggle">Click to expand/collapse ▼</div>
+    <div class="qa-a"><p><strong>Strength examples:</strong> Quantitative data (objective, analysable) OR high ecological validity (real setting) OR good control of variables (mahouts neutral, nonsense cues).</p>
+    <p><strong>Weakness examples:</strong> Very small sample (n=5, poor generalisability) OR no control group OR subjective pass/fail criteria (trainer-judged, affects reliability).</p>
+    <p><strong>Avoid:</strong> Saying "used punishment" (factually wrong — Fagen used ONLY positive reinforcement). ER explicitly marks this as zero-credit error.</p></div>
   </div>
 
-  <div class="question-item">
-    <p><strong>Q9. Discuss whether this research supports a nature or nurture view of animal behaviour.</strong></p>
-    <p style="color:var(--text-secondary);margin-top:8px;"><strong>Key points:</strong> The study clearly supports a <strong>nurture（后天）</strong> view. Evidence: (1) All behaviours were learned through SPR training — no elephant innately knew how to do a trunk wash; (2) Different methods (traditional punishment vs SPR reward) produced different outcomes — showing environment/training method determines behaviour; (3) Age/environmental factors (juveniles succeeded, adult failed due to disruptions) predicted learning outcomes better than innate factors. However, nature also played a role — elephants' innate trunk flexibility and cognitive ability were <strong>prerequisites（前提条件）</strong> for learning (without this innate foundation, even the best training methods would fail).</p>
+  <div class="qa-card" onclick="this.classList.toggle('expanded')">
+    <div class="qa-q">Q9. Discuss whether this research supports a nature or nurture view of animal behaviour.</div>
+    <div class="qa-toggle">Click to expand/collapse ▼</div>
+    <div class="qa-a"><p><strong>Position:</strong> Supports <strong>nurture</strong>.</p>
+    <p><strong>Evidence:</strong> (1) All behaviours learned through SPR — no elephant innately knew trunk wash; (2) Different methods (punishment vs SPR reward) produced different outcomes — environment determines behaviour; (3) Age/environmental factors predicted success better than innate factors.</p>
+    <p><strong>Nuance:</strong> Nature provided prerequisites (trunk flexibility, cognitive capacity) — but nurture determined whether learning occurred. Best answers acknowledge both while taking a clear position.</p></div>
+  </div>
+</section>
+
+    </main><!-- end main-content -->
+
+    <!-- ===== RIGHT: NOTES PANEL ===== -->
+    <div class="notes-col" id="notesPanel">
+      <div class="nc-header">
+        <span class="nc-title">Notes Panel</span>
+        <span class="nc-count" id="noteCount">0</span>
+      </div>
+      <div class="nc-body" id="notesBody">
+        <div class="nc-empty" id="notesEmpty">Select text to highlight<br>& add a note ✏️</div>
+      </div>
+      <div class="nc-input-row" id="noteInputRow">
+        <textarea class="nc-textarea" id="noteTextInput" placeholder="Write your note..."></textarea>
+        <div class="nc-actions">
+          <button class="nc-btn-save" onclick="saveNote()">Save</button>
+          <button class="nc-btn-cancel" onclick="cancelNoteInput()">Cancel</button>
+        </div>
+      </div>
+      <button class="nc-add-btn" onclick="document.getElementById('noteInputRow').classList.add('show');document.getElementById('noteTextInput').focus()">+ Add Note</button>
+      <div class="nc-footer">
+        <button onclick="exportNotes()" title="Export as Markdown">Export</button>
+        <button onclick="clearAllNotes()" title="Clear all notes">Clear</button>
+      </div>
+    </div>
+
+  </div><!-- end page-layout -->
+</div><!-- end container -->
+
+<!-- STUDY NAVIGATOR -->
+<div class="study-nav">
+  <div class="study-nav-inner">
+    <a class="study-nav-btn" href="../hassett/">← Hassett (2008)</a>
+    <div class="study-nav-dots">
+      <div class="study-nav-label">Learning Approach</div>
+      <div class="study-dot-row">
+        <span class="study-dot" style="background:#dc2626" data-title="Hassett (2008)" onclick="location.href='../hassett/'"></span>
+        <span class="study-dot active" style="background:#ea580c" data-title="Fagen (2014)"></span>
+        <span class="study-dot" style="background:#ea580c" data-title="Bandura (1961)" onclick="location.href='../bandura/'"></span>
+        <span class="study-dot" style="background:#ea580c" data-title="Andrade (2010)" onclick="location.href='../andrade/'"></span>
+      </div>
+    </div>
+    <a class="study-nav-btn" href="../andrade/">Andrade (2010) →</a>
   </div>
 </div>
 
 <!-- FOOTER -->
-<div class="footer">
-  <p>🐘 Fagen et al. (2014) — CIE Learning Approach Core Study 2</p>
-  <p>Generated for educational purposes | Source: Journal of Applied Animal Welfare Science, 17(2), 83-97</p>
-</div>
+<footer class="footer">
+  <p>Fagen et al. (2014) — CIE Learning Approach Core Study</p>
+  <p>Source: Journal of Applied Animal Welfare Science, 17(2), 83–97</p>
+</footer>
 
-</div>
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
-<style>
-/* Study Navigator */
-.study-nav{border-top:2px solid #e0e0e0;background:#FAFAFA;padding:14px 16px;margin-top:2rem}
-.study-nav-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:880px;margin:0 auto}
-.study-nav-btn{flex:1;padding:9px 14px;border:1px solid #ddd;border-radius:8px;background:white;color:#444;font-size:.82rem;cursor:pointer;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:4px;transition:all .15s;font-family:inherit}
-.study-nav-btn:hover{border-color:#1565C0;color:#1565C0;background:#f8fbff}
-.study-nav-dots{text-align:center;padding:0 8px}
-.study-nav-label{font-size:.65rem;text-transform:uppercase;letter-spacing:1px;color:#888;margin-bottom:5px;font-weight:700}
-.study-dot-row{display:flex;gap:5px;justify-content:center;flex-wrap:wrap}
-.study-dot{width:10px;height:10px;border-radius:50%;cursor:pointer;border:2px solid transparent;transition:all .15s;position:relative;display:inline-block}
-.study-dot:hover{transform:scale(1.3)}
-.study-dot.active{border-color:#333;transform:scale(1.25)}
-@media(max-width:600px){
-    .study-nav-inner{flex-wrap:wrap;gap:8px}
-    .study-nav-btn{font-size:.75rem;padding:7px 10px}
-    .study-dot{width:8px;height:8px}
-}
-</style>
-<div class="study-nav">
-  <div class="study-nav-inner">
-    <a class="study-nav-btn" href="../bandura/">← Bandura (1961)</a>
-    <div class="study-nav-dots">
-      <div class="study-nav-label">Learning</div>
-      <div class="study-dot-row">
-        <span class="study-dot" style="background:#C62828" data-title="Hassett (2008)" onclick="location.href='../hassett/'"></span><span class="study-dot" style="background:#C62828" data-title="Dement (1957)" onclick="location.href='../dement/'"></span><span class="study-dot" style="background:#1565C0" data-title="Baron-Cohen (2001)" onclick="location.href='../baron-cohen/'"></span><span class="study-dot" style="background:#1565C0" data-title="Hölzel (2011)" onclick="location.href='../hoelzel/'"></span><span class="study-dot" style="background:#1565C0" data-title="Andrade (2010)" onclick="location.href='../andrade/'"></span><span class="study-dot" style="background:#2E7D32" data-title="Piliavin (1969)" onclick="location.href='../piliavin/'"></span><span class="study-dot" style="background:#2E7D32" data-title="Milgram (1963)" onclick="location.href='../milgram/'"></span><span class="study-dot" style="background:#E87722" data-title="Bandura (1961)" onclick="location.href='../bandura/'"></span><span class="study-dot active" style="background:#E87722" data-title="Fagen (2014)"></span><span class="study-dot" style="background:#E87722" data-title="Saavedra (2002)" onclick="location.href='../saavedra/'"></span><span class="study-dot" style="background:#7B1FA2" data-title="Perry (2015)" onclick="location.href='../perry/'"></span><span class="study-dot" style="background:#7B1FA2" data-title="Pozzulo (2011)" onclick="location.href='../pozzulo/'"></span>
-      </div>
-    </div>
-    <a class="study-nav-btn" href="../saavedra/">Saavedra (2002) →</a>
-  </div>
-</div>
+<script>
+(function(){
+  const STUDY_NAME = "fagen";
+  const STORAGE_KEY_NOTES = STUDY_NAME + "_notes_v3";
+  const STORAGE_KEY_DARK = STUDY_NAME + "-darkMode";
+  const STORAGE_KEY_FONT = STUDY_NAME + "-fontSize";
+
+  // ===== STATE =====
+  let notes = JSON.parse(localStorage.getItem(STORAGE_KEY_NOTES) || "[]");
+  let hlIdCounter = 0;
+
+  // ===== DARK MODE =====
+  function toggleDarkMode() {
+    document.body.classList.toggle("dark");
+    localStorage.setItem(STORAGE_KEY_DARK, document.body.classList.contains("dark") ? "1" : "0");
+  }
+  if(localStorage.getItem(STORAGE_KEY_DARK) === "1") document.body.classList.toggle("dark");
+  window.toggleDarkMode = toggleDarkMode;
+
+  // ===== FONT SIZE =====
+  function adjustFontSize(delta) {
+    const sz = parseFloat(getComputedStyle(document.documentElement).fontSize) + delta;
+    if(sz >= 12 && sz <= 24) document.documentElement.style.fontSize = sz + "px";
+    localStorage.setItem(STORAGE_KEY_FONT, getComputedStyle(document.documentElement).fontSize);
+  }
+  (function(){ const fs = localStorage.getItem(STORAGE_KEY_FONT); if(fs) document.documentElement.style.fontSize = fs; })();
+  window.adjustFontSize = adjustFontSize;
+
+  // ===== PROGRESS BAR =====
+  window.addEventListener("scroll", function() {
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollTop = window.scrollY;
+    const pct = Math.min(100, Math.max(0, (scrollTop / docHeight) * 100));
+    document.getElementById("progressBar").style.width = pct + "%";
+    document.getElementById("backToTop").classList.toggle("show", scrollTop > 400);
+  });
+
+  // ===== SCROLL SPY (Sidebar Active) =====
+  const sections = document.querySelectorAll(".section[id]");
+  const sbLinks = document.querySelectorAll(".sb-item a");
+  window.addEventListener("scroll", function() {
+    let current = "";
+    sections.forEach(function(s){ const top = s.offsetTop - 100; if(window.scrollY >= top) current = s.getAttribute("id"); });
+    sbLinks.forEach(function(a){ a.classList.remove("sb-active"); if(a.getAttribute("href") === "#"+current) a.classList.add("sb-active"); });
+  });
+
+  // ===== TEXT SELECTION & HIGHLIGHTING =====
+  function getSelectedText() { return window.getSelection().toString().trim(); }
+  document.addEventListener("mouseup", function(e){
+    const sel = getSelectedText();
+    if(sel.length > 0 && e.target.closest(".main-content") && !e.target.closest(".notes-col") && !e.target.closest(".qa-card")) {
+      setTimeout(function(){ if(getSelectedText().length > 0) showNoteInput(sel); }, 10);
+    }
+  });
+
+  function showNoteInput(text) {
+    window._hlText = text;
+    const row = document.getElementById("noteInputRow");
+    row.classList.add("show");
+    document.getElementById("noteTextInput").value = "";
+    document.getElementById("noteTextInput").focus();
+  }
+
+  function cancelNoteInput() {
+    document.getElementById("noteInputRow").classList.remove("show");
+    removeHighlightMark();
+    window._hlText = "";
+  }
+  window.cancelNoteInput = cancelNoteInput;
+
+  // ===== HIGHLIGHT MARK =====
+  function applyHighlightMark(range, id) {
+    const span = document.createElement("span");
+    span.className = "hl-text";
+    span.setAttribute("data-hl-id", id);
+    span.setAttribute("onclick", "jumpToNote('" + id + "')");
+    range.surroundContents(span);
+  }
+
+  function removeHighlightMark() {
+    document.querySelectorAll(".hl-temp-mark").forEach(function(el){ el.outerHTML = el.textContent; });
+  }
+
+  // ===== SAVE NOTE =====
+  function saveNote() {
+    const text = document.getElementById("noteTextInput").value.trim();
+    const hlText = window._hlText || "";
+    if(!text && !hlText) return;
+
+    const id = "hl_" + (++hlIdCounter) + "_" + Date.now();
+    const noteObj = { id: id, text: text, hlText: hlText, ts: new Date().toISOString() };
+
+    // Apply highlight if text selected
+    if(hlText) {
+      const sel = window.getSelection();
+      if(sel.rangeCount > 0) {
+        const range = sel.getRangeAt(0);
+        try {
+          applyHighlightMark(range, id);
+        } catch(e) { console.log("Highlight error:", e); }
+      }
+      sel.removeAllRanges();
+    }
+
+    notes.push(noteObj);
+    persistNotes();
+    renderNotes();
+    cancelNoteInput();
+  }
+  window.saveNote = saveNote;
+
+  // ===== RENDER NOTES =====
+  function renderNotes() {
+    const body = document.getElementById("notesBody");
+    const emptyEl = document.getElementById("notesEmpty");
+    const countEl = document.getElementById("noteCount");
+
+    countEl.textContent = notes.length;
+    if(notes.length === 0) { body.innerHTML = ""; body.appendChild(emptyEl); emptyEl.style.display = ""; return; }
+    if(emptyEl) emptyEl.style.display = "none";
+
+    let html = "";
+    notes.forEach(function(n){
+      html += '<div class="note-card" data-note-id="'+n.id+'">';
+      if(n.hlText) html += '<div class="note-card-hl" onclick="jumpToNote(\''+n.id+'\')">'+escapeHtml(n.hlText.substring(0,60))+(n.hlText.length>60?'…':'')+'</div>';
+      html += '<div class="note-card-text">'+escapeHtml(n.text)+'</div>';
+      html += '<button class="note-card-edit" onclick="editNote(\''+n.id+'\')" title="Edit">✎</button>';
+      html += '<button class="note-card-del" onclick="deleteNote(\''+n.id+'\')" title="Delete">×</button>';
+      html += '</div>';
+    });
+    body.innerHTML = html;
+  }
+
+  function escapeHtml(s){ return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+
+  // ===== DELETE NOTE =====
+  function deleteNote(id) {
+    notes = notes.filter(function(n){ return n.id !== id; });
+    // Remove highlight
+    document.querySelectorAll('[data-hl-id="'+id+'"]').forEach(function(el){
+      el.outerHTML = el.textContent;
+    });
+    persistNotes();
+    renderNotes();
+  }
+  window.deleteNote = deleteNote;
+
+  // ===== EDIT NOTE =====
+  function editNote(id) {
+    const note = notes.find(function(n){ return n.id === id; });
+    if(!note) return;
+    const card = document.querySelector('[data-note-id="'+id+'"]');
+    if(!card) return;
+    card.classList.add("editing");
+    const currentText = note.text;
+    card.innerHTML = '<textarea class="note-edit-textarea">'+escapeHtml(currentText)+'</textarea>'+
+      '<div class="note-edit-actions">'+
+        '<button class="note-edit-save" onclick="saveEditedNote(\''+id+'\')">Save</button>'+
+        '<button class="note-edit-cancel" onclick="cancelEditNote(\''+id+'\')">Cancel</button>'+
+      '</div>';
+    const ta = card.querySelector(".note-edit-textarea");
+    ta.focus(); ta.select();
+  }
+  window.editNote = editNote;
+
+  function saveEditedNote(id) {
+    const card = document.querySelector('[data-note-id="'+id+'"]');
+    const ta = card.querySelector(".note-edit-textarea");
+    if(!ta) return;
+    const newText = ta.value.trim();
+    const noteIdx = notes.findIndex(function(n){ return n.id === id; });
+    if(noteIdx >= 0) notes[noteIdx].text = newText;
+    persistNotes();
+    renderNotes();
+  }
+  window.saveEditedNote = saveEditedNote;
+
+  function cancelEditNote(id) { renderNotes(); }
+  window.cancelEditNote = cancelEditNote;
+
+  // ===== JUMP TO HIGHLIGHT =====
+  function jumpToNote(id) {
+    const hl = document.querySelector('[data-hl-id="'+id+'"]');
+    if(hl) { hl.scrollIntoView({behavior:"smooth",block:"center"}); hl.style.background="linear-gradient(120deg,#facc15,#ef4444)"; setTimeout(function(){ hl.style.background=""; }, 2000); }
+  }
+  window.jumpToNote = jumpToNote;
+
+  // ===== EXPORT =====
+  function exportNotes() {
+    if(notes.length === 0) { alert("No notes to export."); return; }
+    let md = "# Fagen (2014) — Notes Export\n\nExported: "+new Date().toISOString()+"\n\n---\n\n";
+    notes.forEach(function(n,i){ md += "## Note "+(i+1)+(n.hlText?" | Highlight: "+n.hlText.substring(0,40):"")+"\n\n"+n.text+"\n\n---\n\n"; });
+    const blob = new Blob([md],{type:"text/markdown"});
+    const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "fagen_notes.md"; a.click(); URL.revokeObjectURL(a.href);
+  }
+  window.exportNotes = exportNotes;
+
+  // ===== CLEAR ALL =====
+  function clearAllNotes() { if(notes.length===0||confirm("Clear all notes?")){ notes=[]; document.querySelectorAll(".hl-text").forEach(function(el){ el.outerHTML=el.textContent; }); persistNotes(); renderNotes(); }}
+  window.clearAllNotes = clearAllNotes;
+
+  // ===== PERSIST =====
+  function persistNotes() { try{ localStorage.setItem(STORAGE_KEY_NOTES, JSON.stringify(notes)); }catch(e){ console.log("Storage full"); } }
+
+  // ===== INIT =====
+  renderNotes();
+
+})();
+</script>
 
 </body>
 </html>
