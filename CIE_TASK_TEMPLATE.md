@@ -557,6 +557,7 @@ Neurotransmitters（神经递质）cross this gap（穿过这个间隙）to tran
 - [ ] localStorage key 命名正确（{实验名}-darkMode, {实验名}-fontSize, {实验名}-notes）
 - [ ] 图片路径正确（相对路径 images/filename.png）
 - [ ] 所有链接有效（侧边栏导航、面包屑、外部链接）
+- [ ] 面包屑相对路径从**页面自身目录**算起：二级目录页面（如 edexcel/xxx/）回根 = `../../index.html`，不是 `../index.html`（2026-09-01 事故：写成 ../ 指向不存在的 edexcel/index.html → 404；检查命令 `grep -rn 'href="\.\./index\.html"' --include="*.html" .` 应为空）
 
 🚀 部署检查
 - [ ] 已 git add（添加新文件/修改）
