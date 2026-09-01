@@ -559,6 +559,13 @@ Neurotransmitters（神经递质）cross this gap（穿过这个间隙）to tran
 - [ ] 所有链接有效（侧边栏导航、面包屑、外部链接）
 - [ ] 面包屑相对路径从**页面自身目录**算起：二级目录页面（如 edexcel/xxx/）回根 = `../../index.html`，不是 `../index.html`（2026-09-01 事故：写成 ../ 指向不存在的 edexcel/index.html → 404；检查命令 `grep -rn 'href="\.\./index\.html"' --include="*.html" .` 应为空）
 
+🛡️ 回滚防护检查（2026-09-01 新增，Baron-Cohen 事故教训）
+- [ ] **重建/升级前**先查该 study 的 git 历史：`git log --oneline -- cie/{study}/index.html`，确认是否存在"审核版/事实修正版"commit（如 4c29143 Baron-Cohen 审核版）
+- [ ] 对比当前 HEAD 版本行数与历史版本：若当前文件显著更大（如 2294 行 vs 1272 行），说明有已审核的完整内容，**禁止用生成器脚本直接覆盖**
+- [ ] 构建脚本 `_build_*.py` 使用后立即改名加 `.DISABLED` 后缀隔离（2026-08-29 事故：_build_baroncohen.py 重新运行会覆盖 162KB 审核版为 1272 行坏版本，丢失 36 题 Eyes Test JS、认知假设、Q3/Q4/Q8/Q10/Q11 事实修正）
+- [ ] 不保留 `.bak*`/`.backup*` 文件在工作区（git 历史本身就是备份；残留备份会与主文件混淆）
+- [ ] 颜色三处同步验证：主界面卡片 + study 页面 `--primary` + Study Navigator dots 的 approach 颜色必须一致（Social=#2E7D32 / Learning=#ea580c / Cognitive=#2563eb / Biological=#dc2626；全站验证命令见 DESIGN_PATTERN_SUMMARY.md）
+
 🚀 部署检查
 - [ ] 已 git add（添加新文件/修改）
 - [ ] 已 git commit（commit message 清晰描述变更）
