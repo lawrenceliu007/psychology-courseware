@@ -566,6 +566,12 @@ Neurotransmitters（神经递质）cross this gap（穿过这个间隙）to tran
 - [ ] 不保留 `.bak*`/`.backup*` 文件在工作区（git 历史本身就是备份；残留备份会与主文件混淆）
 - [ ] 颜色三处同步验证：主界面卡片 + study 页面 `--primary` + Study Navigator dots 的 approach 颜色必须一致（Social=#2E7D32 / Learning=#ea580c / Cognitive=#2563eb / Biological=#dc2626；全站验证命令见 DESIGN_PATTERN_SUMMARY.md）
 
+🧪 交互功能检查（2026-09-02 新增，Fagen 笔记面板事故教训）
+- [ ] **sticky 面板内 focus 滚动 bug**：Notes Panel 内所有 `element.focus()` 必须加 `{preventScroll:true}`（showNoteInput / "+ Add Note" 按钮 / editNote 三处）— 否则浏览器会把页面滚到面板的文档流位置（页面顶部），用户"一选中文字就跳回开头"
+- [ ] **高亮链路 Range 捕获**：mouseup 选中文字后必须**立即**保存 `window._hlRange = sel.getRangeAt(0)`，`saveNote()` 用该 range 应用高亮 — 禁止在保存时用 `window.getSelection()`（焦点已在 textarea，selection 早已丢失 → 高亮永不应用）
+- [ ] `cancelNoteInput()` 必须同时清空 `_hlText` 和 `_hlRange`
+- [ ] 用浏览器实测交互（agent-browser + 本地 http.server）：滚动到页面中部 → 程序化选中文字 → dispatch mouseup → 断言 scrollY 不变、输入框展开、保存后 `.hl-text[data-hl-id]` 数量 ≥ 1
+
 🚀 部署检查
 - [ ] 已 git add（添加新文件/修改）
 - [ ] 已 git commit（commit message 清晰描述变更）
