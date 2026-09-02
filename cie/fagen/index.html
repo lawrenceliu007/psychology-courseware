@@ -786,7 +786,7 @@
           <button class="nc-btn-cancel" onclick="cancelNoteInput()">Cancel</button>
         </div>
       </div>
-      <button class="nc-add-btn" onclick="document.getElementById('noteInputRow').classList.add('show');document.getElementById('noteTextInput').focus()">+ Add Note</button>
+      <button class="nc-add-btn" onclick="document.getElementById('noteInputRow').classList.add('show');document.getElementById('noteTextInput').focus({preventScroll:true})">+ Add Note</button>
       <div class="nc-footer">
         <button onclick="exportNotes()" title="Export as Markdown">Export</button>
         <button onclick="clearAllNotes()" title="Clear all notes">Clear</button>
@@ -872,7 +872,14 @@
   document.addEventListener("mouseup", function(e){
     const sel = getSelectedText();
     if(sel.length > 0 && e.target.closest(".main-content") && !e.target.closest(".notes-col") && !e.target.closest(".qa-card")) {
-      setTimeout(function(){ if(getSelectedText().length > 0) showNoteInput(sel); }, 10);
+      setTimeout(function(){
+        if(getSelectedText().length > 0) {
+          // Capture the Range NOW — it is lost once focus moves to the textarea
+          const s = window.getSelection();
+          window._hlRange = (s.rangeCount > 0) ? s.getRangeAt(0) : null;
+          showNoteInput(getSelectedText());
+        }
+      }, 10);
     }
   });
 
@@ -881,13 +888,16 @@
     const row = document.getElementById("noteInputRow");
     row.classList.add("show");
     document.getElementById("noteTextInput").value = "";
-    document.getElementById("noteTextInput").focus();
+    // preventScroll: otherwise focusing inside the sticky notes panel
+    // scrolls the page to the panel's document-flow position (page top)
+    document.getElementById("noteTextInput").focus({preventScroll:true});
   }
 
   function cancelNoteInput() {
     document.getElementById("noteInputRow").classList.remove("show");
     removeHighlightMark();
     window._hlText = "";
+    window._hlRange = null;
   }
   window.cancelNoteInput = cancelNoteInput;
 
@@ -913,17 +923,16 @@
     const id = "hl_" + (++hlIdCounter) + "_" + Date.now();
     const noteObj = { id: id, text: text, hlText: hlText, ts: new Date().toISOString() };
 
-    // Apply highlight if text selected
-    if(hlText) {
-      const sel = window.getSelection();
-      if(sel.rangeCount > 0) {
-        const range = sel.getRangeAt(0);
-        try {
-          applyHighlightMark(range, id);
-        } catch(e) { console.log("Highlight error:", e); }
-      }
-      sel.removeAllRanges();
+    // Apply highlight using the Range captured at selection time.
+    // (window.getSelection() is NOT usable here — focus has moved to the textarea,
+    //  so the original selection no longer exists.)
+    if(hlText && window._hlRange) {
+      try {
+        applyHighlightMark(window._hlRange, id);
+      } catch(e) { console.log("Highlight error:", e); }
+      window._hlRange = null;
     }
+    window.getSelection().removeAllRanges();
 
     notes.push(noteObj);
     persistNotes();
@@ -982,7 +991,7 @@
         '<button class="note-edit-cancel" onclick="cancelEditNote(\''+id+'\')">Cancel</button>'+
       '</div>';
     const ta = card.querySelector(".note-edit-textarea");
-    ta.focus(); ta.select();
+    ta.focus({preventScroll:true}); ta.select();
   }
   window.editNote = editNote;
 
