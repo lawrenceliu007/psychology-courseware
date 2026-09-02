@@ -1,634 +1,1227 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Core Study 3: Hölzel et al. (2011) Mindfulness and Brain Scans — CIE Psychology</title>
-<style>
-  :root {
-    --bg: #ffffff;
-    --text: #1a1a2e;
-    --heading: #16213e;
-    --accent: #0f3460;
-    --accent-light: #e8f0fe;
-    --border: #e0e0e0;
-    --table-header: #0f3460;
-    --table-alt: #f8f9fa;
-    --blockquote: #e8f0fe;
-    --warning: #fff3cd;
-    --warning-border: #ffc107;
-    --key-box: #fff3e0;
-    --key-border: #ff9800;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-    line-height: 1.8;
-    color: var(--text);
-    background: var(--bg);
-    max-width: 880px;
-    margin: 0 auto;
-    padding: 40px 24px;
-  }
-  h1 {
-    font-size: 1.85em;
-    color: var(--heading);
-    border-bottom: 3px solid var(--accent);
-    padding-bottom: 12px;
-    margin-bottom: 6px;
-  }
-  .subtitle {
-    font-size: 1em;
-    color: #666;
-    margin-bottom: 24px;
-  }
-  h2 {
-    font-size: 1.45em;
-    color: var(--heading);
-    margin-top: 40px;
-    margin-bottom: 14px;
-    padding-left: 14px;
-    border-left: 4px solid var(--accent);
-  }
-  h3 {
-    font-size: 1.2em;
-    color: var(--accent);
-    margin-top: 26px;
-    margin-bottom: 10px;
-  }
-  h4 {
-    font-size: 1.05em;
-    color: var(--accent);
-    margin-top: 18px;
-    margin-bottom: 8px;
-  }
-  p { margin-bottom: 14px; }
-  ul, ol { margin-bottom: 14px; padding-left: 26px; }
-  li { margin-bottom: 6px; }
-  strong { color: var(--heading); }
-  .cn { color: #6a6a6a; font-weight: 400; }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 18px 0;
-    font-size: 0.95em;
-  }
-  th, td {
-    border: 1px solid var(--border);
-    padding: 10px 12px;
-    text-align: left;
-    vertical-align: top;
-  }
-  th {
-    background: var(--table-header);
-    color: #fff;
-    font-weight: 600;
-  }
-  tr:nth-child(even) { background: var(--table-alt); }
-  blockquote {
-    background: var(--blockquote);
-    border-left: 4px solid var(--accent);
-    padding: 14px 18px;
-    margin: 18px 0;
-    font-style: italic;
-  }
-  .key-box {
-    background: var(--key-box);
-    border-left: 4px solid var(--key-border);
-    padding: 14px 18px;
-    margin: 18px 0;
-  }
-  .activity-box {
-    background: #e3f2fd;
-    border-left: 4px solid #2196f3;
-    padding: 14px 18px;
-    margin: 18px 0;
-  }
-  .exam-box {
-    background: #f3e5f5;
-    border-left: 4px solid #9c27b0;
-    padding: 14px 18px;
-    margin: 18px 0;
-  }
-  .note {
-    font-size: 0.9em;
-    color: #555;
-    margin-top: 30px;
-    padding-top: 14px;
-    border-top: 1px solid var(--border);
-  }
-  figure {
-    margin: 20px 0;
-    text-align: center;
-  }
-  figure img {
-    max-width: 100%;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-  }
-  figcaption {
-    font-size: 0.9em;
-    color: #555;
-    margin-top: 8px;
-  }
-  a { color: var(--accent); }
-  .toc { background: var(--accent-light); padding: 18px 22px; border-radius: 8px; margin-bottom: 24px; }
-  .toc ul { margin-bottom: 0; }
-  .toc a { text-decoration: none; }
-  .toc a:hover { text-decoration: underline; }
-  .syl-tag { display:inline-block; font-size:.68em; font-weight:700; letter-spacing:.5px; color:#0369a1; background:#e0f2fe; border:1px solid #bae6fd; border-radius:999px; padding:1px 9px; margin-right:6px; text-transform:uppercase; vertical-align:middle; }
-  .green-box { background:#f0fdf4; border:1px solid #bbf7d0; border-left:4px solid #16a34a; padding:14px 18px; margin:16px 0; border-radius:6px; }
-  .warn-box { background:#fef2f2; border:1px solid #fecaca; border-left:4px solid #dc2626; padding:14px 18px; margin:16px 0; border-radius:6px; }
-  .ekp-box { background: linear-gradient(135deg,#faf5ff,#f3e8ff); border:1px solid #e9d5ff; border-left:4px solid #9333ea; padding:16px 20px; margin:22px 0; border-radius:8px; }
-  .ekp-box h4 { margin-top:0; color:#7c3aed; }
-  .tag-must { display:inline-block; font-size:.68em; font-weight:700; color:#b91c1c; background:#fee2e2; border:1px solid #fecaca; border-radius:999px; padding:1px 8px; margin-right:4px; }
-  .tag-common { display:inline-block; font-size:.68em; font-weight:700; color:#92400e; background:#fef3c7; border:1px solid #fde68a; border-radius:999px; padding:1px 8px; margin-right:4px; }
-  details.model-answer { background:#f8fafc; border:1px solid #e2e8f0; border-left:4px solid #0f3460; border-radius:6px; padding:10px 16px; margin:10px 0; }
-  details.model-answer summary { cursor:pointer; font-weight:600; color:var(--accent); }
-  details.model-answer[open] summary { margin-bottom:8px; }
-  .qa-mark { font-size:.85em; color:#666; font-weight:600; }
-  .practice-box { background:#fffbeb; border:1px solid #fde68a; border-left:4px solid #d97706; padding:16px 20px; margin:20px 0; border-radius:8px; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Core Study 3: Hölzel et al. (2011) — Mindfulness Practice and Brain Grey Matter</title>
+  <style>
+    :root {
+      --primary: #dc2626;
+      --primary-light: #ef4444;
+      --primary-dark: #991b1b;
+      --accent: #dc2626;
+      --bg: #FAFAFA;
+      --card-bg: #FFFFFF;
+      --text: #212121;
+      --text-secondary: #616161;
+      --border: #E0E0E0;
+    }
+    * { box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; line-height: 1.75; color: var(--text); background: var(--bg); margin: 0; padding: 0; font-size: 1em; transition: background .3s, color .3s; }
+    body.dark { --bg: #0f172a; --card-bg: #1a1a2e; --text: #e2e8f0; --text-secondary: #94a3b8; --border: #334155; background: var(--bg); color: var(--text); }
+    html { font-size: 16px; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 16px 24px; }
+
+    /* ===== PROGRESS BAR ===== */
+    .progress-bar { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: linear-gradient(90deg, var(--primary), var(--primary-light), #fcd34d); z-index: 9999; transition: width .1s ease-out; }
+    body.dark .progress-bar { background: linear-gradient(90deg, #ef4444, #f87171, #fcd34d); }
+
+    /* ===== NAV BAR ===== */
+    .nav-bar { position: sticky; top: 0; z-index: 100; background: white; border-bottom: 3px solid var(--primary); padding: .65rem 2rem; display: flex; align-items: center; gap: 1rem; margin: 0 0 28px 0; box-shadow: 0 2px 10px rgba(0,0,0,.06); }
+    body.dark .nav-bar { background: #1a1a2e; border-bottom-color: var(--primary); }
+    .nav-pill { display: inline-flex; align-items: center; gap: .4rem; padding: .45rem 1.1rem; background: var(--primary); color: white; border-radius: 20px; text-decoration: none; font-size: .82em; font-weight: 600; transition: background .15s; white-space: nowrap; }
+    .nav-pill:hover { background: var(--primary-dark); }
+    .nav-breadcrumb { display: flex; align-items: center; gap: .4rem; font-size: .82em; color: var(--text-secondary); flex: 1; }
+    .nav-breadcrumb a { color: var(--text-secondary); text-decoration: none; transition: color .15s; }
+    .nav-breadcrumb a:hover { color: var(--primary); }
+    .nav-breadcrumb .sep { color: #ccc; font-weight: 300; }
+    .nav-breadcrumb span:last-child { color: var(--text); font-weight: 500; }
+    body.dark .nav-breadcrumb a { color: #aaa; }
+    body.dark .nav-breadcrumb span:last-child { color: #ddd; }
+    .nav-controls { display: flex; align-items: center; gap: .5rem; }
+    .nav-btn { background: none; border: 1px solid #ddd; border-radius: 6px; padding: .35rem .65rem; cursor: pointer; font-size: .85em; color: var(--text-secondary); transition: all .15s; display: flex; align-items: center; gap: .25rem; }
+    .nav-btn:hover { border-color: var(--primary); color: var(--primary); }
+    body.dark .nav-btn { border-color: #444; color: #aaa; }
+    body.dark .nav-btn:hover { border-color: #ef4444; color: #ef4444; }
+
+    /* ===== PAGE LAYOUT (3-column) ===== */
+    .page-layout { display: grid; grid-template-columns: 170px minmax(0,1fr) 250px; gap: 20px; align-items: start; }
+    .sidebar { width: 170px; flex-shrink: 0; position: sticky; top: 60px; max-height: calc(100vh - 80px); overflow-y: auto; padding: 12px 0; z-index: 50; }
+    .sidebar::-webkit-scrollbar { width: 2px; }
+    .sidebar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 2px; }
+    .sidebar-inner { background: #f8fafc; border-radius: 14px; border: 1px solid #e2e8f0; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,.05); }
+    body.dark .sidebar-inner { background: #16213e; border-color: #334155; box-shadow: 0 2px 8px rgba(0,0,0,.25); }
+    .sb-header { padding: 13px 16px 10px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); }
+    .sb-header-title { font-size: .72em; font-weight: 700; color: white; letter-spacing: .8px; text-transform: uppercase; margin: 0; }
+    .sb-header-sub { font-size: .63em; color: rgba(255,255,255,.75); margin: 2px 0 0; font-weight: 500; }
+    .sb-list { list-style: none; padding: 6px 0 10px; margin: 0; }
+    .sb-divider { height: 1px; background: #e2e8f0; margin: 4px 12px; }
+    body.dark .sb-divider { background: #334155; }
+    .sb-item a { display: block; padding: 7px 14px 7px 18px; color: #475569; text-decoration: none; font-size: .76em; font-weight: 500; border-left: 3px solid transparent; transition: all .15s ease; line-height: 1.45; border-radius: 0 7px 7px 0; margin: 1px 4px 1px 0; }
+    .sb-item a:hover { border-left-color: var(--primary); color: var(--primary-dark); font-weight: 600; background: linear-gradient(90deg, rgba(220,38,38,.07), transparent); }
+    .sb-item a.sb-active { border-left-color: var(--primary); color: var(--primary-dark); font-weight: 700; background: linear-gradient(90deg, rgba(220,38,38,.12), transparent); }
+    body.dark .sb-item a { color: #94a3b8; }
+    body.dark .sb-item a:hover { color: #f87171; background: linear-gradient(90deg, rgba(239,68,68,.10), transparent); border-left-color: #ef4444; }
+    body.dark .sb-item a.sb-active { color: #fca5a5; background: linear-gradient(90deg, rgba(239,68,68,.16), transparent); border-left-color: #ef4444; }
+    .main-content { min-width: 0; max-width: 660px; }
+
+    /* ===== RIGHT NOTES COLUMN ===== */
+    .notes-col { width: 250px; background: #fffef5; border: 2px solid #f59e0b; border-radius: 12px; display: flex; flex-direction: column; position: sticky; top: 60px; max-height: calc(100vh - 80px); box-shadow: 0 2px 12px rgba(245,158,11,.15); overflow: hidden; }
+    .nc-header { background: linear-gradient(135deg,#f59e0b,#d97706); padding: 12px 14px; display: flex; align-items: center; gap: 8px; }
+    .nc-title { font-size: .85em; font-weight: 700; color: #fff; }
+    .nc-count { margin-left: auto; background: rgba(255,255,255,.3); color: #fff; font-size: .7em; font-weight: 700; padding: 2px 8px; border-radius: 10px; }
+    .nc-body { flex: 1; overflow-y: auto; padding: 10px; max-height: calc(100vh - 240px); min-height: 60px; }
+    .nc-empty { text-align: center; color: #9ca3af; padding: 20px 8px; font-size: .78em; }
+    .nc-input-row { display: none; padding: 12px; border-top: 1px solid #fde68a; background: #fffbeb; }
+    .nc-input-row.show { display: block; }
+    .nc-textarea { width: 100%; border: 1px solid #fcd34d; border-radius: 8px; padding: 10px; font-size: .82em; resize: vertical; min-height: 60px; box-sizing: border-box; outline: none; font-family: inherit; }
+    .nc-textarea:focus { border-color: #d97706; box-shadow: 0 0 0 2px rgba(245,158,11,.15); }
+    .nc-actions { display: flex; gap: 8px; margin-top: 8px; }
+    .nc-actions button { flex: 1; padding: 8px; border-radius: 6px; font-size: .78em; font-weight: 600; cursor: pointer; border: 1px solid transparent; }
+    .nc-btn-save { background: #16a34a; color: white; }
+    .nc-btn-cancel { background: white; color: #6b7280; border-color: #d1d5db !important; }
+    .nc-add-btn { width: 100%; padding: 13px; background: linear-gradient(135deg,#dc2626,#991b1b); color: white; border: none; border-radius: 0 0 10px 10px; font-size: .88em; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: opacity .2s; }
+    .nc-add-btn:hover { opacity: .9; }
+    .nc-footer { display: flex; gap: 4px; padding: 6px 10px; border-top: 1px solid #fde68a; }
+    .nc-footer button { flex: 1; padding: 4px 0; font-size: .68em; border: none; background: transparent; color: #92400e; cursor:pointer; }
+    .hl-text { background: linear-gradient(120deg,#fef08a,#fde047); border-radius: 2px; padding: 0 2px; cursor: pointer; transition: background .15s; }
+    .hl-text:hover { background: linear-gradient(120deg,#fde047,#facc15); }
+    .note-card { background: #fff; border-radius: 8px; padding: 10px 12px; margin-bottom: 8px; border-left: 3px solid #f59e0b; box-shadow: 0 1px 3px rgba(0,0,0,.08); font-size: .78em; line-height: 1.5; position: relative; animation: nFadeIn .2s ease; transition: box-shadow .2s, border-color .2s; }
+    @keyframes nFadeIn { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:translateY(0)} }
+    .note-card[ondblclick]:hover { box-shadow: 0 4px 12px rgba(245,158,11,.25); border-left-color: #d97706; }
+    .note-card-hl { font-size: .7em; color: #92400e; background: #fef3c7; padding: 2px 6px; border-radius: 4px; margin-bottom: 4px; cursor: pointer; word-break: break-all; display: flex; align-items: center; gap: 4px; transition: background .15s, transform .15s; }
+    .note-card-hl:hover { background: #fde68a; transform: translateX(2px); }
+    .note-card-hl::before { content: '🔗'; font-size: .85em; flex-shrink: 0; opacity: .7; }
+    .note-card-text { color: #374151; word-break: break-word; }
+    .note-card-del { position: absolute; top: 4px; right: 4px; width: 18px; height: 18px; border: none; background: #fee2e2; color: #ef4444; border-radius: 50%; font-size: .65em; cursor: pointer; opacity: 0; display: flex; align-items: center; justify-content: center; }
+    .note-card:hover .note-card-del { opacity: 1; }
+    .note-card-edit { position: absolute; top: 4px; right: 26px; width: 18px; height: 18px; border: none; background: #dbeafe; color: #2563eb; border-radius: 50%; font-size: .65em; cursor: pointer; opacity: 0; display: flex; align-items: center; justify-content: center; transition: opacity .15s, background .15s; }
+    .note-card:hover .note-card-edit { opacity: 1; }
+    .note-card-edit:hover { background: #bfdbfe; }
+    .note-card.editing { border-left-color: #2563eb; box-shadow: 0 4px 12px rgba(37,99,235,.2); }
+    .note-card.editing .note-card-text,
+    .note-card.editing .note-card-hl,
+    .note-card.editing .note-card-del,
+    .note-card.editing .note-card-edit { display: none; }
+    .note-edit-textarea { width: 100%; border: 1px solid #93c5fd; border-radius: 6px; padding: 8px; font-size: .9em; resize: vertical; min-height: 50px; box-sizing: border-box; outline: none; font-family: inherit; line-height: 1.5; background: #f8fafc; color: #1e293b; }
+    .note-edit-textarea:focus { border-color: #2563eb; box-shadow: 0 0 0 2px rgba(37,99,235,.15); }
+    .note-edit-actions { display: flex; gap: 6px; margin-top: 6px; }
+    .note-edit-actions button { flex: 1; padding: 5px 8px; border-radius: 5px; font-size: .72em; font-weight: 600; cursor: pointer; border: 1px solid transparent; transition: all .15s; }
+    .note-edit-save { background: #2563eb; color: white; }
+    .note-edit-save:hover { background: #1d4ed8; }
+    .note-edit-cancel { background: #f1f5f9; color: #64748b; border-color: #e2e8f0; }
+    .note-edit-cancel:hover { background: #e2e8f0; }
+
+    /* ===== HEADER CARD ===== */
+    .header { text-align: center; padding: 36px 24px; background: linear-gradient(135deg, var(--primary-dark), var(--primary)); color: white; border-radius: 12px; margin-bottom: 24px; box-shadow: 0 4px 15px rgba(220,38,38,0.3); }
+    .header h1 { font-size: 1.85em; margin-bottom: 10px; }
+    .header .subtitle { font-size: 1.05em; opacity: 0.92; }
+    .header .meta { margin-top: 15px; font-size: 0.88em; opacity: 0.82; }
+    .badge { display: inline-block; padding: 4px 14px; border-radius: 20px; background: rgba(255,255,255,0.2); margin: 3px; font-size: 0.84em; }
+    .kw-tags { margin-top: 18px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+    .kw-tag { display: inline-flex; align-items: center; gap: 5px; padding: 6px 16px; border-radius: 20px; font-size: .82em; font-weight: 600; color: white; opacity: .95; }
+    .kw-app { background: linear-gradient(135deg, #dc2626, #ef4444); }
+    .kw-meth { background: linear-gradient(135deg, #B71C1C, #E53935); }
+    .kw-conc { background: linear-gradient(135deg, #7B1FA2, #AB47BC); }
+
+    /* ===== SECTIONS ===== */
+    .section { background: var(--card-bg); border-radius: 10px; padding: 28px 32px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-top: 3px solid var(--primary-light); }
+    body.dark .section { background: #1a1a2e; box-shadow: 0 2px 8px rgba(0,0,0,.3); }
+    .section h2 { color: var(--primary-dark); font-size: 1.45em; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid var(--border); }
+    body.dark .section h2 { color: #f87171; border-bottom-color: #334155; }
+    .section h3 { color: var(--primary); font-size: 1.18em; margin: 22px 0 12px; }
+    body.dark .section h3 { color: #fca5a5; }
+    .section h4 { color: var(--text); font-size: 1.04em; margin: 14px 0 8px; }
+    .cn { color: #6a6a6a; font-weight: 400; font-size: .92em; }
+    body.dark .cn { color: #9ca3af; }
+
+    /* ===== INFO BOXES ===== */
+    .quote { border-left: 4px solid var(--primary); background: linear-gradient(135deg, #fef2f2, #fee2e2); padding: 16px 22px; margin: 16px 0; border-radius: 0 8px 8px 0; font-style: italic; color: var(--primary-dark); }
+    body.dark .quote { background: linear-gradient(135deg, rgba(220,38,38,.15), rgba(220,38,38,.08)); border-left-color: #ef4444; color: #fca5a5; }
+    .note-box { background: #fffbeb; border-left: 4px solid #f59e0b; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+    body.dark .note-box { background: rgba(251,191,36,.06); border-left-color: #FBC02D; }
+    .blue-box { background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+    body.dark .blue-box { background: rgba(59,130,246,.06); border-left-color: #42A5F5; }
+    .activity-box { background: #eff6ff; border-left: 4px solid #2196f3; padding: 14px 18px; margin: 18px 0; border-radius: 8px; }
+    body.dark .activity-box { background: rgba(33,150,243,.08); border-left-color: #42A5F5; }
+    .strength-box { background: #f0fdf4; border: 1px solid #bbf7d0; border-left: 4px solid #16a34a; padding: 14px 18px; margin: 16px 0; border-radius: 8px; }
+    body.dark .strength-box { background: rgba(22,101,52,.1); border-color: #166534; }
+    .weakness-box { background: #FFF7ED; border-left: 4px solid #E65100; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+    body.dark .weakness-box { background: rgba(230,81,0,.08); border-left-color: #FB8C00; }
+    .er-box { background: linear-gradient(135deg,#fef3c7,#fde68a); border-left: 4px solid #b45309; border-radius: 8px; padding: 14px 18px; margin: 14px 0; font-size: .92em; }
+    .er-box strong { color: #b45309; }
+    .ekp-box { background: linear-gradient(135deg,#faf5ff,#f3e8ff); border: 1px solid #e9d5ff; border-left: 4px solid #9333ea; padding: 16px 20px; margin: 22px 0; border-radius: 8px; }
+    body.dark .ekp-box { background: linear-gradient(135deg,rgba(147,51,234,.12),rgba(147,51,234,.05)); border-color: #7e22ce; }
+    .ekp-box h4 { margin-top: 0; color: #7c3aed; }
+    body.dark .ekp-box h4 { color: #d8b4fe; }
+    .syl-tag { display: inline-block; font-size: .68em; font-weight: 700; letter-spacing: .5px; color: #0369a1; background: #e0f2fe; border: 1px solid #bae6fd; border-radius: 999px; padding: 1px 9px; margin-right: 6px; text-transform: uppercase; vertical-align: middle; }
+    .tag-must { display: inline-block; font-size: .68em; font-weight: 700; color: #b91c1c; background: #fee2e2; border: 1px solid #fecaca; border-radius: 999px; padding: 1px 8px; margin-right: 4px; }
+    .tag-common { display: inline-block; font-size: .68em; font-weight: 700; color: #92400e; background: #fef3c7; border: 1px solid #fde68a; border-radius: 999px; padding: 1px 8px; margin-right: 4px; }
+
+    /* ===== TABLES ===== */
+    table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 0.93em; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-radius: 8px; overflow: hidden; }
+    th { background: var(--primary); color: white; padding: 12px 14px; text-align: left; font-weight: 600; }
+    td { padding: 11px 14px; border-bottom: 1px solid var(--border); }
+    tr:nth-child(even) { background: #fef2f2; }
+    tr:hover { background: #fee2e2; }
+    td:first-child { font-weight: 600; color: var(--primary-dark); }
+    body.dark td { border-bottom-color: #334155; }
+    body.dark tr:nth-child(even) { background: rgba(220,38,38,.06); }
+    body.dark tr:hover { background: rgba(220,38,38,.12); }
+    .num-cell { text-align: center; font-weight: 700; color: var(--primary-dark); }
+    .table-caption { font-size: .85em; color: var(--text-secondary); text-align: center; margin: -8px 0 16px 0; }
+
+    /* ===== FIGURES ===== */
+    figure { margin: 22px 0; text-align: center; }
+    figure img { max-width: 100%; border: 1px solid var(--border); border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,.08); }
+    body.dark figure img { border-color: #334155; box-shadow: 0 2px 10px rgba(0,0,0,.4); }
+    figcaption { font-size: .85em; color: var(--text-secondary); margin-top: 8px; text-align: center; line-height: 1.5; }
+    body.dark figcaption { color: #94a3b8; }
+
+    /* ===== LISTS ===== */
+    ul, ol { padding-left: 24px; margin: 10px 0; }
+    li { margin: 6px 0; }
+
+    /* ===== CHART CONTAINER ===== */
+    .chart-container { position: relative; height: 380px; margin: 22px 0; background: white; border-radius: 10px; padding: 15px; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+    body.dark .chart-container { background: #16213e; }
+
+    /* ===== TWO-COL LAYOUT ===== */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 18px 0; }
+    .col-card { background: #FFF5F5; border-radius: 8px; padding: 18px; border-top: 4px solid var(--primary); }
+    .col-card.nature { border-top-color: #7B1FA2; }
+    .col-card.nurture { border-top-color: var(--primary); }
+    .col-card h4 { margin-bottom: 10px; font-size: 1em; color: var(--primary-dark); }
+    .col-card.nature h4 { color: #7B1FA2; }
+    body.dark .col-card { background: #16213e; }
+
+    /* ===== QA CARDS ===== */
+    .qa-card { background: #fafafa; border-radius: 10px; padding: 20px 24px; margin: 16px 0; border-left: 4px solid var(--primary); transition: box-shadow .2s; cursor: pointer; }
+    .qa-card:hover { box-shadow: 0 4px 16px rgba(220,38,38,.12); }
+    body.dark .qa-card { background: #1a1a2e; }
+    .qa-q { font-weight: 700; color: var(--primary-dark); font-size: .98em; margin-bottom: 10px; }
+    body.dark .qa-q { color: #f87171; }
+    .qa-a { color: var(--text-secondary); font-size: .9em; line-height: 1.65; max-height: 0; overflow: hidden; transition: max-height .35s ease; }
+    .qa-card.expanded .qa-a { max-height: 900px; }
+    .qa-toggle { font-size: .76em; color: var(--primary); font-weight: 600; margin-top: 6px; }
+    body.dark .qa-toggle { color: #ef4444; }
+
+    /* ===== MODEL ANSWERS ===== */
+    details.model-answer { background: #f8fafc; border: 1px solid #e2e8f0; border-left: 4px solid var(--primary-dark); border-radius: 6px; padding: 10px 16px; margin: 10px 0; }
+    body.dark details.model-answer { background: #16213e; border-color: #334155; }
+    details.model-answer summary { cursor: pointer; font-weight: 600; color: var(--primary-dark); }
+    body.dark details.model-answer summary { color: #fca5a5; }
+    details.model-answer[open] summary { margin-bottom: 8px; }
+    .qa-mark { font-size: .85em; color: #666; font-weight: 600; }
+    .exam-box { background: #fdf4ff; border-left: 4px solid #9c27b0; padding: 18px 22px; margin: 18px 0; border-radius: 8px; }
+    body.dark .exam-box { background: rgba(156,39,176,.08); }
+    .practice-box { background: #fffbeb; border: 1px solid #fde68a; border-left: 4px solid #d97706; padding: 16px 20px; margin: 20px 0; border-radius: 8px; }
+    body.dark .practice-box { background: rgba(217,119,6,.08); border-color: #92400e; }
+
+    /* ===== SUMMARY CARD ===== */
+    .summary-card { background: linear-gradient(135deg, #fffbeb, #fef3c7); border-radius: 10px; padding: 18px 22px; margin: 14px 0; border-left: 4px solid #f59e0b; }
+    .summary-card h4 { color: #b45309; margin-bottom: 8px; font-size: .95em; }
+    body.dark .summary-card { background: linear-gradient(135deg,rgba(180,83,9,.12),rgba(180,83,9,.05)); }
+
+    /* ===== CN SUMMARY WRAP ===== */
+    .cn-summary-wrap { background: linear-gradient(135deg,#f0fdf4,#dcfce7); border-radius: 10px; padding: 20px 24px; margin: 18px 0; border: 1px solid #bbf7d0; }
+    body.dark .cn-summary-wrap { background: linear-gradient(135deg,rgba(22,101,52,.15),rgba(22,101,52,.08)); border-color: #166534; }
+    .cn-summary-wrap h3 { color: #166534; font-size: 1.1em; margin-bottom: 12px; }
+    body.dark .cn-summary-wrap h3 { color: #86efac; }
+    .cn-summary-wrap ul { margin: 0; padding-left: 20px; }
+    .cn-summary-wrap li { margin: 5px 0; font-size: .93em; }
+
+    /* ===== FOOTER ===== */
+    .footer { text-align: center; padding: 25px; color: var(--text-secondary); font-size: 0.88em; border-top: 1px solid var(--border); margin-top: 30px; }
+
+    /* ===== STUDY NAVIGATOR ===== */
+    .study-nav { border-top: 2px solid #e0e0e0; background: #FAFAFA; padding: 14px 16px; margin-top: 2rem; }
+    body.dark .study-nav { background: #0f172a; border-top-color: #334155; }
+    .study-nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; max-width: 880px; margin: 0 auto; }
+    .study-nav-btn { flex: 1; padding: 9px 14px; border: 1px solid #ddd; border-radius: 8px; background: white; color: #444; font-size: .82rem; cursor: pointer; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 4px; transition: all .15s; font-family: inherit; }
+    .study-nav-btn:hover { border-color: var(--primary); color: var(--primary); background: #fef2f2; }
+    .study-nav-dots { text-align: center; padding: 0 8px; }
+    .study-nav-label { font-size: .65rem; text-transform: uppercase; letter-spacing: 1px; color: #888; margin-bottom: 5px; font-weight: 700; }
+    .study-dot-row { display: flex; gap: 5px; justify-content: center; flex-wrap: wrap; }
+    .study-dot { width: 10px; height: 10px; border-radius: 50%; cursor: pointer; border: 2px solid transparent; transition: all .15s; position: relative; display: inline-block; }
+    .study-dot:hover { transform: scale(1.3); }
+    .study-dot.active { border-color: #333; transform: scale(1.25); }
+
+    /* ===== BACK TO TOP ===== */
+    .back-to-top { position: fixed; bottom: 30px; right: 30px; width: 44px; height: 44px; background: var(--primary); color: white; border: none; border-radius: 50%; font-size: 1.2em; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(220,38,38,.3); transition: transform .2s, opacity .2s; opacity: 0; z-index: 99; }
+    .back-to-top.show { opacity: 1; }
+    .back-to-top:hover { transform: translateY(-3px); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .page-layout { grid-template-columns: 1fr; }
+      .sidebar, .notes-col { display: none; }
+      .main-content { max-width: 100%; }
+    }
+    @media (max-width: 768px) {
+      .two-col { grid-template-columns: 1fr; }
+      .container { padding: 12px; }
+      .section { padding: 20px; }
+      .nav-bar { flex-wrap: wrap; gap: .5rem; padding: .5rem 1rem; }
+      .kw-tags { gap: 6px; }
+      .kw-tag { padding: 5px 10px; font-size: .75em; }
+    }
+  </style>
 </head>
 <body>
 
-<h1>Core Study 3: Hölzel et al. (2011) <span class="cn">正念与大脑扫描</span></h1>
-<p class="subtitle">Hölzel, B., Carmody, J., Vangel, M., Congleton, C., Yerramsetti, S., Gard, T., & Lazar, S. (2011). <em>Mindfulness practice leads to increases in regional brain gray matter density.</em> <em>Psychiatry Research</em>, 919(1), 36–43.</p>
+<div class="progress-bar" id="progressBar"></div>
 
-<div class="toc">
-<strong>Contents</strong>
-<ul>
-  <li><a href="#sec1">1. The Psychology Being Investigated</a></li>
-  <li><a href="#sec2">2. Mindfulness</a></li>
-  <li><a href="#sec3">3. Background</a></li>
-  <li><a href="#sec4">4. Aim</a></li>
-  <li><a href="#sec5">5. Method</a></li>
-  <li><a href="#sec6">6. Results</a></li>
-  <li><a href="#sec7">7. Conclusion</a></li>
-  <li><a href="#sec8">8. Evaluation</a></li>
-  <li><a href="#sec9">9. Ethical Issues</a></li>
-  <li><a href="#sec10">10. Issues, Debates and Approaches</a></li>
-  <li><a href="#sec11">11. Summary</a></li>
-  <li><a href="#sec12">12. Study Questions</a></li>
-  <li><a href="#sec13">13. Key Terms</a></li>
-  <li><a href="#sec14">14. Exam-Style Questions</a></li>
-</ul>
+<!-- ===== NAV BAR ===== -->
+<nav class="nav-bar">
+  <div class="nav-breadcrumb">
+    <a href="../../index.html">Home</a> <span class="sep">/</span>
+    <a href="../">CIE Core Studies</a> <span class="sep">/</span>
+    <span>Hölzel et al. (2011)</span>
+  </div>
+  <div class="nav-controls">
+    <button class="nav-btn" onclick="toggleDarkMode()" title="Toggle Dark Mode">🌙</button>
+    <button class="nav-btn" onclick="adjustFontSize(-1)" title="Decrease Font Size">A-</button>
+    <button class="nav-btn" onclick="adjustFontSize(1)" title="Increase Font Size">A+</button>
+    <a class="nav-pill" href="../../index.html">Home</a>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="page-layout">
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="sidebar">
+      <div class="sidebar-inner">
+        <div class="sb-header">
+          <p class="sb-header-title">Hölzel 2011</p>
+          <p class="sb-header-sub">Mindfulness &amp; Brain Scans</p>
+        </div>
+        <ul class="sb-list">
+          <li class="sb-item"><a href="#s1" class="sb-active">Background</a></li>
+          <li class="sb-item"><a href="#s2">Mindfulness</a></li>
+          <li class="sb-divider"></li>
+          <li class="sb-item"><a href="#s3">Aim</a></li>
+          <li class="sb-item"><a href="#s4">Method</a></li>
+          <li class="sb-item"><a href="#s5">Procedure</a></li>
+          <li class="sb-divider"></li>
+          <li class="sb-item"><a href="#s6">Results</a></li>
+          <li class="sb-item"><a href="#s7">Conclusion</a></li>
+          <li class="sb-divider"></li>
+          <li class="sb-item"><a href="#s8">Strengths &amp; Weaknesses</a></li>
+          <li class="sb-item"><a href="#s9">Ethical Issues</a></li>
+          <li class="sb-item"><a href="#s10">Issues &amp; Debates</a></li>
+          <li class="sb-divider"></li>
+          <li class="sb-item"><a href="#s11">Summary</a></li>
+          <li class="sb-item"><a href="#s12">Key Terms</a></li>
+          <li class="sb-item"><a href="#s13">Exam Practice</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main-content">
+
+<!-- HEADER -->
+<div class="header">
+  <h1>🧠 Hölzel et al. (2011)</h1>
+  <div class="subtitle">Mindfulness Practice Leads to Increases in Regional Brain Grey Matter Density<br><span style="font-size:.9em;opacity:.85">正念练习导致大脑局部灰质密度增加</span></div>
+  <div class="meta">
+    <span class="badge">🧬 CIE Biological Approach 生物取向</span>
+    <span class="badge">📄 Psychiatry Research: Neuroimaging, 191(1), 36–43</span>
+    <span class="badge">🔬 Core Study 3</span>
+    <span class="badge">✅ Based on CIE Textbook 基于教材原文</span>
+  </div>
+  <div class="kw-tags">
+    <span class="kw-tag kw-app">🧬 Biological Approach</span>
+    <span class="kw-tag kw-meth">📐 Longitudinal Experiment + MRI</span>
+    <span class="kw-tag kw-conc">💡 Brain Plasticity</span>
+  </div>
 </div>
 
-<h2 id="sec1">1. The Psychology Being Investigated <span class="cn">（研究背景）</span></h2>
+<!-- SECTION 1: BACKGROUND -->
+<section class="section" id="s1">
+  <h2>1. Background — Localisation of Function（功能定位）</h2>
 
-<p>Very early in the study of psychology, researchers thought that there might be meaning behind the shape of a person's skull. Nowadays, psychologists focus on the role of areas within the head, i.e. brain regions. Many parts of the brain are associated with particular types of information processing or with specific activities. This is called <strong>'localisation of function'</strong> <span class="cn">（功能定位）</span>.</p>
+  <p>Very early in the study of psychology, researchers thought that there might be meaning behind the shape of a person's skull. Nowadays, psychologists focus on the role of areas within the head, i.e. brain regions. Many parts of the brain are associated with particular types of information processing or with specific activities. This is called <strong>'localisation of function'</strong> <span class="cn">（功能定位）</span>.</p>
 
-<div class="key-box">
-  <strong>KEY WORD</strong><br>
-  <strong>Localisation of function</strong> <span class="cn">（功能定位）</span>: refers to the way that particular brain areas are responsible for different activities.
-</div>
+  <div class="note-box">
+    <h4>KEY WORD</h4>
+    <p><strong>Localisation of function</strong> <span class="cn">（功能定位）</span>: refers to the way that particular brain areas are responsible for different activities.</p>
+  </div>
 
-<p>For example, Figure 2.9 shows areas responsible for deliberate movements (the <strong>motor cortex</strong> <span class="cn">（运动皮层）</span>), skin and muscle sensation (the <strong>somatosensory cortex</strong> <span class="cn">（躯体感觉皮层）</span>), language functions (Broca's and Wernicke's areas), and sleep (part of the brain stem).</p>
+  <p>For example, Figure 2.9 shows areas responsible for deliberate movements (the <strong>motor cortex</strong> <span class="cn">（运动皮层）</span>), skin and muscle sensation (the <strong>somatosensory cortex</strong> <span class="cn">（躯体感觉皮层）</span>), language functions (Broca's and Wernicke's areas), and sleep (part of the brain stem).</p>
 
-<figure>
-  <img src="hoelzel_images/02.png" alt="Figure 2.9 and 2.10: Localisation of the brain and MRI scanner">
-  <figcaption><strong>Figures 2.9 & 2.10</strong> <span class="cn">（大脑功能定位与MRI扫描）</span>: Left — localisation of the brain (motor cortex, somatosensory cortex, Broca's area, Wernicke's area, etc.). Right — a participant entering an MRI scanner head first.</figcaption>
-</figure>
+  <figure>
+    <img src="hoelzel_images/02.png" alt="Figure 2.9 and 2.10: Localisation of the brain and MRI scanner">
+    <figcaption><strong>Figures 2.9 &amp; 2.10</strong> <span class="cn">（大脑功能定位与MRI扫描）</span>: Left — localisation of the brain (motor cortex, somatosensory cortex, Broca's area, Wernicke's area, etc.). Right — a participant entering an MRI scanner head first.</figcaption>
+  </figure>
 
-<p>Much of our brain structure is symmetrical down the centre line (from the nose to the back of the head). As a consequence, many brain areas are '<strong>bilateral</strong>' <span class="cn">（双侧的）</span>, that is, they are found in both the left and right sides or '<strong>hemispheres</strong>' <span class="cn">（半球）</span>. The motor and somatosensory cortex are present on both sides of the brain (although the left side of the body is represented on the right side of the brain and vice versa). Broca's and Wernicke's areas, in contrast, are usually found only in the left hemisphere.</p>
+  <p>Much of our brain structure is symmetrical down the centre line (from the nose to the back of the head). As a consequence, many brain areas are '<strong>bilateral</strong>' <span class="cn">（双侧的）</span>, that is, they are found in both the left and right sides or '<strong>hemispheres</strong>' <span class="cn">（半球）</span>. The motor and somatosensory cortex are present on both sides of the brain (although the left side of the body is represented on the right side of the brain and vice versa). Broca's and Wernicke's areas, in contrast, are usually found only in the left hemisphere.</p>
 
-<p>Localisation can be investigated in various ways, historically by studying dead bodies or using surgery, on both animals and humans. Brain scanning techniques are a huge advance in biological psychology. Psychologists can now study the brains of living people and draw conclusions about the relationship between behaviours, cognition and the structure or function of the brain.</p>
+  <p>Localisation can be investigated in various ways, historically by studying dead bodies or using surgery, on both animals and humans. Brain scanning techniques are a huge advance in biological psychology. Psychologists can now study the brains of living people and draw conclusions about the relationship between behaviours, cognition and the structure or function of the brain.</p>
 
-<p>There are two basic types of brain scan:</p>
-<ul>
-  <li><strong>Structural scans</strong> <span class="cn">（结构扫描）</span>: take detailed pictures of the shape of brain areas</li>
-  <li><strong>Functional scans</strong> <span class="cn">（功能扫描）</span>: show activity levels in different areas of the brain</li>
-</ul>
-
-<p>Using modern <strong>structural magnetic resonance imaging (MRI)</strong> <span class="cn">（结构磁共振成像）</span> allows detailed images of living brains to be made. During an MRI scan, the participant is placed in a scanner which produces a strong magnetic field around their head. Protons in the brain line up with the magnetic field, and when the magnets are turned off, the scanner detects the energy released as the protons return to their original positions. As the proton concentration varies in different kinds of brain matter, the scanner is able to create a very detailed picture of the brain. During an MRI scan, the participant lies on a bed that enters the narrow tube of the scanner. During the scanning process, there is a loud noise inside the scanner and some people find the narrow tube confining, although it remains open by their feet. Although the scanning process is not painful and is harmless, it is unsuitable for people who have some metals in their bodies, such as pacemakers, metal plates or shrapnel, because these would be attracted to the magnet.</p>
-
-<p>One of the regions being investigated in this study is the <strong>hippocampus</strong> <span class="cn">（海马体）</span>. This brain area has many roles, such as in memory and navigation. It is also believed to be involved in controlling emotion and the arousal and responsiveness of the cortex. The hippocampus can therefore determine which of many sources of incoming we find stimulating. These are ways in which the hippocampus could be involved in the effects of mindfulness meditation. Furthermore, the hippocampus is a brain area which is known to show <strong>plasticity</strong> <span class="cn">（可塑性）</span>, that is, to be capable of creating new neurons and many new synapses between neurons. Examples of this plasticity include negative emotional experiences such as stress reducing hippocampal volume and treatment with antidepressant drugs increasing hippocampal volume.</p>
-
-<p>Some brain areas have, for a long time, been known to play particular roles: for instance the <strong>pons</strong> <span class="cn">（脑桥）</span> is involved in the control of sleep and dreams, and the <strong>cerebellum</strong> <span class="cn">（小脑）</span> controls 'automatic' or well-learned movements.</p>
-
-<h2 id="sec2">2. Mindfulness <span class="cn">（正念）</span></h2>
-
-<p>To psychologists, the importance of particular brain regions is still being discovered. One such activity — for which localisation is still being investigated — is <strong>mindfulness</strong> <span class="cn">（正念）</span>. Through mindfulness, a person becomes more aware of their current experience, their physical sensations as well as their thoughts and feelings. This helps them to enjoy life more by seeing themselves in a kinder, more accepting way. This can help us, for example, to appreciate simple positive experiences such as smells, sounds or sights and to notice signs that we are becoming anxious, stressed or depressed. This self-awareness enables us to act earlier and more effectively to reduce these problems.</p>
-
-<p>Mindfulness meditation is a formalised way to raise mindfulness. It typically involves being silent and directing attention to oneself, for example focusing on our own thoughts, sensations and sounds such as the regular rhythm of breathing.</p>
-
-<div class="key-box">
-  <strong>KEY WORD</strong><br>
-  <strong>Mindfulness</strong> <span class="cn">（正念）</span>: is a state achieved through meditation that aims to increase awareness of the present-moment experience and enable a person to look at themselves in a compassionate, non-judgemental way.
-</div>
-
-<figure>
-  <img src="hoelzel_images/03.png" alt="Figure 2.11: Juggling training changes brain structure">
-  <figcaption><strong>Figure 2.11</strong> <span class="cn">（杂耍训练改变大脑结构）</span>: Training in juggling produces changes in brain structure that can be detected by an MRI.</figcaption>
-</figure>
-
-<h2 id="sec3">3. Background <span class="cn">（研究背景）</span></h2>
-
-<p>Mindfulness involves thinking and sensations, and this information is processed by the brain. It could therefore be possible to study what part or parts of the brain are involved in the changes in attention and thinking associated with mindfulness. Early studies of mindfulness and the brain used the EEG (as used by Dement and Kleitman in Core study 1), but it is now possible to use the more detailed process of MRI. This neuroimaging procedure enables precise measurement to be taken of the brain.</p>
-
-<p>For example, the size of different structures can be calculated and the amount of <strong>grey matter</strong> <span class="cn">（灰质）</span> (the cell bodies of neurons) compared to <strong>white matter</strong> <span class="cn">（白质）</span> (the axons of neurons). MRI is able to detect small structural changes in the concentration of grey matter over time, and such changes are apparent in different kinds of training, including the learning of physical skills, and cognitive skills such as juggling (Figure 2.11), medical students revising for their exams and mirror reading.</p>
-
-<p>Studies have compared individuals who engage in different kinds of meditation, including mindfulness meditation, and those who do not, and have found differences in grey matter in various brain areas that appear to be associated with meditation. However, these studies have been <strong>cross-sectional</strong> <span class="cn">（横断面的）</span>, that is, they compared different groups of people: those who meditated and those who did not. It is therefore possible that brain differences found between the groups were caused by pre-existing differences between the participants rather than by the meditation itself. For example, if people who choose to meditate have more grey matter to start with, the results would appear to show that meditation increased grey matter, but this would be a misleading conclusion.</p>
-
-<div class="activity-box">
-  <strong>ACTIVITY 2.3</strong><br>
-  If you had the use of a brain scanner and could localise a function, what function would you want to locate? Explain why you would want to study this function to a partner or write an email to a psychologist to justify why they should conduct this research.<br><br>
-  <strong>Peer assessment</strong><br>
-  Present your argument to one of your peers, by email or face to face. Let them judge how convincing your argument is. Discuss with a partner whether it is an advantage for the human brain to have specialised locations for some tasks or whether there is a benefit to having tasks distributed across the brain. If you can, try taking opposing viewpoints.
-</div>
-
-<h2 id="sec4">4. Aim <span class="cn">（研究目的）</span></h2>
-
-<p>Hölzel et al. planned their study to overcome the potential problem experienced in earlier cross-sectional studies by using a <strong>longitudinal design</strong> <span class="cn">（纵向设计）</span>. The aim was to identify changes in specific brain regions, and the whole brain, by comparing grey matter concentration before and after a mindfulness course.</p>
-
-<h2 id="sec5">5. Method <span class="cn">（研究方法）</span></h2>
-
-<h3>5.1 Research Method and Design <span class="cn">（研究方法与设计）</span></h3>
-
-<p>This was an <strong>experiment</strong> <span class="cn">（实验）</span> using a longitudinal design, as a group of participants was tested before (pre) and after (post) an intervention. They were also compared to a control group. The <strong>independent variable</strong> <span class="cn">（自变量）</span> was exposure to an eight-week mindfulness-based intervention, the <strong>Mindfulness-Based Stress Reduction (MBSR)</strong> <span class="cn">（正念减压疗法）</span> course.</p>
-
-<p>Participants were tested pre- and post-attendance on a course consisting of a two-and-a-half-hour session each week for eight weeks, and a full day session in the sixth week. They were trained in mindfulness exercises intended to develop awareness of present-moment experiences and a compassionate non-judgemental view. The exercises included:</p>
-<ul>
-  <li>'body scan', where attention is guided in a sequence through the whole body, which ends with a perception of the body 'as a complete whole'</li>
-  <li>'mindful yoga', which includes gentle stretching and slow movements, and breathing exercises, which aim to raise awareness of the moment-to-moment experience</li>
-  <li>'sitting meditation', which focuses on the sensation of breathing, and progresses to sounds, sights, tastes, other body sensations, as well as thoughts and emotion</li>
-</ul>
-
-<p>A 45-minute recording of these guided mindfulness exercises was given to each participant with the instruction to practise them daily at home (their 'homework'). In the sessions, participants attended guidance was given for how to engage in mindfulness in everyday life, such as while eating, walking, washing the dishes or taking a shower. Instruction was also given on how to use mindfulness to cope with stress in daily life.</p>
-
-<p>In addition, a comparison of the MRI results from part of the study was made between the experimental (MBSR) group and a control group of participants who had not experienced the mindfulness intervention. This part of the experiment used an <strong>independent measures design</strong> <span class="cn">（独立测量设计）</span>.</p>
-
-<p>The main <strong>dependent variable</strong> <span class="cn">（因变量）</span> was the change in grey matter assessed using MRI scans. In addition, participants completed <strong>questionnaires</strong> <span class="cn">（问卷）</span> to measure five mindfulness scales (both before and after the intervention).</p>
-
-<h3>5.2 Sample <span class="cn">（样本）</span></h3>
-
-<p>Participants were recruited from people already enrolled on MBSR courses at the University of Massachusetts. They enrolled to help with stress reduction either because they had chosen to attend the course or had been referred by their doctor. All participants described themselves as physically and psychologically healthy and not taking medication. In addition, they had limited experience of meditation classes (none in the last six months and a maximum of four in the last 5 years, or ten in their lifetime), were aged 25–55 years, were safe to have an MRI scan (e.g. no metal in their bodies and not claustrophobic) and committed to attend all sessions and complete the homework exercises.</p>
-
-<p>The initial experimental <strong>sample</strong> <span class="cn">（样本）</span> of eight males and ten females fell to 16 as two males left after the first MRI session due to discomfort. The remaining sample had a <strong>mean age</strong> <span class="cn">（平均年龄）</span> of 38 years (<strong>standard deviation</strong> <span class="cn">（标准差）</span> 4.1 years) and included 13 Caucasian, one Asian, one African American and one multi-ethnic participant.</p>
-
-<p>The control sample consisted of seven males and ten females with a mean age of 39 years (standard deviation 9.2 years) and included 13 Caucasian, two Asian, two African American and one Hispanic participant. These two groups did not differ in terms of their educational level. Importantly, these control participants had the same eligibility criteria as the experimental participants for admission to the mindfulness course, hence they are described as a '<strong>wait-list</strong>' <span class="cn">（候补名单）</span> control group.</p>
-
-<p>The study was approved by the University of Massachusetts Institutional Review Board (ethical committee) and all participants gave written consent and received a discounted MBSR course fee.</p>
-
-<h3>5.3 Procedure <span class="cn">（程序）</span></h3>
-
-<p>The experimental and control groups both completed the <strong>Five Facet Mindfulness Questionnaire (FFMQ)</strong> <span class="cn">（五因素正念度量表）</span>, which has 39 items that measure:</p>
-<ul>
-  <li><strong>Observing</strong>: attending to/noticing internal and external stimuli, such as thoughts, feelings and sensations, including sights, sounds and smells</li>
-  <li><strong>Describing</strong>: mentally labelling these observations with words</li>
-  <li><strong>Acting with awareness</strong>: being attentive to current actions rather than responding automatically or absentmindedly</li>
-  <li><strong>Non-judging</strong> (of inner experience): not evaluating sensations, cognitions or emotions</li>
-  <li><strong>Non-reactivity</strong> (to inner experience): allowing thoughts and feelings to drift in and out</li>
-</ul>
-
-<figure>
-  <img src="hoelzel_images/05.png" alt="Figure 2.12: Extract from the Five Facet Mindfulness Questionnaire">
-  <figcaption><strong>Figure 2.12</strong> <span class="cn">（FFMQ节选）</span>: Extract from the Five Facet Mindfulness Questionnaire (Baer et al., 2006), items 1, 3, 4 and 5.</figcaption>
-</figure>
-
-<p>Each item on the FFMQ is a statement and is responded to on a five-point Likert-type scale. For items with standard scoring, such as 'I'm good at finding words to describe my feelings', a mindful participant might choose the response 'Very often or always true', scoring 5, or 'Often true', scoring 4, whereas a less mindful participant might choose 'Rarely true' (2) or 'Never or very rarely true' (1). Other items are 'reversed scored', such as 'I am easily distracted'. For these, a mindful participant might choose to respond with 'Rarely true' (scoring 4) or 'Never or very rarely true' (scoring 5). The total score for each of the five subscales is added up (there are seven or eight items for each subscale) and these totals are added together for a total FFMQ score. The questionnaire was completed by the experimental group before and after the MBSR course. The control group also completed the questionnaire twice. In each group, 14 participants provided useable data at both time points.</p>
-
-<p>Participants in both the experimental and control groups had MRI scans of their brains on two occasions. For the experimental group, these were during the two weeks before and two weeks after the eight-week MBSR intervention (an average gap of approximately 56 days). These are called the 'pre' and 'post' tests. Participants in the control group had an average gap of approximately 66 days between their two scans.</p>
-
-<p>The data from the MRI scans was used in two ways: to produce a 'regions of interest' (RoI) analysis, of particular brain areas, and to provide a 'whole-brain analysis'. Two regions of interest were the hippocampus on both sides of the brain (bilateral hippocampi) and bilateral insulae (see Figure 2.13). The whole-brain analysis was used to explore other regions potentially affected by the mindfulness intervention.</p>
-
-<figure>
-  <img src="hoelzel_images/06.png" alt="Figure 2.13: Location of the hippocampus and insula">
-  <figcaption><strong>Figure 2.13</strong> <span class="cn">（海马体与脑岛位置）</span>: The location of the hippocampus and insula in the left hemisphere.</figcaption>
-</figure>
-
-<p>Finally, participants reported the time they spent on formal homework exercises over the eight weeks, and the amount of time spent on each of the three exercises (body scan, yoga and sitting meditation).</p>
-
-<div class="activity-box">
-  <strong>ACTIVITY 2.4</strong><br>
-  You can obtain a copy of the FFMQ online. Type in the whole name or just FFMQ and you should be able to find free pdfs of the whole questionnaire and shortened versions of it. Have a look at the questions and their scoring system.
-</div>
-
-<h2 id="sec6">6. Results <span class="cn">（结果）</span></h2>
-
-<p>The experimental (MBSR) participants spent an average of 22.6 hours on mindfulness homework during the course, or approximately 27 minutes per day. Table 2.6 gives detailed data for the different exercises. None of the three measures were significantly correlated. For example, the <strong>correlation coefficient</strong> <span class="cn">（相关系数）</span> between body scan and sitting meditation was <em>r</em> = −0.26 and between yoga and sitting meditation was <em>r</em> = 0.49.</p>
-
-<div class="key-box">
-  <strong>KEY WORD</strong><br>
-  <strong>Correlation coefficient</strong> <span class="cn">（相关系数）</span>: a number between −1 and 1 that shows the strength of a relationship between two variables, with a coefficient of −1 meaning there is a perfect negative correlation and a coefficient of 1 meaning there is a perfect positive correlation.
-</div>
-
-<table>
-  <tr><th>MBSR exercise</th><th>Minutes Minimum</th><th>Minutes Maximum</th><th>Mean</th><th>Standard deviation</th></tr>
-  <tr><td>Body scan</td><td>335</td><td>1002</td><td>699</td><td>217</td></tr>
-  <tr><td>Yoga</td><td>103</td><td>775</td><td>327</td><td>194</td></tr>
-  <tr><td>Sitting meditation</td><td>0</td><td>755</td><td>332</td><td>211</td></tr>
-</table>
-<p><strong>Table 2.6</strong> <span class="cn">（MBSR练习作业时间）</span>: Time spent by MBSR participants on homework exercises.</p>
-
-<p>Useable FFMQ data from both time points was obtained from 14 MBSR and 14 control participants. Participants in the MBSR group significantly increased their mindfulness scores on three of the subscales between the pre and post questionnaires (acting with awareness, observing and non-judging). Furthermore, when this change was compared to that of the control group – which was not expected to change at all – the changes in mindfulness scores of the MBSR group were significantly greater on all three subscales.</p>
-
-<p>In the test of grey matter concentration in the left hippocampus, no differences were detected between the MBSR and control groups at the start of the study (i.e. at the pre-test stage). Nor were there any changes in grey matter concentrations in the control group between the two test points. Importantly, changes in this region of interest were detected in the MBSR group between the pre- and post-tests, based on a group size of 16 (see Table 2.7). This change did not, however, correlate with either the amount of homework completed by the participant or changes in their FFMQ scores. The grey matter concentration in other regions of interest did not show significant changes between the pre- and post-intervention tests.</p>
-
-<table>
-  <tr>
-    <th rowspan="2">Region of interest</th>
-    <th colspan="5">Approximate changes in grey matter concentration</th>
-  </tr>
-  <tr>
-    <th>Left hippocampus</th>
-    <th>Posterior cingulate cortex</th>
-    <th>Left temporo-parietal junction</th>
-    <th>Lateral cerebellum</th>
-    <th>Cerebellar vermis/brainstem</th>
-  </tr>
-  <tr><td><strong>MBSR group</strong></td><td>+ 0.01</td><td>+ 0.01</td><td>+ 0.007</td><td>+ 0.015</td><td>+ 0.014</td></tr>
-  <tr><td><strong>Control group</strong></td><td>+ 0.001</td><td>− 0.005</td><td>− 0.002</td><td>+ 0.001</td><td>− 0.001</td></tr>
-</table>
-<p><strong>Table 2.7</strong> <span class="cn">（灰质浓度变化）</span>: Changes in grey matter concentration in the brains of MBSR and control participants.</p>
-
-<p>The results from the whole-brain analysis also revealed changes. Four clusters in the brains of participants in the MBSR group were found to have significantly increased in grey matter concentration between the pre- and post-tests. These clusters were in the posterior cingulate cortex, the left temporo-parietal junction and in two parts of the cerebellum (the lateral cerebellum and the cerebellar vermis/brainstem) as shown in Table 2.7. These differences were also significantly greater than changes in corresponding areas of the brains of participants in the control group. As with the regions of interest findings, there were no correlations between the changes in these four areas and the amount of homework completed by the participant or changes in their FFMQ scores. In the MBSR group, no parts of the brain were found to have significant decreases in grey matter concentration after the MBSR intervention although there were some small reductions in grey matter concentration in the control group over the study period.</p>
-
-<h2 id="sec7">7. Conclusion <span class="cn">（结论）</span></h2>
-
-<p>The results from the regions of interest findings show that structural changes in the left hippocampus arise within an eight-week period of participation in a mindfulness course. This finding suggests that localised increases or decreases in hippocampal volume that have been demonstrated in other situations may happen in response to mindfulness meditation. Since the hippocampus plays a role in learning and memory, this suggests that during the MBSR course participants had learning experiences that changed the hippocampal grey matter.</p>
-
-<p>Furthermore, increases in grey matter concentration in the left temporo-parietal junction (TJP), posterior cingulate cortex (PCC), and cerebellum of the MBSR group but not the control group also suggest that participation in an eight-week mindfulness course causes structural changes in these brain regions. Although not specifically predicted, these findings reflect other research that has shown the involvement of these areas in responses linked to mindfulness.</p>
-
-<p>The TJP is important in the way we see ourselves or 'self-referential processing', for example the unity of our sense of self and our physical body. When processing in the TJP is impaired, this self-referential system can become faulty and can lead to out-of-body experiences. This links to the role of mindfulness training in learning to perceive the body as a 'complete whole'. Similarly, the PCC has a role in the way we judge the relevance of stimuli to ourselves, for example assessing how important an experience is to our emotional or autobiographical context. These functions arise in mindfulness too, for example in noticing internal and external stimuli and being attentive to moment-to-moment experiences of such stimuli.</p>
-
-<p>In addition, one of the key areas of the cerebellum identified as changing due to the mindfulness practice has a role in regulating emotions and cognition for healthy psychological functioning. The areas of the hippocampus, TPJ and PCC were found to change in response to the mindfulness intervention, and together with parts of the prefrontal cortex, form a brain network with many related functions, such as recalling the past, thinking about the future, and considering others' viewpoints such as in turn-taking. Together, these areas contribute to the way that autobiographical information enables the individual to consider alternative perspectives. This is a crucial step in achieving a mindful state.</p>
-
-<h2 id="sec8">8. Evaluation</h2>
-
-<h3>Strengths</h3>
-
-<div class="green-box">
-  <strong>✅ 1. <span class="syl-tag">CONTROL OF VARIABLES</span> Wait-List Control Group Ruled Out the Passage of Time</strong><br>
-  The control participants met the <strong>same eligibility criteria</strong> as the experimental participants for admission to the mindfulness course, and the two groups did not differ in educational level. Crucially, at the pre-test stage <strong>no differences in grey matter concentration in the left hippocampus were detected between the groups</strong>, and the control group showed no changes in grey matter between their two scans (an average gap of 66 days). This means the increases found in the MBSR group could not simply be attributed to the passage of time or to pre-existing differences between the groups, strengthening the conclusion that the intervention itself produced the changes.
-</div>
-
-<div class="green-box">
-  <strong>✅ 2. <span class="syl-tag">VALIDITY</span> Longitudinal Design Overcomes Participant Variables</strong><br>
-  Earlier studies in this area were <strong>cross-sectional</strong>: they compared people who already meditated with people who did not, so any differences in grey matter could have been caused by <strong>pre-existing participant variables</strong> — for example, people who choose to meditate may simply have more grey matter to start with. By scanning <strong>the same participants</strong> before and after the eight-week course, Hölzel et al. could be far more confident that the observed changes were produced by the intervention rather than by the kind of people who take up meditation. The longitudinal design also allowed time for the experiences of the course to affect <strong>brain plasticity</strong> in a measurable way.
-</div>
-
-<div class="green-box">
-  <strong>✅ 3. <span class="syl-tag">TYPES OF DATA</span> Objective Quantitative Data from MRI Scans</strong><br>
-  The MRI scanner measured grey matter concentration directly, providing <strong>quantitative data</strong> that enabled statistical comparisons between pre- and post-test levels and between the MBSR and control groups (see Table 2.7). The recorded volumes themselves <strong>do not need the researcher to interpret them</strong>, so the data are objective. Importantly, it would not be possible for participants to alter their grey matter volume in response to <strong>demand characteristics</strong> — even if they guessed the aim of the study, they could not consciously change their brain structure — which increases the validity of the data collected.
-</div>
-
-<div class="green-box">
-  <strong>✅ 4. <span class="syl-tag">RELIABILITY &amp; REPLICABILITY</span> Standardised, Replicable Procedure</strong><br>
-  The intervention was highly standardised: the eight-week MBSR course followed a fixed structure (a two-and-a-half-hour session each week plus a full day session in the sixth week); every participant practised with the <strong>same 45-minute recording</strong> of guided exercises (body scan, mindful yoga, sitting meditation); the <strong>same 39-item FFMQ</strong> was administered twice to both groups; and MRI scans took place at fixed intervals (approximately 56 days for the experimental group). Because the procedure was so carefully specified, another researcher could replicate the study to test whether the same pattern of grey matter change is found.
-</div>
-
-<h3>Weaknesses</h3>
-
-<div class="warn-box">
-  <strong>❌ 1. <span class="syl-tag">SAMPLING</span> Small, Self-Selected Sample of Stressed Volunteers</strong><br>
-  Participants were recruited from people <strong>already enrolled on MBSR courses</strong> — they had chosen to attend or been referred by their doctor because they were experiencing stress, so the sample was self-selected. The initial experimental sample of <strong>18 (8 males, 10 females) fell to 16</strong> when two males withdrew after the first MRI scan due to discomfort, and the remaining sample was mostly Caucasian (13 of 16) and aged 25–55. Because all participants were stressed volunteers seeking help, the findings may not generalise to the wider population — for example, to people who are not experiencing stress or who did not choose to take a mindfulness course.
-</div>
-
-<div class="warn-box">
-  <strong>❌ 2. <span class="syl-tag">VALIDITY</span> Brain Changes Did Not Correlate with Homework Time or Mindfulness Scores</strong><br>
-  In every brain area examined, the increases in grey matter <strong>did not correlate</strong> either with the amount of homework completed (a mean of 22.6 hours; individual exercise totals ranged from 0 to 1002 minutes) or with changes in FFMQ scores. This suggests that the number of minutes spent in mindfulness practice is <strong>not the direct cause</strong> of the brain changes; the researchers propose that the effect is mediated by the MBSR programme <strong>as a whole</strong>. Without a further control group receiving only the non-mindfulness-specific parts of the course (e.g. seven weekly sessions plus a full day of social contact believed to reduce stress), the specific effect of mindfulness meditation itself cannot be isolated.
-</div>
-
-<div class="warn-box">
-  <strong>❌ 3. <span class="syl-tag">VALIDITY</span> Interpreting MRI Changes Is Less Objective Than Measuring Them</strong><br>
-  Although the recorded volumes are objective, there are still many unknowns about the localisation of specific behaviours in the brain and the <strong>meaning of changes in volume</strong>. Mapping neural changes onto changes in thoughts and emotions is far less objective than the measurement itself, so we must be careful not to infer too much from the MRI results. In addition, the experience of being in an MRI scanner — <strong>noisy and confining</strong> — is hardly ecologically valid, and these features are potentially emotional and therefore relevant: the brain is being measured in an unnatural situation.
-</div>
-
-<div class="warn-box">
-  <strong>❌ 4. <span class="syl-tag">ETHICS</span> Wait-List Controls Experienced a Delay in Receiving Help</strong><br>
-  All of the participants were experiencing stress, identified through doctor- or self-referral. Those allocated to the control group had to <strong>wait at least eight weeks</strong> before they could receive assistance, and this delay in help risks a failure to <strong>protect participants from harm</strong>. It is unknown whether there was capacity for them to begin the course earlier, so this may have been an issue beyond the researchers' control — but the wait-list design still meant that stressed participants were knowingly left without treatment for the duration of the study.
-</div>
-
-<div class="ekp-box">
-  <h4>📋 Exam Key Points — Evaluation (AO3)</h4>
+  <h3>Two Basic Types of Brain Scan</h3>
   <ul>
-    <li><span class="tag-must">Must Know</span> <strong>[Control of Variables]</strong> Strength: wait-list control with the same eligibility criteria; no pre-test group differences; no change in the control group over time</li>
-    <li><span class="tag-must">Must Know</span> <strong>[Validity]</strong> Strength: longitudinal pre/post design of the same participants overcomes the participant variables that confounded earlier cross-sectional studies</li>
-    <li><span class="tag-common">Common</span> <strong>[Types of Data]</strong> Strength: objective quantitative MRI data; grey matter cannot be altered by demand characteristics</li>
-    <li><span class="tag-common">Common</span> <strong>[Reliability]</strong> Strength: standardised 8-week MBSR course, same 45-minute recording, FFMQ twice, fixed scan intervals (~56 days)</li>
-    <li><span class="tag-must">Must Know</span> <strong>[Sampling]</strong> Weakness: small self-selected sample (16 after two withdrew) of stressed volunteers, mostly Caucasian, aged 25–55</li>
-    <li><span class="tag-must">Must Know</span> <strong>[Validity]</strong> Weakness: grey matter increases did not correlate with homework minutes or FFMQ change — the effect of meditation itself is not isolated</li>
-    <li><span class="tag-common">Common</span> <strong>[Validity]</strong> Weakness: the meaning of volume change is interpretive; the scanner is noisy and confining (low ecological validity)</li>
-    <li><span class="tag-common">Common</span> <strong>[Ethics]</strong> Weakness: wait-list controls waited at least eight weeks for stress treatment</li>
+    <li><strong>Structural scans</strong> <span class="cn">（结构扫描）</span>: take detailed pictures of the shape of brain areas</li>
+    <li><strong>Functional scans</strong> <span class="cn">（功能扫描）</span>: show activity levels in different areas of the brain</li>
   </ul>
-</div>
 
-<h2 id="sec9">9. Ethical Issues <span class="cn">（伦理问题）</span></h2>
+  <h3>How MRI Works</h3>
+  <p>Using modern <strong>structural magnetic resonance imaging (MRI)</strong> <span class="cn">（结构磁共振成像）</span> allows detailed images of living brains to be made. During an MRI scan, the participant is placed in a scanner which produces a strong magnetic field around their head. Protons in the brain line up with the magnetic field, and when the magnets are turned off, the scanner detects the energy released as the protons return to their original positions. As the proton concentration varies in different kinds of brain matter, the scanner is able to create a very detailed picture of the brain. During an MRI scan, the participant lies on a bed that enters the narrow tube of the scanner. During the scanning process, there is a loud noise inside the scanner and some people find the narrow tube confining, although it remains open by their feet. Although the scanning process is not painful and is harmless, it is unsuitable for people who have some metals in their bodies, such as pacemakers, metal plates or shrapnel, because these would be attracted to the magnet.</p>
 
-<p>This study raised few ethical issues. To ensure the participants were protected during scanning, none accepted for the study had any metal implants, which could present a risk of physical harm, or claustrophobia, which could present a risk of psychological harm. Also, following their <strong>right to withdraw</strong> <span class="cn">（退出权）</span>, two participants left the study after the first MRI scan as they found the procedure uncomfortable.</p>
+  <h3>The Hippocampus — A Region of Interest</h3>
+  <p>One of the regions being investigated in this study is the <strong>hippocampus</strong> <span class="cn">（海马体）</span>. This brain area has many roles, such as in memory and navigation. It is also believed to be involved in controlling emotion and the arousal and responsiveness of the cortex. The hippocampus can therefore determine which of many sources of incoming we find stimulating. These are ways in which the hippocampus could be involved in the effects of mindfulness meditation. Furthermore, the hippocampus is a brain area which is known to show <strong>plasticity</strong> <span class="cn">（可塑性）</span>, that is, to be capable of creating new neurons and many new synapses between neurons. Examples of this plasticity include negative emotional experiences such as stress reducing hippocampal volume and treatment with antidepressant drugs increasing hippocampal volume.</p>
 
-<p>All of the participants were experiencing stress, identified through doctor- or self-referral. The participants allocated to the control group had to wait for at least eight weeks before they could receive assistance. This delay in help again risks a failure to <strong>protect participants from harm</strong> <span class="cn">（保护参与者免受伤害）</span>. However, it is unknown whether there was capacity for people to begin the course in advance of this time, so this may have been an issue beyond the researchers' control.</p>
+  <div class="note-box">
+    <h4>Other Localised Areas</h4>
+    <p>Some brain areas have, for a long time, been known to play particular roles: for instance the <strong>pons</strong> <span class="cn">（脑桥）</span> is involved in the control of sleep and dreams, and the <strong>cerebellum</strong> <span class="cn">（小脑）</span> controls 'automatic' or well-learned movements.</p>
+  </div>
+</section>
 
-<h2 id="sec10">10. Issues, Debates and Approaches <span class="cn">（议题、争论与取向）</span></h2>
+<!-- SECTION 2: MINDFULNESS -->
+<section class="section" id="s2">
+  <h2>2. Mindfulness（正念）</h2>
 
-<h3>10.1 The Application of Psychology to Everyday Life <span class="cn">（心理学在日常生活中的应用）</span></h3>
+  <p>To psychologists, the importance of particular brain regions is still being discovered. One such activity — for which localisation is still being investigated — is <strong>mindfulness</strong> <span class="cn">（正念）</span>. Through mindfulness, a person becomes more aware of their current experience, their physical sensations as well as their thoughts and feelings. This helps them to enjoy life more by seeing themselves in a kinder, more accepting way. This can help us, for example, to appreciate simple positive experiences such as smells, sounds or sights and to notice signs that we are becoming anxious, stressed or depressed. This self-awareness enables us to act earlier and more effectively to reduce these problems.</p>
 
-<p>Mindfulness is encouraged for not just stress reduction but potentially for helping people to sleep and improving physical health. By understanding the brain changes associated with mindfulness, combined with knowledge of the roles of the areas of the brain affected, mindfulness techniques, and their benefits, can be improved.</p>
+  <p>Mindfulness meditation is a formalised way to raise mindfulness. It typically involves being silent and directing attention to oneself, for example focusing on our own thoughts, sensations and sounds such as the regular rhythm of breathing.</p>
 
-<h3>10.2 Individual and Situational Explanations <span class="cn">（个体与情境解释）</span></h3>
+  <div class="note-box">
+    <h4>KEY WORD</h4>
+    <p><strong>Mindfulness</strong> <span class="cn">（正念）</span>: is a state achieved through meditation that aims to increase awareness of the present-moment experience and enable a person to look at themselves in a compassionate, non-judgemental way.</p>
+  </div>
 
-<p>The study by Hassett et al. demonstrated a clear role for biology, but also recognises that this interacts with the situational effects of exposure to gender stereotyping within society. Both through cultural expectations and the direct reinforcement and punishment of 'gender-appropriate' or 'inappropriate' behaviours, and through sheer exposure to gender stereotypes.</p>
+  <figure>
+    <img src="hoelzel_images/03.png" alt="Figure 2.11: Juggling training changes brain structure">
+    <figcaption><strong>Figure 2.11</strong> <span class="cn">（杂耍训练改变大脑结构）</span>: Training in juggling produces changes in brain structure that can be detected by an MRI.</figcaption>
+  </figure>
 
-<h3>10.3 Nature versus Nurture <span class="cn">（先天与后天）</span></h3>
+  <h3>From EEG to MRI: The Study Background</h3>
+  <p>Mindfulness involves thinking and sensations, and this information is processed by the brain. It could therefore be possible to study what part or parts of the brain are involved in the changes in attention and thinking associated with mindfulness. Early studies of mindfulness and the brain used the EEG (as used by Dement and Kleitman in Core Study 1), but it is now possible to use the more detailed process of MRI. This neuroimaging procedure enables precise measurement to be taken of the brain.</p>
 
-<p>The biological approach focuses mainly on the nature side of this debate, which is why it is possible to obtain evidence through procedures like the EEG, which was used in the Dement and Kleitman study to measure brain waves and eye movements. It is useful to be able to collect physiological evidence about brain activity as it provides direct evidence for the underlying biological processes, such as the link between dream content and eye movements.</p>
+  <p>For example, the size of different structures can be calculated and the amount of <strong>grey matter</strong> <span class="cn">（灰质）</span> (the cell bodies of neurons) compared to <strong>white matter</strong> <span class="cn">（白质）</span> (the axons of neurons). MRI is able to detect small structural changes in the concentration of grey matter over time, and such changes are apparent in different kinds of training, including the learning of physical skills, and cognitive skills such as juggling (Figure 2.11), medical students revising for their exams and mirror reading.</p>
 
-<p>Dream content relates to our experiences, so is a product of nurture. This, at least partly, explains the differences in dreams between individuals. Nurture influences will vary; thus, the content of people's dreams will differ. However, as even a foetus in the uterus experiences REM sleep, the capacity to dream appears to be a product of nature. Similarly, the biological processes underlying emotions are the product of the brain and of hormones.</p>
+  <h3>The Problem with Earlier (Cross-Sectional) Studies</h3>
+  <p>Studies have compared individuals who engage in different kinds of meditation, including mindfulness meditation, and those who do not, and have found differences in grey matter in various brain areas that appear to be associated with meditation. However, these studies have been <strong>cross-sectional</strong> <span class="cn">（横断面的）</span>, that is, they compared different groups of people: those who meditated and those who did not. It is therefore possible that brain differences found between the groups were caused by pre-existing differences between the participants rather than by the meditation itself. For example, if people who choose to meditate have more grey matter to start with, the results would appear to show that meditation increased grey matter, but this would be a misleading conclusion.</p>
 
-<p>Hölzel et al.'s study also has a clearly 'biological' focus on brain structure. This is determined largely by processes of nature, hence the similarities between individuals and even between humans and animals. However, Hölzel et al. demonstrated that the experience of the MBSR programme changed brain structure. This is an effect of nurture and shows that even those structures and processes that seem highly constrained by biology can be influenced by experience.</p>
+  <div class="activity-box">
+    <strong>ACTIVITY 2.3</strong><br>
+    If you had the use of a brain scanner and could localise a function, what function would you want to locate? Explain why you would want to study this function to a partner or write an email to a psychologist to justify why they should conduct this research.<br><br>
+    <strong>Peer assessment</strong> <span class="cn">（同伴互评）</span><br>
+    Present your argument to one of your peers, by email or face to face. Let them judge how convincing your argument is. Discuss with a partner whether it is an advantage for the human brain to have specialised locations for some tasks or whether there is a benefit to having tasks distributed across the brain. If you can, try taking opposing viewpoints.
+  </div>
+</section>
 
-<p>The study by Hassett et al., in contrast, demonstrated biological effects that were likely to be the result of differences in sex hormones, to show an enduring influence of nature. This illustrated that sex differences in the human play of boys and girls, often assumed to be a product of socialisation, may not, after all, be entirely caused by nurture.</p>
+<!-- SECTION 3: AIM -->
+<section class="section" id="s3">
+  <h2>3. Aim（研究目的）</h2>
 
-<h3>10.4 The Use of Children and Animals in Psychological Research <span class="cn">（儿童与动物研究）</span></h3>
+  <div class="quote">
+    Hölzel et al. planned their study to overcome the potential problem experienced in earlier cross-sectional studies by using a longitudinal design. The aim was to identify changes in specific brain regions, and the whole brain, by comparing grey matter concentration before and after a mindfulness course.
+  </div>
 
-<p>The study by Hassett et al. demonstrated a common technique, the use of comparative psychology. This is a process of finding evidence that helps to explain human behaviour by comparison to animal models. As non-human animals are less complex than humans, and their environment and experiences can be controlled, they provide a way to investigate the origins of human behaviours. This study was able to isolate the effect of biology (hormones) and experience (socialisation) to help to explore the causes of gender differences in children. Apart from the practical benefits, the use of animals both solves and raises ethical issues. It could be argued that it is or that it is not ethically acceptable to manipulate the environments of rhesus monkeys, whereas it would certainly be ethically unacceptable to manipulate the experiences of children such that they were not exposed to culturally driven socialisation.</p>
+  <div class="er-box">
+    <strong>ER Insight:</strong> The key phrase in the aim is <strong>"changes … by comparing grey matter concentration before and after"</strong>. This is a <em>longitudinal</em> <span class="cn">（纵向的）</span> claim about <strong>change over time within the same people</strong> — not a comparison of two different groups at one point in time. Make sure any answer about the aim mentions the before/after comparison.
+  </div>
+</section>
 
-<p>In addition, it is useful to consider whether the other studies in this section could have used animals and what the findings might have shown. If you have a mammal for a pet, you may have seen it apparently dreaming about running as it moves its legs, making quiet sounds or twitching its nose. Non-human animals such as mammals do demonstrate REM sleep, and this has been studied extensively. It is very difficult, however, to determine the content of their dreams. This has been done indirectly, by using brain-cell recording techniques to explore repeated waking behaviours (such as bird song and rats running mazes). It has been found that the patterns of brain activity during sleep closely resemble those of the waking behaviours, indicating what the animals are dreaming about.</p>
+<!-- SECTION 4: METHOD -->
+<section class="section" id="s4">
+  <h2>4. Method（研究方法）</h2>
 
-<h2 id="sec11">11. Summary <span class="cn">（总结）</span></h2>
+  <h3>4.1 Research Method and Design（研究方法与设计）</h3>
+  <p>This was an <strong>experiment</strong> <span class="cn">（实验）</span> using a <strong>longitudinal design</strong> <span class="cn">（纵向设计）</span>, as a group of participants was tested before (pre) and after (post) an intervention. They were also compared to a control group. The <strong>independent variable</strong> <span class="cn">（自变量）</span> was exposure to an eight-week mindfulness-based intervention, the <strong>Mindfulness-Based Stress Reduction (MBSR)</strong> <span class="cn">（正念减压疗法）</span> course.</p>
 
-<p>Hölzel et al.'s study was an experiment using a longitudinal design. This tested exposure to an eight-week Mindfulness-Based Stress Reduction (MBSR) intervention, in comparison to a wait-list control condition. Participants in the intervention group kept a record of their mindfulness activities. All participants were given two tests at the start and end of the time period: an MRI scan to measure grey matter concentration in the brain and a questionnaire testing mindfulness. Brain areas found to increase in the MBSR participants compared to the controls were the left hippocampus, PCC, TPJ and cerebellum. The mindfulness scores of the MBSR group but not the controls increased, however, this increase did not correlate with brain changes. The findings suggest that an MBSR intervention can cause changes in grey matter concentration in brain areas that play roles in learning, memory, self-referential processing, emotions and considering the viewpoints of others.</p>
+  <h3>The MBSR Course</h3>
+  <p>Participants were tested pre- and post-attendance on a course consisting of a two-and-a-half-hour session each week for eight weeks, and a full day session in the sixth week. They were trained in mindfulness exercises intended to develop awareness of present-moment experiences and a compassionate non-judgemental view. The exercises included:</p>
+  <ul>
+    <li><strong>'body scan'</strong> <span class="cn">（身体扫描）</span>: where attention is guided in a sequence through the whole body, which ends with a perception of the body 'as a complete whole'</li>
+    <li><strong>'mindful yoga'</strong> <span class="cn">（正念瑜伽）</span>: which includes gentle stretching and slow movements, and breathing exercises, which aim to raise awareness of the moment-to-moment experience</li>
+    <li><strong>'sitting meditation'</strong> <span class="cn">（静坐冥想）</span>: which focuses on the sensation of breathing, and progresses to sounds, sights, tastes, other body sensations, as well as thoughts and emotion</li>
+  </ul>
 
-<h2 id="sec12">12. Study Questions <span class="cn">（复习题）</span></h2>
+  <p>A 45-minute recording of these guided mindfulness exercises was given to each participant with the instruction to practise them daily at home (their 'homework'). In the sessions, participants attended guidance was given for how to engage in mindfulness in everyday life, such as while eating, walking, washing the dishes or taking a shower. Instruction was also given on how to use mindfulness to cope with stress in daily life.</p>
 
-<ol>
-  <li>What is meant by 'localisation of function'?</li>
-  <li>What type of brain scan did Hölzel et al. use?</li>
-  <li>What is the difference between a structural and a functional brain scan?</li>
-  <li>What was the aim of the study by Hölzel et al.?</li>
-  <li>What was the independent variable in Hölzel et al.'s study?</li>
-  <li>What was the dependent variable in Hölzel et al.'s study?</li>
-  <li>Describe the sample used in Hölzel et al.'s study.</li>
-  <li>What controls did Hölzel et al. use in their experiment?</li>
-  <li>Why was Hölzel et al.'s longitudinal study more valid than the earlier cross-sectional studies?</li>
-  <li>What 'homework' did Hölzel et al.'s experimental participants do?</li>
-  <li>How sure were Hölzel et al. that it was this homework that produced the brain changes they found?</li>
-  <li>Which brain areas showed increased grey matter concentration in the MBSR group?</li>
-</ol>
+  <div class="blue-box">
+    <strong>Design Note</strong> <span class="cn">（设计要点）</span>: In addition, a comparison of the MRI results from part of the study was made between the experimental (MBSR) group and a control group of participants who had not experienced the mindfulness intervention. This part of the experiment used an <strong>independent measures design</strong> <span class="cn">（独立测量设计）</span>.
+  </div>
 
-<h2 id="sec13">13. Key Terms <span class="cn">（关键词）</span></h2>
+  <p>The main <strong>dependent variable</strong> <span class="cn">（因变量）</span> was the change in grey matter assessed using MRI scans. In addition, participants completed <strong>questionnaires</strong> <span class="cn">（问卷）</span> to measure five mindfulness scales (both before and after the intervention).</p>
 
-<table>
-  <tr><th>Term</th><th>Definition</th></tr>
-  <tr><td><strong>Localisation of function</strong> <span class="cn">（功能定位）</span></td><td>The way that particular brain areas are responsible for different activities</td></tr>
-  <tr><td><strong>Motor cortex</strong> <span class="cn">（运动皮层）</span></td><td>The brain area responsible for deliberate movements</td></tr>
-  <tr><td><strong>Somatosensory cortex</strong> <span class="cn">（躯体感觉皮层）</span></td><td>The brain area responsible for skin and muscle sensation</td></tr>
-  <tr><td><strong>Bilateral</strong> <span class="cn">（双侧的）</span></td><td>Found in both the left and right sides of the brain</td></tr>
-  <tr><td><strong>Hemisphere</strong> <span class="cn">（半球）</span></td><td>One half of the brain</td></tr>
-  <tr><td><strong>MRI</strong> <span class="cn">（磁共振成像）</span></td><td>Magnetic resonance imaging; a technique used to scan the brain</td></tr>
-  <tr><td><strong>Structural scan</strong> <span class="cn">（结构扫描）</span></td><td>A scan that takes detailed pictures of the shape of brain areas</td></tr>
-  <tr><td><strong>Functional scan</strong> <span class="cn">（功能扫描）</span></td><td>A scan that shows activity levels in different areas of the brain</td></tr>
-  <tr><td><strong>Hippocampus</strong> <span class="cn">（海马体）</span></td><td>A brain area involved in memory, navigation, emotion and arousal</td></tr>
-  <tr><td><strong>Plasticity</strong> <span class="cn">（可塑性）</span></td><td>The brain's ability to change and form new neurons and synapses</td></tr>
-  <tr><td><strong>Cerebellum</strong> <span class="cn">（小脑）</span></td><td>The brain area that controls automatic or well-learned movements</td></tr>
-  <tr><td><strong>Pons</strong> <span class="cn">（脑桥）</span></td><td>The brain area involved in the control of sleep and dreams</td></tr>
-  <tr><td><strong>Mindfulness</strong> <span class="cn">（正念）</span></td><td>A state achieved through meditation that increases awareness of the present moment</td></tr>
-  <tr><td><strong>Grey matter</strong> <span class="cn">（灰质）</span></td><td>The cell bodies of neurons</td></tr>
-  <tr><td><strong>White matter</strong> <span class="cn">（白质）</span></td><td>The axons of neurons</td></tr>
-  <tr><td><strong>Cross-sectional</strong> <span class="cn">（横断面的）</span></td><td>A study comparing different groups of people at one point in time</td></tr>
-  <tr><td><strong>Longitudinal design</strong> <span class="cn">（纵向设计）</span></td><td>A study testing the same participants over a period of time</td></tr>
-  <tr><td><strong>Experiment</strong> <span class="cn">（实验）</span></td><td>A research method that investigates cause and effect</td></tr>
-  <tr><td><strong>Independent variable</strong> <span class="cn">（自变量）</span></td><td>The variable that is manipulated by the researcher</td></tr>
-  <tr><td><strong>Dependent variable</strong> <span class="cn">（因变量）</span></td><td>The variable that is measured by the researcher</td></tr>
-  <tr><td><strong>MBSR</strong> <span class="cn">（正念减压疗法）</span></td><td>Mindfulness-Based Stress Reduction</td></tr>
-  <tr><td><strong>Independent measures design</strong> <span class="cn">（独立测量设计）</span></td><td>Different participants are used in each condition of an experiment</td></tr>
-  <tr><td><strong>Sample</strong> <span class="cn">（样本）</span></td><td>The group of participants selected for a study</td></tr>
-  <tr><td><strong>Mean</strong> <span class="cn">（平均数）</span></td><td>A measure of central tendency calculated by dividing the total by the number of items</td></tr>
-  <tr><td><strong>Standard deviation</strong> <span class="cn">（标准差）</span></td><td>A measure of dispersion showing how spread out data are around the mean</td></tr>
-  <tr><td><strong>Wait-list control group</strong> <span class="cn">（候补名单控制组）</span></td><td>A control group that receives the same treatment after the study is completed</td></tr>
-  <tr><td><strong>FFMQ</strong> <span class="cn">（五因素正念度量表）</span></td><td>Five Facet Mindfulness Questionnaire</td></tr>
-  <tr><td><strong>Correlation coefficient</strong> <span class="cn">（相关系数）</span></td><td>A number between −1 and 1 showing the strength and direction of a relationship</td></tr>
-  <tr><td><strong>Quantitative data</strong> <span class="cn">（定量数据）</span></td><td>Numerical data that can be analysed statistically</td></tr>
-  <tr><td><strong>Ecological validity</strong> <span class="cn">（生态效度）</span></td><td>The extent to which findings can be generalised to real-life settings</td></tr>
-  <tr><td><strong>Demand characteristics</strong> <span class="cn">（要求特征）</span></td><td>Cues in a study that make participants guess the aim and change their behaviour</td></tr>
-  <tr><td><strong>Objective data</strong> <span class="cn">（客观数据）</span></td><td>Data that is not influenced by the researcher's interpretation</td></tr>
-  <tr><td><strong>Right to withdraw</strong> <span class="cn">（退出权）</span></td><td>The ethical right of participants to leave a study at any time</td></tr>
-  <tr><td><strong>Participant variables</strong> <span class="cn">（参与者变量）</span></td><td>Individual differences between participants that may affect results</td></tr>
-  <tr><td><strong>Self-referential processing</strong> <span class="cn">（自我参照加工）</span></td><td>The way we see ourselves and judge the relevance of stimuli to ourselves</td></tr>
-  <tr><td><strong>Temporo-parietal junction (TPJ)</strong> <span class="cn">（颞顶联合区）</span></td><td>A brain area involved in self-referential processing</td></tr>
-  <tr><td><strong>Posterior cingulate cortex (PCC)</strong> <span class="cn">（后扣带皮层）</span></td><td>A brain area involved in judging the relevance of stimuli to ourselves</td></tr>
-  <tr><td><strong>Insula</strong> <span class="cn">（脑岛）</span></td><td>A brain area involved in awareness of internal bodily states</td></tr>
-</table>
+  <h3>4.2 Sample（样本）</h3>
+  <p>Participants were recruited from people already enrolled on MBSR courses at the University of Massachusetts. They enrolled to help with stress reduction either because they had chosen to attend the course or had been referred by their doctor. All participants described themselves as physically and psychologically healthy and not taking medication. In addition, they had limited experience of meditation classes (none in the last six months and a maximum of four in the last 5 years, or ten in their lifetime), were aged 25–55 years, were safe to have an MRI scan (e.g. no metal in their bodies and not claustrophobic) and committed to attend all sessions and complete the homework exercises.</p>
 
-<h2 id="sec14">14. Exam-Style Questions <span class="cn">（考试题型）</span></h2>
+  <table>
+    <tr><th>Characteristic</th><th>Experimental (MBSR) Group</th><th>Control (Wait-List) Group</th></tr>
+    <tr><td>Initial size</td><td>18 (8 males, 10 females) → <strong>16</strong> (2 males withdrew)</td><td>17 (7 males, 10 females)</td></tr>
+    <tr><td>Mean age</td><td>38 years (<em>SD</em> = 4.1)</td><td>39 years (<em>SD</em> = 9.2)</td></tr>
+    <tr><td>Ethnicity</td><td>13 Caucasian, 1 Asian, 1 African American, 1 multi-ethnic</td><td>13 Caucasian, 2 Asian, 2 African American, 1 Hispanic</td></tr>
+    <tr><td>Selection</td><td>Self-selected / doctor-referred, already enrolled on MBSR</td><td>Same eligibility criteria — a '<strong>wait-list</strong>' <span class="cn">（候补名单）</span> control</td></tr>
+    <tr><td>Education</td><td colspan="2">The two groups did not differ in terms of their educational level</td></tr>
+  </table>
 
-<div class="exam-box">
+  <p>The study was approved by the University of Massachusetts Institutional Review Board (ethical committee) and all participants gave written consent and received a discounted MBSR course fee.</p>
+</section>
+
+<!-- SECTION 5: PROCEDURE -->
+<section class="section" id="s5">
+  <h2>5. Procedure（实验程序）</h2>
+
+  <h3>The Five Facet Mindfulness Questionnaire (FFMQ)</h3>
+  <p>The experimental and control groups both completed the <strong>Five Facet Mindfulness Questionnaire (FFMQ)</strong> <span class="cn">（五因素正念度量表）</span>, which has 39 items that measure:</p>
+  <ul>
+    <li><strong>Observing</strong> <span class="cn">（观察）</span>: attending to/noticing internal and external stimuli, such as thoughts, feelings and sensations, including sights, sounds and smells</li>
+    <li><strong>Describing</strong> <span class="cn">（描述）</span>: mentally labelling these observations with words</li>
+    <li><strong>Acting with awareness</strong> <span class="cn">（有觉知地行动）</span>: being attentive to current actions rather than responding automatically or absentmindedly</li>
+    <li><strong>Non-judging</strong> <span class="cn">（不评判）</span> (of inner experience): not evaluating sensations, cognitions or emotions</li>
+    <li><strong>Non-reactivity</strong> <span class="cn">（不反应）</span> (to inner experience): allowing thoughts and feelings to drift in and out</li>
+  </ul>
+
+  <figure>
+    <img src="hoelzel_images/05.png" alt="Figure 2.12: Extract from the Five Facet Mindfulness Questionnaire">
+    <figcaption><strong>Figure 2.12</strong> <span class="cn">（FFMQ节选）</span>: Extract from the Five Facet Mindfulness Questionnaire (Baer et al., 2006), items 1, 3, 4 and 5.</figcaption>
+  </figure>
+
+  <h3>How the FFMQ Is Scored</h3>
+  <p>Each item on the FFMQ is a statement and is responded to on a five-point Likert-type scale. For items with standard scoring, such as 'I'm good at finding words to describe my feelings', a mindful participant might choose the response 'Very often or always true', scoring 5, or 'Often true', scoring 4, whereas a less mindful participant might choose 'Rarely true' (2) or 'Never or very rarely true' (1). Other items are 'reversed scored', such as 'I am easily distracted'. For these, a mindful participant might choose to respond with 'Rarely true' (scoring 4) or 'Never or very rarely true' (scoring 5). The total score for each of the five subscales is added up (there are seven or eight items for each subscale) and these totals are added together for a total FFMQ score. The questionnaire was completed by the experimental group before and after the MBSR course. The control group also completed the questionnaire twice. In each group, 14 participants provided useable data at both time points.</p>
+
+  <h3>MRI Scanning Schedule</h3>
+  <p>Participants in both the experimental and control groups had MRI scans of their brains on two occasions. For the experimental group, these were during the two weeks before and two weeks after the eight-week MBSR intervention (an average gap of approximately <strong>56 days</strong>). These are called the 'pre' and 'post' tests. Participants in the control group had an average gap of approximately <strong>66 days</strong> between their two scans.</p>
+
+  <h3>Regions of Interest (RoI) and Whole-Brain Analysis</h3>
+  <p>The data from the MRI scans was used in two ways: to produce a 'regions of interest' (RoI) analysis, of particular brain areas, and to provide a 'whole-brain analysis'. Two regions of interest were the hippocampus on both sides of the brain (bilateral hippocampi) and bilateral insulae (see Figure 2.13). The whole-brain analysis was used to explore other regions potentially affected by the mindfulness intervention.</p>
+
+  <figure>
+    <img src="hoelzel_images/06.png" alt="Figure 2.13: Location of the hippocampus and insula">
+    <figcaption><strong>Figure 2.13</strong> <span class="cn">（海马体与脑岛位置）</span>: The location of the hippocampus and insula in the left hemisphere.</figcaption>
+  </figure>
+
+  <p>Finally, participants reported the time they spent on formal homework exercises over the eight weeks, and the amount of time spent on each of the three exercises (body scan, yoga and sitting meditation).</p>
+
+  <div class="activity-box">
+    <strong>ACTIVITY 2.4</strong><br>
+    You can obtain a copy of the FFMQ online. Type in the whole name or just FFMQ and you should be able to find free pdfs of the whole questionnaire and shortened versions of it. Have a look at the questions and their scoring system.
+  </div>
+</section>
+
+<!-- SECTION 6: RESULTS -->
+<section class="section" id="s6">
+  <h2>6. Results（研究结果）</h2>
+
+  <h3>Homework Practice Time</h3>
+  <p>The experimental (MBSR) participants spent an average of <strong>22.6 hours</strong> on mindfulness homework during the course, or approximately 27 minutes per day. Table 2.6 gives detailed data for the different exercises. None of the three measures were significantly correlated. For example, the <strong>correlation coefficient</strong> <span class="cn">（相关系数）</span> between body scan and sitting meditation was <em>r</em> = −0.26 and between yoga and sitting meditation was <em>r</em> = 0.49.</p>
+
+  <div class="note-box">
+    <h4>KEY WORD</h4>
+    <p><strong>Correlation coefficient</strong> <span class="cn">（相关系数）</span>: a number between −1 and 1 that shows the strength of a relationship between two variables, with a coefficient of −1 meaning there is a perfect negative correlation and a coefficient of 1 meaning there is a perfect positive correlation.</p>
+  </div>
+
+  <table>
+    <tr><th>MBSR exercise</th><th>Minutes Minimum</th><th>Minutes Maximum</th><th>Mean</th><th>Standard deviation</th></tr>
+    <tr><td>Body scan</td><td class="num-cell">335</td><td class="num-cell">1002</td><td class="num-cell">699</td><td class="num-cell">217</td></tr>
+    <tr><td>Yoga</td><td class="num-cell">103</td><td class="num-cell">775</td><td class="num-cell">327</td><td class="num-cell">194</td></tr>
+    <tr><td>Sitting meditation</td><td class="num-cell">0</td><td class="num-cell">755</td><td class="num-cell">332</td><td class="num-cell">211</td></tr>
+  </table>
+  <p class="table-caption"><strong>Table 2.6</strong> <span class="cn">（MBSR练习作业时间）</span>: Time spent by MBSR participants on homework exercises.</p>
+
+  <h3>FFMQ Questionnaire Results</h3>
+  <p>Useable FFMQ data from both time points was obtained from 14 MBSR and 14 control participants. Participants in the MBSR group significantly increased their mindfulness scores on <strong>three of the subscales</strong> between the pre and post questionnaires (acting with awareness, observing and non-judging). Furthermore, when this change was compared to that of the control group – which was not expected to change at all – the changes in mindfulness scores of the MBSR group were significantly greater on all three subscales.</p>
+
+  <h3>Regions of Interest Findings</h3>
+  <p>In the test of grey matter concentration in the <strong>left hippocampus</strong>, no differences were detected between the MBSR and control groups at the start of the study (i.e. at the pre-test stage). Nor were there any changes in grey matter concentrations in the control group between the two test points. Importantly, changes in this region of interest were detected in the MBSR group between the pre- and post-tests, based on a group size of 16 (see Table 2.7). This change did not, however, correlate with either the amount of homework completed by the participant or changes in their FFMQ scores. The grey matter concentration in other regions of interest did not show significant changes between the pre- and post-intervention tests.</p>
+
+  <h3>Grey Matter Changes Compared</h3>
+  <table>
+    <tr>
+      <th rowspan="2">Region of interest</th>
+      <th colspan="5">Approximate changes in grey matter concentration</th>
+    </tr>
+    <tr>
+      <th>Left hippocampus</th>
+      <th>Posterior cingulate cortex</th>
+      <th>Left temporo-parietal junction</th>
+      <th>Lateral cerebellum</th>
+      <th>Cerebellar vermis/brainstem</th>
+    </tr>
+    <tr><td><strong>MBSR group</strong></td><td class="num-cell">+ 0.01</td><td class="num-cell">+ 0.01</td><td class="num-cell">+ 0.007</td><td class="num-cell">+ 0.015</td><td class="num-cell">+ 0.014</td></tr>
+    <tr><td><strong>Control group</strong></td><td class="num-cell">+ 0.001</td><td class="num-cell">− 0.005</td><td class="num-cell">− 0.002</td><td class="num-cell">+ 0.001</td><td class="num-cell">− 0.001</td></tr>
+  </table>
+  <p class="table-caption"><strong>Table 2.7</strong> <span class="cn">（灰质浓度变化）</span>: Changes in grey matter concentration in the brains of MBSR and control participants.</p>
+
+  <div class="chart-container">
+    <canvas id="greyMatterChart"></canvas>
+  </div>
+
+  <h3>Whole-Brain Analysis Findings</h3>
+  <p>The results from the whole-brain analysis also revealed changes. <strong>Four clusters</strong> in the brains of participants in the MBSR group were found to have significantly increased in grey matter concentration between the pre- and post-tests. These clusters were in the posterior cingulate cortex, the left temporo-parietal junction and in two parts of the cerebellum (the lateral cerebellum and the cerebellar vermis/brainstem) as shown in Table 2.7. These differences were also significantly greater than changes in corresponding areas of the brains of participants in the control group. As with the regions of interest findings, there were no correlations between the changes in these four areas and the amount of homework completed by the participant or changes in their FFMQ scores. In the MBSR group, no parts of the brain were found to have significant decreases in grey matter concentration after the MBSR intervention although there were some small reductions in grey matter concentration in the control group over the study period.</p>
+
+  <div class="er-box">
+    <strong>ER Insight:</strong> Note the exact pattern of results that examiners reward: (1) MBSR group <strong>increased</strong> in five brain areas; (2) control group showed <strong>no change or slight decrease</strong>; (3) the increases <strong>did not correlate</strong> with homework time or FFMQ change. Point (3) is the most commonly missed — and it is the basis of the best evaluation point about validity.
+  </div>
+</section>
+
+<!-- SECTION 7: CONCLUSION -->
+<section class="section" id="s7">
+  <h2>7. Conclusion（结论）</h2>
+
+  <p>The results from the regions of interest findings show that structural changes in the <strong>left hippocampus</strong> arise within an eight-week period of participation in a mindfulness course. This finding suggests that localised increases or decreases in hippocampal volume that have been demonstrated in other situations may happen in response to mindfulness meditation. Since the hippocampus plays a role in learning and memory, this suggests that during the MBSR course participants had learning experiences that changed the hippocampal grey matter.</p>
+
+  <p>Furthermore, increases in grey matter concentration in the left temporo-parietal junction (TJP), posterior cingulate cortex (PCC), and cerebellum of the MBSR group but not the control group also suggest that participation in an eight-week mindfulness course causes structural changes in these brain regions. Although not specifically predicted, these findings reflect other research that has shown the involvement of these areas in responses linked to mindfulness.</p>
+
+  <h3>Why These Particular Areas?</h3>
+  <p>The <strong>TJP</strong> is important in the way we see ourselves or 'self-referential processing' <span class="cn">（自我参照加工）</span>, for example the unity of our sense of self and our physical body. When processing in the TJP is impaired, this self-referential system can become faulty and can lead to out-of-body experiences. This links to the role of mindfulness training in learning to perceive the body as a 'complete whole'. Similarly, the <strong>PCC</strong> has a role in the way we judge the relevance of stimuli to ourselves, for example assessing how important an experience is to our emotional or autobiographical context. These functions arise in mindfulness too, for example in noticing internal and external stimuli and being attentive to moment-to-moment experiences of such stimuli.</p>
+
+  <p>In addition, one of the key areas of the cerebellum identified as changing due to the mindfulness practice has a role in regulating emotions and cognition for healthy psychological functioning. The areas of the hippocampus, TPJ and PCC were found to change in response to the mindfulness intervention, and together with parts of the prefrontal cortex, form a brain network with many related functions, such as recalling the past, thinking about the future, and considering others' viewpoints such as in turn-taking. Together, these areas contribute to the way that autobiographical information enables the individual to consider alternative perspectives. This is a crucial step in achieving a mindful state.</p>
+
+  <div class="er-box">
+    <strong>Result vs Conclusion — 检验你是否分得清：</strong><br>
+    <em>Result</em> = "灰质浓度在左侧海马体平均增加 +0.01，控制组无变化"（测到的数字）<br>
+    <em>Conclusion</em> = "八周正念课程会导致这些脑区的结构性变化"（对因果的推断）<br>
+    考官报告中把两者混写是 9990 最常见失分点之一。永远先报数字，再做推断。
+  </div>
+</section>
+
+<!-- SECTION 8: EVALUATION -->
+<section class="section" id="s8">
+  <h2>8. Evaluation（评价）</h2>
+
+  <h3>Strengths</h3>
+
+  <div class="strength-box">
+    <strong>✅ 1. <span class="syl-tag">CONTROL OF VARIABLES</span> Wait-List Control Group Ruled Out the Passage of Time</strong><br>
+    The control participants met the <strong>same eligibility criteria</strong> as the experimental participants for admission to the mindfulness course, and the two groups did not differ in educational level. Crucially, at the pre-test stage <strong>no differences in grey matter concentration in the left hippocampus were detected between the groups</strong>, and the control group showed no changes in grey matter between their two scans (an average gap of 66 days). This means the increases found in the MBSR group could not simply be attributed to the passage of time or to pre-existing differences between the groups, strengthening the conclusion that the intervention itself produced the changes.
+  </div>
+
+  <div class="strength-box">
+    <strong>✅ 2. <span class="syl-tag">VALIDITY</span> Longitudinal Design Overcomes Participant Variables</strong><br>
+    Earlier studies in this area were <strong>cross-sectional</strong>: they compared people who already meditated with people who did not, so any differences in grey matter could have been caused by <strong>pre-existing participant variables</strong> — for example, people who choose to meditate may simply have more grey matter to start with. By scanning <strong>the same participants</strong> before and after the eight-week course, Hölzel et al. could be far more confident that the observed changes were produced by the intervention rather than by the kind of people who take up meditation. The longitudinal design also allowed time for the experiences of the course to affect <strong>brain plasticity</strong> in a measurable way.
+  </div>
+
+  <div class="strength-box">
+    <strong>✅ 3. <span class="syl-tag">TYPES OF DATA</span> Objective Quantitative Data from MRI Scans</strong><br>
+    The MRI scanner measured grey matter concentration directly, providing <strong>quantitative data</strong> that enabled statistical comparisons between pre- and post-test levels and between the MBSR and control groups (see Table 2.7). The recorded volumes themselves <strong>do not need the researcher to interpret them</strong>, so the data are objective. Importantly, it would not be possible for participants to alter their grey matter volume in response to <strong>demand characteristics</strong> — even if they guessed the aim of the study, they could not consciously change their brain structure — which increases the validity of the data collected.
+  </div>
+
+  <div class="strength-box">
+    <strong>✅ 4. <span class="syl-tag">RELIABILITY &amp; REPLICABILITY</span> Standardised, Replicable Procedure</strong><br>
+    The intervention was highly standardised: the eight-week MBSR course followed a fixed structure (a two-and-a-half-hour session each week plus a full day session in the sixth week); every participant practised with the <strong>same 45-minute recording</strong> of guided exercises (body scan, mindful yoga, sitting meditation); the <strong>same 39-item FFMQ</strong> was administered twice to both groups; and MRI scans took place at fixed intervals (approximately 56 days for the experimental group). Because the procedure was so carefully specified, another researcher could replicate the study to test whether the same pattern of grey matter change is found.
+  </div>
+
+  <h3>Weaknesses</h3>
+
+  <div class="weakness-box">
+    <strong>❌ 1. <span class="syl-tag">SAMPLING</span> Small, Self-Selected Sample of Stressed Volunteers</strong><br>
+    Participants were recruited from people <strong>already enrolled on MBSR courses</strong> — they had chosen to attend or been referred by their doctor because they were experiencing stress, so the sample was self-selected. The initial experimental sample of <strong>18 (8 males, 10 females) fell to 16</strong> when two males withdrew after the first MRI scan due to discomfort, and the remaining sample was mostly Caucasian (13 of 16) and aged 25–55. Because all participants were stressed volunteers seeking help, the findings may not generalise to the wider population — for example, to people who are not experiencing stress or who did not choose to take a mindfulness course.
+  </div>
+
+  <div class="weakness-box">
+    <strong>❌ 2. <span class="syl-tag">VALIDITY</span> Brain Changes Did Not Correlate with Homework Time or Mindfulness Scores</strong><br>
+    In every brain area examined, the increases in grey matter <strong>did not correlate</strong> either with the amount of homework completed (a mean of 22.6 hours; individual exercise totals ranged from 0 to 1002 minutes) or with changes in FFMQ scores. This suggests that the number of minutes spent in mindfulness practice is <strong>not the direct cause</strong> of the brain changes; the researchers propose that the effect is mediated by the MBSR programme <strong>as a whole</strong>. Without a further control group receiving only the non-mindfulness-specific parts of the course (e.g. seven weekly sessions plus a full day of social contact believed to reduce stress), the specific effect of mindfulness meditation itself cannot be isolated.
+  </div>
+
+  <div class="weakness-box">
+    <strong>❌ 3. <span class="syl-tag">VALIDITY</span> Interpreting MRI Changes Is Less Objective Than Measuring Them</strong><br>
+    Although the recorded volumes are objective, there are still many unknowns about the localisation of specific behaviours in the brain and the <strong>meaning of changes in volume</strong>. Mapping neural changes onto changes in thoughts and emotions is far less objective than the measurement itself, so we must be careful not to infer too much from the MRI results. In addition, the experience of being in an MRI scanner — <strong>noisy and confining</strong> — is hardly ecologically valid, and these features are potentially emotional and therefore relevant: the brain is being measured in an unnatural situation.
+  </div>
+
+  <div class="weakness-box">
+    <strong>❌ 4. <span class="syl-tag">ETHICS</span> Wait-List Controls Experienced a Delay in Receiving Help</strong><br>
+    All of the participants were experiencing stress, identified through doctor- or self-referral. Those allocated to the control group had to <strong>wait at least eight weeks</strong> before they could receive assistance, and this delay in help risks a failure to <strong>protect participants from harm</strong>. It is unknown whether there was capacity for them to begin the course earlier, so this may have been an issue beyond the researchers' control — but the wait-list design still meant that stressed participants were knowingly left without treatment for the duration of the study.
+  </div>
+
+  <div class="ekp-box">
+    <h4>📋 Exam Key Points — Evaluation (AO3)</h4>
+    <ul>
+      <li><span class="tag-must">Must Know</span> <strong>[Control of Variables]</strong> Strength: wait-list control with the same eligibility criteria; no pre-test group differences; no change in the control group over time</li>
+      <li><span class="tag-must">Must Know</span> <strong>[Validity]</strong> Strength: longitudinal pre/post design of the same participants overcomes the participant variables that confounded earlier cross-sectional studies</li>
+      <li><span class="tag-common">Common</span> <strong>[Types of Data]</strong> Strength: objective quantitative MRI data; grey matter cannot be altered by demand characteristics</li>
+      <li><span class="tag-common">Common</span> <strong>[Reliability]</strong> Strength: standardised 8-week MBSR course, same 45-minute recording, FFMQ twice, fixed scan intervals (~56 days)</li>
+      <li><span class="tag-must">Must Know</span> <strong>[Sampling]</strong> Weakness: small self-selected sample (16 after two withdrew) of stressed volunteers, mostly Caucasian, aged 25–55</li>
+      <li><span class="tag-must">Must Know</span> <strong>[Validity]</strong> Weakness: grey matter increases did not correlate with homework minutes or FFMQ change — the effect of meditation itself is not isolated</li>
+      <li><span class="tag-common">Common</span> <strong>[Validity]</strong> Weakness: the meaning of volume change is interpretive; the scanner is noisy and confining (low ecological validity)</li>
+      <li><span class="tag-common">Common</span> <strong>[Ethics]</strong> Weakness: wait-list controls waited at least eight weeks for stress treatment</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SECTION 9: ETHICAL ISSUES -->
+<section class="section" id="s9">
+  <h2>9. Ethical Issues（伦理问题）</h2>
+
+  <p>This study raised few ethical issues. To ensure the participants were protected during scanning, none accepted for the study had any metal implants, which could present a risk of physical harm, or claustrophobia, which could present a risk of psychological harm. Also, following their <strong>right to withdraw</strong> <span class="cn">（退出权）</span>, two participants left the study after the first MRI scan as they found the procedure uncomfortable.</p>
+
+  <p>All of the participants were experiencing stress, identified through doctor- or self-referral. The participants allocated to the control group had to wait for at least eight weeks before they could receive assistance. This delay in help again risks a failure to <strong>protect participants from harm</strong> <span class="cn">（保护参与者免受伤害）</span>. However, it is unknown whether there was capacity for people to begin the course in advance of this time, so this may have been an issue beyond the researchers' control.</p>
+
+  <div class="cn-summary-wrap">
+    <h3>🀄 本节中文总结</h3>
+    <ul>
+      <li>扫描前筛查排除了金属植入物与幽闭恐惧症 → 规避身体/心理伤害风险</li>
+      <li>两名男性第一次MRI后行使退出权 → 退出权得到尊重（样本18→16）</li>
+      <li>唯一争议点：候补名单控制组被迫等待至少8周才获得减压帮助 → "保护参与者免受伤害"存疑</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SECTION 10: ISSUES & DEBATES -->
+<section class="section" id="s10">
+  <h2>10. Issues, Debates and Approaches（议题、争论与取向）</h2>
+
+  <h3>10.1 The Application of Psychology to Everyday Life（心理学在日常生活中的应用）</h3>
+  <p>Mindfulness is encouraged for not just stress reduction but potentially for helping people to sleep and improving physical health. By understanding the brain changes associated with mindfulness, combined with knowledge of the roles of the areas of the brain affected, mindfulness techniques, and their benefits, can be improved.</p>
+
+  <h3>10.2 Individual and Situational Explanations（个体与情境解释）</h3>
+  <p>The study by Hassett et al. demonstrated a clear role for biology, but also recognises that this interacts with the situational effects of exposure to gender stereotyping within society. Both through cultural expectations and the direct reinforcement and punishment of 'gender-appropriate' or 'inappropriate' behaviours, and through sheer exposure to gender stereotypes.</p>
+  <p>In Hölzel et al.'s study, the individual (biological) explanation is dominant: changes in grey matter were measured within each participant's own brain. But a situational reading is also possible — the brain changes may have been produced by the <strong>situation of attending the course</strong> (group sessions, a teacher, daily homework structure) rather than by any individual quality of the meditator. This is precisely why the lack of a correlation between homework minutes and grey matter change matters.</p>
+
+  <h3>10.3 Nature versus Nurture（先天与后天）</h3>
+  <p>The biological approach focuses mainly on the nature side of this debate, which is why it is possible to obtain evidence through procedures like the EEG, which was used in the Dement and Kleitman study to measure brain waves and eye movements. It is useful to be able to collect physiological evidence about brain activity as it provides direct evidence for the underlying biological processes, such as the link between dream content and eye movements.</p>
+
+  <p>Dream content relates to our experiences, so is a product of nurture. This, at least partly, explains the differences in dreams between individuals. Nurture influences will vary; thus, the content of people's dreams will differ. However, as even a foetus in the uterus experiences REM sleep, the capacity to dream appears to be a product of nature. Similarly, the biological processes underlying emotions are the product of the brain and of hormones.</p>
+
+  <p>Hölzel et al.'s study also has a clearly 'biological' focus on brain structure. This is determined largely by processes of nature, hence the similarities between individuals and even between humans and animals. However, Hölzel et al. demonstrated that the experience of the MBSR programme changed brain structure. This is an effect of nurture and shows that even those structures and processes that seem highly constrained by biology can be influenced by experience.</p>
+
+  <div class="two-col">
+    <div class="col-card nature">
+      <h4>Nature Arguments 先天</h4>
+      <ol>
+        <li>Brain structure is largely genetically constrained — hence cross-species similarities</li>
+        <li>Hippocampal plasticity itself is a biological capacity (some brain areas change, others don't)</li>
+        <li>Individual differences in FFMQ scores and homework compliance partly reflect temperament</li>
+      </ol>
+    </div>
+    <div class="col-card nurture">
+      <h4>Nurture Arguments 后天</h4>
+      <ol>
+        <li>Eight weeks of experience measurably changed grey matter — experience rewired the brain</li>
+        <li>Stress (an experience) reduces hippocampal volume; antidepressants increase it — environment shapes structure</li>
+        <li>Changes appeared only in the MBSR group, not the wait-list controls — the intervention (environment) was the difference</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="cn-summary-wrap">
+    <h3>🀄 Hölzel 在先天/后天争论中的立场</h3>
+    <ul>
+      <li>表面看是"先天"研究（脑结构、生物取向），但结论恰恰证明了<strong>后天经验可以改变先天结构</strong></li>
+      <li>这是本实验最具颠覆性的价值：连"最生物"的东西（灰质密度）都被8周的经验重塑了</li>
+      <li>对照 Hassett et al.（先天激素影响的持久性）正好像镜子两面 — 考试里对比两研究是高频题</li>
+    </ul>
+  </div>
+
+  <h3>10.4 The Use of Children and Animals in Psychological Research（儿童与动物研究）</h3>
+  <p>The study by Hassett et al. demonstrated a common technique, the use of comparative psychology. This is a process of finding evidence that helps to explain human behaviour by comparison to animal models. As non-human animals are less complex than humans, and their environment and experiences can be controlled, they provide a way to investigate the origins of human behaviours. This study was able to isolate the effect of biology (hormones) and experience (socialisation) to help to explore the causes of gender differences in children. Apart from the practical benefits, the use of animals both solves and raises ethical issues. It could be argued that it is or that it is not ethically acceptable to manipulate the environments of rhesus monkeys, whereas it would certainly be ethically unacceptable to manipulate the experiences of children such that they were not exposed to culturally driven socialisation.</p>
+
+  <p>In addition, it is useful to consider whether the other studies in this section could have used animals and what the findings might have shown. If you have a mammal for a pet, you may have seen it apparently dreaming about running as it moves its legs, making quiet sounds or twitching its nose. Non-human animals such as mammals do demonstrate REM sleep, and this has been studied extensively. It is very difficult, however, to determine the content of their dreams. This has been done indirectly, by using brain-cell recording techniques to explore repeated waking behaviours (such as bird song and rats running mazes). It has been found that the patterns of brain activity during sleep closely resemble those of the waking behaviours, indicating what the animals are dreaming about.</p>
+</section>
+
+<!-- SECTION 11: SUMMARY -->
+<section class="section" id="s11">
+  <h2>11. Summary（总结）</h2>
+
+  <p>Hölzel et al.'s study was an experiment using a longitudinal design. This tested exposure to an eight-week Mindfulness-Based Stress Reduction (MBSR) intervention, in comparison to a wait-list control condition. Participants in the intervention group kept a record of their mindfulness activities. All participants were given two tests at the start and end of the time period: an MRI scan to measure grey matter concentration in the brain and a questionnaire testing mindfulness. Brain areas found to increase in the MBSR participants compared to the controls were the left hippocampus, PCC, TPJ and cerebellum. The mindfulness scores of the MBSR group but not the controls increased, however, this increase did not correlate with brain changes. The findings suggest that an MBSR intervention can cause changes in grey matter concentration in brain areas that play roles in learning, memory, self-referential processing, emotions and considering the viewpoints of others.</p>
+
+  <div class="summary-card">
+    <h4>Quick Recap</h4>
+    <table>
+      <tr><td><strong>Researchers</strong></td><td>Hölzel, Carmody, Vangel, Congleton, Yerramsetti, Gard &amp; Lazar (2011)</td></tr>
+      <tr><td><strong>Method</strong></td><td>Experiment — longitudinal pre/post design + wait-list control</td></tr>
+      <tr><td><strong>Sample</strong></td><td>16 (8M/10F → 2 withdrew), mean age 38; control 17, mean age 39</td></tr>
+      <tr><td><strong>IV</strong></td><td>8-week MBSR course (2.5 h/week + full day in week 6)</td></tr>
+      <tr><td><strong>DV</strong></td><td>Grey matter concentration (MRI) + FFMQ scores (39 items, 5 facets)</td></tr>
+      <tr><td><strong>Main result</strong></td><td>Left hippocampus + 5 regions increased in MBSR only; no correlation with homework/FFMQ</td></tr>
+      <tr><td><strong>Homework</strong></td><td>Mean 22.6 h (~27 min/day) over 8 weeks</td></tr>
+      <tr><td><strong>Approach</strong></td><td>Biological — Localisation of Function &amp; Plasticity</td></tr>
+    </table>
+  </div>
+
+  <div class="cn-summary-wrap">
+    <h3>🀄 全文中文总结</h3>
+    <ul>
+      <li><strong>设计</strong>：纵向实验 + 候补名单控制组（同资格标准），克服了早期横断面研究的参与者变量问题</li>
+      <li><strong>程序</strong>：8周MBSR课程（每周2.5小时+第6周全天），每天45分钟录音作业；前后两次MRI+两次FFMQ</li>
+      <li><strong>结果</strong>：MBSR组左侧海马体灰质显著增加（+0.01），另4个脑区（PCC、TPJ、小脑两区）也增加；控制组无变化</li>
+      <li><strong>关键细节</strong>：脑变化与作业时间、FFMQ变化<strong>均不相关</strong> → 说明起效的是课程整体而非练习分钟数</li>
+      <li><strong>结论</strong>：8周正念课程足以改变与学习、记忆、自我参照加工、情绪相关的脑区结构 → 经验（后天）重塑大脑（先天结构）</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SECTION 12: STUDY QUESTIONS & KEY TERMS -->
+<section class="section" id="s12">
+  <h2>12. Key Terms（关键词表）</h2>
+
+  <table>
+    <tr><th>Term</th><th>Definition</th></tr>
+    <tr><td><strong>Localisation of function</strong> <span class="cn">（功能定位）</span></td><td>The way that particular brain areas are responsible for different activities</td></tr>
+    <tr><td><strong>Motor cortex</strong> <span class="cn">（运动皮层）</span></td><td>The brain area responsible for deliberate movements</td></tr>
+    <tr><td><strong>Somatosensory cortex</strong> <span class="cn">（躯体感觉皮层）</span></td><td>The brain area responsible for skin and muscle sensation</td></tr>
+    <tr><td><strong>Bilateral</strong> <span class="cn">（双侧的）</span></td><td>Found in both the left and right sides of the brain</td></tr>
+    <tr><td><strong>Hemisphere</strong> <span class="cn">（半球）</span></td><td>One half of the brain</td></tr>
+    <tr><td><strong>MRI</strong> <span class="cn">（磁共振成像）</span></td><td>Magnetic resonance imaging; a technique used to scan the brain</td></tr>
+    <tr><td><strong>Structural scan</strong> <span class="cn">（结构扫描）</span></td><td>A scan that takes detailed pictures of the shape of brain areas</td></tr>
+    <tr><td><strong>Functional scan</strong> <span class="cn">（功能扫描）</span></td><td>A scan that shows activity levels in different areas of the brain</td></tr>
+    <tr><td><strong>Hippocampus</strong> <span class="cn">（海马体）</span></td><td>A brain area involved in memory, navigation, emotion and arousal</td></tr>
+    <tr><td><strong>Plasticity</strong> <span class="cn">（可塑性）</span></td><td>The brain's ability to change and form new neurons and synapses</td></tr>
+    <tr><td><strong>Cerebellum</strong> <span class="cn">（小脑）</span></td><td>The brain area that controls automatic or well-learned movements</td></tr>
+    <tr><td><strong>Pons</strong> <span class="cn">（脑桥）</span></td><td>The brain area involved in the control of sleep and dreams</td></tr>
+    <tr><td><strong>Mindfulness</strong> <span class="cn">（正念）</span></td><td>A state achieved through meditation that increases awareness of the present moment</td></tr>
+    <tr><td><strong>Grey matter</strong> <span class="cn">（灰质）</span></td><td>The cell bodies of neurons</td></tr>
+    <tr><td><strong>White matter</strong> <span class="cn">（白质）</span></td><td>The axons of neurons</td></tr>
+    <tr><td><strong>Cross-sectional</strong> <span class="cn">（横断面的）</span></td><td>A study comparing different groups of people at one point in time</td></tr>
+    <tr><td><strong>Longitudinal design</strong> <span class="cn">（纵向设计）</span></td><td>A study testing the same participants over a period of time</td></tr>
+    <tr><td><strong>Experiment</strong> <span class="cn">（实验）</span></td><td>A research method that investigates cause and effect</td></tr>
+    <tr><td><strong>Independent variable</strong> <span class="cn">（自变量）</span></td><td>The variable that is manipulated by the researcher</td></tr>
+    <tr><td><strong>Dependent variable</strong> <span class="cn">（因变量）</span></td><td>The variable that is measured by the researcher</td></tr>
+    <tr><td><strong>MBSR</strong> <span class="cn">（正念减压疗法）</span></td><td>Mindfulness-Based Stress Reduction</td></tr>
+    <tr><td><strong>Independent measures design</strong> <span class="cn">（独立测量设计）</span></td><td>Different participants are used in each condition of an experiment</td></tr>
+    <tr><td><strong>Sample</strong> <span class="cn">（样本）</span></td><td>The group of participants selected for a study</td></tr>
+    <tr><td><strong>Mean</strong> <span class="cn">（平均数）</span></td><td>A measure of central tendency calculated by dividing the total by the number of items</td></tr>
+    <tr><td><strong>Standard deviation</strong> <span class="cn">（标准差）</span></td><td>A measure of dispersion showing how spread out data are around the mean</td></tr>
+    <tr><td><strong>Wait-list control group</strong> <span class="cn">（候补名单控制组）</span></td><td>A control group that receives the same treatment after the study is completed</td></tr>
+    <tr><td><strong>FFMQ</strong> <span class="cn">（五因素正念度量表）</span></td><td>Five Facet Mindfulness Questionnaire</td></tr>
+    <tr><td><strong>Correlation coefficient</strong> <span class="cn">（相关系数）</span></td><td>A number between −1 and 1 showing the strength and direction of a relationship</td></tr>
+    <tr><td><strong>Quantitative data</strong> <span class="cn">（定量数据）</span></td><td>Numerical data that can be analysed statistically</td></tr>
+    <tr><td><strong>Ecological validity</strong> <span class="cn">（生态效度）</span></td><td>The extent to which findings can be generalised to real-life settings</td></tr>
+    <tr><td><strong>Demand characteristics</strong> <span class="cn">（要求特征）</span></td><td>Cues in a study that make participants guess the aim and change their behaviour</td></tr>
+    <tr><td><strong>Objective data</strong> <span class="cn">（客观数据）</span></td><td>Data that is not influenced by the researcher's interpretation</td></tr>
+    <tr><td><strong>Right to withdraw</strong> <span class="cn">（退出权）</span></td><td>The ethical right of participants to leave a study at any time</td></tr>
+    <tr><td><strong>Participant variables</strong> <span class="cn">（参与者变量）</span></td><td>Individual differences between participants that may affect results</td></tr>
+    <tr><td><strong>Self-referential processing</strong> <span class="cn">（自我参照加工）</span></td><td>The way we see ourselves and judge the relevance of stimuli to ourselves</td></tr>
+    <tr><td><strong>Temporo-parietal junction (TPJ)</strong> <span class="cn">（颞顶联合区）</span></td><td>A brain area involved in self-referential processing</td></tr>
+    <tr><td><strong>Posterior cingulate cortex (PCC)</strong> <span class="cn">（后扣带皮层）</span></td><td>A brain area involved in judging the relevance of stimuli to ourselves</td></tr>
+    <tr><td><strong>Insula</strong> <span class="cn">（脑岛）</span></td><td>A brain area involved in awareness of internal bodily states</td></tr>
+  </table>
+
+  <h3>Study Questions（复习题）</h3>
   <ol>
-    <li>Biyu is planning a study on dreams and is concerned about a problem: if her participants know the aim, they might make dreams up to please her.
-      <ol type="a">
-        <li>i. State the type of problem that Biyu is concerned about. <span class="cn">[1]</span></li>
-        <li>ii. Explain why this would be a problem. <span class="cn">[1]</span></li>
-        <li>b. Biyu had decided to solve this problem by telling her participants the study was about insomnia, but her teacher says she cannot do this. Explain why Biyu's teacher has said this. <span class="cn">[3]</span></li>
-      </ol>
-      <details class="model-answer">
-        <summary>Show Model Answer</summary>
-        <p><strong>i.</strong> Demand characteristics. <span class="qa-mark">[1]</span></p>
-        <p><strong>ii.</strong> If participants guess the aim, they may report dreams that fit what they believe the researcher wants to hear rather than what they actually dreamed, so the data would not reflect true dreaming — lowering the validity of the findings. <span class="qa-mark">[1]</span></p>
-        <p><strong>b.</strong> Telling participants the study is about insomnia when it is really about dreams is <strong>deception</strong>. This means participants cannot give fully <strong>informed consent</strong>, because they do not know the true aim of the research. Deception is only acceptable when it is scientifically necessary and participants are fully <strong>debriefed</strong> afterwards. Biyu's teacher has said this because the deception is unnecessary — the aim can be concealed in less harmful ways (e.g. not telling participants the specific hypothesis) rather than actively lying to them, so the ethical guideline would be breached for no good reason. <span class="qa-mark">[3]</span></p>
-      </details>
-    </li>
-    <li>Karl is aiming to find out whether people sleep for longer because they have eaten more. He plans to do a correlation, asking people how much they have eaten during the day and how long they sleep for that night. Karl's teacher says this will not work.
-      <ol type="a">
-        <li>a. Suggest why Karl will not be able to use the information he obtains from his study to come to a conclusion about his aim. <span class="cn">[2]</span></li>
-        <li>b. Karl decides to do the study anyway. Explain how he could operationalise the variables of sleeping and eating. <span class="cn">[4]</span></li>
-      </ol>
-      <details class="model-answer">
-        <summary>Show Model Answer</summary>
-        <p><strong>a.</strong> A correlation can only show that two variables are related — it cannot establish <strong>cause and effect</strong>. Even if people who eat more also sleep longer, Karl cannot conclude that eating <em>caused</em> the longer sleep: a third variable (e.g. exercise, stress, illness) could affect both, or the direction could even be reversed. So he cannot conclude that people sleep longer <em>because</em> they have eaten more. <span class="qa-mark">[2]</span></p>
-        <p><strong>b.</strong> <em>Eating</em> could be operationalised as the number of calories consumed during the day, recorded using a food diary completed at each meal (or the total weight of food eaten per day). <em>Sleeping</em> could be operationalised as the number of hours of sleep that night, measured objectively with an actigraph worn on the wrist overnight (or recorded in a sleep diary completed immediately on waking). Stating the exact measure for each variable makes them testable. <span class="qa-mark">[4]</span></p>
-      </details>
-    </li>
-    <li>There are some ethical problems with the study by Hassett et al. and also some ethical strengths. Outline one ethical strength of this study. <span class="cn">[2]</span>
-      <details class="model-answer">
-        <summary>Show Model Answer</summary>
-        <p>The monkeys were tested in their <strong>own social groups in their normal outdoor enclosure</strong>; the researchers only placed two sets of toys and filmed from about 10 metres away. There was no capture, no isolation and no invasive procedure, so the monkeys' daily life was not disrupted beyond the presence of the toys. This means no physical harm or deliberate stress was caused, protecting the animals' welfare. <span class="qa-mark">[2]</span></p>
-      </details>
-    </li>
-    <li>Compare the biological approach and the learning approach to show two ways in which they are different. Use the study by Hassett et al. as an example of the biological approach. <span class="cn">[4]</span>
-      <details class="model-answer">
-        <summary>Show Model Answer</summary>
-        <p><strong>Difference 1 — focus of explanation:</strong> The biological approach explains behaviour in terms of physiological structures and processes (hormones, brain areas, genes), seeing behaviour as largely innate (nature). In Hassett et al., sex-typed toy preferences were linked to prenatal androgen exposure. The learning approach explains behaviour as acquired through experience — reinforcement, punishment and observational learning (nurture), e.g. Bandura et al. explain aggression as learned by watching a model.</p>
-        <p><strong>Difference 2 — methods of investigation:</strong> The biological approach uses physiological measurement — Hassett et al. used a field experiment with cameras and behavioural checklists, drawing on hormonal data to infer androgen exposure. The learning approach uses controlled experiments observing behaviour directly — Bandura et al. observed and counted children's imitation of an adult model's aggression. <span class="qa-mark">[4]</span></p>
-      </details>
-    </li>
-    <li>Simi is using a brain scan to investigate localisation of autobiographical memories. These are the memories we have of our own lives.
-      <ol type="a">
-        <li>a. Explain how Simi could decide which brain areas to study. <span class="cn">[2]</span></li>
-        <li>b. Suggest why it would be important for Simi to use participants who had clear autobiographical memories. <span class="cn">[2]</span></li>
-      </ol>
-      <details class="model-answer">
-        <summary>Show Model Answer</summary>
-        <p><strong>a.</strong> Simi should base her choice on <strong>previous research evidence</strong>: brain areas that earlier studies have already implicated in autobiographical memory (e.g. the hippocampus and medial temporal lobe) become her <em>regions of interest</em>. This is exactly what Hölzel et al. did when they chose the hippocampus, because prior work linked it to memory and emotion. <span class="qa-mark">[2]</span></p>
-        <p><strong>b.</strong> If all participants have clear autobiographical memories, any differences in brain activity detected are more likely to reflect the processing of autobiographical memories rather than individual differences in memory ability. If some participants could barely recall their own lives, the scan differences might be due to memory impairment — a confounding variable — lowering the validity of the localisation. <span class="qa-mark">[2]</span></p>
-      </details>
-    </li>
-    <li>From the study by Hölzel et al., explain whether the sample of participants used was representative or non-representative. <span class="cn">[2]</span>
-      <details class="model-answer">
-        <summary>Show Model Answer</summary>
-        <p>The sample was largely <strong>non-representative</strong>. The experimental sample was small (16 after two males withdrew), <strong>self-selected</strong> (participants were already enrolled on MBSR courses, having chosen to attend or been referred by their doctor because of stress), mostly Caucasian (13 of 16) and aged 25–55. Because all were stressed volunteers seeking help, the findings may not generalise to people who are not experiencing stress or to other age and ethnic groups — although the roughly balanced gender mix and the matched wait-list control group make it partially representative of stressed adults seeking help. <span class="qa-mark">[2]</span></p>
-      </details>
-    </li>
-    <li>Evaluate the study by Dement and Kleitman, including two strengths and two weaknesses. <span class="cn">[10]</span>
-      <details class="model-answer">
-        <summary>Show Model Answer</summary>
-        <p><strong>Strength 1 [Control of Variables]:</strong> High experimental control in the sleep laboratory — participants avoided caffeine and alcohol, slept in a dark quiet room, and were woken instantly by a doorbell, reducing confounding variables and demand characteristics (participants were not told their EEG or eye-movement state).</p>
-        <p><strong>Strength 2 [Types of Data]:</strong> Objective quantitative data from EEG and EOG (brain-wave frequency, direction and amount of eye movement) combined with qualitative dream narratives, giving a richer picture than either alone.</p>
-        <p><strong>Weakness 1 [Sampling]:</strong> Only 9 participants (7M, 2F), with just 5 studied in detail — a tiny volunteer sample that limits generalisability.</p>
-        <p><strong>Weakness 2 [Validity]:</strong> The correlation between REM duration and narrative length (r = 0.4–0.71) does not prove causation; and the lab setting with electrodes produces low ecological validity — people may sleep and dream differently wired up in a lab.</p>
-        <p><strong>Conclusion:</strong> The high control and objective measures give the study strong internal validity, but the small sample and artificial setting limit how far the findings generalise to normal dreaming in everyday life.</p>
-        <p><em>Full version with syllabus-dimension tags: see the Dement &amp; Kleitman Evaluation section.</em> <span class="qa-mark">[10]</span></p>
-      </details>
-    </li>
+    <li>What is meant by 'localisation of function'?</li>
+    <li>What type of brain scan did Hölzel et al. use?</li>
+    <li>What is the difference between a structural and a functional brain scan?</li>
+    <li>What was the aim of the study by Hölzel et al.?</li>
+    <li>What was the independent variable in Hölzel et al.'s study?</li>
+    <li>What was the dependent variable in Hölzel et al.'s study?</li>
+    <li>Describe the sample used in Hölzel et al.'s study.</li>
+    <li>What controls did Hölzel et al. use in their experiment?</li>
+    <li>Why was Hölzel et al.'s longitudinal study more valid than the earlier cross-sectional studies?</li>
+    <li>What 'homework' did Hölzel et al.'s experimental participants do?</li>
+    <li>How sure were Hölzel et al. that it was this homework that produced the brain changes they found?</li>
+    <li>Which brain areas showed increased grey matter concentration in the MBSR group?</li>
   </ol>
-  <p><strong>[Total: 33]</strong></p>
-</div>
+</section>
 
-<div class="practice-box">
-  <h4>🎯 Practice — Hölzel et al. (2011)</h4>
-  <p><strong>Evaluate the study by Hölzel et al. (2011) on mindfulness practice and increases in regional brain grey matter density, including two strengths and two weaknesses.</strong> <span class="cn">[10]</span></p>
-  <details class="model-answer">
-    <summary>Show Model Answer</summary>
-    <p>Hölzel et al. conducted an experiment with a longitudinal design, testing the same participants before and after an eight-week MBSR course and comparing them with a wait-list control group. The study has several strengths and weaknesses when judged against the CIE research-methods criteria.</p>
-    <p><strong>Strength 1 [Control of Variables]:</strong> The wait-list control group met the same eligibility criteria as the experimental participants, and at the pre-test no group differences in left hippocampus grey matter were detected, while the control group showed no change across their two scans. This rules out the passage of time or pre-existing group differences as explanations, so the grey matter increases in the MBSR group can be attributed to the intervention with more confidence.</p>
-    <p><strong>Strength 2 [Types of Data]:</strong> The dependent variable was measured with an MRI scanner, producing objective quantitative data that enabled statistical comparisons (pre vs post; MBSR vs control). The recorded volumes do not depend on the researcher's interpretation, and participants could not alter their grey matter in response to demand characteristics — even if they guessed the aim, they could not consciously change their brain structure.</p>
-    <p><strong>Weakness 1 [Sampling]:</strong> The experimental sample was small and self-selected — 16 participants (after two males withdrew due to discomfort in the scanner), recruited from people already enrolled on MBSR courses because they were experiencing stress, mostly Caucasian (13 of 16) and aged 25–55. Findings from stressed volunteers may not generalise to the wider population.</p>
-    <p><strong>Weakness 2 [Validity]:</strong> The grey matter increases did not correlate with the amount of homework completed (mean 22.6 hours) or with changes in FFMQ mindfulness scores, suggesting that minutes of practice were not the direct cause of the brain changes — the effect may be mediated by the MBSR programme as a whole (e.g. social contact, expecting to feel better). The specific effect of mindfulness meditation itself therefore cannot be isolated.</p>
-    <p><strong>Conclusion:</strong> Overall, the longitudinal design with a matched control makes this study considerably more valid than the earlier cross-sectional studies of meditation, but the small self-selected sample and the unexplained absence of dose–effect correlations mean the conclusion that mindfulness itself changes the brain should be drawn with caution. <span class="qa-mark">[10]</span></p>
-  </details>
-</div>
+<!-- SECTION 13: EXAM PRACTICE -->
+<section class="section" id="s13">
+  <h2>13. Exam-Style Questions（考试题型）</h2>
 
-<style>
-/* Study Navigator */
-.study-nav{border-top:2px solid #e0e0e0;background:#FAFAFA;padding:14px 16px;margin-top:2rem}
-.study-nav-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:880px;margin:0 auto}
-.study-nav-btn{flex:1;padding:9px 14px;border:1px solid #ddd;border-radius:8px;background:white;color:#444;font-size:.82rem;cursor:pointer;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:4px;transition:all .15s;font-family:inherit}
-.study-nav-btn:hover{border-color:#1565C0;color:#1565C0;background:#f8fbff}
-.study-nav-dots{text-align:center;padding:0 8px}
-.study-nav-label{font-size:.65rem;text-transform:uppercase;letter-spacing:1px;color:#888;margin-bottom:5px;font-weight:700}
-.study-dot-row{display:flex;gap:5px;justify-content:center;flex-wrap:wrap}
-.study-dot{width:10px;height:10px;border-radius:50%;cursor:pointer;border:2px solid transparent;transition:all .15s;position:relative;display:inline-block}
-.study-dot:hover{transform:scale(1.3)}
-.study-dot.active{border-color:#333;transform:scale(1.25)}
-@media(max-width:600px){
-    .study-nav-inner{flex-wrap:wrap;gap:8px}
-    .study-nav-btn{font-size:.75rem;padding:7px 10px}
-    .study-dot{width:8px;height:8px}
-}
-</style>
+  <div class="exam-box">
+    <ol>
+      <li>Biyu is planning a study on dreams and is concerned about a problem: if her participants know the aim, they might make dreams up to please her.
+        <ol type="a">
+          <li>i. State the type of problem that Biyu is concerned about. <span class="cn">[1]</span></li>
+          <li>ii. Explain why this would be a problem. <span class="cn">[1]</span></li>
+          <li>b. Biyu had decided to solve this problem by telling her participants the study was about insomnia, but her teacher says she cannot do this. Explain why Biyu's teacher has said this. <span class="cn">[3]</span></li>
+        </ol>
+        <details class="model-answer">
+          <summary>Show Model Answer</summary>
+          <p><strong>i.</strong> Demand characteristics. <span class="qa-mark">[1]</span></p>
+          <p><strong>ii.</strong> If participants guess the aim, they may report dreams that fit what they believe the researcher wants to hear rather than what they actually dreamed, so the data would not reflect true dreaming — lowering the validity of the findings. <span class="qa-mark">[1]</span></p>
+          <p><strong>b.</strong> Telling participants the study is about insomnia when it is really about dreams is <strong>deception</strong>. This means participants cannot give fully <strong>informed consent</strong>, because they do not know the true aim of the research. Deception is only acceptable when it is scientifically necessary and participants are fully <strong>debriefed</strong> afterwards. Biyu's teacher has said this because the deception is unnecessary — the aim can be concealed in less harmful ways (e.g. not telling participants the specific hypothesis) rather than actively lying to them, so the ethical guideline would be breached for no good reason. <span class="qa-mark">[3]</span></p>
+        </details>
+      </li>
+      <li>Karl is aiming to find out whether people sleep for longer because they have eaten more. He plans to do a correlation, asking people how much they have eaten during the day and how long they sleep for that night. Karl's teacher says this will not work.
+        <ol type="a">
+          <li>a. Suggest why Karl will not be able to use the information he obtains from his study to come to a conclusion about his aim. <span class="cn">[2]</span></li>
+          <li>b. Karl decides to do the study anyway. Explain how he could operationalise the variables of sleeping and eating. <span class="cn">[4]</span></li>
+        </ol>
+        <details class="model-answer">
+          <summary>Show Model Answer</summary>
+          <p><strong>a.</strong> A correlation can only show that two variables are related — it cannot establish <strong>cause and effect</strong>. Even if people who eat more also sleep longer, Karl cannot conclude that eating <em>caused</em> the longer sleep: a third variable (e.g. exercise, stress, illness) could affect both, or the direction could even be reversed. So he cannot conclude that people sleep longer <em>because</em> they have eaten more. <span class="qa-mark">[2]</span></p>
+          <p><strong>b.</strong> <em>Eating</em> could be operationalised as the number of calories consumed during the day, recorded using a food diary completed at each meal (or the total weight of food eaten per day). <em>Sleeping</em> could be operationalised as the number of hours of sleep that night, measured objectively with an actigraph worn on the wrist overnight (or recorded in a sleep diary completed immediately on waking). Stating the exact measure for each variable makes them testable. <span class="qa-mark">[4]</span></p>
+        </details>
+      </li>
+      <li>There are some ethical problems with the study by Hassett et al. and also some ethical strengths. Outline one ethical strength of this study. <span class="cn">[2]</span>
+        <details class="model-answer">
+          <summary>Show Model Answer</summary>
+          <p>The monkeys were tested in their <strong>own social groups in their normal outdoor enclosure</strong>; the researchers only placed two sets of toys and filmed from about 10 metres away. There was no capture, no isolation and no invasive procedure, so the monkeys' daily life was not disrupted beyond the presence of the toys. This means no physical harm or deliberate stress was caused, protecting the animals' welfare. <span class="qa-mark">[2]</span></p>
+        </details>
+      </li>
+      <li>Compare the biological approach and the learning approach to show two ways in which they are different. Use the study by Hassett et al. as an example of the biological approach. <span class="cn">[4]</span>
+        <details class="model-answer">
+          <summary>Show Model Answer</summary>
+          <p><strong>Difference 1 — focus of explanation:</strong> The biological approach explains behaviour in terms of physiological structures and processes (hormones, brain areas, genes), seeing behaviour as largely innate (nature). In Hassett et al., sex-typed toy preferences were linked to prenatal androgen exposure. The learning approach explains behaviour as acquired through experience — reinforcement, punishment and observational learning (nurture), e.g. Bandura et al. explain aggression as learned by watching a model.</p>
+          <p><strong>Difference 2 — methods of investigation:</strong> The biological approach uses physiological measurement — Hassett et al. used a field experiment with cameras and behavioural checklists, drawing on hormonal data to infer androgen exposure. The learning approach uses controlled experiments observing behaviour directly — Bandura et al. observed and counted children's imitation of an adult model's aggression. <span class="qa-mark">[4]</span></p>
+        </details>
+      </li>
+      <li>Simi is using a brain scan to investigate localisation of autobiographical memories. These are the memories we have of our own lives.
+        <ol type="a">
+          <li>a. Explain how Simi could decide which brain areas to study. <span class="cn">[2]</span></li>
+          <li>b. Suggest why it would be important for Simi to use participants who had clear autobiographical memories. <span class="cn">[2]</span></li>
+        </ol>
+        <details class="model-answer">
+          <summary>Show Model Answer</summary>
+          <p><strong>a.</strong> Simi should base her choice on <strong>previous research evidence</strong>: brain areas that earlier studies have already implicated in autobiographical memory (e.g. the hippocampus and medial temporal lobe) become her <em>regions of interest</em>. This is exactly what Hölzel et al. did when they chose the hippocampus, because prior work linked it to memory and emotion. <span class="qa-mark">[2]</span></p>
+          <p><strong>b.</strong> If all participants have clear autobiographical memories, any differences in brain activity detected are more likely to reflect the processing of autobiographical memories rather than individual differences in memory ability. If some participants could barely recall their own lives, the scan differences might be due to memory impairment — a confounding variable — lowering the validity of the localisation. <span class="qa-mark">[2]</span></p>
+        </details>
+      </li>
+      <li>From the study by Hölzel et al., explain whether the sample of participants used was representative or non-representative. <span class="cn">[2]</span>
+        <details class="model-answer">
+          <summary>Show Model Answer</summary>
+          <p>The sample was largely <strong>non-representative</strong>. The experimental sample was small (16 after two males withdrew), <strong>self-selected</strong> (participants were already enrolled on MBSR courses, having chosen to attend or been referred by their doctor because of stress), mostly Caucasian (13 of 16) and aged 25–55. Because all were stressed volunteers seeking help, the findings may not generalise to people who are not experiencing stress or to other age and ethnic groups — although the roughly balanced gender mix and the matched wait-list control group make it partially representative of stressed adults seeking help. <span class="qa-mark">[2]</span></p>
+        </details>
+      </li>
+      <li>Evaluate the study by Dement and Kleitman, including two strengths and two weaknesses. <span class="cn">[10]</span>
+        <details class="model-answer">
+          <summary>Show Model Answer</summary>
+          <p><strong>Strength 1 [Control of Variables]:</strong> High experimental control in the sleep laboratory — participants avoided caffeine and alcohol, slept in a dark quiet room, and were woken instantly by a doorbell, reducing confounding variables and demand characteristics (participants were not told their EEG or eye-movement state).</p>
+          <p><strong>Strength 2 [Types of Data]:</strong> Objective quantitative data from EEG and EOG (brain-wave frequency, direction and amount of eye movement) combined with qualitative dream narratives, giving a richer picture than either alone.</p>
+          <p><strong>Weakness 1 [Sampling]:</strong> Only 9 participants (7M, 2F), with just 5 studied in detail — a tiny volunteer sample that limits generalisability.</p>
+          <p><strong>Weakness 2 [Validity]:</strong> The correlation between REM duration and narrative length (r = 0.4–0.71) does not prove causation; and the lab setting with electrodes produces low ecological validity — people may sleep and dream differently wired up in a lab.</p>
+          <p><strong>Conclusion:</strong> The high control and objective measures give the study strong internal validity, but the small sample and artificial setting limit how far the findings generalise to normal dreaming in everyday life.</p>
+          <p><em>Full version with syllabus-dimension tags: see the Dement &amp; Kleitman Evaluation section.</em> <span class="qa-mark">[10]</span></p>
+        </details>
+      </li>
+    </ol>
+    <p><strong>[Total: 33]</strong></p>
+  </div>
+
+  <div class="practice-box">
+    <h4>🎯 Practice — Hölzel et al. (2011)</h4>
+    <p><strong>Evaluate the study by Hölzel et al. (2011) on mindfulness practice and increases in regional brain grey matter density, including two strengths and two weaknesses.</strong> <span class="cn">[10]</span></p>
+    <details class="model-answer">
+      <summary>Show Model Answer</summary>
+      <p>Hölzel et al. conducted an experiment with a longitudinal design, testing the same participants before and after an eight-week MBSR course and comparing them with a wait-list control group. The study has several strengths and weaknesses when judged against the CIE research-methods criteria.</p>
+      <p><strong>Strength 1 [Control of Variables]:</strong> The wait-list control group met the same eligibility criteria as the experimental participants, and at the pre-test no group differences in left hippocampus grey matter were detected, while the control group showed no change across their two scans. This rules out the passage of time or pre-existing group differences as explanations, so the grey matter increases in the MBSR group can be attributed to the intervention with more confidence.</p>
+      <p><strong>Strength 2 [Types of Data]:</strong> The dependent variable was measured with an MRI scanner, producing objective quantitative data that enabled statistical comparisons (pre vs post; MBSR vs control). The recorded volumes do not depend on the researcher's interpretation, and participants could not alter their grey matter in response to demand characteristics — even if they guessed the aim, they could not consciously change their brain structure.</p>
+      <p><strong>Weakness 1 [Sampling]:</strong> The experimental sample was small and self-selected — 16 participants (after two males withdrew due to discomfort in the scanner), recruited from people already enrolled on MBSR courses because they were experiencing stress, mostly Caucasian (13 of 16) and aged 25–55. Findings from stressed volunteers may not generalise to the wider population.</p>
+      <p><strong>Weakness 2 [Validity]:</strong> The grey matter increases did not correlate with the amount of homework completed (mean 22.6 hours) or with changes in FFMQ mindfulness scores, suggesting that minutes of practice were not the direct cause of the brain changes — the effect may be mediated by the MBSR programme as a whole (e.g. social contact, expecting to feel better). The specific effect of mindfulness meditation itself therefore cannot be isolated.</p>
+      <p><strong>Conclusion:</strong> Overall, the longitudinal design with a matched control makes this study considerably more valid than the earlier cross-sectional studies of meditation, but the small self-selected sample and the unexplained absence of dose–effect correlations mean the conclusion that mindfulness itself changes the brain should be drawn with caution. <span class="qa-mark">[10]</span></p>
+    </details>
+  </div>
+</section>
+
+    </main><!-- end main-content -->
+
+    <!-- ===== RIGHT: NOTES PANEL ===== -->
+    <div class="notes-col" id="notesPanel">
+      <div class="nc-header">
+        <span class="nc-title">Notes Panel</span>
+        <span class="nc-count" id="noteCount">0</span>
+      </div>
+      <div class="nc-body" id="notesBody">
+        <div class="nc-empty" id="notesEmpty">Select text to highlight<br>& add a note ✏️</div>
+      </div>
+      <div class="nc-input-row" id="noteInputRow">
+        <textarea class="nc-textarea" id="noteTextInput" placeholder="Write your note..."></textarea>
+        <div class="nc-actions">
+          <button class="nc-btn-save" onclick="saveNote()">Save</button>
+          <button class="nc-btn-cancel" onclick="cancelNoteInput()">Cancel</button>
+        </div>
+      </div>
+      <button class="nc-add-btn" onclick="document.getElementById('noteInputRow').classList.add('show');document.getElementById('noteTextInput').focus({preventScroll:true})">+ Add Note</button>
+      <div class="nc-footer">
+        <button onclick="exportNotes()" title="Export as Markdown">Export</button>
+        <button onclick="clearAllNotes()" title="Clear all notes">Clear</button>
+      </div>
+    </div>
+
+  </div><!-- end page-layout -->
+</div><!-- end container -->
+
+<!-- CHART.JS -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script>
+(function(){
+  if(typeof Chart === "undefined") return;
+  const ctx = document.getElementById('greyMatterChart');
+  if(!ctx) return;
+  new Chart(ctx.getContext('2d'), {
+    type: 'bar',
+    data: {
+      labels: ['Left\nhippocampus', 'Posterior cingulate\ncortex (PCC)', 'Left temporo-parietal\njunction (TPJ)', 'Lateral\ncerebellum', 'Cerebellar vermis\n/ brainstem'],
+      datasets: [
+        {
+          label: 'MBSR group',
+          data: [0.010, 0.010, 0.007, 0.015, 0.014],
+          backgroundColor: 'rgba(220,38,38,0.75)',
+          borderColor: '#dc2626',
+          borderWidth: 2,
+          borderRadius: 5
+        },
+        {
+          label: 'Control group',
+          data: [0.001, -0.005, -0.002, 0.001, -0.001],
+          backgroundColor: 'rgba(107,114,128,0.6)',
+          borderColor: '#6b7280',
+          borderWidth: 2,
+          borderRadius: 5
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { labels: { font: { size: 13, family: '-apple-system,sans-serif' } } },
+        tooltip: { callbacks: { label: c => c.dataset.label + ': ' + (c.parsed.y >= 0 ? '+' : '') + c.parsed.y.toFixed(3) } }
+      },
+      scales: {
+        y: {
+          title: { display: true, text: 'Change in grey matter concentration', font: { size: 12 } },
+          ticks: { callback: v => (v >= 0 ? '+' : '') + v.toFixed(3) }
+        },
+        x: { ticks: { font: { size: 10 } } }
+      }
+    }
+  });
+})();
+</script>
+
+<!-- STUDY NAVIGATOR -->
 <div class="study-nav">
   <div class="study-nav-inner">
-    <a class="study-nav-btn" href="../baron-cohen/">← Baron-Cohen (2001)</a>
+    <a class="study-nav-btn" href="../dement/">← Dement (1957)</a>
     <div class="study-nav-dots">
-      <div class="study-nav-label">Cognitive</div>
+      <div class="study-nav-label">Biological Approach</div>
       <div class="study-dot-row">
-        <span class="study-dot" style="background:#C62828" data-title="Hassett (2008)" onclick="location.href='../hassett/'"></span><span class="study-dot" style="background:#C62828" data-title="Dement (1957)" onclick="location.href='../dement/'"></span><span class="study-dot" style="background:#1565C0" data-title="Baron-Cohen (2001)" onclick="location.href='../baron-cohen/'"></span><span class="study-dot active" style="background:#1565C0" data-title="Hölzel (2011)"></span><span class="study-dot" style="background:#1565C0" data-title="Andrade (2010)" onclick="location.href='../andrade/'"></span><span class="study-dot" style="background:#2E7D32" data-title="Piliavin (1969)" onclick="location.href='../piliavin/'"></span><span class="study-dot" style="background:#2E7D32" data-title="Milgram (1963)" onclick="location.href='../milgram/'"></span><span class="study-dot" style="background:#E87722" data-title="Bandura (1961)" onclick="location.href='../bandura/'"></span><span class="study-dot" style="background:#E87722" data-title="Fagen (2014)" onclick="location.href='../fagen/'"></span><span class="study-dot" style="background:#E87722" data-title="Saavedra (2002)" onclick="location.href='../saavedra/'"></span><span class="study-dot" style="background:#2E7D32" data-title="Perry (2015)" onclick="location.href='../perry/'"></span><span class="study-dot" style="background:#7B1FA2" data-title="Pozzulo (2011)" onclick="location.href='../pozzulo/'"></span>
+        <span class="study-dot" style="background:#dc2626" data-title="Hassett (2008)" onclick="location.href='../hassett/'"></span>
+        <span class="study-dot" style="background:#dc2626" data-title="Dement (1957)" onclick="location.href='../dement/'"></span>
+        <span class="study-dot active" style="background:#dc2626" data-title="Hölzel (2011)"></span>
+        <span class="study-dot" style="background:#2563eb" data-title="Andrade (2010)" onclick="location.href='../andrade/'"></span>
+        <span class="study-dot" style="background:#2563eb" data-title="Baron-Cohen (2001)" onclick="location.href='../baron-cohen/'"></span>
+        <span class="study-dot" style="background:#2563eb" data-title="Pozzulo (2011)" onclick="location.href='../pozzulo/'"></span>
       </div>
     </div>
     <a class="study-nav-btn" href="../andrade/">Andrade (2010) →</a>
   </div>
 </div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>Hölzel et al. (2011) — CIE Biological Approach Core Study 3</p>
+  <p>Source: Psychiatry Research: Neuroimaging, 191(1), 36–43 · Mindfulness practice leads to increases in regional brain gray matter density</p>
+</footer>
+
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+(function(){
+  const STUDY_NAME = "hoelzel";
+  const STORAGE_KEY_NOTES = STUDY_NAME + "_notes_v3";
+  const STORAGE_KEY_DARK = STUDY_NAME + "-darkMode";
+  const STORAGE_KEY_FONT = STUDY_NAME + "-fontSize";
+
+  // ===== STATE =====
+  let notes = JSON.parse(localStorage.getItem(STORAGE_KEY_NOTES) || "[]");
+  let hlIdCounter = 0;
+
+  // ===== DARK MODE =====
+  function toggleDarkMode() {
+    document.body.classList.toggle("dark");
+    localStorage.setItem(STORAGE_KEY_DARK, document.body.classList.contains("dark") ? "1" : "0");
+  }
+  if(localStorage.getItem(STORAGE_KEY_DARK) === "1") document.body.classList.toggle("dark");
+  window.toggleDarkMode = toggleDarkMode;
+
+  // ===== FONT SIZE =====
+  function adjustFontSize(delta) {
+    const sz = parseFloat(getComputedStyle(document.documentElement).fontSize) + delta;
+    if(sz >= 12 && sz <= 24) document.documentElement.style.fontSize = sz + "px";
+    localStorage.setItem(STORAGE_KEY_FONT, getComputedStyle(document.documentElement).fontSize);
+  }
+  (function(){ const fs = localStorage.getItem(STORAGE_KEY_FONT); if(fs) document.documentElement.style.fontSize = fs; })();
+  window.adjustFontSize = adjustFontSize;
+
+  // ===== PROGRESS BAR =====
+  window.addEventListener("scroll", function() {
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollTop = window.scrollY;
+    const pct = Math.min(100, Math.max(0, (scrollTop / docHeight) * 100));
+    document.getElementById("progressBar").style.width = pct + "%";
+    document.getElementById("backToTop").classList.toggle("show", scrollTop > 400);
+  });
+
+  // ===== SCROLL SPY (Sidebar Active) =====
+  const sections = document.querySelectorAll(".section[id]");
+  const sbLinks = document.querySelectorAll(".sb-item a");
+  window.addEventListener("scroll", function() {
+    let current = "";
+    sections.forEach(function(s){ const top = s.offsetTop - 100; if(window.scrollY >= top) current = s.getAttribute("id"); });
+    sbLinks.forEach(function(a){ a.classList.remove("sb-active"); if(a.getAttribute("href") === "#"+current) a.classList.add("sb-active"); });
+  });
+
+  // ===== TEXT SELECTION & HIGHLIGHTING =====
+  function getSelectedText() { return window.getSelection().toString().trim(); }
+  document.addEventListener("mouseup", function(e){
+    const sel = getSelectedText();
+    if(sel.length > 0 && e.target.closest(".main-content") && !e.target.closest(".notes-col") && !e.target.closest(".qa-card")) {
+      setTimeout(function(){
+        if(getSelectedText().length > 0) {
+          // Capture the Range NOW — it is lost once focus moves to the textarea
+          const s = window.getSelection();
+          window._hlRange = (s.rangeCount > 0) ? s.getRangeAt(0) : null;
+          showNoteInput(getSelectedText());
+        }
+      }, 10);
+    }
+  });
+
+  function showNoteInput(text) {
+    window._hlText = text;
+    const row = document.getElementById("noteInputRow");
+    row.classList.add("show");
+    document.getElementById("noteTextInput").value = "";
+    // preventScroll: otherwise focusing inside the sticky notes panel
+    // scrolls the page to the panel's document-flow position (page top)
+    document.getElementById("noteTextInput").focus({preventScroll:true});
+  }
+
+  function cancelNoteInput() {
+    document.getElementById("noteInputRow").classList.remove("show");
+    removeHighlightMark();
+    window._hlText = "";
+    window._hlRange = null;
+  }
+  window.cancelNoteInput = cancelNoteInput;
+
+  // ===== HIGHLIGHT MARK =====
+  function applyHighlightMark(range, id) {
+    const span = document.createElement("span");
+    span.className = "hl-text";
+    span.setAttribute("data-hl-id", id);
+    span.setAttribute("onclick", "jumpToNote('" + id + "')");
+    range.surroundContents(span);
+  }
+
+  function removeHighlightMark() {
+    document.querySelectorAll(".hl-temp-mark").forEach(function(el){ el.outerHTML = el.textContent; });
+  }
+
+  // ===== SAVE NOTE =====
+  function saveNote() {
+    const text = document.getElementById("noteTextInput").value.trim();
+    const hlText = window._hlText || "";
+    if(!text && !hlText) return;
+
+    const id = "hl_" + (++hlIdCounter) + "_" + Date.now();
+    const noteObj = { id: id, text: text, hlText: hlText, ts: new Date().toISOString() };
+
+    // Apply highlight using the Range captured at selection time.
+    // (window.getSelection() is NOT usable here — focus has moved to the textarea,
+    //  so the original selection no longer exists.)
+    if(hlText && window._hlRange) {
+      try {
+        applyHighlightMark(window._hlRange, id);
+      } catch(e) { console.log("Highlight error:", e); }
+      window._hlRange = null;
+    }
+    window.getSelection().removeAllRanges();
+
+    notes.push(noteObj);
+    persistNotes();
+    renderNotes();
+    cancelNoteInput();
+  }
+  window.saveNote = saveNote;
+
+  // ===== RENDER NOTES =====
+  function renderNotes() {
+    const body = document.getElementById("notesBody");
+    const emptyEl = document.getElementById("notesEmpty");
+    const countEl = document.getElementById("noteCount");
+
+    countEl.textContent = notes.length;
+    if(notes.length === 0) { body.innerHTML = ""; body.appendChild(emptyEl); emptyEl.style.display = ""; return; }
+    if(emptyEl) emptyEl.style.display = "none";
+
+    let html = "";
+    notes.forEach(function(n){
+      html += '<div class="note-card" data-note-id="'+n.id+'">';
+      if(n.hlText) html += '<div class="note-card-hl" onclick="jumpToNote(\''+n.id+'\')">'+escapeHtml(n.hlText.substring(0,60))+(n.hlText.length>60?'…':'')+'</div>';
+      html += '<div class="note-card-text">'+escapeHtml(n.text)+'</div>';
+      html += '<button class="note-card-edit" onclick="editNote(\''+n.id+'\')" title="Edit">✎</button>';
+      html += '<button class="note-card-del" onclick="deleteNote(\''+n.id+'\')" title="Delete">×</button>';
+      html += '</div>';
+    });
+    body.innerHTML = html;
+  }
+
+  function escapeHtml(s){ return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+
+  // ===== DELETE NOTE =====
+  function deleteNote(id) {
+    notes = notes.filter(function(n){ return n.id !== id; });
+    // Remove highlight
+    document.querySelectorAll('[data-hl-id="'+id+'"]').forEach(function(el){
+      el.outerHTML = el.textContent;
+    });
+    persistNotes();
+    renderNotes();
+  }
+  window.deleteNote = deleteNote;
+
+  // ===== EDIT NOTE =====
+  function editNote(id) {
+    const note = notes.find(function(n){ return n.id === id; });
+    if(!note) return;
+    const card = document.querySelector('[data-note-id="'+id+'"]');
+    if(!card) return;
+    card.classList.add("editing");
+    const currentText = note.text;
+    card.innerHTML = '<textarea class="note-edit-textarea">'+escapeHtml(currentText)+'</textarea>'+
+      '<div class="note-edit-actions">'+
+        '<button class="note-edit-save" onclick="saveEditedNote(\''+id+'\')">Save</button>'+
+        '<button class="note-edit-cancel" onclick="cancelEditNote(\''+id+'\')">Cancel</button>'+
+      '</div>';
+    const ta = card.querySelector(".note-edit-textarea");
+    ta.focus({preventScroll:true}); ta.select();
+  }
+  window.editNote = editNote;
+
+  function saveEditedNote(id) {
+    const card = document.querySelector('[data-note-id="'+id+'"]');
+    const ta = card.querySelector(".note-edit-textarea");
+    if(!ta) return;
+    const newText = ta.value.trim();
+    const noteIdx = notes.findIndex(function(n){ return n.id === id; });
+    if(noteIdx >= 0) notes[noteIdx].text = newText;
+    persistNotes();
+    renderNotes();
+  }
+  window.saveEditedNote = saveEditedNote;
+
+  function cancelEditNote(id) { renderNotes(); }
+  window.cancelEditNote = cancelEditNote;
+
+  // ===== JUMP TO HIGHLIGHT =====
+  function jumpToNote(id) {
+    const hl = document.querySelector('[data-hl-id="'+id+'"]');
+    if(hl) { hl.scrollIntoView({behavior:"smooth",block:"center"}); hl.style.background="linear-gradient(120deg,#facc15,#ef4444)"; setTimeout(function(){ hl.style.background=""; }, 2000); }
+  }
+  window.jumpToNote = jumpToNote;
+
+  // ===== EXPORT =====
+  function exportNotes() {
+    if(notes.length === 0) { alert("No notes to export."); return; }
+    let md = "# Hölzel et al. (2011) — Notes Export\n\nExported: "+new Date().toISOString()+"\n\n---\n\n";
+    notes.forEach(function(n,i){ md += "## Note "+(i+1)+(n.hlText?" | Highlight: "+n.hlText.substring(0,40):"")+"\n\n"+n.text+"\n\n---\n\n"; });
+    const blob = new Blob([md],{type:"text/markdown"});
+    const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "hoelzel_notes.md"; a.click(); URL.revokeObjectURL(a.href);
+  }
+  window.exportNotes = exportNotes;
+
+  // ===== CLEAR ALL =====
+  function clearAllNotes() { if(notes.length===0||confirm("Clear all notes?")){ notes=[]; document.querySelectorAll(".hl-text").forEach(function(el){ el.outerHTML=el.textContent; }); persistNotes(); renderNotes(); }}
+  window.clearAllNotes = clearAllNotes;
+
+  // ===== PERSIST =====
+  function persistNotes() { try{ localStorage.setItem(STORAGE_KEY_NOTES, JSON.stringify(notes)); }catch(e){ console.log("Storage full"); } }
+
+  // ===== INIT =====
+  renderNotes();
+
+})();
+</script>
 
 </body>
 </html>
