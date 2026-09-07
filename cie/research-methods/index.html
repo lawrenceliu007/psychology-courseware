@@ -156,6 +156,26 @@
             .sidebar-link.active{border-bottom-color:#1565C0;background:transparent}
             .sidebar-divider{display:none}
         }
+        /* ===== Study Accordion Panels (per-study expandable) ===== */
+        .study-panel{margin-top:.9rem;border:1px solid #e0e0e0;border-radius:10px;overflow:hidden;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+        .sp-head{width:100%;text-align:left;background:#f5f7fa;border:none;padding:.85rem 1.1rem;font-size:.92rem;font-weight:600;color:#333;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:.6rem;font-family:inherit}
+        .sp-head:hover{background:#eef2f7}
+        .sp-head .sp-title{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap}
+        .sp-head .chev{transition:transform .2s;font-size:.75rem;color:#888;flex-shrink:0}
+        .study-panel.open .chev{transform:rotate(180deg)}
+        .sp-body{display:none;padding:.3rem 0 .6rem}
+        .study-panel.open .sp-body{display:block}
+        .sp-row{display:flex;gap:.7rem;padding:.55rem 1.1rem;border-top:1px solid #f0f0f0;font-size:.86rem;line-height:1.6}
+        .sp-row .sp-study{flex-shrink:0;width:158px;font-weight:600;font-size:.82rem;color:#4527A0}
+        .sp-row .sp-content{color:#37474f;flex:1;min-width:0}
+        .tag-lab{display:inline-block;background:#E3F2FD;color:#1565C0;font-size:.68rem;font-weight:700;padding:1px 8px;border-radius:10px;white-space:nowrap}
+        .tag-field{display:inline-block;background:#E8F5E9;color:#2E7D32;font-size:.68rem;font-weight:700;padding:1px 8px;border-radius:10px;white-space:nowrap}
+        .tag-noexp{display:inline-block;background:#FFF3E0;color:#E65100;font-size:.68rem;font-weight:700;padding:1px 8px;border-radius:10px;white-space:nowrap}
+        .sp-toggle-hint{font-size:.72rem;font-weight:500;color:#90a4ae;margin-left:auto}
+        .sp-ctrl{display:flex;gap:.5rem;margin-top:.8rem;flex-wrap:wrap}
+        .sp-ctrl button{padding:5px 14px;font-size:.75rem;border-radius:6px;border:1px solid #cfd8dc;background:white;color:#546E7A;cursor:pointer;font-weight:600;transition:all .15s;font-family:inherit}
+        .sp-ctrl button:hover{background:#eceff1;color:#333;border-color:#90a4ae}
+        @media(max-width:600px){.sp-row{flex-direction:column;gap:.15rem;padding:.55rem .9rem}.sp-row .sp-study{width:auto}}
     </style>
 </head>
 <body>
@@ -229,7 +249,7 @@
     <div class="def-card">
         <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n1">1</span><strong style="font-size:1.02rem;color:#333">Laboratory Experiment / 实验室实验</strong></div>
         <div class="def-text-box" id="lab-def"><button class="copy-btn" onclick="copyText('lab-def',this)">Copy</button><div class="def-text">A <span class="kw">laboratory experiment</span> is conducted in a <span class="kw">controlled environment</span> (a lab, or a room specially set up by the researcher). The researcher <span class="kw">manipulates the IV</span> and measures the DV while keeping other variables as controlled/standardised as possible.</div></div>
-        <div class="explain-box"><strong>简单理解：</strong>在研究者可以控制的场所里做实验：主动改 IV、测 DV、把无关变量压到最低。<br><br><strong>核心研究例子：</strong><span class="cs-chip">Milgram (1963)</span> 在耶鲁大学 "interaction laboratory" 测服从（DV = 最大电击档位）；<span class="cs-chip">Andrade (2010)</span> 在安静无聊的房间测涂鸦对注意/记忆的影响（IV = 涂鸦/不涂鸦，DV = 记下的人名数）；<span class="cs-chip">Pozzulo et al.</span> 在实验室内看视频 + 列队指认。</div>
+        <div class="explain-box"><strong>简单理解：</strong>在研究者可以控制的场所里做实验：主动改 IV、测 DV、把无关变量压到最低。<br><br><strong>核心研究例子：</strong><span class="cs-chip">Andrade (2010)</span> 在安静无聊的房间测涂鸦对注意/记忆的影响（IV = 涂鸦/不涂鸦，DV = 记下的人名与地名数，材料是同一段 2.5 分钟单调录音）；<span class="cs-chip">Baron-Cohen (2001)</span> 在大学房间里施测 36 组眼睛照片迫选；<span class="cs-chip">Pozzulo (2011)</span> 实验室内看视频 + 笔记本电脑列队指认。⚠️ Milgram 虽在耶鲁实验室进行，但主研究<b>没有 IV</b>，严格说是"实验室情境下的 controlled observation"，见下方陷阱框。</div>
     </div>
 
     <!-- Field experiment -->
@@ -243,19 +263,33 @@
     <div class="def-card">
         <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n1">3</span><strong style="font-size:1.02rem;color:#333">评价：实验室实验 vs 实地实验</strong></div>
         <table class="rich-table">
-            <tr><th style="width:22%">维度</th><th class="pro">实验室实验优点</th><th class="con">实验室实验缺点</th></tr>
-            <tr><td class="row-label">控制</td><td>高控制/标准化 → 更容易重复（reliability &amp; replicability）</td><td>环境人造 → 生态效度(ecological validity)低</td></tr>
-            <tr><td class="row-label">变量</td><td>能把无关变量控制住，较有把握说 IV 引起 DV 变化</td><td>被试知道在做实验 → demand characteristics（猜测目的而改变行为）</td></tr>
-            <tr><td class="row-label">被试</td><td>招募方便、可随时来实验室</td><td>样本常偏（如大学生志愿者），推广性有限</td></tr>
-            <tr><td class="row-label">伦理</td><td>容易取得同意、随时可退出</td><td>任务可能人造/枯燥；Milgram 式高压情境可能造成痛苦</td></tr>
+            <tr><th style="width:16%">Criterion</th><th class="pro">Laboratory Experiment — Strengths (write these sentences)</th></tr>
+            <tr><td class="row-label">Control</td><td>"A laboratory experiment takes place in a highly controlled environment, so extraneous variables can be kept constant, meaning the researcher can be more confident that the IV caused the change in the DV."</td></tr>
+            <tr><td class="row-label">Reliability</td><td>"Because the procedure can be fully standardised (same room, same instructions, same materials), the study can be easily repeated to check its reliability. For example, in Milgram (1963) every participant heard the same four fixed 'prods', and in Andrade (2010) every participant heard exactly the same 2.5-minute audio recording."</td></tr>
+            <tr><td class="row-label">Accuracy</td><td>"Measurements can be taken with precise equipment in a laboratory. For example, Dement and Kleitman (1957) used EEG and EOG machines to record exactly when each participant entered REM or non-REM sleep."</td></tr>
+            <tr><td class="row-label">Ethics</td><td>"In a laboratory it is easier to obtain informed consent before the study and to give a full debrief afterwards, because participants know they are taking part in research."</td></tr>
         </table>
         <table class="rich-table">
-            <tr><th style="width:22%">维度</th><th class="pro">实地实验优点</th><th class="con">实地实验缺点</th></tr>
-            <tr><td class="row-label">效度</td><td>真实场景 → 行为自然，生态效度高；参与者不知情 → 无 demand characteristics</td><td>缺乏控制 → 难以标准化；混杂变量多，难确认因果关系</td></tr>
-            <tr><td class="row-label">伦理</td><td>（若自然观察型）不干预行为</td><td>常无知情同意（Piliavin 被试完全不知情）→ 欺骗/隐私问题</td></tr>
-            <tr><td class="row-label">实操</td><td>样本是"真实世界的人"，数量可很大</td><td>费时费力、情境不可控（Piliavin 因罢工提前结束）；难以精确记录</td></tr>
+            <tr><th style="width:16%">Criterion</th><th class="con">Laboratory Experiment — Weaknesses (write these sentences)</th></tr>
+            <tr><td class="row-label">Ecological validity</td><td>"The setting is artificial, so participants may not behave as they would in real life, lowering the ecological validity of the findings."</td></tr>
+            <tr><td class="row-label">Demand characteristics</td><td>"Participants know they are being studied, so they may guess the aim of the study and change their behaviour accordingly (demand characteristics). For example, in Bandura (1961) the children may have thought hitting the Bobo doll was what the adults wanted."</td></tr>
+            <tr><td class="row-label">Sampling</td><td>"Laboratory samples are often small and unrepresentative (e.g. university student volunteers), so the results may not generalise to the wider population."</td></tr>
+            <tr><td class="row-label">Ethics</td><td>"Laboratory tasks can be boring or stressful: in Milgram (1963) many participants showed extreme tension (sweating, trembling, stuttering) because they believed they were giving real electric shocks."</td></tr>
         </table>
-        <div class="explain-box"><strong>考场句式（CIE 评分的两层结构）：</strong>评价实验先给<b>概念层</b>（"high control improves reliability"），再给<b>链接层</b>（用具体实验细节说明，如 "Andrade 用同一段录音、同一房间，使所有被试听到的内容完全一样"）。只有概念没有链接通常只得 1 分。</div>
+        <table class="rich-table">
+            <tr><th style="width:16%">Criterion</th><th class="pro">Field Experiment — Strengths (write these sentences)</th></tr>
+            <tr><td class="row-label">Ecological validity</td><td>"The study takes place in a real-life setting where people would normally behave that way, so behaviour is more natural and ecological validity is higher."</td></tr>
+            <tr><td class="row-label">Demand characteristics</td><td>"Participants usually do not know they are in a study, so there are no demand characteristics. For example, in Piliavin et al. (1969) the passengers on the New York subway were ordinary commuters who had no idea an emergency was staged."</td></tr>
+            <tr><td class="row-label">Sampling</td><td>"Field experiments can use large numbers of real people in their everyday environment. For example, about 4,450 men and women rode through the critical area in Piliavin et al. (1969)."</td></tr>
+        </table>
+        <table class="rich-table">
+            <tr><th style="width:16%">Criterion</th><th class="con">Field Experiment — Weaknesses (write these sentences)</th></tr>
+            <tr><td class="row-label">Control</td><td>"The researcher has much less control over extraneous variables, so it is harder to be certain that the IV caused the change in the DV."</td></tr>
+            <tr><td class="row-label">Replicability</td><td>"It is difficult to standardise and repeat a field experiment exactly, because the real-life setting cannot be reproduced. For example, Piliavin et al. (1969) had to stop the study early because of a strike, and could not control who was on the train."</td></tr>
+            <tr><td class="row-label">Ethics</td><td>"Participants in a field experiment usually cannot give informed consent, raising issues of deception and privacy. In Piliavin et al. (1969) the passengers were never told they had been in a study and were never debriefed."</td></tr>
+            <tr><td class="row-label">Recording</td><td>"Behaviour must be recorded quickly by observers on the spot, so data may be less accurate or incomplete compared with laboratory equipment."</td></tr>
+        </table>
+        <div class="explain-box"><strong>考场句式（CIE 评分的两层结构）：</strong>评价实验先给<b>概念层</b>（"A field experiment has higher ecological validity because…"），再给<b>链接层</b>（用具体研究细节说明，如 "in Piliavin et al. (1969) the setting was a real New York subway carriage, so the passengers' helping behaviour was natural"）。只有概念没有链接通常只得 1 分。上面每个引号句都可直接抄写，再补一句 study-specific 细节即达 L3。</div>
     </div>
 
     <!-- Experiment & control group -->
@@ -272,35 +306,36 @@
 
     <!-- 12 Core Studies: Lab vs Field classification -->
     <div class="def-card">
-        <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n1">5</span><strong style="font-size:1.02rem;color:#333">12 Core Studies — 一次看清谁 Lab 谁 Field（背诵口诀表）</strong></div>
+        <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n1">5</span><strong style="font-size:1.02rem;color:#333">12 Core Studies — the two-point rule: Setting × Task</strong></div>
+        <div class="def-text-box" id="twopoint-def"><button class="copy-btn" onclick="copyText('twopoint-def',this)">Copy</button><div class="def-text">To judge whether a study is a <span class="kw">laboratory experiment</span> or a <span class="kw">field experiment</span>, look at two things: is the <span class="kw">SETTING</span> artificial (a controlled environment set up by the researcher) or natural (a real-life place where this behaviour normally happens), and is the <span class="kw">TASK</span> artificial (invented for the study) or natural (part of everyday life)? An artificial setting and/or artificial task means it is a laboratory study; a natural setting with normal behaviour means it is a field study. Remember also that a study must <span class="kw">manipulate an IV</span> to count as an experiment at all.</div></div>
         <table class="rich-table">
-            <tr><th style="width:30%">Study 研究</th><th style="width:18%">Type 类型</th><th>Why — 一句话理由（看到这个就背）</th></tr>
-            <tr><td><b>Bandura (1961)</b> — Bobo Doll</td><td>Lab</td><td>实验室有单向镜；同一模型、同一程序；用标准化的攻击行为评分表。</td></tr>
-            <tr><td><b>Milgram (1963)</b> — Obedience</td><td>Lab</td><td>耶鲁「Interaction Laboratory」；固定台词、固定电击器、固定的"prod"催促语。</td></tr>
-            <tr><td><b>Dement &amp; Kleitman (1957)</b> — Sleep</td><td>Lab</td><td>睡眠实验室，EEG + EOG 设备；定点叫醒被试。</td></tr>
-            <tr><td><b>Andrade (2010)</b> — Doodling</td><td>Lab</td><td>安静无聊的房间；同一段 10 分钟视频；随机分配；同样评分人名数。</td></tr>
-            <tr><td><b>Baron-Cohen et al. (2001)</b> — Eyes Test</td><td>Lab</td><td>研究室里施测；25 张眼睛照片 × 4 个词；标准化迫选计分。</td></tr>
-            <tr><td><b>Hölzel et al. (2011)</b> — Mindfulness MRI</td><td>Lab</td><td>MRI 扫描实验室；MBSR 组 vs 候补名单对照组；按年龄/性别匹配。</td></tr>
-            <tr><td><b>Hassett et al. (2008)</b> — Monkey toys</td><td>Field</td><td>真实户外猴群围场；7 次 25 分钟试次；玩具放进真实猴群（比 lab 控管低）。</td></tr>
-            <tr><td><b>Piliavin et al. (1969)</b> — Subway Samaritan</td><td>Field</td><td>真实纽约地铁车厢；研究者假扮"病人倒下"；IV = 病人类型；乘客不知情。</td></tr>
-            <tr><td><b>Perry (2005)</b> — Self-control &amp; gang</td><td>Field</td><td>街头/地下帮派成员的真实访谈（自然环境）。</td></tr>
-            <tr><td><b>Pozzulo et al. (2012)</b> — Eyewitness lineups</td><td>Field–Lab mix</td><td>真实警局照片 + 真实目击者；辨认程序在实验室里施测（混合）。</td></tr>
-            <tr><td><b>Fagen et al. (2014)</b> — Elephant learning</td><td>Naturalistic obs.<br>（不是 experiment）</td><td>无 IV 操纵——观察者记录动物园/保护区里大象的行为。属观察法（自然观察）。</td></tr>
-            <tr><td><b>Lea (1994)</b> — Disgust &amp; specific phobia</td><td>Case study<br>（不是 experiment）</td><td>单一被试；深度访谈 + 行为测试。属个案研究法。</td></tr>
+            <tr><th style="width:21%">Study</th><th style="width:17%">Setting</th><th style="width:17%">Task</th><th>Exam answer — write this sentence</th></tr>
+            <tr><td><b>Bandura, Ross &amp; Ross (1961)</b> <span class="tag-lab">Lab</span></td><td>Artificial — a playroom at Stanford University, watched through a one-way mirror.</td><td>Artificial — staged model behaviour; Bobo doll is an inflatable toy, not a real person.</td><td>"Bandura et al. (1961) is a <b>laboratory experiment</b>: it was conducted in a controlled university playroom where the researchers manipulated the model's condition (aggressive / non-aggressive / no model) and measured the children's imitation with a standardised aggression checklist."</td></tr>
+            <tr><td><b>Milgram (1963)</b> <span class="tag-noexp">Not an experiment</span></td><td>Artificial — the 'interaction laboratory' at Yale University.</td><td>Artificial — a fake shock generator and a confederate 'learner'.</td><td>"Milgram (1963) took place in an artificial laboratory setting, but it is <b>not a true experiment</b> because the researchers did not manipulate an IV — all 40 participants experienced exactly the same situation, so obedience (the maximum shock given) was measured as a dependent variable in a controlled observation."</td></tr>
+            <tr><td><b>Dement &amp; Kleitman (1957)</b> <span class="tag-lab">Lab</span></td><td>Artificial — a sleep laboratory with EEG and EOG machines.</td><td>Natural task (sleeping), but the awakenings were scheduled by the researchers.</td><td>"Dement and Kleitman (1957) is a <b>laboratory experiment</b>: participants slept in a controlled laboratory where the researchers controlled when they were woken (REM vs non-REM) and measured dream recall and EEG patterns with scientific equipment."</td></tr>
+            <tr><td><b>Andrade (2010)</b> <span class="tag-lab">Lab</span></td><td>Artificial — a quiet, boring room, monitored through a window.</td><td>Artificial — listening to a dull 2.5-minute audio recording of a telephone message.</td><td>"Andrade (2010) is a <b>laboratory experiment</b>: participants were randomly allocated in an independent measures design to a doodling or a control condition, and heard exactly the same artificial tape while their memory for names was measured."</td></tr>
+            <tr><td><b>Baron-Cohen et al. (2001)</b> <span class="tag-lab">Lab</span></td><td>Artificial — a quiet room, tested individually.</td><td>Artificial — choosing a word to match a photo of only the eye region (36 sets).</td><td>"Baron-Cohen et al. (2001) is a <b>laboratory experiment</b> using a quasi-experimental independent measures design: participants in each group (autism / Tourette / typical) completed the same standardised 'Reading the Mind in the Eyes' test in a controlled setting, but the IV (group) was not manipulated by the researchers."</td></tr>
+            <tr><td><b>Hölzel et al. (2011)</b> <span class="tag-lab">Lab</span></td><td>Artificial — lying still inside an MRI scanner.</td><td>Partly natural — the MBSR meditation course was a real 8-week class, but the brain scanning was artificial.</td><td>"Hölzel et al. (2011) is a <b>laboratory experiment</b>: the MBSR group and the wait-list control group were matched on age and gender, and the dependent variable (grey-matter density) was measured with an MRI scanner in a highly controlled laboratory setting."</td></tr>
+            <tr><td><b>Perry et al. (2015)</b> <span class="tag-lab">Lab</span></td><td>Artificial — psychology laboratories at the University of Haifa.</td><td>Artificial — computerised tasks: saying when an approaching figure gets 'too close' (Exp 1) and choosing between room pictures with different chair distances (Exp 2).</td><td>"Perry et al. (2015) is a <b>laboratory experiment</b> with a mixed design: the manipulated IV was the treatment (intranasal oxytocin vs a placebo saline solution, double-blind, repeated measures) while empathy (high vs low, measured by the IRI) was a naturally occurring IV, and the DV was preferred interpersonal distance measured on computerised tasks."</td></tr>
+            <tr><td><b>Pozzulo et al. (2011)</b> <span class="tag-lab">Lab</span></td><td>Artificial — participants watched a video and identified people from photoarrays on a laptop.</td><td>Artificial — a staged (acted) video of a theft, not a real crime.</td><td>"Pozzulo et al. (2011) is a <b>laboratory experiment</b>: children and adults watched the same staged video and were then tested with standardised photoarrays (sequential vs simultaneous) shown on a laptop in controlled conditions, with age and target presence as independent variables."</td></tr>
+            <tr><td><b>Hassett et al. (2008)</b> <span class="tag-field">Field</span></td><td>Natural — the monkeys' own outdoor enclosures at the Yerkes primate centre.</td><td>Natural — the monkeys' normal free play; researchers only placed the toys inside.</td><td>"Hassett et al. (2008) is a <b>field study</b> (field experiment / structured observation): the researchers introduced wheeled and plush toys into the monkeys' real outdoor enclosure, where the monkeys' natural toy choices (the DV: duration of contact) were recorded across seven 25-minute sessions without removing the animals from their normal environment."</td></tr>
+            <tr><td><b>Piliavin et al. (1969)</b> <span class="tag-field">Field</span></td><td>Natural — a real New York subway train, the A express.</td><td>Artificial — the 'victim' collapsing was staged by confederates.</td><td>"Piliavin et al. (1969) is a <b>field experiment</b>: the researchers manipulated the victim's condition (carrying a cane vs appearing drunk) and measured real passengers' helping behaviour (frequency, speed and number of helpers) in a natural setting where the participants did not know they were being studied."</td></tr>
+            <tr><td><b>Fagen et al. (2014)</b> <span class="tag-noexp">Not an experiment</span></td><td>Natural — a real working elephant stable at a tourist camp in Nepal.</td><td>Natural — the elephants' everyday routine; researchers only attached proximity loggers.</td><td>"Fagen et al. (2014) is <b>not an experiment</b>: the researchers did not manipulate an IV but carried out a <b>controlled observation</b> (a structured, longitudinal field observation) of the elephants' natural social behaviour at their real stable in Nepal, recording proximity and contact over several days."</td></tr>
+            <tr><td><b>Saavedra &amp; Silverman (2002)</b> <span class="tag-noexp">Not an experiment</span></td><td>Natural / clinical — the boy's everyday life and a clinic.</td><td>Natural — his real phobia of buttons, studied over time.</td><td>"Saavedra and Silverman (2002) is <b>not an experiment</b>: it is a <b>case study</b> of a single six-year-old boy with a specific phobia of buttons, using clinical interviews with the child and his mother, self-report (the Feelings Thermometer) and a behavioural avoidance test, studied intensively over time."</td></tr>
         </table>
-        <div class="explain-box"><strong>考试怎么用：</strong><br>
-        1) <b>Lab / Field 判断标准</b> = <b>地点是否人工（controlled environment vs real-life setting）</b>，与"是不是真实验"无关。<br>
-        2) 题干若说 "in a laboratory / in a controlled room" → Lab；说 "in a natural setting / on the street / in their own environment" → Field。<br>
-        3) <b>注意</b>：Fagen 和 Lea <b>不是 experiment</b>——前者是自然观察（无 IV），后者是个案研究。错把它们说成 experiment 会丢分。<br>
-        4) 考场万金句："This is a <b>field experiment</b> because [study] was conducted in [real-world setting] where participants would normally behave this way, but the researcher still <b>manipulated the IV</b>."</div>
+        <div class="explain-box"><strong>考试怎么用（两点法）：</strong><br>
+        1) 判断 Lab/Field 只问两个问题：<b>setting 人工还是自然？task 人工还是自然？</b>人工 setting 或人工 task → 实验室研究；自然 setting + 自然行为 → 现场研究。<br>
+        2) 但要称为 "experiment" 还必须<b>有 IV 被操纵</b>——Milgram、Fagen、Saavedra 都没有 IV，分别是 controlled observation、structured field observation、case study。<br>
+        3) 题干若说 "in a laboratory / in a controlled room" → lab；说 "in a natural setting / on the subway / in their own enclosure" → field。<br>
+        4) 常见丢分点：把 Pozzulo 说成 field（错——视频与列队都在实验室完成，只是"模拟真实"）；把 Hassett 说成 lab（错——猴群在自家户外围场）；把 Milgram 说成有 IV 的 experiment（大纲明确指出主研究无 IV）。</div>
     </div>
 
     <div class="tip-box">
-        <strong>✅ Exam Key Points（实验法）：</strong><br>
-        • 类型二选一：lab 还是 field？看<b>地点是否人工 + IV 是否操纵</b>。<br>
-        • 评价万能四件套：reliability（能否标准化/重复）· validity（生态效度/demand characteristics）· ethics（同意/伤害）· 控制程度。<br>
-        • "Describe + evaluate" 结构 = 概念句 + 每句带核心研究链接。<br>
-        • 2025 真题直接考过：描述实验计划（s25/21 Q10、s25/23 Q10、w25/21 Q9、w25/22 Q9 均要求 plan an experiment）；Piliavin 两型受害者的控制（w25/23 Q5）。
+        <strong>✅ Exam Key Points (Experiments) — memorise these:</strong><br>
+        • "A laboratory experiment is conducted in a controlled environment where the researcher manipulates the IV and controls extraneous variables; a field experiment is conducted in a real-life, natural setting where the researcher still manipulates the IV but has less control."<br>
+        • Two-point rule for ecological validity: look at whether the <b>setting</b> and the <b>task</b> are artificial or natural.<br>
+        • Evaluation sentences always have two layers: a general point (e.g. "high control increases reliability") plus a link to a named core study (e.g. "as in Andrade (2010), where every participant heard the same 2.5-minute tape").<br>
+        • 2025 papers directly tested planning: "plan an experiment" appeared in s25/21 Q10, s25/23 Q10, w25/21 Q9, w25/22 Q9; Piliavin's control of victim type appeared in w25/23 Q5.
     </div>
 
 </div>
@@ -320,6 +355,23 @@
         <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n2">1</span><strong style="font-size:1.02rem;color:#333">Aim / 研究目的</strong></div>
         <div class="def-text-box" id="aim-def"><button class="copy-btn" onclick="copyText('aim-def',this)">Copy</button><div class="def-text">An <span class="kw">aim</span> is a general statement of <span class="kw">what the researcher intends to investigate</span> — the purpose of the study, written in plain, non-numerical language.</div></div>
         <div class="explain-box"><strong>例子（真实核心研究）：</strong>Andrade — "explored the idea that doodling can assist a person's concentration and memory"；Bandura — "whether a child would imitate aggressive behaviour if they witnessed such behaviour in an adult"；Hölzel — 检验正念减压训练是否改变脑灰质密度。<br><br><strong>写法套路：</strong>"To investigate whether [IV] affects [DV]" 或 "To explore the relationship between [变量1] and [变量2]"。</div>
+        <div class="study-panel">
+            <button class="sp-head" onclick="this.closest('.study-panel').classList.toggle('open')"><span class="sp-title">🎯 Aim — all 12 Core Studies (English, copy these)</span><span class="chev">&#9660;</span></button>
+            <div class="sp-body">
+                <div class="sp-row"><div class="sp-study">Bandura, Ross &amp; Ross (1961)</div><div class="sp-content">"To investigate whether children who observed an adult model behaving aggressively would imitate that aggressive behaviour, and whether imitation depended on the sex of the model and of the child."</div></div>
+                <div class="sp-row"><div class="sp-study">Milgram (1963)</div><div class="sp-content">"To investigate how far ordinary people would go in obeying an authority figure who instructed them to administer increasingly severe electric shocks to another person."</div></div>
+                <div class="sp-row"><div class="sp-study">Dement &amp; Kleitman (1957)</div><div class="sp-content">"To investigate the relationship between REM sleep and dreaming — whether dreaming occurs during REM, whether the length of a dream relates to the length of the REM period, and whether the pattern of rapid eye movements relates to the content of the dream."</div></div>
+                <div class="sp-row"><div class="sp-study">Perry et al. (2015)</div><div class="sp-content">"To test the differential effect of the social hormone oxytocin on preferred interpersonal distance in relation to a person's level of empathy."</div></div>
+                <div class="sp-row"><div class="sp-study">Pozzulo et al. (2011)</div><div class="sp-content">"To investigate whether children differ from adults in the accuracy and confidence of their identifications from target-present and target-absent photoarrays, and whether this depends on the type of lineup (sequential vs simultaneous)."</div></div>
+                <div class="sp-row"><div class="sp-study">Hassett et al. (2008)</div><div class="sp-content">"To investigate whether sex differences in toy preference — favouring 'boy-typical' wheeled toys over 'girl-typical' plush toys — exist in non-human primates (rhesus monkeys), suggesting a biological rather than purely social origin."</div></div>
+                <div class="sp-row"><div class="sp-study">Baron-Cohen et al. (2001)</div><div class="sp-content">"To test a revised, more adult version of the 'Reading the Mind in the Eyes' Test as an advanced theory-of-mind task, and to find out whether adults with autism spectrum conditions are impaired on it compared with typical adults."</div></div>
+                <div class="sp-row"><div class="sp-study">Andrade (2010)</div><div class="sp-content">"To test the idea that a simple task like doodling can improve concentration and memory for a boring message, by reducing daydreaming."</div></div>
+                <div class="sp-row"><div class="sp-study">Fagen et al. (2014)</div><div class="sp-content">"To investigate whether juvenile elephants at a tourist camp in Nepal could learn a novel foraging task (pulling a chain to reach food) by observing unrelated adult elephants — i.e. social learning in a naturalistic setting."</div></div>
+                <div class="sp-row"><div class="sp-study">Piliavin et al. (1969)</div><div class="sp-content">"To investigate helping behaviour in a natural setting — specifically the effect of the type of victim (appearing ill vs appearing drunk) and the effect of the number of bystanders (diffusion of responsibility) on subway passengers' helping."</div></div>
+                <div class="sp-row"><div class="sp-study">Hölzel et al. (2011)</div><div class="sp-content">"To investigate whether participation in an eight-week Mindfulness-Based Stress Reduction (MBSR) programme would increase grey matter concentration in brain regions associated with learning, memory, emotion regulation and perspective-taking."</div></div>
+                <div class="sp-row"><div class="sp-study">Saavedra &amp; Silverman (2002)</div><div class="sp-content">"To describe and treat a specific phobia of buttons in a six-year-old boy, and to examine the role of disgust in the origin and maintenance of the phobia, using a detailed case study."</div></div>
+            </div>
+        </div>
     </div>
 
     <!-- Alternative hypothesis -->
@@ -351,6 +403,23 @@
         <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n2">5</span><strong style="font-size:1.02rem;color:#333">Independent Variable (IV, 自变量)</strong></div>
         <div class="def-text-box" id="iv-def"><button class="copy-btn" onclick="copyText('iv-def',this)">Copy</button><div class="def-text">The <span class="kw">independent variable (IV)</span> is the variable the researcher <span class="kw">manipulates / changes</span> (e.g. two or more conditions) to see whether it affects the DV.</div></div>
         <div class="explain-box"><strong>核心研究 IV 清单：</strong><span class="cs-chip">Bandura</span> 模型攻击性（攻击/非攻击/无模型，另含模型性别、儿童性别）；<span class="cs-chip">Andrade</span> 涂鸦 vs 不涂鸦；<span class="cs-chip">Pozzulo</span> 年龄×目标类型×列队类型；<span class="cs-chip">Dement Q1</span> 从 REM 还是 nREM 唤醒；<span class="cs-chip">Perry</span> 催产素 vs 安慰剂（被试内）；<span class="cs-chip">Piliavin</span> 受害者类型（拐杖/醉酒）、种族、模型条件。<b>Milgram 主研究无 IV</b>（见 Tab 1 陷阱框）。</div>
+        <div class="study-panel">
+            <button class="sp-head" onclick="this.closest('.study-panel').classList.toggle('open')"><span class="sp-title">🔬 IV — all 12 Core Studies (English, copy these)</span><span class="chev">&#9660;</span></button>
+            <div class="sp-body">
+                <div class="sp-row"><div class="sp-study">Bandura, Ross &amp; Ross (1961)</div><div class="sp-content">"The IV was the condition of the model: aggressive model, non-aggressive model, or no model (control group). The sex of the model and the sex of the child were also studied, but these were naturally occurring rather than manipulated."</div></div>
+                <div class="sp-row"><div class="sp-study">Milgram (1963)</div><div class="sp-content">"There was no IV in the main study — all 40 participants took part in exactly the same condition, so obedience (the maximum shock level administered) was a dependent variable only."</div></div>
+                <div class="sp-row"><div class="sp-study">Dement &amp; Kleitman (1957)</div><div class="sp-content">"The IV was the type of sleep from which participants were awakened (REM vs non-REM, identified from the EEG), and in another part of the study, the time since the start of REM (5 or 15 minutes)."</div></div>
+                <div class="sp-row"><div class="sp-study">Perry et al. (2015)</div><div class="sp-content">"The manipulated IV was the treatment: intranasal oxytocin vs a placebo saline solution. A second, naturally occurring IV was empathy (high vs low, based on IRI scores), and in Experiment 1 the condition of the approaching figure (stranger, authority, friend or ball) was a further IV."</div></div>
+                <div class="sp-row"><div class="sp-study">Pozzulo et al. (2011)</div><div class="sp-content">"There were three IVs: the age of the participant (children vs adults), the presence of the target in the photoarray (target-present vs target-absent), and the type of lineup (sequential vs simultaneous)."</div></div>
+                <div class="sp-row"><div class="sp-study">Hassett et al. (2008)</div><div class="sp-content">"No IV was manipulated — the sex of the monkeys was a naturally occurring (quasi-experimental) variable, and the researchers simply presented the same six toys (three wheeled, three plush) to every group and observed their choices."</div></div>
+                <div class="sp-row"><div class="sp-study">Baron-Cohen et al. (2001)</div><div class="sp-content">"The IV was the group of participants (adults with AS/HFA, adults with Tourette syndrome, and 'normal' adults from the general population) — a naturally occurring variable, not manipulated by the researchers."</div></div>
+                <div class="sp-row"><div class="sp-study">Andrade (2010)</div><div class="sp-content">"The IV was whether participants were in the doodling condition or the non-doodling control condition; participants were randomly allocated to the two conditions."</div></div>
+                <div class="sp-row"><div class="sp-study">Fagen et al. (2014)</div><div class="sp-content">"No IV was manipulated — this was an observational study of naturally occurring social learning, not an experiment."</div></div>
+                <div class="sp-row"><div class="sp-study">Piliavin et al. (1969)</div><div class="sp-content">"The IVs were the type of victim (carrying a cane vs appearing drunk), the race of the victim (black vs white), and in some trials the behaviour of model helpers (who helped early or late)."</div></div>
+                <div class="sp-row"><div class="sp-study">Hölzel et al. (2011)</div><div class="sp-content">"The IV was participation in the 8-week MBSR programme (experimental group) vs being on the waiting list (control group), with the two groups matched on age and gender."</div></div>
+                <div class="sp-row"><div class="sp-study">Saavedra &amp; Silverman (2002)</div><div class="sp-content">"There was no IV — this was a case study of one individual, not an experiment."</div></div>
+            </div>
+        </div>
     </div>
 
     <!-- DV -->
@@ -358,6 +427,23 @@
         <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n2">6</span><strong style="font-size:1.02rem;color:#333">Dependent Variable (DV, 因变量)</strong></div>
         <div class="def-text-box" id="dv-def"><button class="copy-btn" onclick="copyText('dv-def',this)">Copy</button><div class="def-text">The <span class="kw">dependent variable (DV)</span> is what the researcher <span class="kw">measures / records</span> to see the effect of the IV. Its value is expected to 'depend on' the IV.</div></div>
         <div class="explain-box"><strong>DV 如何测量（大纲要求）：</strong>频次/数量（Bandura 攻击行为次数、Andrade 回忆人名数）；时长/潜伏期（Piliavin 首助潜伏期）；生理/仪器（Dement 用 EEG/EOG、Hölzel 用 MRI 灰质密度）；评分量表（Pozzulo 指认正确率、Saavedra Feelings Thermometer）。<b>写计划题时 DV 必须给测量单位或计分方法。</b></div>
+        <div class="study-panel">
+            <button class="sp-head" onclick="this.closest('.study-panel').classList.toggle('open')"><span class="sp-title">📏 DV — all 12 Core Studies (English, copy these)</span><span class="chev">&#9660;</span></button>
+            <div class="sp-body">
+                <div class="sp-row"><div class="sp-study">Bandura, Ross &amp; Ross (1961)</div><div class="sp-content">"The DV was the amount of aggressive behaviour shown by each child, measured by observers through a one-way mirror using a standardised checklist of physical and verbal aggressive acts (frequency counts and 5-point rating scales)."</div></div>
+                <div class="sp-row"><div class="sp-study">Milgram (1963)</div><div class="sp-content">"The DV was the level of obedience — the maximum voltage of electric shock each participant was willing to administer before refusing to continue (out of 30 switches, up to 450 V)."</div></div>
+                <div class="sp-row"><div class="sp-study">Dement &amp; Kleitman (1957)</div><div class="sp-content">"The DVs were whether a dream was reported on being woken, the estimated duration of the dream (number of words in the report), and whether the direction of rapid eye movements matched the action reported in the dream."</div></div>
+                <div class="sp-row"><div class="sp-study">Perry et al. (2015)</div><div class="sp-content">"The DV was preferred interpersonal distance, measured in centimetres — the distance at which participants stopped an approaching figure (Experiment 1) and the preferred distance between chairs in room pictures (Experiment 2)."</div></div>
+                <div class="sp-row"><div class="sp-study">Pozzulo et al. (2011)</div><div class="sp-content">"The DVs were identification accuracy (correct identifications in target-present arrays, correct rejections and false identifications in target-absent arrays) and witnesses' confidence ratings."</div></div>
+                <div class="sp-row"><div class="sp-study">Hassett et al. (2008)</div><div class="sp-content">"The DV was the mean duration of contact (in seconds) with each toy category — wheeled toys vs plush toys — recorded during seven 25-minute sessions per group."</div></div>
+                <div class="sp-row"><div class="sp-study">Baron-Cohen et al. (2001)</div><div class="sp-content">"The DV was each participant's score on the revised Eyes Test — the number of correct mental-state words chosen for the 36 photographs of the eye region (maximum 36), plus the time taken to respond."</div></div>
+                <div class="sp-row"><div class="sp-study">Andrade (2010)</div><div class="sp-content">"The DVs were monitoring performance — the number of names and places correctly recorded while listening — and surprise recall of the eight names and eight places after the tape ended."</div></div>
+                <div class="sp-row"><div class="sp-study">Fagen et al. (2014)</div><div class="sp-content">"The DVs were how quickly and how often the juvenile elephants learned and performed the novel chain-pulling task — latency to first successful performance and frequency of the behaviour, recorded from proximity-logger and observational data."</div></div>
+                <div class="sp-row"><div class="sp-study">Piliavin et al. (1969)</div><div class="sp-content">"The DVs were whether anyone helped, the number of helpers, the time (latency) until the first helper arrived, the race of the helpers, and the comments made by passengers."</div></div>
+                <div class="sp-row"><div class="sp-study">Hölzel et al. (2011)</div><div class="sp-content">"The DV was grey matter concentration in the brain, measured with MRI scans and voxel-based morphometry, compared between the MBSR group and the wait-list control group before and after the eight weeks."</div></div>
+                <div class="sp-row"><div class="sp-study">Saavedra &amp; Silverman (2002)</div><div class="sp-content">"The DVs were the boy's fear and avoidance of buttons, measured by his fear ratings on the Feelings Thermometer, his behavioural avoidance of buttons, and reports from the boy and his mother during assessment and treatment."</div></div>
+            </div>
+        </div>
     </div>
 
     <!-- Operationalisation -->
@@ -365,6 +451,23 @@
         <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n2">7</span><strong style="font-size:1.02rem;color:#333">Operationalisation / 操作化</strong></div>
         <div class="def-text-box" id="op-def"><button class="copy-btn" onclick="copyText('op-def',this)">Copy</button><div class="def-text"><span class="kw">Operationalisation</span> means defining a variable <span class="kw">in terms of exactly how it will be measured or manipulated</span>, so that the study could be replicated and the variable is measurable.</div></div>
         <div class="explain-box"><strong>例子：</strong>"睡得好"（抽象）→ 操作化 = 用 EEG 测实际入睡时间/深睡时长，或次日早晨自评量表（s25/21 Q10 MS 认可 EEG 或自评）；"注意力"→ "课上测验分数"。<br><br><strong>考试高发：</strong>"Operationalise the IV / DV" 就是把抽象词翻译成<b>带单位、带计分规则</b>的具体指标。只有概念没有测量方式 = 不完整。</div>
+        <div class="study-panel">
+            <button class="sp-head" onclick="this.closest('.study-panel').classList.toggle('open')"><span class="sp-title">🧮 Operationalisation — all 12 Core Studies (English, copy these)</span><span class="chev">&#9660;</span></button>
+            <div class="sp-body">
+                <div class="sp-row"><div class="sp-study">Bandura, Ross &amp; Ross (1961)</div><div class="sp-content">"Aggression was operationalised as the number of imitative and non-imitative physical and verbal aggressive acts performed by each child in 20 minutes, recorded by trained observers using time-sampling and 5-point rating scales."</div></div>
+                <div class="sp-row"><div class="sp-study">Milgram (1963)</div><div class="sp-content">"Obedience was operationalised as the maximum voltage level (up to 450 V) the participant administered on the 30-switch shock generator before refusing to continue."</div></div>
+                <div class="sp-row"><div class="sp-study">Dement &amp; Kleitman (1957)</div><div class="sp-content">"REM and non-REM sleep were operationalised by EEG and EOG recordings (eye-movement patterns and brain activity), and dreaming was operationalised as a reported dream narrative spoken into a recording machine immediately after being woken."</div></div>
+                <div class="sp-row"><div class="sp-study">Perry et al. (2015)</div><div class="sp-content">"Empathy was operationalised as the score on the Interpersonal Reactivity Index (IRI), and interpersonal distance was operationalised as the distance in centimetres at which participants stopped an approaching figure or the chosen distance between chairs in room pictures."</div></div>
+                <div class="sp-row"><div class="sp-study">Pozzulo et al. (2011)</div><div class="sp-content">"Identification accuracy was operationalised as the number of correct identifications (target-present arrays) and correct rejections (target-absent arrays), with confidence operationalised as a rating on a confidence scale."</div></div>
+                <div class="sp-row"><div class="sp-study">Hassett et al. (2008)</div><div class="sp-content">"Toy preference was operationalised as the mean duration of contact in seconds with wheeled vs plush toys across seven 25-minute observation sessions."</div></div>
+                <div class="sp-row"><div class="sp-study">Baron-Cohen et al. (2001)</div><div class="sp-content">"Theory of mind was operationalised as the number of correct mental-state words chosen for 36 photographs of the eye region, presented as a forced choice of four words."</div></div>
+                <div class="sp-row"><div class="sp-study">Andrade (2010)</div><div class="sp-content">"Concentration on the boring message was operationalised as the number of names and places correctly monitored during the 2.5-minute tape, and memory was operationalised as the number of names and places recalled in the surprise free-recall test."</div></div>
+                <div class="sp-row"><div class="sp-study">Fagen et al. (2014)</div><div class="sp-content">"Social learning was operationalised as the latency (in days) before a juvenile first performed the chain-pulling task and the frequency with which it subsequently performed it."</div></div>
+                <div class="sp-row"><div class="sp-study">Piliavin et al. (1969)</div><div class="sp-content">"Helping was operationalised as whether at least one passenger helped within the critical 70-second period, the number of helpers, the latency of the first helper in seconds, and the race of the first helper."</div></div>
+                <div class="sp-row"><div class="sp-study">Hölzel et al. (2011)</div><div class="sp-content">"Brain change was operationalised as the percentage change in grey matter concentration in specified regions of interest, computed from MRI scans using voxel-based morphometry."</div></div>
+                <div class="sp-row"><div class="sp-study">Saavedra &amp; Silverman (2002)</div><div class="sp-content">"Fear of buttons was operationalised as the boy's rating of distress on the Feelings Thermometer (0–10 scale) and his behavioural avoidance of buttons in a behavioural avoidance test."</div></div>
+            </div>
+        </div>
     </div>
 
     <!-- Extraneous / participant / situational variables -->
@@ -379,10 +482,31 @@
         <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n2">9</span><strong style="font-size:1.02rem;color:#333">Controls / Standardisation / 控制与标准化</strong></div>
         <div class="def-text-box" id="std-def"><button class="copy-btn" onclick="copyText('std-def',this)">Copy</button><div class="def-text"><span class="kw">Standardisation</span> means keeping the procedure <span class="kw">identical for every participant</span> (same instructions, same materials, same conditions), so that any difference in the DV must be due to the IV, and the study can be <span class="kw">replicated</span>.</div></div>
         <div class="explain-box"><strong>Section B 必写项：</strong>计划实验时至少要写 <b>2 个明确的标准/控制</b>（MS 要求 "At least two, must be explicit"），例如：同一房间与上床时间、同一床的舒适度、同一指导语、同一测试时间。写得含糊（只说 "control everything"）不得分。</div>
+        <div class="study-panel">
+            <button class="sp-head" onclick="this.closest('.study-panel').classList.toggle('open')"><span class="sp-title">🛡️ Controls — all 12 Core Studies (English, copy these)</span><span class="chev">&#9660;</span></button>
+            <div class="sp-body">
+                <div class="sp-row"><div class="sp-study">Bandura, Ross &amp; Ross (1961)</div><div class="sp-content">"Children were matched for aggression before allocation; the model followed an identical scripted sequence of aggressive acts; the same toys were presented in the same order in the same room; the child and model were alone during the test so no other variables could interfere."</div></div>
+                <div class="sp-row"><div class="sp-study">Milgram (1963)</div><div class="sp-content">"The experimenter used the same four standard 'prods' for every participant; the learner's complaints were a pre-recorded script; the shock generator and laboratory layout were identical for every session."</div></div>
+                <div class="sp-row"><div class="sp-study">Dement &amp; Kleitman (1957)</div><div class="sp-content">"Participants avoided caffeine and alcohol on the day of the study; each slept in the same laboratory room; an initial adaptation night familiarised them with the equipment; participants were not told whether they would be woken from REM or non-REM sleep."</div></div>
+                <div class="sp-row"><div class="sp-study">Perry et al. (2015)</div><div class="sp-content">"A double-blind procedure meant neither participant nor experimenter knew who received oxytocin; the order of oxytocin and placebo sessions was counterbalanced across participants; both sessions took place at the same time of day, a week apart."</div></div>
+                <div class="sp-row"><div class="sp-study">Pozzulo et al. (2011)</div><div class="sp-content">"All photoarray photos were standardised in size and format; instructions were read verbatim from a script; the photoarrays were presented on the same laptop; experimenters wore casual clothes and were blind to the hypotheses."</div></div>
+                <div class="sp-row"><div class="sp-study">Hassett et al. (2008)</div><div class="sp-content">"The same six toys (three wheeled, three plush) were used in every session; toys were placed in the same location within the enclosure; the left/right positions were counterbalanced; each group received seven identical 25-minute sessions at the same time of day."</div></div>
+                <div class="sp-row"><div class="sp-study">Baron-Cohen et al. (2001)</div><div class="sp-content">"All photos were standardised in size and shown in the same way as a forced choice of four words; a glossary of the words controlled for vocabulary differences; the Tourette comparison group was matched with the AS/HFA group on age and IQ."</div></div>
+                <div class="sp-row"><div class="sp-study">Andrade (2010)</div><div class="sp-content">"Every participant heard exactly the same 2.5-minute pre-recorded audio tape at the same speed; the room, chairs and pens were identical; participants were alone in the room and monitored through a window by the researcher."</div></div>
+                <div class="sp-row"><div class="sp-study">Fagen et al. (2014)</div><div class="sp-content">"The chain-pulling apparatus and food reward were identical for every elephant; observations followed the same schedule each day; proximity loggers provided an objective, automated measure that did not depend on the observers."</div></div>
+                <div class="sp-row"><div class="sp-study">Piliavin et al. (1969)</div><div class="sp-content">"All trials took place on the same A express train between the same two stops, giving a fixed observation period between stations; victims wore identical clothing for cane and drunk conditions and collapsed in the same position; the same observers recorded the same variables from the same positions."</div></div>
+                <div class="sp-row"><div class="sp-study">Hölzel et al. (2011)</div><div class="sp-content">"The control group underwent the same MRI scanning schedule as the MBSR group, so brain changes could not be due to practice with the scanner; the groups were matched on age and gender; the same scanner and analysis pipeline (voxel-based morphometry) were used for everyone."</div></div>
+                <div class="sp-row"><div class="sp-study">Saavedra &amp; Silverman (2002)</div><div class="sp-content">"Standardised clinical measures (the Feelings Thermometer and behavioural avoidance tests) were used repeatedly across assessment and treatment sessions, and information was cross-checked between the boy's own reports and his mother's reports."</div></div>
+            </div>
+        </div>
     </div>
 
     <div class="tip-box">
-        <strong>✅ Exam Key Points（目的/假设/变量）：</strong>先判断题目给的是 aim（不用数字、不预测）还是 hypothesis（预测 + 变量关系）→ 再判断方向性 → 写作时<b>两个水平/条件都要点名</b>（不能只写一边）。Section B 计划题<b>不需要写 aim 或 hypothesis</b>（大纲 p.50 明文规定，写了不扣分但别浪费时间）。
+        <strong>✅ Exam Key Points (Aims / Hypotheses / Variables) — memorise these:</strong><br>
+        • "An aim states what the researcher intends to investigate; a hypothesis is a precise, testable prediction about the relationship between the IV and the DV."<br>
+        • Directional hypotheses use words like <b>better / more / fewer / longer</b>; non-directional hypotheses only state that there <b>will be a difference</b>. Always name <b>both levels/conditions</b> of the IV in your hypothesis.<br>
+        • Operationalise = write the variable as exactly how it will be <b>measured or manipulated, with units</b> (see the expandable panels above for all 12 core studies).<br>
+        • Section B experiment plans do <b>not</b> require an aim or hypothesis (syllabus p.50) — writing one is not penalised, but do not waste time on it.
     </div>
 
 </div>
@@ -398,30 +522,30 @@
     <span class="section-label label-learn">Learn Mode</span>
 
     <div class="comp-grid">
-        <div class="comp-card" style="border-top:4px solid var(--t3)"><h4>Independent Measures 被试间</h4><p>不同被试去不同条件（每人只做一个水平）。</p></div>
-        <div class="comp-card" style="border-top:4px solid var(--t3)"><h4>Repeated Measures 被试内</h4><p>同一批被试做全部条件（每人做所有水平）。</p></div>
-        <div class="comp-card" style="border-top:4px solid var(--t3)"><h4>Matched Pairs 匹配设计</h4><p>不同被试，但按关键特征（年龄/智商等）一一配对后分到不同条件。</p></div>
+        <div class="comp-card" style="border-top:4px solid var(--t3)"><h4>Independent Measures</h4><p>Different participants in each condition — each person takes part in only one level of the IV.</p></div>
+        <div class="comp-card" style="border-top:4px solid var(--t3)"><h4>Repeated Measures</h4><p>The same participants do all conditions — each person takes part in every level of the IV.</p></div>
+        <div class="comp-card" style="border-top:4px solid var(--t3)"><h4>Matched Pairs</h4><p>Different participants, but each is matched with a partner in the other condition on key variables (age, IQ, ability).</p></div>
     </div>
 
     <!-- Independent measures -->
     <div class="def-card">
         <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n3">1</span><strong style="font-size:1.02rem;color:#333">Independent Measures Design / 被试间（独立测量）设计</strong></div>
         <div class="def-text-box" id="im-def"><button class="copy-btn" onclick="copyText('im-def',this)">Copy</button><div class="def-text"><span class="kw">Independent measures design</span> uses <span class="kw">different participants in each condition</span>. Each participant experiences only one level of the IV. Participants should be allocated to conditions by <span class="kw">random allocation</span>.</div></div>
-        <div class="explain-box"><strong>优点：</strong>无顺序效应（每人只做一个条件，不会疲劳/练习）；被试看不到另一条件 → demand characteristics 较少。<br><strong>缺点：</strong>participant variables 可能造成组间差异（一组本来就好睡/记性好）；需要更多被试。<br><br><strong>核心研究例子：</strong><span class="cs-chip">Andrade</span> 40 名被试随机分到涂鸦/控制两组；<span class="cs-chip">Bandura</span> 不同组看不同模型；<span class="cs-chip">Pozzulo</span> 幼儿 vs 成人（年龄是被试间因素）。</div>
+        <div class="explain-box"><strong>Strength (write this):</strong>"A strength of independent measures design is that there are no order effects, because each participant only takes part in one condition, so they cannot get better through practice or worse through fatigue. Participants also cannot compare conditions, so there are fewer demand characteristics."<br><strong>Weakness (write this):</strong>"A weakness is that participant variables may differ between the groups (one group may simply be better at the task), so the IV may not be the true cause of any difference; it also requires more participants than repeated measures."<br><br><strong>核心研究例子：</strong><span class="cs-chip">Andrade</span> 40 名被试随机分到涂鸦/控制两组；<span class="cs-chip">Bandura</span> 不同组看不同模型；<span class="cs-chip">Pozzulo</span> 幼儿 vs 成人（年龄是被试间因素）。</div>
     </div>
 
     <!-- Repeated measures -->
     <div class="def-card">
         <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n3">2</span><strong style="font-size:1.02rem;color:#333">Repeated Measures Design / 被试内（重复测量）设计</strong></div>
         <div class="def-text-box" id="rm-def"><button class="copy-btn" onclick="copyText('rm-def',this)">Copy</button><div class="def-text"><span class="kw">Repeated measures design</span> uses the <span class="kw">same participants in all conditions</span>. Each person does every level of the IV, usually in a counterbalanced order.</div></div>
-        <div class="explain-box"><strong>优点：</strong>participant variables 被完全控制（同一批人比较自己）；省被试。<br><strong>缺点：</strong>顺序效应（练习/疲劳/无聊）；demand characteristics（做完条件 A 猜到目的）；任务只能做一遍（如测记忆）。<br><br><strong>核心研究例子：</strong><span class="cs-chip">Dement</span> Q1（同一被试从 REM 与 nREM 唤醒对比梦回忆）；<span class="cs-chip">Perry</span>（同一批被试一周间隔分别吸催产素与安慰剂，顺序 counterbalance）；<span class="cs-chip">Hölzel</span>（同一批人训练前 vs 训练后对比——纵向重复测量）。</div>
+        <div class="explain-box"><strong>Strength (write this):</strong>"A strength of repeated measures design is that participant variables are fully controlled because each participant is compared with themselves, and fewer participants are needed."<br><strong>Weakness (write this):</strong>"A weakness is order effects — participants may improve through practice or decline through fatigue or boredom — and having done one condition they may guess the aim, creating demand characteristics; the design is also unsuitable for tasks that can only be done once, such as a memory test."<br><br><strong>核心研究例子：</strong><span class="cs-chip">Dement</span> Q1（同一被试从 REM 与 nREM 唤醒对比梦回忆）；<span class="cs-chip">Perry</span>（同一批被试一周间隔分别吸催产素与安慰剂，顺序 counterbalance）；<span class="cs-chip">Hölzel</span>（同一批人训练前 vs 训练后对比——纵向重复测量）。</div>
     </div>
 
     <!-- Matched pairs -->
     <div class="def-card">
         <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n3">3</span><strong style="font-size:1.02rem;color:#333">Matched Pairs Design / 匹配（被试）设计</strong></div>
         <div class="def-text-box" id="mp-def"><button class="copy-btn" onclick="copyText('mp-def',this)">Copy</button><div class="def-text"><span class="kw">Matched pairs design</span> uses different participants in each condition, but each participant is <span class="kw">matched with a partner</span> in the other condition on key variables (age, gender, IQ, relevant ability) that could affect the DV.</div></div>
-        <div class="explain-box"><strong>优点：</strong>减少 participant variables 又无顺序效应。<br><strong>缺点：</strong>匹配费时费力；不可能匹配所有变量；配对过程中被试流失麻烦。<br><br><strong>核心研究例子：</strong><span class="cs-chip">Bandura</span> 先按幼儿园日常攻击行为 5 点评分把儿童"matched individually"成三元组，再随机分到条件或控制组——本质是匹配后再随机分配的思路。</div>
+        <div class="explain-box"><strong>Strength (write this):</strong>"A strength of matched pairs design is that participant variables are partly controlled because each participant is matched with someone similar on key variables, yet each person takes part in only one condition, so there are no order effects."<br><strong>Weakness (write this):</strong>"A weakness is that matching is time-consuming, and it is impossible to match participants on every variable that could affect the DV, so participant variables are only reduced, not eliminated."<br><br><strong>核心研究例子：</strong><span class="cs-chip">Bandura</span> 先由一名实验者和一位幼儿园老师按日常攻击行为 5 点评分把儿童 "matched individually" 成三元组（一组三人：性别、年龄相同，攻击性评分接近），再把每组的三个孩子随机分到攻击模型/非攻击模型/控制三个条件。<span class="cs-chip">Hölzel</span> 的 MBSR 组与 wait-list 对照组按年龄与性别匹配。</div>
     </div>
 
     <!-- Order effects & counterbalancing -->
@@ -444,10 +568,10 @@
     </div>
 
     <div class="tip-box">
-        <strong>✅ Exam Key Points（实验设计）：</strong><br>
-        • 三设计对比题 → 每个设计给"1 定义 + 1 评价 + 1 核心研究链接"。<br>
-        • IM vs RM 优缺点（s25/21 Q10(b) 真题结构）：IM 优点 = 无顺序效应/较少 demand characteristics；IM 缺点 = participant variables 风险、需要更多被试。<br>
-        • 写计划题时若用 RM 记得补 counterbalancing；若用 IM 记得补 random allocation——这是评分标准里 "detail" 的分水岭。
+        <strong>✅ Exam Key Points (Designs) — memorise these:</strong><br>
+        • "Independent measures uses different participants in each condition; repeated measures uses the same participants in all conditions; matched pairs uses different but matched participants in each condition."<br>
+        • IM vs RM evaluation (s25/21 Q10(b) structure): IM strength = no order effects and fewer demand characteristics; IM weakness = participant variables between groups and more participants needed. RM strength = participant variables controlled; RM weakness = order effects, solved by counterbalancing.<br>
+        • In Section B plans: if you choose repeated measures, add counterbalancing; if you choose independent measures, add random allocation — this "detail" is exactly what the mark scheme rewards.
     </div>
 
 </div>
