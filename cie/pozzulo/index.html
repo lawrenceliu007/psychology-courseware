@@ -1,629 +1,1772 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pozzulo et al. (2011) — The Culprit in Target-Absent Line-ups</title>
-<style>
-  :root { --bg:#fff;--card-bg:#f8f9fa;--text:#2c3e50;--heading:#1a365d;--accent:#2563eb;--accent-light:#dbeafe;--border:#d1d5db;--note-bg:#fefce8;--note-border:#eab308;--term-color:#7c3aed;--correct:#16a34a;--wrong:#dc2626; }
-  *{margin:0;padding:0;box-sizing:border-box}
-  body{font-family:-apple-system,"Segoe UI",Roboto,"Noto Sans SC",sans-serif;color:var(--text);background:var(--bg);line-height:1.75;padding:20px;max-width:900px;margin:0 auto}
-  h1{font-size:1.9em;color:var(--heading);border-bottom:3px solid var(--accent);padding-bottom:12px;margin-bottom:24px;line-height:1.3}
-  h2{font-size:1.5em;color:var(--accent);margin:36px 0 14px;padding-left:10px;border-left:4px solid var(--accent)}
-  h3{font-size:1.18em;color:var(--heading);margin:22px 0 10px}
-  p{margin-bottom:11px;text-align:justify}
-  .meta{color:#64748b;font-size:.92em;border-left:3px solid var(--border);padding-left:12px;margin-bottom:26px}
-  ul,ol{padding-left:22px;margin-bottom:13px} li{margin-bottom:4px}
-  strong{color:var(--heading)} .term{color:var(--term-color);font-weight:600} .cn{color:#4b5563;font-weight:500}
-  .key-box{background:linear-gradient(135deg,#eff6ff 0%,#f0fdf4 100%);border:1px solid var(--border);border-radius:10px;padding:18px 22px;margin:18px 0;box-shadow:0 1px 3px rgba(0,0,0,.06)}
-  .key-box h4{color:var(--heading);margin-bottom:8px;font-size:1.05em}
-  .cn-note{background:var(--note-bg);border-left:4px solid var(--note-border);border-radius:0 8px 8px 0;padding:14px 18px;margin:15px 0;font-size:.95em}
-  table{width:100%;border-collapse:collapse;margin:18px 0;font-size:.88em}
-  th,td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top}
-  th{background:#f1f5f9;font-weight:600;color:var(--heading);text-align:center}
-  tr:nth-child(even){background:var(--card-bg)}
-  .data-table th{font-size:.85em;white-space:nowrap}
-  .data-table td{font-size:.84em;line-height:1.6}
-  .data-table .num-cell{text-align:center;font-weight:600;color:var(--heading)}
-  .data-table .label-cell{font-weight:500;background:#f8fafc;white-space:nowrap}
-  .img-container{text-align:center;margin:22px 0}
-  .img-container img{max-width:100%;height:auto;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.1);border:1px solid #e5e7eb}
-  .img-caption{font-size:.88em;color:#64748b;margin-top:8px;font-style:italic}
-  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:18px 0}
-  .kw-box{background:linear-gradient(135deg,#fef3c7 0%,#fce7f3 100%);border:1px solid #f59e0b;border-radius:10px;padding:16px 20px;margin:15px 0}
-  .kw-box h4{color:#92400e;margin-bottom:8px}
-  .activity-box{background:linear-gradient(135deg,#e0e7ff 0%,#ede9fe 100%);border:1px solid #8b5cf6;border-radius:10px;padding:16px 20px;margin:18px 0}
-  .activity-box h4{color:#5b21b6;margin-bottom:8px}
-  .pred-table td:first-child,.pred-table th:first-child{font-weight:600;background:#f8fafc}
-  .result-highlight{background:#dcfce7;padding:2px 6px;border-radius:4px;font-weight:700;color:#166534}
-  .chart-container{text-align:center;margin:24px 0}
-  @media(max-width:650px){.two-col{grid-template-columns:1fr}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Core Study: Pozzulo et al. (2011) — Eyewitness Testimony & Child Line-ups</title>
+  <style>
+    :root { --primary: #2563eb; --primary-light: #3b82f6; --primary-dark: #1d4ed8; --accent: #2563eb; --bg: #FAFAFA; --card-bg: #FFFFFF; --text: #212121; --text-secondary: #616161; --border: #E0E0E0; --term-color: #2563eb; }
+    * { box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; line-height: 1.75; color: var(--text); background: var(--bg); margin: 0; padding: 0; font-size: 16px; transition: background .3s, color .3s; }
+    body.dark { --bg: #0f172a; --card-bg: #1a1a2e; --text: #e2e8f0; --text-secondary: #94a3b8; --border: #334155; background: var(--bg); color: var(--text); }
+    .container { max-width: 1200px; margin: 0 auto; padding: 16px 24px; }
+    .progress-bar { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: linear-gradient(90deg, var(--primary), var(--primary-light), #fcd34d); z-index: 9999; transition: width .1s ease-out; }
+    body.dark .progress-bar { background: linear-gradient(90deg, #3b82f6, #60a5fa, #fcd34d); }
+    .nav-bar { position: sticky; top: 0; z-index: 100; background: white; border-bottom: 3px solid var(--primary); padding: .65rem 2rem; display: flex; align-items: center; gap: 1rem; margin: 0 0 28px 0; box-shadow: 0 2px 10px rgba(0,0,0,.06); }
+    body.dark .nav-bar { background: #1a1a2e; border-bottom-color: var(--primary); }
+    .nav-pill { display: inline-flex; align-items: center; gap: .4rem; padding: .45rem 1.1rem; background: var(--primary); color: white; border-radius: 20px; text-decoration: none; font-size: .82em; font-weight: 600; transition: background .15s; white-space: nowrap; }
+    .nav-pill:hover { background: var(--primary-dark); }
+    .nav-breadcrumb { display: flex; align-items: center; gap: .4rem; font-size: .82em; color: var(--text-secondary); flex: 1; }
+    .nav-breadcrumb a { color: var(--text-secondary); text-decoration: none; transition: color .15s; }
+    .nav-breadcrumb a:hover { color: var(--primary); }
+    .nav-breadcrumb .sep { color: #ccc; font-weight: 300; }
+    .nav-breadcrumb span:last-child { color: var(--text); font-weight: 500; }
+    body.dark .nav-breadcrumb a { color: #aaa; }
+    body.dark .nav-breadcrumb span:last-child { color: #ddd; }
+    .nav-controls { display: flex; align-items: center; gap: .5rem; }
+    .nav-btn { background: none; border: 1px solid #ddd; border-radius: 6px; padding: .35rem .65rem; cursor: pointer; font-size: .85em; color: var(--text-secondary); transition: all .15s; display: flex; align-items: center; gap: .25rem; }
+    .nav-btn:hover { border-color: var(--primary); color: var(--primary); }
+    body.dark .nav-btn { border-color: #444; color: #aaa; }
+    body.dark .nav-btn:hover { border-color: #3b82f6; color: #3b82f6; }
+    .page-layout { display: grid; grid-template-columns: 170px minmax(0,1fr) 250px; gap: 20px; align-items: start; }
+    .sidebar { width: 170px; flex-shrink: 0; position: sticky; top: 60px; max-height: calc(100vh - 80px); overflow-y: auto; padding: 12px 0; z-index: 50; }
+    .sidebar::-webkit-scrollbar { width: 2px; }
+    .sidebar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 2px; }
+    .sidebar-inner { background: #f8fafc; border-radius: 14px; border: 1px solid #e2e8f0; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,.05); }
+    body.dark .sidebar-inner { background: #16213e; border-color: #334155; box-shadow: 0 2px 8px rgba(0,0,0,.25); }
+    .sb-header { padding: 13px 16px 10px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); }
+    .sb-header-title { font-size: .72em; font-weight: 700; color: white; letter-spacing: .8px; text-transform: uppercase; margin: 0; }
+    .sb-header-sub { font-size: .63em; color: rgba(255,255,255,.75); margin: 2px 0 0; font-weight: 500; }
+    .sb-list { list-style: none; padding: 6px 0 10px; margin: 0; }
+    .sb-divider { height: 1px; background: #e2e8f0; margin: 4px 12px; }
+    body.dark .sb-divider { background: #334155; }
+    .sb-item a { display: block; padding: 7px 14px 7px 18px; color: #475569; text-decoration: none; font-size: .76em; font-weight: 500; border-left: 3px solid transparent; transition: all .15s ease; line-height: 1.45; border-radius: 0 7px 7px 0; margin: 1px 4px 1px 0; }
+    .sb-item a:hover { border-left-color: var(--primary); color: var(--primary-dark); font-weight: 600; background: linear-gradient(90deg, rgba(37,99,235,.07), transparent); }
+    .sb-item a.sb-active { border-left-color: var(--primary); color: var(--primary-dark); font-weight: 700; background: linear-gradient(90deg, rgba(37,99,235,.12), transparent); }
+    body.dark .sb-item a { color: #94a3b8; }
+    body.dark .sb-item a:hover { color: #93c5fd; background: linear-gradient(90deg, rgba(96,165,250,.10), transparent); border-left-color: #60a5fa; }
+    body.dark .sb-item a.sb-active { color: #93c5fd; background: linear-gradient(90deg, rgba(96,165,250,.16), transparent); border-left-color: #60a5fa; }
+    .main-content { min-width: 0; max-width: 660px; }
+    .notes-col { width: 250px; background: #fffef5; border: 2px solid #f59e0b; border-radius: 12px; display: flex; flex-direction: column; position: sticky; top: 60px; max-height: calc(100vh - 80px); box-shadow: 0 2px 12px rgba(245,158,11,.15); overflow: hidden; }
+    .nc-header { background: linear-gradient(135deg,#f59e0b,#d97706); padding: 12px 14px; display: flex; align-items: center; gap: 8px; }
+    .nc-title { font-size: .85em; font-weight: 700; color: #fff; }
+    .nc-count { margin-left: auto; background: rgba(255,255,255,.3); color: #fff; font-size: .7em; font-weight: 700; padding: 2px 8px; border-radius: 10px; }
+    .nc-body { flex: 1; overflow-y: auto; padding: 10px; max-height: calc(100vh - 240px); min-height: 60px; }
+    .nc-empty { text-align: center; color: #9ca3af; padding: 20px 8px; font-size: .78em; }
+    .nc-input-row { display: none; padding: 12px; border-top: 1px solid #fde68a; background: #fffbeb; }
+    .nc-input-row.show { display: block; }
+    .nc-textarea { width: 100%; border: 1px solid #fcd34d; border-radius: 8px; padding: 10px; font-size: .82em; resize: vertical; min-height: 60px; box-sizing: border-box; outline: none; font-family: inherit; }
+    .nc-textarea:focus { border-color: #d97706; box-shadow: 0 0 0 2px rgba(245,158,11,.15); }
+    .nc-actions { display: flex; gap: 8px; margin-top: 8px; }
+    .nc-actions button { flex: 1; padding: 8px; border-radius: 6px; font-size: .78em; font-weight: 600; cursor: pointer; border: 1px solid transparent; }
+    .nc-btn-save { background: #16a34a; color: white; }
+    .nc-btn-cancel { background: white; color: #6b7280; border-color: #d1d5db !important; }
+    .nc-add-btn { width: 100%; padding: 13px; background: linear-gradient(135deg,#2563eb,#1d4ed8); color: white; border: none; border-radius: 0 0 10px 10px; font-size: .88em; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: opacity .2s; }
+    .nc-add-btn:hover { opacity: .9; }
+    .nc-footer { display: flex; gap: 4px; padding: 6px 10px; border-top: 1px solid #fde68a; }
+    .nc-footer button { flex: 1; padding: 4px 0; font-size: .68em; border: none; background: transparent; color: #92400e; cursor:pointer; }
+    .hl-text { background: linear-gradient(120deg,#fef08a,#fde047); border-radius: 2px; padding: 0 2px; cursor: pointer; transition: background .15s; }
+    .hl-text:hover { background: linear-gradient(120deg,#fde047,#facc15); }
+    .note-card { background: #fff; border-radius: 8px; padding: 10px 12px; margin-bottom: 8px; border-left: 3px solid #f59e0b; box-shadow: 0 1px 3px rgba(0,0,0,.08); font-size: .78em; line-height: 1.5; position: relative; animation: nFadeIn .2s ease; transition: box-shadow .2s, border-color .2s; }
+    @keyframes nFadeIn { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:translateY(0)} }
+    .note-card-hl { font-size: .7em; color: #92400e; background: #fef3c7; padding: 2px 6px; border-radius: 4px; margin-bottom: 4px; cursor: pointer; word-break: break-all; display: flex; align-items: center; gap: 4px; }
+    .note-card-hl::before { content: '🔗'; font-size: .85em; flex-shrink: 0; opacity: .7; }
+    .note-card-text { color: #374151; word-break: break-word; }
+    .note-card-del { position: absolute; top: 4px; right: 4px; width: 18px; height: 18px; border: none; background: #fee2e2; color: #ef4444; border-radius: 50%; font-size: .65em; cursor: pointer; opacity: 0; display: flex; align-items: center; justify-content: center; }
+    .note-card:hover .note-card-del { opacity: 1; }
+    .note-card-edit { position: absolute; top: 4px; right: 26px; width: 18px; height: 18px; border: none; background: #dbeafe; color: #2563eb; border-radius: 50%; font-size: .65em; cursor: pointer; opacity: 0; display: flex; align-items: center; justify-content: center; }
+    .note-card:hover .note-card-edit { opacity: 1; }
+    .note-card.editing { border-left-color: #2563eb; }
+    .note-card.editing .note-card-text, .note-card.editing .note-card-hl, .note-card.editing .note-card-del, .note-card.editing .note-card-edit { display: none; }
+    .note-edit-textarea { width: 100%; border: 1px solid #93c5fd; border-radius: 6px; padding: 8px; font-size: .9em; resize: vertical; min-height: 50px; box-sizing: border-box; outline: none; font-family: inherit; }
+    .note-edit-actions { display: flex; gap: 6px; margin-top: 6px; }
+    .note-edit-actions button { flex: 1; padding: 5px 8px; border-radius: 5px; font-size: .72em; font-weight: 600; cursor: pointer; border: 1px solid transparent; }
+    .note-edit-save { background: #2563eb; color: white; }
+    .note-edit-cancel { background: #f1f5f9; color: #64748b; border-color: #e2e8f0; }
+    .header { text-align: center; padding: 36px 24px; background: linear-gradient(135deg, var(--primary-dark), var(--primary)); color: white; border-radius: 12px; margin-bottom: 24px; box-shadow: 0 4px 15px rgba(37,99,235,0.3); }
+    .header h1 { font-size: 1.85em; margin-bottom: 10px; line-height: 1.3; }
+    .header .subtitle { font-size: 1.05em; opacity: 0.92; }
+    .header .meta { margin-top: 15px; font-size: 0.88em; opacity: 0.82; }
+    .badge { display: inline-block; padding: 4px 14px; border-radius: 20px; background: rgba(255,255,255,0.2); margin: 3px; font-size: 0.84em; }
+    .kw-tags { margin-top: 18px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+    .kw-tag { display: inline-flex; align-items: center; gap: 5px; padding: 6px 16px; border-radius: 20px; font-size: .82em; font-weight: 600; color: white; opacity: .95; }
+    .kw-app { background: linear-gradient(135deg, #2563eb, #3b82f6); }
+    .kw-meth { background: linear-gradient(135deg, #1e3a8a, #3b82f6); }
+    .kw-conc { background: linear-gradient(135deg, #7B1FA2, #AB47BC); }
+    .toc { background: #f8fafc; border: 1px solid var(--border); border-radius: 10px; padding: 22px 26px; margin-bottom: 24px; border-left: 4px solid var(--primary); }
+    body.dark .toc { background: #16213e; border-color: #334155; }
+    .toc h2 { color: var(--primary-dark); margin-bottom: 14px; font-size: 1.25em; }
+    body.dark .toc h2 { color: #93c5fd; }
+    .toc ol { padding-left: 20px; }
+    .toc li { margin: 7px 0; }
+    .toc li a { color: var(--accent); text-decoration: none; }
+    .section { background: var(--card-bg); border-radius: 10px; padding: 28px 32px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-top: 3px solid var(--primary-light); }
+    body.dark .section { background: #1a1a2e; box-shadow: 0 2px 8px rgba(0,0,0,.3); }
+    .section h2 { color: var(--primary-dark); font-size: 1.45em; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid var(--border); }
+    body.dark .section h2 { color: #93c5fd; border-bottom-color: #334155; }
+    .section h3 { color: var(--primary); font-size: 1.18em; margin: 22px 0 12px; }
+    body.dark .section h3 { color: #93c5fd; }
+    .section h4 { color: var(--text); font-size: 1.04em; margin: 14px 0 8px; }
+    .cn { color: #6a6a6a; font-weight: 400; font-size: .92em; }
+    body.dark .cn { color: #9ca3af; }
+    .term { color: var(--term-color); font-weight: 600; border-bottom: 1px dotted var(--term-color); }
+    .quote { border-left: 4px solid var(--primary); background: linear-gradient(135deg, #eff6ff, #dbeafe); padding: 16px 22px; margin: 16px 0; border-radius: 0 8px 8px 0; font-style: italic; color: var(--primary-dark); }
+    body.dark .quote { background: linear-gradient(135deg, rgba(59,130,246,.15), rgba(59,130,246,.08)); border-left-color: #60a5fa; color: #93c5fd; }
+    .blue-box { background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+    body.dark .blue-box { background: rgba(37,99,235,.06); border-left-color: #60a5fa; }
+    .activity-box { background: #eff6ff; border-left: 4px solid #2196f3; padding: 14px 18px; margin: 18px 0; border-radius: 8px; }
+    body.dark .activity-box { background: rgba(33,150,243,.08); border-left-color: #60a5fa; }
+    .activity-box h4 { color: #1d4ed8; margin-bottom: 8px; }
+    body.dark .activity-box h4 { color: #93c5fd; }
+    .strength-box { background: #f0fdf4; border: 1px solid #bbf7d0; border-left: 4px solid #16a34a; padding: 14px 18px; margin: 16px 0; border-radius: 8px; }
+    body.dark .strength-box { background: rgba(22,101,52,.1); border-color: #166534; }
+    .strength-box h4 { color: #166534; margin-bottom: 8px; }
+    body.dark .strength-box h4 { color: #86efac; }
+    .weakness-box { background: #FFF7ED; border-left: 4px solid #E65100; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+    body.dark .weakness-box { background: rgba(230,81,0,.08); border-left-color: #FB8C00; }
+    .weakness-box h4 { color: #b45309; margin-bottom: 8px; }
+    body.dark .weakness-box h4 { color: #FB8C00; }
+    .cn-note { background: linear-gradient(135deg, #fefce8, #fef9c3); border-left: 4px solid #eab308; border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 15px 0; font-size: .95em; }
+    body.dark .cn-note { background: linear-gradient(135deg, rgba(234,179,8,.08), rgba(234,179,8,.04)); border-left-color: #FBC02D; }
+    .kw-box { background: linear-gradient(135deg, #fef3c7 0%, #fce7f3 100%); border: 1px solid #f59e0b; border-radius: 10px; padding: 16px 20px; margin: 15px 0; }
+    .kw-box h4 { color: #92400e; margin-bottom: 8px; }
+    body.dark .kw-box { background: linear-gradient(135deg, rgba(245,158,11,.08), rgba(217,70,239,.05)); border-color: #d97706; }
+    body.dark .kw-box h4 { color: #fbbf24; }
+    .key-box { background: linear-gradient(135deg, #eff6ff 0%, #f0fdf4 100%); border: 1px solid var(--border); border-radius: 10px; padding: 18px 22px; margin: 18px 0; box-shadow: 0 1px 3px rgba(0,0,0,.06); }
+    body.dark .key-box { background: linear-gradient(135deg, rgba(37,99,235,.08), rgba(22,101,52,.08)); border-color: #334155; }
+    .key-box h4 { color: var(--primary-dark); margin-bottom: 8px; font-size: 1.05em; }
+    body.dark .key-box h4 { color: #93c5fd; }
+    table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 0.92em; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-radius: 8px; overflow: hidden; }
+    th { background: var(--primary); color: white; padding: 12px 14px; text-align: left; font-weight: 600; }
+    td { padding: 11px 14px; border-bottom: 1px solid var(--border); }
+    tr:nth-child(even) { background: #eff6ff; }
+    body.dark tr:nth-child(even) { background: rgba(59,130,246,.06); }
+    tr:hover { background: #dbeafe; }
+    body.dark tr:hover { background: rgba(59,130,246,.12); }
+    td:first-child { font-weight: 600; color: var(--primary-dark); }
+    body.dark td { border-bottom-color: #334155; }
+    body.dark td:first-child { color: #93c5fd; }
+    .num-cell { text-align: center; font-weight: 700; color: var(--primary-dark); }
+    body.dark .num-cell { color: #93c5fd; }
+    .table-caption { font-size: .85em; color: var(--text-secondary); text-align: center; margin: -8px 0 16px 0; }
+    .data-table .num-cell { text-align: center; font-weight: 600; }
+    .data-table .label-cell { font-weight: 500; background: #f8fafc; white-space: nowrap; }
+    body.dark .data-table .label-cell { background: #16213e; }
+    .result-highlight { background: #dcfce7; padding: 2px 6px; border-radius: 4px; font-weight: 700; color: #166534; }
+    body.dark .result-highlight { background: rgba(22,101,52,.25); color: #86efac; }
+    .img-container { text-align: center; margin: 22px 0; }
+    .img-container img { max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,.1); border: 1px solid #e5e7eb; }
+    body.dark .img-container img { border-color: #334155; }
+    .img-caption { font-size: .88em; color: #64748b; margin-top: 8px; font-style: italic; text-align: center; }
+    body.dark .img-caption { color: #94a3b8; }
+    figure { margin: 22px 0; text-align: center; }
+    figure img { max-width: 100%; border: 1px solid var(--border); border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,.08); }
+    figcaption { font-size: .85em; color: var(--text-secondary); margin-top: 8px; text-align: center; }
+    ul, ol { padding-left: 24px; margin: 10px 0; }
+    li { margin: 6px 0; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 18px 0; }
+    .col-card { background: #eff6ff; border-radius: 8px; padding: 18px; border-top: 4px solid var(--primary); }
+    body.dark .col-card { background: #16213e; }
+    .col-card h4 { margin-bottom: 10px; font-size: 1em; color: var(--primary-dark); }
+    body.dark .col-card h4 { color: #93c5fd; }
+    .chart-container { position: relative; height: 380px; margin: 22px 0; background: white; border-radius: 10px; padding: 15px; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+    body.dark .chart-container { background: #16213e; }
+    .summary-card { background: linear-gradient(135deg, #fffbeb, #dcfce7); border-left: 5px solid #16a34a; border-radius: 10px; margin: 20px 0 0; overflow: hidden; }
+    body.dark .summary-card { background: linear-gradient(135deg, #052e16, #14532d); border-left-color: #22c55e; }
+    .summary-card-header { display: flex; align-items: center; gap: 8px; padding: 12px 18px; cursor: pointer; user-select:none; -webkit-user-select:none; }
+    .summary-card-header:hover { background: #bbf7d0; }
+    body.dark .summary-card-header:hover { background: #166534; }
+    .summary-card-icon { font-size: 1.1em; transition: transform .2s; color: #166534; }
+    body.dark .summary-card-icon { color: #86efac; }
+    .summary-card.open .summary-card-icon { transform: rotate(90deg); }
+    .summary-card-title { font-size: .92em; font-weight: 700; color: #166534; flex: 1; }
+    body.dark .summary-card-title { color: #86efac; }
+    .summary-card-badge { font-size: .7rem; background: #16a34a; color: white; padding: 2px 10px; border-radius: 10px; font-weight: 600; }
+    .summary-card-body { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
+    .summary-card.open .summary-card-body { max-height: 800px; }
+    .summary-card-inner { margin: 0 14px 14px; padding: 16px 20px; background: #ffffff; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,.06); border: 1px solid #e8f0e8; }
+    body.dark .summary-card-inner { background: #0c1a0c; border-color: #1a3a1a; }
+    .summary-card-inner ol, .summary-card-inner ul { margin: 0; padding-left: 20px; }
+    .summary-card-inner li { margin: 8px 0; font-size: .98em; color: #1a1a1a; line-height: 1.72; }
+    body.dark .summary-card-inner li { color: #e8ede9; }
+    .cn-summary-wrap { margin: 18px 0; }
+    .cn-summary-toggle { display: flex; align-items: center; gap: 8px; width: 100%; padding: 10px 16px; background: linear-gradient(135deg, #f3e8ff, #ede9fe); border: 1.5px dashed #a78bfa; border-radius: 8px; cursor: pointer; font-size: .86em; color: #6b21a8; font-weight: 500; text-align: left; font-family: inherit; }
+    body.dark .cn-summary-toggle { background: linear-gradient(135deg, rgba(167,139,250,.1), rgba(139,92,246,.08)); border-color: #8b5cf6; color: #c4b5fd; }
+    .cs-icon { font-size: .75em; transition: transform .2s; min-width: 14px; }
+    .cn-summary-toggle.open .cs-icon { transform: rotate(90deg); }
+    .cn-summary-body { max-height: 0; overflow: hidden; opacity: 0; transition: max-height .4s ease, opacity .25s ease; }
+    .cn-summary-body.open { max-height: 800px; opacity: 1; margin: 8px 0 4px; }
+    .cn-summary-body { background: linear-gradient(135deg, #faf5ff, #f3e8ff); border-radius: 8px; padding: 18px 22px; border: 1px solid #e9d5ff; }
+    body.dark .cn-summary-body { background: linear-gradient(135deg, rgba(167,139,250,.06), rgba(124,58,237,.04)); border-color: rgba(139,92,246,.2); }
+    .cs-title { font-weight: 700; color: #6b21a8; font-size: .95em; margin-bottom: 10px; padding-bottom: 6px; border-bottom: 1px dashed #d8b4fe; }
+    body.dark .cs-title { color: #c4b5fd; }
+    .cn-summary-body p { margin: 8px 0; line-height: 1.72; color: #374151; font-size: .93em; }
+    body.dark .cn-summary-body p { color: #d1d5db; }
+    .cn-summary-body ul { margin: 6px 0; padding-left: 20px; }
+    .cn-summary-body li { margin: 5px 0; font-size: .93em; color: #374151; }
+    body.dark .cn-summary-body li { color: #d1d5db; }
+    .cs-en { color: #7c3aed; font-style: italic; font-weight: 500; }
+    body.dark .cs-en { color: #a78bfa; }
+    .tag-must { display: inline-block; padding: 2px 8px; border-radius: 4px; background: #fee2e2; color: #dc2626; font-size: .76em; font-weight: 700; vertical-align: middle; margin-left: 4px; }
+    .tag-common { display: inline-block; padding: 2px 8px; border-radius: 4px; background: #fef3c7; color: #d97706; font-size: .76em; font-weight: 700; vertical-align: middle; margin-left: 4px; }
+    .tag-ao2 { display: inline-block; padding: 2px 8px; border-radius: 4px; background: #dcfce7; color: #16a34a; font-size: .76em; font-weight: 700; vertical-align: middle; margin-left: 4px; }
+    .qa-card { background: white; border: 1.5px solid #e2e8f0; border-radius: 10px; margin: 12px 0; overflow: hidden; cursor: pointer; }
+    .qa-card:hover { box-shadow: 0 3px 12px rgba(0,0,0,.08); border-color: #cbd5e1; }
+    body.dark .qa-card { background: #1a2332; border-color: #334155; }
+    body.dark .qa-card:hover { border-color: #475569; box-shadow: 0 3px 12px rgba(0,0,0,.25); }
+    .qa-question { display: flex; align-items: flex-start; gap: 10px; padding: 16px 18px; }
+    .qa-num { flex-shrink: 0; width: 28px; height: 28px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: .78em; font-weight: 700; line-height: 1; }
+    .qa-text { flex: 1; font-size: .93em; color: #1e293b; line-height: 1.6; font-weight: 500; }
+    body.dark .qa-text { color: #e2e8f0; }
+    .qa-toggle { flex-shrink: 0; width: 32px; height: 28px; background: linear-gradient(135deg, #eff6ff, #dbeafe); border: 1.5px solid #93c5fd; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: .72em; color: #2563eb; font-weight: 600; }
+    body.dark .qa-toggle { background: rgba(59,130,246,.1); border-color: #3b82f6; color: #93c5fd; }
+    .qa-card.open .qa-toggle .qa-icon { transform: rotate(180deg); }
+    .qa-toggle .qa-icon { transition: transform .2s; display: inline-block; }
+    .qa-answer { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
+    .qa-card.open .qa-answer { max-height: 900px; }
+    .qa-answer-inner { padding: 14px 18px 18px; margin: 0 14px 14px; background: linear-gradient(135deg, #fefce8, #fef3c7); border-left: 4px solid #f59e0b; border-radius: 8px; font-size: .91em; color: #451a03; line-height: 1.72; }
+    body.dark .qa-answer-inner { background: linear-gradient(135deg, rgba(245,158,11,.08), rgba(217,119,6,.05)); border-left-color: #f59e0b; color: #d4a574; }
+    .qa-answer-inner strong { color: #b45309; }
+    body.dark .qa-answer-inner strong { color: #fbbf24; }
+    details.model-answer { background: #f8fafc; border: 1px solid #e2e8f0; border-left: 4px solid var(--primary-dark); border-radius: 6px; padding: 10px 16px; margin: 10px 0; }
+    body.dark details.model-answer { background: #16213e; border-color: #334155; }
+    details.model-answer summary { cursor: pointer; font-weight: 600; color: var(--primary-dark); }
+    body.dark details.model-answer summary { color: #93c5fd; }
+    details.model-answer[open] summary { margin-bottom: 8px; }
+    .exam-box { background: #fdf4ff; border-left: 4px solid #9c27b0; padding: 18px 22px; margin: 18px 0; border-radius: 8px; }
+    body.dark .exam-box { background: rgba(156,39,176,.08); }
+    .footer-note { font-size: 0.85em; color: var(--text-secondary); margin-top: 2.5em; padding-top: 1em; border-top: 1px solid var(--border); text-align: center; }
+    body.dark .footer-note { border-top-color: #1e293b; color: #94a3b8; }
+    .study-nav { border-top: 2px solid #e0e0e0; background: #FAFAFA; padding: 14px 16px; margin-top: 2rem; }
+    body.dark .study-nav { background: #0f172a; border-top-color: #334155; }
+    .study-nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; max-width: 1100px; margin: 0 auto; }
+    .study-nav-btn { flex: 1; padding: 9px 14px; border: 1px solid #ddd; border-radius: 8px; background: white; color: #444; font-size: .82rem; cursor: pointer; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 4px; font-family: inherit; }
+    .study-nav-btn:hover { border-color: var(--primary); color: var(--primary); background: #eff6ff; }
+    body.dark .study-nav-btn { background: #0f172a; border-color: #334155; color: #94a3b8; }
+    body.dark .study-nav-btn:hover { border-color: #3b82f6; color: #60a5fa; }
+    .study-nav-dots { text-align: center; padding: 0 8px; }
+    .study-nav-label { font-size: .65rem; text-transform: uppercase; letter-spacing: 1px; color: #888; margin-bottom: 5px; font-weight: 700; }
+    .study-dot-row { display: flex; gap: 5px; justify-content: center; flex-wrap: wrap; }
+    .study-dot { width: 10px; height: 10px; border-radius: 50%; cursor: pointer; border: 2px solid transparent; display: inline-block; }
+    .study-dot:hover { transform: scale(1.3); }
+    .study-dot.active { border-color: #333; transform: scale(1.25); }
+    body.dark .study-dot.active { border-color: #e2e8f0; }
+    .back-to-top { position: fixed; bottom: 30px; right: 30px; width: 44px; height: 44px; background: var(--primary); color: white; border: none; border-radius: 50%; font-size: 1.2em; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(37,99,235,.3); opacity: 0; visibility: hidden; z-index: 99; }
+    .back-to-top.show { opacity: 1; visibility: visible; }
+    .back-to-top:hover { transform: translateY(-3px); }
+    @media print { .progress-bar, .nav-bar, .sidebar, .page-layout, .back-to-top, .cn-summary-wrap, .summary-card, .study-nav, .kw-tags { display: none !important; } .container { max-width: 100% !important; padding: 0 !important; } .main-content { width: 100% !important; } }
+    @media(max-width:900px){ .page-layout{grid-template-columns:1fr!important} .sidebar,.notes-col{display:none} .two-col{grid-template-columns:1fr} .nav-bar{flex-wrap:wrap;padding:.5rem 1rem} }
+    @media(max-width:600px){ .study-nav-inner{flex-wrap:wrap;gap:8px} .study-nav-btn{font-size:.75rem;padding:7px 10px} .study-dot{width:8px;height:8px} .header h1{font-size:1.4em} }
+  </style>
 </head>
-
 <body>
 
-<h1>🔍 Pozzulo et al. (2011)<br><small style="font-size:.55em;color:#64748b">The Culprit in Target-Absent Line-ups: Understanding Young Children's False Positive Responding</small></h1>
+<div class="progress-bar" id="progressBar"></div>
 
-<div class="meta">
-  <strong>Pozzulo, J., Dempsey, J., Bruer, K.C., & Sheahan, C.L.</strong> (2011). The culprit in target-absent lineups: Understanding young children's false positive responding. <em>Journal of Police and Criminal Psychology</em>, <strong>27</strong>(1), 55–62.<br>
-  <span class="cn">CIE Psychology — Cognitive Approach Core Study 3（认知取向核心研究3）</span>
+<div class="container">
+
+<nav class="nav-bar">
+  <a href="../../index.html" class="nav-pill">🏠 Home</a>
+  <div class="nav-breadcrumb">
+    <a href="../../index.html">Home</a><span class="sep">›</span>
+    <a href="../">CIE Psychology</a><span class="sep">›</span><span>Pozzulo et al. (2011)</span>
+  </div>
+  <div class="nav-controls">
+    <button class="nav-btn" onclick="toggleDarkMode()" id="darkBtn" title="Toggle dark mode">🌙 Dark</button>
+    <button class="nav-btn" onclick="adjustFontSize(-1)" title="Decrease font size">A-</button>
+    <button class="nav-btn" onclick="adjustFontSize(1)" title="Increase font size">A+</button>
+  </div>
+</nav>
+
+<div class="page-layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+      <div class="sb-header">
+        <div class="sb-header-title">🔍 Pozzulo 2011</div>
+        <div class="sb-header-sub">Eyewitness Testimony</div>
+      </div>
+      <ul class="sb-list" id="sidebarList">
+        <li class="sb-item"><a href="#s1">Background</a></li>
+        <li class="sb-item"><a href="#s2">Aim</a></li>
+        <li class="sb-item"><a href="#s3">Method</a></li>
+        <li class="sb-item"><a href="#s4">Sample</a></li>
+        <li class="sb-divider"></li>
+        <li class="sb-item"><a href="#s5">Procedure</a></li>
+        <li class="sb-item"><a href="#s6">Results</a></li>
+        <li class="sb-item"><a href="#s7">Conclusion</a></li>
+        <li class="sb-divider"></li>
+        <li class="sb-item"><a href="#s8">Strengths</a></li>
+        <li class="sb-item"><a href="#s9">Ethics</a></li>
+        <li class="sb-item"><a href="#s10">Debates</a></li>
+        <li class="sb-divider"></li>
+        <li class="sb-item"><a href="#s11">Summary</a></li>
+        <li class="sb-item"><a href="#s12">Exam Qs</a></li>
+        <li class="sb-item"><a href="#s13">Key Terms</a></li>
+        <li class="sb-item"><a href="#s14">Practice</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main class="main-content">
+
+<!-- ===== HEADER ===== -->
+<div class="header">
+  <h1>🔍 Pozzulo et al. (2011)<br><span style="font-size:.65em;font-weight:400">The Culprit in Target-Absent Line-ups: Understanding Young Children's False Positive Responding</span></h1>
+  <div class="subtitle">目击者证词：儿童目标缺失队列的错误肯定反应</div>
+  <div class="meta">
+    <span class="badge">📘 CIE Cognitive Approach 认知取向</span>
+    <span class="badge">📄 Journal of Police and Criminal Psychology, 27(1), 55–62</span>
+    <span class="badge">🔬 Core Study 3</span>
+    <span class="badge">Eyewitness Identification</span>
+  </div>
+  <div class="kw-tags">
+    <span class="kw-tag kw-app">👁️ Eyewitness Testimony</span>
+    <span class="kw-tag kw-meth">🎬 Target-present / Target-absent Line-ups</span>
+    <span class="kw-tag kw-conc">🧒 Adult vs Child Witness</span>
+  </div>
+</div>
+
+<!-- ===== TOC ===== -->
+<div class="toc">
+  <h2>📑 Contents 目录</h2>
+  <ol>
+    <li><a href="#s1">Background（研究背景）</a></li>
+    <li><a href="#s2">Aim（研究目的）</a></li>
+    <li><a href="#s3">Method（研究方法）</a></li>
+    <li><a href="#s4">Sample（样本）</a></li>
+    <li><a href="#s5">Procedure（研究程序）</a></li>
+    <li><a href="#s6">Results（研究结果）</a></li>
+    <li><a href="#s7">Conclusion（结论）</a></li>
+    <li><a href="#s8">Strengths &amp; Weaknesses（优缺点）</a></li>
+    <li><a href="#s9">Ethical Issues（伦理问题）</a></li>
+    <li><a href="#s10">Issues &amp; Debates（争论与取向）</a></li>
+    <li><a href="#s11">Summary（总结）</a></li>
+    <li><a href="#s12">Practice Questions（练习题）</a></li>
+    <li><a href="#s13">Key Terms（核心术语）</a></li>
+    <li><a href="#s14">Exam Practice with Model Answers（真题与范文）</a></li>
+  </ol>
 </div>
 
 <!-- ==================== SECTION 1 ==================== -->
-<h2>1. Background</h2>
+<div class="section" id="s1">
+  <h2>1️⃣ Background（研究背景）</h2>
 
-<div class="key-box">
-<h4>The psychology under investigation</h4>
-<p>Human memory works like a computer in some respects, but differs critically in how stored data can be accidentally altered or damaged. Unlike a computer, which reproduces an error-free copy of stored information, human memory is <strong>reconstructive</strong> — we may feel our recall is perfectly accurate, yet cognitive psychologists have demonstrated that memories can be distorted by information encountered during and after encoding.</p>
-<p>Additional information given after an event, called <strong>post-event information（事件后信息）</strong>, can produce "<strong>false memories（错误记忆）</strong>". A witness may confidently believe these false memories to be true. Loftus and Palmer (1974) showed this in a classic experiment: participants who watched a video of a car accident estimated faster speeds when asked how fast the cars were going when they <em>"smashed into"</em> each other versus when they <em>"hit"</em> each other.</p>
-</div>
+  <div class="quote">
+    <strong>The psychology under investigation.</strong> Human memory works like a computer in some respects, but differs critically in how stored data can be accidentally altered or damaged. Unlike a computer, which reproduces an error-free copy of stored information, human memory is <strong>reconstructive</strong> — we may feel our recall is perfectly accurate, yet cognitive psychologists have demonstrated that memories can be distorted by information encountered during and after encoding.
+  </div>
 
-<div class="kw-box">
-<h4>📌 KEY TERMS</h4>
-<ul>
-<li><strong>False memory（错误记忆）</strong>: stored information an individual believes to be accurate but which is actually the consequence of later additional, untrue information (e.g., leading questions posed to an eyewitness)</li>
-<li><strong>Eyewitness testimony（目击者证词）</strong>: evidence provided by someone who has seen (or heard) a crime being committed, used by the legal system to identify perpetrators</li>
-<li><strong>Line-up（排队指认/列队指认）</strong>: a police procedure where a witness is shown a row of people or array of photographs and asked to identify the perpetrator (who may or may not be present)</li>
-<li><strong>False positive response（错误肯定反应）</strong>: giving an affirmative but incorrect answer — e.g., mistakenly identifying an innocent person when the real culprit is absent from the line-up</li>
-</ul>
-</div>
+  <p>Additional information given after an event, called <strong>post-event information（事件后信息）</strong>, can produce "<strong>false memories（错误记忆）</strong>". A witness may confidently believe these false memories to be true. <strong>Loftus and Palmer (1974)</strong> showed this in a classic experiment: participants who watched a video of a car accident estimated faster speeds when asked how fast the cars were going when they <em>"smashed into"</em> each other versus when they <em>"hit"</em> each other.</p>
 
-<p><strong>Children as well as adults can serve as eyewitnesses.</strong> Sometimes a child may be the only witness to a crime, so the legal system must rely on their <strong>eyewitness testimony（目击者证词）</strong>. For this evidence to be useful, children need to be reliable witnesses — but are they?</p>
+  <div class="kw-box">
+    <h4>📌 KEY TERMS</h4>
+    <ul>
+      <li><strong>False memory（错误记忆）</strong>: stored information an individual believes to be accurate but which is actually the consequence of later additional, untrue information (e.g., leading questions posed to an eyewitness).</li>
+      <li><strong>Eyewitness testimony（目击者证词）</strong>: evidence provided by someone who has seen (or heard) a crime being committed, used by the legal system to identify perpetrators.</li>
+      <li><strong>Line-up（排队指认 / 列队指认）</strong>: a police procedure where a witness is shown a row of people or array of photographs and asked to identify the perpetrator (who may or may not be present).</li>
+      <li><strong>False positive response（错误肯定反应）</strong>: giving an affirmative but incorrect answer — e.g., mistakenly identifying an innocent person when the real culprit is absent from the line-up.</li>
+    </ul>
+  </div>
 
-<h3>1.1 Child Witnesses and Line-ups</h3>
-<p>Pozzulo et al. recognised that <strong>cognitive effects</strong>, such as those caused by post-event information (including the way questions are phrased), can produce errors in children's decision-making. Their earlier research (Pozzulo & Lindsay, 1997) showed that children were less likely than adults to say "I don't know" in response to a question, even when they knew this was a permissible option.</p>
+  <p><strong>Children as well as adults can serve as eyewitnesses.</strong> Sometimes a child may be the only witness to a crime, so the legal system must rely on their <strong>eyewitness testimony（目击者证词）</strong>. For this evidence to be useful, children need to be reliable witnesses — but are they?</p>
 
-<p>In a <strong>line-up（排队指认）</strong>, a witness is asked to identify the perpetrator from a selection of individuals (whether or not the culprit is actually present). However, this system can produce errors leading to miscarriages of justice. <strong>Pozzulo and Lindsay (1998)</strong> found that when the culprit is <em>not</em> among the people shown, children are more likely than adults to identify an innocent person — a <span class="term">false positive response（错误肯定反应）</span>.</p>
+  <h3>1.1 Child Witnesses and Line-ups</h3>
+  <p>Pozzulo et al. recognised that <strong>cognitive effects</strong>, such as those caused by post-event information (including the way questions are phrased), can produce errors in children's decision-making. Their earlier research (<strong>Pozzulo &amp; Lindsay, 1997</strong>) showed that children were less likely than adults to say "I don't know" in response to a question, even when they knew this was a permissible option.</p>
 
-<div class="img-container">
-  <img src="pozzulo_images/lineup.jpg" alt="Police line-up">
-  <div class="img-caption">Figure 3.11: A police line-up（警察排队指认）— the witness must identify the perpetrator from the array</div>
-</div>
+  <p>In a <span class="term">line-up（排队指认）</span>, a witness is asked to identify the perpetrator from a selection of individuals (whether or not the culprit is actually present). However, this system can produce errors leading to miscarriages of justice. <strong>Pozzulo and Lindsay (1998)</strong> found that when the culprit is <em>not</em> among the people shown, <strong>children are more likely than adults to identify an innocent person</strong> — a <span class="term">false positive response（错误肯定反应）</span>.</p>
 
-<h3>1.2 Why Do Children Make More Errors?</h3>
-<p>This study focused on <strong>social effects</strong> on child witnesses. Pozzulo et al. proposed several social factors that may lead children to make incorrect decisions:</p>
-<ul>
-<li>If a child is asked to select the culprit from a line-up, they may feel they <em>must</em> choose someone. Not making a choice (saying the culprit isn't there) might feel like a "non-response" or failure to comply.</li>
-<li>A child is likely to view the adult asking questions as an <strong>authority figure（权威人物）</strong>, especially a police officer, making them more likely to comply.</li>
-<li>Children may feel greater <strong>pressure（压力）</strong> to make a choice than adults — they want to please the adult and may fear getting into trouble for not selecting someone.</li>
-</ul>
+  <div class="img-container">
+    <img src="pozzulo_images/lineup.jpg" alt="Police line-up">
+    <div class="img-caption">Figure 3.11: A police line-up（警察排队指认）— the witness must identify the perpetrator from the array</div>
+  </div>
 
-<h3>1.4 Four Predictions</h3>
-<p>The study aimed to test four predictions:</p>
-<ol>
-<li>Children will be as good as adults at identifying cartoon faces in a <strong>target-present line-up（目标存在队列）</strong></li>
-<li>Children will be worse than adults at identifying human faces in a target-present line-up</li>
-<li>Children will be worse than adults at rejecting cartoon faces in a <strong>target-absent line-up（目标缺失队列）</strong></li>
-<li>Children will be worse than adults at rejecting human faces in a target-absent line-up</li>
-</ol>
+  <h3>1.2 Why Do Children Make More Errors?</h3>
+  <p>This study focused on <strong>social effects</strong> on child witnesses. Pozzulo et al. proposed several social factors that may lead children to make incorrect decisions:</p>
+  <ul>
+    <li>If a child is asked to select the culprit from a line-up, they may feel they <em>must</em> choose someone. Not making a choice (saying the culprit isn't there) might feel like a "non-response" or failure to comply.</li>
+    <li>A child is likely to view the adult asking questions as an <strong>authority figure（权威人物）</strong>, especially a police officer, making them more likely to comply.</li>
+    <li>Children may feel greater <strong>pressure（压力）</strong> to make a choice than adults — they want to please the adult and may fear getting into trouble for not selecting someone.</li>
+  </ul>
 
-<div class="cn-note">
-  <strong>💡 Core logic（核心逻辑）:</strong> If children identify cartoon faces at nearly 100% accuracy (because cartoons are familiar and cognitively easy), yet still show significantly lower correct-rejection rates than adults in target-absent conditions → this suggests errors are driven by <strong>social factors</strong> rather than <strong>cognitive factors</strong>. This is the central hypothesis of the study!
+  <h3>1.3 Four Predictions</h3>
+  <p>The study aimed to test four predictions:</p>
+  <ol>
+    <li>Children will be as good as adults at identifying cartoon faces in a <span class="term">target-present line-up（目标存在队列）</span>.</li>
+    <li>Children will be worse than adults at identifying human faces in a target-present line-up.</li>
+    <li>Children will be worse than adults at rejecting cartoon faces in a <span class="term">target-absent line-up（目标缺失队列）</span>.</li>
+    <li>Children will be worse than adults at rejecting human faces in a target-absent line-up.</li>
+  </ol>
+
+  <div class="cn-note">
+    <strong>💡 Core logic（核心逻辑）:</strong> If children identify cartoon faces at nearly 100% accuracy (because cartoons are familiar and cognitively easy), yet still show significantly lower correct-rejection rates than adults in target-absent conditions → this suggests errors are driven by <strong>social factors</strong> rather than <strong>cognitive factors</strong>. This is the central hypothesis of the study!
+  </div>
+
+  <div class="cn-summary-wrap">
+    <button class="cn-summary-toggle" onclick="toggleCnSummary(this)"><span class="cs-icon">▶</span> 中文逻辑总结</button>
+    <div class="cn-summary-body">
+      <div class="cs-title">§1 研究背景：儿童作为目击者</div>
+      <p><strong>核心问题：</strong>人类记忆是 <span class="cs-en">reconstructive（重构性）</span> 而非完美复刻 → <span class="cs-en">post-event information（事件后信息）</span> 会导致 <span class="cs-en">false memories（错误记忆）</span>。</p>
+      <p><strong>关键术语：</strong></p>
+      <ul>
+        <li><span class="cs-en">Eyewitness Testimony（目击者证词）</span>：目击犯罪者的口供，可用于指认嫌疑人</li>
+        <li><span class="cs-en">Line-up（排队指认）</span>：警方展示一组人/照片，让证人指认罪犯（可能不在场）</li>
+        <li><span class="cs-en">False Positive Response（错误肯定反应）</span>：在目标缺失时仍错误指认无辜者</li>
+      </ul>
+      <p><strong>关键发现铺垫：</strong>Pozzulo &amp; Lindsay (1998) 发现当罪犯不在场时，<strong>儿童比成人更可能错误指认无辜者</strong>。本研究进一步探究原因——是认知因素还是社会因素？</p>
+      <p><strong>四项预测：</strong>① 卡通识别 儿童≈成人 ② 真人识别 儿童&lt;成人 ③ 卡通拒绝 儿童&lt;成人 ④ 真人拒绝 儿童&lt;成人</p>
+    </div>
+  </div>
+
+  <div class="summary-card" id="summary-s1">
+    <div class="summary-card-header" onclick="toggleSummary('summary-s1')">
+      <span class="summary-card-icon">▶</span>
+      <span class="summary-card-title">Exam Key Points — Background</span>
+      <span class="summary-card-badge">AO1</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ul>
+          <li>Human memory is <strong>reconstructive</strong>, not reproductive — memories can be distorted by post-event information <span class="tag-must">Must Know</span></li>
+          <li>Define: <strong>line-up</strong> = police identification procedure (culprit may or may not be present); <strong>false positive response</strong> = identifying innocent person when culprit is absent <span class="tag-must">Must Know</span></li>
+          <li>Reference to Loftus &amp; Palmer (1974) shows how leading questions create false memories (eyewitness research context) <span class="tag-common">Common Q</span></li>
+          <li>Three social reasons children over-identify: sense of obligation, authority-figure pressure, desire to please <span class="tag-must">Must Know</span></li>
+          <li>AO2: Children as eyewitnesses are needed because in real cases they may be sole witnesses (e.g. abuse, domestic violence) <span class="tag-ao2">AO2 Gold</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- ==================== SECTION 2 ==================== -->
-<h2>2. Aim</h2>
-<p>Social factors may exert a stronger influence on child witnesses than on adults. One <strong>eyewitness test（目击者测试）</strong> is identification of a suspect from a <strong>'target-present' line-up（目标存在队列）</strong>, where the culprit is among the faces presented. Another test is the ability to correctly reject faces when the culprit is absent — a <strong>'target-absent' line-up（目标缺失队列）</strong>.</p>
-<p>To isolate social versus cognitive factors, Pozzulo et al. minimised cognitive demands by comparing performance on <strong>cartoon character（卡通人物）</strong> line-ups. Cartoon characters are familiar, so both children and adults should identify them with approximately 100% accuracy — a cognitively easy task requiring only matching an existing memory to visible faces. However, in a target-absent task, matching is impossible, forcing a selection. Faced with this harder task, children should rely more heavily on social factors and make more errors than adults.</p>
+<div class="section" id="s2">
+  <h2>2️⃣ Aim（研究目的）</h2>
+
+  <p>Social factors may exert a stronger influence on child witnesses than on adults. One <strong>eyewitness test（目击者测试）</strong> is identification of a suspect from a <span class="term">'target-present' line-up（目标存在队列）</span>, where the culprit is among the faces presented. Another test is the ability to correctly reject faces when the culprit is absent — a <span class="term">'target-absent' line-up（目标缺失队列）</span>.</p>
+
+  <p>To isolate social versus cognitive factors, Pozzulo et al. minimised cognitive demands by comparing performance on <strong>cartoon character（卡通人物）</strong> line-ups. Cartoon characters are familiar, so both children and adults should identify them with approximately 100% accuracy — a cognitively easy task requiring only matching an existing memory to visible faces. However, in a target-absent task, matching is impossible, forcing a selection. Faced with this harder task, children should rely more heavily on social factors and make more errors than adults.</p>
+
+  <div class="blue-box">
+    <strong>Aim in one sentence 一句话 aim：</strong><br>
+    To test whether the higher false-positive error rate observed in child witnesses (compared with adults) is due to <strong>cognitive factors</strong> (e.g. weaker memory) or <strong>social factors</strong> (e.g. pressure to choose from a line-up), by comparing children's and adults' performance in target-present vs. target-absent line-ups with both familiar cartoon and unfamiliar human faces.<br>
+    <span style="color:var(--text-secondary);font-size:0.93em;">（通过比较儿童和成人在目标存在与目标缺失队列（卡通与真人面孔）中的表现，探究儿童错误肯定率更高是源于认知因素还是社会因素。）</span>
+  </div>
+
+  <div class="cn-summary-wrap">
+    <button class="cn-summary-toggle" onclick="toggleCnSummary(this)"><span class="cs-icon">▶</span> 中文逻辑总结</button>
+    <div class="cn-summary-body">
+      <div class="cs-title">§2 研究目的：分离认知与社会因素</div>
+      <p><strong>核心思路：</strong>如果能找到一个任务让儿童和成人的<strong>记忆能力相当</strong>（都接近 100%），那么剩下的差异只能归因于<strong>社会因素</strong>。</p>
+      <p><strong>巧妙设计：</strong>选择<strong>熟悉的卡通人物</strong>（Dora、Diego）作为目标 → 识别认知需求极低，几乎是完美匹配 → 儿童识别率 ≈ 100% → 此时任何剩余错误都<strong>不是认知问题</strong>。</p>
+      <p><strong>反之：</strong>在目标缺失时，儿童正确拒绝率显著低于成人 → 这是<strong>社会压力</strong>造成的（儿童感到"必须选一个"）。</p>
+    </div>
+  </div>
+
+  <div class="summary-card" id="summary-s2">
+    <div class="summary-card-header" onclick="toggleSummary('summary-s2')">
+      <span class="summary-card-icon">▶</span>
+      <span class="summary-card-title">Exam Key Points — Aim</span>
+      <span class="summary-card-badge">AO1</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ul>
+          <li>Aim = investigate whether child false positives are caused by <strong>cognitive</strong> vs. <strong>social</strong> factors <span class="tag-must">Must Know</span></li>
+          <li>Clever manipulation: <strong>cartoons = familiar</strong> (low cognitive demand) vs. <strong>humans = unfamiliar</strong> (high cognitive demand) <span class="tag-must">Must Know</span></li>
+          <li><strong>Target-present</strong> = identifying culprit (cognition-focused); <strong>target-absent</strong> = correctly rejecting (social-pressure-focused) <span class="tag-must">Must Know</span></li>
+          <li>AO2: Aim is testable — predictions are clear and falsifiable, showing good internal validity <span class="tag-ao2">AO2 Gold</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- ==================== SECTION 3 ==================== -->
-<h2>3. Method</h2>
+<div class="section" id="s3">
+  <h2>3️⃣ Method（研究方法）</h2>
 
-<h3>3.1 Research Design</h3>
-<p>This was a <strong>laboratory experiment（实验室实验）</strong>. Participants completed the task in a laboratory setting, whereas real line-ups take place in official venues such as police stations.</p>
+  <h3>3.1 Research Design</h3>
+  <p>This was a <strong>laboratory experiment（实验室实验）</strong>. Participants completed the task in a laboratory setting, whereas real line-ups take place in official venues such as police stations.</p>
 
-<p>There were three <strong>independent variables（自变量 / IVs）</strong>:</p>
-<table>
-<tr><th>Independent Variable</th><th>Levels / Conditions</th><th>Design Type</th></tr>
-<tr><td><strong>Age（年龄）</strong></td<td>Young children (4–7 years) vs Adults (17–30 years)</td><td>Independent measures（独立测量设计）</td></tr>
-<tr><td><strong>Line-up type（队列类型）</strong></td<td>Identification (target-present) vs Rejection (target-absent)</td><td>Repeated measures（重复测量设计）</td></tr>
-<tr><td><strong>Cognitive demand / Target familiarity（认知负荷/目标熟悉度）</strong></td<td>Cartoon (familiar, low demand) vs Human (unfamiliar, high demand)</td><td>Repeated measures（重复测量设计）</td></tr>
-</table>
+  <p>There were three <strong>independent variables（自变量 / IVs）</strong>:</p>
 
-<p>The <strong>dependent variable（因变量 / DV）</strong> was whether the participant identified the correct face (if present) or selected the blank silhouette (if absent). Children responded by pointing; adults recorded responses on paper.</p>
+  <table>
+    <thead><tr><th>Independent Variable</th><th>Levels / Conditions</th><th>Design Type</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Age（年龄）</strong></td><td>Young children (4–7 years) vs. Adults (17–30 years)</td><td>Independent measures（独立测量设计）</td></tr>
+      <tr><td><strong>Line-up type（队列类型）</strong></td><td>Identification (target-present) vs. Rejection (target-absent)</td><td>Repeated measures（重复测量设计）</td></tr>
+      <tr><td><strong>Cognitive demand / Target familiarity（认知负荷 / 目标熟悉度）</strong></td><td>Cartoon (familiar, low demand) vs. Human (unfamiliar, high demand)</td><td>Repeated measures（重复测量设计）</td></tr>
+    </tbody>
+  </table>
 
-<div class="cn-note">
-  <strong>🧠 Design note（设计说明）:</strong> Age used independent measures (different participants); target type and line-up type used repeated measures (same participants across conditions). This mixed design allowed within-subject comparison of cartoon vs. human performance, controlling for individual differences. Target position was randomised per line-up.
+  <p>The <strong>dependent variable（因变量 / DV）</strong> was whether the participant identified the correct face (if present) or selected the blank silhouette (if absent). Children responded by pointing; adults recorded responses on paper.</p>
+
+  <div class="cn-note">
+    <strong>🧠 Design note（设计说明）:</strong> Age used independent measures (different participants); target type and line-up type used repeated measures (same participants across conditions). This mixed design allowed within-subject comparison of cartoon vs. human performance, controlling for individual differences. Target position was randomised per line-up.
+  </div>
+
+  <div class="cn-summary-wrap">
+    <button class="cn-summary-toggle" onclick="toggleCnSummary(this)"><span class="cs-icon">▶</span> 中文逻辑总结</button>
+    <div class="cn-summary-body">
+      <div class="cs-title">§3 研究方法：混合设计</div>
+      <p><strong>研究类型：</strong><span class="cs-en">Laboratory Experiment（实验室实验）</span>——非真实警局环境，但严格控制变量。</p>
+      <p><strong>三个 IV：</strong></p>
+      <ul>
+        <li>① <span class="cs-en">Age</span>（儿童 vs 成人）— <strong>独立测量</strong></li>
+        <li>② <span class="cs-en">Line-up Type</span>（目标存在 vs 目标缺失）— <strong>重复测量</strong></li>
+        <li>③ <span class="cs-en">Target Familiarity</span>（卡通 vs 真人）— <strong>重复测量</strong></li>
+      </ul>
+      <p><strong>DV：</strong>正确指认率 / 正确拒绝率（指向或书面记录）。</p>
+      <p><strong>混合设计的好处：</strong>控制个体差异 + 同一被试可比较卡通 vs 真人表现。</p>
+    </div>
+  </div>
+
+  <div class="summary-card" id="summary-s3">
+    <div class="summary-card-header" onclick="toggleSummary('summary-s3')">
+      <span class="summary-card-icon">▶</span>
+      <span class="summary-card-title">Exam Key Points — Method</span>
+      <span class="summary-card-badge">AO1+AO3</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ul>
+          <li>Method = laboratory experiment with a <strong>mixed design</strong> (independent + repeated measures) <span class="tag-must">Must Know</span></li>
+          <li>Three IVs: <strong>Age</strong> (independent), <strong>Line-up type</strong> (repeated), <strong>Target familiarity</strong> (repeated) <span class="tag-must">Must Know</span></li>
+          <li>DV = identification / rejection rate (binary: correct vs. incorrect) <span class="tag-common">Common Q</span></li>
+          <li>AO3 strength: standardisation + control → high internal validity; counterbalancing prevents order effects <span class="tag-ao2">AO2 Gold</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- ==================== SECTION 4 ==================== -->
-<h2>4. Sample</h2>
-<table>
-<tr><th>Group</th><th>N</th><th>Age Range</th><th>Mean Age</th><th>Gender</th><th>Recruitment Source</th></tr>
-<tr><td><strong>Children</strong></td><td>59</td><td>4–7 years</td><td>4.98 years</td><td>21 females, 38 males</td><td>Pre-kindergarten/kindergarten classes at 3 private schools in Eastern Ontario, Canada</td></tr>
-<tr><td><strong>Adults</strong></td><td>53</td><td>17–30 years</td><td>20.54 years</td><td>36 females, 17 males</td><td>Introductory Psychology Participant Pool at Eastern Ontario University</td></tr>
-</table>
+<div class="section" id="s4">
+  <h2>4️⃣ Sample（样本）</h2>
 
-<p>All participants confirmed familiarity with the two cartoon targets: <strong>Dora the Explorer</strong> and <strong>Go, Diego, Go!</strong> See Figure 3.12 below.</p>
+  <table>
+    <thead><tr><th>Group</th><th>N</th><th>Age Range</th><th>Mean Age</th><th>Gender</th><th>Recruitment Source</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Children</strong></td><td>59</td><td>4–7 years</td><td>4.98 years</td><td>21 females, 38 males</td><td>Pre-kindergarten/kindergarten classes at 3 private schools in Eastern Ontario, Canada</td></tr>
+      <tr><td><strong>Adults</strong></td><td>53</td><td>17–30 years</td><td>20.54 years</td><td>36 females, 17 males</td><td>Introductory Psychology Participant Pool at Eastern Ontario University</td></tr>
+    </tbody>
+  </table>
 
-<div class="two-col">
-<div class="img-container">
-  <img src="pozzulo_images/dora.png" alt="Dora the Explorer" style="max-height:280px">
-  <div class="img-caption">Dora the Explorer — female cartoon target</div>
+  <p>All participants confirmed familiarity with the two cartoon targets: <strong>Dora the Explorer</strong> and <strong>Go, Diego, Go!</strong></p>
+
+  <div class="two-col">
+    <div class="img-container">
+      <img src="pozzulo_images/dora.png" alt="Dora the Explorer" style="max-height:280px">
+      <div class="img-caption">Dora the Explorer — female cartoon target</div>
+    </div>
+    <div class="img-container">
+      <img src="pozzulo_images/diego.png" alt="Go Diego Go!" style="max-height:280px">
+      <div class="img-caption">Go, Diego, Go! — male cartoon target</div>
+    </div>
+  </div>
+  <div class="img-caption" style="text-align:center">Figure 3.12: Dora the Explorer and Go, Diego, Go! — the two cartoon target characters used in the study</div>
+
+  <div class="cn-note">
+    <strong>📊 Sample note（样本说明）:</strong> Opportunity sample for children (schools) and volunteer sample for adults (university pool). Small N per cell means statistical power is limited; gender imbalance is also a weakness (children 38M:21F; adults 17M:36F — opposite skew).
+  </div>
+
+  <div class="summary-card" id="summary-s4">
+    <div class="summary-card-header" onclick="toggleSummary('summary-s4')">
+      <span class="summary-card-icon">▶</span>
+      <span class="summary-card-title">Exam Key Points — Sample</span>
+      <span class="summary-card-badge">AO1+AO3</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ul>
+          <li>Total N = <strong>112</strong> (59 children, 53 adults); children 4–7 yrs, adults 17–30 yrs <span class="tag-must">Must Know</span></li>
+          <li>Children recruited from <strong>3 private schools</strong> in Eastern Ontario → opportunity sample <span class="tag-common">Common Q</span></li>
+          <li>Adults from <strong>Intro Psychology Participant Pool</strong> → volunteer sample <span class="tag-common">Common Q</span></li>
+          <li>AO3 weakness: <strong>small sample</strong> per cell + skewed gender (children 38M:21F; adults 17M:36F) → generalisability limited <span class="tag-ao2">AO2 Gold</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
-<div class="img-container">
-  <img src="pozzulo_images/diego.png" alt="Go Diego Go!" style="max-height:280px">
-  <div class="img-caption">Go, Diego, Go! — male cartoon target</div>
-</div>
-</div>
-<div class="img-caption" style="text-align:center">Figure 3.12: Dora the Explorer and Go, Diego, Go! — the two cartoon target characters used in the study</div>
 
 <!-- ==================== SECTION 5 ==================== -->
-<h2>5. Procedure</h2>
+<div class="section" id="s5">
+  <h2>5️⃣ Procedure（研究程序）</h2>
 
-<h3>5.1 Stimulus Materials</h3>
-<p><strong>Human face targets:</strong> Two Caucasian students were filmed for two types of stimulus material:</p>
-<ul>
-<li><strong>Videos:</strong> 6-second colour clips of everyday tasks (female brushing her hair; male putting on his coat), showing 2–3 seconds of the individual's face, no sound.</li>
-<li><strong>Photoarrays (line-ups):</strong> For each target, four "foil" photographs were selected by three raters to match the target in facial features, hair length and colour. All photos were cropped to show only face, neck and shoulders, in black and white.</li>
-</ul>
+  <h3>5.1 Stimulus Materials</h3>
+  <p><strong>Human face targets:</strong> Two Caucasian students were filmed for two types of stimulus material:</p>
+  <ul>
+    <li><strong>Videos:</strong> 6-second colour clips of everyday tasks (female brushing her hair; male putting on his coat), showing 2–3 seconds of the individual's face, no sound.</li>
+    <li><strong>Photoarrays (line-ups):</strong> For each target, four "foil" photographs were selected by three raters to match the target in facial features, hair length and colour. All photos were cropped to show only face, neck and shoulders, in black and white.</li>
+  </ul>
 
-<p><strong>Cartoon face targets:</strong></p>
-<ul>
-<li>Dora the Explorer talking to the audience</li>
-<li>Go, Diego, Go! putting on gloves for safety</li>
-</ul>
-<p>Cartoon videos were also 6-second colour clips without sound. Foil images were sourced from the internet and selected by three raters. All photos were in black and white to eliminate colour-based recognition cues.</p>
+  <p><strong>Cartoon face targets:</strong></p>
+  <ul>
+    <li>Dora the Explorer talking to the audience</li>
+    <li>Go, Diego, Go! putting on gloves for safety</li>
+  </ul>
+  <p>Cartoon videos were also 6-second colour clips without sound. Foil images were sourced from the internet and selected by three raters. All photos were in black and white to eliminate colour-based recognition cues.</p>
 
-<h3>5.2 Experimental Procedure</h3>
+  <h3>5.2 Experimental Procedure</h3>
 
-<div class="activity-box">
-<h4>📋 Research Methods Context</h4>
-<p>Line-ups are used worldwide in legal cases. Procedures are highly controlled to minimise errors — e.g., ensuring photographs are uniform in size and all in colour or all in black and white. One unresolved issue: people are less accurate at identifying individuals of a different ethnic group from themselves. Researchers must therefore consider participant ethnicity and line-up member ethnicity as potential confounding variables.</p>
-</div>
+  <div class="activity-box">
+    <h4>📋 Research Methods Context</h4>
+    <p>Line-ups are used worldwide in legal cases. Procedures are highly controlled to minimise errors — e.g., ensuring photographs are uniform in size and all in colour or all in black and white. One unresolved issue: people are less accurate at identifying individuals of a <strong>different ethnic group from themselves</strong> (cross-race effect). Researchers must therefore consider participant ethnicity and line-up member ethnicity as potential confounding variables.</p>
+  </div>
 
-<p><strong>For Children:</strong></p>
-<ol>
-<li>Three female experimenters wore professional-casual clothing (not overly formal) to reduce authority-figure pressure.</li>
-<li>Each child was tested individually after making crafts together to build rapport（融洽关系）and comfort.</li>
-<li>The experimenter explained that the child could change their mind at any time and would not get into trouble.</li>
-<li>The child watched one video clip (order randomised across participants).</li>
-<li>After the clip, a <strong>free recall filler question</strong>: "What did the cartoon character/person look like?" followed twice by "Do you remember anything else?"</li>
-<li>The experimenter displayed the corresponding line-up on a laptop (PowerPoint).</li>
-<li>Instruction: "The person you saw may or may not be there. If the correct person is NOT there, please point to the silhouetted box."</li>
-<li>The procedure repeated for all 4 videos (Dora + Diego + Female Human + Male Human), with reminders that the target may be absent.</li>
-<li>After completion, children received crayons and a colouring book as a thank-you gift.</li>
-</ol>
+  <p><strong>For Children:</strong></p>
+  <ol>
+    <li>Three female experimenters wore professional-casual clothing (not overly formal) to reduce authority-figure pressure.</li>
+    <li>Each child was tested individually after making crafts together to build <span class="term">rapport（融洽关系）</span> and comfort.</li>
+    <li>The experimenter explained that the child could change their mind at any time and would not get into trouble.</li>
+    <li>The child watched one video clip (order randomised across participants).</li>
+    <li>After the clip, a <strong>free recall filler question</strong>: "What did the cartoon character/person look like?" followed twice by "Do you remember anything else?"</li>
+    <li>The experimenter displayed the corresponding line-up on a laptop (PowerPoint).</li>
+    <li>Instruction: <em>"The person you saw may or may not be there. If the correct person is NOT there, please point to the silhouetted box."</em></li>
+    <li>The procedure repeated for all 4 videos (Dora + Diego + Female Human + Male Human), with reminders that the target may be absent.</li>
+    <li>After completion, children received crayons and a colouring book as a thank-you gift.</li>
+  </ol>
 
-<p><strong>For Adults:</strong></p>
-<ol>
-<li>Gave written consent for a study about "memory".</li>
-<li>Watched each video clip individually.</li>
-<li>After each clip, wrote responses to free recall questions ("What did the cartoon character/person look like?" + "Do you remember anything else?").</li>
-<li>Viewed the line-up on laptop and wrote down their identification response.</li>
-<li>Same 4-video sequence as children, order counterbalanced.</li>
-</ol>
+  <p><strong>For Adults:</strong></p>
+  <ol>
+    <li>Gave written consent for a study about "memory".</li>
+    <li>Watched each video clip individually.</li>
+    <li>After each clip, wrote responses to free recall questions ("What did the cartoon character/person look like?" + "Do you remember anything else?").</li>
+    <li>Viewed the line-up on laptop and wrote down their identification response.</li>
+    <li>Same 4-video sequence as children, order counterbalanced.</li>
+  </ol>
 
-<p><strong>Key control features:</strong></p>
-<ul>
-<li>Line-up position of target was <strong>randomised</strong> per participant</li>
-<li>Video presentation order was <strong>counterbalanced（平衡/抵消）</strong></li>
-<li>All photos in black & white to eliminate colour cues</li>
-<li>Target-present line-ups: target + 3 foils</li>
-<li>Target-absent line-ups: 4 foils (similar-looking replacement in original target position)</li>
-<li>Each line-up included a <strong>blank silhouette box</strong> representing "not here" option</li>
-</ul>
+  <p><strong>Key control features:</strong></p>
+  <ul>
+    <li>Line-up position of target was <strong>randomised</strong> per participant</li>
+    <li>Video presentation order was <strong>counterbalanced（平衡/抵消）</strong></li>
+    <li>All photos in black &amp; white to eliminate colour cues</li>
+    <li>Target-present line-ups: target + 3 foils</li>
+    <li>Target-absent line-ups: 4 foils (similar-looking replacement in original target position)</li>
+    <li>Each line-up included a <strong>blank silhouette box</strong> representing "not here" option</li>
+  </ul>
 
-<div class="activity-box">
-<h4>✏️ ACTIVITY 3.5</h4>
-<p>Controls and standardisation help improve validity. Working with a partner, list the ways the experimenters standardised the procedure. For each one, explain why it was important for validity.</p>
-<p><em>Peer assessment: Swap lists with another pair and evaluate each other's explanations.</em></p>
+  <div class="activity-box">
+    <h4>✏️ ACTIVITY 3.5</h4>
+    <p>Controls and standardisation help improve validity. Working with a partner, list the ways the experimenters standardised the procedure. For each one, explain why it was important for validity.</p>
+    <p><em>Peer assessment: Swap lists with another pair and evaluate each other's explanations.</em></p>
+  </div>
+
+  <div class="cn-summary-wrap">
+    <button class="cn-summary-toggle" onclick="toggleCnSummary(this)"><span class="cs-icon">▶</span> 中文逻辑总结</button>
+    <div class="cn-summary-body">
+      <div class="cs-title">§5 实验程序：刺激材料 + 标准化控制</div>
+      <p><strong>材料准备：</strong>两位高加索学生拍 6 秒视频（无声音），配 4 张相似 foil；卡通则用 Dora &amp; Diego 熟悉的片段。</p>
+      <p><strong>儿童程序 9 步：</strong></p>
+      <ul>
+        <li>① 实验者穿休闲装（避免权威感）② 先做手工建立融洽关系</li>
+        <li>③ 强调"可改变主意、不受罚" ④ 观看视频（顺序随机）</li>
+        <li>⑤ 自由回忆填充问题 ⑥ 笔记本展示队列</li>
+        <li>⑦ 指令"罪犯可能在/不在场" ⑧ 重复 4 次</li>
+        <li>⑨ 蜡笔 + 涂色书作为感谢礼物</li>
+      </ul>
+      <p><strong>成人程序：</strong>书面同意 → 看视频 → 书面自由回忆 → 书面指认。</p>
+      <p><strong>标准化控制：</strong>目标位置随机 + 视频顺序平衡 + 黑白照片 + 空白剪影框。</p>
+    </div>
+  </div>
+
+  <div class="summary-card" id="summary-s5">
+    <div class="summary-card-header" onclick="toggleSummary('summary-s5')">
+      <span class="summary-card-icon">▶</span>
+      <span class="summary-card-title">Exam Key Points — Procedure</span>
+      <span class="summary-card-badge">AO1+AO3</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ul>
+          <li>Children watched 4 short videos (Dora + Diego + Female human + Male human); order <strong>counterbalanced</strong> <span class="tag-must">Must Know</span></li>
+          <li>Child-friendly measures: <strong>craft activity first</strong>, smart-casual clothing, explicit reassurance about not getting into trouble <span class="tag-must">Must Know</span></li>
+          <li>Each line-up had a <strong>blank silhouette</strong> as "not present" option (key methodological feature) <span class="tag-common">Common Q</span></li>
+          <li>Children <strong>pointed</strong>; adults <strong>wrote</strong> responses — both allowed free reasoning, no forced choice <span class="tag-ao2">AO2 Gold</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- ==================== SECTION 6 ==================== -->
-<h2>6. Results</h2>
-<p>The researchers investigated two key differences: (1) between children's and adults' identification/rejection accuracy, and (2) between cartoon and human face performance within each age group.</p>
+<div class="section" id="s6">
+  <h2>6️⃣ Results（研究结果）</h2>
 
-<h3>6.1 Detailed Results Tables</h3>
-<p>The following tables present complete data for all conditions (corresponding to <strong>Table 1</strong> and <strong>Table 2</strong> in the original paper):</p>
+  <p>The researchers investigated two key differences: (1) between children's and adults' identification/rejection accuracy, and (2) between cartoon and human face performance within each age group.</p>
 
-<!-- ===== TABLE 1: IDENTIFICATION RATES ===== -->
-<p style="font-size:.95em;font-weight:600;color:var(--heading);margin:18px 0 6px">📋 Table 3.6a — Target-Present Line-ups: Identification Rates（正确识别率）</p>
-<table class="data-table">
-<thead>
-<tr><th rowspan="2">Group<br>（被试组）</th><th rowspan="2">Target Type<br>（目标类型）</th><th rowspan="2">Target<br>（具体目标）</th><th colspan="3">Response Distribution (n)<br>（反应分布）</th><th rowspan="2">ID Rate<br>（识别率）</th></tr>
-<tr><th>Selected Target<br>（选目标）</th><th>Selected Foil<br>（选干扰项）</th><th>False Rejection<br>（误拒）</th></tr>
-</thead>
-<tbody>
-<tr><td rowspan="4" class="label-cell"><strong>Children<br>（儿童）</strong></td><td rowspan="2" class="label-cell"><strong>Cartoon<br>（卡通）</strong></td><td>Dora</td><td class="num-cell">1.00 (29)</td><td class="num-cell">0 (0)</td><td class="num-cell">0 (0)</td><td class="num-cell" style="background:#dcfce7"><strong>1.00</strong></td></tr>
-<tr><td>Diego</td><td class="num-cell">0.97 (28)</td><td class="num-cell">0 (0)</td><td class="num-cell">0.03 (1)</td><td class="num-cell" style="background:#dcfce7"><strong>0.97</strong></td></tr>
-<tr><td rowspan="2" class="label-cell"><strong>Human<br>（真人）</strong></td><td>Female</td><td class="num-cell">0.24 (7)</td><td class="num-cell">0.38 (11)</td><td class="num-cell">0.38 (11)</td><td class="num-cell">0.24</td></tr>
-<tr><td>Male</td><td class="num-cell">0.21 (6)</td><td class="num-cell">0.45 (13)</td><td class="num-cell">0.34 (10)</td><td class="num-cell">0.21</td></tr>
-<tr><td rowspan="4" class="label-cell"><strong>Adults<br>（成人）</strong></td><td rowspan="2" class="label-cell"><strong>Cartoon<br>（卡通）</strong></td><td>Dora</td><td class="num-cell">1.00 (25)</td><td class="num-cell">0 (0)</td><td class="num-cell">0 (0)</td><td class="num-cell" style="background:#dcfce7"><strong>1.00</strong></td></tr>
-<tr><td>Diego</td><td class="num-cell">0.89 (24)</td><td class="num-cell">0 (0)</td><td class="num-cell">0.11 (3)</td><td class="num-cell" style="background:#dcfce7"><strong>0.89</strong></td></tr>
-<tr><td rowspan="2" class="label-cell"><strong>Human<br>（真人）</strong></td><td>Female</td><td class="num-cell">0.46 (13)</td><td class="num-cell">0 (0)</td><td class="num-cell">0.54 (15)</td><td class="num-cell">0.46</td></tr>
-<tr><td>Male</td><td class="num-cell">0.85 (22)</td><td class="num-cell">0.15 (4)</td><td class="num-cell">0 (0)</td><td class="num-cell">0.85</td></tr>
-</tbody>
-<tfoot>
-<tr style="background:#eff6ff;font-weight:600">
-<td colspan="3">📊 Mean ID Rate（平均正确识别率）</td>
-<td colspan="3"></td>
-<td>Children: <strong>0.99</strong> (cartoon) / <strong>0.23</strong> (human) | Adults: <strong>0.95</strong> (cartoon) / <strong>0.66</strong> (human)</td>
-</tr>
-</tfoot>
-</table>
+  <h3>6.1 Detailed Results Tables</h3>
+  <p>The following tables present complete data for all conditions (corresponding to <strong>Table 1</strong> and <strong>Table 2</strong> in the original paper):</p>
 
-<!-- ===== TABLE 2: REJECTION RATES ===== -->
-<p style="font-size:.95em;font-weight:600;color:var(--heading);margin:26px 0 6px">📋 Table 3.6b — Target-Absent Line-ups: Correct Rejection Rates（正确拒绝率）</p>
-<table class="data-table">
-<thead>
-<tr><th rowspan="2">Group<br>（被试组）</th><th rowspan="2">Target Type<br>（目标类型）</th><th rowspan="2">Target<br>（具体目标）</th><th colspan="2">Response Distribution (n)<br>（反应分布）</th><th rowspan="2">Rejection Rate<br>（拒绝率）</th></tr>
-<tr><th>Correct Rejection<br>（正确拒绝）</th><th>False ID<br>（错误指认）</th></tr>
-</thead>
-<tbody>
-<tr><td rowspan="4" class="label-cell"><strong>Children<br>（儿童）</strong></td><td rowspan="2" class="label-cell"><strong>Cartoon<br>（卡通）</strong></td><td>Dora</td><td class="num-cell">0.80 (24)</td><td class="num-cell">0.20 (6)</td><td class="num-cell">0.80</td></tr>
-<tr><td>Diego</td><td class="num-cell" style="background:#fef3c7">0.67 (20)</td><td class="num-cell">0.33 (10)</td><td class="num-cell" style="background:#fef3c7">0.67</td></tr>
-<tr><td rowspan="2" class="label-cell"><strong>Human<br>（真人）</strong></td><td>Female</td><td class="num-cell" style="background:#fef3c7">0.47 (14)</td><td class="num-cell">0.53 (16)</td><td class="num-cell" style="background:#fef3c7">0.47</td></tr>
-<tr><td>Male</td><td class="num-cell" style="background:#fef3c7">0.43 (13)</td><td class="num-cell">0.57 (17)</td><td class="num-cell" style="background:#fef3c7">0.43</td></tr>
-<tr><td rowspan="4" class="label-cell"><strong>Adults<br>（成人）</strong></td><td rowspan="2" class="label-cell"><strong>Cartoon<br>（卡通）</strong></td><td>Dora</td><td class="num-cell" style="background:#dcfce7">0.96 (27)</td><td class="num-cell">0.04 (1)</td><td class="num-cell" style="background:#dcfce7"><strong>0.96</strong></td></tr>
-<tr><td>Diego</td><td class="num-cell" style="background:#dcfce7">0.92 (24)</td><td class="num-cell">0.08 (2)</td><td class="num-cell" style="background:#dcfce7"><strong>0.92</strong></td></tr>
-<tr><td rowspan="2" class="label-cell"><strong>Human<br>（真人）</strong></td><td>Female</td><td class="num-cell" style="background:#dcfce7">0.72 (18)</td><td class="num-cell">0.28 (7)</td><td class="num-cell" style="background:#dcfce7">0.72</td></tr>
-<tr><td>Male</td><td class="num-cell" style="background:#dcfce7">0.67 (18)</td><td class="num-cell">0.33 (9)</td><td class="num-cell" style="background:#dcfce7">0.67</td></tr>
-</tbody>
-<tfoot>
-<tr style="background:#eff6ff;font-weight:600">
-<td colspan="3">📊 Mean Rejection Rate（平均正确拒绝率）</td>
-<td colspan="2"></td>
-<td>Children: <strong>0.74</strong> (cartoon) / <strong>0.45</strong> (human) | Adults: <strong>0.94</strong> (cartoon) / <strong>0.70</strong> (human)</td>
-</tr>
-</tfoot>
-</table>
-<p style="text-align:center;font-size:.85em;color:#64748b"><strong>Table 3.6:</strong> Complete response data for children and adults in target-present and target-absent line-ups (Source: Pozzulo et al., 2011, Tables 1 & 2)</p>
+  <p style="font-size:.95em;font-weight:600;color:var(--primary-dark);margin:18px 0 6px">📋 Table 3.6a — Target-Present Line-ups: Identification Rates（正确识别率）</p>
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th rowspan="2">Group<br>（被试组）</th>
+        <th rowspan="2">Target Type<br>（目标类型）</th>
+        <th rowspan="2">Target<br>（具体目标）</th>
+        <th colspan="3">Response Distribution (n)<br>（反应分布）</th>
+        <th rowspan="2">ID Rate<br>（识别率）</th>
+      </tr>
+      <tr>
+        <th>Selected Target<br>（选目标）</th>
+        <th>Selected Foil<br>（选干扰项）</th>
+        <th>False Rejection<br>（误拒）</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td rowspan="4" class="label-cell"><strong>Children<br>（儿童）</strong></td><td rowspan="2" class="label-cell"><strong>Cartoon<br>（卡通）</strong></td><td>Dora</td><td class="num-cell">1.00 (29)</td><td class="num-cell">0 (0)</td><td class="num-cell">0 (0)</td><td class="num-cell" style="background:#dcfce7"><strong>1.00</strong></td></tr>
+      <tr><td>Diego</td><td class="num-cell">0.97 (28)</td><td class="num-cell">0 (0)</td><td class="num-cell">0.03 (1)</td><td class="num-cell" style="background:#dcfce7"><strong>0.97</strong></td></tr>
+      <tr><td rowspan="2" class="label-cell"><strong>Human<br>（真人）</strong></td><td>Female</td><td class="num-cell">0.24 (7)</td><td class="num-cell">0.38 (11)</td><td class="num-cell">0.38 (11)</td><td class="num-cell">0.24</td></tr>
+      <tr><td>Male</td><td class="num-cell">0.21 (6)</td><td class="num-cell">0.45 (13)</td><td class="num-cell">0.34 (10)</td><td class="num-cell">0.21</td></tr>
+      <tr><td rowspan="4" class="label-cell"><strong>Adults<br>（成人）</strong></td><td rowspan="2" class="label-cell"><strong>Cartoon<br>（卡通）</strong></td><td>Dora</td><td class="num-cell">1.00 (25)</td><td class="num-cell">0 (0)</td><td class="num-cell">0 (0)</td><td class="num-cell" style="background:#dcfce7"><strong>1.00</strong></td></tr>
+      <tr><td>Diego</td><td class="num-cell">0.89 (24)</td><td class="num-cell">0 (0)</td><td class="num-cell">0.11 (3)</td><td class="num-cell" style="background:#dcfce7"><strong>0.89</strong></td></tr>
+      <tr><td rowspan="2" class="label-cell"><strong>Human<br>（真人）</strong></td><td>Female</td><td class="num-cell">0.46 (13)</td><td class="num-cell">0 (0)</td><td class="num-cell">0.54 (15)</td><td class="num-cell">0.46</td></tr>
+      <tr><td>Male</td><td class="num-cell">0.85 (22)</td><td class="num-cell">0.15 (4)</td><td class="num-cell">0 (0)</td><td class="num-cell">0.85</td></tr>
+    </tbody>
+    <tfoot>
+      <tr style="background:#eff6ff;font-weight:600">
+        <td colspan="3">📊 Mean ID Rate（平均正确识别率）</td>
+        <td colspan="3"></td>
+        <td>Children: <strong>0.99</strong> (cartoon) / <strong>0.23</strong> (human) | Adults: <strong>0.95</strong> (cartoon) / <strong>0.66</strong> (human)</td>
+      </tr>
+    </tfoot>
+  </table>
 
-<h3>6.2 Summary Statistics</h3>
-<div class="chart-container">
-<canvas id="resultsChart" width="800" height="420"></canvas>
-</div>
-<p style="text-align:center;font-size:.85em;color:#64748b">Figure 3.13: Mean identification and rejection rates for cartoon and human targets（卡通与人脸目标的平均识别率和正确拒绝率）</p>
+  <p style="font-size:.95em;font-weight:600;color:var(--primary-dark);margin:26px 0 6px">📋 Table 3.6b — Target-Absent Line-ups: Correct Rejection Rates（正确拒绝率）</p>
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th rowspan="2">Group<br>（被试组）</th>
+        <th rowspan="2">Target Type<br>（目标类型）</th>
+        <th rowspan="2">Target<br>（具体目标）</th>
+        <th colspan="2">Response Distribution (n)<br>（反应分布）</th>
+        <th rowspan="2">Rejection Rate<br>（拒绝率）</th>
+      </tr>
+      <tr>
+        <th>Correct Rejection<br>（正确拒绝）</th>
+        <th>False ID<br>（错误指认）</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td rowspan="4" class="label-cell"><strong>Children<br>（儿童）</strong></td><td rowspan="2" class="label-cell"><strong>Cartoon<br>（卡通）</strong></td><td>Dora</td><td class="num-cell">0.80 (24)</td><td class="num-cell">0.20 (6)</td><td class="num-cell">0.80</td></tr>
+      <tr><td>Diego</td><td class="num-cell" style="background:#fef3c7">0.67 (20)</td><td class="num-cell">0.33 (10)</td><td class="num-cell" style="background:#fef3c7">0.67</td></tr>
+      <tr><td rowspan="2" class="label-cell"><strong>Human<br>（真人）</strong></td><td>Female</td><td class="num-cell" style="background:#fef3c7">0.47 (14)</td><td class="num-cell">0.53 (16)</td><td class="num-cell" style="background:#fef3c7">0.47</td></tr>
+      <tr><td>Male</td><td class="num-cell" style="background:#fef3c7">0.43 (13)</td><td class="num-cell">0.57 (17)</td><td class="num-cell" style="background:#fef3c7">0.43</td></tr>
+      <tr><td rowspan="4" class="label-cell"><strong>Adults<br>（成人）</strong></td><td rowspan="2" class="label-cell"><strong>Cartoon<br>（卡通）</strong></td><td>Dora</td><td class="num-cell" style="background:#dcfce7">0.96 (27)</td><td class="num-cell">0.04 (1)</td><td class="num-cell" style="background:#dcfce7"><strong>0.96</strong></td></tr>
+      <tr><td>Diego</td><td class="num-cell" style="background:#dcfce7">0.92 (24)</td><td class="num-cell">0.08 (2)</td><td class="num-cell" style="background:#dcfce7"><strong>0.92</strong></td></tr>
+      <tr><td rowspan="2" class="label-cell"><strong>Human<br>（真人）</strong></td><td>Female</td><td class="num-cell" style="background:#dcfce7">0.72 (18)</td><td class="num-cell">0.28 (7)</td><td class="num-cell" style="background:#dcfce7">0.72</td></tr>
+      <tr><td>Male</td><td class="num-cell" style="background:#dcfce7">0.67 (18)</td><td class="num-cell">0.33 (9)</td><td class="num-cell" style="background:#dcfce7">0.67</td></tr>
+    </tbody>
+    <tfoot>
+      <tr style="background:#eff6ff;font-weight:600">
+        <td colspan="3">📊 Mean Rejection Rate（平均正确拒绝率）</td>
+        <td colspan="2"></td>
+        <td>Children: <strong>0.74</strong> (cartoon) / <strong>0.45</strong> (human) | Adults: <strong>0.94</strong> (cartoon) / <strong>0.70</strong> (human)</td>
+      </tr>
+    </tfoot>
+  </table>
+  <p style="text-align:center;font-size:.85em;color:#64748b"><strong>Table 3.6:</strong> Complete response data for children and adults in target-present and target-absent line-ups (Source: Pozzulo et al., 2011, Tables 1 &amp; 2)</p>
 
-<h3>6.3 Key Findings</h3>
+  <h3>6.2 Visualisation</h3>
+  <div class="chart-container">
+    <canvas id="resultsChart" width="800" height="420"></canvas>
+  </div>
+  <p class="table-caption">Figure 3.13: Mean identification and rejection rates for cartoon and human targets（卡通与人脸目标的平均识别率和正确拒绝率）</p>
 
-<div class="key-box">
-<h4>📊 Target-Present Line-ups（目标存在 — Identifying the Culprit）</h4>
-<table style="font-size:.9em">
-<tr><th>Condition</th><th>Children</th><th>Adults</th><th>Statistical Test</th><th>Significant?</th></tr>
-<tr><td>Cartoon faces</td><td><strong>0.99</strong> (99%)</td><td><strong>0.95</strong> (95%)</td><td>χ² = .39, p = .53</td><td><span class="result-highlight">No difference ✅ Pred. 1 supported</span></td></tr>
-<tr><td>Human faces</td><td><strong>0.23</strong> (23%)</td><td><strong>0.66</strong> (66%)</td><td>χ² = 18.83, p = .001</td><td><span class="result-highlight">Adults better ✅ Pred. 2 supported</span></td></tr>
-</table>
-</div>
+  <h3>6.3 Key Findings</h3>
 
-<div class="key-box">
-<h4>📊 Target-Absent Line-ups（目标缺失 — Correctly Rejecting）</h4>
-<table style="font-size:.9em">
-<tr><th>Condition</th><th>Children</th><th>Adults</th><th>Statistical Test</th><th>Significant?</th></tr>
-<tr><td>Cartoon faces</td><td><strong>0.74</strong> (74%)</td><td><strong>0.94</strong> (94%)</td><td>χ² = 7.66, p = .01</td><td><span class="result-highlight">Adults better ✅ Pred. 3 supported</span></td></tr>
-<tr><td>Human faces</td><td><strong>0.45</strong> (45%)</td><td><strong>0.70</strong> (70%)</td><td>χ² = 5.70, p = .02</td><td><span class="result-highlight">Adults better ✅ Pred. 4 supported</span></td></tr>
-</table>
-</div>
+  <div class="key-box">
+    <h4>📊 Target-Present Line-ups（目标存在 — Identifying the Culprit）</h4>
+    <table style="font-size:.9em">
+      <thead><tr><th>Condition</th><th>Children</th><th>Adults</th><th>Statistical Test</th><th>Significant?</th></tr></thead>
+      <tbody>
+        <tr><td>Cartoon faces</td><td><strong>0.99</strong> (99%)</td><td><strong>0.95</strong> (95%)</td><td>χ² = .39, p = .53</td><td><span class="result-highlight">No difference ✅ Pred. 1 supported</span></td></tr>
+        <tr><td>Human faces</td><td><strong>0.23</strong> (23%)</td><td><strong>0.66</strong> (66%)</td><td>χ² = 18.83, p = .001</td><td><span class="result-highlight">Adults better ✅ Pred. 2 supported</span></td></tr>
+      </tbody>
+    </table>
+  </div>
 
-<h3>6.4 Hypothesis Testing Summary</h3>
+  <div class="key-box">
+    <h4>📊 Target-Absent Line-ups（目标缺失 — Correctly Rejecting）</h4>
+    <table style="font-size:.9em">
+      <thead><tr><th>Condition</th><th>Children</th><th>Adults</th><th>Statistical Test</th><th>Significant?</th></tr></thead>
+      <tbody>
+        <tr><td>Cartoon faces</td><td><strong>0.74</strong> (74%)</td><td><strong>0.94</strong> (94%)</td><td>χ² = 7.66, p = .01</td><td><span class="result-highlight">Adults better ✅ Pred. 3 supported</span></td></tr>
+        <tr><td>Human faces</td><td><strong>0.45</strong> (45%)</td><td><strong>0.70</strong> (70%)</td><td>χ² = 5.70, p = .02</td><td><span class="result-highlight">Adults better ✅ Pred. 4 supported</span></td></tr>
+      </tbody>
+    </table>
+  </div>
 
-<table class="pred-table">
-<thead>
-<tr><th>Line-up Type</th><th>Comparison</th><th>Conclusion</th><th>As Predicted?</th></tr>
-</thead>
-<tbody>
-<tr>
-  <td rowspan="4"><strong>Target-Present<br>Identification</strong></td>
-  <td>Children: cartoons vs humans</td>
-  <td>Children significantly more accurate with cartoon faces</td>
-  <td>—</td>
-</tr>
-<tr>
-  <td>Adults: cartoons vs humans</td>
-  <td>Adults significantly more accurate with cartoon faces</td>
-  <td>—</td>
-</tr>
-<tr>
-  <td>Children vs adults: cartoons</td>
-  <td>Similar accuracy for cartoon identification</td>
-  <td><span class="result-highlight">Yes ✅</span></td>
-</tr>
-<tr>
-  <td>Children vs adults: humans</td>
-  <td>Children significantly less accurate than adults</td>
-  <td><span class="result-highlight">Yes ✅</span></td>
-</tr>
-<tr>
-  <td rowspan="4"><strong>Target-Absent<br>Rejection</strong></td>
-  <td>Children: cartoons vs humans</td>
-  <td>Children significantly more accurate at rejecting cartoon faces</td>
-  <td>—</td>
-</tr>
-<tr>
-  <td>Adults: cartoons vs humans</td>
-  <td>Adults significantly more accurate at rejecting cartoon faces</td>
-  <td>—</td>
-</tr>
-<tr>
-  <td>Children vs adults: cartoons</td>
-  <td>Children significantly less accurate than adults</td>
-  <td><span class="result-highlight">Yes ✅</span></td>
-</tr>
-<tr>
-  <td>Children vs adults: humans</td>
-  <td>Children significantly less accurate than adults</td>
-  <td><span class="result-highlight">Yes ✅</span></td>
-</tr>
-</tbody>
-</table>
-<p style="text-align:center;font-size:.85em;color:#64748b"><strong>Table 3.7:</strong> Results and conclusions for Pozzulo et al.'s four predictions（四项预测的结果和结论）</p>
+  <h3>6.4 Hypothesis Testing Summary</h3>
 
-<div class="cn-note">
-  <strong>🎯 Key conclusion（核心结论）:</strong> All four predictions were supported! The most critical finding: children's target-present identification rate for cartoons reached ~99% (nearly perfect), yet their target-absent correct rejection rate was only 74% (vs. 94% for adults). This strongly indicates that when cognitive factors are minimised (cartoon faces are highly familiar), children's errors stem primarily from <strong>social factors（社会因素）</strong>: children feel "I was given a line-up, so I must pick someone" — rather than genuinely misremembering.
-</div>
+  <table>
+    <thead><tr><th>Line-up Type</th><th>Comparison</th><th>Conclusion</th><th>As Predicted?</th></tr></thead>
+    <tbody>
+      <tr><td rowspan="4"><strong>Target-Present<br>Identification</strong></td>
+        <td>Children: cartoons vs. humans</td><td>Children significantly more accurate with cartoon faces</td><td>—</td></tr>
+      <tr><td>Adults: cartoons vs. humans</td><td>Adults significantly more accurate with cartoon faces</td><td>—</td></tr>
+      <tr><td>Children vs. adults: cartoons</td><td>Similar accuracy for cartoon identification</td><td><span class="result-highlight">Yes ✅</span></td></tr>
+      <tr><td>Children vs. adults: humans</td><td>Children significantly less accurate than adults</td><td><span class="result-highlight">Yes ✅</span></td></tr>
+      <tr><td rowspan="4"><strong>Target-Absent<br>Rejection</strong></td>
+        <td>Children: cartoons vs. humans</td><td>Children significantly more accurate at rejecting cartoon faces</td><td>—</td></tr>
+      <tr><td>Adults: cartoons vs. humans</td><td>Adults significantly more accurate at rejecting cartoon faces</td><td>—</td></tr>
+      <tr><td>Children vs. adults: cartoons</td><td>Children significantly less accurate than adults</td><td><span class="result-highlight">Yes ✅</span></td></tr>
+      <tr><td>Children vs. adults: humans</td><td>Children significantly less accurate than adults</td><td><span class="result-highlight">Yes ✅</span></td></tr>
+    </tbody>
+  </table>
+  <p class="table-caption"><strong>Table 3.7:</strong> Results and conclusions for Pozzulo et al.'s four predictions（四项预测的结果和结论）</p>
 
-<div class="activity-box">
-<h4>✏️ ACTIVITY 3.6</h4>
-<p>Based on the data in Table 3.6, choose a suitable graph to display the results. You may select just some of the data (e.g., only cartoon characters, or only human faces). Plot the results carefully, label both axes, include scales where relevant, and give your graph a title.</p>
+  <div class="cn-note">
+    <strong>🎯 Key conclusion（核心结论）:</strong> All four predictions were supported! The most critical finding: children's target-present identification rate for cartoons reached <strong>~99%</strong> (nearly perfect), yet their target-absent correct rejection rate was only <strong>74%</strong> (vs. 94% for adults). This strongly indicates that when cognitive factors are minimised (cartoon faces are highly familiar), children's errors stem primarily from <strong>social factors（社会因素）</strong>: children feel "I was given a line-up, so I must pick someone" — rather than genuinely misremembering.
+  </div>
+
+  <div class="activity-box">
+    <h4>✏️ ACTIVITY 3.6</h4>
+    <p>Based on the data in Table 3.6, choose a suitable graph to display the results. You may select just some of the data (e.g., only cartoon characters, or only human faces). Plot the results carefully, label both axes, include scales where relevant, and give your graph a title.</p>
+  </div>
+
+  <div class="cn-summary-wrap">
+    <button class="cn-summary-toggle" onclick="toggleCnSummary(this)"><span class="cs-icon">▶</span> 中文逻辑总结</button>
+    <div class="cn-summary-body">
+      <div class="cs-title">§6 研究结果：四项预测全部支持</div>
+      <p><strong>关键数据汇总：</strong></p>
+      <ul>
+        <li>① 卡通识别率：儿童 <strong>0.99</strong> vs 成人 <strong>0.95</strong> → χ²=.39, p=.53 <strong>无显著差异</strong> ✅</li>
+        <li>② 真人识别率：儿童 <strong>0.23</strong> vs 成人 <strong>0.66</strong> → χ²=18.83, p=.001 成人更好 ✅</li>
+        <li>③ 卡通拒绝率：儿童 <strong>0.74</strong> vs 成人 <strong>0.94</strong> → χ²=7.66, p=.01 成人更好 ✅</li>
+        <li>④ 真人拒绝率：儿童 <strong>0.45</strong> vs 成人 <strong>0.70</strong> → χ²=5.70, p=.02 成人更好 ✅</li>
+      </ul>
+      <p><strong>逻辑链：</strong>儿童的<strong>记忆没问题</strong>（卡通识别 99%）→ 但<strong>拒绝率显著低</strong>（74% vs 94%）→ 错误源于<strong>社会压力</strong>（必须选一个），不是认知缺陷。</p>
+      <p><strong>统计方法：</strong><span class="cs-en">Chi-square (χ²) tests</span>——适用于类别数据（正确/错误）。</p>
+    </div>
+  </div>
+
+  <div class="summary-card" id="summary-s6">
+    <div class="summary-card-header" onclick="toggleSummary('summary-s6')">
+      <span class="summary-card-icon">▶</span>
+      <span class="summary-card-title">Exam Key Points — Results</span>
+      <span class="summary-card-badge">AO1+AO3</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ul>
+          <li>All four predictions supported. <strong>Critical figures</strong>: children cartoon-ID = 99%, children cartoon-rejection = 74% (vs. adults 94%) <span class="tag-must">Must Know</span></li>
+          <li>Statistical analysis: <strong>chi-square (χ²)</strong> tests for categorical accuracy data <span class="tag-common">Common Q</span></li>
+          <li>Children's cartoon-ID ≈ adults → <strong>cognitive memory intact</strong> for familiar faces <span class="tag-must">Must Know</span></li>
+          <li>Children's rejection rate significantly lower → supports <strong>social factor explanation</strong> <span class="tag-must">Must Know</span></li>
+          <li>AO3: <strong>quantitative data</strong> allows statistical testing → high objectivity; small cell sizes limit power <span class="tag-ao2">AO2 Gold</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- ==================== SECTION 7 ==================== -->
-<h2>7. Conclusion</h2>
-<p>As predicted, children easily identified the correct face in <strong>target-present line-ups</strong> with cartoons, achieving nearly 100% accuracy — a <strong>ceiling effect（天花板效应）</strong>. Pozzulo et al. concluded that any errors in target-absent line-ups for cartoons must result from <strong>social factors</strong> rather than cognitive factors.</p>
-<p>This cannot be explained by faulty memory for cartoon faces — children's memory was excellent. The most likely social factor driving children's lower correct rejection rate is the expectation that they <em>should</em> make a selection rather than a "non-selection" (correctly stating that the target is absent).</p>
-<p>Furthermore, the similar pattern observed for <strong>human faces</strong> suggests that social demands also explain the difference between children and adults in rejection rates for human targets. Importantly, these effects of <strong>cognitive versus social demands</strong> are relative, not absolute: both identification and rejection tasks are influenced by both types of factors to some degree. The results simply suggest that for children, <strong>social factors play a larger role in decision-making during target-absent line-ups</strong> than during target-present ones.</p>
+<div class="section" id="s7">
+  <h2>7️⃣ Conclusion（结论）</h2>
+
+  <p>As predicted, children easily identified the correct face in <strong>target-present line-ups</strong> with cartoons, achieving nearly 100% accuracy — a <span class="term">ceiling effect（天花板效应）</span>. Pozzulo et al. concluded that any errors in target-absent line-ups for cartoons must result from <strong>social factors</strong> rather than cognitive factors.</p>
+
+  <p>This cannot be explained by faulty memory for cartoon faces — children's memory was excellent. The most likely social factor driving children's lower correct rejection rate is the expectation that they <em>should</em> make a selection rather than a "non-selection" (correctly stating that the target is absent).</p>
+
+  <p>Furthermore, the similar pattern observed for <strong>human faces</strong> suggests that social demands also explain the difference between children and adults in rejection rates for human targets. Importantly, these effects of <strong>cognitive versus social demands</strong> are relative, not absolute: both identification and rejection tasks are influenced by both types of factors to some degree. The results simply suggest that for children, <strong>social factors play a larger role in decision-making during target-absent line-ups</strong> than during target-present ones.</p>
+
+  <div class="cn-note">
+    <strong>🎯 结论核心：</strong>儿童错误肯定反应主要源于<strong>社会因素</strong>（"必须选一个"的社会压力），而非<strong>认知因素</strong>（记忆缺陷）。这是一个相对性结论——两种因素都在起作用，但儿童在目标缺失决策中受社会因素影响更大。
+  </div>
+
+  <div class="summary-card" id="summary-s7">
+    <div class="summary-card-header" onclick="toggleSummary('summary-s7')">
+      <span class="summary-card-icon">▶</span>
+      <span class="summary-card-title">Exam Key Points — Conclusion</span>
+      <span class="summary-card-badge">AO1+AO2</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ul>
+          <li>Conclusion: errors in child line-ups stem primarily from <strong>social factors</strong>, not cognitive deficits <span class="tag-must">Must Know</span></li>
+          <li>Ceiling effect for cartoon identification = ~100% for both groups (memory intact) <span class="tag-must">Must Know</span></li>
+          <li>Most plausible social factor: <strong>expectation to choose</strong> ("I was given a line-up, so I must pick someone") <span class="tag-must">Must Know</span></li>
+          <li>Effects are <strong>relative, not absolute</strong> — both factors contribute to some degree <span class="tag-ao2">AO2 Gold</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- ==================== SECTION 8 ==================== -->
-<h2>8. Strengths and Weaknesses</h2>
+<div class="section" id="s8">
+  <h2>8️⃣ Strengths &amp; Weaknesses（优缺点）</h2>
 
-<h3>Strengths</h3>
-<ol>
-<li><strong>Standardised laboratory environment（标准化的实验室环境）</strong> — All participants tested under identical conditions, minimising extraneous variables. The procedure was highly controlled.</li>
-<li><strong>Mixed design（混合设计）</strong> — Independent measures compared children vs. adults; repeated measures compared cartoon vs. human performance within subjects. This controls for individual differences.</li>
-<li><strong>Quantitative data（定量数据）</strong> — The DV (identification/rejection rate) is a clear quantitative measure, allowing statistical testing (chi-square χ²) to verify predictions.</li>
-<li><strong>High ecological validity for the line-up task</strong> — Used realistic line-up format (simultaneous presentation + blank silhouette option), simulating real eyewitness identification procedures.</li>
-<li><strong>Inclusion of both cartoon and human stimuli</strong> — Cleverly separated cognitive from social factors by comparing familiar cartoons with unfamiliar human faces. This is the study's greatest methodological strength.</li>
-<li><strong>Counterbalancing and randomisation</strong> — Video order counterbalanced; line-up positions randomised, controlling for order and position effects.</li>
-</ol>
+  <div class="strength-box">
+    <h4>✅ Strengths 优点</h4>
+    <ol>
+      <li><strong>Standardised laboratory environment（标准化的实验室环境）</strong> — All participants tested under identical conditions, minimising extraneous variables. The procedure was highly controlled.</li>
+      <li><strong>Mixed design（混合设计）</strong> — Independent measures compared children vs. adults; repeated measures compared cartoon vs. human performance within subjects. This controls for individual differences.</li>
+      <li><strong>Quantitative data（定量数据）</strong> — The DV (identification/rejection rate) is a clear quantitative measure, allowing statistical testing (chi-square χ²) to verify predictions.</li>
+      <li><strong>High ecological validity for the line-up task</strong> — Used realistic line-up format (simultaneous presentation + blank silhouette option), simulating real eyewitness identification procedures.</li>
+      <li><strong>Inclusion of both cartoon and human stimuli</strong> — Cleverly separated cognitive from social factors by comparing familiar cartoons with unfamiliar human faces. This is the study's greatest methodological strength.</li>
+      <li><strong>Counterbalancing and randomisation</strong> — Video order counterbalanced; line-up positions randomised, controlling for order and position effects.</li>
+    </ol>
+  </div>
 
-<h3>Weaknesses</h3>
-<ol>
-<li><strong>Low overall ecological validity（整体生态效度较低）</strong> — Real eyewitnesses experience highly stressful, emotional situations at police stations. The laboratory lacked this realism and emotional engagement.</li>
-<li><strong>Demand characteristics（需求特征）</strong> — Adults were told the study was about "memory"; children were told it was about TV shows and computer games. Adults may have guessed the purpose; children may have made specific choices to please the researcher.</li>
-<li><strong>Ethnic homogeneity of targets（目标面孔种族单一）</strong> — All human targets and foils were Caucasian faces, limiting generalisability. Real-world line-ups typically involve more diverse ethnicities.</li>
-<li><strong>Limited age range（年龄范围有限）</strong> — No adolescent group between children (4–7) and adults (17–30). Cannot determine age-related trends in error rates.</li>
-<li><strong>No confidence measure</strong> — Only choice outcomes were recorded, not participants' confidence levels, which could provide diagnostic information.</li>
-<li><small>Some cells had small sample sizes, potentially affecting statistical power.</small></li>
-</ol>
+  <div class="weakness-box">
+    <h4>⚠️ Weaknesses 缺点</h4>
+    <ol>
+      <li><strong>Low overall ecological validity（整体生态效度较低）</strong> — Real eyewitnesses experience highly stressful, emotional situations at police stations. The laboratory lacked this realism and emotional engagement.</li>
+      <li><strong>Demand characteristics（需求特征）</strong> — Adults were told the study was about "memory"; children were told it was about TV shows and computer games. Adults may have guessed the purpose; children may have made specific choices to please the researcher.</li>
+      <li><strong>Ethnic homogeneity of targets（目标面孔种族单一）</strong> — All human targets and foils were Caucasian faces, limiting generalisability. Real-world line-ups typically involve more diverse ethnicities.</li>
+      <li><strong>Limited age range（年龄范围有限）</strong> — No adolescent group between children (4–7) and adults (17–30). Cannot determine age-related trends in error rates.</li>
+      <li><strong>No confidence measure</strong> — Only choice outcomes were recorded, not participants' confidence levels, which could provide diagnostic information.</li>
+      <li>Some cells had small sample sizes, potentially affecting statistical power.</li>
+    </ol>
+  </div>
+
+  <div class="summary-card" id="summary-s8">
+    <div class="summary-card-header" onclick="toggleSummary('summary-s8')">
+      <span class="summary-card-icon">▶</span>
+      <span class="summary-card-title">Exam Key Points — Strengths &amp; Weaknesses</span>
+      <span class="summary-card-badge">AO3</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ul>
+          <li>Strength: <strong>Cartoon-vs-human contrast</strong> brilliantly isolates social from cognitive factors → the study's unique methodological strength <span class="tag-must">Must Know</span></li>
+          <li>Strength: <strong>mixed design</strong> (independent + repeated measures) controls individual differences <span class="tag-common">Common Q</span></li>
+          <li>Weakness: <strong>low ecological validity</strong> — real eyewitness situations involve stress, fear, and emotional intensity <span class="tag-must">Must Know</span></li>
+          <li>Weakness: <strong>demand characteristics</strong> — children may have picked someone to please researcher <span class="tag-ao2">AO2 Gold</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- ==================== SECTION 9 ==================== -->
-<h2>9. Ethical Issues</h2>
-<p>Ethical considerations extend beyond participants to wider society. The findings contribute valuable evidence on child eyewitness reliability, potentially improving legal outcomes. However, benefits must be weighed against potential harm to participants.</p>
-<p>The experimental situation was <strong>not crime-related（非犯罪相关）</strong> and children were not at risk. Parental/guardian consent was obtained, plus informed consent from children themselves in a <strong>child-friendly manner（儿童友好方式）</strong>. Children's comfort and right to withdraw were ensured, with ongoing monitoring of fatigue, anxiety, and stress.</p>
+<div class="section" id="s9">
+  <h2>9️⃣ Ethical Issues（伦理问题）</h2>
 
-<ul>
-<li><strong>Informed consent（知情同意）</strong>: parents/guardians signed consent forms; children gave verbal assent with age-appropriate explanations</li>
-<li><strong>Right to withdraw（退出权）</strong>: explicitly told they could change their mind at any time without consequence</li>
-<li><strong>Protection from harm（免受伤害保护）</strong>: monitored fatigue, anxiety, and stress signals; craft activity before testing built rapport</li>
-<li><strong>Debriefing（事后说明/致谢）</strong>: received crayons and colouring book as a thank-you gift</li>
-</ul>
+  <p>Ethical considerations extend beyond participants to wider society. The findings contribute valuable evidence on child eyewitness reliability, potentially improving legal outcomes. However, benefits must be weighed against potential harm to participants.</p>
+
+  <p>The experimental situation was <strong>not crime-related（非犯罪相关）</strong> and children were not at risk. Parental/guardian consent was obtained, plus informed consent from children themselves in a <span class="term">child-friendly manner（儿童友好方式）</span>. Children's comfort and right to withdraw were ensured, with ongoing monitoring of fatigue, anxiety, and stress.</p>
+
+  <ul>
+    <li><strong>Informed consent（知情同意）</strong>: parents/guardians signed consent forms; children gave verbal assent with age-appropriate explanations.</li>
+    <li><strong>Right to withdraw（退出权）</strong>: explicitly told they could change their mind at any time without consequence.</li>
+    <li><strong>Protection from harm（免受伤害保护）</strong>: monitored fatigue, anxiety, and stress signals; craft activity before testing built rapport.</li>
+    <li><strong>Debriefing（事后说明/致谢）</strong>: received crayons and colouring book as a thank-you gift.</li>
+    <li><strong>Anonymity / confidentiality（匿名 / 保密）</strong>: all child data anonymised to protect privacy.</li>
+  </ul>
+
+  <div class="cn-note">
+    <strong>💡 Children as participants（儿童被试伦理）:</strong> Compared with most psychology studies that use adult participants, this study is unusual in using <strong>4–7-year-olds</strong>. This raises specific ethical considerations — <strong>dual consent</strong> (guardian + child verbal assent), <strong>child-friendly language</strong>, and <strong>ongoing welfare monitoring</strong>. These are exemplary practices for child research.
+  </div>
+
+  <div class="summary-card" id="summary-s9">
+    <div class="summary-card-header" onclick="toggleSummary('summary-s9')">
+      <span class="summary-card-icon">▶</span>
+      <span class="summary-card-title">Exam Key Points — Ethics</span>
+      <span class="summary-card-badge">AO1+AO3</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ul>
+          <li>Dual consent: <strong>parental written + child verbal</strong> assent (children cannot sign legal documents) <span class="tag-must">Must Know</span></li>
+          <li><strong>Right to withdraw</strong>: repeated verbal reassurance ("you can change your mind anytime") <span class="tag-must">Must Know</span></li>
+          <li><strong>Protection from harm</strong>: non-crime-related stimuli (cartoons + everyday actions), no traumatic content <span class="tag-must">Must Know</span></li>
+          <li><strong>Debriefing</strong>: thank-you gift (crayons + colouring book) ends on positive note <span class="tag-common">Common Q</span></li>
+          <li>AO3: ethical safeguards are exemplary for child-participant research <span class="tag-ao2">AO2 Gold</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- ==================== SECTION 10 ==================== -->
-<h2>10. Issues and Debates</h2>
+<div class="section" id="s10">
+  <h2>🔟 Issues &amp; Debates（争论与取向）</h2>
 
-<h3>10.1 Application to Everyday Life</h3>
-<p>This study has practical applications. Findings suggest strategies should minimise social demands influencing children's line-up responses, improving child witness reliability and court proceedings — particularly for crimes witnessed only by children or against child victims.</p>
-<p>However, the evidence identifies the problem without offering solutions. Further research is needed to improve line-up procedures.</p>
+  <h3>10.1 Application to Everyday Life</h3>
+  <p>This study has practical applications. Findings suggest strategies should minimise social demands influencing children's line-up responses, improving child witness reliability and court proceedings — particularly for crimes witnessed only by children or against child victims.</p>
 
-<p><strong>Practical solution — The Elimination Line-up:</strong> One procedure designed to reduce social demands is the <strong>elimination line-up（排除法队列）</strong> (Pozzulo & Lindsay, 1999). Children make two judgments:
-<ol>
-<li>Select the person most similar to the target</li>
-<li>Determine whether this person IS actually the target</li>
-</ol>
-Empirical data show positive results across different ages and conditions (Dempsey & Pozzulo, 2008; Pozzulo et al., 2008–2010). <strong>Reliable identification evidence from child eyewitnesses is possible — as reliable as adult evidence — when appropriate procedures are used.</strong></p>
+  <p>However, the evidence identifies the problem without offering solutions. Further research is needed to improve line-up procedures.</p>
 
-<h3>10.2 Individual and Situational Explanations</h3>
-<p>The core finding — children's elevated <strong>false positive（错误肯定）</strong> rate in target-absent line-ups — can be understood through two levels of explanation:</p>
+  <p><strong>Practical solution — The elimination line-up:</strong> One procedure designed to reduce social demands is the <span class="term">elimination line-up（排除法队列）</span> (Pozzulo &amp; Lindsay, 1999). Children make two judgments:</p>
+  <ol>
+    <li>Select the person most similar to the target.</li>
+    <li>Determine whether this person IS actually the target.</li>
+  </ol>
+  <p>Empirical data show positive results across different ages and conditions (Dempsey &amp; Pozzulo, 2008; Pozzulo et al., 2008–2010). <strong>Reliable identification evidence from child eyewitnesses is possible — as reliable as adult evidence — when appropriate procedures are used.</strong></p>
 
-<div class="key-box">
-<h4>🧑 Individual Explanation（个体解释）</h4>
-<p>From an individual-differences perspective, children's errors may stem from <strong>immature cognitive development</strong>:</p>
-<ul>
-<li>Children's brains (especially prefrontal cortex) are still developing; <strong>inhibitory control（抑制控制）</strong> is weaker, making it harder to resist the impulse to "pick someone"</li>
-<li>Children's recognition of <strong>unfamiliar human faces</strong> is significantly poorer than adults' (23% vs. 66%), indicating immature memory encoding and retrieval abilities</li>
-<li>Age-related cognitive differences reflect innate developmental processes experienced by all children</li>
-</ul>
-<p><strong>Supporting evidence:</strong> Children's human-face identification rate (23%) far below adults' (66%) → genuine cognitive/individual differences exist</p>
+  <h3>10.2 Individual and Situational Explanations</h3>
+  <p>The core finding — children's elevated <strong>false positive（错误肯定）</strong> rate in target-absent line-ups — can be understood through two levels of explanation:</p>
+
+  <div class="two-col">
+    <div class="col-card">
+      <h4>🧑 Individual Explanation（个体解释）</h4>
+      <p>From an individual-differences perspective, children's errors may stem from <strong>immature cognitive development</strong>:</p>
+      <ul>
+        <li>Children's brains (especially prefrontal cortex) are still developing; <strong>inhibitory control（抑制控制）</strong> is weaker, making it harder to resist the impulse to "pick someone".</li>
+        <li>Children's recognition of <strong>unfamiliar human faces</strong> is significantly poorer than adults' (23% vs. 66%), indicating immature memory encoding and retrieval abilities.</li>
+        <li>Age-related cognitive differences reflect innate developmental processes experienced by all children.</li>
+      </ul>
+      <p><strong>Supporting evidence:</strong> Children's human-face identification rate (23%) far below adults' (66%) → genuine cognitive/individual differences exist.</p>
+    </div>
+
+    <div class="col-card">
+      <h4>🌍 Situational Explanation（情境解释）</h4>
+      <p>From a situational perspective, children's errors arise primarily from <strong>social pressure and situational demands</strong>:</p>
+      <ul>
+        <li>A line-up is inherently a <strong>social situation</strong>: an authority figure presents photos, implicitly communicating "please choose one".</li>
+        <li>Children are more susceptible to <strong>obedience pressure（服从压力）</strong> than adults and don't want to disappoint adults.</li>
+        <li>"I was given a line-up, so I must pick someone" reflects a learned <strong>social expectation（社会期望）</span>.</li>
+      </ul>
+      <p><strong>Critical evidence:</strong> Children's cartoon-ID = <strong>99%</strong>, yet cartoon-rejection = only <strong>74%</strong> (vs. adults 94%) → Memory is NOT the problem; the problem is <strong>social context</strong>!</p>
+    </div>
+  </div>
+
+  <div class="cn-note">
+    <strong>💡 Study's stance（研究立场）:</strong> Pozzulo et al. clearly favour the <strong>situational explanation</strong>. If errors were driven solely by individual cognitive factors, children's cartoon-condition performance would also be poor (it approached 100%). The large gap between cartoon and human conditions demonstrates that <strong>social demands</strong> are the primary cause of children's high false positive rate.
+  </div>
+
+  <h3>10.3 Nature versus Nurture</h3>
+  <p>The <span class="term">nature-nurture debate（先天 vs 后天辩论）</span> asks whether behaviour is determined by genetic/biological factors (nature) or environmental/experiential factors (nurture). Pozzulo et al.'s study offers an interesting case.</p>
+
+  <div class="two-col">
+    <div class="col-card">
+      <h4>🧬 Nature (Biological) Arguments</h4>
+      <ul>
+        <li><strong>Brain development age differences:</strong> 4–7-year-olds' prefrontal cortex is immature; neural networks for impulse control and decision inhibition are still developing, creating <strong>physiological difficulty</strong> in "rejecting when uncertain".</li>
+        <li><strong>Neural basis of face recognition:</strong> The fusiform face area (FFA) is still refining during childhood, explaining why children's unfamiliar face recognition (23%) lags behind adults' (66%).</li>
+        <li><strong>Age as a continuous variable:</strong> False positive rates may decline naturally with age, reflecting neural maturation timelines rather than learning processes.</li>
+      </ul>
+    </div>
+
+    <div class="col-card">
+      <h4>🌱 Nurture (Environmental) Arguments</h4>
+      <p>Stronger evidence supports nurture, consistent with the study's conclusions:</p>
+      <ul>
+        <li><strong>Socialised obedience behaviours:</strong> Children are taught "listen to adults," "answer questions," "don't disappoint" — these are <strong>learned social rules（习得的社交规则）</strong>, not innate instincts.</li>
+        <li><strong>The crucial cartoon-condition evidence:</strong> Children's cartoon recognition ≈100% (ruling out cognitive deficits), yet rejection rate significantly lower than adults → the issue isn't "can they remember?" but "<strong>dare they not choose?</strong>" — reflecting socialisation-shaped responses to authority.</li>
+        <li><strong>Cross-cultural variation potential:</strong> Different cultures socialise children differently toward authority (e.g., collectivist cultures emphasise compliance more). If replicated across cultures, results may vary with socialisation patterns — further supporting nurture.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="cn-note">
+    <strong>💡 Overall judgement（综合判断）:</strong> Pozzulo et al.'s study provides stronger support for <strong>Nurture（后天）</strong>. The logic chain:<br>
+    ① Children's normal memory (cartoon-ID 99%) → rules out cognitive/innate deficits.<br>
+    ② But lower rejection rate (74% vs. adults 94%) → errors originate in decision-making, not memory.<br>
+    ③ Decision-making errors correlate with social pressure (authority figures, selection expectation) → these are products of socialisation.<br>
+    <b>→ Conclusion: Children's false positive responding is largely a learned social-compliance behaviour, not an innate cognitive limitation.</b>
+  </div>
+
+  <p>As the authors acknowledge in their limitations, reality likely involves an <strong>interaction between nature and nurture</strong>: children's neurodevelopmental level (nature) determines their susceptibility to situational pressure, while specific socialisation experiences (nurture) shape how this susceptibility manifests in line-up contexts.</p>
+
+  <h3>10.4 Children as Participants</h3>
+  <p>Unlike many psychology studies, Pozzulo et al. used <strong>4–7 year-old children as participants</strong>, making this issue particularly salient.</p>
+
+  <h4>Why use children? — Research necessity</h4>
+  <p>In real forensic contexts, <strong>children are often the sole eyewitnesses</strong> (e.g., domestic violence, abuse, abduction cases). Adult-only research cannot generalise to child witnesses. Pozzulo et al. chose children because:</p>
+  <ul>
+    <li>Previous meta-analyses (Pozzulo &amp; Lindsay, 1998) had identified child-adult differences in line-up performance.</li>
+    <li>They needed to directly test whether these differences are socially (rather than merely cognitively) driven.</li>
+    <li>Only real child data can provide reliable guidance for forensic practice.</li>
+  </ul>
+
+  <h4>Child-friendly design features</h4>
+  <div class="key-box">
+    <p>Pozzulo et al. demonstrated how to use children as research participants <strong>responsibly and effectively</strong>:</p>
+    <table style="font-size:.88em">
+      <thead><tr><th>Standard Adult Procedure</th><th>Child-Friendly Adaptation</th><th>Purpose</th></tr></thead>
+      <tbody>
+        <tr><td>Written consent form</td><td>Parent/guardian consent + <strong>child verbal assent</strong> (age-appropriate language)</td><td>Respect child autonomy</td></tr>
+        <tr><td>Pen-and-paper responses</td><td><strong>Pointing gestures</strong> + experimenter recording</td><td>Reduce literacy demands</td></tr>
+        <tr><td>Formal entry into experiment</td><td><strong>Craft-making together first</strong> to build rapport</td><td>Reduce anxiety and stranger-anxiety</td></tr>
+        <tr><td>Uniform attire</td><td>Experimenters wore <strong>smart-casual clothing</strong> (no uniforms/formal wear)</td><td>Reduce authority-figure pressure</td></tr>
+        <tr><td>Standard debriefing</td><td><strong>Crayons + colouring book</strong> as thank-you gift</td><td>End on a positive note</td></tr>
+        <tr><td>Fixed monitoring</td><td><strong>Ongoing monitoring</strong> of fatigue, anxiety, stress signals</td><td>Protect child wellbeing proactively</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="summary-card" id="summary-s10">
+    <div class="summary-card-header" onclick="toggleSummary('summary-s10')">
+      <span class="summary-card-icon">▶</span>
+      <span class="summary-card-title">Exam Key Points — Debates</span>
+      <span class="summary-card-badge">AO1+AO2</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ul>
+          <li>Study supports <strong>situational explanation</strong> over individual explanation: cartoon-ID ≈100% proves memory is fine <span class="tag-must">Must Know</span></li>
+          <li>Nature vs. nurture: stronger support for <strong>nurture</strong> (learned social compliance, not innate deficit) <span class="tag-must">Must Know</span></li>
+          <li>Children as participants: <strong>research necessity</strong> (often sole witnesses in real cases) <span class="tag-common">Common Q</span></li>
+          <li>Application: <strong>elimination line-up</strong> (two-step judgment) reduces false positives <span class="tag-ao2">AO2 Gold</span></li>
+          <li>AO2: study is the basis for practical forensic improvements <span class="tag-ao2">AO2 Gold</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
-
-<div class="kw-box">
-<h4>🌍 Situational Explanation（情境解释）</h4>
-<p>From a situational perspective, children's errors arise primarily from <strong>social pressure and situational demands</strong>:</p>
-<ul>
-<li>A line-up is inherently a <strong>social situation</strong>: an authority figure presents photos, implicitly communicating "please choose one"</li>
-<li>Children are more susceptible to <strong>obedience pressure（服从压力）</strong> than adults and don't want to disappoint adults</li>
-<li>"I was given a line-up, so I must pick someone" reflects a learned <strong>social expectation（社会期望）</strong></li>
-</ul>
-<p><strong>Critical evidence:</strong> Children's target-present identification rate for cartoons: <strong>99%</strong> (nearly perfect), yet target-absent correct rejection: only <strong>74%</strong> (vs. adults 94%) → Memory is NOT the problem; the problem is social context!</p>
-</div>
-
-<div class="cn-note">
-  <strong>💡 Study's stance（研究立场）:</strong> Pozzulo et al. clearly favour the <strong>situational explanation</strong>. If errors were driven solely by individual cognitive factors, children's cartoon-condition performance would also be poor (it approached 100%). The large gap between cartoon and human conditions demonstrates that <strong>social demands</strong> are the primary cause of children's high false positive rate.
-</div>
-
-<h3>10.3 Nature versus Nurture</h3>
-<p>The <strong>nature-nurture debate（先天vs后天辩论）</strong> asks whether behaviour is determined by genetic/biological factors (nature) or environmental/experiential factors (nurture). Pozzulo et al.'s study offers an interesting case.</p>
-
-<div class="key-box">
-<h4>🧬 Nature (Biological) Arguments</h4>
-<ul>
-<li><strong>Brain development age differences:</strong> 4–7-year-olds' prefrontal cortex is immature; neural networks for impulse control and decision inhibition are still developing, creating <strong>physiological difficulty</strong> in "rejecting when uncertain"</li>
-<li><strong>Neural basis of face recognition:</strong> The fusiform face area (FFA) is still refining during childhood, explaining why children's unfamiliar face recognition (23%) lags behind adults' (66%)</li>
-<li><strong>Age as a continuous variable:</strong> False positive rates may decline naturally with age, reflecting neural maturation timelines rather than learning processes</li>
-</ul>
-</div>
-
-<div class="kw-box">
-<h4>🌱 Nurture (Environmental) Arguments</h4>
-<p>Stronger evidence supports nurture, consistent with the study's conclusions:</p>
-<ul>
-<li><strong>Socialised obedience behaviours:</strong> Children are taught "listen to adults," "answer questions," "don't disappoint" — these are <strong>learned social rules（习得的社交规则）</strong>, not innate instincts</li>
-<li><strong>The crucial cartoon-condition evidence:</strong> Children's cartoon recognition ≈100% (ruling out cognitive deficits), yet rejection rate significantly lower than adults → the issue isn't "can they remember?" but "<strong>dare they not choose?</strong>" — reflecting socialisation-shaped responses to authority</li>
-<li><strong>Cross-cultural variation potential:</strong> Different cultures socialise children differently toward authority (e.g., collectivist cultures emphasise compliance more). If replicated across cultures, results may vary with socialisation patterns — further supporting nurture</li>
-</ul>
-</div>
-
-<div class="cn-note">
-  <strong>💡 Overall judgement（综合判断）:</strong> Pozzulo et al.'s study provides stronger support for <strong>Nurture（后天）</strong>. The logic chain:<br>
-  ① Children's normal memory (cartoon ID 99%) → rules out cognitive/innate deficits<br>
-  ② But lower rejection rate (74% vs. adults 94%) → errors originate in decision-making, not memory<br>
-  ③ Decision-making errors correlate with social pressure (authority figures, selection expectation) → these are products of socialisation<br>
-  <b>→ Conclusion: Children's false positive responding is largely a learned social-compliance behaviour, not an innate cognitive limitation.</b>
-</div>
-
-<p>As the authors acknowledge in their limitations, reality likely involves an <strong>interaction between nature and nurture</strong>: children's neurodevelopmental level (nature) determines their susceptibility to situational pressure, while specific socialisation experiences (nurture) shape how this susceptibility manifests in line-up contexts.</p>
-
-<h3>10.4 Children as Participants</h3>
-<p>Unlike many psychology studies, Pozzulo et al. used <strong>4–7 year-old children as participants</strong>, making this issue particularly salient.</p>
-
-<h4>Why use children? — Research necessity</h4>
-<p>In real forensic contexts, <strong>children are often the sole eyewitnesses</strong> (e.g., domestic violence, abuse, abduction cases). Adult-only research cannot generalise to child witnesses. Pozzulo et al. chose children because:</p>
-<ul>
-<li>Previous meta-analyses (Pozzulo & Lindsay, 1998) had identified child-adult differences in line-up performance</li>
-<li>They needed to directly test whether these differences are socially (rather than merely cognitively) driven</li>
-<li>Only real child data can provide reliable guidance for forensic practice</li>
-</ul>
-
-<h4>Child-friendly design features</h4>
-<div class="key-box">
-<p>Pozzulo et al. demonstrated how to use children as research participants <strong>responsibly and effectively</strong>:</p>
-<table style="font-size:.88em">
-<tr><th>Standard Adult Procedure</th><th>Child-Friendly Adaptation</th><th>Purpose</th></tr>
-<tr><td>Written consent form</td><td>Parent/guardian consent + <strong>child verbal assent</strong> (age-appropriate language)</td><td>Respect child autonomy</td></tr>
-<tr><td>Pen-and-paper responses</td><td><strong>Pointing gestures</strong> + experimenter recording</td><td>Reduce literacy demands</td></tr>
-<tr><td>Formal entry into experiment</td><td><strong>Craft-making together first</strong> to build rapport</td><td>Reduce anxiety and stranger-anxiety</td></tr>
-<tr><td>Uniform attire</td><td>Experimenters wore <strong>smart-casual clothing</strong> (no uniforms/formal wear)</td><td>Reduce authority-figure pressure</td></tr>
-<tr><td>Standard debriefing</td><td><strong>Crayons + colouring book</strong> as thank-you gift</td><td>End on a positive note</td></tr>
-<tr><td>Fixed monitoring</td><td><strong>Ongoing monitoring</strong> of fatigue, anxiety, stress signals</td><td>Protect child wellbeing proactively</td></tr>
-</table>
-</div>
-
-<h4>Ethical considerations specific to child participants</h4>
-<ul>
-<li><strong>Consent special requirements:</strong> Children cannot sign legal documents; a "dual consent" procedure is needed — guardian written consent + child verbal/behavioural assent. Researchers must explain in age-appropriate language</li>
-<li><strong>Emphasis on right to withdraw:</strong> Repeatedly telling children "you can change your mind anytime," "you won't get in trouble" — especially important because children feel stronger "must complete" social pressure than adults</li>
-<li><strong>Protection from harm:</strong> Non-crime-related video content (cartoons + everyday actions) avoided exposing children to violent or traumatic materials</li>
-<li><strong>Anonymity（去识别化/匿名化）:</strong> All child data anonymised to protect privacy</li>
-</ul>
-
-<h4>Implications for other research</h4>
-<p>Pozzulo et al.'s methods provide an exemplary model for subsequent child-participant research: <strong>with appropriate procedural adjustments and psychological preparation, even young children can serve as reliable and effective research participants</strong>. This breaks the "adults-only" barrier, enabling developmental and applied cognitive research to accurately reflect different age groups.</p>
-
-<p><em>Contrast: Baron-Cohen et al. (2001) used adult male participants and adult eyes photos. To test children's theory of mind (ToM), Baron-Cohen developed the age-appropriate "<strong>Sally-Anne test（莎莉-安妮测试）</strong>" — using puppet performances instead of eye photos, simpler language instead of complex emotion vocabulary. This illustrates how the same research question requires entirely different methodologies across age groups.</em></p>
 
 <!-- ==================== SECTION 11 ==================== -->
-<h2>11. Summary</h2>
-<div class="key-box">
-<p>Pozzulo et al.'s study explored factors affecting children's accuracy as eyewitnesses when presented with a line-up. Adult and child participants were tested using a photoarray line-up that tested cognition (remembering and identifying the culprit when present) compared with a task influenced by social factors: a target-absent line-up where the task was rejection rather than identification.</p>
-<p>In this situation a child can give a <strong>false positive response</strong> by incorrectly identifying an innocent person as the perpetrator. The researchers used both cartoon characters and humans as targets and foils. Results showed that children were <strong>as good as adults at identifying cartoon characters</strong>, but <strong>less able to correctly identify humans</strong> and <strong>less able to correctly reject either type of target</strong>. The tendency of children to choose an incorrect face (cartoon or human) in target-absent line-ups suggests these errors are due to <strong>social effects</strong>. They cannot be cognitive errors because children's memory for the faces was excellent (cartoon identification ≈100%). Therefore, the social demand of choosing a face when the target was absent must have caused the rejection errors.</p>
+<div class="section" id="s11">
+  <h2>1️⃣1️⃣ Summary（总结）</h2>
+
+  <div class="key-box">
+    <p>Pozzulo et al.'s study explored factors affecting children's accuracy as eyewitnesses when presented with a line-up. Adult and child participants were tested using a <strong>photoarray line-up</strong> that tested <strong>cognition</strong> (remembering and identifying the culprit when present) compared with a task influenced by <strong>social factors</strong>: a target-absent line-up where the task was <strong>rejection</strong> rather than identification.</p>
+    <p>In this situation a child can give a <strong>false positive response</strong> by incorrectly identifying an innocent person as the perpetrator. The researchers used both <strong>cartoon characters</strong> and <strong>humans</strong> as targets and foils. Results showed that children were <strong>as good as adults at identifying cartoon characters</strong>, but <strong>less able to correctly identify humans</strong> and <strong>less able to correctly reject either type of target</strong>.</p>
+    <p>The tendency of children to choose an incorrect face (cartoon or human) in target-absent line-ups suggests these errors are due to <strong>social effects</strong>. They cannot be cognitive errors because children's memory for the faces was excellent (cartoon identification ≈100%). Therefore, the social demand of choosing a face when the target was absent must have caused the rejection errors.</p>
+  </div>
+
+  <div class="cn-note">
+    <strong>🎯 一句话总结：</strong>儿童的<strong>记忆没问题</strong>（卡通识别 ≈100%），但在<strong>目标缺失时拒绝率显著低</strong>（74% vs 94% 成人）→ 错误源于<strong>社会压力</strong>（"必须选一个"），而非<strong>认知缺陷</strong>。
+  </div>
+
+  <div class="summary-card" id="summary-s11">
+    <div class="summary-card-header" onclick="toggleSummary('summary-s11')">
+      <span class="summary-card-icon">▶</span>
+      <span class="summary-card-title">Exam Key Points — Summary</span>
+      <span class="summary-card-badge">AO1</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ul>
+          <li>Cartoon-ID children ≈ adults → <strong>cognitive memory intact</strong> <span class="tag-must">Must Know</span></li>
+          <li>Target-absent rejection: lower for children → <strong>social demand</strong> causes false positives <span class="tag-must">Must Know</span></li>
+          <li>Human faces: harder for children → <strong>individual cognitive maturity</strong> also matters <span class="tag-must">Must Know</span></li>
+          <li>Overall: <strong>social &gt; cognitive</strong> in driving child false positives (according to the researchers) <span class="tag-ao2">AO2 Gold</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- ==================== SECTION 12 ==================== -->
-<h2>12. Exam Practice Questions</h2>
+<div class="section" id="s12">
+  <h2>1️⃣2️⃣ Practice Questions（练习题）</h2>
 
-<div class="activity-box">
-<h4>❓ Questions</h4>
+  <div class="exam-box">
+    <h4>📝 CIE-style Exam Questions 考试风格练习题</h4>
 
-<p><strong>Q7.</strong> Jaina is planning a study about false memories. She wants to compare false memories about emotional events and false memories about non-emotional events.</p>
-<ol style="list-style-type:lower-alpha">
-<li>Suggest how Jaina could operationally define the IV in her study.</li>
-<li>Suggest one possible ethical problem with Jaina's study.</li>
-</ol>
+    <p><strong>Q7.</strong> Jaina is planning a study about false memories. She wants to compare false memories about emotional events and false memories about non-emotional events.</p>
+    <ol style="list-style-type:lower-alpha">
+      <li>Suggest how Jaina could operationally define the IV in her study. <span class="tag-must">[2]</span></li>
+      <li>Suggest one possible ethical problem with Jaina's study. <span class="tag-must">[2]</span></li>
+    </ol>
 
-<p><strong>Q8.</strong> Shaun is piloting a photoarray line-up procedure which uses six faces.</p>
-<ol style="list-style-type:lower-alpha">
-<li>Suggest one advantage of this line-up array compared to Pozzulo et al.'s array.</li>
-<li>Suggest one disadvantage of this line-up array compared to Pozzulo et al.'s array.</li>
-</ol>
+    <details class="model-answer">
+      <summary>💡 Model Answer Q7 — Click to expand 范文</summary>
+      <p><strong>(a) Operational definition of the IV:</strong> Two conditions. Emotional events: participants watch a 5-minute clip of an emotionally arousing event (e.g., a medical procedure / accident footage) and complete a memory test after a 24-hour delay. Non-emotional events: participants watch a 5-minute clip of a neutral event (e.g., a person describing a daily routine / a household task) and complete the same memory test after a 24-hour delay. The number of false memories recalled (e.g., details not in the original clip) is measured.</p>
+      <p><strong>(b) Ethical problem:</strong> Participants viewing emotionally arousing footage (e.g., accident / medical procedures) may experience <strong>psychological distress or anxiety</strong>, breaching the ethical guideline of <strong>protection from harm</strong>. Jaina's study could cause distress that lasts beyond the experiment.</p>
+    </details>
+
+    <p style="margin-top:18px"><strong>Q8.</strong> Shaun is piloting a photoarray line-up procedure which uses six faces.</p>
+    <ol style="list-style-type:lower-alpha">
+      <li>Suggest one advantage of this line-up array compared to Pozzulo et al.'s array. <span class="tag-must">[2]</span></li>
+      <li>Suggest one disadvantage of this line-up array compared to Pozzulo et al.'s array. <span class="tag-must">[2]</span></li>
+    </ol>
+
+    <details class="model-answer">
+      <summary>💡 Model Answer Q8 — Click to expand 范文</summary>
+      <p><strong>(a) Advantage:</strong> Six faces provide a <strong>larger line-up array</strong>, which has higher <strong>ecological validity</strong> because real police line-ups typically use 6–9 individuals. This better reflects real forensic practice.</p>
+      <p><strong>(b) Disadvantage:</strong> Six faces require more <strong>foils</strong> to be sourced, which is harder to control for similarity. Larger arrays also reduce <strong>identification accuracy</strong> (statistically, the chance of correct identification by random selection is lower with 6 faces, but the cognitive load is higher, making participants more likely to err). Also, the blank-silhouette option used by Pozzulo et al. reduces false positives — Shaun's 6-face array without this feature would likely produce higher false positive rates.</p>
+    </details>
+  </div>
+
+  <div class="summary-card" id="summary-s12">
+    <div class="summary-card-header" onclick="toggleSummary('summary-s12')">
+      <span class="summary-card-icon">▶</span>
+      <span class="summary-card-title">Exam Key Points — Practice Qs</span>
+      <span class="summary-card-badge">AO2+AO3</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ul>
+          <li>Q7(a): operationalise IV = specific measurable stimulus + standard measurement of DV <span class="tag-must">Must Know</span></li>
+          <li>Q7(b): common ethics = protection from harm, especially with emotional content <span class="tag-common">Common Q</span></li>
+          <li>Q8(a): advantage = ecological validity / realism of police procedures <span class="tag-ao2">AO2 Gold</span></li>
+          <li>Q8(b): disadvantage = fewer foils harder to match / blank silhouette reduces false positives in original study <span class="tag-ao2">AO2 Gold</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!--END_SECTION_12-->
+
+<!-- ==================== SECTION 13 ==================== -->
+<div class="section" id="s13">
+  <h2>1️⃣3️⃣ Key Terms（核心术语）</h2>
+
+  <table>
+    <thead><tr><th>Term 术语</th><th>Definition 定义</th></tr></thead>
+    <tbody>
+      <tr><td><strong>cognitive approach（认知取向）</strong></td><td>An approach studying mental processes such as memory, attention, perception — how people acquire, process and store information.</td></tr>
+      <tr><td><strong>eyewitness testimony（目击者证词）</strong></td><td>Evidence from someone who saw or heard a crime, used by the legal system to identify perpetrators.</td></tr>
+      <tr><td><strong>line-up（排队指认）</strong></td><td>Police procedure where a witness views a row of people / photoarray and is asked to identify the perpetrator (who may or may not be present).</td></tr>
+      <tr><td><strong>target-present line-up（目标存在队列）</strong></td><td>A line-up in which the actual culprit is among those shown — witnesses must identify them.</td></tr>
+      <tr><td><strong>target-absent line-up（目标缺失队列）</strong></td><td>A line-up in which the actual culprit is NOT among those shown — witnesses should reject by selecting the blank silhouette.</td></tr>
+      <tr><td><strong>photoarray（照片阵列）</strong></td><td>An array of photographs presented simultaneously to a witness for identification.</td></tr>
+      <tr><td><strong>foil（干扰项）</strong></td><td>A person or photograph in a line-up who is not the target — included to prevent the target being obvious.</td></tr>
+      <tr><td><strong>false positive response（错误肯定反应）</strong></td><td>Identifying someone in a target-absent line-up (i.e., giving an affirmative but incorrect answer).</td></tr>
+      <tr><td><strong>false memory（错误记忆）</strong></td><td>A memory an individual believes to be accurate but which has been distorted by post-event information.</td></tr>
+      <tr><td><strong>post-event information（事件后信息）</strong></td><td>Information given after an event that can alter memory (e.g., leading questions, discussion with others).</td></tr>
+      <tr><td><strong>authority figure（权威人物）</strong></td><td>An individual in a perceived position of power (e.g., police officer, teacher) whose requests are more likely to be obeyed.</td></tr>
+      <tr><td><strong>social pressure / social demand（社会压力 / 社会需求）</strong></td><td>The influence of others' expectations on behaviour, including the implicit expectation to comply or to "pick someone" in a line-up.</td></tr>
+      <tr><td><strong>ceiling effect（天花板效应）</strong></td><td>A measurement limitation where performance approaches the maximum possible score, preventing further differentiation (e.g., 99% cartoon identification).</td></tr>
+      <tr><td><strong>laboratory experiment（实验室实验）</strong></td><td>A controlled experiment conducted in a laboratory setting, allowing manipulation of IVs and measurement of DVs.</td></tr>
+      <tr><td><strong>independent measures（独立测量）</strong></td><td>Design where different participants are in each condition (e.g., children vs. adults).</td></tr>
+      <tr><td><strong>repeated measures（重复测量）</strong></td><td>Design where the same participants take part in all conditions (e.g., cartoon vs. human faces).</td></tr>
+      <tr><td><strong>mixed design（混合设计）</strong></td><td>A design combining independent and repeated measures for different IVs.</td></tr>
+      <tr><td><strong>counterbalancing（平衡法）</strong></td><td>Varying the order in which conditions are presented to control for order effects.</td></tr>
+      <tr><td><strong>chi-square (χ²)（卡方检验）</strong></td><td>A statistical test for comparing observed vs. expected frequencies in categorical data.</td></tr>
+      <tr><td><strong>quantitative data（定量数据）</strong></td><td>Numerical data analysable statistically.</td></tr>
+      <tr><td><strong>ecological validity（生态效度）</strong></td><td>Extent to which study findings generalise to real-life settings.</td></tr>
+      <tr><td><strong>demand characteristics（需求特征）</strong></td><td>Cues that lead participants to guess the study's aim and change behaviour accordingly.</td></tr>
+      <tr><td><strong>individual explanation（个体解释）</strong></td><td>Behaviour explained by innate characteristics (e.g., cognitive maturity, personality).</td></tr>
+      <tr><td><strong>situational explanation（情境解释）</strong></td><td>Behaviour explained by environmental and social context.</td></tr>
+      <tr><td><strong>nature vs. nurture（先天 vs 后天）</strong></td><td>Debate about whether behaviour is determined by genetics/biology (nature) or environment/experience (nurture).</td></tr>
+      <tr><td><strong>informed consent（知情同意）</strong></td><td>Agreement to participate after being informed about the study's purpose and procedures.</td></tr>
+      <tr><td><strong>right to withdraw（退出权）</strong></td><td>Freedom to leave the study at any point without consequence.</td></tr>
+      <tr><td><strong>protection from harm（免受伤害）</strong></td><td>Ethical principle that participants should not face physical or psychological harm.</td></tr>
+      <tr><td><strong>debriefing（事后说明）</strong></td><td>Process of explaining the true purpose of the study to participants after completion.</td></tr>
+      <tr><td><strong>elimination line-up（排除法队列）</strong></td><td>A two-step line-up procedure designed to reduce false positives: first select the most similar, then confirm if it IS the target.</td></tr>
+      <tr><td><strong>cross-race effect（跨种族效应）</strong></td><td>The tendency to be less accurate at identifying individuals of a different ethnic group from oneself.</td></tr>
+      <tr><td><strong>free recall（自由回忆）</strong></td><td>A memory test where participants are asked to recall as much as possible without prompts or cues.</td></tr>
+      <tr><td><strong>blank silhouette（空白剪影）</strong></td><td>A silhouetted box in a line-up representing the "culprit is not present" option.</td></tr>
+      <tr><td><strong>rapport（融洽关系）</strong></td><td>A friendly, trusting relationship between researcher and participant that helps the participant feel comfortable.</td></tr>
+    </tbody>
+  </table>
 </div>
 
-<hr style="border:none;border-top:1px solid #e5e7eb;margin:30px 0">
+<!-- ==================== SECTION 14 ==================== -->
+<div class="section" id="s14">
+  <h2>1️⃣4️⃣ Exam Practice with Model Answers（真题与范文）</h2>
 
-<p style="text-align:center;color:#9ca3af;font-size:.85em">© CIE Psychology — Cognitive Approach Core Study 3 | Generated from Cambridge International AS &amp; A Level Psychology Coursebook</p>
+  <p>The following questions mirror CIE A-level Psychology exam style. Click each card to reveal the model answer.</p>
 
-<!-- ===== CHART SCRIPT ====== -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
-<script>
-const ctx = document.getElementById('resultsChart').getContext('2d');
-new Chart(ctx, {
-  type: 'bar',
-  data: {
-    labels: ['Cartoon\n(Target-Present\nIdentification)', 'Human\n(Target-Present\nIdentification)', 'Cartoon\n(Target-Absent\nCorrect Rejection)', 'Human\n(Target-Absent\nCorrect Rejection)'],
-    datasets: [
-      {
-        label: 'Children',
-        data: [0.99, 0.23, 0.74, 0.45],
-        backgroundColor: 'rgba(99, 102, 241, 0.75)',
-        borderColor: 'rgba(79, 70, 229, 1)',
-        borderWidth: 1.5,
-        borderRadius: 4
-      },
-      {
-        label: 'Adult Participants',
-        data: [0.95, 0.66, 0.94, 0.70],
-        backgroundColor: 'rgba(16, 185, 129, 0.75)',
-        borderColor: 'rgba(5, 150, 105, 1)',
-        borderWidth: 1.5,
-        borderRadius: 4
-      }
-    ]
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      title: { display: true, text: 'Mean Identification and Rejection Rates', font: { size: 15, weight: 'bold' } },
-      legend: { position: 'top' }
-    },
-    scales: {
-      y: {
-        beginAtZero: true,
-        max: 1.05,
-        title: { display: true, text: 'Proportion Correct (Rate)', font: { size: 12 } },
-        ticks: { callback: v => v }
-      },
-      x: {
-        ticks: { font: { size: 10 } },
-        grid: { display: false }
-      }
-    }
-  }
-});
-</script>
+  <div class="qa-card" onclick="this.classList.toggle('open')">
+    <div class="qa-question">
+      <span class="qa-num">1</span>
+      <span class="qa-text"><strong>Outline</strong> the aim of Pozzulo et al.'s study on eyewitness testimony. <span class="tag-must">[2 marks]</span></span>
+      <span class="qa-toggle"><span class="qa-icon">▶ Answer</span></span>
+    </div>
+    <div class="qa-answer">
+      <div class="qa-answer-inner">
+        <strong>Mark scheme (2 marks):</strong> 1 mark for each identifiable point, developed for 2 marks each.<br><br>
+        <strong>Model answer:</strong> Pozzulo et al. aimed to investigate whether children's higher false-positive rate in line-ups (compared with adults) is caused by <strong>cognitive factors</strong> (e.g., weaker memory for unfamiliar faces) or <strong>social factors</strong> (e.g., pressure to choose from the array). To test this, the researchers compared child and adult identification accuracy in target-present and target-absent line-ups using both familiar cartoon faces and unfamiliar human faces.
+      </div>
+    </div>
+  </div>
 
+  <div class="qa-card" onclick="this.classList.toggle('open')">
+    <div class="qa-question">
+      <span class="qa-num">2</span>
+      <span class="qa-text"><strong>Describe</strong> the procedure of Pozzulo et al.'s study. You may include the stimuli and what participants had to do. <span class="tag-must">[6 marks]</span></span>
+      <span class="qa-toggle"><span class="qa-icon">▶ Answer</span></span>
+    </div>
+    <div class="qa-answer">
+      <div class="qa-answer-inner">
+        <strong>Mark scheme (6 marks):</strong> 1 mark per developed point. Aim for 3–4 developed points covering stimuli, procedure, and key controls.<br><br>
+        <strong>Model answer:</strong>
+        <ul>
+          <li><strong>Stimuli:</strong> Two Caucasian students filmed 6-second video clips (female brushing hair; male putting on coat). Two cartoon videos (Dora the Explorer; Go, Diego, Go!). Foil photographs were matched by three raters on facial features/hair and shown in black and white.</li>
+          <li><strong>Children's procedure:</strong> Tested individually after a craft activity (rapport-building). Watched one video clip, then answered free-recall questions ("What did the cartoon/person look like?"), then viewed a 5-photo line-up (or 4 foils + blank silhouette) on a laptop and pointed to their selection. Repeated for all 4 videos, with target position randomised.</li>
+          <li><strong>Adults' procedure:</strong> Gave written consent, watched each video individually, wrote responses to free-recall questions, then wrote their identification response on paper. Same 4-video sequence, order counterbalanced.</li>
+          <li><strong>Key controls:</strong> Photos all in black &amp; white (no colour cues); target position randomised; video order counterbalanced; instructions explicitly told participants "the person may or may not be there" and pointed to the silhouette for "not present".</li>
+          <li><strong>Closing:</strong> Children received crayons and colouring book as a thank-you gift (positive end).</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-<style>
-/* Study Navigator */
-.study-nav{border-top:2px solid #e0e0e0;background:#FAFAFA;padding:14px 16px;margin-top:2rem}
-.study-nav-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:880px;margin:0 auto}
-.study-nav-btn{flex:1;padding:9px 14px;border:1px solid #ddd;border-radius:8px;background:white;color:#444;font-size:.82rem;cursor:pointer;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:4px;transition:all .15s;font-family:inherit}
-.study-nav-btn:hover{border-color:#1565C0;color:#1565C0;background:#f8fbff}
-.study-nav-dots{text-align:center;padding:0 8px}
-.study-nav-label{font-size:.65rem;text-transform:uppercase;letter-spacing:1px;color:#888;margin-bottom:5px;font-weight:700}
-.study-dot-row{display:flex;gap:5px;justify-content:center;flex-wrap:wrap}
-.study-dot{width:10px;height:10px;border-radius:50%;cursor:pointer;border:2px solid transparent;transition:all .15s;position:relative;display:inline-block}
-.study-dot:hover{transform:scale(1.3)}
-.study-dot.active{border-color:#333;transform:scale(1.25)}
-@media(max-width:600px){
-    .study-nav-inner{flex-wrap:wrap;gap:8px}
-    .study-nav-btn{font-size:.75rem;padding:7px 10px}
-    .study-dot{width:8px;height:8px}
-}
-</style>
+  <div class="qa-card" onclick="this.classList.toggle('open')">
+    <div class="qa-question">
+      <span class="qa-num">3</span>
+      <span class="qa-text"><strong>Discuss</strong> the results of Pozzulo et al.'s study on children's false-positive responding. <span class="tag-must">[8 marks]</span></span>
+      <span class="qa-toggle"><span class="qa-icon">▶ Answer</span></span>
+    </div>
+    <div class="qa-answer">
+      <div class="qa-answer-inner">
+        <strong>Mark scheme (8 marks):</strong> AO1 (4 marks) + AO2 (4 marks).<br><br>
+        <strong>AO1 — Description of results:</strong>
+        <ul>
+          <li>All four predictions were supported (Table 3.7).</li>
+          <li><strong>Target-present (identification):</strong> Cartoon faces — children 0.99 vs adults 0.95 (χ²=.39, p=.53, no significant difference). Human faces — children 0.23 vs adults 0.66 (χ²=18.83, p=.001, adults significantly better).</li>
+          <li><strong>Target-absent (rejection):</strong> Cartoon faces — children 0.74 vs adults 0.94 (χ²=7.66, p=.01, adults significantly better). Human faces — children 0.45 vs adults 0.70 (χ²=5.70, p=.02, adults significantly better).</li>
+          <li>Children's cartoon-ID ≈ adults shows cognitive memory intact for familiar stimuli.</li>
+          <li>Children's rejection rate significantly lower than adults in BOTH cartoon and human conditions.</li>
+        </ul>
+        <strong>AO2 — Discussion / Conclusion:</strong>
+        <ul>
+          <li>The cartoon identification rate of ~99% demonstrates that children's <strong>memory for familiar faces is excellent</strong> — ruling out cognitive deficits as the cause of errors.</li>
+          <li>Lower target-absent rejection rate (74% vs 94%) suggests errors stem from <strong>social factors</strong>: the social demand of choosing someone from a line-up ("must pick one").</li>
+          <li>Similarly, human-face conditions show adults outperforming children on both identification and rejection → <strong>individual cognitive maturity</strong> also matters for unfamiliar faces (likely FFA immaturity in children).</li>
+          <li>Conclusion: errors are <strong>relative, not absolute</strong> — both cognitive and social factors contribute; but social factors play a larger role in children's target-absent decisions.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="qa-card" onclick="this.classList.toggle('open')">
+    <div class="qa-question">
+      <span class="qa-num">4</span>
+      <span class="qa-text">Outline <strong>two</strong> strengths of the methodology used in Pozzulo et al.'s study. <span class="tag-must">[4 marks]</span></span>
+      <span class="qa-toggle"><span class="qa-icon">▶ Answer</span></span>
+    </div>
+    <div class="qa-answer">
+      <div class="qa-answer-inner">
+        <strong>Mark scheme (4 marks):</strong> 1 mark per strength with brief description + 1 mark for elaboration. Two strengths required.<br><br>
+        <strong>Strength 1 — Standardised laboratory procedure:</strong> The procedure was highly controlled, with all participants tested under identical conditions. <em>Elaboration:</em> This minimised extraneous variables (e.g., lighting, line-up presentation), increasing <strong>internal validity</strong> and allowing the researchers to confidently attribute differences to age and target type rather than environmental noise.<br><br>
+        <strong>Strength 2 — Clever inclusion of cartoon and human stimuli:</strong> Comparing familiar (cartoon) and unfamiliar (human) faces separated cognitive demand from social pressure. <em>Elaboration:</em> This is the study's unique methodological strength — it allows researchers to determine whether children's higher false-positive rate is due to cognitive immaturity (which would affect human faces more) or social pressure (which would affect both equally). The finding that children's cartoon-ID ≈ adults but rejection rate <em>lower</em> in target-absent conditions provides clear evidence for the social explanation.
+      </div>
+    </div>
+  </div>
+
+  <div class="qa-card" onclick="this.classList.toggle('open')">
+    <div class="qa-question">
+      <span class="qa-num">5</span>
+      <span class="qa-text">Outline <strong>two</strong> weaknesses of the methodology used in Pozzulo et al.'s study. <span class="tag-must">[4 marks]</span></span>
+      <span class="qa-toggle"><span class="qa-icon">▶ Answer</span></span>
+    </div>
+    <div class="qa-answer">
+      <div class="qa-answer-inner">
+        <strong>Mark scheme (4 marks):</strong> 1 mark per weakness + 1 mark for elaboration. Two weaknesses required.<br><br>
+        <strong>Weakness 1 — Low ecological validity:</strong> Real eyewitness situations involve emotional stress (e.g., fear, danger, urgency). <em>Elaboration:</em> The laboratory setting was quiet and calm, lacking the emotional intensity of real crimes. Findings may therefore not generalise to high-stress forensic situations where children's error patterns could be very different.<br><br>
+        <strong>Weakness 2 — Ethnic homogeneity of targets:</strong> All human targets and foils were Caucasian faces. <em>Elaboration:</em> Real-world line-ups typically involve more diverse ethnicities. Combined with the cross-race effect (people are less accurate at identifying faces of different ethnicities), this limits generalisability to multicultural populations and the broader legal system.<br><br>
+        <strong>Weakness 3 (alternative) — Demand characteristics:</strong> Children were told the study was about TV shows; adults were told it was about "memory". <em>Elaboration:</em> Adults may have guessed the purpose and over-performed, while children may have picked someone to please the researcher. This could have artificially widened or narrowed the child-adult gap, confounding the results.
+      </div>
+    </div>
+  </div>
+
+  <div class="qa-card" onclick="this.classList.toggle('open')">
+    <div class="qa-question">
+      <span class="qa-num">6</span>
+      <span class="qa-text">Discuss how the findings of Pozzulo et al.'s study could be applied to <strong>real-life forensic practice</strong>. <span class="tag-must">[6 marks]</span></span>
+      <span class="qa-toggle"><span class="qa-icon">▶ Answer</span></span>
+    </div>
+    <div class="qa-answer">
+      <div class="qa-answer-inner">
+        <strong>Mark scheme (6 marks):</strong> AO1 (3 marks — describe application) + AO2 (3 marks — evaluate application).<br><br>
+        <strong>AO1 — Application:</strong>
+        <ul>
+          <li>The study identifies that <strong>social factors</strong> drive child false positives in line-ups.</li>
+          <li>This has led to the development of the <strong>elimination line-up</strong> (Pozzulo &amp; Lindsay, 1999), where children first select the most similar person and then confirm if it IS the target — reducing the social pressure to "just pick one".</li>
+          <li>Studies (Dempsey &amp; Pozzulo, 2008) show child identification can be as reliable as adults when appropriate procedures are used.</li>
+        </ul>
+        <strong>AO2 — Evaluation:</strong>
+        <ul>
+          <li><strong>Positive:</strong> The findings have practical value for the legal system — child witnesses are common in abuse/domestic violence cases, and improved procedures reduce miscarriages of justice.</li>
+          <li><strong>Limitation:</strong> The original study used <strong>low-stress laboratory conditions</strong>; real eyewitness situations are highly emotional. Children under stress may exhibit different patterns (e.g., greater reliance on authority figures, or memory collapse).</li>
+          <li><strong>Limitation:</strong> The study identifies the problem (social pressure) but the elimination line-up requires further validation in real forensic contexts before universal adoption.</li>
+          <li><strong>Wider issue:</strong> The study highlights <strong>cross-race effects</strong> but doesn't solve them — ethnic diversity in line-ups remains a concern.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="qa-card" onclick="this.classList.toggle('open')">
+    <div class="qa-question">
+      <span class="qa-num">7</span>
+      <span class="qa-text">Suggest <strong>two</strong> ethical issues raised by Pozzulo et al.'s study and explain how each was addressed. <span class="tag-must">[6 marks]</span></span>
+      <span class="qa-toggle"><span class="qa-icon">▶ Answer</span></span>
+    </div>
+    <div class="qa-answer">
+      <div class="qa-answer-inner">
+        <strong>Mark scheme (6 marks):</strong> 1 mark per issue + 1 mark for explanation + 1 mark for how addressed. Two issues required.<br><br>
+        <strong>Issue 1 — Informed consent with child participants:</strong> Children aged 4–7 cannot legally sign consent forms. <em>How addressed:</em> The researchers used a <strong>dual consent procedure</strong> — parents/guardians gave written consent, and children gave <strong>verbal assent in age-appropriate language</strong>. Researchers also explained the child could change their mind at any time without getting in trouble.<br><br>
+        <strong>Issue 2 — Protection from harm / child wellbeing:</strong> Testing young children can cause anxiety, especially around a "memory" task. <em>How addressed:</em> The stimuli were <strong>non-crime-related</strong> (cartoons + everyday actions like brushing hair) — avoiding violent or traumatic content. A craft activity was conducted before testing to build <strong>rapport and reduce stranger-anxiety</strong>; ongoing monitoring of fatigue, anxiety, and stress signals was performed; and children received crayons and a colouring book as a positive end to the session.<br><br>
+        <strong>Issue 3 (alternative) — Right to withdraw:</strong> Children may feel unable to refuse adult authority. <em>How addressed:</em> The experimenter explicitly told children <strong>"you can change your mind at any time and won't get in trouble"</strong>, and the experimenters wore smart-casual clothing (not formal/authority-figure uniforms) to reduce authority pressure.
+      </div>
+    </div>
+  </div>
+
+  <div class="qa-card" onclick="this.classList.toggle('open')">
+    <div class="qa-question">
+      <span class="qa-num">8</span>
+      <span class="qa-text">Discuss the debate between <strong>nature and nurture</strong> in relation to Pozzulo et al.'s findings. <span class="tag-must">[6 marks]</span></span>
+      <span class="qa-toggle"><span class="qa-icon">▶ Answer</span></span>
+    </div>
+    <div class="qa-answer">
+      <div class="qa-answer-inner">
+        <strong>Mark scheme (6 marks):</strong> AO1 (3 marks — explain both sides) + AO2 (3 marks — judgement).<br><br>
+        <strong>AO1 — Both sides:</strong>
+        <ul>
+          <li><strong>Nature arguments:</strong> 4–7-year-olds' prefrontal cortex is immature — weaker inhibitory control makes it physiologically harder to resist "pick someone" impulses. Fusiform face area (FFA) immaturity explains children's poor unfamiliar-face recognition (23% vs 66%). False positive rates may decline naturally with neural maturation.</li>
+          <li><strong>Nurture arguments:</strong> Children learn social rules ("answer adults", "be polite") — these are not innate. The cartoon-condition evidence (children's ID ≈100%) rules out cognitive deficits; errors are decision-making, not memory, errors. Different cultures socialise children differently toward authority — collectivist cultures may produce even higher false-positive rates (untested).</li>
+        </ul>
+        <strong>AO2 — Judgement:</strong>
+        <ul>
+          <li>Pozzulo et al.'s findings provide <strong>stronger support for nurture</strong>: cartoon memory was perfect (99%), so cognitive/innate deficits are ruled out as the cause of rejection errors.</li>
+          <li>However, the human-face results (23% vs 66%) do show <strong>individual cognitive maturity effects</strong> — supporting nature's role.</li>
+          <li>The most defensible conclusion is that nature and nurture <strong>interact</strong>: neurodevelopmental level (nature) sets the susceptibility, while socialisation (nurture) determines how that susceptibility is expressed in line-up contexts.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="qa-card" onclick="this.classList.toggle('open')">
+    <div class="qa-question">
+      <span class="qa-num">9</span>
+      <span class="qa-text">Explain what is meant by the <strong>ceiling effect</strong> in the context of Pozzulo et al.'s study. <span class="tag-must">[2 marks]</span></span>
+      <span class="qa-toggle"><span class="qa-icon">▶ Answer</span></span>
+    </div>
+    <div class="qa-answer">
+      <div class="qa-answer-inner">
+        <strong>Mark scheme (2 marks):</strong> 1 mark for definition + 1 mark for application.<br><br>
+        <strong>Model answer:</strong> A <strong>ceiling effect</strong> occurs when performance approaches the maximum possible score, preventing further differentiation between groups. In Pozzulo et al.'s study, children's identification rate for cartoon faces was <strong>~99%</strong>, meaning there was little room for either group to perform better — both reached near-perfect scores. This is why the researchers used cartoon faces: it controls for cognitive demand (memory is not the limiting factor), isolating the social factor for analysis.
+      </div>
+    </div>
+  </div>
+
+  <div class="qa-card" onclick="this.classList.toggle('open')">
+    <div class="qa-question">
+      <span class="qa-num">10</span>
+      <span class="qa-text"><strong>Outline</strong> what is meant by the <strong>individual and situational explanations</strong> for behaviour, with reference to Pozzulo et al.'s findings. <span class="tag-must">[6 marks]</span></span>
+      <span class="qa-toggle"><span class="qa-icon">▶ Answer</span></span>
+    </div>
+    <div class="qa-answer">
+      <div class="qa-answer-inner">
+        <strong>Mark scheme (6 marks):</strong> AO1 (3 marks) + AO2 (3 marks).<br><br>
+        <strong>AO1:</strong>
+        <ul>
+          <li>The <strong>individual explanation</strong> suggests behaviour is caused by innate personal characteristics (e.g., personality, biological maturity, cognitive development).</li>
+          <li>The <strong>situational explanation</strong> suggests behaviour is caused by environmental and social context factors (e.g., authority pressure, social expectations, demand characteristics).</li>
+          <li>In Pozzulo et al.'s study: <strong>individual explanation</strong> would predict children fail to identify both familiar (cartoon) and unfamiliar (human) faces equally — due to immature cognitive development.</li>
+          <li><strong>Situational explanation</strong> would predict children identify familiar faces well (they remember Dora &amp; Diego) but fail to correctly reject when target is absent (social pressure to pick someone).</li>
+        </ul>
+        <strong>AO2:</strong>
+        <ul>
+          <li>Pozzulo's results <strong>support the situational explanation</strong>: cartoon-ID was ~100% (memory intact), but target-absent rejection was only 74% (vs. 94% adults) — exactly the pattern predicted by situational factors.</li>
+          <li>However, the human-face identification gap (23% vs 66%) <strong>does</strong> suggest some individual cognitive maturity effect for unfamiliar faces — supporting nature's contribution.</li>
+          <li>Overall, both explanations have merit: the situational explanation is the better fit for the cartoon results, but individual cognitive maturity matters for human faces — an <strong>interactionist</strong> view is most defensible.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+  </main><!-- END MAIN CONTENT -->
+
+<!-- ===== NOTES PANEL ===== -->
+<aside class="notes-col">
+  <div class="nc-header"><span>📝</span><span class="nc-title">My Notes</span><span class="nc-count" id="noteCount">0</span></div>
+  <div class="nc-body" id="notesBody">
+    <div class="nc-empty" id="notesEmpty"><div style="font-size:1.5em">✏️</div><div>No notes yet</div><div style="font-size:.7em;margin-top:4px;opacity:.7">Select text → click Add Note below</div></div>
+  </div>
+  <div class="nc-input-row" id="noteInputRow">
+    <textarea class="nc-textarea" id="noteTextInput" placeholder="Write your note here..."></textarea>
+    <div class="nc-actions"><button class="nc-btn-save" onclick="saveNote()">💾 Save</button><button class="nc-btn-cancel" onclick="cancelNoteInput()">Cancel</button></div>
+  </div>
+  <button class="nc-add-btn" onclick="onAddNoteClick()">✏️ <b>Add Note</b></button>
+  <div class="nc-footer"><button onclick="exportNotes()">📤 Export</button><button onclick="clearAllNotes()">🗑 Clear</button></div>
+</aside>
+
+</div><!-- END PAGE LAYOUT -->
+
+<div class="footer-note">
+  Pozzulo, J., Dempsey, J., Bruer, K.C., &amp; Sheahan, C.L. (2011). The culprit in target-absent lineups: Understanding young children's false positive responding. <em>Journal of Police and Criminal Psychology, 27</em>(1), 55–62.<br>
+  CIE Psychology — Cognitive Approach Core Study 3 · Generated from Cambridge International AS &amp; A Level Psychology Coursebook
+</div>
+
+</div><!-- END CONTAINER -->
+
+<!-- Study Navigator -->
 <div class="study-nav">
   <div class="study-nav-inner">
-    <a class="study-nav-btn" href="../perry/">← Perry (2015)</a>
+    <a class="study-nav-btn" href="../baron-cohen/">← Baron-Cohen (2001)</a>
     <div class="study-nav-dots">
-      <div class="study-nav-label">Social</div>
+      <div class="study-nav-label">Cognitive Approach</div>
       <div class="study-dot-row">
-        <span class="study-dot" style="background:#C62828" data-title="Hassett (2008)" onclick="location.href='../hassett/'"></span><span class="study-dot" style="background:#C62828" data-title="Dement (1957)" onclick="location.href='../dement/'"></span><span class="study-dot" style="background:#1565C0" data-title="Baron-Cohen (2001)" onclick="location.href='../baron-cohen/'"></span><span class="study-dot" style="background:#1565C0" data-title="Hölzel (2011)" onclick="location.href='../hoelzel/'"></span><span class="study-dot" style="background:#1565C0" data-title="Andrade (2010)" onclick="location.href='../andrade/'"></span><span class="study-dot" style="background:#2E7D32" data-title="Piliavin (1969)" onclick="location.href='../piliavin/'"></span><span class="study-dot" style="background:#2E7D32" data-title="Milgram (1963)" onclick="location.href='../milgram/'"></span><span class="study-dot" style="background:#E87722" data-title="Bandura (1961)" onclick="location.href='../bandura/'"></span><span class="study-dot" style="background:#E87722" data-title="Fagen (2014)" onclick="location.href='../fagen/'"></span><span class="study-dot" style="background:#E87722" data-title="Saavedra (2002)" onclick="location.href='../saavedra/'"></span><span class="study-dot" style="background:#2E7D32" data-title="Perry (2015)" onclick="location.href='../perry/'"></span><span class="study-dot active" style="background:#7B1FA2" data-title="Pozzulo (2011)"></span>
+        <span class="study-dot" style="background:#dc2626" data-title="Hassett (2008)" onclick="location.href='../hassett/'"></span>
+        <span class="study-dot" style="background:#dc2626" data-title="Dement (1957)" onclick="location.href='../dement/'"></span>
+        <span class="study-dot" style="background:#dc2626" data-title="Hölzel (2011)" onclick="location.href='../hoelzel/'"></span>
+        <span class="study-dot" style="background:#2563eb" data-title="Andrade (2010)" onclick="location.href='../andrade/'"></span>
+        <span class="study-dot" style="background:#2563eb" data-title="Baron-Cohen (2001)" onclick="location.href='../baron-cohen/'"></span>
+        <span class="study-dot active" style="background:#2563eb" data-title="Pozzulo (2011)"></span>
       </div>
     </div>
     <a class="study-nav-btn" style="opacity:.4;cursor:not-allowed;pointer-events:none">— →</a>
   </div>
 </div>
+
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
+
+<!-- ===== CHART.JS ===== -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script>
+(function(){
+  if(typeof Chart === "undefined") return;
+  const ctx = document.getElementById('resultsChart');
+  if(!ctx) return;
+  new Chart(ctx.getContext('2d'), {
+    type: 'bar',
+    data: {
+      labels: ['Cartoon\n(Target-Present\nIdentification)', 'Human\n(Target-Present\nIdentification)', 'Cartoon\n(Target-Absent\nCorrect Rejection)', 'Human\n(Target-Absent\nCorrect Rejection)'],
+      datasets: [
+        { label: 'Children', data: [0.99, 0.23, 0.74, 0.45],
+          backgroundColor: 'rgba(37,99,235,0.75)', borderColor: '#2563eb', borderWidth: 1.5, borderRadius: 4 },
+        { label: 'Adult Participants', data: [0.95, 0.66, 0.94, 0.70],
+          backgroundColor: 'rgba(16,185,129,0.75)', borderColor: '#10b981', borderWidth: 1.5, borderRadius: 4 }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        title: { display: true, text: 'Mean Identification and Rejection Rates', font: { size: 15, weight: 'bold' } },
+        legend: { position: 'top' }
+      },
+      scales: {
+        y: { beginAtZero: true, max: 1.05, title: { display: true, text: 'Proportion Correct (Rate)', font: { size: 12 } } },
+        x: { ticks: { font: { size: 10 } }, grid: { display: false } }
+      }
+    }
+  });
+})();
+</script>
+
+<!-- ===== MAIN IIFE — Notes, Dark Mode, Font, Progress, ScrollSpy ===== -->
+<script>
+(function(){
+  const STUDY_NAME = "pozzulo";
+  const STORAGE_KEY_NOTES = STUDY_NAME + "_notes_v3";
+  const STORAGE_KEY_DARK = STUDY_NAME + "-darkMode";
+  const STORAGE_KEY_FONT = STUDY_NAME + "-fontSize";
+
+  let notes = JSON.parse(localStorage.getItem(STORAGE_KEY_NOTES) || "[]");
+  let hlIdCounter = 0;
+
+  // ===== DARK MODE =====
+  function toggleDarkMode() {
+    document.body.classList.toggle("dark");
+    const btn = document.getElementById("darkBtn");
+    if(btn) btn.textContent = document.body.classList.contains("dark") ? "☀️ Light" : "🌙 Dark";
+    localStorage.setItem(STORAGE_KEY_DARK, document.body.classList.contains("dark") ? "1" : "0");
+  }
+  if(localStorage.getItem(STORAGE_KEY_DARK) === "1") {
+    document.body.classList.toggle("dark");
+    const btn = document.getElementById("darkBtn");
+    if(btn) btn.textContent = "☀️ Light";
+  }
+  window.toggleDarkMode = toggleDarkMode;
+
+  // ===== FONT SIZE =====
+  function adjustFontSize(delta) {
+    const sz = parseFloat(getComputedStyle(document.documentElement).fontSize) + (delta * 1.5);
+    if(sz >= 12 && sz <= 24) document.documentElement.style.fontSize = sz + "px";
+    localStorage.setItem(STORAGE_KEY_FONT, getComputedStyle(document.documentElement).fontSize);
+  }
+  (function(){ const fs = localStorage.getItem(STORAGE_KEY_FONT); if(fs) document.documentElement.style.fontSize = fs; })();
+  window.adjustFontSize = adjustFontSize;
+
+  // ===== PROGRESS BAR + BACK TO TOP =====
+  window.addEventListener("scroll", function() {
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollTop = window.scrollY;
+    const pct = docHeight > 0 ? Math.min(100, Math.max(0, (scrollTop / docHeight) * 100)) : 0;
+    document.getElementById("progressBar").style.width = pct + "%";
+    document.getElementById("backToTop").classList.toggle("show", scrollTop > 400);
+  });
+
+  // ===== SCROLL SPY (Sidebar Active) =====
+  const sections = document.querySelectorAll(".section[id]");
+  const sbLinks = document.querySelectorAll(".sb-item a");
+  window.addEventListener("scroll", function() {
+    let current = "";
+    sections.forEach(function(s){ const top = s.offsetTop - 100; if(window.scrollY >= top) current = s.getAttribute("id"); });
+    sbLinks.forEach(function(a){ a.classList.remove("sb-active"); if(a.getAttribute("href") === "#"+current) a.classList.add("sb-active"); });
+  });
+
+  // ===== SUMMARY / CN-SUMMARY TOGGLES =====
+  window.toggleSummary = function(id) {
+    const card = document.getElementById(id);
+    if(card) card.classList.toggle("open");
+  };
+  window.toggleCnSummary = function(btn) {
+    btn.classList.toggle("open");
+    const body = btn.nextElementSibling;
+    if(body) body.classList.toggle("open");
+  };
+
+  // ===== TEXT SELECTION & HIGHLIGHTING =====
+  function getSelectedText() { return window.getSelection().toString().trim(); }
+  document.addEventListener("mouseup", function(e){
+    const sel = getSelectedText();
+    if(sel.length > 0 && e.target.closest('.main-content') && !e.target.closest('.notes-col') && !e.target.closest('.qa-card')) {
+      setTimeout(function(){
+        if(getSelectedText().length > 0) {
+          const s = window.getSelection();
+          window._hlRange = (s.rangeCount > 0) ? s.getRangeAt(0) : null;
+          showNoteInput(getSelectedText());
+        }
+      }, 10);
+    }
+  });
+
+  function showNoteInput(text) {
+    window._hlText = text;
+    const row = document.getElementById("noteInputRow");
+    row.classList.add("show");
+    document.getElementById("noteTextInput").value = "";
+    document.getElementById("noteTextInput").focus({preventScroll:true});
+  }
+
+  function cancelNoteInput() {
+    document.getElementById("noteInputRow").classList.remove("show");
+    window._hlText = "";
+    window._hlRange = null;
+  }
+  window.cancelNoteInput = cancelNoteInput;
+
+  window.onAddNoteClick = function(){
+    var sel = window.getSelection(), txt = sel.toString().trim();
+    if(txt.length >= 2){
+      pendingHl = txt;
+      var r = sel.getRangeAt(0), hid = 'hl_'+(++hlIdCounter)+'_'+Date.now().toString(36);
+      var m = document.createElement('mark'); m.className='hl-text'; m.setAttribute('data-hl-id', hid); m.textContent = txt;
+      r.deleteContents(); r.insertNode(m); sel.removeAllRanges();
+    } else { pendingHl = null; }
+    document.getElementById('noteInputRow').classList.add('show');
+    document.getElementById('noteTextInput').value = '';
+    document.getElementById('noteTextInput').focus({preventScroll:true});
+  };
+  var pendingHl = null;
+
+  function applyHighlightMark(range, id) {
+    const span = document.createElement("span");
+    span.className = "hl-text";
+    span.setAttribute("data-hl-id", id);
+    span.setAttribute("onclick", "jumpToNote('" + id + "')");
+    try { range.surroundContents(span); } catch(e) { console.log("Highlight error:", e); }
+  }
+
+  function saveNote() {
+    const text = document.getElementById("noteTextInput").value.trim();
+    const hlText = window._hlText || pendingHl || "";
+    if(!text && !hlText) return;
+
+    const id = "hl_" + (++hlIdCounter) + "_" + Date.now();
+    const noteObj = { id: id, text: text, hlText: hlText, ts: new Date().toISOString() };
+
+    if(hlText && window._hlRange) {
+      try { applyHighlightMark(window._hlRange, id); } catch(e) { console.log("Highlight error:", e); }
+      window._hlRange = null;
+    }
+    window.getSelection().removeAllRanges();
+
+    notes.push(noteObj);
+    persistNotes();
+    renderNotes();
+    cancelNoteInput();
+    pendingHl = null;
+  }
+  window.saveNote = saveNote;
+
+  function renderNotes() {
+    const body = document.getElementById("notesBody");
+    const emptyEl = document.getElementById("notesEmpty");
+    const countEl = document.getElementById("noteCount");
+
+    countEl.textContent = notes.length;
+    if(notes.length === 0) {
+      body.innerHTML = "";
+      if(emptyEl){ body.appendChild(emptyEl); emptyEl.style.display = ""; }
+      return;
+    }
+    if(emptyEl) emptyEl.style.display = "none";
+
+    let html = "";
+    notes.forEach(function(n){
+      html += '<div class="note-card" data-note-id="'+n.id+'">';
+      if(n.hlText) html += '<div class="note-card-hl" onclick="jumpToNote(\''+n.id+'\')">'+escapeHtml(n.hlText.substring(0,60))+(n.hlText.length>60?'…':'')+'</div>';
+      html += '<div class="note-card-text">'+escapeHtml(n.text)+'</div>';
+      html += '<button class="note-card-edit" onclick="editNote(\''+n.id+'\')" title="Edit">✎</button>';
+      html += '<button class="note-card-del" onclick="deleteNote(\''+n.id+'\')" title="Delete">×</button>';
+      html += '</div>';
+    });
+    body.innerHTML = html;
+  }
+
+  function escapeHtml(s){ return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+
+  function deleteNote(id) {
+    notes = notes.filter(function(n){ return n.id !== id; });
+    document.querySelectorAll('[data-hl-id="'+id+'"]').forEach(function(el){
+      el.outerHTML = el.textContent;
+    });
+    persistNotes();
+    renderNotes();
+  }
+  window.deleteNote = deleteNote;
+
+  function editNote(id) {
+    const note = notes.find(function(n){ return n.id === id; });
+    if(!note) return;
+    const card = document.querySelector('[data-note-id="'+id+'"]');
+    if(!card) return;
+    card.classList.add("editing");
+    const currentText = note.text;
+    card.innerHTML = '<textarea class="note-edit-textarea">'+escapeHtml(currentText)+'</textarea>'+
+      '<div class="note-edit-actions">'+
+        '<button class="note-edit-save" onclick="saveEditedNote(\''+id+'\')">Save</button>'+
+        '<button class="note-edit-cancel" onclick="cancelEditNote(\''+id+'\')">Cancel</button>'+
+      '</div>';
+    const ta = card.querySelector(".note-edit-textarea");
+    ta.focus({preventScroll:true}); ta.select();
+  }
+  window.editNote = editNote;
+
+  function saveEditedNote(id) {
+    const card = document.querySelector('[data-note-id="'+id+'"]');
+    const ta = card.querySelector(".note-edit-textarea");
+    if(!ta) return;
+    const newText = ta.value.trim();
+    const noteIdx = notes.findIndex(function(n){ return n.id === id; });
+    if(noteIdx >= 0) notes[noteIdx].text = newText;
+    persistNotes();
+    renderNotes();
+  }
+  window.saveEditedNote = saveEditedNote;
+
+  function cancelEditNote(id) { renderNotes(); }
+  window.cancelEditNote = cancelEditNote;
+
+  function jumpToNote(id) {
+    const hl = document.querySelector('[data-hl-id="'+id+'"]');
+    if(hl) {
+      hl.scrollIntoView({behavior:"smooth",block:"center"});
+      hl.style.background="linear-gradient(120deg,#facc15,#ef4444)";
+      setTimeout(function(){ hl.style.background=""; }, 2000);
+    }
+  }
+  window.jumpToNote = jumpToNote;
+
+  function exportNotes() {
+    if(notes.length === 0) { alert("No notes to export."); return; }
+    let md = "# Pozzulo (2011) — Notes Export\n\nExported: "+new Date().toISOString()+"\n\n---\n\n";
+    notes.forEach(function(n,i){ md += "## Note "+(i+1)+(n.hlText?" | Highlight: "+n.hlText.substring(0,40):"")+"\n\n"+n.text+"\n\n---\n\n"; });
+    const blob = new Blob([md],{type:"text/markdown"});
+    const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "pozzulo_notes.md"; a.click(); URL.revokeObjectURL(a.href);
+  }
+  window.exportNotes = exportNotes;
+
+  function clearAllNotes() {
+    if(notes.length===0||confirm("Clear all notes?")){
+      notes=[];
+      document.querySelectorAll(".hl-text").forEach(function(el){ el.outerHTML=el.textContent; });
+      persistNotes();
+      renderNotes();
+    }
+  }
+  window.clearAllNotes = clearAllNotes;
+
+  function persistNotes() { try{ localStorage.setItem(STORAGE_KEY_NOTES, JSON.stringify(notes)); }catch(e){ console.log("Storage full"); } }
+
+  renderNotes();
+})();
+</script>
 
 </body>
 </html>
