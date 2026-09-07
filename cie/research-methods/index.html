@@ -176,6 +176,20 @@
         .sp-ctrl button{padding:5px 14px;font-size:.75rem;border-radius:6px;border:1px solid #cfd8dc;background:white;color:#546E7A;cursor:pointer;font-weight:600;transition:all .15s;font-family:inherit}
         .sp-ctrl button:hover{background:#eceff1;color:#333;border-color:#90a4ae}
         @media(max-width:600px){.sp-row{flex-direction:column;gap:.15rem;padding:.55rem .9rem}.sp-row .sp-study{width:auto}}
+
+        /* ===== Chart gallery (visual examples) ===== */
+        .chart-gallery{display:flex;gap:1rem;flex-wrap:wrap;margin:.9rem 0 .6rem}
+        .chart-gallery figure{flex:1 1 200px;min-width:200px;margin:0;border:1px solid #e6e6e6;border-radius:9px;padding:.7rem .6rem .5rem;background:#fafbfc}
+        .chart-gallery figure svg{display:block;margin:0 auto;max-width:220px;width:100%;height:auto}
+        .chart-gallery figcaption{font-size:.78rem;color:#555;margin-top:.5rem;line-height:1.4;text-align:center;font-weight:600}
+        .chart-gallery .cg-note{font-size:.72rem;color:#90a4ae;text-align:center;font-weight:400}
+        .sd-figure{display:block;margin:.9rem auto;max-width:620px;width:100%}
+        .sd-caption{text-align:center;font-size:.8rem;color:#555;font-weight:600;margin:-.2rem 0 .4rem}
+        .exam-box{border:1px solid #e0e0e0;border-left:4px solid #2E7D32;border-radius:8px;padding:.85rem 1rem;background:#fbfdf8}
+        .exam-box .come-col{color:#2E7D32}
+        .exam-box .nocome-col{color:#C62828}
+        .exam-box ul{margin:.3rem 0 .3rem 1.1rem;padding:0}
+        .exam-box li{margin-bottom:.2rem;font-size:.88rem;line-height:1.5}
     </style>
 </head>
 <body>
@@ -718,8 +732,14 @@
 
     <span class="section-label label-learn">Learn Mode</span>
 
-    <div class="warn-box">
-        <strong>⚠️ 反污染提醒（只考 3 种抽样）：</strong>CIE 大纲只列 opportunity / random / volunteer (self-selecting) 三种抽样。像 stratified、systematic、quota、snowball 这些属于其他考纲（爱德思心理学爱考），<b>不要写</b>——写了不加分甚至暴露方法学混淆。同理，人类伦理只按下面 7 条大纲词作答（valid consent、minimising harm 等），"presumptive consent / ethical committee / BPS guidelines" 这类词也不属于 CIE 9990 大纲用语。
+    <div class="exam-box">
+        <strong>🎯 抽样与伦理：直接划范围</strong>
+        <ul>
+            <li><b class="come-col">✅ 会考的抽样只有 3 种（背熟）：</b>opportunity、random (probability)、volunteer (self-selecting) —— 定义 + 评价 + 核心研究例子。</li>
+            <li><b class="nocome-col">❌ 不考的抽样（别写）：</b>stratified、systematic、quota、snowball、cluster 等 —— 属于其他考纲（爱德思心理学爱考），写了不加分、还暴露方法学混淆。</li>
+            <li><b class="come-col">✅ 人类伦理只按 7 条大纲词答：</b>valid consent、minimising harm、right to withdraw、lack of deception、confidentiality、privacy、debriefing。</li>
+            <li><b class="nocome-col">❌ 这些伦理词不写：</b>presumptive consent、ethical committee、BPS guidelines 等 —— 不属于 CIE 9990 大纲用语。</li>
+        </ul>
     </div>
 
     <!-- Sample vs population -->
@@ -793,8 +813,14 @@
 
     <span class="section-label label-learn">Learn Mode</span>
 
-    <div class="warn-box">
-        <strong>⚠️ 反污染提醒（CIE 不考推论统计）：</strong>大纲 p.23 明文：考生<b>不需要计算</b>，也<b>不需要理解或解释任何统计检验</b>（"will not be required to understand or interpret statistical tests"）。2025 年 6 份 Paper 2 真题无一出现 t-test / chi-square / sign test 等。<b>推论统计、显著性水平、正态分布、名义/顺序/等距数据（levels of measurement）都不是 CIE 考点</b>——别学也别写。
+    <div class="exam-box">
+        <strong>🎯 数据与统计：直接划范围 —— 下面的你才要学，其它的不用碰</strong>
+        <ul>
+            <li><b class="come-col">✅ 会考的（把时间花在这）：</b>数据类型（quantitative / qualitative、objective / subjective）；表格（读、画）；集中趋势（mode / median / mean 选哪个 + 描述）；离散程度（<b>range、standard deviation 只考认识与解释</b>）；图表（bar / histogram / scatter graph 认、画、转换）。</li>
+            <li><b class="nocome-col">❌ 不考的（别学、考了也不给分）：</b>一切<b>统计检验</b>——t-test、chi-square、sign test、Mann-Whitney 等（大纲 p.23 明文 "will not be required to understand or interpret statistical tests"：<b>不用计算、不用理解、不用解释</b>）。</li>
+            <li><b class="nocome-col">❌ 这些词也不要写：</b>显著性水平 / p 值、正态分布、自由度、名义 / 顺序 / 等距数据（levels of measurement）、推断统计术语——都不属于 CIE 考点，写错还暴露方法学混淆。</li>
+            <li><b class="come-col">📌 证据：</b>2025 年 6 套 Paper 2 真题<b>没有一道</b>涉及统计检验，全在考"选图 / 画图 / 读表 / 解释 SD 与 mean"。</li>
+        </ul>
     </div>
 
     <!-- Types of data -->
@@ -822,6 +848,20 @@
     <div class="def-card">
         <div style="display:flex;align-items:center;margin-bottom:.5rem"><span class="def-num n7">4</span><strong style="font-size:1.02rem;color:#333">Measures of Spread / 离散程度（range · standard deviation）</strong></div>
         <div class="def-text-box" id="spread-def"><button class="copy-btn" onclick="copyText('spread-def',this)">Copy</button><div class="def-text">Measures of spread describe how <span class="kw">spread out / varied</span> the scores are. <span class="kw">Range</span> = highest score minus lowest score (easy but distorted by one extreme value). <span class="kw">Standard deviation (SD)</span> = a measure of the <span class="kw">average distance of scores from the mean</span> — the larger the SD, the more the scores vary around the mean.</div></div>
+        <div class="sd-figure" aria-label="Same mean, different standard deviation">
+            <svg viewBox="0 0 620 210" width="100%">
+                <line x1="40" y1="192" x2="585" y2="192" stroke="#8a8a8a" stroke-width="1.5"/>
+                <line x1="315" y1="18" x2="315" y2="192" stroke="#333" stroke-width="1.5" stroke-dasharray="5 3"/>
+                <text x="315" y="12" text-anchor="middle" font-size="12" fill="#333" font-weight="600">Same mean（均值相同）</text>
+                <path d="M183,192 C248,192 282,48 315,48 C348,48 382,192 447,192 Z" fill="rgba(37,99,235,.16)" stroke="#2563eb" stroke-width="2"/>
+                <path d="M90,192 C175,192 235,130 315,130 C395,130 455,192 540,192 Z" fill="rgba(234,88,12,.15)" stroke="#ea580c" stroke-width="2"/>
+                <text x="212" y="108" text-anchor="middle" font-size="11" fill="#1565C0" font-weight="700">Small SD</text>
+                <text x="212" y="122" text-anchor="middle" font-size="9.5" fill="#1565C0">scores cluster near mean</text>
+                <text x="425" y="100" text-anchor="middle" font-size="11" fill="#E65100" font-weight="700">Large SD</text>
+                <text x="425" y="114" text-anchor="middle" font-size="9.5" fill="#E65100">scores spread far from mean</text>
+            </svg>
+        </div>
+        <div class="sd-caption">Same mean, different spread — SD tells us how far the scores are from the mean.</div>
         <div class="explain-box"><strong>真题两种问法：</strong><br>• 解释概念（w25/22 Q4(b)(i) Pozzulo）："Describe what is meant by a 'standard deviation'" → "a measure of spread/variation (looking at difference) from the mean"（写"平均离均差"即满分 2 分，公式不用背）。<br>• 解释数据（w25/22 Q4(b)(ii)）：成人的 SD 比儿童大 → "成人年龄范围更大：儿童 4–7 岁只能很窄，成人横跨几十年"。<br>• 读表版（s25/21 Q4）：SD 大 = 该组年龄更分散/range 更大；只写 "Group 1 的 SD 更大" 这类照抄数字 = 0 [NAQ]，必须翻译成"更分散"。</div>
     </div>
 
@@ -834,6 +874,66 @@
             <tr><td class="row-label">Histogram 直方图</td><td>柱子<b>相连无间隙</b>；x 轴是连续区间（0–10, 10–20…）</td><td>连续数据的分组频数</td><td>大纲要求能认/画/转换；2025 真题未直接考作画</td></tr>
             <tr><td class="row-label">Scatter graph 散点图</td><td>每个被试一个点，看两变量关系走向</td><td>相关研究（两个 co-variables）</td><td>w25/21 Q5 画负相关草图（轴标签 1 分 + 负趋势 1 分）；s25/23 Q3(a) 画睡眠时数 vs 身体健康正相关（轴标 + 'hours' 单位 + 正趋势）</td></tr>
         </table>
+        <div class="chart-gallery">
+            <figure>
+                <svg viewBox="0 0 230 178" width="100%">
+                    <line x1="30" y1="150" x2="224" y2="150" stroke="#666" stroke-width="1.5"/>
+                    <line x1="30" y1="20" x2="30" y2="150" stroke="#666" stroke-width="1.5"/>
+                    <rect x="48" y="88" width="27" height="62" fill="#2563eb"/>
+                    <rect x="100" y="58" width="27" height="92" fill="#2563eb"/>
+                    <rect x="152" y="102" width="27" height="48" fill="#2563eb"/>
+                    <rect x="204" y="38" width="27" height="112" fill="#2563eb"/>
+                    <text x="61" y="166" text-anchor="middle" font-size="11">Boys</text>
+                    <text x="113" y="166" text-anchor="middle" font-size="11">Girls</text>
+                    <text x="165" y="166" text-anchor="middle" font-size="11">A</text>
+                    <text x="217" y="166" text-anchor="middle" font-size="11">B</text>
+                    <text x="12" y="85" font-size="10" transform="rotate(-90 12 85)" text-anchor="middle">Mean time (s)</text>
+                    <text x="85" y="45" text-anchor="middle" font-size="8.5" fill="#C62828">gap</text>
+                    <text x="137" y="45" text-anchor="middle" font-size="8.5" fill="#C62828">gap</text>
+                    <text x="189" y="45" text-anchor="middle" font-size="8.5" fill="#C62828">gap</text>
+                </svg>
+                <figcaption>Bar chart 柱状图</figcaption>
+                <div class="cg-note">x 轴 = 离散类别 · 柱子<b>分离有间隙</b></div>
+            </figure>
+            <figure>
+                <svg viewBox="0 0 230 178" width="100%">
+                    <line x1="30" y1="150" x2="224" y2="150" stroke="#666" stroke-width="1.5"/>
+                    <line x1="30" y1="20" x2="30" y2="150" stroke="#666" stroke-width="1.5"/>
+                    <rect x="42" y="96" width="46" height="54" fill="#ea580c"/>
+                    <rect x="88" y="62" width="46" height="88" fill="#ea580c"/>
+                    <rect x="134" y="76" width="46" height="74" fill="#ea580c"/>
+                    <rect x="180" y="100" width="46" height="50" fill="#ea580c"/>
+                    <text x="65" y="166" text-anchor="middle" font-size="10">0–10</text>
+                    <text x="111" y="166" text-anchor="middle" font-size="10">10–20</text>
+                    <text x="157" y="166" text-anchor="middle" font-size="10">20–30</text>
+                    <text x="203" y="166" text-anchor="middle" font-size="10">30–40</text>
+                    <text x="12" y="85" font-size="10" transform="rotate(-90 12 85)" text-anchor="middle">Frequency</text>
+                </svg>
+                <figcaption>Histogram 直方图</figcaption>
+                <div class="cg-note">x 轴 = 连续区间 · 柱子<b>相连无间隙</b></div>
+            </figure>
+            <figure>
+                <svg viewBox="0 0 230 178" width="100%">
+                    <line x1="30" y1="150" x2="224" y2="150" stroke="#666" stroke-width="1.5"/>
+                    <line x1="30" y1="20" x2="30" y2="150" stroke="#666" stroke-width="1.5"/>
+                    <circle cx="58" cy="122" r="4" fill="#2E7D32"/>
+                    <circle cx="80" cy="112" r="4" fill="#2E7D32"/>
+                    <circle cx="96" cy="126" r="4" fill="#2E7D32"/>
+                    <circle cx="112" cy="98" r="4" fill="#2E7D32"/>
+                    <circle cx="132" cy="90" r="4" fill="#2E7D32"/>
+                    <circle cx="150" cy="102" r="4" fill="#2E7D32"/>
+                    <circle cx="168" cy="72" r="4" fill="#2E7D32"/>
+                    <circle cx="188" cy="58" r="4" fill="#2E7D32"/>
+                    <circle cx="205" cy="46" r="4" fill="#2E7D32"/>
+                    <line x1="54" y1="130" x2="210" y2="42" stroke="#2E7D32" stroke-width="2" stroke-dasharray="4 3"/>
+                    <text x="127" y="166" text-anchor="middle" font-size="11">Hours of sleep</text>
+                    <text x="12" y="85" font-size="10" transform="rotate(-90 12 85)" text-anchor="middle">Health score</text>
+                    <text x="120" y="172" text-anchor="middle" font-size="9" fill="#2E7D32">positive ↗</text>
+                </svg>
+                <figcaption>Scatter graph 散点图</figcaption>
+                <div class="cg-note">每个被试一个点 · 看两变量<b>相关走向</b></div>
+            </figure>
+        </div>
         <div class="explain-box"><strong>画图必拿分动作（MS 通用）：</strong>① 两条轴都<b>写标签</b>（含单位）；② bar chart 画离散类别、柱与柱<b>不碰</b>；histogram 连续区间、柱<b>相接</b>；③ 散点/相关图把点排成 positive（↗）或 negative（↘）趋势即可（MS："positive correlation (line or points) = 1"）。<br><br><strong>"change" 考法：</strong>给柱状图 → 换成直方图或反之，判断标准永远是"x 轴是类别还是连续区间"。<br><br><strong>为什么用某图（s25/21 Q2(b) Hassett 版答案）：</strong>男女 / 玩具类型是<b>离散类别</b> → 适合柱状图比较各组时间；若 x 轴是连续量（如年龄）就该用直方图。</div>
     </div>
 
@@ -853,8 +953,14 @@
 
     <span class="section-label label-learn">Learn Mode</span>
 
-    <div class="warn-box">
-        <strong>⚠️ 反污染提醒：</strong>CIE 效度只考 <b>ecological validity</b> + 三个评估维度（subjectivity/objectivity、demand characteristics、generalisability）；"internal validity / external validity / face validity / content validity" 是其他考纲词汇，<b>不写</b>。信度只考三种：<b>inter-rater、inter-observer、test-retest</b>（不考 split-half 等）。
+    <div class="exam-box">
+        <strong>🎯 效度与信度：直接划范围</strong>
+        <ul>
+            <li><b class="come-col">✅ 会考的效度：</b>只考 <b>ecological validity</b>（生态效度）+ 3 个评估角度（subjectivity / objectivity、demand characteristics、generalisability）。</li>
+            <li><b class="nocome-col">❌ 不写的效度：</b>internal validity、external validity、face validity、content validity —— 属于其他考纲词汇，不写（写错暴露混淆）。</li>
+            <li><b class="come-col">✅ 会考的信度：</b>3 种 —— <b>inter-rater、inter-observer、test-retest</b>。</li>
+            <li><b class="nocome-col">❌ 不考的信度：</b>split-half、parallel forms 等 —— 不需要学。</li>
+        </ul>
     </div>
 
     <!-- Case study -->
