@@ -1,586 +1,1748 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bandura et al. (1961) — Transmission of Aggression Through Imitation of Aggressive Models</title>
-<style>
-  :root { --bg:#fff;--card-bg:#f8f9fa;--text:#2c3e50;--heading:#1a365d;--accent:#dc2626;--accent-light:#fee2e2;--border:#d1d5db;--note-bg:#fefce8;--note-border:#eab308;--term-color:#7c3aed;--correct:#16a34a;--wrong:#dc2626;--highlight-red:#fef2f2;--highlight-green:#f0fdf4; }
-  *{margin:0;padding:0;box-sizing:border-box}
-  body{font-family:-apple-system,"Segoe UI",Roboto,"Noto Sans SC",sans-serif;color:var(--text);background:var(--bg);line-height:1.75;padding:20px;max-width:900px;margin:0 auto}
-  h1{font-size:1.9em;color:var(--heading);border-bottom:3px solid var(--accent);padding-bottom:12px;margin-bottom:24px;line-height:1.3}
-  h2{font-size:1.5em;color:var(--accent);margin:36px 0 14px;padding-left:10px;border-left:4px solid var(--accent)}
-  h3{font-size:1.18em;color:var(--heading);margin:22px 0 10px}
-  p{margin-bottom:11px;text-align:justify}
-  .meta{color:#64748b;font-size:.92em;border-left:3px solid var(--border);padding-left:12px;margin-bottom:26px}
-  ul,ol{padding-left:22px;margin-bottom:13px} li{margin-bottom:4px}
-  strong{color:var(--heading)} .term{color:var(--term-color);font-weight:600} .cn{color:#4b5563;font-weight:500}
-  .key-box{background:linear-gradient(135deg,#eff6ff 0%,#f0fdf4 100%);border:1px solid var(--border);border-radius:10px;padding:18px 22px;margin:18px 0;box-shadow:0 1px 3px rgba(0,0,0,.06)}
-  .key-box h4{color:var(--heading);margin-bottom:8px;font-size:1.05em}
-  .cn-note{background:var(--note-bg);border-left:4px solid var(--note-border);border-radius:0 8px 8px 0;padding:14px 18px;margin:15px 0;font-size:.95em}
-  .warn-box{background:var(--highlight-red);border:1px solid #fca5a5;border-radius:10px;padding:16px 20px;margin:15px 0}
-  .warn-box h4{color:#991b1b;margin-bottom:8px}
-  table{width:100%;border-collapse:collapse;margin:18px 0;font-size:.88em}
-  th,td{border:1px solid var(--border);padding:8px 10px;text-align:center}
-  th{background:#f1f5f9;font-weight:600;color:var(--heading)}
-  tr:nth-child(even){background:var(--card-bg)}
-  .img-container{text-align:center;margin:22px 0}
-  .img-container img{max-width:100%;height:auto;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.1);border:1px solid #e5e7eb}
-  .img-caption{font-size:.88em;color:#64748b;margin-top:8px;font-style:italic}
-  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:18px 0}
-  .kw-box{background:linear-gradient(135deg,#fef3c7 0%,#fce7f3 100%);border:1px solid #f59e0b;border-radius:10px;padding:16px 20px;margin:15px 0}
-  .kw-box h4{color:#92400e;margin-bottom:8px}
-  .activity-box{background:linear-gradient(135deg,#e0e7ff 0%,#ede9fe 100%);border:1px solid #8b5cf6;border-radius:10px;padding:16px 20px;margin:18px 0}
-  .activity-box h4{color:#5b21b6;margin-bottom:8px}
-  .result-highlight{background:#dcfce7;padding:2px 6px;border-radius:4px;font-weight:700;color:#166534}
-  .result-high{background:#fee2e2;padding:2px 6px;border-radius:4px;font-weight:700;color:#991b1b}
-  .chart-container{text-align:center;margin:24px 0}
-  td:first-child{font-weight:600;text-align:left;background:#f8fafc}
-  thead td:first-child{background:#f1f5f9;text-align:center}
-  .hyp-table td:nth-child(odd),.hyp-table th:nth-child(odd){background:#fff8f0}
-  @media(max-width:650px){.two-col{grid-template-columns:1fr}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bandura, Ross &amp; Ross (1961) — Transmission of Aggression Through Imitation of Aggressive Models</title>
+  <style>
+    :root {
+      --primary: #2E7D32;
+      --primary-light: #43A047;
+      --primary-dark: #1B5E20;
+      --accent: #2E7D32;
+      --bg: #FAFAFA;
+      --card-bg: #FFFFFF;
+      --text: #212121;
+      --text-secondary: #616161;
+      --border: #E0E0E0;
+      --highlight: #F1F8E9;
+      --warning: #FFEBEE;
+      --code-bg: #F5F5F5;
+      --note-bg: #FFF8E1;
+      --note-border: #FFC107;
+      --term-color: #2E7D32;
+      --correct: #16a34a;
+      --wrong: #dc2626;
+    }
+    * { box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; line-height: 1.75; color: var(--text); background: var(--bg); margin: 0; padding: 0; font-size: 16px; transition: background .3s, color .3s; }
+    body.dark { --bg: #0f172a; --card-bg: #1a1a2e; --text: #e2e8f0; --text-secondary: #94a3b8; --border: #334155; background: var(--bg); color: var(--text); }
+    .container { max-width: 1200px; margin: 0 auto; padding: 16px 24px; }
+    .progress-bar { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: linear-gradient(90deg, var(--primary), var(--primary-light), #81C784); z-index: 9999; transition: width .1s ease-out; }
+    body.dark .progress-bar { background: linear-gradient(90deg, #43A047, #81C784, #A5D6A7); }
+    .nav-bar { position: sticky; top: 0; z-index: 100; background: white; border-bottom: 3px solid var(--primary); padding: .65rem 2rem; display: flex; align-items: center; gap: 1rem; margin: 0 0 28px 0; box-shadow: 0 2px 10px rgba(0,0,0,.06); }
+    body.dark .nav-bar { background: #1a1a2e; border-bottom-color: var(--primary); }
+    .nav-pill { display: inline-flex; align-items: center; gap: .4rem; padding: .45rem 1.1rem; background: var(--primary); color: white; border-radius: 20px; text-decoration: none; font-size: .82em; font-weight: 600; transition: background .15s; white-space: nowrap; }
+    .nav-pill:hover { background: var(--primary-dark); }
+    .nav-breadcrumb { display: flex; align-items: center; gap: .4rem; font-size: .82em; color: var(--text-secondary); flex: 1; }
+    .nav-breadcrumb a { color: var(--text-secondary); text-decoration: none; transition: color .15s; }
+    .nav-breadcrumb a:hover { color: var(--primary); }
+    .nav-breadcrumb .sep { color: #ccc; font-weight: 300; }
+    .nav-breadcrumb span:last-child { color: var(--text); font-weight: 500; }
+    body.dark .nav-breadcrumb a { color: #aaa; }
+    body.dark .nav-breadcrumb span:last-child { color: #ddd; }
+    .nav-controls { display: flex; align-items: center; gap: .5rem; }
+    .nav-btn { background: none; border: 1px solid #ddd; border-radius: 6px; padding: .35rem .65rem; cursor: pointer; font-size: .85em; color: var(--text-secondary); transition: all .15s; display: flex; align-items: center; gap: .25rem; }
+    .nav-btn:hover { border-color: var(--primary); color: var(--primary); }
+    body.dark .nav-btn { border-color: #444; color: #aaa; }
+    body.dark .nav-btn:hover { border-color: #43A047; color: #43A047; }
+    .page-layout { display: grid; grid-template-columns: 170px minmax(0,1fr) 250px; gap: 20px; align-items: start; }
+    .sidebar { width: 170px; flex-shrink: 0; position: sticky; top: 60px; max-height: calc(100vh - 80px); overflow-y: auto; padding: 12px 0; z-index: 50; }
+    .sidebar::-webkit-scrollbar { width: 2px; }
+    .sidebar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 2px; }
+    .sidebar-inner { background: #f8fafc; border-radius: 14px; border: 1px solid #e2e8f0; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,.05); }
+    body.dark .sidebar-inner { background: #16213e; border-color: #334155; box-shadow: 0 2px 8px rgba(0,0,0,.25); }
+    .sb-header { padding: 13px 16px 10px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); }
+    .sb-header-title { font-size: .72em; font-weight: 700; color: white; letter-spacing: .8px; text-transform: uppercase; margin: 0; }
+    .sb-header-sub { font-size: .63em; color: rgba(255,255,255,.75); margin: 2px 0 0; font-weight: 500; }
+    .sb-list { list-style: none; padding: 6px 0 10px; margin: 0; }
+    .sb-divider { height: 1px; background: #e2e8f0; margin: 4px 12px; }
+    body.dark .sb-divider { background: #334155; }
+    .sb-item a { display: block; padding: 7px 14px 7px 18px; color: #475569; text-decoration: none; font-size: .76em; font-weight: 500; border-left: 3px solid transparent; transition: all .15s ease; line-height: 1.45; border-radius: 0 7px 7px 0; margin: 1px 4px 1px 0; }
+    .sb-item a:hover { border-left-color: var(--primary); color: var(--primary-dark); font-weight: 600; background: linear-gradient(90deg, rgba(46,125,50,.07), transparent); }
+    .sb-item a.sb-active { border-left-color: var(--primary); color: var(--primary-dark); font-weight: 700; background: linear-gradient(90deg, rgba(46,125,50,.12), transparent); }
+    body.dark .sb-item a { color: #94a3b8; }
+    body.dark .sb-item a:hover { color: #43A047; background: linear-gradient(90deg, rgba(102,187,106,.10), transparent); border-left-color: #43A047; }
+    body.dark .sb-item a.sb-active { color: #81C784; background: linear-gradient(90deg, rgba(102,187,106,.16), transparent); border-left-color: #43A047; }
+    .main-content { min-width: 0; max-width: 660px; }
+    .notes-col { width: 250px; background: #fffef5; border: 2px solid #f59e0b; border-radius: 12px; display: flex; flex-direction: column; position: sticky; top: 60px; max-height: calc(100vh - 80px); box-shadow: 0 2px 12px rgba(245,158,11,.15); }
+    .nc-header { background: linear-gradient(135deg,#f59e0b,#d97706); padding: 12px 14px; display: flex; align-items: center; gap: 8px; }
+    .nc-title { font-size: .85em; font-weight: 700; color: #fff; }
+    .nc-count { margin-left: auto; background: rgba(255,255,255,.3); color: #fff; font-size: .7em; font-weight: 700; padding: 2px 8px; border-radius: 10px; }
+    .nc-body { flex: 1; overflow-y: auto; padding: 10px; max-height: calc(100vh - 240px); min-height: 60px; }
+    .nc-empty { text-align: center; color: #9ca3af; padding: 20px 8px; font-size: .78em; }
+    .nc-input-row { display: none; padding: 12px; border-top: 1px solid #fde68a; background: #fffbeb; }
+    .nc-input-row.show { display: block; }
+    .nc-textarea { width: 100%; border: 1px solid #fcd34d; border-radius: 8px; padding: 10px; font-size: .82em; resize: vertical; min-height: 60px; box-sizing: border-box; outline: none; font-family: inherit; }
+    .nc-textarea:focus { border-color: #d97706; box-shadow: 0 0 0 2px rgba(245,158,11,.15); }
+    .nc-actions { display: flex; gap: 8px; margin-top: 8px; }
+    .nc-actions button { flex: 1; padding: 8px; border-radius: 6px; font-size: .78em; font-weight: 600; cursor: pointer; border: 1px solid transparent; }
+    .nc-btn-save { background: #16a34a; color: white; }
+    .nc-btn-cancel { background: white; color: #6b7280; border-color: #d1d5db !important; }
+    .nc-add-btn { width: 100%; padding: 13px; background: linear-gradient(135deg,#2E7D32,#1B5E20); color: white; border: none; border-radius: 0 0 10px 10px; font-size: .88em; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: opacity .2s; }
+    .nc-add-btn:hover { opacity: .9; }
+    .nc-footer { display: flex; gap: 4px; padding: 6px 10px; border-top: 1px solid #fde68a; }
+    .nc-footer button { flex: 1; padding: 4px 0; font-size: .68em; border: none; background: transparent; color: #92400e; cursor:pointer; }
+    .hl-text { background: linear-gradient(120deg,#fef08a,#fde047); border-radius: 2px; padding: 0 2px; cursor: pointer; transition: background .15s; }
+    .hl-text:hover { background: linear-gradient(120deg,#fde047,#facc15); }
+    .note-card { background: #fff; border-radius: 8px; padding: 10px 12px; margin-bottom: 8px; border-left: 3px solid #f59e0b; box-shadow: 0 1px 3px rgba(0,0,0,.08); font-size: .78em; line-height: 1.5; position: relative; animation: nFadeIn .2s ease; transition: box-shadow .2s, border-color .2s; }
+    @keyframes nFadeIn { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:translateY(0)} }
+    .note-card[ondblclick]:hover { box-shadow: 0 4px 12px rgba(245,158,11,.25); border-left-color: #d97706; }
+    .note-card-hl { font-size: .7em; color: #92400e; background: #fef3c7; padding: 2px 6px; border-radius: 4px; margin-bottom: 4px; cursor: pointer; word-break: break-all; }
+    .note-card-hl:hover { background: #fde68a; }
+    .note-card-text { color: #374151; word-break: break-word; }
+    .note-card-del { position: absolute; top: 4px; right: 4px; width: 18px; height: 18px; border: none; background: #fee2e2; color: #ef4444; border-radius: 50%; font-size: .65em; cursor: pointer; opacity: 0; display: flex; align-items: center; justify-content: center; }
+    .note-card:hover .note-card-del { opacity: 1; }
+    .header { text-align: center; padding: 36px 24px; background: linear-gradient(135deg, var(--primary-dark), var(--primary)); color: white; border-radius: 12px; margin-bottom: 24px; box-shadow: 0 4px 15px rgba(46,125,50,0.3); }
+    .header h1 { font-size: 1.85em; margin-bottom: 10px; }
+    .header .subtitle { font-size: 1.05em; opacity: 0.92; }
+    .header .meta { margin-top: 15px; font-size: 0.88em; opacity: 0.82; }
+    .badge { display: inline-block; padding: 4px 14px; border-radius: 20px; background: rgba(255,255,255,0.2); margin: 3px; font-size: 0.84em; }
+    .kw-tags { margin-top: 18px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+    .kw-tag { display: inline-flex; align-items: center; gap: 5px; padding: 6px 16px; border-radius: 20px; font-size: .82em; font-weight: 600; color: white; opacity: .95; }
+    .kw-app { background: linear-gradient(135deg, #1565C0, #42A5F5); }
+    .kw-meth { background: linear-gradient(135deg, #E65100, #FB8C00); }
+    .kw-conc { background: linear-gradient(135deg, #7B1FA2, #AB47BC); }
+    .toc { background: var(--soft, #f8fafc); border: 1px solid var(--border); border-radius: 10px; padding: 22px 26px; margin-bottom: 24px; border-left: 4px solid var(--primary); }
+    body.dark .toc { background: #16213e; border-color: #334155; }
+    .toc h2 { color: var(--primary-dark); margin-bottom: 14px; font-size: 1.25em; }
+    .toc ol { padding-left: 20px; }
+    .toc li { margin: 7px 0; }
+    .toc li a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+    .toc li a:hover { color: var(--primary); text-decoration: underline; }
+    .section { background: var(--card-bg); border-radius: 10px; padding: 28px 32px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-top: 3px solid var(--primary-light); }
+    body.dark .section { background: #1a1a2e; box-shadow: 0 2px 8px rgba(0,0,0,.3); }
+    .section h2 { color: var(--primary-dark); font-size: 1.45em; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid var(--border); }
+    body.dark .section h2 { color: #43A047; border-bottom-color: #334155; }
+    .section h3 { color: var(--primary); font-size: 1.18em; margin: 22px 0 12px; }
+    body.dark .section h3 { color: #81C784; }
+    .section h4 { color: var(--text); font-size: 1.04em; margin: 14px 0 8px; }
+    .quote { border-left: 4px solid var(--primary); background: linear-gradient(135deg, #fffbeb, #dcfce7); padding: 16px 22px; margin: 16px 0; border-radius: 0 8px 8px 0; font-style: italic; color: var(--primary-dark); }
+    body.dark .quote { background: linear-gradient(135deg, rgba(46,125,50,.15), rgba(46,125,50,.08)); border-left-color: #43A047; color: #a5d6a7; }
+    .note-box { background: #fffbeb; border-left: 4px solid var(--primary); border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+    body.dark .note-box { background: rgba(251,191,36,.06); border-left-color: #FBC02D; }
+    .blue-box { background: #eff6ff; border-left: 4px solid var(--accent); border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+    body.dark .blue-box { background: rgba(59,130,246,.06); border-left-color: #42A5F5; }
+    .green-box { background: #f0fdf4; border-left: 4px solid #38a169; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+    body.dark .green-box { background: rgba(56,161,105,.06); border-left-color: #43A047; }
+    .warn-box { background: #fef2f2; border-left: 4px solid #dc2626; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+    body.dark .warn-box { background: rgba(220,38,38,.06); border-left-color: #ef5350; }
+    .warn-box h4 { color: #991b1b; margin-bottom: 6px; }
+    body.dark .warn-box h4 { color: #ef5350; }
+    .keyword-box { background: linear-gradient(135deg, #FFF8E1, #FFECB3); border-left: 5px solid #D97706; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+    .keyword-box h4 { color: #92400E; font-size: 0.95em; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+    .keyword-box p { margin: 6px 0; }
+    .keyword-box strong { color: #78350F; }
+    .figure { margin: 20px 0; text-align: center; }
+    .figure img { max-width: 100%; border: 1px solid var(--border); border-radius: 10px; box-shadow: 0 3px 12px rgba(0,0,0,0.08); }
+    .figure-caption { font-size: 0.89em; color: var(--text-secondary); margin-top: 8px; font-style: italic; }
+    table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 0.92em; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-radius: 8px; overflow: hidden; }
+    th { background: var(--primary); color: white; padding: 12px 14px; text-align: left; font-weight: 600; }
+    td { padding: 11px 14px; border-bottom: 1px solid var(--border); }
+    tr:nth-child(even) { background: #fafbfc; }
+    body.dark tr:nth-child(even) { background: rgba(255,255,255,.02); }
+    tr:hover { background: #fffbeb; }
+    body.dark tr:hover { background: rgba(46,125,50,.05); }
+    td:first-child { font-weight: 600; color: var(--primary-dark); }
+    body.dark td:first-child { color: #81C784; }
+    .num-cell { text-align: center; font-weight: 700; color: var(--primary-dark); }
+    caption { font-weight: 600; color: var(--text); margin-bottom: 8px; font-size: 0.96em; }
+    ul, ol { margin: 10px 0; padding-left: 24px; }
+    li { margin: 6px 0; }
+    .condition-table td:first-child { width: 110px; font-weight: 700; color: var(--primary-dark); white-space: nowrap; }
+    .cond-badge { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.86em; font-weight: 600; }
+    .cond-aggressive { background: #fee2e2; color: #991b1b; }
+    .cond-nonaggressive { background: #d1fae5; color: #065f46; }
+    .cond-control { background: #e0e7ff; color: #3730a3; }
+    .result-highlight { background: #dcfce7; padding: 2px 6px; border-radius: 4px; font-weight: 700; color: #166534; }
+    .result-high { background: #fee2e2; padding: 2px 6px; border-radius: 4px; font-weight: 700; color: #991b1b; }
+    .result-mid { background: #fef3c7; padding: 2px 6px; border-radius: 4px; font-weight: 700; color: #92400e; }
+    .factor-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0; }
+    .factor-card { background: #fafafa; border-radius: 8px; padding: 14px 16px; border-left: 3px solid var(--accent); }
+    body.dark .factor-card { background: #16213e; border-left-color: #43A047; }
+    .factor-card .num { font-weight: 800; color: var(--accent); font-size: 1.1em; margin-right: 6px; }
+    body.dark .factor-card .num { color: #43A047; }
+    .factor-card h4 { display: inline; font-size: 0.94em; color: var(--text); }
+    .cn-summary-wrap { margin: 18px 0; }
+    .cn-summary-toggle { display: flex; align-items: center; gap: 8px; width: 100%; padding: 10px 16px; background: linear-gradient(135deg, #f3e8ff, #ede9fe); border: 1.5px dashed #a78bfa; border-radius: 8px; cursor: pointer; font-size: .86em; color: #6b21a8; font-weight: 500; transition: all .2s; text-align: left; }
+    body.dark .cn-summary-toggle { background: linear-gradient(135deg, rgba(167,139,250,.1), rgba(139,92,246,.08)); border-color: #8b5cf6; color: #c4b5fd; }
+    .cn-summary-toggle:hover { background: linear-gradient(135deg, #ede9fe, #ddd6fe); border-color: #8b5cf6; }
+    .cs-icon { font-size: .75em; transition: transform .2s; min-width: 14px; }
+    .cn-summary-toggle.open .cs-icon { transform: rotate(90deg); }
+    .cn-summary-body { max-height: 0; overflow: hidden; opacity: 0; transition: max-height .4s ease, opacity .25s ease; }
+    .cn-summary-body.open { max-height: 800px; opacity: 1; margin: 8px 0 4px; }
+    .cn-summary-body { background: linear-gradient(135deg, #faf5ff, #f3e8ff); border-radius: 8px; padding: 18px 22px; border: 1px solid #e9d5ff; }
+    body.dark .cn-summary-body { background: linear-gradient(135deg, rgba(167,139,250,.06), rgba(124,58,237,.04)); border-color: rgba(139,92,246,.2); }
+    .cs-title { font-weight: 700; color: #6b21a8; font-size: .95em; margin-bottom: 10px; padding-bottom: 6px; border-bottom: 1px dashed #d8b4fe; }
+    body.dark .cs-title { color: #c4b5fd; border-bottom-color: rgba(139,92,246,.3); }
+    .cn-summary-body p { margin: 8px 0; line-height: 1.72; color: #374151; font-size: .93em; }
+    body.dark .cn-summary-body p { color: #d1d5db; }
+    .cn-summary-body ul { margin: 6px 0; padding-left: 20px; }
+    .cn-summary-body li { margin: 5px 0; font-size: .93em; color: #374151; }
+    body.dark .cn-summary-body li { color: #d1d5db; }
+    .cs-en { color: #7c3aed; font-style: italic; font-weight: 500; }
+    body.dark .cs-en { color: #a78bfa; }
+    .summary-card { background: linear-gradient(135deg, #fffbeb, #dcfce7); border-left: 5px solid #16a34a; border-radius: 10px; margin: 20px 0 0; overflow: hidden; transition: all .2s; }
+    body.dark .summary-card { background: linear-gradient(135deg, #052e16, #14532d); border-left-color: #22c55e; }
+    .summary-card-header { display: flex; align-items: center; gap: 8px; padding: 12px 18px; cursor: pointer; user-select:none; -webkit-user-select:none; transition: background .15s; }
+    .summary-card-header:hover { background: #bbf7d0; }
+    body.dark .summary-card-header:hover { background: #166534; }
+    .summary-card-icon { font-size: 1.1em; transition: transform .2s; color: #166534; }
+    body.dark .summary-card-icon { color: #86efac; }
+    .summary-card.open .summary-card-icon { transform: rotate(90deg); }
+    .summary-card-title { font-size: .92em; font-weight: 700; color: #166534; flex: 1; }
+    body.dark .summary-card-title { color: #86efac; }
+    .summary-card-badge { font-size: .7rem; background: #16a34a; color: white; padding: 2px 10px; border-radius: 10px; font-weight: 600; }
+    .summary-card-body { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
+    .summary-card.open .summary-card-body { max-height: 800px; }
+    .summary-card-inner { margin: 0 14px 14px; padding: 16px 20px; background: #ffffff; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,.06); border: 1px solid #e8f0e8; }
+    body.dark .summary-card-inner { background: #0c1a0c; border-color: #1a3a1a; box-shadow: 0 1px 4px rgba(0,0,0,.2); }
+    .summary-card-inner ol, .summary-card-inner ul { margin: 0; padding-left: 20px; }
+    .summary-card-inner li { margin: 8px 0; font-size: .98em; color: #1a1a1a; line-height: 1.72; }
+    body.dark .summary-card-inner li { color: #e8ede9; }
+    .tag-must { display: inline-block; padding: 2px 8px; border-radius: 4px; background: #fee2e2; color: #dc2626; font-size: .76em; font-weight: 700; vertical-align: middle; margin-left: 4px; }
+    .tag-common { display: inline-block; padding: 2px 8px; border-radius: 4px; background: #fef3c7; color: #d97706; font-size: .76em; font-weight: 700; vertical-align: middle; margin-left: 4px; }
+    .tag-ao2 { display: inline-block; padding: 2px 8px; border-radius: 4px; background: #dcfce7; color: #16a34a; font-size: .76em; font-weight: 700; vertical-align: middle; margin-left: 4px; }
+    .tag-context { display: inline-block; padding: 2px 8px; border-radius: 4px; background: #f1f5f9; color: #64748b; font-size: .76em; font-weight: 700; vertical-align: middle; margin-left: 4px; }
+    .qa-card { background: white; border: 1.5px solid #e2e8f0; border-radius: 10px; margin: 12px 0; overflow: hidden; transition: box-shadow .2s, border-color .2s; }
+    .qa-card:hover { box-shadow: 0 3px 12px rgba(0,0,0,.08); border-color: #cbd5e1; }
+    body.dark .qa-card { background: #1a2332; border-color: #334155; }
+    body.dark .qa-card:hover { border-color: #475569; box-shadow: 0 3px 12px rgba(0,0,0,.25); }
+    .qa-question { display: flex; align-items: flex-start; gap: 10px; padding: 16px 18px; cursor: pointer; user-select:none; -webkit-user-select:none; transition: background .15s; }
+    .qa-question:hover { background: #f8fafc; }
+    body.dark .qa-question:hover { background: rgba(255,255,255,.03); }
+    .qa-num { flex-shrink: 0; width: 28px; height: 28px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: .78em; font-weight: 700; line-height: 1; }
+    .qa-text { flex: 1; font-size: .93em; color: #1e293b; line-height: 1.6; font-weight: 500; }
+    body.dark .qa-text { color: #e2e8f0; }
+    .qa-toggle { flex-shrink: 0; width: 32px; height: 28px; background: linear-gradient(135deg, #eff6ff, #dbeafe); border: 1.5px solid #93c5fd; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: .72em; color: #2563eb; font-weight: 600; transition: all .15s; cursor: pointer; }
+    body.dark .qa-toggle { background: rgba(59,130,246,.1); border-color: #3b82f6; color: #93c5fd; }
+    .qa-toggle:hover { background: linear-gradient(135deg, #dbeafe, #bfdbfe); }
+    body.dark .qa-toggle:hover { background: rgba(59,130,246,.18); }
+    .qa-toggle .qa-icon { transition: transform .2s; display: inline-block; }
+    .qa-card.open .qa-toggle .qa-icon { transform: rotate(180deg); }
+    .qa-answer { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
+    .qa-card.open .qa-answer { max-height: 500px; }
+    .qa-answer-inner { padding: 14px 18px 18px; margin: 0 14px 14px; background: linear-gradient(135deg, #fefce8, #fef3c7); border-left: 4px solid #f59e0b; border-radius: 8px; font-size: .91em; color: #451a03; line-height: 1.72; }
+    body.dark .qa-answer-inner { background: linear-gradient(135deg, rgba(245,158,11,.08), rgba(217,119,6,.05)); border-left-color: #f59e0b; color: #d4a574; }
+    .qa-answer-inner strong { color: #b45309; }
+    body.dark .qa-answer-inner strong { color: #fbbf24; }
+    .term { color: var(--term-color); font-weight: 600; cursor: help; position: relative; border-bottom: 1px dotted var(--term-color); }
+    .term-tooltip { position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%); background: #1e293b; color: #f8fafc; padding: 12px 16px; border-radius: 8px; font-size: .84em; line-height: 1.55; width: 280px; z-index: 200; box-shadow: 0 8px 30px rgba(0,0,0,.25); opacity: 0; visibility: hidden; transition: .2s; pointer-events: none; }
+    .term-tooltip::after { content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); border: 6px solid transparent; border-top-color: #1e293b; }
+    .term:hover .term-tooltip { opacity: 1; visibility: visible; }
+    .tt-cn { color: #a78bfa; font-weight: 600; display: block; margin-bottom: 4px; font-size: .96em; }
+    .tt-def { color: #94a3b8; display: block; margin-top: 4px; }
+    .visual-header { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; padding: 14px 18px; background: linear-gradient(135deg, #fffbeb, #dcfce7); border-radius: 10px; border-left: 4px solid var(--primary); }
+    body.dark .visual-header { background: linear-gradient(135deg, rgba(46,125,50,.1), rgba(34,197,94,.06)); border-left-color: #43A047; }
+    .vh-icon { font-size: 1.8em; flex-shrink: 0; }
+    .vh-text h4 { margin: 0 0 3px; color: var(--primary-dark); font-size: .92em; }
+    body.dark .vh-text h4 { color: #81C784; }
+    .vh-text p { margin: 0; font-size: .82em; color: var(--text-secondary); }
+    .back-to-top { position: fixed; bottom: 30px; right: 30px; width: 44px; height: 44px; background: var(--primary); color: white; border: none; border-radius: 50%; cursor: pointer; font-size: 1.2em; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(46,125,50,.35); opacity: 0; visibility: hidden; transform: translateY(15px); transition: all .3s; z-index: 90; }
+    .back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+    .back-to-top:hover { background: var(--primary-dark); transform: translateY(-3px); }
+    .footer-note { font-size: 0.85em; color: var(--text-secondary); margin-top: 2.5em; padding-top: 1em; border-top: 1px solid var(--border); text-align: center; }
+    .study-nav{border-top:2px solid #e0e0e0;background:#FAFAFA;padding:14px 16px;margin-top:2rem}
+    .study-nav-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:1100px;margin:0 auto}
+    .study-nav-btn{flex:1;padding:9px 14px;border:1px solid #ddd;border-radius:8px;background:white;color:#444;font-size:.82rem;cursor:pointer;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:4px;transition:all .15s;font-family:inherit}
+    .study-nav-btn:hover{border-color:#2E7D32;color:#2E7D32;background:#fffbeb}
+    .study-nav-dots{text-align:center;padding:0 8px}
+    .study-nav-label{font-size:.65rem;text-transform:uppercase;letter-spacing:1px;color:#888;margin-bottom:5px;font-weight:700}
+    .study-dot-row{display:flex;gap:5px;justify-content:center;flex-wrap:wrap}
+    .study-dot{width:10px;height:10px;border-radius:50%;cursor:pointer;border:2px solid transparent;transition:all .15s;position:relative;display:inline-block}
+    .study-dot:hover{transform:scale(1.3)}
+    .study-dot.active{border-color:#333;transform:scale(1.25)}
+    body.dark { background: #0f172a; color: #e2e8f0; }
+    body.dark .container { background: #0f172a; }
+    body.dark .header { background: linear-gradient(135deg, #1B5E20, #2E7D32); }
+    body.dark .keyword-box { background: linear-gradient(135deg, rgba(217,119,6,.12), rgba(217,119,6,.06)); border-left-color: #F59E0B; }
+    body.dark .keyword-box h4, body.dark .keyword-box strong { color: #FBBF24; }
+    body.dark .keyword-box p { color: #d1d5db; }
+    body.dark th { background: #1B5E20; }
+    body.dark td { border-bottom-color: #1e293b; }
+    body.dark caption { color: #cbd5e1; }
+    body.dark .footer-note { border-top-color: #1e293b; color: #94a3b8; }
+    body.dark .study-nav { background: #1e293b; border-top-color: #334155; }
+    body.dark .study-nav-btn { background: #0f172a; border-color: #334155; color: #94a3b8; }
+    body.dark .study-nav-btn:hover { border-color: #43A047; color: #43A047; background: rgba(46,125,50,.08); }
+    body.dark .figure img { border-color: #334155; }
+    body.dark .figure-caption { color: #94a3b8; }
+    body.dark blockquote { color: #94a3b8; border-left-color: #334155; }
+    body.dark .back-to-top { background: #2E7D32; }
+    body.dark .back-to-top:hover { background: #43A047; }
+    body.dark .visual-header { background: linear-gradient(135deg, rgba(46,125,50,.1), rgba(34,197,94,.06)); border-left-color: #43A047; }
+    body.dark .note-box { background: rgba(251,191,36,.06); border-left-color: #FBC02D; }
+    body.dark .blue-box { background: rgba(59,130,246,.06); border-left-color: #42A5F5; }
+    body.dark .green-box { background: rgba(56,161,105,.06); border-left-color: #43A047; }
+    body.dark .quote { background: linear-gradient(135deg, rgba(46,125,50,.15), rgba(46,125,50,.08)); border-left-color: #43A047; color: #a5d6a7; }
+    @media print {
+      .progress-bar, .nav-bar, .sidebar, .page-layout, .back-to-top, .cn-summary-wrap, .summary-card, .study-nav, .kw-tags { display: none !important; }
+      .container { max-width: 100% !important; padding: 0 !important; }
+      .main-content { width: 100% !important; }
+      .section { break-inside: avoid; page-break-inside: avoid; box-shadow: none; border: 1px solid #ddd; }
+      body { font-size: 11pt; background: white; color: black; }
+      .header { background: #2E7D32 !important; color: white !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+    @media(max-width:900px){
+      .page-layout{grid-template-columns:1fr!important}.sidebar,.notes-col{display:none}
+    }
+    @media(max-width:850px){
+      .page-layout{grid-template-columns:1fr}
+      .sidebar,.notes-col{display:none}
+      .container{padding:12px 16px}
+      .section{padding:20px}
+      .factor-grid{grid-template-columns:1fr}
+      .nav-bar{flex-wrap:wrap;padding:.5rem 1rem}
+      .nav-breadcrumb{order:3;width:100%;margin-top:6px}
+    }
+    @media(max-width:600px){
+      .study-nav-inner{flex-wrap:wrap;gap:8px}
+      .study-nav-btn{font-size:.75rem;padding:7px 10px}
+      .study-dot{width:8px;height:8px}
+      .header h1{font-size:1.4em}
+      .kw-tags{gap:6px}
+      .kw-tag{font-size:.74em;padding:5px 10px}
+    }
+  </style>
 </head>
-
 <body>
 
-<h1>🎯 Bandura, Ross & Ross (1961)<br><small style="font-size:.55em;color:#64748b">Transmission of Aggression Through Imitation of Aggressive Models</small></h1>
+<div class="progress-bar" id="progressBar"></div>
 
-<div class="meta">
-  <strong>Bandura, A., Ross, D., & Ross, S. A.</strong> (1961). Transmission of aggression through imitation of aggressive models. <em>Journal of Abnormal and Social Psychology</em>, <strong>63</strong>(3), 575–582.<br>
-  <span class="cn">CIE Psychology — Learning Approach Core Study 1（学习取向核心研究1）</span>
+<div class="container">
+
+<nav class="nav-bar">
+  <a href="../../index.html" class="nav-pill">🏠 Home</a>
+  <div class="nav-breadcrumb">
+    <a href="../../index.html">Home</a><span class="sep">›</span>
+    <a href="../">CIE Psychology</a><span class="sep">›</span><span>Bandura (1961)</span>
+  </div>
+  <div class="nav-controls">
+    <button class="nav-btn" onclick="toggleDarkMode()" id="darkBtn" title="Toggle dark mode">🌙 Dark</button>
+    <button class="nav-btn" onclick="adjustFontSize(-1)" title="Decrease font size">A-</button>
+    <button class="nav-btn" onclick="adjustFontSize(1)" title="Increase font size">A+</button>
+  </div>
+</nav>
+
+<div class="page-layout">
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+      <div class="sb-header">
+        <div class="sb-header-title">🎯 Bandura 1961</div>
+        <div class="sb-header-sub">Bobo Doll Study</div>
+      </div>
+      <ul class="sb-list" id="sidebarList">
+        <li class="sb-item"><a href="#s1">Assumptions</a></li>
+        <li class="sb-item"><a href="#s2">Psychology</a></li>
+        <li class="sb-item"><a href="#s3">Background</a></li>
+        <li class="sb-item"><a href="#s4">Aim</a></li>
+        <li class="sb-divider"></li>
+        <li class="sb-item"><a href="#s5">Method</a></li>
+        <li class="sb-item"><a href="#s6">Procedure</a></li>
+        <li class="sb-item"><a href="#s7">Results</a></li>
+        <li class="sb-item"><a href="#s8">Conclusion</a></li>
+        <li class="sb-divider"></li>
+        <li class="sb-item"><a href="#s9">Evaluation</a></li>
+        <li class="sb-item"><a href="#s10">Ethics</a></li>
+        <li class="sb-item"><a href="#s11">Debates</a></li>
+        <li class="sb-divider"></li>
+        <li class="sb-item"><a href="#s12">Summary</a></li>
+        <li class="sb-item"><a href="#s13">Questions</a></li>
+        <li class="sb-item"><a href="#s14">Key Terms</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main class="main-content">
+
+<div class="header">
+  <h1>🎯 Bandura, Ross &amp; Ross (1961)</h1>
+  <div class="subtitle">Transmission of Aggression Through Imitation of Aggressive Models<br>通过模仿攻击性榜样学习攻击行为</div>
+  <div class="meta">
+    <span class="badge">🧒 Bobo Doll Experiment</span>
+    <span class="badge">👶 72 Children (36 ♂ + 36 ♀)</span>
+    <span class="badge">🎓 Stanford University Nursery</span>
+    <span class="badge">📄 <em>Journal of Abnormal and Social Psychology</em>, 63(3), 575–582</span>
+    <span class="badge">✅ Core Study — Learning Approach</span>
+  </div>
+  <div class="kw-tags">
+    <span class="kw-tag kw-app">🧠 Social Learning Theory</span>
+    <span class="kw-tag kw-meth">🎯 Lab Experiment</span>
+    <span class="kw-tag kw-conc">💡 Observational Learning</span>
+  </div>
+</div>
+
+<div class="toc">
+  <h2>📑 Contents 目录</h2>
+  <ol>
+    <li><a href="#s1">Main Assumptions in Context（学习取向的主要假设）</a></li>
+    <li><a href="#s2">The Psychology Being Investigated（研究涉及的心理学）</a></li>
+    <li><a href="#s3">Background（研究背景）</a></li>
+    <li><a href="#s4">Aim &amp; Hypotheses（研究目的与假设）</a></li>
+    <li><a href="#s5">Method &amp; Sample（研究方法与样本）</a></li>
+    <li><a href="#s6">Procedure（实验程序）</a></li>
+    <li><a href="#s7">Results（研究结果）</a></li>
+    <li><a href="#s8">Conclusion（结论）</a></li>
+    <li><a href="#s9">Strengths &amp; Weaknesses（优缺点）</a></li>
+    <li><a href="#s10">Ethical Issues（伦理问题）</a></li>
+    <li><a href="#s11">Issues &amp; Debates（争论与取向）</a></li>
+    <li><a href="#s12">Summary（总结）</a></li>
+    <li><a href="#s13">Study Questions（复习题）</a></li>
+    <li><a href="#s14">Key Terms（核心术语）</a></li>
+  </ol>
 </div>
 
 <!-- ==================== SECTION 1 ==================== -->
-<h2>1. Background</h2>
+<div class="section" id="s1">
+  <h2>1️⃣ Main Assumptions in Context（学习取向的主要假设）</h2>
 
-<div class="key-box">
-<h4>The psychology being investigated</h4>
-<p>Children copy adults. One reason for this is that the immediate social setting encourages the child to imitate what he or she is watching (Figure 4.1). This influences their behaviour, making it more likely that the child will do what others are doing around them. Alternatively, the observation of a behaviour can lead a child to acquire a new response that he or she could reproduce independently. If this is the case, the new behaviour should <strong>generalise（泛化）</strong> to new settings and so would be produced in the absence of an adult <strong>model（榜样/模型）</strong>.</p>
+  <div class="visual-header">
+    <div class="vh-icon">🧠</div>
+    <div class="vh-text">
+      <h4>Learning Approach Core Assumptions</h4>
+      <p>All behaviour is learned through experience, observation &amp; the environment</p>
+    </div>
+  </div>
+
+  <h3>Humans as Learners（人作为学习者）</h3>
+  <p>The learning approach is based on the assumption that <strong>all behaviour is learned from the environment</strong> through experience. This includes both direct experience (where the individual is rewarded or punished for a behaviour) and indirect experience (where the individual observes others being rewarded or punished, or simply observes what others do). Unlike the cognitive approach, the learning approach focuses on <strong>observable behaviour</strong> rather than internal mental processes.</p>
+
+  <p>The main assumptions of the learning approach to psychology are that:</p>
+  <ul>
+    <li>Behaviour is learned through <strong>association, reinforcement, observation and imitation</strong>.</li>
+    <li>Observable behaviour should be the focus of study, not internal thoughts or feelings.</li>
+    <li>Principles of learning apply equally across species, situations, and cultures.</li>
+    <li>The environment is the primary determinant of behaviour (nurture over nature).</li>
+  </ul>
+
+  <h3>Social Learning Theory（社会学习理论）</h3>
+  <p>Social Learning Theory (SLT) was developed by Albert Bandura as an extension of behaviourist learning theory. It proposes that people learn by <strong>observing others</strong> (models) and imitating their behaviour, especially when the model is rewarded for that behaviour. This was a major development because it explained how people acquire <strong>novel behaviours</strong> without direct reinforcement — solving one of the major weaknesses of strict behaviourism.</p>
+
+  <p>SLT assumes that learning can occur in four key processes:</p>
+  <ul>
+    <li><strong>Attention（注意）</strong> — the observer must pay attention to the model's behaviour</li>
+    <li><strong>Retention（保持）</strong> — the observer must remember what was observed</li>
+    <li><strong>Reproduction（再生产）</strong> — the observer must be able to physically reproduce the behaviour</li>
+    <li><strong>Motivation（动机）</strong> — there must be a reason (incentive or reinforcement) to perform the behaviour</li>
+  </ul>
+
+  <h3>Why Bobo Doll Matters for Learning Approach</h3>
+  <p>The Bandura et al. (1961) study is the most famous test of SLT and the most cited study in social learning research. It directly challenges behaviourism by demonstrating that <strong>children acquired aggressive behaviour simply by watching an adult model</strong> — without any direct reinforcement of the children themselves.</p>
+
+  <div class="quote">
+    "Learning would be exceedingly laborious, not to mention hazardous, if people had to rely solely on the effects of their own actions to inform them what to do."<br>
+    <span style="font-size:0.9em;color:var(--text-secondary);">— Bandura (1977), explaining why observational learning is essential</span>
+  </div>
+
+  <div class="cn-summary-wrap">
+    <button class="cn-summary-toggle" onclick="toggleCnSummary(this)"><span class="cs-icon">▶</span> 中文逻辑总结</button>
+    <div class="cn-summary-body">
+      <div class="cs-title">§1 学习取向的三大假设</div>
+      <p><strong>逻辑链：</strong>所有行为都是习得的 → 通过<span class="cs-en">Association（联结）</span>、<span class="cs-en">Reinforcement（强化）</span>、<span class="cs-en">Observation（观察）</span>、<span class="cs-en">Imitation（模仿）</span>获得 → 关注<span class="cs-en">Observable Behaviour（可观察行为）</span>而非内心过程。</p>
+      <ul>
+        <li><span class="cs-en">Social Learning Theory（社会学习理论）</span>是 Bandura 对行为主义的扩展：通过观察他人被强化来学习，无需自身被强化。</li>
+        <li>SLT 的四个关键过程：<span class="cs-en">Attention → Retention → Reproduction → Motivation（注意→保持→再生产→动机）</span>，CIE 考试经常考。</li>
+        <li>本研究的革命性：儿童只是"看"了一个成人打 Bobo 娃娃，<strong>自己</strong>并没有被打或被奖励——这违反了严格行为主义的预测，证明<span class="cs-en">Observational Learning（观察学习）</span>存在。</li>
+      </ul>
+      <p><strong>💡 考试要点：</strong>CIE 考试常问"outline two assumptions of the learning approach"。答案模板：(1) Behaviour is learned through experience/environment; (2) Observable behaviour (not internal thoughts) should be the focus of study.</p>
+    </div>
+  </div>
+
+  <div class="summary-card" id="summary-s1">
+    <div class="summary-card-header" onclick="toggleSummary('summary-s1')">
+      <span class="summary-card-icon">▶</span>
+      <span class="summary-card-title">Exam Key Points — Learning Approach</span>
+      <span class="summary-card-badge">AO1</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ul>
+          <li>Two assumptions of learning approach: (1) Behaviour is learned via association/reinforcement/observation, (2) Observable behaviour (not internal thoughts) should be the focus <span class="tag-must">Must Know</span></li>
+          <li>SLT key term: <strong>observational learning</strong> = acquiring new behaviour by watching a model, without direct reinforcement <span class="tag-must">Must Know</span></li>
+          <li>Four processes of observational learning: Attention, Retention, Reproduction, Motivation <span class="tag-common">Common Q</span></li>
+          <li>SLT challenged strict behaviourism by explaining learning without direct reinforcement <span class="tag-ao2">AO2 Gold</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
-
-<div class="kw-box">
-<h4>📌 Key Words</h4>
-<ul>
-<li><strong>model（模型/榜样）</strong>: a person who inspires or encourages others to imitate positive or negative behaviours</li>
-<li><strong>social learning（社会学习）</strong>: the learning of a new behaviour that is observed in a role model and imitated later in the absence of that model</li>
-<li><strong>aggression（攻击行为）</strong>: behaviour that is aimed at harming others either physically or psychologically</li>
-</ul>
-</div>
-
-<p>Albert Bandura had previously conducted experiments on <strong>social learning（社会学习）</strong> and was interested in studying social learning in the context of <strong>aggression（攻击性）</strong>. To learn from others, the observer (e.g. a child) must be paying attention to the behaviour of a model. They must retain (remember) the behaviour they have observed, in order to reproduce it. When social learning occurs, it could potentially lead to either aggressive or non-aggressive behaviour.</p>
-
-<p>Bandura expected that watching an aggressive model should lead to more aggressive behaviours being demonstrated, and that observing a non-aggressive model should lead to more non-aggressive behaviour being produced — i.e. even less aggressive behaviour than normal.</p>
-
-<div class="img-container">
-  <img src="bandura_images/02.png" alt="A child imitates seen behaviour">
-  <div class="img-caption">Figure 4.1: A child imitates observed behaviour</div>
-</div>
-
-<h3>1.1 Previous Research and Social Context</h3>
-<p>Previous research had shown that children imitated behaviour of a model when in the presence of the model. Bandura et al. wanted to investigate whether <strong>social learning theory（社会学习理论）</strong> could be used to explain aggression, specifically when the child was no longer in the presence of an aggressive model.</p>
-
-<p>Children are rewarded in different ways for imitating adults. In general (at least, in the USA in the 1960s when this study took place), boys were rewarded for behaviours considered to be sex-appropriate and punished for inappropriate ones, such as cooking or 'playing mother'. Similarly for girls, rewards and punishments would be applied to discourage what was considered sex-inappropriate behaviours. This, Bandura et al. suggested, would lead to two kinds of differences:</p>
-<ul>
-<li>First, boys and girls should be more likely to imitate <strong>same-sex models（同性模型）</strong></li>
-<li>Second, they should differ in the readiness with which they imitate <strong>aggression（攻击行为）</strong>, with boys doing so more readily as this was seen as a more masculine-type behaviour</li>
-</ul>
 
 <!-- ==================== SECTION 2 ==================== -->
-<h2>2. Aim</h2>
-<p>The aim was to investigate whether a child would learn aggression by observing a model and would reproduce this behaviour in the absence of the model, and whether the sex of the role model was important. Specifically, there were four hypotheses:</p>
+<div class="section" id="s2">
+  <h2>2️⃣ The Psychology Being Investigated（研究涉及的心理学）</h2>
 
-<div class="key-box">
-<ol>
-<li><strong>Observed aggressive behaviour will be imitated</strong> — children who see an aggressive model will be more aggressive than those seeing a non-aggressive model or no model.</li>
-<li><strong>Observed non-aggressive behaviour will be imitated</strong> — children seeing non-aggressive models will be less aggressive than those seeing no model.</li>
-<li><strong>Children are more likely to copy a same-sex model.</strong></li>
-<li><strong>Boys will be more likely to copy aggression than girls.</strong></li>
-</ol>
-</div>
+  <p>Social learning theory proposes that people can learn new behaviours simply by <strong>observing and imitating a model</strong> — without needing to be directly reinforced themselves. Bandura et al. (1961) investigated whether this principle could explain the acquisition of <strong>aggressive behaviour in children</strong>, and whether imitating aggression depends on the <strong>sex of the model</strong> and the <strong>sex of the observer</strong>.</p>
 
-<div class="activity-box">
-<h4>📋 Issues and Debates</h4>
-<p><strong>Nature versus nurture（先天与后天）</strong>: The importance of the environment (nurture) can be seen in the role adults take as models for children, as well as in the rewards and punishments adults give to children.</p>
+  <div class="blue-box">
+    <strong>Core Research Question 核心研究问题：</strong> Will children imitate aggressive behaviour they have observed in an adult model, and reproduce it later in the absence of that model?<br>
+    <span style="color:var(--text-secondary);font-size:0.93em;">（儿童是否会模仿他们在成人榜样身上观察到的攻击行为，并在该榜样不在场时复现这种行为？）</span>
+  </div>
+
+  <p>Three key terms underpin this study:</p>
+  <ul>
+    <li><strong>Model（榜样/模型）</strong> — a person who inspires or encourages others to imitate positive or negative behaviours. In this study, the adult confederate who demonstrated aggression toward the Bobo doll.</li>
+    <li><strong>Social learning（社会学习）</strong> — the learning of a new behaviour that is observed in a role model and imitated later in the absence of that model.</li>
+    <li><strong>Aggression（攻击行为）</strong> — behaviour that is aimed at harming others either physically (hitting, kicking) or psychologically (verbal insults).</li>
+  </ul>
+
+  <blockquote>
+    "The phenomenon of human behaviour, although vast in scope and complexity, can be analysed and understood through the application of basic learning principles."<br>
+    <span style="font-size:0.9em;color:var(--text-secondary);">— Bandura &amp; Walters (1963), Social Learning and Personality Development</span>
+  </blockquote>
+
+  <p>Previous research had shown that children imitated the behaviour of a model when in the model's presence. What Bandura et al. wanted to test was whether this imitation could occur in the <strong>absence of the model</strong> — that is, whether the behaviour had been truly <em>learned</em> rather than simply triggered by social facilitation.</p>
 </div>
 
 <!-- ==================== SECTION 3 ==================== -->
-<h2>3. Method</h2>
+<div class="section" id="s3">
+  <h2>3️⃣ Background（研究背景）</h2>
 
-<h3>3.1 Research method and design</h3>
-<p>This was a <strong>laboratory experiment（实验室实验）</strong>; the environment was not the normal place where the children played and the situation was controlled. The design was that of <strong>independent measures（独立测量设计）</strong> as different children were used in each level of the independent variables (IVs) (although these children were matched for aggression in threes).</p>
+  <div class="visual-header">
+    <div class="vh-icon">🔍</div>
+    <div class="vh-text">
+      <h4>Two Routes of Social Learning</h4>
+      <p>Immediate imitation vs. delayed generalisation — which is real learning?</p>
+    </div>
+  </div>
 
-<p>There were three IVs:</p>
-<ul>
-<li><strong>model type（模型类型）</strong>: whether the child saw an aggressive model, non-aggressive model or no model</li>
-<li><strong>model sex（模型性别）</strong>: same sex as child, different sex, or opposite sex</li>
-<li><strong>participant sex（参与者性别）</strong>: whether the child was a boy or a girl</li>
-</ul>
+  <p>Children copy adults. One reason for this is that the immediate social setting encourages the child to imitate what he or she is watching (<strong>social facilitation</strong>). This influences their behaviour, making it more likely that the child will do what others are doing around them. Alternatively, the observation of a behaviour can lead a child to <strong>acquire a new response</strong> that he or she could reproduce independently. If this is the case, the new behaviour should <strong>generalise（泛化）</strong> to new settings and so would be produced in the <strong>absence of an adult model（在没有成人榜样时出现）</strong>.</p>
 
-<p>The <strong>dependent variable (DV)</strong> was the behaviour the child displayed. This was measured through a <strong>controlled observation（控制观察）</strong> of the children and measures of aggressive behaviour were recorded.</p>
+  <p>Albert Bandura had previously conducted experiments on social learning and was interested in studying social learning in the context of aggression. To learn from others, the observer (e.g. a child) must be paying attention to the behaviour of a model. They must retain (remember) the behaviour they have observed, in order to reproduce it. When social learning occurs, it could potentially lead to either aggressive or non-aggressive behaviour.</p>
 
-<div class="kw-box">
-<h4>🔬 Research Methods</h4>
-<p><strong>Matched participants design（匹配参与者设计）</strong>: All participants were divided into triplets with very similar initial aggression levels. One individual from each triplet was placed into each of the three conditions (aggressive model, non-aggressive model, and control).</p>
-</div>
+  <p>Bandura expected that watching an aggressive model should lead to <strong>more aggressive behaviours</strong> being demonstrated, and that observing a non-aggressive model should lead to <strong>more non-aggressive behaviour</strong> being produced — i.e. even less aggressive behaviour than normal.</p>
 
-<div class="kw-box">
-<h4>🔬 Research Methods</h4>
-<p><strong>Inter-rater reliability（评分者间信度）</strong>: The extent to which two researchers rate the same observed activity in the same way. This is judged using a correlation ('r' value) between the two ratings — high (close to 1) if reliable.</p>
+  <div class="figure">
+    <img src="bandura_images/02.png" alt="A child imitates seen behaviour" style="max-height:280px">
+    <div class="figure-caption">Figure 4.1: A child imitates observed behaviour</div>
+  </div>
+
+  <h3>3.1 Previous Research and Social Context</h3>
+  <p>Previous research had shown that children imitated behaviour of a model when in the presence of the model. Bandura et al. wanted to investigate whether <strong>social learning theory（社会学习理论）</strong> could be used to explain aggression, specifically when the child was no longer in the presence of an aggressive model.</p>
+
+  <p>Children are rewarded in different ways for imitating adults. In general (at least, in the USA in the 1960s when this study took place), boys were rewarded for behaviours considered to be sex-appropriate and punished for inappropriate ones, such as cooking or 'playing mother'. Similarly for girls, rewards and punishments would be applied to discourage what was considered sex-inappropriate behaviours. This, Bandura et al. suggested, would lead to two kinds of differences:</p>
+  <ul>
+    <li>First, boys and girls should be more likely to imitate <strong>same-sex models（同性模型）</strong></li>
+    <li>Second, they should differ in the readiness with which they imitate <strong>aggression（攻击行为）</strong>, with boys doing so more readily as this was seen as a more masculine-type behaviour</li>
+  </ul>
+
+  <div class="keyword-box">
+    <h4>📌 Key Word</h4>
+    <p><strong>Generalisation（泛化）</strong>: in learning theory, the tendency for a behaviour learned in one situation to be performed in different but similar situations. In Bandura's study, generalisation would be evidenced by children reproducing aggressive behaviour in a new room with new toys, not just when watching the original model.</p>
+  </div>
+
+  <div class="cn-summary-wrap">
+    <button class="cn-summary-toggle" onclick="toggleCnSummary(this)"><span class="cs-icon">▶</span> 中文逻辑总结</button>
+    <div class="cn-summary-body">
+      <div class="cs-title">§3 研究背景：两条路径与性别角色</div>
+      <p><strong>两条模仿路径：</strong></p>
+      <ul>
+        <li><span class="cs-en">Social Facilitation（社会促进）</span>：只是"因为旁边有人在做所以跟着做"——并不算真正的学习。</li>
+        <li><span class="cs-en">Generalisation（泛化）</span>：在没有榜样时也能再现新行为——这才是<span class="cs-en">Observational Learning（观察学习）</span>的证据。</li>
+      </ul>
+      <p><strong>1960s 性别角色背景：</strong>在美国 1960 年代，男孩被强化攻击行为（"男孩就要勇敢"），女孩被强化养育行为（"淑女不能打架"）。因此 Bandura 预测：</p>
+      <ul>
+        <li>儿童更可能模仿<span class="cs-en">Same-sex Model（同性榜样）</span></li>
+        <li>男孩比女孩更愿意模仿攻击行为（因为攻击被视为"男性化"行为）</li>
+      </ul>
+      <p><strong>💡 考试要点：</strong>"Generalisation"是 AO1 关键词——强调"新行为在新情境中独立复现"。</p>
+    </div>
+  </div>
+
+  <div class="summary-card" id="summary-s3">
+    <div class="summary-card-header" onclick="toggleSummary('summary-s3')">
+      <span class="summary-card-icon">▶</span>
+      <span class="summary-card-title">Exam Key Points — Background</span>
+      <span class="summary-card-badge">AO1</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ul>
+          <li>Two routes of social learning: social facilitation (mere imitation) vs. generalisation (true learning) <span class="tag-must">Must Know</span></li>
+          <li>Key term: <strong>generalisation</strong> = behaviour performed in new setting without the model present <span class="tag-must">Must Know</span></li>
+          <li>1960s gender roles: boys rewarded for aggression, girls for nurturing behaviour <span class="tag-common">Common Q</span></li>
+          <li>Prediction: same-sex model + masculine behaviour (aggression) → strongest imitation <span class="tag-ao2">AO2 Gold</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- ==================== SECTION 4 ==================== -->
-<h2>4. Sample</h2>
-<p><strong>Seventy-two children aged 3–6 years</strong> (36 boys and 36 girls) were recruited from Stanford University nursery school.</p>
+<div class="section" id="s4">
+  <h2>4️⃣ Aim &amp; Hypotheses（研究目的与假设）</h2>
 
-<div class="cn-note">
-  <strong>📊 Grouping procedure:</strong> All 72 children were first rated on aggression by the experimenter and nursery teachers using four 5-point scales (physical aggression, verbal aggression, aggression toward inanimate objects, and aggression inhibition). For the 51 children rated by both observers independently, <strong>inter-rater reliability r = 0.89</strong>. Children were then <strong>matched into triplets（匹配成三人组）</strong> based on similar aggression levels and randomly assigned to one of three conditions: aggressive model / non-aggressive model / control (no model). Within each condition, participants were further split by model sex (same-sex / opposite-sex).
+  <p>The aim was to investigate whether a child would learn aggression by observing a model and would reproduce this behaviour in the <strong>absence of the model</strong>, and whether the sex of the role model was important. Specifically, there were four hypotheses:</p>
+
+  <div class="note-box">
+    <h4>📋 Four Hypotheses（四个假设）</h4>
+    <ol>
+      <li><strong>H1 — Observed aggressive behaviour will be imitated</strong>: children who see an aggressive model will be more aggressive than those seeing a non-aggressive model or no model.</li>
+      <li><strong>H2 — Observed non-aggressive behaviour will be imitated</strong>: children seeing non-aggressive models will be less aggressive than those seeing no model.</li>
+      <li><strong>H3 — Same-sex modelling effect</strong>: children are more likely to copy a same-sex model than an opposite-sex model.</li>
+      <li><strong>H4 — Sex differences in aggression</strong>: boys will be more likely to copy aggression than girls.</li>
+    </ol>
+  </div>
+
+  <h3>4.1 Issues and Debates Preview</h3>
+  <div class="keyword-box">
+    <h4>📌 Issues &amp; Debates — Nature vs Nurture</h4>
+    <p><strong>Nature versus nurture (先天与后天)</strong>: The importance of the environment (nurture) can be seen in the role adults take as models for children, as well as in the rewards and punishments adults give to children. If children learn aggression solely by observing and imitating models, this strongly supports the <strong>nurture</strong> side of the debate.</p>
+  </div>
+
+  <div class="cn-summary-wrap">
+    <button class="cn-summary-toggle" onclick="toggleCnSummary(this)"><span class="cs-icon">▶</span> 中文逻辑总结</button>
+    <div class="cn-summary-body">
+      <div class="cs-title">§4 四个假设的逻辑链</div>
+      <p><strong>四个假设层层递进：</strong></p>
+      <ul>
+        <li><span class="cs-en">H1</span>：攻击榜样 → 儿童更攻击（验证 SLT 核心命题）</li>
+        <li><span class="cs-en">H2</span>：非攻击榜样 → 儿童更不攻击（验证 SLT 的对称性）</li>
+        <li><span class="cs-en">H3</span>：同性榜样 > 异性榜样（性别角色认同效应）</li>
+        <li><span class="cs-en">H4</span>：男孩 > 女孩（在攻击模仿上）</li>
+      </ul>
+      <p><strong>💡 考试要点：</strong>四个假设的内在逻辑：先验证"是否能学习"(H1+H2)，再验证"学习是否有偏好"(H3+H4)。这种<span class="cs-en">Hierarchical Hypotheses</span>结构是 AO1 答题模板。</p>
+    </div>
+  </div>
+
+  <div class="summary-card" id="summary-s4">
+    <div class="summary-card-header" onclick="toggleSummary('summary-s4')">
+      <span class="summary-card-icon">▶</span>
+      <span class="summary-card-title">Exam Key Points — Aim &amp; Hypotheses</span>
+      <span class="summary-card-badge">AO1</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ul>
+          <li>4 hypotheses: aggressive imitation (H1), non-aggressive imitation (H2), same-sex model (H3), boys > girls in aggression (H4) <span class="tag-must">Must Know</span></li>
+          <li>H1 tests the core SLT claim: observation alone can produce new aggressive behaviour <span class="tag-must">Must Know</span></li>
+          <li>H3 + H4 are about <strong>moderating variables</strong>: who imitates whom, and how much <span class="tag-ao2">AO2 Gold</span></li>
+          <li>Nature vs Nurture framing: study supports nurture (environmental modelling) <span class="tag-common">Common Q</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- ==================== SECTION 5 ==================== -->
-<h2>5. Procedure</h2>
+<div class="section" id="s5">
+  <h2>5️⃣ Method &amp; Sample（研究方法与样本）</h2>
 
-<h3>5.1 Phase 1: Pre-testing and Rating</h3>
-<p>Prior to the experimental part of the study, the children were observed in their nursery school by the experimenter and a teacher who knew them well. They were rated on four different measures of physical aggression, verbal aggression, aggression to inanimate objects and aggression inhibition (anxiety), each on a five-point scale. They were then assigned to three groups, ensuring that the aggression levels of the children in each group were matched. Of the 51 children rated by both observers (the rest were rated by only one observer), similar ratings were generally produced. Their ratings were compared as a measure of <strong>inter-rater reliability（评分者间信度）</strong>, which showed a high correlation between the observers, of <strong>r = 0.89</strong>.</p>
+  <h3>5.1 Research method and design</h3>
+  <p>This was a <strong>laboratory experiment（实验室实验）</strong>; the environment was not the normal place where the children played and the situation was controlled. The design was that of <strong>independent measures（独立测量设计）</strong> as different children were used in each level of the independent variables (IVs) (although these children were matched for aggression in threes).</p>
 
-<h3>5.2 Phase 2: Observation Stage</h3>
-<p>Twelve boys and 12 girls were allocated to control groups who saw no model. The remaining children were divided equally between aggressive and non-aggressive model groups and, within those, between same and opposite-sex models.</p>
+  <p>There were <strong>three independent variables (IVs)</strong>:</p>
+  <ul>
+    <li><strong>Model type（模型类型）</strong>: whether the child saw an aggressive model, non-aggressive model or no model</li>
+    <li><strong>Model sex（模型性别）</strong>: same sex as child, different sex, or opposite sex</li>
+    <li><strong>Participant sex（参与者性别）</strong>: whether the child was a boy or a girl</li>
+  </ul>
 
-<p>The experimenter and child entered the observation room, where the experimenter showed the child to a table and chair — the 'play area' — where they were shown how to make potato prints and sticker pictures: activities previously identified as interesting for children. The opposite corner of the room also contained a table and chair, a Tinkertoy set (a wooden building kit), a mallet and a five-foot (152 cm) Bobo doll: an inflatable clown-like doll that bounced back when hit (Figure 4.2). This is where the model sat, in those conditions where there was one. The experimenter remained in the room so that the child would not refuse to be alone or try to leave early, but they appeared to be working quietly at their desk.</p>
+  <p>The <strong>dependent variable (DV)</strong> was the behaviour the child displayed. This was measured through a <strong>controlled observation（控制观察）</strong> of the children and measures of aggressive behaviour were recorded.</p>
 
-<div class="img-container">
-  <img src="bandura_images/03.png" alt="Observing and imitating aggressive behaviours with a Bobo doll">
-  <div class="img-caption">Figure 4.2: Observing and imitating aggressive behaviours with a Bobo doll</div>
-</div>
+  <div class="keyword-box">
+    <h4>📌 Research Methods — Matched Participants Design</h4>
+    <p><strong>Matched participants design（匹配参与者设计）</strong>: All participants were divided into triplets with very similar initial aggression levels. One individual from each triplet was placed into each of the three conditions (aggressive model, non-aggressive model, and control). This reduces the effect of individual differences on the results.</p>
+  </div>
 
-<div class="two-col">
-<div class="img-container">
-  <img src="bandura_images/experiment_photos.jpg" alt="Bobo Doll Experiment Photos" style="max-height:400px">
-  <div class="img-caption">Experiment photos: top row shows adult model demonstrating aggression; middle/bottom rows show children imitating aggressive acts towards Bobo doll</div>
-</div>
-</div>
+  <div class="keyword-box">
+    <h4>📌 Research Methods — Inter-rater Reliability</h4>
+    <p><strong>Inter-rater reliability（评分者间信度）</strong>: The extent to which two researchers rate the same observed activity in the same way. This is judged using a correlation ('r' value) between the two ratings — high (close to 1) if reliable. In this study, <strong>r = 0.89</strong> for the initial aggression ratings, and approximately <strong>r ≈ 0.9</strong> for the test-phase behaviour ratings.</p>
+  </div>
 
-<h3>5.3 Three Experimental Conditions</h3>
-<p>The three groups were then treated differently:</p>
+  <h3>5.2 Sample</h3>
+  <p><strong>Seventy-two children aged 3–6 years</strong> (36 boys and 36 girls) were recruited from <strong>Stanford University nursery school</strong>.</p>
 
-<table>
-<tr><th style="width:22%">Condition<br>（条件）</th><th>Model's Behaviour<br>（模型行为）</th><th>Duration<br>（时长）</th></tr>
-<tr>
-<td><strong>Aggressive Model<br>（攻击模型组）</strong></td>
-<td>The model spent ~1 minute assembling Tinkertoys, then turned to the Bobo doll for a ~<strong>9-minute aggressive sequence（攻击序列）</strong>:<br>
-• Hitting the doll with a mallet • Sitting on the doll and punching it in the nose • Throwing the doll into the air and kicking it<br>
-• Saying aggressive phrases: "Kick him!" "Sock him!" "Hit him down!" "Throw him in the air!" "Pow!"<br>
-• Also saying non-aggressive comments: "He sure is a tough fella"<br>
-• Half the children saw a same-sex model, half saw an opposite-sex model</td>
-<td>~10 min total</td>
-</tr>
-<tr>
-<td><strong>Non-aggressive Model<br>（非攻击模型组）</strong></td>
-<td>The model quietly assembled Tinkertoys for the full <strong>10 minutes</strong>, completely ignoring the Bobo doll.<br>• Half saw a same-sex model, half saw an opposite-sex model</td>
-<td>10 min</td>
-</tr>
-<tr>
-<td><strong>Control Group<br>（对照组）</strong></td>
-<td><strong>No exposure to any adult model</strong> — proceeded directly to the test phase.</td>
-<td>No exposure</td>
-</tr>
-</table>
+  <div class="note-box">
+    <strong>📊 Grouping procedure:</strong> All 72 children were first rated on aggression by the experimenter and nursery teachers using four 5-point scales (physical aggression, verbal aggression, aggression toward inanimate objects, and aggression inhibition). For the 51 children rated by both observers independently, <strong>inter-rater reliability r = 0.89</strong>. Children were then <strong>matched into triplets（匹配成三人组）</strong> based on similar aggression levels and randomly assigned to one of three conditions: aggressive model / non-aggressive model / control (no model). Within each condition, participants were further split by model sex (same-sex / opposite-sex). This gives <strong>n = 6 children per cell</strong> (24 per condition × 3 conditions).
+  </div>
 
-<div class="kw-box">
-<h4>🔬 Research Methods</h4>
-<p>The non-aggressive model group might appear to be a control group because the key factor of 'aggression' is missing. However, the important aspect is the <strong>presence of a model</strong> — and in the non-aggressive group a model was still present. This means the real control group is where the IV is absent: the group where there is <strong>no model at all</strong>.</p>
-</div>
+  <div class="cn-summary-wrap">
+    <button class="cn-summary-toggle" onclick="toggleCnSummary(this)"><span class="cs-icon">▶</span> 中文逻辑总结</button>
+    <div class="cn-summary-body">
+      <div class="cs-title">§5 方法与样本：实验设计的精妙之处</div>
+      <p><strong>三个自变量 + 一个因变量：</strong></p>
+      <ul>
+        <li>IV1 <span class="cs-en">Model Type（模型类型）</span>：攻击 / 非攻击 / 无模型 (3 水平)</li>
+        <li>IV2 <span class="cs-en">Model Sex（模型性别）</span>：同性 / 异性 (2 水平)</li>
+        <li>IV3 <span class="cs-en">Participant Sex（被试性别）</span>：男 / 女 (2 水平)</li>
+        <li>DV：儿童在测试阶段表现出的<span class="cs-en">Aggressive Behaviour（攻击行为）</span>，通过控制观察测量</li>
+      </ul>
+      <p><strong>样本结构：</strong>72 名儿童 = 36 男 + 36 女，每个实验条件 24 人(每个 cell 6 人)。</p>
+      <p><strong>三大研究方法亮点：</strong></p>
+      <ul>
+        <li><span class="cs-en">Matched Pairs（匹配配对）</span>：把儿童按初始攻击水平三人一组配对，再随机分配 → 控制个体差异</li>
+        <li><span class="cs-en">Inter-rater Reliability（评分者间信度）</span>：r = 0.89 高相关 → 数据可信</li>
+        <li><span class="cs-en">Independent Measures（独立测量）</span>：每个被试只接受一种条件 → 避免顺序效应</li>
+      </ul>
+      <p><strong>💡 AO2 答题模板：</strong>"The study used a matched pairs design because... This means that individual differences were controlled for, increasing the study's internal validity."</p>
+    </div>
+  </div>
 
-<h3>5.4 Phase 3: Mild Arousal Stage（轻度唤醒阶段）</h3>
-<p>The experimental procedure continued with a stage in which all participants were deliberately mildly annoyed. This was done for two reasons:</p>
-<ul>
-<li>Watching aggression may reduce the production of aggression by the observer (even if it has been learned), and it was necessary to see evidence of learning</li>
-<li>To ensure that even the non-aggressive condition and control participants would be likely to express aggression, so that any reduction in that tendency could be measured</li>
-</ul>
-<p><strong>Arousal procedure（唤醒程序）</strong>: The experimenter took the child to another room, showed some attractive toys (e.g., nice art supplies), let the child play for about 2 minutes, then told them these toys were reserved for other children and could not be played with — this deliberately created <strong>mild frustration（轻度挫折感）</strong>.</p>
+  <div class="summary-card" id="summary-s5">
+    <div class="summary-card-header" onclick="toggleSummary('summary-s5')">
+      <span class="summary-card-icon">▶</span>
+      <span class="summary-card-title">Exam Key Points — Method &amp; Sample</span>
+      <span class="summary-card-badge">AO1</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ul>
+          <li>Lab experiment with independent measures design <span class="tag-must">Must Know</span></li>
+          <li>3 IVs: model type (aggressive/non-aggressive/control), model sex, participant sex <span class="tag-must">Must Know</span></li>
+          <li>DV = aggressive behaviour measured via controlled observation <span class="tag-must">Must Know</span></li>
+          <li>n = 72 children (36 boys + 36 girls), aged 3–6, from Stanford University Nursery <span class="tag-common">Common Q</span></li>
+          <li>Matched pairs design + inter-rater reliability r = 0.89 <span class="tag-ao2">AO2 Gold</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div><!-- ==================== SECTION 6 ==================== -->
+<div class="section" id="s6">
+  <h2>6️⃣ Procedure（实验程序）</h2>
 
-<h3>5.5 Phase 4: Test for Delayed Imitation（延迟模仿测试）</h3>
-<p>A test of the child's aggression then followed in which the child was observed for <strong>20 minutes</strong> using a one-way mirror（单向镜）. The mirror appeared transparent on the researcher's side (so they could observe the behaviour) but appeared as a normal mirror on the child's side (so they could not see that they were being observed from another room).</p>
+  <p>The experiment was conducted in four sequential phases: pre-testing &amp; rating → observation (model) → mild arousal → delayed imitation test.</p>
 
-<p>For the aggressive model group, there was a test of delayed imitation. The experimental room contained a three-foot (92 cm) Bobo doll, a mallet and peg board, two dart guns and a tether ball with a face painted on it which hung from the ceiling. It also contained some non-aggressive toys, including a tea set, crayons and colouring paper, a ball, two dolls, three bears, cars and trucks, and plastic farm animals. These toys were always presented in the same order.</p>
+  <h3>6.1 Phase 1: Pre-testing and Rating</h3>
+  <p>Prior to the experimental part of the study, the children were observed in their nursery school by the experimenter and a teacher who knew them well. They were rated on <strong>four different measures</strong>: physical aggression, verbal aggression, aggression to inanimate objects, and aggression inhibition (anxiety), each on a five-point scale. They were then assigned to three groups, ensuring that the aggression levels of the children in each group were matched. Of the 51 children rated by both observers (the rest were rated by only one observer), similar ratings were generally produced. Their ratings were compared as a measure of <strong>inter-rater reliability (评分者间信度)</strong>, which showed a high correlation between the observers, of <strong>r = 0.89</strong>.</p>
 
-<p>The children's behaviours were observed in <strong>5-second intervals（5秒间隔）</strong> (240 response units per child). There were three 'response measures' of the children's imitation, with a range of possible activities in each:</p>
+  <h3>6.2 Phase 2: Observation Stage</h3>
+  <p>Twelve boys and 12 girls were allocated to control groups who saw no model. The remaining children were divided equally between aggressive and non-aggressive model groups and, within those, between same and opposite-sex models.</p>
 
-<div class="key-box">
-<h4>📏 Response Measures（反应测量指标）</h4>
-<table>
-<tr><th style="width:30%">Category<br>（类别）</th><th>Description（描述）</th></tr>
-<tr><td><strong>Imitative physical aggression<br>（模仿性身体攻击）</strong></td><td>striking the Bobo doll with the mallet, sitting on the doll and punching it in the nose, kicking the doll, and tossing it in the air</td></tr>
-<tr><td><strong>Imitative verbal aggression<br>（模仿性言语攻击）</strong></td><td>repetition of the phrases: 'Sock him', 'Hit him down', 'Kick him', 'Throw him in the air' or 'Pow'</td></tr>
-<tr><td><strong>Imitative non-aggressive verbal responses<br>（模仿性非攻击言语）</strong></td><td>repetition of 'He keeps coming back for more' or 'He sure is a tough fella'</td></tr>
-</table>
-</div>
+  <p>The experimenter and child entered the observation room, where the experimenter showed the child to a table and chair — the '<strong>play area</strong>' — where they were shown how to make potato prints and sticker pictures: activities previously identified as interesting for children. The opposite corner of the room also contained a table and chair, a Tinkertoy set (a wooden building kit), a mallet and a <strong>five-foot (152 cm) Bobo doll</strong>: an inflatable clown-like doll that bounced back when hit (Figure 4.2). This is where the model sat, in those conditions where there was one. The experimenter remained in the room so that the child would not refuse to be alone or try to leave early, but they appeared to be working quietly at their desk.</p>
 
-<p><strong>Partially imitative aggression（部分模仿性攻击）</strong> was scored if the child imitated these behaviours incompletely. The two behaviours here were:</p>
-<ul>
-<li><strong>mallet aggression（锤子攻击）</strong>: striking objects other than the Bobo doll aggressively with the mallet</li>
-<li><strong>sits on Bobo doll aggressively</strong>: laying the Bobo doll on its side and sitting on it, without attacking it</li>
-</ul>
+  <div class="figure">
+    <img src="bandura_images/03.png" alt="Observing and imitating aggressive behaviours with a Bobo doll" style="max-height:340px">
+    <div class="figure-caption">Figure 4.2: Observing and imitating aggressive behaviours with a Bobo doll</div>
+  </div>
 
-<p>Two further categories were:</p>
-<ul>
-<li><strong>aggressive gun play（攻击性枪械游戏）</strong>: shooting darts or aiming a gun and firing imaginary shots at objects in the room</li>
-<li><strong>non-imitative physical and verbal aggression（非模仿性攻击）</strong>: physically aggressive acts directed toward objects other than the Bobo doll and any hostile remarks except for those in the verbal imitation category (e.g. 'Shoot the Bobo', 'Cut him', 'Stupid ball', 'Horses fighting', 'biting', 'Knock over people')</li>
-</ul>
+  <div class="figure">
+    <img src="bandura_images/experiment_photos.jpg" alt="Bobo Doll Experiment Photos" style="max-height:420px">
+    <div class="figure-caption">Experiment photos: top row shows adult model demonstrating aggression; middle/bottom rows show children imitating aggressive acts towards Bobo doll</div>
+  </div>
 
-<p>Finally, behaviour units were also counted for <strong>non-aggressive play（非攻击性游戏）</strong> and <strong>sitting quietly not playing at all（安静坐着不玩耍）</strong>, and records were kept of the children's remarks about the situation.</p>
+  <h3>6.3 Three Experimental Conditions（三组实验条件）</h3>
+  <p>The three groups were then treated differently:</p>
 
-<p>The male model scored all the children's behaviours. Except for those conditions in which the male was the model, he was unaware of which condition the child had been in. However, the condition in which the child had been was usually obvious, as in the case of the aggressive model children as they performed the specific behaviours exhibited by the model. To test the reliability of the scorer, a second scorer independently rated the behaviour of half of the children. The reliability score was high at approximately <strong>r = 0.9</strong> for different categories of behaviour.</p>
+  <table class="condition-table">
+    <tr><th style="width:22%">Condition<br>（条件）</th><th>Model's Behaviour<br>（模型行为）</th><th>Duration<br>（时长）</th></tr>
+    <tr>
+      <td><strong>Aggressive Model<br><span class="cond-badge cond-aggressive">攻击</span></strong></td>
+      <td>The model spent ~1 minute assembling Tinkertoys, then turned to the Bobo doll for a ~<strong>9-minute aggressive sequence（攻击序列）</strong>:<br>
+        • Hitting the doll with a mallet • Sitting on the doll and punching it in the nose • Throwing the doll into the air and kicking it<br>
+        • Saying aggressive phrases: "Kick him!" "Sock him!" "Hit him down!" "Throw him in the air!" "Pow!"<br>
+        • Also saying non-aggressive comments: "He sure is a tough fella"<br>
+        • Half the children saw a same-sex model, half saw an opposite-sex model</td>
+      <td>~10 min total</td>
+    </tr>
+    <tr>
+      <td><strong>Non-aggressive Model<br><span class="cond-badge cond-nonaggressive">非攻击</span></strong></td>
+      <td>The model quietly assembled Tinkertoys for the full <strong>10 minutes</strong>, completely ignoring the Bobo doll.<br>• Half saw a same-sex model, half saw an opposite-sex model</td>
+      <td>10 min</td>
+    </tr>
+    <tr>
+      <td><strong>Control Group<br><span class="cond-badge cond-control">对照</span></strong></td>
+      <td><strong>No exposure to any adult model</strong> — proceeded directly to the test phase.</td>
+      <td>No exposure</td>
+    </tr>
+  </table>
 
-<!-- ==================== SECTION 6 ==================== -->
-<h2>6. Results</h2>
-<p>Children exposed to aggressive models imitated their exact behaviours and were significantly more aggressive, both physically and verbally, than those children in the non-aggressive model or control groups. One-third of the children in the aggressive condition also copied the model's non-aggressive verbal responses but none of the children in either the non-aggressive or control groups made such remarks. The mean aggression scores can be seen in Table 4.1.</p>
+  <div class="keyword-box">
+    <h4>📌 Research Methods — Why a 'no model' control group?</h4>
+    <p>The non-aggressive model group might appear to be a control group because the key factor of 'aggression' is missing. However, the important aspect is the <strong>presence of a model</strong> — and in the non-aggressive group a model was still present. This means the real control group is where the IV is absent: the group where there is <strong>no model at all</strong>. The non-aggressive group tests H2 (does observing non-aggressive behaviour reduce aggression compared to no model?).</p>
+  </div>
 
-<p>The mean for <strong>imitative physical aggression（模仿性身体攻击）</strong> for boys with a male model (<strong>25.8</strong>) was much higher than that for girls (<strong>7.2</strong>). This indicates that the boys imitated the physical model more than the girls did. However, with a female model, girls imitated less (<strong>5.5</strong>) than with the male model. Girls imitated more verbal aggression of the same-sex model than boys (although not significantly so). Children were also more likely to imitate a same-sex model than an opposite-sex model; this effect was stronger for boys than for girls.</p>
+  <h3>6.4 Phase 3: Mild Arousal Stage（轻度唤醒阶段）</h3>
+  <p>The experimental procedure continued with a stage in which all participants were deliberately mildly annoyed. This was done for two reasons:</p>
+  <ul>
+    <li>Watching aggression may <strong>reduce</strong> the production of aggression by the observer (even if it has been learned), and it was necessary to see evidence of learning</li>
+    <li>To ensure that even the non-aggressive condition and control participants would be likely to express aggression, so that any reduction in that tendency could be measured</li>
+  </ul>
+  <p><strong>Arousal procedure（唤醒程序）</strong>: The experimenter took the child to another room, showed some attractive toys (e.g., nice art supplies), let the child play for about 2 minutes, then told them these toys were reserved for other children and could not be played with — this deliberately created <strong>mild frustration（轻度挫折感）</strong>.</p>
 
-<h3>6.1 Table 4.1: Mean Aggression Scores</h3>
+  <h3>6.5 Phase 4: Test for Delayed Imitation（延迟模仿测试）</h3>
+  <p>A test of the child's aggression then followed in which the child was observed for <strong>20 minutes</strong> using a <strong>one-way mirror（单向镜）</strong>. The mirror appeared transparent on the researcher's side (so they could observe the behaviour) but appeared as a normal mirror on the child's side (so they could not see that they were being observed from another room).</p>
 
-<table style="font-size:.82em">
-<thead>
-<tr>
-  <th rowspan="3">Response category<br>（反应类别）</th>
-  <th colspan="4">Experimental groups<br>（实验组）</th>
-  <th rowspan="3">Control groups<br>（对照组）</th>
-</tr>
-<tr>
-  <th colspan="2">Aggressive<br>（攻击模型）</th>
-  <th colspan="2">Non-aggressive<br>（非攻击模型）</th>
-</tr>
-<tr>
-  <th>Female model<br>（女性模型）</th>
-  <th>Male model<br>（男性模型）</th>
-  <th>Female model<br>（女性模型）</th>
-  <th>Male model<br>（男性模型）</th>
-</tr>
-</thead>
-<tbody>
-  <!-- Imitative physical aggression -->
-  <tr style="background:#fee2e2;font-weight:600"><td colspan="6" style="text-align:left;padding-left:12px">Imitative physical aggression（模仿性身体攻击）</td></tr>
-  <tr><td>Female participants（女性参与者）</td><td>5.5</td><td>7.2</td><td>2.5</td><td>0.0</td><td>1.2</td></tr>
-  <tr><td>Male participants（男性参与者）</td><td class="result-high">12.4</td><td class="result-high">25.8</td><td>0.2</td><td>1.5</td><td>2.0</td></tr>
-  <!-- Imitative verbal aggression -->
-  <tr style="background:#fee2e2;font-weight:600"><td colspan="6" style="text-align:left;padding-left:12px">Imitative verbal aggression（模仿性言语攻击）</td></tr>
-  <tr><td>Female participants（女性参与者）</td><td class="result-highlight">13.7</td><td>2.0</td><td>0.3</td><td>0.0</td><td>0.7</td></tr>
-  <tr><td>Male participants（男性参与者）</td><td>4.3</td><td class="result-highlight">12.7</td><td>1.1</td><td>0.0</td><td>1.7</td></tr>
-  <!-- Mallet aggression -->
-  <tr style="background:#fef3c7;font-weight:600"><td colspan="6" style="text-align:left;padding-left:12px">Mallet aggression（锤子攻击 — 部分模仿）</td></tr>
-  <tr><td>Female participants（女性参与者）</td><td>17.2</td><td>18.7</td><td>0.5</td><td>0.5</td><td>13.1</td></tr>
-  <tr><td>Male participants（男性参与者）</td><td>15.5</td><td class="result-highlight">28.8</td><td>18.7</td><td>6.7</td><td>13.5</td></tr>
-</tbody>
-</table>
+  <p>For the aggressive model group, there was a test of delayed imitation. The experimental room contained a <strong>three-foot (92 cm) Bobo doll</strong>, a mallet and peg board, two dart guns and a tether ball with a face painted on it which hung from the ceiling. It also contained some non-aggressive toys, including a tea set, crayons and colouring paper, a ball, two dolls, three bears, cars and trucks, and plastic farm animals. These toys were always presented in the same order.</p>
 
-<table style="font-size:.82em;margin-top:12px">
-<thead>
-<tr>
-  <th rowspan="3">Response category<br>（反应类别）</th>
-  <th colspan="4">Experimental groups<br>（实验组）</th>
-  <th rowspan="3">Control groups<br>（对照组）</th>
-</tr>
-<tr>
-  <th colspan="2">Aggressive<br>（攻击模型）</th>
-  <th colspan="2">Non-aggressive<br>（非攻击模型）</th>
-</tr>
-<tr>
-  <th>Female model<br>（女性模型）</th>
-  <th>Male model<br>（男性模型）</th>
-  <th>Female model<br>（女性模型）</th>
-  <th>Male model<br>（男性模型）</th>
-</tr>
-</thead>
-<tbody>
-  <!-- Punches Bobo doll -->
-  <tr style="background:#fef3c7;font-weight:600"><td colspan="6" style="text-align:left;padding-left:12px">Punches Bobo doll（拳击波波娃娃 — 部分模仿）</td></tr>
-  <tr><td>Female participants（女性参与者）</td><td>6.3</td><td>16.5</td><td>5.8</td><td>4.3</td><td>11.7</td></tr>
-  <tr><td>Male participants（男性参与者）</td><td>18.9</td><td>11.9</td><td>15.6</td><td>14.8</td><td>15.7</td></tr>
-  <!-- Non-imitative aggression -->
-  <tr style="background:#e0e7ff;font-weight:600"><td colspan="6" style="text-align:left;padding-left:12px">Non-imitative aggression（非模仿性攻击）</td></tr>
-  <tr><td>Female participants（女性参与者）</td><td>21.3</td><td>8.4</td><td>7.2</td><td>1.4</td><td>6.1</td></tr>
-  <tr><td>Male participants（男性参与者）</td><td>16.2</td><td class="result-high">36.7</td><td>26.1</td><td>22.3</td><td>24.6</td></tr>
-  <!-- Aggressive gun play -->
-  <tr style="background:#e0e7ff;font-weight:600"><td colspan="6" style="text-align:left;padding-left:12px">Aggressive gun play（攻击性枪械游戏）</td></tr>
-  <tr><td>Female participants（女性参与者）</td><td>1.8</td><td>4.5</td><td>2.6</td><td>2.5</td><td>3.7</td></tr>
-  <tr><td>Male participants（男性参与者）</td><td>7.3</td><td class="result-highlight">15.9</td><td>8.9</td><td>16.7</td><td>14.3</td></tr>
-</tbody>
-</table>
-<p style="text-align:center;font-size:.85em;color:#64748b"><strong>Table 4.1:</strong> Mean aggression scores from Bandura et al.'s study</p>
+  <p>The children's behaviours were observed in <strong>5-second intervals（5秒间隔）</strong> (240 response units per child). There were three 'response measures' of the children's imitation, with a range of possible activities in each:</p>
 
-<h3>6.2 Visual Comparison: Imitative Physical Aggression</h3>
-<div class="chart-container">
-<canvas id="resultsChart" width="800" height="420"></canvas>
-</div>
-<p style="text-align:center;font-size:.85em;color:#64748b">Figure: Mean imitative physical aggression scores across conditions（各条件下模仿性身体攻击平均得分对比）</p>
+  <div class="note-box">
+    <h4>📏 Response Measures（反应测量指标）</h4>
+    <table>
+      <tr><th style="width:30%">Category<br>（类别）</th><th>Description（描述）</th></tr>
+      <tr><td><strong>Imitative physical aggression<br>（模仿性身体攻击）</strong></td><td>striking the Bobo doll with the mallet, sitting on the doll and punching it in the nose, kicking the doll, and tossing it in the air</td></tr>
+      <tr><td><strong>Imitative verbal aggression<br>（模仿性言语攻击）</strong></td><td>repetition of the phrases: 'Sock him', 'Hit him down', 'Kick him', 'Throw him in the air' or 'Pow'</td></tr>
+      <tr><td><strong>Imitative non-aggressive verbal responses<br>（模仿性非攻击言语）</strong></td><td>repetition of 'He keeps coming back for more' or 'He sure is a tough fella'</td></tr>
+    </table>
+  </div>
 
-<h3>6.3 Key Findings</h3>
+  <p><strong>Partially imitative aggression（部分模仿性攻击）</strong> was scored if the child imitated these behaviours incompletely. The two behaviours here were:</p>
+  <ul>
+    <li><strong>mallet aggression（锤子攻击）</strong>: striking objects other than the Bobo doll aggressively with the mallet</li>
+    <li><strong>sits on Bobo doll aggressively</strong>: laying the Bobo doll on its side and sitting on it, without attacking it</li>
+  </ul>
 
-<div class="key-box">
-<h4>📊 Hypothesis Testing Results（假设检验结果）</h4>
-<table class="hyp-table" style="font-size:.9em">
-<tr><th>Hypothesis<br>（假设）</th><th>Prediction<br>（预测）</th><th>Finding<br>（发现）</th><th>Supported?<br>（支持？）</th></tr>
-<tr>
-  <td><strong>H1</strong></td>
-  <td>Children exposed to aggressive models will imitate aggressive behaviour</td>
-  <td>Aggressive model group showed significantly higher imitative physical &amp; verbal aggression than both non-aggressive and control groups (χ² = 27.17, p &lt; .001 for physical; χ² = 9.17, p &lt; .02 for verbal)</td>
-  <td><span class="result-highlight">✅ Yes</span></td>
-</tr>
-<tr>
-  <td><strong>H2</strong></td>
-  <td>Non-aggressive model → less aggression than no-model control</td>
-  <td>Non-aggressive group sat quietly &gt;2× longer than aggressive group (t = 3.07, p &lt; .01); played more with dolls</td>
-  <td><span class="result-highlight">✅ Partially</span></td>
-</tr>
-<tr>
-  <td><strong>H3</strong></td>
-  <td>Same-sex model copied more</td>
-  <td>Boys imitated male model more (25.8 vs 12.4 physical); girls imitated female model more verbally (13.7 vs 2.0)</td>
-  <td><span class="result-highlight">✅ Yes</span></td>
-</tr>
-<tr>
-  <td><strong>H4</strong></td>
-  <td>Boys more aggressive than girls</td>
-  <td>Boys produced significantly more imitative physical aggression than girls (t = 2.50, p &lt; .01)</td>
-  <td><span class="result-highlight">✅ Yes</span></td>
-</tr>
-</table>
-</div>
+  <p>Two further categories were:</p>
+  <ul>
+    <li><strong>aggressive gun play（攻击性枪械游戏）</strong>: shooting darts or aiming a gun and firing imaginary shots at objects in the room</li>
+    <li><strong>non-imitative physical and verbal aggression（非模仿性攻击）</strong>: physically aggressive acts directed toward objects other than the Bobo doll and any hostile remarks except for those in the verbal imitation category (e.g. 'Shoot the Bobo', 'Cut him', 'Stupid ball', 'Horses fighting', 'biting', 'Knock over people')</li>
+  </ul>
 
-<div class="cn-note">
-  <strong>💡 Key insight:</strong> Children did not merely imitate aggressive behaviour — they precisely reproduced the model's <strong>novel（新颖的）aggressive patterns</strong>, such as throwing the Bobo doll into the air then kicking it. This is behaviour children are unlikely to produce spontaneously. This provides powerful evidence for <strong>observational learning（观察学习）</strong>, rather than simple behavioural release.
-</div>
+  <p>Finally, behaviour units were also counted for <strong>non-aggressive play（非攻击性游戏）</strong> and <strong>sitting quietly not playing at all（安静坐着不玩耍）</strong>, and records were kept of the children's remarks about the situation.</p>
 
-<h3>6.4 Sex-Typed Comments（性别定型评论）</h3>
-<p>In addition to the observations, records of the remarks about the aggressive models revealed differences, both between reactions to the actions of the male and female models and between boys and girls. Some comments appeared to be based on previous knowledge of <strong>sex-typed behaviour（性别定型行为）</strong>:</p>
+  <p>The male model scored all the children's behaviours. Except for those conditions in which the male was the model, he was unaware of which condition the child had been in. However, the condition in which the child had been was usually obvious, as in the case of the aggressive model children as they performed the specific behaviours exhibited by the model. To test the reliability of the scorer, a second scorer independently rated the behaviour of half of the children. The reliability score was high at approximately <strong>r = 0.9</strong> for different categories of behaviour.</p>
 
-<div class="two-col">
-<div class="cn-note" style="background:#fef2f2;border-color:#fca5a5">
-  <strong>👩 Comments about the female model:</strong>
-  <p style="font-size:.9em">"Who is that lady? That's not the way for a lady to behave. Ladies are supposed to act like ladies..."</p>
-  <p style="font-size:.9em">"You should have seen what that girl did in there. She was just acting like a man. I never saw a girl act like that before."</p>
-</div>
-<div class="cn-note" style="background:#f0fdf4;border-color:#86efac">
-  <strong>👨 Comments about the male model:</strong>
-  <p style="font-size:.9em">"Al's a good socker, he beat up Bobo. I want to sock like Al."</p>
-  <p style="font-size:.9em">"That man is a strong fighter, he punched and punched and he could hit Bobo right down to the floor... He's a good fighter like Daddy."</p>
-</div>
-</div>
+  <div class="cn-summary-wrap">
+    <button class="cn-summary-toggle" onclick="toggleCnSummary(this)"><span class="cs-icon">▶</span> 中文逻辑总结</button>
+    <div class="cn-summary-body">
+      <div class="cs-title">§6 程序：四大阶段的精妙设计</div>
+      <p><strong>Phase 1 - 预测试与评分：</strong>实验者和老师用 5 点量表评估儿童初始攻击水平（4 个维度：身体攻击、言语攻击、对物品攻击、攻击抑制）。匹配成三人组后随机分组。</p>
+      <p><strong>Phase 2 - 观察阶段：</strong>儿童进入观察室，被安排在"玩耍区"画土豆印/贴纸；对面角落是模型区域（Bobo 娃娃 + 锤子 + Tinkertoy）。</p>
+      <ul>
+        <li><span class="cs-en">Aggressive Model</span>：~1 分钟拼 Tinkertoy + 9 分钟打 Bobo（特殊动作 + 攻击性语言）</li>
+        <li><span class="cs-en">Non-aggressive Model</span>：安静拼 10 分钟 Tinkertoy，完全忽略 Bobo</li>
+        <li><span class="cs-en">Control</span>：无模型暴露</li>
+      </ul>
+      <p><strong>Phase 3 - 轻度唤醒：</strong>把儿童带到另一房间，给 2 分钟玩精美玩具，然后告知"这些玩具是给其他孩子保留的"——故意制造<span class="cs-en">Mild Frustration（轻度挫折）</span>，确保所有儿童都有表达攻击的动机。</p>
+      <p><strong>Phase 4 - 延迟模仿测试：</strong>通过<span class="cs-en">One-way Mirror（单向镜）</span>观察 20 分钟，记录 <strong>5 秒间隔</strong>的行为（共 240 个反应单元）。</p>
+      <p><strong>💡 关键设计：</strong></p>
+      <ul>
+        <li>5 秒间隔：足够短以避免漏掉瞬时行为，又足够长以观察完整动作</li>
+        <li>单向镜：避免<span class="cs-en">Demand Characteristics（需求特征）</span>——儿童不知道被观察</li>
+        <li>3 种模仿攻击 + 2 种部分模仿 + 1 种枪械游戏 + 非模仿攻击 → <span class="cs-en">Multiple DV measures</span></li>
+        <li>评分者间信度 r ≈ 0.9 → 高<span class="cs-en">Reliability（信度）</span></li>
+      </ul>
+    </div>
+  </div>
 
-<div class="kw-box">
-<h4>📌 Key Word</h4>
-<p><strong>sex-typed behaviour（性别定型行为）</strong>: actions that are typically performed by one particular sex and are seen in society as more appropriate for that sex. For example, aggression is seen as masculine-type behaviour and was more commonly imitated by boys in the study.</p>
-</div>
-
-<div class="activity-box">
-<h4>✏️ Activity 4.1</h4>
-<ol>
-<li>Consider the data for the mean aggressive behaviours and the non-imitative verbal responses. Which data is qualitative and which is quantitative?</li>
-<li>Draw a bar chart showing the results for imitative physical aggression. Include the mean scores for the experimental groups and control group. Make sure you give the chart labels and an appropriate title.</li>
-</ol>
+  <div class="summary-card" id="summary-s6">
+    <div class="summary-card-header" onclick="toggleSummary('summary-s6')">
+      <span class="summary-card-icon">▶</span>
+      <span class="summary-card-title">Exam Key Points — Procedure</span>
+      <span class="summary-card-badge">AO1</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ul>
+          <li>4 phases: pre-test → observation → mild arousal → delayed imitation test <span class="tag-must">Must Know</span></li>
+          <li>Aggressive model sequence: ~1 min Tinkertoy + 9 min hitting Bobo + verbal aggression phrases <span class="tag-must">Must Know</span></li>
+          <li>One-way mirror avoids demand characteristics; 20-min observation in 5-second intervals <span class="tag-common">Common Q</span></li>
+          <li>Mild arousal phase: ensures all children have aggression motivation, so any reduction is measurable <span class="tag-ao2">AO2 Gold</span></li>
+          <li>Inter-rater reliability r ≈ 0.9 → high reliability of behavioural coding <span class="tag-ao2">AO2 Gold</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- ==================== SECTION 7 ==================== -->
-<h2>7. Conclusion</h2>
-<p>The results strongly suggest that <strong>observation and imitation can account for the learning of specific acts without reinforcement（无需强化即可通过观察和模仿学习特定行为）</strong> of either the model or observer. All four hypotheses were supported:</p>
-<ul>
-<li><strong>Observed aggressive behaviours are imitated:</strong> children who see aggressive models are likely to be more aggressive than those seeing a non-aggressive model or no model.</li>
-<li><strong>Observed non-aggressive behaviours are imitated:</strong> children seeing non-aggressive models will be less aggressive than those seeing no model.</li>
-<li><strong>Children are more likely to copy a same-sex model,</strong> although this may depend on the extent to which this behaviour is sex-typed.</li>
-<li><strong>Boys are more likely to copy aggression than girls.</strong></li>
-</ul>
+<div class="section" id="s7">
+  <h2>7️⃣ Results（研究结果）</h2>
 
-<!-- ==================== SECTION 8 ==================== -->
-<h2>8. Strengths and Weaknesses</h2>
+  <p>Children exposed to aggressive models imitated their exact behaviours and were significantly more aggressive, both physically and verbally, than those children in the non-aggressive model or control groups. One-third of the children in the aggressive condition also copied the model's non-aggressive verbal responses but none of the children in either the non-aggressive or control groups made such remarks.</p>
 
-<h3>Strengths（优点）</h3>
-<ol>
-<li><strong>Controlled laboratory environment（受控的实验室环境）</strong> — This allowed researchers to control <strong>extraneous variables（无关变量/外扰变量）</strong>, ensuring that children in all conditions had the opportunity to display aggressive behaviour.</li>
-<li><strong>Standardised procedure（标准化程序）</strong> — All children in the two experimental groups saw the model for the same amount of time, and behaviour was standardised in each condition. This makes the study more <strong>valid（有效的）</strong> — researchers can confirm that differences in results were due to differences between models — and more <strong>reliable（可靠的）</strong> — because every child in each condition experienced exactly the same exposure.</li>
-<li><strong>High inter-rater reliability（高评分者间信度）</strong> — Both the initial observation of aggression and the recording of data showed high reliability, at r ≈ 0.9.</li>
-<li><strong>Matched pairs design（匹配配对设计）</strong> — Pre-rating children's aggression as part of a matched pairs design added another factor increasing validity, as it ensured differences between conditions were due to the model rather than individual differences between children.</li>
-<li><strong>Demand characteristics minimised（需求特征最小化）</strong> — Observers watched through a one-way mirror; children were unaware they were being monitored, making natural behaviour more likely than responses to demand characteristics.</li>
-<li><strong>Both quantitative and qualitative data（定量与定性数据）</strong> — Quantitative data provided objective records of imitative behaviour in each category; qualitative data (though more subjective) offered explanations for why children tended to imitate certain behaviours over others.</li>
-</ol>
+  <p>The mean for <strong>imitative physical aggression (模仿性身体攻击)</strong> for boys with a male model (<strong>25.8</strong>) was much higher than that for girls (<strong>7.2</strong>). This indicates that the boys imitated the physical model more than the girls did. However, with a female model, girls imitated less (<strong>5.5</strong>) than with the male model. Girls imitated more verbal aggression of the same-sex model than boys (although not significantly so). Children were also more likely to imitate a same-sex model than an opposite-sex model; this effect was stronger for boys than for girls.</p>
 
-<div class="kw-box">
-<h4>📌 Key Word</h4>
-<p><strong>extraneous variable（无关变量/外扰变量）</strong>: a variable other than the IV that may affect the DV. It either acts randomly (affecting the DV across all levels of the IV) or systematically (affecting only one level, in which case it is called a confounding variable), potentially obscuring the effect of the IV and making results difficult to interpret.</p>
+  <h3>7.1 Table 4.1: Mean Aggression Scores — Imitative &amp; Partially Imitative</h3>
+
+  <table style="font-size:.82em">
+    <thead>
+      <tr>
+        <th rowspan="3">Response category<br>（反应类别）</th>
+        <th colspan="4">Experimental groups<br>（实验组）</th>
+        <th rowspan="3">Control<br>（对照）</th>
+      </tr>
+      <tr>
+        <th colspan="2">Aggressive<br>（攻击模型）</th>
+        <th colspan="2">Non-aggressive<br>（非攻击模型）</th>
+      </tr>
+      <tr>
+        <th>Female model<br>（女性模型）</th>
+        <th>Male model<br>（男性模型）</th>
+        <th>Female model<br>（女性模型）</th>
+        <th>Male model<br>（男性模型）</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background:#fee2e2;font-weight:600"><td colspan="6" style="text-align:left;padding-left:12px">Imitative physical aggression（模仿性身体攻击）</td></tr>
+      <tr><td>Female participants（女性参与者）</td><td>5.5</td><td>7.2</td><td>2.5</td><td>0.0</td><td>1.2</td></tr>
+      <tr><td>Male participants（男性参与者）</td><td class="result-high">12.4</td><td class="result-high">25.8</td><td>0.2</td><td>1.5</td><td>2.0</td></tr>
+      <tr style="background:#fee2e2;font-weight:600"><td colspan="6" style="text-align:left;padding-left:12px">Imitative verbal aggression（模仿性言语攻击）</td></tr>
+      <tr><td>Female participants（女性参与者）</td><td class="result-highlight">13.7</td><td>2.0</td><td>0.3</td><td>0.0</td><td>0.7</td></tr>
+      <tr><td>Male participants（男性参与者）</td><td>4.3</td><td class="result-highlight">12.7</td><td>1.1</td><td>0.0</td><td>1.7</td></tr>
+      <tr style="background:#fef3c7;font-weight:600"><td colspan="6" style="text-align:left;padding-left:12px">Mallet aggression（锤子攻击 — 部分模仿）</td></tr>
+      <tr><td>Female participants（女性参与者）</td><td>17.2</td><td>18.7</td><td>0.5</td><td>0.5</td><td>13.1</td></tr>
+      <tr><td>Male participants（男性参与者）</td><td>15.5</td><td class="result-highlight">28.8</td><td>18.7</td><td>6.7</td><td>13.5</td></tr>
+    </tbody>
+  </table>
+
+  <h3>7.2 Table 4.1 (continued): Non-imitative aggression &amp; gun play</h3>
+
+  <table style="font-size:.82em">
+    <thead>
+      <tr>
+        <th rowspan="3">Response category<br>（反应类别）</th>
+        <th colspan="4">Experimental groups<br>（实验组）</th>
+        <th rowspan="3">Control<br>（对照）</th>
+      </tr>
+      <tr>
+        <th colspan="2">Aggressive<br>（攻击模型）</th>
+        <th colspan="2">Non-aggressive<br>（非攻击模型）</th>
+      </tr>
+      <tr>
+        <th>Female model<br>（女性模型）</th>
+        <th>Male model<br>（男性模型）</th>
+        <th>Female model<br>（女性模型）</th>
+        <th>Male model<br>（男性模型）</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background:#fef3c7;font-weight:600"><td colspan="6" style="text-align:left;padding-left:12px">Punches Bobo doll（拳击波波娃娃 — 部分模仿）</td></tr>
+      <tr><td>Female participants（女性参与者）</td><td>6.3</td><td>16.5</td><td>5.8</td><td>4.3</td><td>11.7</td></tr>
+      <tr><td>Male participants（男性参与者）</td><td>18.9</td><td>11.9</td><td>15.6</td><td>14.8</td><td>15.7</td></tr>
+      <tr style="background:#e0e7ff;font-weight:600"><td colspan="6" style="text-align:left;padding-left:12px">Non-imitative aggression（非模仿性攻击）</td></tr>
+      <tr><td>Female participants（女性参与者）</td><td>21.3</td><td>8.4</td><td>7.2</td><td>1.4</td><td>6.1</td></tr>
+      <tr><td>Male participants（男性参与者）</td><td>16.2</td><td class="result-high">36.7</td><td>26.1</td><td>22.3</td><td>24.6</td></tr>
+      <tr style="background:#e0e7ff;font-weight:600"><td colspan="6" style="text-align:left;padding-left:12px">Aggressive gun play（攻击性枪械游戏）</td></tr>
+      <tr><td>Female participants（女性参与者）</td><td>1.8</td><td>4.5</td><td>2.6</td><td>2.5</td><td>3.7</td></tr>
+      <tr><td>Male participants（男性参与者）</td><td>7.3</td><td class="result-highlight">15.9</td><td>8.9</td><td>16.7</td><td>14.3</td></tr>
+    </tbody>
+  </table>
+  <p style="text-align:center;font-size:.85em;color:var(--text-secondary)"><strong>Table 4.1:</strong> Mean aggression scores from Bandura et al.'s study</p>
+
+  <h3>7.3 Visual Comparison: Imitative Physical Aggression</h3>
+  <div style="margin:20px 0;text-align:center">
+    <canvas id="resultsChart" width="780" height="380"></canvas>
+  </div>
+  <p style="text-align:center;font-size:.85em;color:var(--text-secondary)">Figure: Mean imitative physical aggression scores across conditions（各条件下模仿性身体攻击平均得分对比）</p>
+
+  <h3>7.4 Hypothesis Testing Results（假设检验结果）</h3>
+
+  <div class="note-box">
+    <h4>📊 Statistical Tests Summary</h4>
+    <table>
+      <tr><th>Hypothesis<br>（假设）</th><th>Prediction<br>（预测）</th><th>Finding<br>（发现）</th><th>Supported?<br>（支持？）</th></tr>
+      <tr>
+        <td><strong>H1</strong></td>
+        <td>Children exposed to aggressive models will imitate aggressive behaviour</td>
+        <td>Aggressive model group showed significantly higher imitative physical &amp; verbal aggression than both non-aggressive and control groups (χ² = 27.17, p &lt; .001 for physical; χ² = 9.17, p &lt; .02 for verbal)</td>
+        <td><span class="result-highlight">✅ Yes</span></td>
+      </tr>
+      <tr>
+        <td><strong>H2</strong></td>
+        <td>Non-aggressive model → less aggression than no-model control</td>
+        <td>Non-aggressive group sat quietly &gt;2× longer than aggressive group (t = 3.07, p &lt; .01); played more with dolls</td>
+        <td><span class="result-highlight">✅ Partially</span></td>
+      </tr>
+      <tr>
+        <td><strong>H3</strong></td>
+        <td>Same-sex model copied more</td>
+        <td>Boys imitated male model more (25.8 vs 12.4 physical); girls imitated female model more verbally (13.7 vs 2.0)</td>
+        <td><span class="result-highlight">✅ Yes</span></td>
+      </tr>
+      <tr>
+        <td><strong>H4</strong></td>
+        <td>Boys more aggressive than girls</td>
+        <td>Boys produced significantly more imitative physical aggression than girls (t = 2.50, p &lt; .01)</td>
+        <td><span class="result-highlight">✅ Yes</span></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="green-box">
+    <strong>💡 Key insight:</strong> Children did not merely imitate aggressive behaviour — they precisely reproduced the model's <strong>novel (新颖的) aggressive patterns</strong>, such as throwing the Bobo doll into the air then kicking it. This is behaviour children are unlikely to produce spontaneously. This provides powerful evidence for <strong>observational learning (观察学习)</strong>, rather than simple behavioural release.
+  </div>
+
+  <h3>7.5 Sex-Typed Comments（性别定型评论）</h3>
+  <p>In addition to the observations, records of the remarks about the aggressive models revealed differences, both between reactions to the actions of the male and female models and between boys and girls. Some comments appeared to be based on previous knowledge of <strong>sex-typed behaviour (性别定型行为)</strong>:</p>
+
+  <div class="factor-grid">
+    <div class="note-box" style="background:#fef2f2;border-left:4px solid #fca5a5">
+      <strong>👩 Comments about the female model:</strong>
+      <p style="font-size:.9em;margin:6px 0">"Who is that lady? That's not the way for a lady to behave. Ladies are supposed to act like ladies..."</p>
+      <p style="font-size:.9em;margin:6px 0">"You should have seen what that girl did in there. She was just acting like a man. I never saw a girl act like that before."</p>
+    </div>
+    <div class="note-box" style="background:#f0fdf4;border-left:4px solid #86efac">
+      <strong>👨 Comments about the male model:</strong>
+      <p style="font-size:.9em;margin:6px 0">"Al's a good socker, he beat up Bobo. I want to sock like Al."</p>
+      <p style="font-size:.9em;margin:6px 0">"That man is a strong fighter, he punched and punched and he could hit Bobo right down to the floor... He's a good fighter like Daddy."</p>
+    </div>
+  </div>
+
+  <div class="keyword-box">
+    <h4>📌 Key Word — Sex-typed Behaviour</h4>
+    <p><strong>Sex-typed behaviour (性别定型行为)</strong>: actions that are typically performed by one particular sex and are seen in society as more appropriate for that sex. For example, aggression is seen as masculine-type behaviour and was more commonly imitated by boys in the study.</p>
+  </div>
+
+  <div class="quote">
+    <strong>✏️ Activity 4.1</strong>
+    <ol>
+      <li>Consider the data for the mean aggressive behaviours and the non-imitative verbal responses. Which data is qualitative and which is quantitative?</li>
+      <li>Draw a bar chart showing the results for imitative physical aggression. Include the mean scores for the experimental groups and control group. Make sure you give the chart labels and an appropriate title.</li>
+    </ol>
+  </div>
+
+  <div class="cn-summary-wrap">
+    <button class="cn-summary-toggle" onclick="toggleCnSummary(this)"><span class="cs-icon">▶</span> 中文逻辑总结</button>
+    <div class="cn-summary-body">
+      <div class="cs-title">§7 结果：四个假设全部支持</div>
+      <p><strong>核心数字（Imitative Physical Aggression 模仿性身体攻击）：</strong></p>
+      <ul>
+        <li>男 + 男模型：<span class="result-high">25.8</span>（最高！远超其他组）</li>
+        <li>男 + 女模型：<span class="result-high">12.4</span></li>
+        <li>女 + 男模型：7.2</li>
+        <li>女 + 女模型：5.5</li>
+        <li>对照组男：2.0 / 女：1.2</li>
+      </ul>
+      <p><strong>四假设结论：</strong></p>
+      <ul>
+        <li><span class="cs-en">H1 支持</span>：攻击模型组显著高于非攻击/对照 (χ² = 27.17, p &lt; .001)</li>
+        <li><span class="cs-en">H2 部分支持</span>：非攻击组坐得比攻击组长 (t = 3.07)</li>
+        <li><span class="cs-en">H3 支持</span>：男+男模型最强 (25.8 > 12.4)；女+女模型在言语上更强 (13.7 > 2.0)</li>
+        <li><span class="cs-en">H4 支持</span>：男孩身体攻击显著多于女孩 (t = 2.50, p &lt; .01)</li>
+      </ul>
+      <p><strong>💡 关键洞见：</strong>儿童复制的不是"泛化的攻击"，而是<span class="cs-en">Novel Aggressive Patterns（新颖攻击动作）</span>——如"把 Bobo 抛向空中再踢一脚"，这种动作儿童不可能自发产生。→ 这是<span class="cs-en">Observational Learning</span>而非<span class="cs-en">Behavioural Release</span>的铁证。</p>
+      <p><strong>性别定型评论补充：</strong>儿童对女性攻击者表示"那不是淑女该有的行为"，对男性攻击者表示"他像爸爸一样能打"——显示他们已经内化了性别角色规范。</p>
+    </div>
+  </div>
+
+  <div class="summary-card" id="summary-s7">
+    <div class="summary-card-header" onclick="toggleSummary('summary-s7')">
+      <span class="summary-card-icon">▶</span>
+      <span class="summary-card-title">Exam Key Points — Results</span>
+      <span class="summary-card-badge">AO1</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ul>
+          <li>All 4 hypotheses were supported: H1 (aggressive imitation), H2 (non-aggressive imitation), H3 (same-sex model), H4 (boys > girls) <span class="tag-must">Must Know</span></li>
+          <li>Key statistic: Boys + male model = <strong>25.8</strong> imitative physical aggression (highest of all conditions) <span class="tag-must">Must Know</span></li>
+          <li>Statistical tests: χ² = 27.17 (p &lt; .001) for H1 physical aggression; t = 2.50 (p &lt; .01) for H4 <span class="tag-common">Common Q</span></li>
+          <li>Novel aggressive patterns (e.g., throw + kick Bobo) prove true observational learning, not behavioural release <span class="tag-ao2">AO2 Gold</span></li>
+          <li>Sex-typed comments: children verbalised surprise at female aggression — shows internalised gender norms <span class="tag-ao2">AO2 Gold</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div><!-- ==================== SECTION 8 ==================== -->
+<div class="section" id="s8">
+  <h2>8️⃣ Conclusion（结论）</h2>
+
+  <p>The results strongly suggest that <strong>observation and imitation can account for the learning of specific acts without reinforcement (无需强化即可通过观察和模仿学习特定行为)</strong> of either the model or observer. All four hypotheses were supported:</p>
+  <ul>
+    <li><strong>Observed aggressive behaviours are imitated:</strong> children who see aggressive models are likely to be more aggressive than those seeing a non-aggressive model or no model.</li>
+    <li><strong>Observed non-aggressive behaviours are imitated:</strong> children seeing non-aggressive models will be less aggressive than those seeing no model.</li>
+    <li><strong>Children are more likely to copy a same-sex model,</strong> although this may depend on the extent to which this behaviour is sex-typed.</li>
+    <li><strong>Boys are more likely to copy aggression than girls.</strong></li>
+  </ul>
+
+  <p>The conclusion is striking because it challenges behaviourist learning theory: <strong>direct reinforcement is not necessary for learning to occur</strong>. Children learned completely novel aggressive acts by watching an adult — an effect that strict behaviourism (which requires direct reinforcement of the learner) cannot explain.</p>
+
+  <div class="green-box">
+    <strong>🔑 Key Takeaway</strong>
+    <p>The study demonstrated that <strong>modelling (榜样示范)</strong> is a powerful mechanism for transmitting behaviour across generations — without any need for reinforcement of the observer. This has profound implications for understanding how aggression, and many other behaviours, may spread in families and cultures.</p>
+  </div>
+
+  <div class="cn-summary-wrap">
+    <button class="cn-summary-toggle" onclick="toggleCnSummary(this)"><span class="cs-icon">▶</span> 中文逻辑总结</button>
+    <div class="cn-summary-body">
+      <div class="cs-title">§8 结论的革命性意义</div>
+      <p>Bandura 的结论<strong>挑战了行为主义的核心命题</strong>——传统行为主义认为学习必须通过<span class="cs-en">Direct Reinforcement（直接强化）</span>。但本研究证明：</p>
+      <ul>
+        <li>儿童<strong>自身</strong>既没被打也没被奖励</li>
+        <li>榜样（成人模型）也没被打或被奖励</li>
+        <li>然而儿童<strong>学会了</strong>新颖的攻击行为</li>
+      </ul>
+      <p>这只能用 <span class="cs-en">Observational Learning（观察学习）</span>解释——这是社会学习理论对行为主义的重大扩展。</p>
+      <p><strong>💡 考试要点：</strong>"Without any direct reinforcement"是这道题的关键限定语。</p>
+    </div>
+  </div>
+
+  <div class="summary-card" id="summary-s8">
+    <div class="summary-card-header" onclick="toggleSummary('summary-s8')">
+      <span class="summary-card-icon">▶</span>
+      <span class="summary-card-title">Exam Key Points — Conclusion</span>
+      <span class="summary-card-badge">AO1</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ul>
+          <li>Core conclusion: <strong>novel behaviours can be acquired through observation alone, without direct reinforcement</strong> <span class="tag-must">Must Know</span></li>
+          <li>All 4 hypotheses supported: imitation of aggression, imitation of non-aggression, same-sex model effect, boys > girls <span class="tag-must">Must Know</span></li>
+          <li>Challenged behaviourism: learning without direct reinforcement was a major theoretical advance <span class="tag-ao2">AO2 Gold</span></li>
+          <li>Same-sex effect depends on sex-typing of the behaviour — not all behaviours follow the same pattern <span class="tag-ao2">AO2 Gold</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
-
-<h3>Weaknesses（缺点）</h3>
-<ol>
-<li><strong>Small sample size（样本量小）</strong> — Only 6 children per experimental condition were used (although matched pairs reduced the risk of participant variables confounding results), the sample remained small.</li>
-<li><strong>Sample bias（样本偏差）</strong> — All children came from the same university nursery school, implying their parents were academically educated. This may have biased the sample, reducing validity and generalisability.</li>
-<li><strong>Ecological validity concerns（生态效度问题）</strong> — The laboratory setting was not a normal play environment for children; the Bobo doll is a toy specifically designed to be attacked, unlike real-life aggression contexts.</li>
-<li><strong>Ethical concerns about harm（伦理伤害担忧）</strong> — Making children more aggressive may have caused psychological harm.</li>
-<li><strong>No long-term follow-up（无长期追踪）</strong> — If imitation led to learning, behavioural change should be relatively enduring. However, the study did not track how long the acquired behaviours persisted.</li>
-<li><strong>No self-report data（无自我报告数据）</strong> — Asking children about their feelings during observation or reaction to the Bobo doll could have helped further understanding of differences, e.g. the influence of sex-typing on imitation.</li>
-</ol>
 
 <!-- ==================== SECTION 9 ==================== -->
-<h2>9. Ethical Issues</h2>
-<div class="warn-box">
-<h4>⚠️ Main Ethical Concern</h4>
-<p>One ethical issue with the study was that <strong>some of the children might have been harmed by becoming more aggressive during the research</strong>. For example, they could have physically injured themselves with the toys they were given to play with after watching an aggressive model. Even if this were not the case, the children were still <strong>deliberately annoyed in the procedure of the study</strong>. This could have been psychologically distressing for the children. These aspects of the study go against the ethical guideline of protecting participants from physical and psychological harm.</p>
-</div>
+<div class="section" id="s9">
+  <h2>9️⃣ Strengths &amp; Weaknesses（优缺点）</h2>
 
-<p>It is worth noting that this study was conducted in 1961, before modern ethical guidelines (such as informed consent, right to withdraw, etc.) were fully established. If this experiment were repeated today, it would require parental <strong>informed consent（知情同意）</strong>, ensure children had the right to withdraw at any time, and provide thorough psychological <strong>debriefing（事后解释）</strong> afterwards to eliminate any potential negative effects.</p>
+  <h3>Strengths (优点)</h3>
+  <ol>
+    <li><strong>Controlled laboratory environment (受控的实验室环境)</strong> — This allowed researchers to control <strong>extraneous variables (无关变量/外扰变量)</strong>, ensuring that children in all conditions had the opportunity to display aggressive behaviour.</li>
+    <li><strong>Standardised procedure (标准化程序)</strong> — All children in the two experimental groups saw the model for the same amount of time, and behaviour was standardised in each condition. This makes the study more <strong>valid</strong> — researchers can confirm that differences in results were due to differences between models — and more <strong>reliable</strong> — because every child in each condition experienced exactly the same exposure.</li>
+    <li><strong>High inter-rater reliability (高评分者间信度)</strong> — Both the initial observation of aggression and the recording of data showed high reliability, at r ≈ 0.9.</li>
+    <li><strong>Matched pairs design (匹配配对设计)</strong> — Pre-rating children's aggression as part of a matched pairs design added another factor increasing validity, as it ensured differences between conditions were due to the model rather than individual differences between children.</li>
+    <li><strong>Demand characteristics minimised (需求特征最小化)</strong> — Observers watched through a one-way mirror; children were unaware they were being monitored, making natural behaviour more likely than responses to demand characteristics.</li>
+    <li><strong>Both quantitative and qualitative data (定量与定性数据)</strong> — Quantitative data provided objective records of imitative behaviour in each category; qualitative data (though more subjective) offered explanations for why children tended to imitate certain behaviours over others.</li>
+  </ol>
+
+  <div class="keyword-box">
+    <h4>📌 Key Word — Extraneous Variable</h4>
+    <p><strong>Extraneous variable (无关变量/外扰变量)</strong>: a variable other than the IV that may affect the DV. It either acts randomly (affecting the DV across all levels of the IV) or systematically (affecting only one level, in which case it is called a confounding variable), potentially obscuring the effect of the IV and making results difficult to interpret.</p>
+  </div>
+
+  <h3>Weaknesses (缺点)</h3>
+  <ol>
+    <li><strong>Small sample size (样本量小)</strong> — Only 6 children per experimental cell were used (although matched pairs reduced the risk of participant variables confounding results), the sample remained small. This reduces statistical power and generalisability.</li>
+    <li><strong>Sample bias (样本偏差)</strong> — All children came from the same university nursery school, implying their parents were academically educated. This may have biased the sample, reducing validity and generalisability.</li>
+    <li><strong>Ecological validity concerns (生态效度问题)</strong> — The laboratory setting was not a normal play environment for children; the Bobo doll is a toy specifically designed to be attacked, unlike real-life aggression contexts.</li>
+    <li><strong>Ethical concerns about harm (伦理伤害担忧)</strong> — Making children more aggressive may have caused psychological harm (see §10 for detailed discussion).</li>
+    <li><strong>No long-term follow-up (无长期追踪)</strong> — If imitation led to learning, behavioural change should be relatively enduring. However, the study did not track how long the acquired behaviours persisted.</li>
+    <li><strong>No self-report data (无自我报告数据)</strong> — Asking children about their feelings during observation or reaction to the Bobo doll could have helped further understanding of differences, e.g. the influence of sex-typing on imitation.</li>
+  </ol>
+
+  <div class="cn-summary-wrap">
+    <button class="cn-summary-toggle" onclick="toggleCnSummary(this)"><span class="cs-icon">▶</span> 中文逻辑总结</button>
+    <div class="cn-summary-body">
+      <div class="cs-title">§9 评价：六大优点 vs 六大缺点</div>
+      <p><strong>✅ 六大优点：</strong></p>
+      <ul>
+        <li><span class="cs-en">Controlled Lab</span>：控制无关变量 → 高内部效度</li>
+        <li><span class="cs-en">Standardised Procedure</span>：每个儿童经历相同流程 → 高信度</li>
+        <li><span class="cs-en">Inter-rater Reliability r ≈ 0.9</span>：高评分一致性</li>
+        <li><span class="cs-en">Matched Pairs</span>：三人一组匹配 → 控制个体差异</li>
+        <li><span class="cs-en">One-way Mirror</span>：单向镜观察 → 最小化需求特征</li>
+        <li><span class="cs-en">Mixed Methods</span>：定量 + 定性结合</li>
+      </ul>
+      <p><strong>❌ 六大缺点：</strong></p>
+      <ul>
+        <li><span class="cs-en">Small Sample</span>：每组仅 6 人 → 统计功效低</li>
+        <li><span class="cs-en">Sample Bias</span>：全是斯坦福大学教师子女 → 不能推广</li>
+        <li><span class="cs-en">Low Ecological Validity</span>：实验室环境 + 专门设计被打的 Bobo 娃娃 ≠ 真实生活</li>
+        <li><span class="cs-en">Ethical Harm</span>：可能造成心理伤害</li>
+        <li><span class="cs-en">No Follow-up</span>：未追踪长期效果</li>
+        <li><span class="cs-en">No Self-report</span>：未询问儿童主观感受</li>
+      </ul>
+      <p><strong>💡 AO2 答题模板：</strong>"One strength is... because... This means..." 每个点都要加 "because" 和 "this means"。</p>
+    </div>
+  </div>
+
+  <div class="summary-card" id="summary-s9">
+    <div class="summary-card-header" onclick="toggleSummary('summary-s9')">
+      <span class="summary-card-icon">▶</span>
+      <span class="summary-card-title">Exam Key Points — Evaluation</span>
+      <span class="summary-card-badge">AO3</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ul>
+          <li>Know 3 strengths AND 3 weaknesses with clear reasoning <span class="tag-must">Must Know</span></li>
+          <li>Strength: Standardised procedure → high reliability <span class="tag-ao2">AO2 Gold</span></li>
+          <li>Strength: Matched pairs → high internal validity (individual differences controlled) <span class="tag-ao2">AO2 Gold</span></li>
+          <li>Weakness: Stanford nursery sample → biased, cannot generalise <span class="tag-ao2">AO2 Gold</span></li>
+          <li>Weakness: Low ecological validity (lab + Bobo doll designed to be hit) <span class="tag-ao2">AO2 Gold</span></li>
+          <li>Evaluation tip: Always add "this means..." to explain the implication of your point <span class="tag-context">Context</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- ==================== SECTION 10 ==================== -->
-<h2>10. Issues and Debates</h2>
+<div class="section" id="s10">
+  <h2>🔟 Ethical Issues（伦理问题）</h2>
 
-<h3>10.1 Nature versus Nurture（先天与后天）</h3>
-<p>In the nature versus nurture debate, we can consider why the boys and girls showed different responses. This could be because they are genetically different — a <strong>nature explanation（先天解释）</strong>. Boys might be biologically predisposed to be aggressive, so more likely to copy aggressive models. Alternatively, boys might be more likely to copy aggressive models because they have <strong>been rewarded for aggressive behaviours more than girls have</strong>. This would be a <strong>nurture argument（后天论点）</strong>.</p>
+  <p>Bandura's study raised significant ethical issues, particularly by today's standards. One ethical issue with the study was that <strong>some of the children might have been harmed by becoming more aggressive during the research</strong>. For example, they could have physically injured themselves with the toys they were given to play with after watching an aggressive model. Even if this were not the case, the children were still <strong>deliberately annoyed</strong> in the procedure of the study. This could have been psychologically distressing for the children. These aspects of the study go against the ethical guideline of protecting participants from physical and psychological harm.</p>
 
-<div class="key-box">
-<h4>🧬 Nature（先天）Arguments</h4>
-<ul>
-<li>Boys may have a biological predisposition towards aggression (evolutionary psychology perspective: males needed to compete for resources/mates)</li>
-<li>Hormonal differences (testosterone levels) may make boys more likely to display aggressive behaviour</li>
-<li>Neurobiological basis: brain regions associated with aggression (e.g., the amygdala) may show sex differences</li>
-</ul>
+  <table>
+    <thead>
+      <tr><th>Ethical Issue 伦理问题</th><th>Details 详情</th><th>How Addressed 如何处理</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Protection from harm 免受伤害</strong></td><td>Children deliberately annoyed in arousal phase; some may have physically injured themselves playing with toys after watching aggressive model</td><td>Aggressive behaviour not directly rewarded or punished outside study; session ended with debriefing</td></tr>
+      <tr><td><strong>Psychological harm 心理伤害</strong></td><td>Some children expressed surprise at female aggression ("Ladies aren't supposed to act like that") — suggests some distress or confusion</td><td>Debriefing afterwards to eliminate negative effects</td></tr>
+      <tr><td><strong>Informed consent 知情同意</strong></td><td>Children cannot give informed consent; parents gave consent but without knowing the true nature</td><td>Parents consented to "studies of children's behaviour at the nursery"</td></tr>
+      <tr><td><strong>Right to withdraw 退出权</strong></td><td>Children were not told they could leave at any time; the experimenter was present to keep them in the room</td><td>Parents could withdraw their child; children naturally free to play or not</td></tr>
+      <tr><td><strong>Deception 欺骗</strong></td><td>Children were not told they would see aggressive behaviour; the arousal phase was disguised</td><td>Debriefing revealed the deception and provided reassurance</td></tr>
+      <tr><td><strong>Debriefing 事后解释</strong></td><td>Children may have been left with new aggressive impulses or guilt about attacking Bobo</td><td>After study, children were told aggressive behaviour is wrong, and the model was punished</td></tr>
+    </tbody>
+  </table>
+
+  <div class="warn-box">
+    <h4>Why This Study Could Not Be Repeated Today</h4>
+    <p>This study was conducted in 1961, before modern ethical guidelines (such as informed consent, right to withdraw, etc.) were fully established. If this experiment were repeated today, it would require parental <strong>informed consent (知情同意)</strong>, ensure children had the right to withdraw at any time, and provide thorough psychological <strong>debriefing (事后解释)</strong> afterwards to eliminate any potential negative effects. Modern BPS and APA guidelines would also scrutinise the deliberate frustration phase and the prolonged exposure to aggressive modelling.</p>
+  </div>
+
+  <div class="cn-summary-wrap">
+    <button class="cn-summary-toggle" onclick="toggleCnSummary(this)"><span class="cs-icon">▶</span> 中文逻辑总结</button>
+    <div class="cn-summary-body">
+      <div class="cs-title">§10 伦理问题：六大维度</div>
+      <p><strong>六大伦理问题一览：</strong></p>
+      <ul>
+        <li><span class="cs-en">Protection from Harm</span>：儿童可能被玩具弄伤 + 故意制造挫折</li>
+        <li><span class="cs-en">Psychological Harm</span>：对女性攻击者的惊讶评论显示儿童有困惑</li>
+        <li><span class="cs-en">Informed Consent</span>：儿童不能给同意，家长不知真实目的</li>
+        <li><span class="cs-en">Right to Withdraw</span>：实验者留在房间——压力大</li>
+        <li><span class="cs-en">Deception</span>：儿童不知道会看到攻击行为</li>
+        <li><span class="cs-en">Debriefing</span>：事后告诉"攻击行为是错的"，模型被"惩罚"</li>
+      </ul>
+      <p><strong>❌ 为什么今天不能重复？</strong></p>
+      <p>1961 年研究时现代伦理指南尚未建立。今天的 BPS/APA 会要求：</p>
+      <ul>
+        <li>家长<span class="cs-en">Full Informed Consent（完全知情同意）</span></li>
+        <li>儿童明确的<span class="cs-en">Right to Withdraw</span></li>
+        <li>详细的<span class="cs-en">Debriefing</span>消除负面影响</li>
+        <li>对故意挫折阶段和长期攻击暴露的严格审查</li>
+      </ul>
+      <p><strong>💡 考试答题模板：</strong>"Bandura's study raised ethical issues including protection from harm (children were deliberately frustrated) and lack of fully informed consent (parents did not know the true nature). Modern BPS guidelines would not permit this study today, but Bandura attempted to address these issues through debriefing afterwards."</p>
+    </div>
+  </div>
+
+  <div class="summary-card" id="summary-s10">
+    <div class="summary-card-header" onclick="toggleSummary('summary-s10')">
+      <span class="summary-card-icon">▶</span>
+      <span class="summary-card-title">Exam Key Points — Ethics</span>
+      <span class="summary-card-badge">AO3</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ul>
+          <li>Main ethical concern: protection from psychological harm (deliberate frustration + aggression modelling) <span class="tag-must">Must Know</span></li>
+          <li>Informed consent: children cannot consent; parents gave broad consent without knowing true nature <span class="tag-must">Must Know</span></li>
+          <li>Debriefing: Bandura did provide debriefing after study — told children aggressive behaviour is wrong <span class="tag-common">Common Q</span></li>
+          <li>Why rejected today: BPS guidelines require full informed consent + protection from harm + right to withdraw <span class="tag-ao2">AO2 Gold</span></li>
+          <li>AO3: Ethical issues vs scientific value trade-off — the study's contribution to SLT arguably justifies the cost <span class="tag-ao2">AO2 Gold</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
-
-<div class="key-box">
-<h4>🌱 Nurture（后天）Arguments</h4>
-<ul>
-<li>Socialisation process: boys are rewarded more for aggressive behaviour ("boys will be boys", "big boys don't cry")</li>
-<li>Girls are punished more for aggressive behaviour ("ladies should behave like ladies")</li>
-<li>Parents and teachers have different behavioural expectations and reinforcement patterns for each sex</li>
-<li>This study itself supports the nurture argument: children imitated what they observed, and the same-sex modelling effect was significant</li>
-</ul>
-</div>
-
-<p><strong>Bandura's position:</strong> This study primarily supports a <strong>nurture（后天）</strong> explanation — because children learned entirely <strong>novel（新颖的）aggressive responses</strong> that could not have been innate. However, Bandura also acknowledged that the degree of sex-typing in behaviour influences imitation tendency (sex-typed behaviour is more readily imitated from same-sex models), indicating that nature and nurture factors interact.</p>
-
-<h3>10.2 Sex-typed Behaviour and Same-Sex Modelling</h3>
-<p>The study revealed an interesting <strong>Sex × Model interaction（性别×模型交互作用）</strong>:</p>
-<ul>
-<li><strong>For highly sex-typed behaviour (physical aggression):</strong> both male and female children imitated the <strong>male model</strong> more than the female model</li>
-<li><strong>For less clearly sex-typed behaviour (verbal aggression):</strong> the greatest imitation occurred under <strong>same-sex model</strong> conditions</li>
-<li>Boys expressed surprise or even disapproval of the female model's aggressive behaviour ("That's not the way for a lady to behave")</li>
-<li>Girls imitated the female model's verbal aggression more (13.7 vs 2.0), but imitated physical aggression less</li>
-</ul>
-
-<p>This means predictions must consider the <strong>degree of sex-typing（性别定型程度）</strong> of the behaviour — not all behaviours follow the same pattern of imitation.</p>
-
-<h3>10.3 Application to Real Life（现实应用）</h3>
-<p>The findings suggest practical applications for protecting children, e.g. through <strong>film certification（电影分级制度）</strong> and the use of <strong>parental controls on media devices（媒体设备的家长控制）</strong>. If children can learn aggression simply by watching a model on TV or in video games, then limiting exposure to violent media becomes an important public health intervention.</p>
-
-<p>At the same time, the findings from the non-aggressive model group have positive implications: <strong>demonstrating prosocial（亲社会的）and non-aggressive behaviour can also be imitated by children</strong>. This provides a basis for positively applying social learning theory — by showing cooperation, sharing, and non-violent conflict resolution through media, we can help children learn these social skills.</p>
 
 <!-- ==================== SECTION 11 ==================== -->
-<h2>11. Summary</h2>
-<div class="key-box">
-<p>Bandura et al.'s study used adults being aggressive to a Bobo doll to show that <strong>children's behaviour can be affected by the behaviour of a model</strong>. Exact aggressive behaviours were imitated although the study showed that non-aggressive modelling was also effective. Children were more likely to copy a same-sex model. Additionally, boys engaged in more aggressive imitation than girls. This was a well-controlled laboratory experiment measuring the dependent variable through objective observations that were reliable. Qualitative data suggested that the children recognised <strong>sex-typing（性别定型）</strong> and were surprised by behaviour that did not fit the pattern. The findings suggest practical applications for protecting children, e.g. through film certification and the use of parental controls on media devices.</p>
+<div class="section" id="s11">
+  <h2>1️⃣1️⃣ Issues &amp; Debates（议题与辩论）</h2>
+
+  <h3>11.1 Nature versus Nurture（先天与后天）</h3>
+  <p>In the nature versus nurture debate, we can consider why the boys and girls showed different responses. This could be because they are genetically different — a <strong>nature explanation (先天解释)</strong>. Boys might be biologically predisposed to be aggressive, so more likely to copy aggressive models. Alternatively, boys might be more likely to copy aggressive models because they have <strong>been rewarded for aggressive behaviours more than girls have</strong>. This would be a <strong>nurture argument (后天论点)</strong>.</p>
+
+  <div class="factor-grid">
+    <div class="factor-card">
+      <strong>🧬 Nature (先天) Arguments:</strong>
+      <ul>
+        <li>Boys may have a biological predisposition towards aggression (evolutionary psychology perspective)</li>
+        <li>Hormonal differences (testosterone levels) may make boys more aggressive</li>
+        <li>Neurobiological basis: brain regions associated with aggression (e.g., amygdala) may show sex differences</li>
+      </ul>
+    </div>
+    <div class="factor-card">
+      <strong>🌱 Nurture (后天) Arguments:</strong>
+      <ul>
+        <li>Socialisation: boys rewarded more for aggression ("boys will be boys")</li>
+        <li>Girls punished more for aggression ("ladies should behave like ladies")</li>
+        <li>Parents/teachers have different behavioural expectations by sex</li>
+        <li>The study itself supports nurture: children imitated what they observed</li>
+      </ul>
+    </div>
+  </div>
+
+  <p><strong>Bandura's position:</strong> This study primarily supports a <strong>nurture (后天)</strong> explanation — because children learned entirely <strong>novel (新颖的) aggressive responses</strong> that could not have been innate. However, Bandura also acknowledged that the degree of sex-typing in behaviour influences imitation tendency (sex-typed behaviour is more readily imitated from same-sex models), indicating that nature and nurture factors interact.</p>
+
+  <h3>11.2 Sex-typed Behaviour and Same-Sex Modelling</h3>
+  <p>The study revealed an interesting <strong>Sex × Model interaction (性别×模型交互作用)</strong>:</p>
+  <ul>
+    <li><strong>For highly sex-typed behaviour (physical aggression):</strong> both male and female children imitated the <strong>male model</strong> more than the female model</li>
+    <li><strong>For less clearly sex-typed behaviour (verbal aggression):</strong> the greatest imitation occurred under <strong>same-sex model</strong> conditions</li>
+    <li>Boys expressed surprise or even disapproval of the female model's aggressive behaviour ("That's not the way for a lady to behave")</li>
+    <li>Girls imitated the female model's verbal aggression more (13.7 vs 2.0), but imitated physical aggression less</li>
+  </ul>
+
+  <p>This means predictions must consider the <strong>degree of sex-typing (性别定型程度)</strong> of the behaviour — not all behaviours follow the same pattern of imitation.</p>
+
+  <h3>11.3 Application to Real Life（现实应用）</h3>
+  <p>The findings suggest practical applications for protecting children, e.g. through <strong>film certification (电影分级制度)</strong> and the use of <strong>parental controls on media devices (媒体设备的家长控制)</strong>. If children can learn aggression simply by watching a model on TV or in video games, then limiting exposure to violent media becomes an important public health intervention.</p>
+
+  <p>At the same time, the findings from the non-aggressive model group have positive implications: <strong>demonstrating prosocial (亲社会的) and non-aggressive behaviour can also be imitated by children</strong>. This provides a basis for positively applying social learning theory — by showing cooperation, sharing, and non-violent conflict resolution through media, we can help children learn these social skills.</p>
+
+  <div class="cn-summary-wrap">
+    <button class="cn-summary-toggle" onclick="toggleCnSummary(this)"><span class="cs-icon">▶</span> 中文逻辑总结</button>
+    <div class="cn-summary-body">
+      <div class="cs-title">§11 议题与辩论：三大维度</div>
+      <p><strong>1. 先天 vs 后天（Nature vs Nurture）：</strong></p>
+      <ul>
+        <li><span class="cs-en">Nature 先天</span>：男孩天生更具攻击倾向（进化心理学、激素、神经基础）</li>
+        <li><span class="cs-en">Nurture 后天</span>：男孩被强化攻击行为（"男孩就要勇敢"），女孩被强化养育行为（"淑女不该打架"）</li>
+        <li>Bandura 立场：支持 <strong>nurture</strong>，因为儿童学会了<strong>全新</strong>的攻击动作（不可能是天生）</li>
+      </ul>
+      <p><strong>2. 性别定型与同性模仿：</strong></p>
+      <ul>
+        <li><span class="cs-en">Highly sex-typed behaviour（如身体攻击）</span>：无论男女都更多模仿<strong>男性</strong>模型</li>
+        <li><span class="cs-en">Less sex-typed behaviour（如言语攻击）</span>：同性模仿更强</li>
+        <li>儿童已经<strong>内化</strong>性别角色规范（"女士不该那样做"）</li>
+      </ul>
+      <p><strong>3. 现实应用：</strong></p>
+      <ul>
+        <li><span class="cs-en">Film Certification（电影分级）</span> + <span class="cs-en">Parental Controls（家长控制）</span>：限制儿童接触暴力媒体</li>
+        <li>正面应用：通过媒体展示<span class="cs-en">Prosocial Behaviour（亲社会行为）</span>，儿童可学习合作、分享、非暴力解决冲突</li>
+      </ul>
+      <p><strong>💡 考试答题模板：</strong>"Bandura's study supports the nurture side of the debate because children acquired entirely novel aggressive responses that could not have been innate. However, the sex differences in imitation suggest that biological predispositions may interact with socialisation."</p>
+    </div>
+  </div>
+
+  <div class="summary-card" id="summary-s11">
+    <div class="summary-card-header" onclick="toggleSummary('summary-s11')">
+      <span class="summary-card-icon">▶</span>
+      <span class="summary-card-title">Exam Key Points — Debates</span>
+      <span class="summary-card-badge">AO3</span>
+    </div>
+    <div class="summary-card-body">
+      <div class="summary-card-inner">
+        <ul>
+          <li>Nature vs Nurture: study supports nurture (novel behaviours learned) but nature may interact with socialisation <span class="tag-must">Must Know</span></li>
+          <li>Sex × Model interaction: highly sex-typed behaviours → imitate male model most; less sex-typed → imitate same-sex model most <span class="tag-ao2">AO2 Gold</span></li>
+          <li>Real-life application: film certification + parental controls based on SLT findings <span class="tag-common">Common Q</span></li>
+          <li>Positive application: prosocial models can teach cooperation/sharing <span class="tag-context">Context</span></li>
+          <li>AO3: Use this study to discuss free will vs determinism (do children have choice?) <span class="tag-ao2">AO2 Gold</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div><!-- ==================== SECTION 12 ==================== -->
+<div class="section" id="s12">
+  <h2>1️⃣2️⃣ Summary（总结）</h2>
+
+  <p>Bandura et al.'s study used adults being aggressive to a Bobo doll to show that <strong>children's behaviour can be affected by the behaviour of a model</strong>. Exact aggressive behaviours were imitated although the study showed that non-aggressive modelling was also effective. Children were more likely to copy a same-sex model. Additionally, boys engaged in more aggressive imitation than girls. This was a well-controlled laboratory experiment measuring the dependent variable through objective observations that were reliable. Qualitative data suggested that the children recognised <strong>sex-typing (性别定型)</strong> and were surprised by behaviour that did not fit the pattern. The findings suggest practical applications for protecting children, e.g. through film certification and the use of parental controls on media devices.</p>
+
+  <div class="keyword-box">
+    <h4>🔑 KEY TAKEAWAY 核心要点</h4>
+    <p><strong>Children learn aggression by observing adult models — even without direct reinforcement of either the model or the observer.</strong> This finding challenged behaviourism and gave rise to Social Learning Theory, with profound implications for understanding how media violence, family behaviour, and gender roles shape the next generation.</p>
+  </div>
 </div>
 
-<!-- ==================== SECTION 12 ==================== -->
-<h2>12. Exam Practice Questions</h2>
+<!-- ==================== SECTION 13 ==================== -->
+<div class="section" id="s13">
+  <h2>1️⃣3️⃣ Study Questions（复习题）</h2>
+  <p style="color:var(--text-secondary);font-size:.88em;margin-bottom:16px;">Click each question to reveal the model answer. All answers are based on the study content above.</p>
 
-<div class="activity-box">
-<h4>❓ Questions</h4>
+  <div class="qa-card" onclick="this.classList.toggle('open')">
+    <div class="qa-question">
+      <span class="qa-num">1</span>
+      <span class="qa-text">Why might Bandura et al. have chosen to record the children's behaviour in <strong>5-second intervals</strong>, rather than 1-second or 1-minute intervals?</span>
+      <span class="qa-toggle"><span class="qa-icon">▶ Answer</span></span>
+    </div>
+    <div class="qa-answer">
+      <div class="qa-answer-inner">
+        Recording behaviour in <strong>5-second intervals</strong> was a methodological choice that balanced two considerations:<br><br>
+        • <strong>Short enough to capture brief behaviours:</strong> 1-minute intervals would miss short aggressive acts like hitting, kicking, or verbal outbursts. A 5-second window captures a discrete action before it transitions into something else.<br><br>
+        • <strong>Long enough to record complete actions:</strong> 1-second intervals would be too short to observe a complete behaviour (e.g. raising the mallet + striking + recovering). 5 seconds allows one full discrete behaviour per interval.<br><br>
+        • <strong>Result:</strong> 240 response units per child (20 minutes ÷ 5 seconds = 240 units), giving a precise behavioural record without overwhelming the observer.
+      </div>
+    </div>
+  </div>
 
-<p><strong>Q1.</strong> Why might Bandura et al. have chosen to record the children's behaviour in 5-second intervals, rather than 1-second or 1-minute intervals?</p>
+  <div class="qa-card" onclick="this.classList.toggle('open')">
+    <div class="qa-question">
+      <span class="qa-num">2</span>
+      <span class="qa-text">Consider the data for the mean aggressive behaviours and the non-imitative verbal responses. <strong>(a) Which data is qualitative and which is quantitative?</strong></span>
+      <span class="qa-toggle"><span class="qa-icon">▶ Answer</span></span>
+    </div>
+    <div class="qa-answer">
+      <div class="qa-answer-inner">
+        • <strong>Quantitative data (定量数据):</strong> The mean aggression scores (e.g. boys + male model = 25.8 in imitative physical aggression) — these are numerical, measurable, and can be subjected to statistical analysis such as chi-square (χ²) and t-tests.<br><br>
+        • <strong>Qualitative data (定性数据):</strong> The non-imitative verbal responses and the children's <strong>sex-typed comments</strong> (e.g. "That's not the way for a lady to behave", "He's a good fighter like Daddy") — these are descriptive, non-numerical, and provide insight into how children interpreted and made sense of the model's behaviour.<br><br>
+        This is an example of <strong>mixed methods</strong> research, where combining quantitative and qualitative data gives a fuller picture than either alone.
+      </div>
+    </div>
+  </div>
 
-<p><strong>Q2.</strong> Consider the data for the mean aggressive behaviours and the non-imitative verbal responses.</p>
-<ol style="list-style-type:lower-alpha">
-<li>Which data is qualitative and which is quantitative?</li>
-</ol>
+  <div class="qa-card" onclick="this.classList.toggle('open')">
+    <div class="qa-question">
+      <span class="qa-num">3</span>
+      <span class="qa-text">The procedure was <strong>standardised in many ways</strong>. <strong>(a)</strong> Identify the ways in which the procedure was standardised. <strong>(b)</strong> Explain why standardisation was necessary — what might have happened if each participant had not been treated in the same way?</span>
+      <span class="qa-toggle"><span class="qa-icon">▶ Answer</span></span>
+    </div>
+    <div class="qa-answer">
+      <div class="qa-answer-inner">
+        <strong>(a) Six ways the procedure was standardised:</strong><br><br>
+        1. <strong>Same observation time:</strong> all children in experimental groups saw the model for ~10 minutes<br>
+        2. <strong>Same model behaviour:</strong> every aggressive model performed identical acts (mallet, sit-on-punch, throw-kick) and identical phrases<br>
+        3. <strong>Same room layout:</strong> play area + Bobo corner arrangement was identical for every child<br>
+        4. <strong>Same toy order:</strong> toys in the test room were always presented in the same sequence<br>
+        5. <strong>Same observation duration:</strong> all children were observed for 20 minutes via one-way mirror<br>
+        6. <strong>Same arousal procedure:</strong> all children experienced the same toy-frustration procedure<br><br>
+        <strong>(b) Why standardisation was necessary:</strong><br><br>
+        If participants had been treated differently (e.g. one child saw the model for 5 minutes, another for 15 minutes), any differences in aggression could be due to <strong>exposure duration</strong> rather than the <strong>model's behaviour</strong>. This would be a <strong>confounding variable (混淆变量)</strong> — making it impossible to attribute the cause of aggression to the model's type. Standardisation ensures that <strong>model type is the only systematic difference between conditions</strong>, allowing researchers to confidently claim cause-and-effect (high internal validity) and produce reliable, reproducible results.
+      </div>
+    </div>
+  </div>
 
-<p><strong>Q3.</strong> The procedure was standardised in many ways.</p>
-<ol style="list-style-type:lower-alpha">
-<li>Identify the ways in which the procedure was standardised.</li>
-<li>Explain why standardisation was necessary — what might have happened if each participant had not been treated in the same way?</li>
-</ol>
+  <div class="qa-card" onclick="this.classList.toggle('open')">
+    <div class="qa-question">
+      <span class="qa-num">4</span>
+      <span class="qa-text">Explain what is meant by <strong>"matched participants design"</strong> and how Bandura et al. used it in their study.</span>
+      <span class="qa-toggle"><span class="qa-icon">▶ Answer</span></span>
+    </div>
+    <div class="qa-answer">
+      <div class="qa-answer-inner">
+        <strong>Matched participants design (匹配参与者设计)</strong> is a research design where participants are grouped in pairs (or triplets) based on similarity on a key variable, then each member of the pair/triplet is randomly assigned to a different condition.<br><br>
+        <strong>How Bandura used it:</strong> All 72 children were first rated on aggression using four 5-point scales (physical, verbal, inanimate, inhibition). The 51 children rated by both observers had <strong>inter-rater reliability r = 0.89</strong>. Children were then <strong>matched into triplets</strong> based on similar aggression levels. One member of each triplet was randomly placed into each of the three conditions (aggressive model, non-aggressive model, control).<br><br>
+        <strong>Why this matters:</strong> This controls for <strong>individual differences (个体差异)</strong> in baseline aggression. Any differences between conditions at the test phase can therefore be attributed to the IV (model type) rather than pre-existing differences between children. This increases the study's <strong>internal validity</strong>.
+      </div>
+    </div>
+  </div>
+
+  <div class="qa-card" onclick="this.classList.toggle('open')">
+    <div class="qa-question">
+      <span class="qa-num">5</span>
+      <span class="qa-text">Describe the <strong>deliberate-arousal (mild frustration) procedure</strong> in Bandura's study and explain why it was included.</span>
+      <span class="qa-toggle"><span class="qa-icon">▶ Answer</span></span>
+    </div>
+    <div class="qa-answer">
+      <div class="qa-answer-inner">
+        <strong>The procedure:</strong> After observing the model, each child was taken to a separate room and shown attractive toys (e.g. art supplies). They were allowed to play for about 2 minutes, then told the toys were reserved for other children and could not be played with — creating <strong>mild frustration (轻度挫折)</strong>.<br><br>
+        <strong>Two reasons for including it:</strong><br><br>
+        • <strong>Ensure baseline aggression motivation:</strong> Some children who saw the aggressive model might <em>suppress</em> aggression if they thought they would be punished; mild arousal ensures all children have an internal motivation to express aggression if they have learned it. This allows researchers to <strong>measure any reduction</strong> in aggressive behaviour.<br><br>
+        • <strong>Fair comparison across conditions:</strong> Without arousal, control and non-aggressive-model children might show very low baseline aggression (no learned aggression to release). With arousal, the floor for aggression is similar across all conditions, so any <em>difference</em> between conditions can be attributed to the model, not baseline differences.
+      </div>
+    </div>
+  </div>
+
+  <div class="qa-card" onclick="this.classList.toggle('open')">
+    <div class="qa-question">
+      <span class="qa-num">6</span>
+      <span class="qa-text">Outline one <strong>strength</strong> and one <strong>weakness</strong> of Bandura et al.'s study. For each, explain why it is a strength/weakness.</span>
+      <span class="qa-toggle"><span class="qa-icon">▶ Answer</span></span>
+    </div>
+    <div class="qa-answer">
+      <div class="qa-answer-inner">
+        <strong>Strength — Matched pairs design (匹配配对设计):</strong><br>
+        All 72 children were pre-rated on aggression and matched into triplets based on similar aggression levels, then randomly assigned to one of three conditions. <strong>This means</strong> individual differences in baseline aggression were controlled for, so any differences between conditions at the test phase can be attributed to the IV (model type) rather than pre-existing participant differences. This increases <strong>internal validity</strong>.<br><br>
+        <strong>Weakness — Low ecological validity (生态效度低):</strong><br>
+        The study was conducted in a laboratory with a Bobo doll specifically designed to be hit. <strong>This means</strong> the setting does not reflect real-life situations in which children learn aggression (e.g. family environments, playgrounds, exposure to media violence). Children may also behave differently when they know they are being observed (despite the one-way mirror). The findings may therefore not generalise to real-world aggression acquisition.
+      </div>
+    </div>
+  </div>
+
+  <div class="activity-box" style="background:#E3F2FD;border-left:4px solid #1976D2;border-radius:8px;padding:16px 20px;margin:16px 0;">
+    <h4 style="color:#1565C0;margin-bottom:8px;">📝 Extension Activity 拓展活动</h4>
+    <p>Find and read <strong>Bandura (1965)</strong> "Influence of models' reinforcement contingencies on the acquisition of imitative responses" (Journal of Personality and Social Psychology, 1, 589–595). In this follow-up study, children who saw the model <strong>punished</strong> for aggression still imitated the behaviour when later given the chance — though they were less likely to perform it in the model's presence. Discuss what this tells us about the distinction between <strong>learning</strong> and <strong>performance</strong> in social learning theory.</p>
+  </div>
 </div>
 
-<hr style="border:none;border-top:1px solid #e5e7eb;margin:30px 0">
+<!-- ==================== SECTION 14 ==================== -->
+<div class="section" id="s14">
+  <h2>1️⃣4️⃣ Key Terms（核心术语）</h2>
+  <table>
+    <thead>
+      <tr><th>Term 术语</th><th>Definition 定义</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>learning approach (学习取向)</strong></td><td>An approach studying how behaviour is acquired through experience, including association, reinforcement, observation, and imitation.</td></tr>
+      <tr><td><strong>social learning theory (SLT) (社会学习理论)</strong></td><td>Theory developed by Bandura proposing that people learn new behaviours by observing and imitating models, with or without direct reinforcement.</td></tr>
+      <tr><td><strong>observational learning (观察学习)</strong></td><td>Acquiring a new behaviour by watching a model perform it, without direct reinforcement of the observer.</td></tr>
+      <tr><td><strong>model (榜样/模型)</strong></td><td>A person whose behaviour is observed and potentially imitated by another person.</td></tr>
+      <tr><td><strong>imitation (模仿)</strong></td><td>Reproducing the behaviour of a model, especially after observation.</td></tr>
+      <tr><td><strong>aggression (攻击行为)</strong></td><td>Actions intended to cause physical or psychological harm to another person or object.</td></tr>
+      <tr><td><strong>generalisation (泛化)</strong></td><td>In learning theory, the tendency for a behaviour learned in one situation to be performed in different but similar situations.</td></tr>
+      <tr><td><strong>sex-typed behaviour (性别定型行为)</strong></td><td>Actions seen in a given society as more appropriate for one sex than the other (e.g. aggression often seen as masculine).</td></tr>
+      <tr><td><strong>same-sex model (同性模型)</strong></td><td>A model of the same sex as the observer; typically imitated more strongly.</td></tr>
+      <tr><td><strong>matched participants (匹配参与者)</strong></td><td>A research design where participants are paired or grouped by similarity on a key variable before random allocation to conditions.</td></tr>
+      <tr><td><strong>independent measures (独立测量)</strong></td><td>Design where different participants are used in each condition of the IV.</td></tr>
+      <tr><td><strong>inter-rater reliability (评分者间信度)</strong></td><td>Agreement between two or more observers rating the same behaviour (judged via correlation r; r = 0.89 in this study).</td></tr>
+      <tr><td><strong>controlled observation (控制观察)</strong></td><td>Observation of behaviour in a controlled setting with standardised procedures.</td></tr>
+      <tr><td><strong>one-way mirror (单向镜)</strong></td><td>A mirror that allows observation from one side without the observed person knowing.</td></tr>
+      <tr><td><strong>mild frustration / arousal (轻度挫折/唤醒)</strong></td><td>A deliberate procedure to mildly annoy participants so that any aggression they have learned can be expressed.</td></tr>
+      <tr><td><strong>Bobo doll (波波娃娃)</strong></td><td>An inflatable clown-like doll that bounces back when hit; used as the target of aggression in the study.</td></tr>
+      <tr><td><strong>delayed imitation (延迟模仿)</strong></td><td>Reproducing observed behaviour some time after the observation has ended and the model is no longer present.</td></tr>
+      <tr><td><strong>imitative aggression (模仿性攻击)</strong></td><td>Aggressive acts that precisely match the specific acts performed by the model.</td></tr>
+      <tr><td><strong>partially imitative aggression (部分模仿性攻击)</strong></td><td>Aggressive acts that resemble the model's behaviour but are not identical (e.g. hitting objects other than Bobo with the mallet).</td></tr>
+      <tr><td><strong>extraneous variable (无关变量)</strong></td><td>A variable other than the IV that may affect the DV; can be random or systematic (a confounding variable).</td></tr>
+      <tr><td><strong>ecological validity (生态效度)</strong></td><td>Extent to which findings from a study generalise to real-life settings.</td></tr>
+      <tr><td><strong>demand characteristics (需求特征)</strong></td><td>Cues in a study that lead participants to guess the true purpose and change their behaviour accordingly.</td></tr>
+      <tr><td><strong>sample bias (样本偏差)</strong></td><td>When the sample is not representative of the population (here: Stanford University Nursery).</td></tr>
+      <tr><td><strong>quantitative data (定量数据)</strong></td><td>Numerical data analysable statistically (e.g. aggression scores, t-tests).</td></tr>
+      <tr><td><strong>qualitative data (定性数据)</strong></td><td>Non-numerical data: observations, comments, descriptions (e.g. sex-typed remarks).</td></tr>
+      <tr><td><strong>informed consent (知情同意)</strong></td><td>Agreeing to participate after receiving information about the study.</td></tr>
+      <tr><td><strong>debriefing (事后解释)</strong></td><td>Revealing the true purpose of the study afterwards and addressing any negative effects.</td></tr>
+      <tr><td><strong>protection from harm (免受伤害)</strong></td><td>Ethical guideline: participants must not face physical or psychological harm.</td></tr>
+      <tr><td><strong>right to withdraw (退出权)</strong></td><td>Freedom to leave the study at any point without penalty.</td></tr>
+      <tr><td><strong>nurture (后天)</strong></td><td>Explanation of behaviour in terms of environmental and social influences (such as modelling).</td></tr>
+      <tr><td><strong>nature (先天)</strong></td><td>Explanation of behaviour in terms of biological/genetic factors.</td></tr>
+      <tr><td><strong>prosocial behaviour (亲社会行为)</strong></td><td>Positive, helpful behaviour that benefits others (e.g. cooperation, sharing).</td></tr>
+    </tbody>
+  </table>
+</div>
 
-<p style="text-align:center;color:#9ca3af;font-size:.85em">© CIE Psychology — Learning Approach Core Study 1 | Generated from Cambridge International AS &amp; A Level Psychology Coursebook</p>
+  </main><!-- END MAIN CONTENT -->
 
-<!-- ===== CHART SCRIPT ====== -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
-<script>
-const ctx = document.getElementById('resultsChart').getContext('2d');
-new Chart(ctx, {
-  type: 'bar',
-  data: {
-    labels: ['F + F Model', 'F + M Model', 'M + F Model', 'M + M Model', 'Control (F)', 'Control (M)'],
-    datasets: [
-      {
-        label: 'Female Participants',
-        data: [5.5, 7.2, 2.5, 0.0, 1.2, null],
-        backgroundColor: 'rgba(236, 72, 153, 0.7)',
-        borderColor: 'rgba(219, 39, 119, 1)',
-        borderWidth: 1.5,
-        borderRadius: 4
-      },
-      {
-        label: 'Male Participants',
-        data: [12.4, 25.8, 0.2, 1.5, 2.0, null],
-        backgroundColor: 'rgba(59, 130, 246, 0.7)',
-        borderColor: 'rgba(37, 99, 235, 1)',
-        borderWidth: 1.5,
-        borderRadius: 4
-      }
-    ]
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      title: { display: true, text: 'Imitative Physical Aggression Scores by Condition', font: { size: 15, weight: 'bold' } },
-      legend: { position: 'top' }
-    },
-    scales: {
-      y: {
-        beginAtZero: true,
-        max: 30,
-        title: { display: true, text: 'Mean Aggression Score (response units)', font: { size: 12 } }
-      },
-      x: {
-        ticks: { font: { size: 10 } },
-        grid: { display: false }
-      }
-    }
-  }
-});
-</script>
+<!-- RIGHT: NOTES PANEL -->
+<aside class="notes-col">
+  <div class="nc-header"><span>📝</span><span class="nc-title">My Notes</span><span class="nc-count" id="notesCount">0</span></div>
+  <div class="nc-body" id="notesBody">
+    <div class="nc-empty" id="notesEmpty"><div style="font-size:1.5em">✏️</div><div>No notes yet</div><div style="font-size:.7em;margin-top:4px;opacity:.7">Select text → click Add Note below</div></div>
+  </div>
+  <div class="nc-input-row" id="notesInputRow">
+    <div id="hlPreview" style="font-size:.72em;color:#92400e;background:#fef3c7;padding:4px 8px;border-radius:5px;margin-bottom:6px;word-break:break-all"></div>
+    <textarea class="nc-textarea" id="noteTextarea" placeholder="Write your note here..."></textarea>
+    <div class="nc-actions"><button class="nc-btn-save" onclick="saveNoteFromInput()">💾 Save</button><button class="nc-btn-cancel" onclick="cancelNoteInput()">Cancel</button></div>
+  </div>
+  <button class="nc-add-btn" onclick="onAddNoteClick()">✏️ <b>Add Note</b></button>
+  <div class="nc-footer"><button onclick="exportNotes()">📤 Export</button><button onclick="clearAllNotes()">🗑 Clear</button></div>
+</aside>
 
+</div><!-- END PAGE LAYOUT -->
 
-<style>
-/* Study Navigator */
-.study-nav{border-top:2px solid #e0e0e0;background:#FAFAFA;padding:14px 16px;margin-top:2rem}
-.study-nav-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:880px;margin:0 auto}
-.study-nav-btn{flex:1;padding:9px 14px;border:1px solid #ddd;border-radius:8px;background:white;color:#444;font-size:.82rem;cursor:pointer;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:4px;transition:all .15s;font-family:inherit}
-.study-nav-btn:hover{border-color:#1565C0;color:#1565C0;background:#f8fbff}
-.study-nav-dots{text-align:center;padding:0 8px}
-.study-nav-label{font-size:.65rem;text-transform:uppercase;letter-spacing:1px;color:#888;margin-bottom:5px;font-weight:700}
-.study-dot-row{display:flex;gap:5px;justify-content:center;flex-wrap:wrap}
-.study-dot{width:10px;height:10px;border-radius:50%;cursor:pointer;border:2px solid transparent;transition:all .15s;position:relative;display:inline-block}
-.study-dot:hover{transform:scale(1.3)}
-.study-dot.active{border-color:#333;transform:scale(1.25)}
-@media(max-width:600px){
-    .study-nav-inner{flex-wrap:wrap;gap:8px}
-    .study-nav-btn{font-size:.75rem;padding:7px 10px}
-    .study-dot{width:8px;height:8px}
-}
-</style>
+<div class="footer-note">
+  Bandura, A., Ross, D., &amp; Ross, S. A. (1961). Transmission of aggression through imitation of aggressive models. <em>Journal of Abnormal and Social Psychology, 63</em>(3), 575–582.<br>
+  CIE Psychology — Learning Approach Core Study · v3.0 Three-Column Template
+</div>
+
+</div><!-- END CONTAINER -->
+
+<!-- Study Navigator -->
 <div class="study-nav">
   <div class="study-nav-inner">
     <a class="study-nav-btn" href="../milgram/">← Milgram (1963)</a>
     <div class="study-nav-dots">
       <div class="study-nav-label">Learning</div>
       <div class="study-dot-row">
-        <span class="study-dot" style="background:#C62828" data-title="Hassett (2008)" onclick="location.href='../hassett/'"></span><span class="study-dot" style="background:#C62828" data-title="Dement (1957)" onclick="location.href='../dement/'"></span><span class="study-dot" style="background:#1565C0" data-title="Baron-Cohen (2001)" onclick="location.href='../baron-cohen/'"></span><span class="study-dot" style="background:#1565C0" data-title="Hölzel (2011)" onclick="location.href='../hoelzel/'"></span><span class="study-dot" style="background:#1565C0" data-title="Andrade (2010)" onclick="location.href='../andrade/'"></span><span class="study-dot" style="background:#2E7D32" data-title="Piliavin (1969)" onclick="location.href='../piliavin/'"></span><span class="study-dot" style="background:#2E7D32" data-title="Milgram (1963)" onclick="location.href='../milgram/'"></span><span class="study-dot active" style="background:#E87722" data-title="Bandura (1961)"></span><span class="study-dot" style="background:#E87722" data-title="Fagen (2014)" onclick="location.href='../fagen/'"></span><span class="study-dot" style="background:#E87722" data-title="Saavedra (2002)" onclick="location.href='../saavedra/'"></span><span class="study-dot" style="background:#2E7D32" data-title="Perry (2015)" onclick="location.href='../perry/'"></span><span class="study-dot" style="background:#7B1FA2" data-title="Pozzulo (2011)" onclick="location.href='../pozzulo/'"></span>
+        <span class="study-dot" style="background:#C62828" data-title="Hassett (2008)" onclick="location.href='../hassett/'"></span><span class="study-dot" style="background:#C62828" data-title="Dement (1957)" onclick="location.href='../dement/'"></span><span class="study-dot" style="background:#1565C0" data-title="Baron-Cohen (2001)" onclick="location.href='../baron-cohen/'"></span><span class="study-dot" style="background:#C62828" data-title="Hölzel (2011)" onclick="location.href='../hoelzel/'"></span><span class="study-dot" style="background:#1565C0" data-title="Andrade (2010)" onclick="location.href='../andrade/'"></span><span class="study-dot" style="background:#2E7D32" data-title="Piliavin (1969)" onclick="location.href='../piliavin/'"></span><span class="study-dot" style="background:#2E7D32" data-title="Milgram (1963)" onclick="location.href='../milgram/'"></span><span class="study-dot active" style="background:#E87722" data-title="Bandura (1961)"></span><span class="study-dot" style="background:#E87722" data-title="Fagen (2014)" onclick="location.href='../fagen/'"></span><span class="study-dot" style="background:#E87722" data-title="Saavedra (2002)" onclick="location.href='../saavedra/'"></span><span class="study-dot" style="background:#2E7D32" data-title="Perry (2015)" onclick="location.href='../perry/'"></span><span class="study-dot" style="background:#1565C0" data-title="Pozzulo (2011)" onclick="location.href='../pozzulo/'"></span>
       </div>
     </div>
     <a class="study-nav-btn" href="../fagen/">Fagen (2014) →</a>
   </div>
 </div>
 
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+<script>
+// ===== 1. READING PROGRESS BAR =====
+function updateProgress() {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+  document.getElementById('progressBar').style.width = progress + '%';
+  localStorage.setItem('bandura-scrollPos', scrollTop);
+}
+window.addEventListener('scroll', updateProgress);
+window.addEventListener('load', () => {
+  const saved = localStorage.getItem('bandura-scrollPos');
+  if (saved) window.scrollTo(0, parseInt(saved));
+  updateProgress();
+});
+
+// ===== 2. SCROLL SPY FOR SIDEBAR =====
+function initScrollSpy() {
+  const sections = document.querySelectorAll('.section[id]');
+  const navItems = document.querySelectorAll('.sb-item a');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navItems.forEach(a => a.classList.remove('sb-active'));
+        const active = document.querySelector(`.sb-item a[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('sb-active');
+      }
+    });
+  }, { rootMargin: '-80px 0px -60% 0px' });
+  sections.forEach(s => observer.observe(s));
+}
+
+// ===== 3. DARK MODE =====
+function toggleDarkMode() {
+  document.body.classList.toggle('dark');
+  const btn = document.getElementById('darkBtn');
+  const isDark = document.body.classList.contains('dark');
+  btn.textContent = isDark ? '☀️ Light' : '🌙 Dark';
+  localStorage.setItem('bandura-darkMode', isDark ? 'dark' : 'light');
+}
+
+// ===== 4. FONT SIZE ADJUSTER =====
+function adjustFontSize(delta) {
+  const root = document.documentElement;
+  let current = parseFloat(getComputedStyle(root).fontSize) || 16;
+  let newSize = Math.min(22, Math.max(12, current + delta * 1.5));
+  root.style.fontSize = newSize + 'px';
+  localStorage.setItem('bandura-fontSize', newSize);
+}
+
+// ===== 5. SUMMARY CARD TOGGLE =====
+function toggleSummary(id) {
+  const card = document.getElementById(id);
+  if (card) {
+    card.classList.toggle('open');
+  }
+}
+
+// ===== 6. CHINESE SUMMARY TOGGLE =====
+function toggleCnSummary(btn) {
+  btn.classList.toggle('open');
+  const body = btn.nextElementSibling;
+  if (body) body.classList.toggle('open');
+}
+
+// ===== 7. BACK TO TOP =====
+function initBackToTop() {
+  const btn = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > window.innerHeight * 2.5) {
+      btn.classList.add('show');
+    } else {
+      btn.classList.remove('show');
+    }
+  });
+}
+
+// ===== 8. RESTORE PREFERENCES =====
+function restorePreferences() {
+  const dark = localStorage.getItem('bandura-darkMode');
+  if (dark === 'dark') {
+    document.body.classList.add('dark');
+    document.getElementById('darkBtn').textContent = '☀️ Light';
+  }
+  const fs = localStorage.getItem('bandura-fontSize');
+  if (fs) document.documentElement.style.fontSize = fs + 'px';
+}
+
+// ===== 9. CHART.JS — Imitative Physical Aggression =====
+function initResultsChart() {
+  const ctx = document.getElementById('resultsChart');
+  if (!ctx) return;
+  new Chart(ctx.getContext('2d'), {
+    type: 'bar',
+    data: {
+      labels: ['Agg-F Model ♀', 'Agg-M Model ♀', 'NonAgg-F Model ♀', 'NonAgg-M Model ♀', 'Control ♀', 'Agg-F Model ♂', 'Agg-M Model ♂', 'NonAgg-F Model ♂', 'NonAgg-M Model ♂', 'Control ♂'],
+      datasets: [
+        {
+          label: 'Female Participants',
+          data: [5.5, 7.2, 2.5, 0.0, 1.2, null, null, null, null, null],
+          backgroundColor: 'rgba(236, 72, 153, 0.7)',
+          borderColor: 'rgba(219, 39, 119, 1)',
+          borderWidth: 1.5,
+          borderRadius: 4
+        },
+        {
+          label: 'Male Participants',
+          data: [null, null, null, null, null, 12.4, 25.8, 0.2, 1.5, 2.0],
+          backgroundColor: 'rgba(59, 130, 246, 0.7)',
+          borderColor: 'rgba(37, 99, 235, 1)',
+          borderWidth: 1.5,
+          borderRadius: 4
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        title: { display: true, text: 'Imitative Physical Aggression Scores by Condition', font: { size: 14, weight: 'bold' } },
+        legend: { position: 'top' }
+      },
+      scales: {
+        y: { beginAtZero: true, max: 30, title: { display: true, text: 'Mean Aggression Score', font: { size: 12 } } },
+        x: { ticks: { font: { size: 9 }, maxRotation: 45 }, grid: { display: false } }
+      }
+    }
+  });
+}
+
+// ===== INITIALIZE =====
+document.addEventListener('DOMContentLoaded', () => {
+  initScrollSpy();
+  initBackToTop();
+  restorePreferences();
+  initResultsChart();
+});
+</script>
+
+<script>
+// ===== NOTES SYSTEM =====
+(function(){
+  var SK='bandura_notes_v3';var notes=[];var pendingHl=null;var pendingHlId=null;var hlC=0;
+  function load(){try{notes=JSON.parse(localStorage.getItem(SK)||'[]')}catch(e){notes=[]}render()}
+  function save(){localStorage.setItem(SK,JSON.stringify(notes))}
+  function esc(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML}
+  function render(){
+    var b=document.getElementById('notesBody'),e=document.getElementById('notesEmpty');
+    document.getElementById('notesCount').textContent=notes.length;
+    b.querySelectorAll('.note-card').forEach(function(x){x.remove()});
+    if(!notes.length){e.style.display='';return}
+    e.style.display='none';
+    notes.forEach(function(n){
+      var c=document.createElement('div');c.className='note-card';c.dataset.nid=n.id;
+      if(n.hlId){
+        c.addEventListener('dblclick',function(){scrollToHl(n.hlId)});
+        c.style.cursor='pointer';c.title='Double-click to jump to highlighted text'
+      }
+      var h=n.hlText?(function(){var d=document.createElement('div');d.className='note-card-hl';d.textContent='📌 '+n.hlText.substr(0,60)+(n.hlText.length>60?'...':'');d.addEventListener('click',function(){scrollToHl(n.hlId)});return d})():null;
+      if(h)c.appendChild(h);
+      var t=document.createElement('div');t.className='note-card-text';t.textContent=n.text;c.appendChild(t);
+      var d=document.createElement('button');d.className='note-card-del';d.textContent='×';d.title='Delete';d.addEventListener('click',function(){delNote(n.id)});c.appendChild(d);
+      b.appendChild(c);
+    });
+  }
+  window.onAddNoteClick=function(){
+    var sel=window.getSelection(),txt=sel.toString().trim();
+    if(txt.length>=2){
+      pendingHl=txt;
+      var r=sel.getRangeAt(0),hid='hl_'+(++hlC)+'_'+Date.now().toString(36);
+      var m=document.createElement('mark');m.className='hl-text';m.setAttribute('hid',hid);m.textContent=txt;
+      r.deleteContents();r.insertNode(m);sel.removeAllRanges();pendingHlId=hid;
+      document.getElementById('hlPreview').innerHTML='<b>📌 Highlighted:</b> '+esc(txt.substr(0,50))+(txt.length>50?'...':'');
+      document.getElementById('notesInputRow').classList.add('show');
+      document.getElementById('noteTextarea').value='';
+      document.getElementById('noteTextarea').focus({preventScroll:true});
+    }else{
+      pendingHl=null;pendingHlId=null;
+      document.getElementById('hlPreview').innerHTML='';
+      document.getElementById('notesInputRow').classList.add('show');
+      document.getElementById('noteTextarea').value='';
+      document.getElementById('noteTextarea').focus({preventScroll:true});
+    }
+  };
+  window.saveNoteFromInput=function(){
+    var t=document.getElementById('noteTextarea').value.trim();
+    if(!t){alert('Please write a note.');return}
+    var sec='s1';
+    var secs=['s14','s13','s12','s11','s10','s9','s8','s7','s6','s5','s4','s3','s2','s1'];
+    for(var i=0;i<secs.length;i++){var el=document.getElementById(secs[i]);if(el&&el.getBoundingClientRect().top<=150){sec=secs[i];break}}
+    var n={id:'n_'+Date.now()+'_'+Math.random().toString(36).substr(2,5),section:sec,text:t,time:Date.now()};
+    if(pendingHl){n.hlText=pendingHl;if(pendingHlId)n.hlId=pendingHlId;pendingHl=null;pendingHlId=null}
+    notes.push(n);save();render();
+    document.getElementById('notesInputRow').classList.remove('show');
+  };
+  window.cancelNoteInput=function(){
+    document.getElementById('notesInputRow').classList.remove('show');
+    // CRITICAL: remove the immediately-created highlight mark on cancel (v3.0 fix)
+    if(pendingHlId){var h=document.querySelector('.hl-text[hid="'+pendingHlId+'"]');if(h){var p=h.parentNode;p.replaceChild(document.createTextNode(h.textContent),h);p.normalize()}}
+    pendingHlId=null;pendingHl=null;
+    document.getElementById('hlPreview').innerHTML='';
+  };
+  window.delNote=function(id){
+    var n=notes.find(function(x){return x.id===id});
+    if(n&&n.hlId){var h=document.querySelector('.hl-text[hid="'+n.hlId+'"]');if(h){var p=h.parentNode;p.replaceChild(document.createTextNode(h.textContent),h);p.normalize()}}
+    notes=notes.filter(function(x){return x.id!==id});save();render();
+  };
+  window.scrollToHl=function(id){
+    var h=document.querySelector('.hl-text[hid="'+id+'"]');
+    if(h){h.scrollIntoView({behavior:'smooth',block:'center'});h.style.background='#facc15';setTimeout(function(){h.style.background=''},2000)}
+  };
+  window.clearAllNotes=function(){
+    if(!notes.length)return;if(!confirm('Clear all notes?'))return;
+    document.querySelectorAll('.hl-text').forEach(function(h){var p=h.parentNode;p.replaceChild(document.createTextNode(h.textContent),h);p.normalize()});
+    notes=[];save();render();
+  };
+  window.exportNotes=function(){
+    if(!notes.length){alert('No notes.');return}
+    var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(notes,null,2)],{type:'application/json'}));
+    a.download='bandura_notes_'+new Date().toISOString().slice(0,10)+'.json';a.click();
+  };
+  load();
+})();
+</script>
 </body>
 </html>
