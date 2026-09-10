@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CIE 9990 Paper 2 命题规律深度分析（2025–2026 · 11 套真题）</title>
+<style>
+:root{
+  --bg:#F5F7FA;--card:#FFFFFF;--text:#2C3E50;--text-l:#607D8B;--line:#E1E8ED;
+  --bio:#dc2626;--cog:#2563eb;--learn:#ea580c;--social:#2E7D32;
+  --gold:#b8860b;--ink:#37474f;
+}
+*{box-sizing:border-box}
+html{font-size:16px}
+body{margin:0;background:var(--bg);color:var(--text);font-size:1em;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  line-height:1.7;-webkit-font-smoothing:antialiased}
+
+/* ---------- layout ---------- */
+.wrap{max-width:1180px;margin:0 auto;padding:0 1.5rem 5rem}
+header.hero{background:linear-gradient(135deg,#1f2937 0%,#37474f 55%,#455a64 100%);color:#fff;padding:3.2rem 1.5rem 2.6rem;margin-bottom:2.2rem}
+header.hero .inner{max-width:1180px;margin:0 auto}
+header.hero .kicker{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:#90a4ae;font-weight:700}
+header.hero h1{margin:.55rem 0 .7rem;font-size:2.05rem;line-height:1.28;font-weight:800;letter-spacing:-.01em}
+header.hero p{margin:0;color:#cfd8dc;font-size:.98rem;max-width:80ch}
+.hero-stats{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.5rem}
+.hero-stat{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:10px;padding:.5rem .85rem;font-size:.82rem;color:#e0e6ea}
+.hero-stat b{color:#fff;font-size:1.05rem;margin-right:.3rem}
+
+/* ---------- top nav (added for site integration) ---------- */
+.p2nav{position:sticky;top:0;z-index:100;background:#fff;border-bottom:2px solid #e0e0e0;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+.p2nav .p2nav-in{max-width:1180px;margin:0 auto;padding:.6rem 1.5rem;display:flex;align-items:center;gap:.7rem;flex-wrap:wrap}
+.p2nav a.home{display:inline-flex;align-items:center;gap:.4rem;padding:5px 14px;background:linear-gradient(135deg,#1a237e,#3949ab);color:#fff;border-radius:20px;text-decoration:none;font-size:.8rem;font-weight:600}
+.p2nav a.home:hover{transform:translateY(-1px);box-shadow:0 3px 10px rgba(26,35,126,.3)}
+.p2nav .crumb{font-size:.78rem;color:#607D8B}
+.p2nav .crumb a{color:#1565C0;text-decoration:none;font-weight:500}
+.p2nav .crumb a:hover{text-decoration:underline}
+.p2nav .spacer{flex:1}
+.p2nav a.rel{padding:5px 13px;border:1px solid #cfd8dc;border-radius:16px;font-size:.75rem;color:#37474f;text-decoration:none;font-weight:600}
+.p2nav a.rel:hover{background:#f5f7fa;border-color:#90a4ae}
+
+h2.sec{font-size:1.32rem;margin:3rem 0 .3rem;padding-bottom:.5rem;border-bottom:2px solid var(--line);font-weight:800;letter-spacing:-.01em}
+h2.sec .num{display:inline-block;background:var(--ink);color:#fff;font-size:.72rem;padding:.14rem .5rem;border-radius:5px;vertical-align:middle;margin-right:.55rem;letter-spacing:.06em;font-weight:700}
+h3.sub{font-size:1.05rem;margin:1.9rem 0 .55rem;color:#1f2937;font-weight:700}
+h4.subsub{font-size:.94rem;margin:1.25rem 0 .4rem;color:var(--ink);font-weight:700}
+p{margin:.5rem 0}
+.lede{color:var(--text-l);font-size:.94rem;margin-bottom:1.2rem}
+
+/* ---------- cards ---------- */
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1.15rem 1.3rem;margin:1rem 0;box-shadow:0 1px 3px rgba(16,24,40,.05)}
+.card.hi{border-left:4px solid var(--gold)}
+.card.warn{border-left:4px solid #d97706;background:#fffbf0}
+.card.key{border-left:4px solid var(--bio);background:#fff8f8}
+.card h4{margin:0 0 .5rem;font-size:.98rem;font-weight:700}
+.card .tag{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.05em;padding:.1rem .45rem;border-radius:4px;background:#eceff1;color:#455a64;margin-left:.4rem;vertical-align:middle}
+
+/* ---------- tables ---------- */
+table{width:100%;border-collapse:collapse;margin:.75rem 0;font-size:.86rem;background:#fff}
+th,td{border:1px solid var(--line);padding:.5rem .6rem;text-align:left;vertical-align:top}
+th{background:#eceff1;font-weight:700;color:#37474f;font-size:.8rem;letter-spacing:.02em}
+tr:nth-child(even) td{background:#fafbfc}
+td.rl{font-weight:700;background:#f4f6f8!important;white-space:nowrap}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.82rem}
+.en{color:#111827}
+.zh{color:#8a8a8a;font-size:.78rem;font-weight:400;display:block;line-height:1.45;margin-top:.08rem}
+.zh-in{color:#8a8a8a;font-size:.78rem;font-weight:400}
+.qv{background:#f8fafc;border-left:3px solid #94a3b8;padding:.35rem .6rem;margin:.25rem 0;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.79rem;color:#334155;line-height:1.55;white-space:pre-wrap}
+.pill{display:inline-block;font-size:.68rem;font-weight:700;padding:.08rem .4rem;border-radius:999px;letter-spacing:.03em;vertical-align:middle}
+.p-red{background:#fdeaea;color:#b91c1c}.p-blue{background:#e8effd;color:#1d4ed8}
+.p-org{background:#fdf0e6;color:#c2410c}.p-grn{background:#e9f5ea;color:#2E7D32}
+.p-gray{background:#eceff1;color:#455a64}.p-gold{background:#fdf6e3;color:#92600a}
+.fixed{background:#fff7e6!important;font-weight:700}
+.slot{font-weight:700;background:#37474f;color:#fff;border-radius:5px;padding:.08rem .38rem;font-size:.74rem;display:inline-block}
+ul.tight{margin:.4rem 0;padding-left:1.25rem}
+ul.tight li{margin:.22rem 0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:860px){.grid2{grid-template-columns:1fr}}
+.bar-row{display:flex;align-items:center;gap:.6rem;margin:.28rem 0;font-size:.84rem}
+.bar-row .lbl{width:11.5rem;flex:none;color:#37474f}
+.bar-row .bar{height:1.15rem;border-radius:4px;background:var(--cog);flex:none}
+.bar-row .val{color:#607D8B;font-size:.79rem;font-weight:700}
+.legend{display:flex;flex-wrap:wrap;gap:.9rem;font-size:.78rem;color:#607D8B;margin:.4rem 0 1rem}
+.legend i{display:inline-block;width:.7rem;height:.7rem;border-radius:3px;margin-right:.3rem}
+hr.soft{border:0;border-top:1px dashed var(--line);margin:1.6rem 0}
+.footnote{font-size:.79rem;color:#8a8a8a;margin-top:.5rem;line-height:1.6}
+.toc{background:#fff;border:1px solid var(--line);border-radius:12px;padding:1rem 1.3rem;margin:0 0 2rem}
+.toc ol{margin:.3rem 0 0;padding-left:1.4rem;columns:2;column-gap:2rem}
+@media(max-width:860px){.toc ol{columns:1}}
+.toc li{margin:.22rem 0;font-size:.88rem}
+.toc a{color:#1d4ed8;text-decoration:none}
+.toc a:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+
+<nav class="p2nav">
+  <div class="p2nav-in">
+    <a href="../../" class="home">🏠 Home</a>
+    <span class="crumb">
+      <a href="../../">Home</a> ›
+      <a href="../">CIE Psychology</a> ›
+      <a href="../exam-handbook/">Exam Handbook</a> ›
+      <span style="color:#333;font-weight:600">Paper 2 命题规律分析</span>
+    </span>
+    <span class="spacer"></span>
+    <a class="rel" href="../research-methods/">← Research Methods 课件</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="inner">
+    <div class="kicker">Cambridge International AS &amp; A Level · 9990 Psychology</div>
+    <h1>Paper 2 Research Methods<br>命题规律深度分析</h1>
+    <p>基于 2025 March / 2025 May–June / 2025 Oct–Nov / 2026 March / 2026 May–June 五个考季、<b>11 套真题</b>的 Question Paper 与 Mark Scheme 全文逐题比对。所有评分规则均为 MS 原文逐字摘录（English verbatim），中文仅作分析标注。</p>
+    <div class="hero-stats">
+      <span class="hero-stat"><b>11</b>套真题（QP+MS 全量）</span>
+      <span class="hero-stat"><b>11/11</b> 卷含 6 分双概念题</span>
+      <span class="hero-stat"><b>6</b>种 10 分题方法类型</span>
+      <span class="hero-stat"><b>24</b>处 [definitive] 标记</span>
+      <span class="hero-stat"><b>19</b>处 [NAQ] 零分标记</span>
+      <span class="hero-stat"><b>9/11</b> 卷含画图/画表题</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<div class="toc">
+  <strong style="font-size:.92rem">目录</strong>
+  <ol>
+    <li><a href="#s1">数据基础：11 套真题清单</a></li>
+    <li><a href="#s2">发现一：Paper 2 是一张「固定骨架」</a></li>
+    <li><a href="#s3">发现二：6 分双概念题 = 固定配额（11/11）</a></li>
+    <li><a href="#s4">发现三：Section B 10 分题只有 6 种方法</a></li>
+    <li><a href="#s5">发现四：画图 / 画表题的完整分值阶梯</a></li>
+    <li><a href="#s6">发现五：数据解读题（读表 / 读图 / 求值）</a></li>
+    <li><a href="#s7">发现六：MS 的六条「隐形规则」</a></li>
+    <li><a href="#s8">发现七：2026 卷的新趋势</a></li>
+    <li><a href="#s9">答题策略：可直接教给学生的操作清单</a></li>
+  </ol>
+</div>
+
+<!-- ================= SECTION 1 ================= -->
+<h2 class="sec" id="s1"><span class="num">01</span>数据基础：11 套真题清单</h2>
+<p class="lede">本报告的全部结论来自下列 11 套 Paper 2 的题干与评分标准逐题比对，无一处推测性归纳。</p>
+
+<table>
+  <tr><th style="width:11%">考季</th><th style="width:10%">卷号</th><th style="width:8%">题量</th><th>Section B（10 分题）方法类型</th><th style="width:15%">该卷最显著特征</th></tr>
+  <tr><td class="rl">2025 March</td><td>9990/22</td><td>Q1–Q10</td><td><span class="pill p-blue">访谈</span> structured interviews（亲子对话）</td><td>Q4 集中量数 + 图表类型双连问</td></tr>
+  <tr><td class="rl">2025 May–June</td><td>9990/21</td><td>Q1–Q10</td><td><span class="pill p-red">实验</span> independent measures（创意活动 × 睡眠）</td><td>Q4 读均值/SD 表；Q7 画轴 3 分</td></tr>
+  <tr><td class="rl">2025 May–June</td><td>9990/22</td><td>Q1–Q10</td><td><span class="pill p-org">相关</span> correlational（病房噪音 × 睡眠质量）</td><td>Q3 数据类型四连问；Q6 单概念 6 分题</td></tr>
+  <tr><td class="rl">2025 May–June</td><td>9990/23</td><td>Q1–Q10</td><td><span class="pill p-red">实验</span> experiment（笔 vs 非书写物 × 注意力）</td><td>Q3 画正相关图 3 分；Q9 纵向研究长题</td></tr>
+  <tr><td class="rl">2025 Oct–Nov</td><td>9990/21</td><td>Q1–Q10</td><td><span class="pill p-blue">访谈</span> interview（兴奋体验）</td><td>Q9 动物伦理三连问（强化/species/harm）</td></tr>
+  <tr><td class="rl">2025 Oct–Nov</td><td>9990/22</td><td>Q1–Q9</td><td><span class="pill p-grn">田野实验</span> field experiment（广告亮度 × 注意力）</td><td><b>仅 9 题</b>；Q8(c) 画柱状图 4 分</td></tr>
+  <tr><td class="rl">2025 Oct–Nov</td><td>9990/23</td><td>Q1–Q10</td><td><span class="pill p-gold">个案法</span> case study（Liam 注意力）</td><td>Q7(c) 画表 3 分；Q5 描述三个差异 3 分</td></tr>
+  <tr><td class="rl">2026 March</td><td>9990/22</td><td>Q1–Q10</td><td><span class="pill p-org">相关</span> correlational（社交享受 × 阅读习惯）</td><td><b>Q1 直接读原始分数表求众数</b>（罕见）</td></tr>
+  <tr><td class="rl">2026 May–June</td><td>9990/21</td><td>Q1–Q9</td><td><span class="pill p-grn">田野实验</span> field experiment（玩具性别偏好）</td><td><b>仅 9 题</b>；Q4 生态效度（Perry）</td></tr>
+  <tr><td class="rl">2026 May–June</td><td>9990/22</td><td>Q1–Q9</td><td><span class="pill p-gray">纵向研究</span> longitudinal（儿童活动选择）</td><td><b>仅 9 题</b>；Q3 柱状图+直方图+画表三连</td></tr>
+  <tr><td class="rl">2026 May–June</td><td>9990/23</td><td>Q1–Q9</td><td><span class="pill p-org">相关</span> correlational（通勤时间 × 音乐知识）</td><td><b>仅 9 题</b>；Q6 假设+数据+画图五连问</td></tr>
+</table>
+
+<div class="card">
+  <h4>题量结构：Section A 有 8 题或 9 题两种版本<span class="tag">结构事实</span></h4>
+  <p style="margin:.3rem 0"><b>Section B 永远是最后一题</b>（Q9 或 Q10），固定 14 分 = 10 分计划题 + 4 分评估题。Section A 则占据 46 分：</p>
+  <ul class="tight">
+    <li><b>10 题卷（7 套）</b>：2025 March、2025 June ×3、2025 Nov P21/P23、2026 March</li>
+    <li><b>9 题卷（4 套）</b>：2025 Nov P22、2026 June ×3 —— 注意 <b>2026 三套全部是 9 题卷</b>，这是最新的卷面格式走向</li>
+  </ul>
+  <p class="footnote">备考含义：学生不需要背「Q7 考什么」，因为题号会漂移。<b>要背的是「题型配额」而不是「题号」</b>。</p>
+</div>
+
+<!-- ================= SECTION 2 ================= -->
+<h2 class="sec" id="s2"><span class="num">02</span>发现一：Paper 2 是一张「固定骨架」</h2>
+<p class="lede">把 11 套卷按题型功能对齐后可以看到：Paper 2 每年换的是<b>情景（scenario）</b>和<b>核心研究挂靠点</b>，但<b>题型骨架几乎逐格固定</b>。</p>
+
+<h3 class="sub">2.1 题型功能槽位图</h3>
+<table>
+  <tr><th style="width:14%">题型功能</th><th style="width:8%">每卷配额</th><th style="width:10%">常见位置</th><th>出题形式</th></tr>
+  <tr>
+    <td class="rl">A · 概念定义 + 挂靠研究</td><td class="fixed">1 道（11/11）</td><td>Q1</td>
+    <td><span class="en">"(a) Outline what is meant by 'X'. (b) Explain one way X was followed in the study by Y."</span><span class="zh">先给术语定义（1–2 分），再挂到一个具名核心研究（1–2 分）。11 套卷的 Q1 全部是这个结构。</span></td>
+  </tr>
+  <tr>
+    <td class="rl">B · 6 分双概念描述题</td><td class="fixed">1 道（11/11）</td><td>Q5 或 Q6</td>
+    <td><span class="en">"Describe X and Y, using any example(s)."</span><span class="zh">见第 3 节——这是 Paper 2 最稳定的单一题种。</span></td>
+  </tr>
+  <tr>
+    <td class="rl">C · 核心研究挂靠题</td><td class="fixed">3–5 道</td><td>全卷散布</td>
+    <td><span class="en">"In the study by X …" / "From the study by X …"</span><span class="zh">把方法论概念扣在 12 个核心研究的具体程序上，而不是考研究结论。</span></td>
+  </tr>
+  <tr>
+    <td class="rl">D · 画图 / 画表题</td><td>9/11 卷有</td><td>Q3 / Q5 / Q6 / Q7</td>
+    <td><span class="en">"Sketch a graph … You must label the axes." / "Draw a table … You must label the rows and columns."</span></td>
+  </tr>
+  <tr>
+    <td class="rl">E · 数据解读题</td><td>6/11 卷有</td><td>Q1 / Q3 / Q4 / Q6 / Q9</td>
+    <td><span class="en">"State what the means show…" / "State one conclusion from the results."</span></td>
+  </tr>
+  <tr>
+    <td class="rl">F · 情景设计题</td><td>2–4 道</td><td>Q7 / Q8 / Q9</td>
+    <td><span class="en">"Suggest how [named person] could …" / "Suggest why …"</span><span class="zh">给一个虚构人物 + 情景，让学生提出测量/抽样/控制方案。</span></td>
+  </tr>
+  <tr>
+    <td class="rl">G · Section B 计划题</td><td class="fixed">1 道（11/11）</td><td>最后一题</td>
+    <td><span class="en">"(a) Describe how X could conduct a [method] to investigate [aim]. [10]"</span></td>
+  </tr>
+</table>
+
+<h3 class="sub">2.2 逐卷题槽对照（横向对齐）</h3>
+<p class="lede" style="margin-top:.2rem">下表把 11 套卷按「题型功能」而不是题号对齐。<span class="pill p-gold">金色</span> = 固定配额题。</p>
+
+<div style="overflow-x:auto">
+<table style="min-width:1050px">
+  <tr>
+    <th style="width:9%">卷</th><th>Q1</th><th>Q2</th><th>Q3</th><th>Q4</th><th>Q5</th><th>Q6</th><th>Q7</th><th>Q8</th><th>Q9</th><th>Q10</th>
+  </tr>
+  <tr>
+    <td class="rl">m25/22</td>
+    <td>观察法概念</td><td>纵向研究</td><td>效度</td><td>集中量数+图表</td><td>效度改进</td>
+    <td class="fixed">6分 定量/定性数据</td><td>情景应用</td><td>动物伦理</td><td>相关vs实验</td><td>★10分 访谈</td>
+  </tr>
+  <tr>
+    <td class="rl">s25/21</td>
+    <td>问卷</td><td>同意</td><td>普遍性</td><td>均值/SD 解读</td><td>个案法伦理</td>
+    <td class="fixed">6分 抽样技术</td><td>动物实验</td><td>效度信度伦理</td><td>纵向研究</td><td>★10分 实验</td>
+  </tr>
+  <tr>
+    <td class="rl">s25/22</td>
+    <td>IV 操作化</td><td>图表类型</td><td>数据类型</td><td>操作化</td><td>设备弱点</td>
+    <td class="fixed">6分 顺序效应</td><td>变量类型</td><td>集中量数+伦理</td><td>问卷技术</td><td>★10分 相关</td>
+  </tr>
+  <tr>
+    <td class="rl">s25/23</td>
+    <td>保密</td><td>主观性</td><td>画图+数据</td><td>假设类型</td><td>抽样选择</td>
+    <td class="fixed">6分 访谈类型</td><td>个案法</td><td>动物伦理</td><td>纵向研究</td><td>★10分 实验</td>
+  </tr>
+  <tr>
+    <td class="rl">w25/21</td>
+    <td>观察法类型</td><td>数据解读</td><td>纳入标准</td><td>实验设计</td><td>画图</td>
+    <td class="fixed">6分 集中量数</td><td>问卷应用</td><td>参与式观察</td><td>动物实验</td><td>★10分 访谈</td>
+  </tr>
+  <tr>
+    <td class="rl">w25/22</td>
+    <td>疲劳效应</td><td>定性数据</td><td>观察法优点</td><td>样本+SD</td>
+    <td class="fixed">6分 访谈类型</td><td>个案法</td><td>相关设计</td><td>数据收集+画图</td><td>★10分 田野实验</td><td>—</td>
+  </tr>
+  <tr>
+    <td class="rl">w25/23</td>
+    <td>平衡</td><td>假设类型</td><td>观察法（Fagen）</td><td>问卷效度</td><td>观察法（Piliavin）</td>
+    <td class="fixed">6分 问题类型</td><td>儿童研究+画表</td><td>实验设计</td><td>图表+结论</td><td>★10分 个案法</td>
+  </tr>
+  <tr>
+    <td class="rl">m26/22</td>
+    <td>读表求众数</td><td>实验设计</td><td>伦理+实践</td><td>抽样+样本弱点</td><td>变量类型</td>
+    <td class="fixed">6分 IV 操作化</td><td>观察法+画表</td><td>数据解读</td><td>纵向研究</td><td>★10分 相关</td>
+  </tr>
+  <tr>
+    <td class="rl">s26/21</td>
+    <td>目的（aim）</td><td>设备（EEG）</td><td>样本相似性</td><td>生态效度</td>
+    <td class="fixed">6分 动物伦理</td><td>相关（笑声）</td><td>个案法（问卷）</td><td>纵向研究</td><td>★10分 田野实验</td><td>—</td>
+  </tr>
+  <tr>
+    <td class="rl">s26/22</td>
+    <td>测量+抽样</td><td>IV/DV 操作化</td><td>图表+画表</td><td>主观性</td>
+    <td class="fixed">6分 人类伦理</td><td>观察法（觅食）</td><td>个案法（三角验证）</td><td>相关（居家测量）</td><td>★10分 纵向研究</td><td>—</td>
+  </tr>
+  <tr>
+    <td class="rl">s26/23</td>
+    <td>参与者变量</td><td>标准化</td><td>实验设计</td><td>主观性</td>
+    <td class="fixed">6分 平衡/随机分配</td><td>假设+数据+画图</td><td>观察法（操作化）</td><td>访谈（问题格式）</td><td>★10分 相关</td><td>—</td>
+  </tr>
+</table>
+</div>
+
+<div class="card key">
+  <h4>这条发现改变了备考逻辑</h4>
+  <p style="margin:.3rem 0">学生不需要「押题号」，需要的是<b>认出题型功能</b>。例如看到 <span class="mono">"Describe A and B, using any example(s)"</span> 就立刻知道：<b>每个概念最多 2 分定义 + 最多 2 分例子；没例子或只谈一个概念 → 封顶 4 分；只需 1 个例子就能拿满 6 分。</b>这套动作在 11 套卷里完全通用。</p>
+</div>
+
+<!-- ================= SECTION 3 ================= -->
+<h2 class="sec" id="s3"><span class="num">03</span>发现二：6 分双概念题 = 固定配额（11/11）</h2>
+<p class="lede">这是本次分析中<b>信号最强</b>的一条规律：11 套真题，<b>每一套都恰好有一道 6 分题</b>，题干全部使用 <span class="mono">"Describe …, using any example(s)"</span> 这一句式，且评分标准的引导段<b>逐字相同</b>。</p>
+
+<h3 class="sub">3.1 官方 Mark Scheme 的固定模板（逐字原文）</h3>
+<div class="qv">1 mark for each definition/point of detail, up to a maximum of 2 for each term/concept.
+1 mark for each example, max 2 for each term/concept.
+Examples can include examples from any studies (core studies, other studies, candidate's own studies).
+Max 4 if no examples or if only about one term/concept.
+Only 1 example needed to access 6 marks.</div>
+<p class="footnote">来源：2025 March / 2025 June P21·P22·P23 / 2025 Nov P21·P22·P23 / 2026 March / 2026 June P21·P22·P23 —— 11 份 MS 全部出现，措辞一致（2025 Nov P21 额外补一句 <span class="mono">"…max 2 for each term/concept (up to a maximum of 4)"</span>）。</p>
+
+<div class="card hi">
+  <h4>把这段模板翻译成学生动作</h4>
+  <table style="margin:.5rem 0">
+    <tr><th style="width:32%">学生要写什么</th><th style="width:14%">得几分</th><th>关键限制</th></tr>
+    <tr><td>概念 X 的定义或细节 1</td><td>1</td><td rowspan="2">每个概念<b>最多 2 分</b>定义分 —— 写 5 条定义也只算 2 分，必须转向例子</td></tr>
+    <tr><td>概念 X 的定义或细节 2</td><td>1</td></tr>
+    <tr><td>概念 X 的例子 1</td><td>1</td><td rowspan="2">每个概念<b>最多 2 分</b>例子分</td></tr>
+    <tr><td>概念 X 的例子 2</td><td>1</td></tr>
+    <tr><td>概念 Y 的定义或细节 1</td><td>1</td><td rowspan="2">同理，最多 2 分</td></tr>
+    <tr><td>概念 Y 的定义或细节 2</td><td>1</td></tr>
+    <tr><td colspan="3" style="background:#fdf6e3"><b>⚠️ 封顶规则</b>：<span class="mono">Max 4 if no examples or if only about one term/concept.</span> —— ① 一个例子都不写 → 最高 4 分；② 只谈一个概念 → 最高 4 分。<br><b>✅ 好消息</b>：<span class="mono">Only 1 example needed to access 6 marks.</span> —— 只要 1 个例子（挂在其中一个概念上）就打开 6 分空间，不必两个概念各给例子。</td></tr>
+  </table>
+</div>
+
+<h3 class="sub">3.2 11 套卷的 6 分题主题清单</h3>
+<table>
+  <tr><th style="width:6%">卷</th><th style="width:8%">位置</th><th>题干（verbatim）</th><th style="width:24%">概念对</th></tr>
+  <tr><td class="rl">m25/22</td><td>Q6</td><td class="en">Describe quantitative data and qualitative data, using any example(s).</td><td>数据类型</td></tr>
+  <tr><td class="rl">s25/21</td><td>Q6</td><td class="en">Describe opportunity sampling and random sampling, using any example(s).</td><td>抽样技术</td></tr>
+  <tr><td class="rl">s25/22</td><td>Q6</td><td class="en">Describe order effects, using any example(s).</td><td><b>单概念</b>（顺序效应）</td></tr>
+  <tr><td class="rl">s25/23</td><td>Q6</td><td class="en">Describe structured interviews and semi-structured interviews, using any example(s).</td><td>访谈类型</td></tr>
+  <tr><td class="rl">w25/21</td><td>Q6</td><td class="en">Describe measures of central tendency, using any example(s).</td><td><b>单概念</b>（集中量数）</td></tr>
+  <tr><td class="rl">w25/22</td><td>Q5</td><td class="en">Describe semi-structured interviews and unstructured interviews, using any example(s).</td><td>访谈类型</td></tr>
+  <tr><td class="rl">w25/23</td><td>Q6</td><td class="en">Describe open questions and closed questions, using any example(s).</td><td>问题类型</td></tr>
+  <tr><td class="rl">m26/22</td><td>Q6</td><td class="en">Describe how independent variables (IVs) can be operationalised, using any example(s).</td><td><b>单概念</b>（IV 操作化）</td></tr>
+  <tr><td class="rl">s26/21</td><td>Q5</td><td class="en">Describe the following ethical guidelines relating to animals, using any example(s): replacement / species.</td><td>动物伦理</td></tr>
+  <tr><td class="rl">s26/22</td><td>Q5</td><td class="en">Describe the following ethical guidelines in relation to human participants, using any example(s): confidentiality / privacy.</td><td>人类伦理</td></tr>
+  <tr><td class="rl">s26/23</td><td>Q5</td><td class="en">Describe counterbalancing and random allocation, using any example(s).</td><td>控制技术</td></tr>
+</table>
+
+<div class="card warn">
+  <h4>⚠️ 单概念 6 分题的反直觉之处</h4>
+  <p style="margin:.3rem 0">s25/22（order effects）、w25/21（measures of central tendency）、m26/22（operationalising IVs）是<b>单概念题</b>，但 MS 仍然套用同一段模板。此时 <span class="mono">"Max 4 if … only about one term/concept"</span> 的解读变为：<b>概念只有一个，所以必须靠「例子」把分数从 4 拉到 6</b>。</p>
+  <p style="margin:.3rem 0">2025 Nov P21 的 MS 把这点写得更死：<span class="mono">"description of how to calculate mode = 1 (max) / median = 1 (max) / mean = 1 (max)"</span> —— <b>三种集中量数的「怎么算」各封顶 1 分</b>，说明纯定义路线最多 3 分，剩下 3 分只能靠例子。</p>
+</div>
+
+<h3 class="sub">3.3 已考过的概念池（备考覆盖表）</h3>
+<div class="grid2">
+  <div class="card" style="margin:.4rem 0">
+    <h4 style="color:#1d4ed8">已考过（须全覆盖）</h4>
+    <ul class="tight" style="font-size:.86rem">
+      <li>quantitative / qualitative data <span class="zh-in">（m25）</span></li>
+      <li>opportunity / random sampling <span class="zh-in">（s25 P21）</span></li>
+      <li>order effects <span class="zh-in">（s25 P22）</span></li>
+      <li>structured / semi-structured interviews <span class="zh-in">（s25 P23）</span></li>
+      <li>measures of central tendency <span class="zh-in">（w25 P21）</span></li>
+      <li>semi-structured / unstructured interviews <span class="zh-in">（w25 P22）</span></li>
+      <li>open / closed questions <span class="zh-in">（w25 P23）</span></li>
+      <li>operationalising IVs <span class="zh-in">（m26）</span></li>
+      <li>replacement / species <span class="zh-in">（s26 P21）</span></li>
+      <li>confidentiality / privacy <span class="zh-in">（s26 P22）</span></li>
+      <li>counterbalancing / random allocation <span class="zh-in">（s26 P23）</span></li>
+    </ul>
+  </div>
+  <div class="card" style="margin:.4rem 0;border-left:4px solid #d97706;background:#fffbf0">
+    <h4 style="color:#c2410c">高概率下一个（尚未考，但同族）</h4>
+    <ul class="tight" style="font-size:.86rem">
+      <li><b>independent / repeated measures</b> <span class="zh-in">（设计类型，与 s26/23 平衡题同族）</span></li>
+      <li><b>participant / situational variables</b> <span class="zh-in">（m26 Q5 已作为 2+2 分题出现，升级为 6 分题很自然）</span></li>
+      <li><b>structured / unstructured observation</b> <span class="zh-in">（w25 P21 Q1 只考了 1 分，是明显的 6 分题候补）</span></li>
+      <li><b>questionnaire / interview</b> <span class="zh-in">（自陈法两大支柱对比）</span></li>
+      <li><b>volunteer / opportunity sampling</b> <span class="zh-in">（s26 P22 Q1 已分别命名，组合成对是自然延伸）</span></li>
+      <li><b>informed consent / right to withdraw</b> <span class="zh-in">（人类伦理对，与 s26/22 同族）</span></li>
+      <li><b>distress / housing</b> <span class="zh-in">（动物伦理对，与 s26/21 同族）</span></li>
+      <li><b>mean / median / mode</b> <span class="zh-in">（w25 P21 已考，但作为「三者对比」形式仍有余量）</span></li>
+      <li><b>reliability / validity</b> <span class="zh-in">（方法论核心对，长期未作为 6 分题出现 = 明显缺口）</span></li>
+    </ul>
+  </div>
+</div>
+
+<!-- ================= SECTION 4 ================= -->
+<h2 class="sec" id="s4"><span class="num">04</span>发现三：Section B 10 分题只有 6 种方法</h2>
+<p class="lede">11 套卷的 10 分计划题，方法类型只有 6 种；每种类型的 <b>4 个 required features 在 MS 中完全固定</b>，跨考季不变。</p>
+
+<h3 class="sub">4.1 方法类型频次</h3>
+<div class="bar-row"><span class="lbl">correlational 相关研究</span><span class="bar" style="width:37%;background:#ea580c"></span><span class="val">3 套（s25/22, m26/22, s26/23）</span></div>
+<div class="bar-row"><span class="lbl">experiment 实验</span><span class="bar" style="width:25%;background:#dc2626"></span><span class="val">2 套（s25/21, s25/23）</span></div>
+<div class="bar-row"><span class="lbl">field experiment 田野实验</span><span class="bar" style="width:25%;background:#2E7D32"></span><span class="val">2 套（w25/22, s26/21）</span></div>
+<div class="bar-row"><span class="lbl">interview 访谈</span><span class="bar" style="width:25%;background:#2563eb"></span><span class="val">2 套（m25/22, w25/21）</span></div>
+<div class="bar-row"><span class="lbl">case study 个案法</span><span class="bar" style="width:13%;background:#b8860b"></span><span class="val">1 套（w25/23）</span></div>
+<div class="bar-row"><span class="lbl">longitudinal 纵向研究</span><span class="bar" style="width:13%;background:#607D8B"></span><span class="val">1 套（s26/22）</span></div>
+
+<h3 class="sub">4.2 六种方法 × 4 Required Features 完整表（MS 逐字）</h3>
+
+<h4 class="subsub">① Experiment（实验）— s25/21 Q10, s25/23 Q10</h4>
+<table>
+  <tr><th style="width:6%">#</th><th style="width:22%">Feature</th><th>MS 原文（verbatim）</th></tr>
+  <tr><td>a</td><td class="rl">independent variable</td><td class="en">(different creative activities: e.g. art, music, dance – any two, operationalised)</td></tr>
+  <tr><td>b</td><td class="rl">dependent variable</td><td class="en">(sleep 'well', e.g. quality, time asleep, depth of sleep, feeling in the morning / use of an EEG to measure sleep)</td></tr>
+  <tr><td>c</td><td class="rl">controls / standardisation</td><td class="en">(sleep location, time to bed, comfort of bed etc. <b>At least two, must be explicit</b>)</td></tr>
+  <tr><td>d</td><td class="rl">experimental design</td><td class="en">(independent measures, how allocated i.e. random) <b>And/OR</b> (d) location if conducted as a field experiment</td></tr>
+</table>
+
+<h4 class="subsub">② Correlational（相关研究）— s25/22 Q10, m26/22 Q10, s26/23 Q9</h4>
+<table>
+  <tr><th style="width:6%">#</th><th style="width:22%">Feature</th><th>MS 原文（verbatim）</th></tr>
+  <tr><td>a</td><td class="rl">two co-variables</td><td class="en">(quality of sleep &amp; level of noise on wards)</td></tr>
+  <tr><td>b</td><td class="rl">measure of variable 1</td><td class="en">(sleep quality – how measured i.e. questionnaire (scale) / EEG (time or stages) / interview (rating))</td></tr>
+  <tr><td>c</td><td class="rl">measure of variable 2</td><td class="en">(noise on wards – how recorded i.e. decibel counter / questionnaire / rating scale)</td></tr>
+  <tr><td>d</td><td class="rl">nature of relationship</td><td class="en">(positive/negative, strong/weak linked to variables) and how could be presented (<b>scattergraph</b>)</td></tr>
+</table>
+<div class="card warn" style="margin-top:.5rem">
+  <p style="margin:.2rem 0"><b>2026 June P23 的新增强调</b>：<span class="mono">"Not quantitative data as it has to be for correlational data."</span> —— 相关研究的两个变量<b>必须是连续/量化数据</b>，写「定性访谈」路线会被判无效。</p>
+</div>
+
+<h4 class="subsub">③ Field experiment（田野实验）— w25/22 Q9, s26/21 Q9</h4>
+<table>
+  <tr><th style="width:6%">#</th><th style="width:22%">Feature</th><th>MS 原文（verbatim）</th></tr>
+  <tr><td>a</td><td class="rl">independent variable</td><td class="en">(ads bright v dull coloured)</td></tr>
+  <tr><td>b</td><td class="rl">dependent variable</td><td class="en">(attention: operationalisation)</td></tr>
+  <tr><td>c</td><td class="rl">controls / standardisation</td><td class="en">(advert size / content on the advert / time of day / route of the train. <b>At least two</b>)</td></tr>
+  <tr><td>d</td><td class="rl">experimental design</td><td class="en">(probably independent measures / knowledge of what this means)</td></tr>
+</table>
+<div class="card warn" style="margin-top:.5rem">
+  <p style="margin:.2rem 0"><b>2026 June P21 的关键限定（Gladys 玩具研究）</b>：MS 要求 <span class="mono">IV = sex + toy type</span>，并且 <b>sex 必须用 independent measures、toy type 必须用 repeated measures</b>；只写 <span class="mono">"'counterbalancing' = just enough for a single tick-d"</span> —— 光写「平衡」这个词只能拿到 d 的一个 tick，不给 detail。</p>
+</div>
+
+<h4 class="subsub">④ Interview（访谈）— m25/22 Q10, w25/21 Q10</h4>
+<table>
+  <tr><th style="width:6%">#</th><th style="width:22%">Feature</th><th>MS 原文（verbatim）</th></tr>
+  <tr><td>a</td><td class="rl">format</td><td class="en">(description of structured / unstructured / semi-structured)</td></tr>
+  <tr><td>b</td><td class="rl">question format</td><td class="en">(open / closed questions, fillers / quantitative / qualitative)</td></tr>
+  <tr><td>c</td><td class="rl">examples of questions</td><td class="en">(<b>at least two</b>)</td></tr>
+  <tr><td>d</td><td class="rl">question scoring / interpretation</td><td class="en">(e.g. use of numerical scoring / measures of central tendency / analysis of qualitative data)</td></tr>
+</table>
+<div class="card hi" style="margin-top:.5rem">
+  <p style="margin:.2rem 0"><b>2025 March P22 Q10(a) 的隐藏细节</b>：MS 把 <span class="mono">format</span> 的定义写得极具体 —— <span class="mono">same questions, same number, same order, same tone, <b>same clothes</b></span>。<b>「同一件衣服」也被官方列为 standardisation 的一部分</b>，说明这题的 detail 门槛很低，学生只要写「同一套问题、同样顺序、同样语气」就能拿 detail。</p>
+</div>
+
+<h4 class="subsub">⑤ Case study（个案法）— w25/23 Q10</h4>
+<table>
+  <tr><th style="width:6%">#</th><th style="width:22%">Feature</th><th>MS 原文（verbatim）</th></tr>
+  <tr><td>a</td><td class="rl">details about the participant / unit</td><td class="en">(exceptional attention, male, age, how found, other info e.g. from parents, teachers / coworkers)</td></tr>
+  <tr><td>b</td><td class="rl">content of information collected</td><td class="en">(e.g. depth / detail: e.g. attention span (time), associated with different stimuli, effect of boredom etc.)</td></tr>
+  <tr><td>c</td><td class="rl">two or more techniques</td><td class="en">(observation, interview him, interview parents / teachers / coworkers – <b>at least two</b>)</td></tr>
+  <tr><td>d</td><td class="rl">analysis / interpretation</td><td class="en">(description of how data used: qualitative and/or quantitative) / triangulation</td></tr>
+</table>
+
+<h4 class="subsub">⑥ Longitudinal study（纵向研究）— s26/22 Q9</h4>
+<table>
+  <tr><th style="width:6%">#</th><th style="width:22%">Feature</th><th>MS 要点（2026 June P22）</th></tr>
+  <tr><td>a</td><td class="rl">tests / tasks</td><td>测什么、怎么测（同一批被试重复测）</td></tr>
+  <tr><td>b</td><td class="rl">scoring</td><td>数据如何记录与计分</td></tr>
+  <tr><td>c</td><td class="rl">recontacting of participants</td><td><b>如何重新联系被试</b>（纵向研究独有特征）</td></tr>
+  <tr><td>d</td><td class="rl">controls</td><td>控制什么变量</td></tr>
+  <tr><td colspan="3" style="background:#fdeaea"><b>⚠️ 致命禁区</b>：<span class="mono">"an experiment is not acceptable"</span> —— 纵向研究题里如果学生写成实验（操纵 IV），直接不给方法分。<br><b>另一个陷阱</b>：<span class="mono">"There are no marks for frequency/interval. It is REP, as it is in the question"</span> —— 题干里已经写明的「每年测一次」再复述一遍 = 0 分（REP）。</td></tr>
+</table>
+
+<h3 class="sub">4.3 L1–L5 水平表（11 套卷逐字一致）</h3>
+<table>
+  <tr><th style="width:14%">Level</th><th style="width:10%">分数</th><th>MS 判据（verbatim）</th></tr>
+  <tr><td class="rl">Level 5</td><td><b>9–10</b></td><td class="en">has all the required features, <b>all with detail</b>, with mostly appropriate terminology. AND clearly applies knowledge of methodology involved in planning this investigation.</td></tr>
+  <tr><td class="rl">Level 4</td><td>7–8</td><td class="en">has all the required features, but <b>only some of these with detail</b>, with some appropriate terminology. AND applies knowledge of methodology involved in planning this investigation.</td></tr>
+  <tr><td class="rl">Level 3</td><td>5–6</td><td class="en">has some of the required features with detail <b>/ all of the required features with no detail</b>, and some appropriate terminology. AND applies a basic knowledge of methodology involved in planning this investigation.</td></tr>
+  <tr><td class="rl">Level 2</td><td>3–4</td><td class="en">has <b>at least two</b> of the required features, with little appropriate terminology. AND attempts to use knowledge of methodology involved in planning this investigation.</td></tr>
+  <tr><td class="rl">Level 1</td><td>1–2</td><td class="en">has <b>one</b> of the required features and uses little appropriate terminology. AND makes a limited attempt to use knowledge of methodology involved in planning this investigation, <b>e.g. may not use the method required by the question</b>.</td></tr>
+  <tr><td class="rl">0</td><td>0</td><td class="en">No creditable response.</td></tr>
+</table>
+<div class="card">
+  <h4>阅卷操作（MS 逐字）—— 为什么「4 个特征」是硬指标</h4>
+  <div class="qv">To mark Q10(a), create four 'imaginary columns' down one margin, using one column for each of the four required features. Tick each feature (tick-a, tick-b, tick-c, tick-d) when it appears, then underline the letter ( ) for detail. Use L1, L2, L3, L4, L5 at the end of the response to indicate the level.</div>
+  <p class="footnote">含义：阅卷官在页边画 4 列，出现一个特征打一个 tick，有 detail 就在字母下划线。<b>最终档位由「tick 数 × detail 数」决定。</b>所以学生的任务是完全机械的：<b>4 个特征一个不能少，每个都要带一个程序性细节。</b></p>
+</div>
+
+<!-- ================= SECTION 5 ================= -->
+<h2 class="sec" id="s5"><span class="num">05</span>发现四：画图 / 画表题的完整分值阶梯</h2>
+<p class="lede">9/11 套卷含画图或画表题，分值 2–5 分。这类题的 MS 写得最机械，<b>可以逐格对照拿分</b>。</p>
+
+<h3 class="sub">5.1 画图题（graph / chart）</h3>
+<table>
+  <tr><th style="width:8%">卷</th><th style="width:6%">分值</th><th style="width:30%">题目要求</th><th>MS 分值阶梯（verbatim）</th></tr>
+  <tr>
+    <td class="rl">s25/23 Q3(a)</td><td>3</td><td>Sketch a graph to show a positive correlation. Label the axes.</td>
+    <td class="en">2 axes with sleep and physical health (either way) = 1; positive correlation (line or points) = 1; 'Hours' marked on the sleep axis = 1; Scale for health (words or numbers) = 1</td>
+  </tr>
+  <tr>
+    <td class="rl">w25/21 Q5</td><td>2</td><td>Sketch a graph to show a negative correlation. Label the axes.</td>
+    <td class="en">Axis labels (both, either way round) = 1; Negative correlation (line/points) = 1</td>
+  </tr>
+  <tr>
+    <td class="rl">s25/21 Q7(b)</td><td>3</td><td>Draw the axes for a graph. You must label the axes.</td>
+    <td class="en">x-axis label: 'Species' = 1; x-axis units: two named species = 1; y-axis label: 'Ease of learning' = 1; y-axis units: numbers = 1 <br><b>[i.e. x and y units but only 1 label = 2 marks max, not 3]</b></td>
+  </tr>
+  <tr>
+    <td class="rl">w25/22 Q8(c)</td><td>4</td><td>Plot a suitable graph. You must label the axes.</td>
+    <td class="en">x-axis label 'Age group (in years)' = 1; x-axis units 20–29 etc = 1; y-axis label willingness = 1; y-axis units numbers up to at least 14 = 1<br><b>"max 3 if the bars are not touching even if heights are correct"</b></td>
+  </tr>
+  <tr>
+    <td class="rl">s26/23 Q6(a)(iv)</td><td>4</td><td>Draw a bar chart. You must label the axes.</td>
+    <td class="en"><b>"Max 3 marks if bars are not separate."</b></td>
+  </tr>
+</table>
+
+<div class="card key">
+  <h4>画图题的两条「一票封顶」规则</h4>
+  <ul class="tight">
+    <li><b>柱状图必须是「分离的柱子」</b>：<span class="mono">"Max 3 marks if bars are not separate."</span> / <span class="mono">"max 3 if the bars are not touching"</span> —— 注意官方在两套卷里的表述方向相反（一套要求 separate、一套要求 touching），但含义一致：<b>柱子必须画成一条一条独立相邻的，不能连成折线或直方图</b>。</li>
+    <li><b>轴标题与轴单位是两回事</b>：<span class="mono">x-axis label</span>（变量名）和 <span class="mono">x-axis units</span>（具体类别/数值刻度）<b>各占 1 分</b>。只写 "Age" 不写 "20–29, 30–39…" 就丢 1 分。</li>
+  </ul>
+</div>
+
+<h3 class="sub">5.2 画表题（table）</h3>
+<table>
+  <tr><th style="width:8%">卷</th><th style="width:6%">分值</th><th style="width:26%">题目要求</th><th>MS 分值阶梯</th></tr>
+  <tr>
+    <td class="rl">w25/23 Q7(c)</td><td>3</td><td>Draw a table. Label the rows and columns.</td>
+    <td class="en">Row heading 'Object'/'toy' (type) = 1; Row categories (picture books, toy bricks, other object) = 1; Column heading 'Duration of interaction (with object)' = 1; Column categories of Participants = 1<br><b>"There are several acceptable table layouts, row/column layout can be reversed."</b></td>
+  </tr>
+  <tr>
+    <td class="rl">m26/22 Q7(b)</td><td>3</td><td>Draw a table that Chun could use.</td>
+    <td>行标题 + 行类别 + 列标题 + 列类别（四点取三）</td>
+  </tr>
+  <tr>
+    <td class="rl">s26/22 Q3(c)</td><td>5</td><td>Draw a table using the data in Figure 3.2. Label rows and columns.</td>
+    <td class="en">标题 / 单位 / frequency / 数据 / 类别（五点）<br><b>"MAX 3 if frequency data is incorrect"</b></td>
+  </tr>
+</table>
+<div class="card warn">
+  <p style="margin:.2rem 0"><b>画表题的「数据分」与「结构分」是分开的</b>：s26/22 Q3(c) 是唯一一道 5 分画表题，其中「把 Figure 3.2 的 frequency 数据抄对」占独立分；<span class="mono">"MAX 3 if frequency data is incorrect"</span> —— <b>数据抄错 → 无论表格结构多完美，封顶 3 分</b>。</p>
+</div>
+
+<h3 class="sub">5.3 顺带一提：图表命名题（不用画，只要认）</h3>
+<table>
+  <tr><th style="width:22%">卷 · 位置</th><th style="width:34%">题干</th><th>MS 答案</th></tr>
+  <tr><td class="rl">s25/22 Q2(a)</td><td class="en">Name the type of graph used to display this data.</td><td class="en"><b>Bar chart/graph [DEFINITIVE]</b></td></tr>
+  <tr><td class="rl">m25/22 Q4(b)</td><td class="en">State the most appropriate type of graph to use for this data.</td><td class="en"><b>[bar chart/graph definitive]</b></td></tr>
+  <tr><td class="rl">w25/23 Q9(a)(i)</td><td class="en">Name the type of graph in Fig. 9.1.</td><td class="en"><b>Bar chart / Bar graph [definitive]</b></td></tr>
+  <tr><td class="rl">s26/22 Q3(a)</td><td class="en">Name the type of graph shown in Figure 3.1.</td><td class="en"><b>bar chart [definitive]</b></td></tr>
+  <tr><td class="rl">s26/22 Q3(b)</td><td class="en">Name the type of graph shown in Figure 3.2.</td><td class="en"><b>histogram [definitive]</b></td></tr>
+</table>
+<div class="card key">
+  <h4>柱状图 vs 直方图 —— 这是 2026 的新增考点</h4>
+  <p style="margin:.3rem 0">2026 June P22 Q3 把 <b>bar chart</b> 与 <b>histogram</b> 放在同一题里连着考，两个都是 <span class="mono">[definitive]</span>。</p>
+  <ul class="tight">
+    <li><b>bar chart（柱状图）</b>：用于 <b>离散类别</b>（favourite colour: blue/yellow/green/red；positive/negative/no experience）。柱子之间有间隙。</li>
+    <li><b>histogram（直方图）</b>：用于 <b>连续数据的等距分组</b>（8–10, 11–12, 13–14, 15–16, 17–18 的分数区间）。柱子紧贴、无间隙。</li>
+  </ul>
+  <p class="footnote">判断口诀：<b>看 x 轴标签之间有没有空隙</b>。类别名（blue、yellow）→ bar chart；数字区间（8–10、11–12）→ histogram。</p>
+</div>
+
+<!-- ================= SECTION 6 ================= -->
+<h2 class="sec" id="s6"><span class="num">06</span>发现五：数据解读题（读表 / 读图 / 求值）</h2>
+<p class="lede">这类题不需要学生「会算」，只需要「会读」——但 MS 对「复述数值」判 0 分，这是最容易踩的坑。</p>
+
+<table>
+  <tr><th style="width:16%">卷 · 位置</th><th style="width:30%">题干</th><th>MS 规则与陷阱</th></tr>
+  <tr>
+    <td class="rl">m26/22 Q1(a)</td><td class="en">State the mode for the set of results in Table 1.1.</td>
+    <td>直接给 8 个原始分数（7,6,3,4,5,6,8,2），要求学生自己数出众数 = 6。<b>这是罕见的「真动手统计」题</b>，不是认图题。</td>
+  </tr>
+  <tr>
+    <td class="rl">s25/21 Q4(a)</td><td class="en">State what the means show about the ages of the two groups.</td>
+    <td><b>❌ <span class="mono">"The mean of the AS/HFA group (1) was bigger = 0 [NAQ]"</span></b><br>✅ 必须写成「谁比谁年长」：<span class="mono">"That the AS-HFA / Group 1 were older (than the Students / Group 3); ORA"</span><br><b>复述数字大小 = 0 分。</b></td>
+  </tr>
+  <tr>
+    <td class="rl">s25/21 Q4(b)</td><td class="en">State what the standard deviations show about the ages of the two groups.</td>
+    <td><b>❌ <span class="mono">"Greater deviation / deviated more = 0 [REP]"</span></b>（只是重复术语）<br><b>❌ <span class="mono">"The standard deviation of the AS/HFA group was bigger = 0 [NAQ]"</span></b>（只是比较数值）<br>✅ 必须翻译成「离散程度」的人话：<span class="mono">"The AS-HFA / Group 1 ages were more spread out"</span></td>
+  </tr>
+  <tr>
+    <td class="rl">w25/22 Q4(b)(ii)</td><td class="en">Explain one reason why the standard deviation for the age of the adults was larger than … the children.</td>
+    <td><span class="mono">"<b>There must be a link for full marks</b>"</span> —— 2 分题必须挂回研究：<span class="mono">"Because the children had to be young, so aged 4–7, whereas there are decades of adulthood"</span></td>
+  </tr>
+  <tr>
+    <td class="rl">m26/22 Q8(b)</td><td class="en">Draw one conclusion from Helen's results.</td>
+    <td><b>❌ <span class="mono">"just restating results = 0 [NAQ]"</span></b> —— 把图上的数字念一遍不算 conclusion，必须写成「发现了什么关系」。</td>
+  </tr>
+  <tr>
+    <td class="rl">s26/23 Q6(a)(ii)</td><td class="en">State one conclusion from Callum's results about the mean number of dreams.</td>
+    <td><span class="mono">"<b>No marks for repeating the results</b>"</span> —— 与上一条同一规则。</td>
+  </tr>
+  <tr>
+    <td class="rl">s26/23 Q6(a)(iii)</td><td class="en">Explain what the standard deviation shows about the participants' dream content.</td>
+    <td><span class="mono">"<b>For 2 marks the answer must be linked</b>"</span> —— 必须同时说清「离散程度 + 对该研究意味着什么」。</td>
+  </tr>
+</table>
+
+<div class="card key">
+  <h4>数据解读题的通用公式</h4>
+  <p style="margin:.3rem 0;font-size:.95rem"><b>「复述数值」→ 0 分；「翻译成人话 + 挂回研究」→ 满分。</b></p>
+  <table style="margin:.4rem 0">
+    <tr><th style="width:26%">统计量</th><th style="width:36%">❌ 0 分写法</th><th>✅ 得分写法</th></tr>
+    <tr><td class="rl">mean（均值）</td><td>Group 1 的均值是 29.7，比 Group 3 大</td><td>AS/HFA 组比学生组<b>更年长</b>（ORA）</td></tr>
+    <tr><td class="rl">standard deviation（标准差）</td><td>Group 1 的标准差更大 / 偏差更多</td><td>AS/HFA 组的年龄<b>分布更分散</b>（spread out）</td></tr>
+    <tr><td class="rl">mode（众数）</td><td>—（这题是直接数出来的，无陷阱）</td><td>8 个分数中出现 2 次的那个数 = 6</td></tr>
+    <tr><td class="rl">conclusion（结论）</td><td>把图上的柱子数值念一遍</td><td>说出<b>变量之间的关系或组间差异</b></td></tr>
+  </table>
+</div>
+
+<!-- ================= SECTION 7 ================= -->
+<h2 class="sec" id="s7"><span class="num">07</span>发现六：MS 的六条「隐形规则」</h2>
+<p class="lede">这些规则在题干里完全看不到，但直接决定分数。<b>它们是目前课件里最欠缺的一块。</b></p>
+
+<h3 class="sub">7.1 规则一：generic = 1 分 / linked = 2 分</h3>
+<p>这是 Paper 2 出现频率最高的分值结构。学生写「泛泛的方法论」只能拿 1 分，<b>必须挂到具体研究或具体情景才能拿 2 分</b>。</p>
+<table>
+  <tr><th style="width:22%">卷 · 题</th><th style="width:34%">generic 写法（1 分）</th><th>linked 写法（2 分）</th></tr>
+  <tr>
+    <td class="rl">s25/23 Q1(b)</td>
+    <td class="en">The names of the participants were not published = 1</td>
+    <td class="en">The participants' names were replaced by their <b>initials</b> = 2</td>
+  </tr>
+  <tr>
+    <td class="rl">s25/23 Q5</td>
+    <td class="en">Bias / lack of generalisability = 1 (generic)</td>
+    <td class="en">An aggressive child's parent may have been too <b>embarrassed</b> to let their child take part = 2</td>
+  </tr>
+  <tr>
+    <td class="rl">w25/22 Q7(b)(ii)</td>
+    <td class="en">Asking them if they agree to join / take part in a study using simple language (generic suggestion) = 1</td>
+    <td class="en">'<b>Would you like to come and play a word game with me and my toys?</b>' (linked suggestion) = 2</td>
+  </tr>
+  <tr>
+    <td class="rl">w25/23 Q7(b)</td>
+    <td class="en">Telling them they can leave the study (generic suggestion) = 1</td>
+    <td class="en">Telling the children that they don't have to <b>stay in the room and play with the toys</b> (linked suggestion) = 2</td>
+  </tr>
+</table>
+
+<h3 class="sub">7.2 规则二：「必须 link 才能拿满分」的硬门槛</h3>
+<div class="card warn">
+  <table style="margin:0">
+    <tr><th style="width:22%">卷 · 题</th><th>MS 原文</th></tr>
+    <tr><td class="rl">w25/22 Q3</td><td class="en">The response must be linked at least once (either in the strength or detail) to earn full credit (2 marks)</td></tr>
+    <tr><td class="rl">w25/22 Q7(c)</td><td class="en">(response must be linked at least once for full 2 marks)</td></tr>
+    <tr><td class="rl">w25/22 Q6(b)</td><td class="en">To get 2 marks there must be a link to the study.</td></tr>
+    <tr><td class="rl">w25/23 Q3(a) / Q3(b)</td><td class="en">Response must contain a link for 2 marks</td></tr>
+    <tr><td class="rl">w25/23 Q5(b)</td><td class="en">Needs at least one link to the study for all three marks.</td></tr>
+    <tr><td class="rl">s26/21 Q4(b)</td><td class="en">"it was done in a lab is generic so would get 0" —— 必须链接 Perry 的具体细节</td></tr>
+    <tr><td class="rl">s26/22 Q7(c)</td><td class="en">MS 自带三级 worked example：<br>"low in validity due to bias = 0" → "…biased as she may expect him to be helpful = 1" → "…so will be low in validity = 2"</td></tr>
+  </table>
+</div>
+
+<h3 class="sub">7.3 规则三：[definitive] 唯一答案清单</h3>
+<p>标了 <span class="mono">[definitive]</span> 的题目<b>不接受同义改写</b>。这是「背术语」最值钱的地方。</p>
+<table>
+  <tr><th style="width:26%">答案类别</th><th style="width:30%">[definitive] 答案</th><th>卷 · 位置</th></tr>
+  <tr><td class="rl">图表类型</td><td class="en">bar chart / bar graph</td><td>s25/22 Q2(a)、m25 Q4(b)、w25/23 Q9(a)(i)、s26/22 Q3(a)</td></tr>
+  <tr><td class="rl">图表类型</td><td class="en">histogram</td><td>s26/22 Q3(b)</td></tr>
+  <tr><td class="rl">数据类型</td><td class="en">quantitative / objective；qualitative / subjective</td><td>s25/22 Q3(a)(i)、Q3(b)(i)</td></tr>
+  <tr><td class="rl">集中量数</td><td class="en">mean；mode</td><td>s25/22 Q8(a)(i)(ii)、m25 Q4(a)</td></tr>
+  <tr><td class="rl">抽样技术</td><td class="en">volunteer（自选）；opportunity（机会）；random；snowball</td><td>s26/22 Q1(b)(ii)(iii)、m26 Q4(a)</td></tr>
+  <tr><td class="rl">变量类型</td><td class="en">participant variable (Hunger)；situational variable (Noise)</td><td>m26 Q5(a)(b)</td></tr>
+  <tr><td class="rl">伦理指南名称</td><td class="en">confidentiality</td><td>w25/22 Q6(a)(i)</td></tr>
+  <tr><td class="rl">假设类型</td><td class="en">directional hypothesis</td><td>w25/23 Q2、s26/23 Q6(a)(i)</td></tr>
+  <tr><td class="rl">问卷技术</td><td class="en">paper and pencil（accept 'written'）；online（accept 'by computer'）</td><td>s25/22 Q9(a)</td></tr>
+  <tr><td class="rl">实验设计</td><td class="en">matched pairs 与 independent groups 双答案均可</td><td>s26/23 Q3(a)(i)</td></tr>
+</table>
+<div class="card key">
+  <p style="margin:.2rem 0"><b>⚠️ 反向陷阱：抽样题里 <span class="mono">"Random sampling = 0 [incorrect]"</span>（s26/23 Q5）</b>。s26/23 Q5 问的是 <span class="mono">counterbalancing and random allocation</span>，学生若把 <b>random sampling</b>（随机抽样）与 <b>random allocation</b>（随机分配）搞混，直接判 <span class="mono">[incorrect]</span> 零分。<b>这两个术语必须讲清区别：抽样 = 怎么选人进来；分配 = 选进来之后怎么分组。</b></p>
+</div>
+
+<h3 class="sub">7.4 规则四：[NAQ] 零分清单 —— 最容易踩的坑</h3>
+<p><span class="mono">[NAQ]</span> = <b>Not Answering Question</b>，即「答了但答的不是题目问的」，直接 0 分。11 套卷共 19 处。这是<b>学生丢分最集中的地方</b>。</p>
+<table>
+  <tr><th style="width:20%">卷 · 题</th><th style="width:38%">❌ 判 0 分的写法（MS verbatim）</th><th>为什么</th></tr>
+  <tr><td class="rl">s25/21 Q2(b)</td><td class="en">The children / parents had a choice = 0 [not linked]<br>The children / parents might not have wanted to participate = 0 [NAQ]</td><td>题干问「为什么在这个研究里重要」，泛泛说「有选择权」不算</td></tr>
+  <tr><td class="rl">s25/21 Q4(a)(b)</td><td class="en">…was bigger = 0 [NAQ]；Greater deviation / deviated more = 0 [REP]</td><td>复述数值 / 重复术语</td></tr>
+  <tr><td class="rl">s25/22 Q7(a)(i)</td><td class="en">Because having a headache might make them appear less friendly = 0 [NAQ]</td><td>没解释「为什么是参与者变量」（必须说 internal / individual differences）</td></tr>
+  <tr><td class="rl">s25/23 Q2(a)</td><td class="en">'not being objective' / 'lacking objectivity' = 0 [NAQ]</td><td>用反义词替换 = 同义反复，不算定义</td></tr>
+  <tr><td class="rl">s25/23 Q9(d)(i)</td><td class="en">Age / gender = 0 [NAQ]</td><td>题干已排除 age &amp; gender，写了就是答非所问</td></tr>
+  <tr><td class="rl">m26/22 Q8(b)</td><td class="en">just restating results = 0 [NAQ]</td><td>把图上数值念一遍 ≠ conclusion</td></tr>
+  <tr><td class="rl">s26/21 Q1(a)</td><td class="en">"like a hypothesis" = 0</td><td>用另一个术语解释本术语，没给实质定义</td></tr>
+  <tr><td class="rl">s26/21 Q6(a)(i)</td><td class="en">oxytocin, blood pressure, pulse rate etc = 0 = NAQ</td><td>题目要求测 <b>laughter 本身</b>，给生理指标是答非所问</td></tr>
+  <tr><td class="rl">s26/21 Q6(b)(ii)</td><td class="en">Answers about age are 0 = NAQ</td><td>题干已排除 age</td></tr>
+  <tr><td class="rl">s26/22 Q2</td><td class="en">Descriptions of how the images were made = 0 = NAQ</td><td>问的是 IV/DV 操作化，不是材料制作</td></tr>
+  <tr><td class="rl">s26/22 Q4(b)</td><td class="en">Generic responses e.g. 'the researcher might be biased' = 0</td><td>没有链接 Perry 的具体程序</td></tr>
+  <tr><td class="rl">s26/22 Q8(a)</td><td class="en">From / use an advertisement = 0</td><td>题干已排除（volunteer sample 不能用广告招）</td></tr>
+  <tr><td class="rl">s26/23 Q1(b)</td><td class="en">Children's level of aggression = 0 unless they say matching was inadequate in some specific way</td><td>直接重复题干里的「已匹配攻击性」</td></tr>
+  <tr><td class="rl">s26/23 Q6(b)</td><td class="en">'Have two age etc groups' = 0 [NAQ] (another IV, not a control)</td><td>把「再加一个自变量」误当「控制变量」</td></tr>
+  <tr><td class="rl">s26/23 Q8(b)</td><td class="en">Age / sex / ethnicity = 0 [NAQ]</td><td>题干已排除这些人口学变量</td></tr>
+  <tr><td class="rl">w25/23 Q9(b)</td><td class="en">Low generalisability / low representativeness = 0 [NAQ]</td><td>题干写明 <span class="mono">"other than generalisability"</span></td></tr>
+</table>
+
+<div class="card key">
+  <h4>把 19 处 [NAQ] 归纳成 5 条学生戒律</h4>
+  <ol style="margin:.3rem 0;padding-left:1.3rem;font-size:.92rem">
+    <li><b>题干排除了什么，就绝不写什么。</b>（other than generalisability / other than age and gender / Do not use consent / other than 'species' / Do not refer to contacting participants）—— 至少 5 处 NAQ 由此产生。</li>
+    <li><b>不要复述数值。</b>均值/标准差/图上数字念一遍 = 0，必须翻译成「谁比谁怎么样」。</li>
+    <li><b>不要用反义词或同类词下定义。</b>"not being objective" 定义 subjectivity、"like a hypothesis" 定义 aim，都是 0 分。</li>
+    <li><b>不要重复题干里的既定事实。</b>题干说「已匹配攻击性」，再写「攻击性水平不同」= 0；题干说「每年测一次」，再写「频率是每年」= 0（REP）。</li>
+    <li><b>不要偷换问题对象。</b>问「怎么测笑」，给血压/催产素 = 0；问「怎么改进抽样」，说「用广告招人」= 0。</li>
+  </ol>
+</div>
+
+<h3 class="sub">7.5 规则五：封顶规则（MAX）</h3>
+<table>
+  <tr><th style="width:30%">封顶原文</th><th style="width:20%">适用</th><th>学生含义</th></tr>
+  <tr><td class="en">Max 4 if no examples or if only about one term/concept.</td><td>全部 11 道 6 分题</td><td>6 分题必须给例子，且两个概念都要谈</td></tr>
+  <tr><td class="en">Only 1 example needed to access 6 marks.</td><td>全部 11 道 6 分题</td><td>1 个例子就够，不必两个概念各给</td></tr>
+  <tr><td class="en">MAX 3 if frequency data is incorrect</td><td>s26/22 Q3(c) 画表 5 分</td><td>抄数据错误 → 结构再好也封顶 3</td></tr>
+  <tr><td class="en">Max 3 marks if bars are not separate / max 3 if the bars are not touching</td><td>画柱状图 4 分题</td><td>柱子必须独立相邻</td></tr>
+  <tr><td class="en">[i.e. x and y units but only 1 label = 2 marks max, not 3]</td><td>s25/21 Q7(b) 画轴 3 分</td><td>两个轴的标题都要写</td></tr>
+  <tr><td class="en">[accept 2 different detail marks for one weakness: would be max 3]</td><td>m26 Q4(b) 弱点 4 分</td><td>同一个弱点的两条 detail 不能拿满 4 分</td></tr>
+  <tr><td class="en">If (bi) and (bii) are about different features, only one gains credit. Mark both and credit the best.</td><td>Section B 的 4 分评估题</td><td>strength 与 weakness 必须针对<b>同一个</b> feature</td></tr>
+  <tr><td class="en">If strength and limitation are about different variables, only one gains credit.</td><td>s25/22 Q10(b) 4 分题</td><td>同上逻辑：优缺点必须同变量</td></tr>
+  <tr><td class="en">Accept 2 brief ways for 2 marks (but must both be for the same variable)</td><td>s25/22 Q7(a)(ii)(b)(ii)</td><td>两条简答必须针对同一变量</td></tr>
+</table>
+
+<h3 class="sub">7.6 规则六：「只指认不给分」与「举例不给分」</h3>
+<div class="grid2">
+  <div class="card" style="margin:.4rem 0">
+    <h4>只写标签 = 0 分，必须给解释</h4>
+    <ul class="tight" style="font-size:.85rem">
+      <li class="en">s25/22 Q7(a)(i) "1 mark for explanation (no mark for identification)"</li>
+      <li class="en">s25/22 Q8(b) "No mark for selection of measure"</li>
+      <li class="en">s25/23 Q4 "NO mark for 'non-directional' / two-tailed (it is for justification)"</li>
+      <li class="en">s25/23 Q7(c)(i)(ii) "NO mark for 'Item or Problem 2 / measuring happiness'"</li>
+      <li class="en">w25/21 Q1(a) "1 mark for explanation of why it is structured"</li>
+      <li class="en">w25/21 Q9(a) "Explanation of why independent measures = 1"</li>
+    </ul>
+  </div>
+  <div class="card" style="margin:.4rem 0">
+    <h4>只举例 = 0 分，必须给定义</h4>
+    <ul class="tight" style="font-size:.85rem">
+      <li class="en">w25/21 Q9(b) "Marks are for definitions, not examples"</li>
+      <li class="en">s25/22 Q5 "An example alone is not detail. The detail must explain the weakness."</li>
+      <li class="en">s25/22 Q5 "No mark for just term / validity / reliability / demand characteristics"</li>
+      <li class="en">s25/21 Q6 "No marks for evaluation e.g. more / less representative"</li>
+      <li class="en">s25/21 Q6 "Definition of 'sampling technique' = 1 MAX"</li>
+      <li class="en">s26/22 Q8(c) "Do not accept a term alone as a disadvantage"</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ================= SECTION 8 ================= -->
+<h2 class="sec" id="s8"><span class="num">08</span>发现七：2026 卷的新趋势</h2>
+<p class="lede">把 2026 三套卷（March P22 + June P21/P22/P23）与 2025 六套对比，有五处明显变化。</p>
+
+<h3 class="sub">8.1 趋势一：卷面从 10 题缩到 9 题</h3>
+<div class="card">
+  <p style="margin:.2rem 0">2026 June 的 <b>P21 / P22 / P23 全部是 9 题卷</b>（Section B = Q9），而 2025 只有 1 套（Nov P22）是 9 题。</p>
+  <p style="margin:.2rem 0">含义：<b>Section A 的题量在压缩，单题分值在提高</b> —— 意味着每道题给的「分点」更值钱，答题必须更精准，蒙分的空间变小。</p>
+</div>
+
+<h3 class="sub">8.2 趋势二：[NAQ] 标注密度大幅上升</h3>
+<div class="bar-row"><span class="lbl">2026 June（3 套合计）</span><span class="bar" style="width:80%;background:#dc2626"></span><span class="val">8 处</span></div>
+<div class="bar-row"><span class="lbl">2025 June（3 套合计）</span><span class="bar" style="width:90%;background:#ea580c"></span><span class="val">9 处</span></div>
+<div class="bar-row"><span class="lbl">2026 March（1 套）</span><span class="bar" style="width:10%;background:#607D8B"></span><span class="val">1 处</span></div>
+<div class="bar-row"><span class="lbl">2025 Nov（3 套合计）</span><span class="bar" style="width:10%;background:#607D8B"></span><span class="val">1 处</span></div>
+<div class="bar-row"><span class="lbl">2025 March（1 套）</span><span class="bar" style="width:2%;background:#90a4ae"></span><span class="val">0 处</span></div>
+<p class="footnote">2025 June 与 2026 June 是「NAQ 标注最密集」的两季，各有 8–9 处。<b>这是六月卷（June series）的共同特征</b>：MS 会明确写出「什么样的答案是 0 分」。学生若提前知道这些清单，可以直接避免丢分。</p>
+
+<h3 class="sub">8.3 趋势三：题型融合（一道题里连考 4–5 个小问）</h3>
+<table>
+  <tr><th style="width:16%">卷</th><th>融合方式</th></tr>
+  <tr><td class="rl">s26/23 Q6</td><td class="en">(a)(i) hypothesis type → (a)(ii) conclusion from table → (a)(iii) explain SD → (a)(iv) draw bar chart [4] → (b) control two extraneous variables [4]</td></tr>
+  <tr><td class="rl">s26/22 Q3</td><td class="en">(a) name bar chart → (b) name histogram → (c) draw table [5]</td></tr>
+  <tr><td class="rl">s25/22 Q3</td><td class="en">(a)(i) identify data type → (a)(ii) state highest voltage → (b)(i) identify data type → (b)(ii) outline a comment → (c) strength of each type [4]</td></tr>
+  <tr><td class="rl">m25/22 Q4</td><td class="en">(a) best measure of central tendency → (b) best type of graph</td></tr>
+</table>
+<div class="card warn">
+  <p style="margin:.2rem 0"><b>答题影响</b>：这类融合题的小问之间<b>往往互相依赖</b>（如 s26/23 Q6(b) 要求控制「你在 (a) 中提到的」变量），<b>第一小问选错，后面连锁丢分</b>。策略：先扫一遍所有小问再动笔。</p>
+</div>
+
+<h3 class="sub">8.4 趋势四：动物伦理 + 人类伦理的「成对术语」成为常规考点</h3>
+<table>
+  <tr><th style="width:16%">卷</th><th style="width:30%">术语对</th><th>关键 MS 说明（verbatim）</th></tr>
+  <tr>
+    <td class="rl">s26/21 Q5</td><td class="en">replacement / species（动物）</td>
+    <td class="en">"'Replacement' is not about replacing one individual animal with another… nor about replacing one species with another that will suffer less (this relates to 'species and strain')"<br><b>→ replacement ≠ 换一只动物，也 ≠ 换一个物种</b></td>
+  </tr>
+  <tr>
+    <td class="rl">s26/22 Q5</td><td class="en">confidentiality / privacy（人类）</td>
+    <td>两个术语必须分别给定义 + 例子；<b>只谈一个 → 封顶 4 分</b></td>
+  </tr>
+  <tr>
+    <td class="rl">s26/21 Q7(d)</td><td class="en">consent / withdrawal 门槛词</td>
+    <td class="en">强制 keyword 门槛：必须出现 <b>"valid"</b> / <b>"felt forced"</b> / <b>"feel they cannot"</b> 才算答到点</td>
+  </tr>
+  <tr>
+    <td class="rl">m25/22 Q8</td><td class="en">housing / comfort（动物）</td>
+    <td class="en">题干写 "Do not refer to the ethical guideline of 'housing'" 与 "Do not refer to the materials inside an animal's cage" —— <b>两处排除</b></td>
+  </tr>
+</table>
+
+<h3 class="sub">8.5 趋势五：核心研究的「非结论性细节」被重点考</h3>
+<p>2026 卷明显更爱考核心研究里的<b>具体程序细节</b>，而不是研究结论：</p>
+<table>
+  <tr><th style="width:14%">卷</th><th style="width:26%">考的研究</th><th>考的具体细节</th></tr>
+  <tr><td class="rl">m26/22</td><td>Dement &amp; Kleitman</td><td class="en">"Some of the participants were sleep researchers and members of their families. State the sampling technique used." → <b>opportunity</b></td></tr>
+  <tr><td class="rl">m26/22</td><td>Piliavin et al.</td><td class="en">"Explain one reason why the experimental design in this study may not have been an independent measures design." → <span class="mono">"could not know if the same people had been on the train for more than one victim / model type"</span></td></tr>
+  <tr><td class="rl">s26/21</td><td>Perry et al.</td><td>生态效度低的两个具体方式（而非泛泛说 lab 就低）</td></tr>
+  <tr><td class="rl">s26/22</td><td>Pozzulo et al.</td><td>IV / DV 的操作化细节</td></tr>
+  <tr><td class="rl">s26/23</td><td>Baron-Cohen et al.</td><td class="en">"Outline one way that the procedure was standardised"</td></tr>
+  <tr><td class="rl">s26/23</td><td>Bandura et al.</td><td class="en">"participants were matched for aggression" → 再问「还有哪个参与者变量会影响攻击性」</td></tr>
+</table>
+
+<!-- ================= SECTION 9 ================= -->
+<h2 class="sec" id="s9"><span class="num">09</span>答题策略：可直接教给学生的操作清单</h2>
+
+<h3 class="sub">9.1 拿到卷子的 3 分钟</h3>
+<ol style="padding-left:1.3rem">
+  <li><b>先找 Section B</b>（最后一题）。读题干确认方法类型（experiment / correlational / field experiment / interview / case study / longitudinal），然后<b>立刻在草稿纸写下该类型的 4 个 required features</b>。</li>
+  <li><b>再找 6 分题</b>（搜 <span class="mono">"using any example(s)"</span>）。确认是单概念还是双概念，标注「每概念 ≤2 定义 + ≤2 例子」。</li>
+  <li><b>扫所有 <span class="mono">"Do not …"</span> 指令</b>，把它们圈出来。这些是 [NAQ] 的来源。</li>
+</ol>
+
+<h3 class="sub">9.2 六种 Section B 方法的一页速记</h3>
+<table>
+  <tr><th style="width:16%">方法</th><th>4 个 required features（必须全部出现 + 每个带一个细节）</th></tr>
+  <tr><td class="rl">Experiment</td><td><b>a</b> IV（两个条件都命名并操作化）· <b>b</b> DV（怎么测、单位/计分）· <b>c</b> 控制/标准化（<b>至少 2 个，必须明确写出</b>）· <b>d</b> 设计（独立组=怎么写分配 / 重复测量=平衡）</td></tr>
+  <tr><td class="rl">Field experiment</td><td>同上 a–d，但 <b>d</b> 可改为写「在什么场所进行」；<b>c</b> 的控制要贴合场地（如广告尺寸/内容、时段、路线）</td></tr>
+  <tr><td class="rl">Correlational</td><td><b>a</b> 两个共变量 · <b>b</b> 变量 1 怎么测 · <b>c</b> 变量 2 怎么测 · <b>d</b> 关系方向（正/负、强/弱）+ 用散点图呈现。<b>两变量必须都是量化数据</b></td></tr>
+  <tr><td class="rl">Interview</td><td><b>a</b> 格式（结构化/半结构化/非结构化 + 怎么进行）· <b>b</b> 问题格式（开放式/封闭式/量表）· <b>c</b> <b>至少 2 个具体问题实例</b> · <b>d</b> 计分/分析方式</td></tr>
+  <tr><td class="rl">Case study</td><td><b>a</b> 被试/个案的细节（怎么找到的、家人/老师提供的信息）· <b>b</b> 收集什么内容（深度的具体维度）· <b>c</b> <b>至少 2 种</b>收集技术 · <b>d</b> 分析/解释/三角验证</td></tr>
+  <tr><td class="rl">Longitudinal</td><td><b>a</b> 测什么任务 · <b>b</b> 怎么计分 · <b>c</b> <b>怎么重新联系被试</b> · <b>d</b> 控制什么。<b>⚠️ 绝不能写成实验（操纵 IV）；不要复述题干给的频率</b></td></tr>
+</table>
+
+<h3 class="sub">9.3 写 Section B 的模板（保证 L5）</h3>
+<div class="card">
+  <p style="margin:.2rem 0;font-size:.92rem">按「4 段式」写，每段以 feature 名称开头，段内给一个程序细节：</p>
+  <ol style="padding-left:1.3rem;font-size:.9rem;line-height:1.85">
+    <li><b>The independent variable will be</b> …（写出两个条件 + 操作化）</li>
+    <li><b>The dependent variable will be</b> …（写出测量方式 + 单位/计分）</li>
+    <li><b>The study will be controlled by</b> …（<b>列举至少两个</b>，用 "and" 或分号隔开）</li>
+    <li><b>The design will be</b> …（命名设计 + 说明分配/平衡的具体做法）</li>
+  </ol>
+  <p class="footnote">写完后自检：4 个 feature 名称都出现了吗？每个后面都有细节吗？术语用对了吗（operationalised / standardised / random allocation / counterbalancing）？<b>抽样和伦理一个字都不要写。</b></p>
+</div>
+
+<h3 class="sub">9.4 四条通用纪律</h3>
+<div class="grid2">
+  <div class="card" style="margin:.4rem 0;border-left:4px solid #dc2626">
+    <h4 style="color:#b91c1c">纪律 1 · 定义题：术语 + 人话</h4>
+    <p style="margin:.2rem 0;font-size:.88rem">每个定义都要写「术语 + 一句大白话解释」。<b>不要用反义词或同类词替换。</b><br><span class="mono">"not being objective"</span> 定义 subjectivity → 0 分。<br>正确：<span class="mono">"seeing things from your own perspective"</span></p>
+  </div>
+  <div class="card" style="margin:.4rem 0;border-left:4px solid #ea580c">
+    <h4 style="color:#c2410c">纪律 2 · 挂靠题：必须落到研究的程序</h4>
+    <p style="margin:.2rem 0;font-size:.88rem">凡是出现「in the study by X」的题，答案必须包含 <b>X 的具体做法</b>。<br>泛泛的方法论解释 = 1 分；<b>挂到研究细节 = 2 分</b>。</p>
+  </div>
+  <div class="card" style="margin:.4rem 0;border-left:4px solid #2563eb">
+    <h4 style="color:#1d4ed8">纪律 3 · 6 分题：两个概念都要谈 + 至少 1 个例子</h4>
+    <p style="margin:.2rem 0;font-size:.88rem">结构固定：<b>概念 X 定义×2 → 概念 X 例子×1 → 概念 Y 定义×2 → 概念 Y 例子×1</b>。<br>只谈一个概念 → 封顶 4 分；一个例子都没有 → 封顶 4 分。</p>
+  </div>
+  <div class="card" style="margin:.4rem 0;border-left:4px solid #2E7D32">
+    <h4 style="color:#2E7D32">纪律 4 · 排除项：题干排除的一个字都别写</h4>
+    <p style="margin:.2rem 0;font-size:.88rem">看到 <span class="mono">other than / Do not use / Do not refer to / Do not describe</span>，把它圈出来贴在草稿纸边上。<br><b>11 套卷里至少 5 处 [NAQ] 是踩了这条线。</b></p>
+  </div>
+</div>
+
+<hr class="soft">
+<div class="card">
+  <h4>数据来源与可信度</h4>
+  <p class="footnote" style="margin:.3rem 0">本报告的全部题干、评分标准原文均提取自 11 套官方 Question Paper 与 Mark Scheme PDF（2025 March 9990/22；2025 May–June 9990/21·22·23；2025 Oct–Nov 9990/21·22·23；2026 March 9990/22；2026 May–June 9990/21·22·23），共 22 份文件。提取方式为 PyMuPDF 文本层解析，未使用 OCR 猜测；所有 MS 引文保持英文逐字，未做翻译或改写。少数因 PDF 表格分页导致的断句已在分析中标注。</p>
+  <p class="footnote" style="margin:.3rem 0">中间产物：<span class="mono">paper2-analysis/txt/</span>（22 份原始提取）、<span class="mono">paper2-analysis/clean/</span>（22 份清洗文本）、<span class="mono">paper2-analysis/ALL_QP.txt</span>（全部题干合并）。</p>
+</div>
+
+</div>
+</body>
+</html>
