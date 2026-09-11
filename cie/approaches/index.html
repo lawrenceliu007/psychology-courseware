@@ -30,7 +30,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Ping
 .dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode h4, .dark-mode p, .dark-mode label, .dark-mode li { color: #E0E0E0; }
 
 /* NAV */
-.nav-bar { position: sticky; top: 0; z-index: 100; background: white; border-bottom: 2px solid var(--border); padding: .7rem 1.5rem; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 10px rgba(0,0,0,.08); }
+.nav-bar { background: white; border-bottom: 1px solid var(--border); padding: .6rem 1.5rem; display: flex; align-items: center; justify-content: space-between; }
 .nav-left { display: flex; align-items: center; gap: .8rem; }
 .nav-home { display: inline-flex; align-items: center; gap: .4rem; padding: 5px 14px; background: linear-gradient(135deg,#1a237e,#3949ab); color: white; border-radius: 20px; text-decoration: none; font-size: .82rem; font-weight: 600; }
 .nav-home:hover { transform: translateY(-1px); box-shadow: 0 3px 10px rgba(26,35,126,.3); }
@@ -38,12 +38,34 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Ping
 .breadcrumb a { color: #1565C0; text-decoration: none; font-weight: 500; }
 .breadcrumb .sep { color: #bbb; }
 .nav-right { display: flex; align-items: center; gap: .5rem; }
-.nav-btn { padding: 5px 12px; background: white; border: 1px solid var(--border); border-radius: 14px; cursor: pointer; font-size: .8rem; transition: all .15s; }
+.nav-btn { padding: 5px 12px; background: white; border: 1px solid var(--border); border-radius: 14px; cursor: pointer; font-size: .8rem; transition: all .15s; font-family: inherit; }
 .nav-btn:hover { background: #f5f5f5; }
 .dark-mode .nav-btn { background: #2A2D33; color: #E0E0E0; border-color: #3A3D43; }
 
+/* STICKY TOP WRAPPER (nav + tab bar travel together) */
+.top-sticky { position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,.07); }
+
+/* TAB BAR */
+.tab-bar { background: white; border-bottom: 2px solid var(--border); padding: .55rem 1rem; display: flex; gap: .4rem; justify-content: center; align-items: center; flex-wrap: wrap; }
+.dark-mode .tab-bar { background: #23262C; border-color: #3A3D43; }
+.tab-btn { border: 1.5px solid var(--border); background: white; border-radius: 24px; padding: .5rem 1.15rem; font-size: .88rem; font-weight: 600; cursor: pointer; color: var(--text-light); transition: all .15s; display: inline-flex; align-items: center; gap: .3rem; font-family: inherit; line-height: 1.3; }
+.tab-btn:hover { border-color: #9aa5b1; color: var(--text); transform: translateY(-1px); }
+.tab-btn span { font-size: .73rem; opacity: .72; font-weight: 500; }
+.tab-btn.active { color: white; border-color: transparent; box-shadow: 0 3px 10px rgba(0,0,0,.15); }
+.tab-btn.active span { opacity: .85; }
+.tab-btn.bio.active { background: var(--bio); }
+.tab-btn.cog.active { background: var(--cog); }
+.tab-btn.soc.active { background: var(--soc); }
+.tab-btn.lrn.active { background: var(--lrn); }
+.tab-btn.util.active { background: var(--purple); }
+.tab-btn.util { border-style: dashed; font-size: .82rem; padding: .5rem .95rem; }
+.dark-mode .tab-btn { background: #2A2D33; border-color: #3A3D43; color: #A8B0BA; }
+.dark-mode .tab-btn:hover { color: #E0E0E0; }
+.tab-divider { width: 1px; height: 24px; background: var(--border); margin: 0 .35rem; }
+.dark-mode .tab-divider { background: #3A3D43; }
+
 /* HEADER */
-.header { background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%); color: white; padding: 2.5rem 2rem; text-align: center; }
+.header { background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%); color: white; padding: 2.2rem 2rem; text-align: center; }
 .header h1 { font-size: 2rem; font-weight: 700; margin-bottom: .4rem; }
 .header p { font-size: 1rem; opacity: .92; }
 .header .exam-badge { display: inline-block; background: rgba(255,255,255,.18); padding: .4rem 1rem; border-radius: 20px; font-size: .85rem; margin-top: .8rem; }
@@ -51,9 +73,11 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Ping
 /* CONTAINER */
 .container { max-width: 1000px; margin: 0 auto; padding: 1.5rem 1.5rem 5rem; }
 
-/* SECTION (replaces tabs - all sections visible) */
-.approach-section { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 3px double #d0d0d0; }
-.approach-section:first-of-type { border-top: 0; margin-top: 1rem; }
+/* TAB PANELS */
+.tab-panel { display: none; }
+.tab-panel.active { display: block; animation: fadeIn .25s ease; }
+
+/* APPROACH HEADER */
 .approach-header {
     border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem;
     border-left: 6px solid; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
@@ -62,21 +86,25 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Ping
 .approach-header.cog { background: var(--cog-light); border-color: var(--cog); }
 .approach-header.soc { background: var(--soc-light); border-color: var(--soc); }
 .approach-header.lrn { background: var(--lrn-light); border-color: var(--lrn); }
+.dark-mode .approach-header.bio { background: #3a2020; }
+.dark-mode .approach-header.cog { background: #1b2c44; }
+.dark-mode .approach-header.soc { background: #3d2b16; }
+.dark-mode .approach-header.lrn { background: #1f3320; }
 .approach-header .icon { font-size: 2.4rem; }
 .approach-header h2 { font-size: 1.5rem; }
 .approach-header.bio h2 { color: var(--bio-dark); }
 .approach-header.cog h2 { color: var(--cog-dark); }
 .approach-header.soc h2 { color: var(--soc-dark); }
 .approach-header.lrn h2 { color: var(--lrn-dark); }
-.approach-header .meta { font-size: .85rem; opacity: .8; margin-top: .3rem; }
+.dark-mode .approach-header.bio h2 { color: #f5a3a3; }
+.dark-mode .approach-header.cog h2 { color: #9ec5f5; }
+.dark-mode .approach-header.soc h2 { color: #f7c088; }
+.dark-mode .approach-header.lrn h2 { color: #9fd6a3; }
+.approach-header .meta { font-size: .85rem; opacity: .85; margin-top: .3rem; }
 
 /* SECTION TITLE */
-.h2-section { display: flex; align-items: center; gap: .8rem; margin: 2rem 0 1rem; padding: .8rem 1rem; border-radius: 10px; }
+.h2-section { display: flex; align-items: center; gap: .8rem; margin: 0 0 1rem; padding: .8rem 1rem; border-radius: 10px; }
 .h2-section .label { font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 4px 12px; border-radius: 12px; background: rgba(255,255,255,.4); }
-.h2-section.bio { background: var(--bio-light); color: var(--bio-dark); }
-.h2-section.cog { background: var(--cog-light); color: var(--cog-dark); }
-.h2-section.soc { background: var(--soc-light); color: var(--soc-dark); }
-.h2-section.lrn { background: var(--lrn-light); color: var(--lrn-dark); }
 .h2-section.neutral { background: #f0f0f0; color: #555; }
 
 /* CARDS */
@@ -98,7 +126,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Ping
 .verbatim-box .syllabus-tag { display: inline-block; background: #f59e0b; color: white; font-size: .68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; padding: 3px 8px; border-radius: 6px; margin-bottom: .5rem; }
 .verbatim-text { font-size: .98rem; font-weight: 500; color: #4a3a00; line-height: 1.65; font-style: italic; }
 .dark-mode .verbatim-text { color: #f3d68c; }
-.copy-btn { position: absolute; top: 10px; right: 10px; padding: 4px 11px; font-size: .72rem; border-radius: 6px; border: 1px solid #ddd; background: white; cursor: pointer; color: #666; font-weight: 600; }
+.copy-btn { position: absolute; top: 10px; right: 10px; padding: 4px 11px; font-size: .72rem; border-radius: 6px; border: 1px solid #ddd; background: white; cursor: pointer; color: #666; font-weight: 600; font-family: inherit; }
 .copy-btn:hover { background: #fef3c7; }
 .copy-btn.copied { background: var(--green); color: white; border-color: var(--green); }
 
@@ -152,7 +180,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Ping
 .qa-answer { background: #F0FDF4; border-left: 3px solid #4CAF50; padding: .9rem 1.1rem; border-radius: 0 6px 6px 0; margin-top: .7rem; display: none; font-size: .9rem; line-height: 1.65; color: #1B5E20; }
 .dark-mode .qa-answer { background: #1c3a26; color: #c5e8d2; }
 .qa-answer.show { display: block; animation: fadeIn .25s; }
-.qa-toggle { padding: 5px 14px; background: #fbbf24; color: #422006; font-weight: 700; font-size: .82rem; border: none; border-radius: 16px; cursor: pointer; margin-top: .4rem; }
+.qa-toggle { padding: 5px 14px; background: #fbbf24; color: #422006; font-weight: 700; font-size: .82rem; border: none; border-radius: 16px; cursor: pointer; margin-top: .4rem; font-family: inherit; }
 .qa-toggle:hover { background: #f59e0b; color: white; }
 
 @keyframes fadeIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
@@ -184,19 +212,8 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Ping
 .id-card p { font-size: .9rem; line-height: 1.6; }
 
 /* AO / TYPE BANNER */
-.type-banner { background: linear-gradient(90deg, #fef3c7, #fde68a); border-radius: 8px; padding: .5rem .9rem; margin: 1rem 0; font-size: .82rem; font-weight: 600; color: #78350f; display: inline-block; }
+.type-banner { background: linear-gradient(90deg, #fef3c7, #fde68a); border-radius: 8px; padding: .5rem .9rem; margin: 0 0 1rem; font-size: .82rem; font-weight: 600; color: #78350f; display: inline-block; }
 .dark-mode .type-banner { background: #3d2f17; color: #fde68a; }
-
-/* SIDEBAR TOC */
-.toc-floating { position: fixed; right: 20px; top: 80px; width: 200px; background: white; border: 1px solid var(--border); border-radius: 10px; padding: .7rem .9rem; box-shadow: var(--shadow); font-size: .8rem; max-height: 70vh; overflow-y: auto; display: none; }
-@media (min-width: 1300px) { .toc-floating { display: block; } }
-.toc-floating h5 { color: var(--text-light); font-size: .7rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: .5rem; }
-.toc-floating a { display: block; padding: 3px 0; color: var(--text); text-decoration: none; font-weight: 500; line-height: 1.4; border-left: 3px solid transparent; padding-left: 6px; }
-.toc-floating a:hover { color: #1565C0; border-left-color: #1565C0; }
-.toc-floating a.bio { color: var(--bio); }
-.toc-floating a.cog { color: var(--cog); }
-.toc-floating a.soc { color: var(--soc); }
-.toc-floating a.lrn { color: var(--lrn); }
 
 /* FOOTER */
 .footer { text-align: center; padding: 2rem; color: var(--text-light); font-size: .85rem; border-top: 1px solid #ddd; margin-top: 2rem; }
@@ -207,10 +224,15 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Ping
     .approach-header { padding: 1.2rem; }
     .nav-bar { flex-wrap: wrap; gap: .5rem; padding: .6rem 1rem; }
     .breadcrumb { display: none; }
+    .top-sticky { position: static; box-shadow: none; }
+    .tab-bar { justify-content: flex-start; padding: .5rem .8rem; }
+    .tab-btn span { display: none; }
+    .tab-btn { padding: .45rem .8rem; font-size: .82rem; }
+    .tab-divider { display: none; }
 }
 
 /* BACK TO TOP */
-.back-to-top { position: fixed; bottom: 20px; right: 20px; padding: 10px 16px; background: var(--bio); color: white; border: none; border-radius: 24px; font-size: .82rem; font-weight: 600; cursor: pointer; display: none; z-index: 99; box-shadow: 0 4px 12px rgba(0,0,0,.15); }
+.back-to-top { position: fixed; bottom: 20px; right: 20px; padding: 10px 16px; background: var(--bio); color: white; border: none; border-radius: 24px; font-size: .82rem; font-weight: 600; cursor: pointer; display: none; z-index: 99; box-shadow: 0 4px 12px rgba(0,0,0,.15); font-family: inherit; }
 .back-to-top:hover { transform: translateY(-2px); }
 .back-to-top.show { display: block; }
 
@@ -218,40 +240,44 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Ping
 .note-highlight { background: #fef9c3; border-bottom: 2px solid #fbbf24; padding: 0 2px; cursor: pointer; }
 .dark-mode .note-highlight { background: #4a3a00; border-color: #b58a18; color: #fde68a; }
 
-/* NOTES PANEL */
-.notes-fab { position: fixed; bottom: 20px; left: 20px; padding: 12px 14px; background: var(--bg); color: var(--text); border: 1.5px solid var(--border); border-radius: 50%; cursor: pointer; z-index: 99; font-size: 1.1rem; box-shadow: 0 4px 12px rgba(0,0,0,.15); }
-.notes-panel { position: fixed; left: 20px; bottom: 76px; width: 280px; max-height: 60vh; background: white; border: 1px solid var(--border); border-radius: 12px; padding: 1rem 1.1rem; z-index: 99; box-shadow: 0 6px 18px rgba(0,0,0,.15); display: none; }
-.dark-mode .notes-panel { background: #2A2D33; }
-.notes-panel h5 { color: var(--text-light); font-size: .7rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: .5rem; }
-.notes-panel textarea { width: 100%; min-height: 100px; border: 1px solid var(--border); border-radius: 6px; padding: .5rem; font-size: .85rem; resize: vertical; font-family: inherit; }
-.notes-panel .save-info { font-size: .75rem; color: var(--text-light); margin-top: .4rem; }
-.notes-panel.show { display: block; }
-.dark-mode .notes-panel textarea { background: #1A1D23; color: #E0E0E0; border-color: #3A3D43; }
-
-/* SCROLL SPY */
-.section-anchor { scroll-margin-top: 70px; }
+/* SECTION ANCHOR */
+.section-anchor { scroll-margin-top: 130px; }
 </style>
 </head>
 <body>
 
-<!-- ========== STICKY NAV ========== -->
-<nav class="nav-bar">
-    <div class="nav-left">
-        <a href="../../index.html" class="nav-home">Home</a>
-        <div class="breadcrumb">
-            <a href="../../index.html">Home</a>
-            <span class="sep">›</span>
-            <a href="../">CIE Psychology</a>
-            <span class="sep">›</span>
-            <span>Approaches, Issues &amp; Debates</span>
+<!-- ========== STICKY TOP (NAV + TAB BAR) ========== -->
+<div class="top-sticky">
+    <nav class="nav-bar">
+        <div class="nav-left">
+            <a href="../../index.html" class="nav-home">Home</a>
+            <div class="breadcrumb">
+                <a href="../../index.html">Home</a>
+                <span class="sep">›</span>
+                <a href="../">CIE Psychology</a>
+                <span class="sep">›</span>
+                <span>Approaches, Issues &amp; Debates</span>
+            </div>
         </div>
-    </div>
-    <div class="nav-right">
-        <button class="nav-btn" id="fontInc" title="Increase font size">A+</button>
-        <button class="nav-btn" id="fontDec" title="Decrease font size">A-</button>
-        <button class="nav-btn" id="darkToggle">Dark</button>
-    </div>
-</nav>
+        <div class="nav-right">
+            <button class="nav-btn" id="fontInc" title="Increase font size">A+</button>
+            <button class="nav-btn" id="fontDec" title="Decrease font size">A-</button>
+            <button class="nav-btn" id="darkToggle">🌙 Dark</button>
+        </div>
+    </nav>
+
+    <!-- TAB BAR -->
+    <nav class="tab-bar" role="tablist">
+        <button class="tab-btn bio active" data-tab="bio" role="tab">🧠 Biological<span>生物取向</span></button>
+        <button class="tab-btn cog" data-tab="cog" role="tab">💭 Cognitive<span>认知取向</span></button>
+        <button class="tab-btn soc" data-tab="soc" role="tab">👥 Social<span>社会取向</span></button>
+        <button class="tab-btn lrn" data-tab="lrn" role="tab">🎓 Learning<span>学习取向</span></button>
+        <span class="tab-divider"></span>
+        <button class="tab-btn util" data-tab="quickref" role="tab">📌 速查</button>
+        <button class="tab-btn util" data-tab="id" role="tab">⚖️ I&amp;D</button>
+        <button class="tab-btn util" data-tab="exam" role="tab">📝 真题</button>
+    </nav>
+</div>
 
 <!-- ========== HEADER ========== -->
 <div class="header">
@@ -262,76 +288,49 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Ping
 
 <div class="container">
 
-<!-- ========== §0 HOW TO USE ========== -->
-<section class="approach-section" id="how-to-use">
-    <div class="approach-header" style="background:#fafafa;border-color:#888;">
-        <div class="icon">📖</div>
-        <div>
-            <h2 style="color:#444;">How to use this page</h2>
-            <p class="meta">一页打通所有 Approaches + I&D，覆盖 Paper 1 + Paper 2 真题题型</p>
-        </div>
-    </div>
-
-    <div class="card">
-        <h3>🎯 这页为什么存在</h3>
-        <p>Approaches 是 CIE AS Psychology 的核心 — Paper 1 和 Paper 2 都必考。老版 approaches 页用的是教科书简化版文本 + 单一 study 范例，跟真实 syllabus verbatim + 5 个考期 Q4(a) 真题脱节。本页按 syllabus 2024-2026 原文重写，每个 assumption 配 <strong>3 个 study 全覆盖</strong>，帮学生一题通用所有 study。</p>
-    </div>
-
-    <div class="card">
-        <h3>📚 Paper 1 Section A 题型分布速查（5 考期汇总）</h3>
-        <p style="margin-bottom:.5rem;font-size:.88rem;color:var(--text-light);">所有 Paper 1 Section A 题都基于 core study，没有独立 approach 题——但 assumption 题出现在 <strong>Paper 2 Q4(a) 合并型 3 分题</strong>（m26 起新题型）。</p>
-        <div class="quickref-grid">
-            <div class="quickref-card" style="border-left-color:var(--gold);">
-                <h4>Paper 1 Section A 题型分布</h4>
-                <ul class="qr-list">
-                    <li><strong>Q1-Q3</strong> · 从 study 抽 fact（1-4 marks）</li>
-                    <li><strong>Q4</strong> · sample / features（2-4 marks）</li>
-                    <li><strong>Q5</strong> · Application to everyday life（3-4 marks）</li>
-                    <li><strong>Q6</strong> · Ethical guideline（2-4 marks）</li>
-                    <li><strong>Q7</strong> · I&D debate 含义（2-4 marks）</li>
-                    <li><strong>Q8</strong> · Background of study（2-4 marks）</li>
-                    <li><strong>Q9</strong> · Procedure detail（2-4 marks）</li>
-                </ul>
-            </div>
-            <div class="quickref-card" style="border-left-color:var(--blue);">
-                <h4>Paper 2 Q4(a) 合并型（m26 起新题型）</h4>
-                <ul class="qr-list">
-                    <li><strong>Stem：</strong>"Outline one assumption of the [X] approach, including an example from the study by [Y]." <span class="marks-badge">3 marks</span></li>
-                    <li>2 marks：完整 assumption（含 syllabus 原文所有 components）</li>
-                    <li>1 mark：example must be linked to given assumption</li>
-                    <li><strong>⚠️ MS 反面教材：</strong>"Do not credit aim / procedure unless linked to assumption"</li>
-                </ul>
-            </div>
-            <div class="quickref-card" style="border-left-color:var(--purple);">
-                <h4>Assessment Objectives（syllabus p.13）</h4>
-                <ul class="qr-list">
-                    <li><strong>AO1 = Knowledge &amp; Understanding</strong>（factual recall）</li>
-                    <li><strong>AO2 = Application / Interpretation</strong>（应用 explain 真实情境）</li>
-                    <li><strong>AO3 = Evaluation</strong>（assess S&amp;W、debate）</li>
-                    <li>Assumption 题常考 AO1（verbatim）+ AO2（application to study）</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <div class="card">
-        <h3>🎨 颜色 · 缩略词 · 阅读顺序约定</h3>
-        <p style="font-size:.9rem;line-height:1.7;">
-            <span style="color:var(--bio);font-weight:600;">■ 生物取向 Biological</span> ·
-            <span style="color:var(--cog);font-weight:600;">■ 认知取向 Cognitive</span> ·
-            <span style="color:var(--soc);font-weight:600;">■ 社会取向 Social</span> ·
-            <span style="color:var(--lrn);font-weight:600;">■ 学习取向 Learning</span><br>
-            <strong>L1-L4</strong> = Assumption 题等级评分（见下方）；<strong>S&amp;W</strong> = Strengths &amp; Weaknesses；<strong>ECM</strong> = Example Candidate Marker。<br>
-            阅读顺序：<span class="keyword">§1 速查</span> → <span class="keyword">§2-5 各 Approach</span>（含 verbatim + 3 study） → <span class="keyword">§6 I&amp;D</span> → <span class="keyword">§7 综合 Exam Practice</span>。
-        </p>
-    </div>
-</section>
-
-<!-- ========== §1 QUICK REFERENCE: 8 ASSUMPTIONS 速查 ========== -->
-<section class="approach-section" id="quickref">
+<!-- ========== PANEL: QUICKREF + HOW TO USE ========== -->
+<section class="tab-panel" id="panel-quickref">
     <div class="h2-section neutral">
-        <span class="label">§1 · Cheat Sheet</span>
-        <h2 style="color:#444;">8 Assumptions 速查（一页浓缩）</h2>
+        <span class="label">Overview · 速查表</span>
+        <h2 style="color:#444;">Paper 1 题型 + 8 Assumptions 速查</h2>
+    </div>
+
+    <div class="quickref-grid">
+        <div class="quickref-card" style="border-left-color:var(--gold);">
+            <h4>Paper 1 Section A 题型分布（5 考期汇总）</h4>
+            <ul class="qr-list">
+                <li><strong>Q1-Q3</strong> · 从 study 抽 fact（1-4 marks）</li>
+                <li><strong>Q4</strong> · sample / features（2-4 marks）</li>
+                <li><strong>Q5</strong> · Application to everyday life（3-4 marks）</li>
+                <li><strong>Q6</strong> · Ethical guideline（2-4 marks）</li>
+                <li><strong>Q7</strong> · I&amp;D debate 含义（2-4 marks）</li>
+                <li><strong>Q8</strong> · Background of study（2-4 marks）</li>
+                <li><strong>Q9</strong> · Procedure detail（2-4 marks）</li>
+            </ul>
+        </div>
+        <div class="quickref-card" style="border-left-color:var(--blue);">
+            <h4>Paper 2 Q4(a) 合并型（m26 起新题型）</h4>
+            <ul class="qr-list">
+                <li><strong>Stem：</strong>"Outline one assumption of the [X] approach, including an example from the study by [Y]." <span class="marks-badge">3 marks</span></li>
+                <li>2 marks：完整 assumption（含 syllabus 原文所有 components）</li>
+                <li>1 mark：example must be linked to given assumption</li>
+                <li><strong>⚠️ MS 反面教材：</strong>"Do not credit aim / procedure unless linked to assumption"</li>
+            </ul>
+        </div>
+        <div class="quickref-card" style="border-left-color:var(--purple);">
+            <h4>Assessment Objectives（syllabus p.13）</h4>
+            <ul class="qr-list">
+                <li><strong>AO1 = Knowledge &amp; Understanding</strong>（factual recall）</li>
+                <li><strong>AO2 = Application / Interpretation</strong>（应用 explain 真实情境）</li>
+                <li><strong>AO3 = Evaluation</strong>（assess S&amp;W、debate）</li>
+                <li>Assumption 题常考 AO1（verbatim）+ AO2（application to study）</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="h2-section neutral" style="margin-top:1.6rem;">
+        <span class="label">8 Assumptions</span>
+        <h2 style="color:#444;">一页浓缩（syllabus p.16-19 verbatim）</h2>
     </div>
 
     <p style="margin-bottom:1rem;font-size:.92rem;">考前 5 分钟过这一页。所有 assumption 文本均出自 <strong>CIE AS Psychology Syllabus 2024-2026（634461）p.16-19</strong> 原文，可直接抄进答卷。</p>
@@ -372,16 +371,16 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Ping
     </div>
 
     <div class="exam-tip">
-        <strong>⭐ 速记技巧：</strong>每个 approach 答 assumption 题都只看 syllabus 原文 + 关键词 + 把 example 跟 assumption 中某个 keyword 直接对接（echo 回关键词）。下文 §2-5 每个 assumption 都按这个格式写好。
+        <strong>⭐ 速记技巧：</strong>每个 approach 答 assumption 题都只看 syllabus 原文 + 关键词 + 把 example 跟 assumption 中某个 keyword 直接对接（echo 回关键词）。四个取向 tab 里每个 assumption 都按这个格式写好。
     </div>
 </section>
 
-<!-- ========== §2 BIOLOGICAL APPROACH ========== -->
-<section class="approach-section" id="bio">
+<!-- ========== PANEL: BIOLOGICAL ========== -->
+<section class="tab-panel active" id="panel-bio">
     <div class="approach-header bio">
         <div class="icon">🧠</div>
         <div>
-            <h2>§2 Biological Approach / 生物取向</h2>
+            <h2>Biological Approach / 生物取向</h2>
             <p class="meta">Brain · Hormones · Genetics · Evolution — 3 core studies: Holzel · Dement · Hassett</p>
         </div>
     </div>
@@ -535,12 +534,12 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Ping
     </div>
 </section>
 
-<!-- ========== §3 COGNITIVE APPROACH ========== -->
-<section class="approach-section" id="cog">
+<!-- ========== PANEL: COGNITIVE ========== -->
+<section class="tab-panel" id="panel-cog">
     <div class="approach-header cog">
         <div class="icon">💭</div>
         <div>
-            <h2>§3 Cognitive Approach / 认知取向</h2>
+            <h2>Cognitive Approach / 认知取向</h2>
             <p class="meta">Information Processing · Mental Processes — 3 core studies: Andrade · Baron-Cohen · Pozzulo</p>
         </div>
     </div>
@@ -684,12 +683,12 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Ping
     </div>
 </section>
 
-<!-- ========== §4 SOCIAL APPROACH ========== -->
-<section class="approach-section" id="soc">
+<!-- ========== PANEL: SOCIAL ========== -->
+<section class="tab-panel" id="panel-soc">
     <div class="approach-header soc">
         <div class="icon">👥</div>
         <div>
-            <h2>§4 Social Approach / 社会取向</h2>
+            <h2>Social Approach / 社会取向</h2>
             <p class="meta">Social Influence · Presence of Others — 3 core studies: Milgram · Piliavin · Perry</p>
         </div>
     </div>
@@ -833,12 +832,12 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Ping
     </div>
 </section>
 
-<!-- ========== §5 LEARNING APPROACH ========== -->
-<section class="approach-section" id="lrn">
+<!-- ========== PANEL: LEARNING ========== -->
+<section class="tab-panel" id="panel-lrn">
     <div class="approach-header lrn">
         <div class="icon">🎓</div>
         <div>
-            <h2>§5 Learning Approach / 学习取向</h2>
+            <h2>Learning Approach / 学习取向</h2>
             <p class="meta">Blank Slate · Conditioning · Social Learning — 3 core studies: Bandura · Saavedra · Fagen</p>
         </div>
     </div>
@@ -982,10 +981,10 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Ping
     </div>
 </section>
 
-<!-- ========== §6 AS ISSUES &amp; DEBATES (5 个) ========== -->
-<section class="approach-section" id="id">
+<!-- ========== PANEL: AS ISSUES & DEBATES ========== -->
+<section class="tab-panel" id="panel-id">
     <div class="h2-section" style="background:#f3e8ff;border-color:#a855f7;">
-        <span class="label">§6 · AS I&amp;D</span>
+        <span class="label">AS I&amp;D</span>
         <h2 style="color:#6b21a8;">Issues &amp; Debates（AS 范围 5 个）</h2>
     </div>
 
@@ -1032,10 +1031,10 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Ping
     </div>
 </section>
 
-<!-- ========== §7 综合 EXAM PRACTICE ========== -->
-<section class="approach-section" id="exam">
+<!-- ========== PANEL: EXAM PRACTICE ========== -->
+<section class="tab-panel" id="panel-exam">
     <div class="h2-section" style="background:#fff7ed;border-color:#f59e0b;">
-        <span class="label">§7 · Real Past Paper Questions</span>
+        <span class="label">Real Past Paper Questions</span>
         <h2 style="color:#b45309;">综合 Exam Practice（5 考期真题改编）</h2>
     </div>
 
@@ -1150,24 +1149,46 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Ping
 
 <div class="footer">
     <p>CIE A Level Psychology — Approaches, Issues &amp; Debates 综合复习</p>
-    <p class="signature">Syllabus 634461 (2024-2026) verbatim · 5 考期 Paper 1/2 Q4(a)/Q5 真题校准 · v3.0 改造</p>
-</div>
-
-<!-- TOC Floating -->
-<div class="toc-floating">
-    <h5>📌 速查导航</h5>
-    <a href="#how-to-use">§0 How to use</a>
-    <a href="#quickref">§1 8 Assumptions 速查</a>
-    <a href="#bio" class="bio">§2 Biological</a>
-    <a href="#cog" class="cog">§3 Cognitive</a>
-    <a href="#soc" class="soc">§4 Social</a>
-    <a href="#lrn" class="lrn">§5 Learning</a>
-    <a href="#id">§6 I&amp;D (5 个)</a>
-    <a href="#exam">§7 Exam Practice</a>
+    <p class="signature">Syllabus 634461 (2024-2026) verbatim · 5 考期 Paper 1/2 Q4(a)/Q5 真题校准 · v3.1 tab 版</p>
 </div>
 
 <script>
-// Tab switching removed - all sections visible (linear scroll)
+// ============ TAB SWITCHING ============
+const TAB_MAP = { bio:'bio', cog:'cog', soc:'soc', lrn:'lrn', id:'id', exam:'exam', quickref:'quickref', 'how-to-use':'quickref' };
+
+function activateTab(name, doScroll) {
+    const buttons = document.querySelectorAll('.tab-btn');
+    const panels = document.querySelectorAll('.tab-panel');
+    let found = false;
+    buttons.forEach(b => {
+        const on = b.dataset.tab === name;
+        b.classList.toggle('active', on);
+        if (on) found = true;
+    });
+    if (!found) return;
+    panels.forEach(p => p.classList.toggle('active', p.id === 'panel-' + name));
+    if (doScroll !== false) window.scrollTo({ top: 0, behavior: 'instant' in window ? 'instant' : 'auto' });
+}
+
+document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const name = btn.dataset.tab;
+        history.replaceState(null, '', '#' + name);
+        activateTab(name, true);
+    });
+});
+
+// Deep link support (#bio / #cog / #soc / #lrn / #quickref / #id / #exam)
+(function applyHash() {
+    const h = (location.hash || '').replace('#', '').toLowerCase();
+    if (TAB_MAP[h]) activateTab(TAB_MAP[h], false);
+})();
+window.addEventListener('hashchange', () => {
+    const h = (location.hash || '').replace('#', '').toLowerCase();
+    if (TAB_MAP[h]) activateTab(TAB_MAP[h], false);
+});
+
+// ============ COPY SYLLABUS TEXT ============
 function copyText(elementId, btn) {
     const el = document.getElementById(elementId);
     const text = el.innerText;
@@ -1176,13 +1197,13 @@ function copyText(elementId, btn) {
         btn.classList.add('copied');
         setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
     }).catch(() => {
-        // fallback
         const ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select();
         try { document.execCommand('copy'); btn.textContent = '✓ Copied'; btn.classList.add('copied'); setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000); } catch(e) {}
         document.body.removeChild(ta);
     });
 }
 
+// ============ SHOW / HIDE MODEL ANSWER ============
 function toggleAns(btn) {
     const card = btn.closest('.qa-card');
     const answer = card.querySelector('.qa-answer');
@@ -1190,7 +1211,7 @@ function toggleAns(btn) {
     btn.textContent = answer.classList.contains('show') ? 'Hide Model Answer' : 'Show Model Answer';
 }
 
-// Dark mode
+// ============ DARK MODE ============
 const darkToggle = document.getElementById('darkToggle');
 const STORAGE_KEY = 'cie-approaches-darkMode';
 if (localStorage.getItem(STORAGE_KEY) === '1') {
@@ -1204,7 +1225,7 @@ darkToggle.addEventListener('click', () => {
     darkToggle.textContent = on ? '☀ Light' : '🌙 Dark';
 });
 
-// Font size
+// ============ FONT SIZE ============
 const FONT_KEY = 'cie-approaches-fontSize';
 let curSize = parseFloat(localStorage.getItem(FONT_KEY) || '16');
 document.documentElement.style.fontSize = curSize + 'px';
@@ -1215,7 +1236,7 @@ document.getElementById('fontDec').addEventListener('click', () => {
     curSize = Math.max(curSize - 1, 13); document.documentElement.style.fontSize = curSize + 'px'; localStorage.setItem(FONT_KEY, curSize);
 });
 
-// Back to top
+// ============ BACK TO TOP ============
 const backBtn = document.getElementById('backToTop');
 window.addEventListener('scroll', () => {
     backBtn.classList.toggle('show', window.scrollY > 600);
