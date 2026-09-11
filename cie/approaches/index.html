@@ -160,10 +160,19 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Ping
 .study-card .top-row .badge { font-size: .68rem; padding: 2px 8px; border-radius: 8px; font-weight: 600; }
 .badge-best { background: #fef3c7; color: #92400e; }
 .dark-mode .badge-best { background: #4a3a00; color: #fde68a; }
-.study-card .linking { font-size: .88rem; color: var(--text); line-height: 1.55; }
-.study-card .linking em { color: var(--text-light); font-style: normal; font-size: .82rem; }
 .study-card .link-btn { display: inline-flex; align-items: center; gap: 4px; margin-top: .6rem; padding: 4px 12px; background: var(--bg); color: #1565C0; border-radius: 14px; font-size: .78rem; font-weight: 600; text-decoration: none; border: 1px solid var(--border); }
 .study-card .link-btn:hover { background: #dbeafe; }
+
+/* STUDY CARD v2 — 完整 link 作答（去掉研究摘要，只留"这个 study 如何扣 assumption"的完整作答）
+   学生已在各 study 页看过完整研究，此处只需 exam-ready 的作答文本 */
+.study-grid.v2 { grid-template-columns: 1fr; gap: .85rem; }
+.study-card.v2 { padding: 1.05rem 1.25rem; }
+.study-card.v2 .top-row { margin-bottom: .55rem; padding-bottom: .45rem; border-bottom: 1px dashed var(--border); }
+.study-card.v2 .la-label { display: inline-block; font-size: .66rem; font-weight: 700; letter-spacing: .4px; text-transform: uppercase; color: #1565C0; background: #E3F2FD; padding: 2px 8px; border-radius: 8px; margin-bottom: .5rem; }
+.dark-mode .study-card.v2 .la-label { color: #93c5fd; background: #1e2a3f; }
+.study-card.v2 .la-en { margin: 0; font-size: .9rem; line-height: 1.68; }
+.study-card.v2 .la-cn { margin: .42rem 0 0; font-size: .78rem; color: #888; font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif; line-height: 1.55; }
+.study-card.v2 .link-btn { margin-top: .75rem; }
 
 /* EXAM PRACTICE SECTION */
 .exam-practice { background: #fffaf3; border: 2px solid #fbbf24; border-radius: 12px; padding: 1.5rem; margin-top: 1.5rem; }
@@ -402,35 +411,41 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Ping
 
         <p style="font-size:.9rem;line-height:1.65;margin-bottom:.5rem;"><strong>💡 关键概念 echo（学生答 Q4(a) 模板）：</strong>必须命中 syllabus 关键词 <span class="keyword">brain</span>、<span class="keyword">hormones</span>、<span class="keyword">genetics</span>、<span class="keyword">evolution</span> 至少 2 个，example 必须连回其中之一。</p>
 
-        <div class="study-grid">
-            <div class="study-card">
+        <div class="study-grid v2">
+            <div class="study-card v2">
                 <div class="top-row">
                     <strong>Holzel et al. (2011)</strong>
                     <span class="badge badge-best">★ Best fit</span>
                 </div>
-                <div class="linking"><em>MRI scan 找到灰质密度变化 → MBSR → mindfulness ↑</em><br><strong>Link：</strong>MBSR causes <span class="keyword">brain</span> structure change in hippocampus（hippocampus 是 brain structure）→ 直接支持 assumption 中"the working of the brain"。</div>
+                <span class="la-label">AO2 完整作答 · 1 mark</span>
+                <p class="la-en"><strong>For example,</strong> Holzel et al. (2011) found that participants who completed an 8-week mindfulness (MBSR) programme showed <span class="keyword">increased grey matter density in the hippocampus</span> — a <span class="keyword">brain structure</span> linked to memory and emotional regulation. This shows that the <span class="keyword">working of the brain</span> changed, so a biological factor explains a change in cognition and emotion.</p>
+                <p class="la-cn">例：Holzel 等人(2011)发现，完成 8 周正念减压课程(MBSR)的参与者，海马回——一个与记忆和情绪调节有关的脑结构——灰质密度增加。这是「大脑的工作」发生了改变，因此生物因素可以解释认知与情绪的变化。</p>
                 <a href="../hoelzel/" class="link-btn">→ 看完整 study</a>
             </div>
 
-            <div class="study-card">
+            <div class="study-card v2">
                 <div class="top-row">
                     <strong>Dement &amp; Kleitman (1957)</strong>
                 </div>
-                <div class="linking"><em>EEG 记录 REM sleep 脑波 + 梦境报告</em><br><strong>Link：</strong>EEG measures <span class="keyword">brain</span> wave patterns correlate with dreaming → supports "working of the <span class="keyword">brain</span> explains cognitions (dreams)"。</div>
+                <span class="la-label">AO2 完整作答 · 1 mark</span>
+                <p class="la-en"><strong>For example,</strong> Dement and Kleitman (1957) found that participants woken during REM sleep — a stage identified by a distinctive <span class="keyword">brain-wave</span> pattern on the EEG — almost always reported a vivid <span class="keyword">dream</span>, whereas those woken in non-REM sleep rarely did. This directly links a cognition (dreaming) to the <span class="keyword">working of the brain</span> (REM brain-wave activity).</p>
+                <p class="la-cn">例：Dement 与 Kleitman (1957) 发现，在 REM 睡眠阶段（由 EEG 上特征性的脑波模式识别）被唤醒的参与者几乎总能报告出生动的梦境，而在非 REM 阶段被唤醒者很少报告。这把认知（做梦）直接与「大脑的工作」（REM 脑波活动）联系起来。</p>
                 <a href="../dement/" class="link-btn">→ 看完整 study</a>
             </div>
 
-            <div class="study-card">
+            <div class="study-card v2">
                 <div class="top-row">
                     <strong>Hassett et al. (2008)</strong>
                 </div>
-                <div class="linking"><em>雄性恒河猴 vs 雌性偏好 wheeled vs plush toy</em><br><strong>Link：</strong>跨物种相同偏好 → supports <span class="keyword">evolution</span>（进化）影响行为，因为 monkeys 不受人类社会化影响。</div>
+                <span class="la-label">AO2 完整作答 · 1 mark</span>
+                <p class="la-en"><strong>For example,</strong> Hassett et al. (2008) found that male rhesus monkeys spent more time with wheeled toys and females with plush toys — the same sex-typed pattern shown by human children. Because these monkeys were not exposed to human gender socialisation, the difference is best explained by <span class="keyword">evolution</span>.</p>
+                <p class="la-cn">例：Hassett 等人(2008)发现，雄性恒河猴更多玩轮子类玩具，雌性更多玩毛绒玩具——与人类儿童相同的性别化模式。由于这些恒河猴未受到人类性别社会化的影响，该差异最适合用进化来解释。</p>
                 <a href="../hassett/" class="link-btn">→ 看完整 study</a>
             </div>
         </div>
 
         <div class="model-answer">
-            <div class="ma-label">⭐ Q4(a) Model Answer — 3 marks <span class="ao-badge">AO1×2 AO2×1</span></div>
+            <div class="ma-label">⭐ Q4(a) 完整 3 分作答示范 = AO1（上方 verbatim）+ AO2（★Best fit 卡片）拼装 <span class="ao-badge">AO1×2 AO2×1</span></div>
             <div class="ma-text">
                 <strong>One assumption of the biological approach</strong> is that behaviour, cognitions and emotions can be explained in terms of the <span class="keyword">working of the brain</span> and the effect of hormones, <span class="keyword">genetics</span> and evolution <em>(AO1 = 2 marks)</em>. For example, Holzel et al. (2011) used MRI scans and found that participants who completed an 8-week mindfulness programme showed <span class="keyword">increased grey matter density in the brain's hippocampus</span> (a brain structure linked to memory and emotional regulation) <em>(AO2 = 1 mark, example directly linked to the brain keyword)</em>.
                 <span class="cn-line">生物取向的一个假设是，行为、认知和情绪可以通过大脑的工作以及激素、基因和进化的影响来解释。例：Holzel 等人(2011)用 MRI 扫描发现，完成 8 周正念课程的参与者大脑海马回（与记忆和情绪调节相关的脑区）灰质密度增加。</span>
@@ -480,35 +495,41 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Ping
 
         <p style="font-size:.9rem;line-height:1.65;margin-bottom:.5rem;"><strong>💡 关键概念 echo：</strong>命中 <span class="keyword">biological factors</span> + <span class="keyword">interaction with other factors</span>。 Example 必须显示"both similarities AND differences" 或 "interaction"。</p>
 
-        <div class="study-grid">
-            <div class="study-card">
+        <div class="study-grid v2">
+            <div class="study-card v2">
                 <div class="top-row">
                     <strong>Hassett et al. (2008)</strong>
                     <span class="badge badge-best">★ Best fit</span>
                 </div>
-                <div class="linking"><em>Monkeys 跟人类一致（similarity），但 monkey 偏好更弱（difference）</em><br><strong>Link：</strong>Biological <span class="keyword">similarities</span> across species + environmental <span class="keyword">interaction</span> (monkey study ruled out social pressure) → supports assumption that <span class="keyword">similarities</span> AND <span class="keyword">differences</span> explained by biology + other factors。</div>
+                <span class="la-label">AO2 完整作答 · 1 mark</span>
+                <p class="la-en"><strong>For example,</strong> Hassett et al. (2008) found that male rhesus monkeys showed the same preference for wheeled toys that human boys do — a <span class="keyword">similarity</span> explained by <span class="keyword">biological factors</span> — but the monkeys' preference was weaker than the children's, and this <span class="keyword">difference</span> suggests that biological factors <span class="keyword">interact</span> with other factors such as social experience.</p>
+                <p class="la-cn">例：Hassett 等人(2008)发现，雄性恒河猴与人类男孩一样偏好轮子类玩具——这是由生物因素解释的相似性；但猴子的偏好弱于儿童，这一差异说明生物因素还会与其他因素（如社会经验）相互作用。</p>
                 <a href="../hassett/" class="link-btn">→ 看完整 study</a>
             </div>
 
-            <div class="study-card">
+            <div class="study-card v2">
                 <div class="top-row">
                     <strong>Holzel et al. (2011)</strong>
                 </div>
-                <div class="linking"><em>Participants 个体差异 in grey matter change amount</em><br><strong>Link：</strong>Same training but <span class="keyword">individual differences</span> in grey matter increase → biology interacts with experience。</div>
+                <span class="la-label">AO2 完整作答 · 1 mark</span>
+                <p class="la-en"><strong>For example,</strong> Holzel et al. (2011) found that all participants in the MBSR group showed an increase in grey matter — a <span class="keyword">similarity</span> explained by <span class="keyword">biological factors</span> — but the amount of increase varied considerably from person to person, showing biological factors <span class="keyword">interacting with other factors</span> (individual differences).</p>
+                <p class="la-cn">例：Holzel 等人(2011)发现 MBSR 组的参与者都出现了灰质增加——由生物因素解释的相似性；但增加幅度因人而异，说明生物因素与其他因素（个体差异）相互作用。</p>
                 <a href="../hoelzel/" class="link-btn">→ 看完整 study</a>
             </div>
 
-            <div class="study-card">
+            <div class="study-card v2">
                 <div class="top-row">
                     <strong>Dement &amp; Kleitman (1957)</strong>
                 </div>
-                <div class="linking"><em>Dream recall 个体差异：recallers vs non-recallers</em><br><strong>Link：</strong>Same EEG pattern but <span class="keyword">individual differences</span> in dream recall → biology + person factor。</div>
+                <span class="la-label">AO2 完整作答 · 1 mark</span>
+                <p class="la-en"><strong>For example,</strong> Dement and Kleitman (1957) found that all participants showed the same pattern of REM / non-REM <span class="keyword">brain</span> activity — a <span class="keyword">similarity</span> — yet participants differed consistently in how often they recalled their dreams. That <span class="keyword">difference</span> cannot be explained by brain activity alone, so <span class="keyword">biological factors</span> must <span class="keyword">interact</span> with other factors.</p>
+                <p class="la-cn">例：Dement 与 Kleitman (1957) 发现所有参与者都表现出相同的 REM／非 REM 脑活动模式——这是相似性；但在回忆梦境的频率上存在稳定的个体差异。该差异无法单靠脑活动解释，说明生物因素必须与其他因素相互作用。</p>
                 <a href="../dement/" class="link-btn">→ 看完整 study</a>
             </div>
         </div>
 
         <div class="model-answer">
-            <div class="ma-label">⭐ Q4(a) Model Answer — 3 marks <span class="ao-badge">AO1×2 AO2×1</span></div>
+            <div class="ma-label">⭐ Q4(a) 完整 3 分作答示范 = AO1（上方 verbatim）+ AO2（★Best fit 卡片）拼装 <span class="ao-badge">AO1×2 AO2×1</span></div>
             <div class="ma-text">
                 Another assumption is that <span class="keyword">similarities and differences between people</span> can be understood in terms of <span class="keyword">biological factors and their interaction with other factors</span> <em>(AO1 = 2 marks)</em>. For example, Hassett et al. (2008) found that male rhesus monkeys showed the same preference for wheeled toys that human boys do (a similarity explained by <span class="keyword">biological factors</span>), but monkeys showed a weaker preference than human children, suggesting that biological factors <span class="keyword">interact</span> with social/cultural factors <em>(AO2 = 1 mark)</em>.
                 <span class="cn-line">另一个假设是，人与人之间的相似性和差异可以通过生物因素及其与其他因素的相互作用来理解。例：Hassett (2008) 发现雄性恒河猴和人类男孩一样偏好轮子类玩具（生物因素解释的相似性），但猴子的偏好弱于儿童，说明生物因素还与社会/文化因素相互作用。</span>
@@ -561,35 +582,41 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Ping
 
         <p style="font-size:.9rem;line-height:1.65;margin-bottom:.5rem;"><strong>💡 关键概念 echo：</strong><span class="keyword">input – process – output</span> 三段式 + computer metaphor 必须命中。</p>
 
-        <div class="study-grid">
-            <div class="study-card">
+        <div class="study-grid v2">
+            <div class="study-card v2">
                 <div class="top-row">
                     <strong>Andrade (2010)</strong>
                     <span class="badge badge-best">★ Best fit</span>
                 </div>
-                <div class="linking"><em>Doodling group vs control 在 monitoring task 上的表现</em><br><strong>Link：</strong>Mind received <span class="keyword">input</span> (monitoring task) + doodling <span class="keyword">process</span>ing simultaneously + produced <span class="keyword">output</span> (recall) → demonstrates dual-<span class="keyword">processing</span>, like a computer running parallel processes。</div>
+                <span class="la-label">AO2 完整作答 · 1 mark</span>
+                <p class="la-en"><strong>For example,</strong> Andrade (2010) found that participants who doodled while listening to a dull telephone message recalled 29% more information (mean 7.5 items) than the non-doodling control group (mean 5.8 items). The message was the <span class="keyword">input</span>, doodling helped maintain attention during <span class="keyword">processing</span>, and the recalled facts were the <span class="keyword">output</span> — the same route in every participant, just as a computer processes information.</p>
+                <p class="la-cn">例：Andrade (2010) 发现，边听单调电话留言边涂鸦的参与者比对照组多回忆 29% 的信息（平均 7.5 vs 5.8 项）。留言是 input，涂鸦帮助维持注意以完成 processing，回忆出的内容就是 output。</p>
                 <a href="../andrade/" class="link-btn">→ 看完整 study</a>
             </div>
 
-            <div class="study-card">
+            <div class="study-card v2">
                 <div class="top-row">
                     <strong>Baron-Cohen et al. (2001)</strong>
                 </div>
-                <div class="linking"><em>Eyes Test：眼照片 → 推测 mental state → 选词</em><br><strong>Link：</strong>Visual <span class="keyword">input</span> (eye photos) → cognitive <span class="keyword">process</span>ing (inferring mental states) → verbal <span class="keyword">output</span> (4 choices) → classic input-process-output。</div>
+                <span class="la-label">AO2 完整作答 · 1 mark</span>
+                <p class="la-en"><strong>For example,</strong> in Baron-Cohen et al.'s (2001) Eyes Test every participant received the same visual <span class="keyword">input</span> — a photograph of the eye region — then had to <span class="keyword">process</span> it by inferring the mental state being shown, and finally produced a verbal <span class="keyword">output</span> by choosing one of four words. The autism groups and the control groups all followed this identical route.</p>
+                <p class="la-cn">例：Baron-Cohen 等人(2001)的眼测试中，每位参与者先接收相同的视觉 input（眼部照片），再通过推断所表达的心理状态完成 processing，最后从四个词中选出一个作为 output。自闭症组与对照组都走这条相同路径。</p>
                 <a href="../baron-cohen/" class="link-btn">→ 看完整 study</a>
             </div>
 
-            <div class="study-card">
+            <div class="study-card v2">
                 <div class="top-row">
                     <strong>Pozzulo et al. (2011)</strong>
                 </div>
-                <div class="linking"><em>View lineup → encode → retrieve → respond</em><br><strong>Link：</strong><span class="keyword">Input</span> (viewing lineup) → memory encoding/<span class="keyword">process</span>ing → identification <span class="keyword">output</span>。</div>
+                <span class="la-label">AO2 完整作答 · 1 mark</span>
+                <p class="la-en"><strong>For example,</strong> in Pozzulo et al. (2011) every participant — child or adult — watched the same four 6-second video clips (<span class="keyword">input</span>), encoded and retrieved the face from <span class="keyword">memory</span> (<span class="keyword">processing</span>), and then pointed either to a photograph or to a blank silhouette (<span class="keyword">output</span>). All 112 participants went through the identical route, regardless of age.</p>
+                <p class="la-cn">例：Pozzulo 等人(2011)中，所有参与者（无论儿童还是成人）都观看相同的四段 6 秒影片（input），编码并检索面孔记忆（processing），再指认照片或指向空白剪影（output）。112 位参与者走的是同一条路径。</p>
                 <a href="../pozzulo/" class="link-btn">→ 看完整 study</a>
             </div>
         </div>
 
         <div class="model-answer">
-            <div class="ma-label">⭐ Q4(a) Model Answer — 3 marks <span class="ao-badge">AO1×2 AO2×1</span></div>
+            <div class="ma-label">⭐ Q4(a) 完整 3 分作答示范 = AO1（上方 verbatim）+ AO2（★Best fit 卡片）拼装 <span class="ao-badge">AO1×2 AO2×1</span></div>
             <div class="ma-text">
                 One assumption of the cognitive approach is that <span class="keyword">information is processed through the same route</span> in all humans: <span class="keyword">input – process – output</span>, in a similar way to how information is processed by a computer <em>(AO1 = 2 marks)</em>. For example, Andrade (2010) demonstrated this when participants in the doodling condition simultaneously <span class="keyword">processed</span> two streams of information (monitoring task <span class="keyword">input</span> + doodling) and produced <span class="keyword">output</span> (better recall), similar to how a computer runs parallel processes <em>(AO2 = 1 mark)</em>.
                 <span class="cn-line">认知取向的一个假设是，信息在所有人类中通过相同的路径处理：输入—处理—输出，类似于计算机处理信息的方式。例：Andrade (2010) 中涂鸦组同时处理两个信息流（监控任务输入+涂鸦），产生输出（更好的回忆）。</span>
@@ -629,37 +656,43 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Ping
 
         <p style="font-size:.9rem;line-height:1.65;margin-bottom:.5rem;"><strong>💡 关键概念 echo：</strong><span class="keyword">individual differences</span> + 至少 1 个 cognitive process（<span class="keyword">attention</span>/<span class="keyword">language</span>/<span class="keyword">thinking</span>/<span class="keyword">memory</span>）+ "explain behaviour and emotion"。</p>
 
-        <div class="study-grid">
-            <div class="study-card">
+        <div class="study-grid v2">
+            <div class="study-card v2">
                 <div class="top-row">
                     <strong>Baron-Cohen et al. (2001)</strong>
                     <span class="badge badge-best">★ Best fit</span>
                 </div>
-                <div class="linking"><em>Female > Male on Eyes Test (sex difference in ToM / mind-reading)</em><br><strong>Link：</strong><span class="keyword">Individual differences</span> in theory of mind (a <span class="keyword">cognitive</span> process related to social attention/perception) → explains sex differences in social behaviour and emotional understanding。</div>
+                <span class="la-label">AO2 完整作答 · 1 mark</span>
+                <p class="la-en"><strong>For example,</strong> Baron-Cohen et al. (2001) found a sex difference on the Eyes Test (males scored lower than females, though some of these differences were not significant), and that adults with autism or Asperger syndrome scored significantly lower than the control groups. This shows <span class="keyword">individual differences</span> in a <span class="keyword">cognitive</span> process — theory of mind (<span class="keyword">thinking</span> about other people's mental states) — which helps explain group differences in social <span class="keyword">behaviour</span> and emotion.</p>
+                <p class="la-cn">例：Baron-Cohen 等人(2001)发现眼测试存在性别差异（男性低于女性，但部分差异未达显著），且自闭症／阿斯伯格成人得分显著低于对照组。这显示了认知过程——心智理论（思考他人心理状态）——的个体差异，可帮助解释社会行为与情绪上的群体差异。</p>
                 <a href="../baron-cohen/" class="link-btn">→ 看完整 study</a>
             </div>
 
-            <div class="study-card">
+            <div class="study-card v2">
                 <div class="top-row">
                     <strong>Pozzulo et al. (2011)</strong>
                 </div>
-                <div class="linking"><em>Older > Younger in correct identification</em><br><strong>Link：</strong>Age <span class="keyword">differences</span> in facial <span class="keyword">memory</span> → explains <span class="keyword">individual differences</span> in eyewitness identification behaviour。</div>
+                <span class="la-label">AO2 完整作答 · 1 mark</span>
+                <p class="la-en"><strong>For example,</strong> Pozzulo et al. (2011) found that children aged 4–7 identified familiar cartoon faces as accurately as adults (their <span class="keyword">memory</span> was intact), yet they were significantly worse than adults at correctly rejecting a target-absent humans line-up. This <span class="keyword">individual difference</span> in how <span class="keyword">memory</span> is used to make a decision helps explain age differences in eyewitness <span class="keyword">behaviour</span>.</p>
+                <p class="la-cn">例：Pozzulo 等人(2011)发现 4–7 岁儿童识别熟悉的卡通面孔与成人同样准确（记忆完好），但在「目标不存在列队」中正确拒认的能力显著低于成人。这一「记忆如何用于决策」的个体差异，可解释目击者行为上的年龄差异。</p>
                 <a href="../pozzulo/" class="link-btn">→ 看完整 study</a>
             </div>
 
-            <div class="study-card">
+            <div class="study-card v2">
                 <div class="top-row">
                     <strong>Andrade (2010)</strong>
                 </div>
-                <div class="linking"><em>Some participants benefited more from doodling</em><br><strong>Link：</strong><span class="keyword">Individual</span> variation in <span class="keyword">attention</span> capacity → explains why some benefit more from doodling than others。</div>
+                <span class="la-label">AO2 完整作答 · 1 mark</span>
+                <p class="la-en"><strong>For example,</strong> Andrade (2010) found that the doodling group recalled 29% more than the control group, and that the control group's poorer performance was linked to lapsed <span class="keyword">attention</span> (daydreaming). The difference in <span class="keyword">attention</span> — a cognitive process — explains the difference in recall <span class="keyword">behaviour</span> between the two groups.</p>
+                <p class="la-cn">例：Andrade (2010) 发现涂鸦组比对照组多回忆 29%，且对照组的较差表现与注意涣散（做白日梦）有关。注意这一认知过程的差异，解释了组间回忆行为的差异。</p>
                 <a href="../andrade/" class="link-btn">→ 看完整 study</a>
             </div>
         </div>
 
         <div class="model-answer">
-            <div class="ma-label">⭐ Q4(a) Model Answer — 3 marks <span class="ao-badge">AO1×2 AO2×1</span></div>
+            <div class="ma-label">⭐ Q4(a) 完整 3 分作答示范 = AO1（上方 verbatim）+ AO2（★Best fit 卡片）拼装 <span class="ao-badge">AO1×2 AO2×1</span></div>
             <div class="ma-text">
-                A second assumption of the cognitive approach is that there are <span class="keyword">individual differences in cognitive processes</span> such as attention, language, thinking and memory, and these processes can also help to explain behaviour and emotion <em>(AO1 = 2 marks)</em>. For example, Baron-Cohen et al. (2001) found that <span class="keyword">females scored significantly higher</span> than males on the Eyes Test, demonstrating <span class="keyword">individual differences</span> in theory of mind (a <span class="keyword">cognitive process</span>), and this cognitive <span class="keyword">difference helps explain differing social-emotional behaviours</span> between males and females <em>(AO2 = 1 mark)</em>.
+                A second assumption of the cognitive approach is that there are <span class="keyword">individual differences in cognitive processes</span> such as attention, language, thinking and memory, and these processes can also help to explain behaviour and emotion <em>(AO1 = 2 marks)</em>. For example, Baron-Cohen et al. (2001) found that <span class="keyword">males scored lower than females</span> on the Eyes Test (a sex <span class="keyword">difference</span> in a cognitive process), demonstrating <span class="keyword">individual differences</span> in theory of mind (a <span class="keyword">cognitive process</span>), and this cognitive <span class="keyword">difference helps explain differing social-emotional behaviours</span> between males and females <em>(AO2 = 1 mark)</em>.
                 <span class="cn-line">另一个假设是认知过程（如注意、语言、思维和记忆）存在个体差异，这些过程也可以帮助解释行为和情绪。例：Baron-Cohen 等人(2001) 发现女性在眼测试中得分显著高于男性，说明心智理论的个体差异。</span>
             </div>
         </div>
@@ -710,35 +743,41 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Ping
 
         <p style="font-size:.9rem;line-height:1.65;margin-bottom:.5rem;"><strong>💡 关键概念 echo：</strong><span class="keyword">social contexts</span> / <span class="keyword">environments</span> / <span class="keyword">groups</span> 三者至少 1 个 verbatim 出现。</p>
 
-        <div class="study-grid">
-            <div class="study-card">
+        <div class="study-grid v2">
+            <div class="study-card v2">
                 <div class="top-row">
                     <strong>Milgram (1963)</strong>
                     <span class="badge badge-best">★ Best fit</span>
                 </div>
-                <div class="linking"><em>Participants obeyed more in Yale lab vs office building</em><br><strong>Link：</strong>Yale <span class="keyword">university</span>实验室 <span class="keyword">context</span> (prestige + scientific legitimacy) → obedience rates 65% vs office 47.5% → 直接示范 <span class="keyword">social context</span> shapes behaviour。</div>
+                <span class="la-label">AO2 完整作答 · 1 mark</span>
+                <p class="la-en"><strong>For example,</strong> Milgram (1963) found that 65% of participants (26/40) obeyed fully to 450V when the study was carried out in the prestigious <span class="keyword">Yale University</span> laboratory, a setting that gave the procedure legitimacy. In Milgram's later Bridgeport variation, run in a run-down office building rather than a university laboratory, obedience fell to 47.5% — the <span class="keyword">social context</span> alone changed how far participants would go.</p>
+                <p class="la-cn">例：Milgram (1963) 发现在声望卓著的耶鲁大学实验室中，65%（26/40）的参与者完全服从到 450V；后来在 Bridgeport 变体中把同一程序移到一栋破旧办公楼（而非大学实验室）时，服从率降至 47.5%——仅社会情境的改变就改变了行为。</p>
                 <a href="../milgram/" class="link-btn">→ 看完整 study</a>
             </div>
 
-            <div class="study-card">
+            <div class="study-card v2">
                 <div class="top-row">
                     <strong>Piliavin et al. (1969)</strong>
                 </div>
-                <div class="linking"><em>Subway carriage: 8.9s critical vs 7+min in line</em><br><strong>Link：</strong>Subway carriage <span class="keyword">environment</span> (confined, no escape, public) → fast helping → demonstrates <span class="keyword">social environment</span> shapes prosocial behaviour。</div>
+                <span class="la-label">AO2 完整作答 · 1 mark</span>
+                <p class="la-en"><strong>For example,</strong> Piliavin et al. (1969) carried out the study in the <span class="keyword">social environment</span> of a New York subway carriage — a public, confined space that passengers could not leave, on a train running non-stop between stations. In this environment victims were helped very often: the cane victim in 95% of trials (62/65) and the drunk victim in 50% (19/38), with an overall helping rate of 78%.</p>
+                <p class="la-cn">例：Piliavin 等人(1969)在纽约地铁车厢这一社会环境中进行——公共、封闭、乘客无法离开，列车在站间不停。在该环境中受害者受助率很高：手杖受害者 95%（62/65），醉酒受害者 50%（19/38），总体帮助率 78%。</p>
                 <a href="../piliavin/" class="link-btn">→ 看完整 study</a>
             </div>
 
-            <div class="study-card">
+            <div class="study-card v2">
                 <div class="top-row">
                     <strong>Perry et al. (2015)</strong>
                 </div>
-                <div class="linking"><em>CID task with stranger vs familiar in private room</em><br><strong>Link：</strong>The <span class="keyword">social</span> situation (potential interaction with stranger) → observable distance kept → <span class="keyword">social context</span> shapes personal space behaviour。</div>
+                <span class="la-label">AO2 完整作答 · 1 mark</span>
+                <p class="la-en"><strong>For example,</strong> Perry et al. (2015) found that <span class="keyword">who</span> the approaching figure was strongly shaped preferred distance: participants kept the greatest distance from a stranger (39.82%), then an authority figure (34.12%), then the neutral ball (20.20%), and the least from a friend (12.46%). The <span class="keyword">social context</span> of the encounter determined the behaviour.</p>
+                <p class="la-cn">例：Perry 等人(2015)发现，靠近的对象是谁强烈影响偏好距离：对陌生人留出最大距离(39.82%)，其次权威人物(34.12%)，再是中性的球(20.20%)，对朋友最小(12.46%)。相遇的社会情境决定了行为。</p>
                 <a href="../perry/" class="link-btn">→ 看完整 study</a>
             </div>
         </div>
 
         <div class="model-answer">
-            <div class="ma-label">⭐ Q4(a) Model Answer — 3 marks <span class="ao-badge">AO1×2 AO2×1</span></div>
+            <div class="ma-label">⭐ Q4(a) 完整 3 分作答示范 = AO1（上方 verbatim）+ AO2（★Best fit 卡片）拼装 <span class="ao-badge">AO1×2 AO2×1</span></div>
             <div class="ma-text">
                 One assumption of the social approach is that behaviour, cognitions and emotions are influenced by <span class="keyword">social contexts</span>, <span class="keyword">social environments</span> and <span class="keyword">groups</span> <em>(AO1 = 2 marks)</em>. For example, in Milgram's (1963) study, participants were significantly more likely to obey the experimenter in the prestigious <span class="keyword">Yale University laboratory</span> (a high-status social context) than in a run-down office building — showing that the <span class="keyword">social context directly shaped participants' obedient behaviour</span> <em>(AO2 = 1 mark)</em>.
                 <span class="cn-line">社会取向的一个假设是行为、认知和情绪受社会情境、社会环境和群体的影响。例：Milgram (1963) 在耶鲁大学实验室比在破旧办公楼中表现出更高的服从率。</span>
@@ -757,7 +796,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Ping
                 <button class="qa-toggle" onclick="toggleAns(this)">Show Model Answer</button>
                 <div class="qa-answer">
                     <strong>AO1 (2 marks):</strong> Behaviour, cognitions and emotions are influenced by <span class="keyword">social contexts</span>, <span class="keyword">social environments</span> and groups.<br><br>
-                    <strong>AO2 (1 mark):</strong> Piliavin conducted the study in a <span class="keyword">social environment</span> — the subway carriage was a confined, public space with no escape route, and this context produced a 70/40 critical/non-critical helping split, while the same helping behaviour did not occur in less salient contexts. The <span class="keyword">social environment</span> directly shaped helping <span class="keyword">behaviour</span>.
+                    <strong>AO2 (1 mark):</strong> Piliavin conducted the study in a <span class="keyword">social environment</span> — the subway carriage was a confined, public space in which passengers could directly see each other and the victim, and in this real-world context a spontaneous helping rate of 78% was recorded (far higher than the 30–40% typical of laboratory studies), with larger groups actually helping <em>faster</em> (median 1.5 seconds when 7+ males were present). The <span class="keyword">social environment</span> directly shaped helping <span class="keyword">behaviour</span>.
                 </div>
             </div>
         </div>
@@ -778,35 +817,41 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Ping
 
         <p style="font-size:.9rem;line-height:1.65;margin-bottom:.5rem;"><strong>💡 关键概念 echo：</strong><span class="keyword">actual</span> / <span class="keyword">implied</span> / <span class="keyword">imagined</span> presence 三选一 verbatim + "presence of others" 必须出现。</p>
 
-        <div class="study-grid">
-            <div class="study-card">
+        <div class="study-grid v2">
+            <div class="study-card v2">
                 <div class="top-row">
                     <strong>Perry et al. (2015)</strong>
                     <span class="badge badge-best">★ Best fit</span>
                 </div>
-                <div class="linking"><em>Empty chair = implied presence (Ot 47.5 vs Saline 38.2 cm)</em><br><strong>Link：</strong>虽然没人 present，但 empty chair 创造 <span class="keyword">implied presence</span> of another person → participants kept greater distance → supports assumption 2 because nobody was physically there, showing <span class="keyword">implied presence</span> alone is enough。</div>
+                <span class="la-label">AO2 完整作答 · 1 mark</span>
+                <p class="la-en"><strong>For example,</strong> Perry et al. (2015) measured how close participants would allow a computer-generated figure to come to them — a figure that was never actually in the room. Even so, participants kept over three times the distance from a 'stranger' figure (39.82%) than from a 'friend' figure (12.46%), showing that the <span class="keyword">implied presence</span> of another person alone is enough to influence behaviour.</p>
+                <p class="la-cn">例：Perry 等人(2015)测量参与者愿意让一个计算机生成的虚拟人物靠近到多近——该人物从未真正在房间里。但即便如此，参与者对「陌生人」保持的距离(39.82%)仍是「朋友」(12.46%)的三倍以上，说明仅是他人的暗示性存在就足以影响行为。</p>
                 <a href="../perry/" class="link-btn">→ 看完整 study</a>
             </div>
 
-            <div class="study-card">
+            <div class="study-card v2">
                 <div class="top-row">
                     <strong>Milgram (1963)</strong>
                 </div>
-                <div class="linking"><em>Experimenter physically present in room</em><br><strong>Link：</strong><span class="keyword">Actual presence</span> of authority figure in room → obedience. When experimenter left, obedience dropped (e.g., 20.5% in "remote" variation) → comparison directly supports <span class="keyword">actual presence</span> mechanism。</div>
+                <span class="la-label">AO2 完整作答 · 1 mark</span>
+                <p class="la-en"><strong>For example,</strong> Milgram (1963) found that 65% of participants (26/40) obeyed to the maximum 450V when the experimenter was <span class="keyword">actually present</span> in the room giving the orders. In Milgram's variations where the experimenter gave instructions by telephone, or was absent altogether, obedience dropped sharply — the <span class="keyword">actual presence</span> of the authority figure strongly influenced obedience <span class="keyword">behaviour</span>.</p>
+                <p class="la-cn">例：Milgram (1963) 发现，当实验者实际在房间内下指令时，65%（26/40）的参与者服从到最高 450V。在他的变体中，若实验者通过电话下指令或完全不在场，服从率大幅下降——权威人物的实际在场强烈影响了服从行为。</p>
                 <a href="../milgram/" class="link-btn">→ 看完整 study</a>
             </div>
 
-            <div class="study-card">
+            <div class="study-card v2">
                 <div class="top-row">
                     <strong>Piliavin et al. (1969)</strong>
                 </div>
-                <div class="linking"><em>Number of bystanders on train (real presence)</em><br><strong>Link：</strong>Diffusion of responsibility — increased <span class="keyword">actual</span> presence of other bystanders → slower helping → supports <span class="keyword">actual presence</span> mechanism。</div>
+                <span class="la-label">AO2 完整作答 · 1 mark</span>
+                <p class="la-en"><strong>For example,</strong> Piliavin et al. (1969) recorded how many other bystanders were <span class="keyword">actually present</span> in the carriage. Contrary to diffusion of responsibility, larger groups actually produced <em>faster</em> helping — with 7 or more males present in the critical area the median helping time was only 1.5 seconds, compared with 7 seconds when only 1–3 males were present — and 90% of helpers were male. The <span class="keyword">actual presence</span> of other people therefore changed bystanders' responding.</p>
+                <p class="la-cn">例：Piliavin 等人(1969)记录了车厢内实际在场的旁观者人数。与「责任分散」相反，旁观者越多帮助反而越快——关键区域有 7 名以上男性时中位反应时间仅 1.5 秒，而只有 1–3 名男性时需 7 秒——且 90% 的帮助者是男性。他人的实际在场确实改变了旁观者行为。</p>
                 <a href="../piliavin/" class="link-btn">→ 看完整 study</a>
             </div>
         </div>
 
         <div class="model-answer">
-            <div class="ma-label">⭐ Q4(a) Model Answer — 3 marks <span class="ao-badge">AO1×2 AO2×1</span></div>
+            <div class="ma-label">⭐ Q4(a) 完整 3 分作答示范 = AO1（上方 verbatim）+ AO2（★Best fit 卡片）拼装 <span class="ao-badge">AO1×2 AO2×1</span></div>
             <div class="ma-text">
                 A second assumption of the social approach is that behaviour, cognitions and emotions can be influenced by the <span class="keyword">actual</span>, <span class="keyword">implied</span> or <span class="keyword">imagined</span> <span class="keyword">presence of others</span> <em>(AO1 = 2 marks)</em>. For example, Perry et al. (2015) showed that even when no one was physically present in the room, participants kept a greater distance from a chair that was associated with a stranger than from one associated with a familiar person — this <span class="keyword">implied presence</span> of another person was sufficient to influence their personal space behaviour <em>(AO2 = 1 mark)</em>.
                 <span class="cn-line">社会取向的另一个假设是，行为、认知和情绪可能受他人实际、暗示或想象存在的影响。例：Perry 等人(2015) 在没人实际在场时，参与者对与陌生人关联的椅子保持比与熟人关联的椅子更远的距离。</span>
@@ -825,7 +870,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Ping
                 <button class="qa-toggle" onclick="toggleAns(this)">Show Model Answer</button>
                 <div class="qa-answer">
                     <strong>AO1 (2 marks):</strong> Behaviour, cognitions and emotions can be influenced by the actual, implied or imagined <span class="keyword">presence of others</span>.<br><br>
-                    <strong>AO2 (1 mark):</strong> Milgram found that 65% of participants delivered the maximum 450V shock when the experimenter was <span class="keyword">actually present</span> in the room giving orders. When the experimenter gave orders by phone or was absent, obedience dropped dramatically (e.g., 20.5% in the "remote" variant) — showing that the <span class="keyword">actual presence of an authority figure</span> strongly influenced obedience <span class="keyword">behaviour</span>.
+                    <strong>AO2 (1 mark):</strong> Milgram found that 65% of participants delivered the maximum 450V shock when the experimenter was <span class="keyword">actually present</span> in the room giving orders. When the experimenter left the room and gave orders only by telephone, obedience fell to 22.5%, and when the experimenter was entirely absent it dropped to 20.5% — showing that the <span class="keyword">actual presence of an authority figure</span> strongly influenced obedience <span class="keyword">behaviour</span>.
                 </div>
             </div>
         </div>
@@ -859,38 +904,44 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Ping
 
         <p style="font-size:.9rem;line-height:1.65;margin-bottom:.5rem;"><strong>💡 关键概念 echo：</strong><span class="keyword">blank slate</span> + <span class="keyword">experiences</span> + <span class="keyword">environment</span> shape behaviour + "directly observable"。</p>
 
-        <div class="study-grid">
-            <div class="study-card">
+        <div class="study-grid v2">
+            <div class="study-card v2">
                 <div class="top-row">
                     <strong>Bandura et al. (1961)</strong>
                     <span class="badge badge-best">★ Best fit</span>
                 </div>
-                <div class="linking"><em>Children imitated aggressive model</em><br><strong>Link：</strong>Children weren't born aggressive — they <span class="keyword">learned</span> it through observing the model (environmental interaction). Imitation behaviour was directly observable (researchers coded it)。</div>
+                <span class="la-label">AO2 完整作答 · 1 mark</span>
+                <p class="la-en"><strong>For example,</strong> Bandura et al. (1961) found that children who observed an aggressive adult model later imitated the model's specific aggressive acts — for instance hitting the Bobo doll with a mallet — which they had not shown before the model appeared. The new aggressive <span class="keyword">behaviour</span> was directly <span class="keyword">observable</span> in the test phase, showing it was shaped by <span class="keyword">environmental experience</span> rather than being innate.</p>
+                <p class="la-cn">例：Bandura 等人(1961)发现，观察过攻击性成人榜样的儿童随后模仿了榜样的具体攻击行为（如用木槌打 Bobo doll），而这些行为在榜样出现前并未出现。新的攻击行为在测试阶段可直接观察到，说明它由环境经验塑造而非天生。</p>
                 <a href="../bandura/" class="link-btn">→ 看完整 study</a>
             </div>
 
-            <div class="study-card">
+            <div class="study-card v2">
                 <div class="top-row">
                     <strong>Saavedra &amp; Silverman (2002)</strong>
                 </div>
-                <div class="linking"><em>Buttons paired with disgust → fear of buttons</em><br><strong>Link：</strong>Buttons aren't innately fear-inducing — the phobia was <span class="keyword">learned</span> through environmental pairing (buttons + disgusting images). Fear was directly observable (avoidance/fear ratings)。</div>
+                <span class="la-label">AO2 完整作答 · 1 mark</span>
+                <p class="la-en"><strong>For example,</strong> Saavedra and Silverman (2002) treated a 9-year-old boy whose phobia of buttons was not innate — he was a <span class="keyword">blank slate</span> at birth, and the fear was <span class="keyword">learned</span> at age five when a whole bowl of buttons tipped over him during a classroom art project. The <span class="keyword">learned</span> disgust was directly <span class="keyword">observable</span> in his Feelings Thermometer ratings — 8 out of 8 for the worst button-related image.</p>
+                <p class="la-cn">例：Saavedra & Silverman (2002) 治疗一名 9 岁男孩，他对纽扣的恐惧并非天生——出生时如同一块白板（blank slate），恐惧是 5 岁时课堂上整碗纽扣洒在身上后习得的。这一习得的厌恶反应通过「感受温度计」评分可直接观察到（最严重的纽扣意象评分为满分 8）。</p>
                 <a href="../saavedra/" class="link-btn">→ 看完整 study</a>
             </div>
 
-            <div class="study-card">
+            <div class="study-card v2">
                 <div class="top-row">
                     <strong>Fagen et al. (2014)</strong>
                 </div>
-                <div class="linking"><em>Elephants trained to put leaves on head</em><br><strong>Link：</strong>Complex behaviour not in elephant's natural repertoire — was <span class="keyword">learned</span> through shaping (each step reinforced). Behaviour directly <span class="keyword">observable</span> via video scoring。</div>
+                <span class="la-label">AO2 完整作答 · 1 mark</span>
+                <p class="la-en"><strong>For example,</strong> Fagen et al. (2014) trained elephants to carry out a trunk-wash procedure — a chain of five behaviours (trunk here, trunk up, bucket, blow, steady) that is not part of an elephant's natural repertoire. All four juvenile elephants <span class="keyword">learned</span> the complete sequence through <span class="keyword">experience</span> of training (25–35 sessions each), and the new behaviour was directly <span class="keyword">observable</span>, scored against a fixed checklist.</p>
+                <p class="la-cn">例：Fagen 等人(2014)训练大象完成「象鼻冲洗」程序——由五个行为串成的序列（放象鼻、抬鼻、桶、吹、保持），这并不在大象的自然行为库中。四头幼象全部通过训练经验学会完整序列（各需 25–35 次），新行为可直接观察并按固定清单评分。</p>
                 <a href="../fagen/" class="link-btn">→ 看完整 study</a>
             </div>
         </div>
 
         <div class="model-answer">
-            <div class="ma-label">⭐ Q4(a) Model Answer — 3 marks <span class="ao-badge">AO1×2 AO2×1</span></div>
+            <div class="ma-label">⭐ Q4(a) 完整 3 分作答示范 = AO1（上方 verbatim）+ AO2（★Best fit 卡片）拼装 <span class="ao-badge">AO1×2 AO2×1</span></div>
             <div class="ma-text">
-                One assumption of the learning approach is that <span class="keyword">we all begin life as a blank slate</span> — <span class="keyword">experiences</span> and interactions with the <span class="keyword">environment</span> shape our behaviour and these changes are directly <span class="keyword">observable</span> <em>(AO1 = 2 marks)</em>. For example, Saavedra and Silverman (2002) showed that participants developed a fear of buttons after buttons were paired with disgusting images; buttons were not innately feared, and the <span class="keyword">learned</span> fear was directly <span class="keyword">observable</span> through avoidance ratings — demonstrating that the phobia was <span class="keyword">learned through environmental experience</span> <em>(AO2 = 1 mark)</em>.
-                <span class="cn-line">学习取向的一个假设是我们出生时都是白板——经验和环境的互动塑造了我们的行为，这些变化可以直接观察到。例：Saavedra & Silverman (2002) 表明参与者因按钮与令人厌恶的图像配对而对按钮产生了恐惧。</span>
+                One assumption of the learning approach is that <span class="keyword">we all begin life as a blank slate</span> — <span class="keyword">experiences</span> and interactions with the <span class="keyword">environment</span> shape our behaviour and these changes are directly <span class="keyword">observable</span> <em>(AO1 = 2 marks)</em>. For example, Bandura et al. (1961) found that children who had observed an aggressive adult model imitated specific aggressive acts (for instance hitting the Bobo doll with a mallet) that they had not produced before. The newly acquired aggression was directly <span class="keyword">observable</span> in the test phase, showing it was <span class="keyword">learned</span> from <span class="keyword">environmental experience</span> rather than being innate <em>(AO2 = 1 mark)</em>.
+                <span class="cn-line">学习取向的一个假设是我们出生时都是白板——经验和环境的互动塑造我们的行为，且这些变化可直接观察到。例：Bandura 等人(1961)发现观察过攻击性成人榜样的儿童模仿了具体攻击行为，而这些行为此前并未出现；新获得的攻击行为在测试阶段可直接观察到，说明它由环境经验习得而非天生。</span>
             </div>
         </div>
 
@@ -902,11 +953,20 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Ping
             <h3>📝 Exam Practice — Lrn A1</h3>
             <div class="qa-card">
                 <div class="qa-meta">Q4(a) · 3 marks · AO1 ×2 + AO2 ×1</div>
-                <div class="qa-question">"Outline one assumption of the learning approach, including an example from the study by <u>Bandura et al. (1961)</u>."</div>
+                <div class="qa-question">"Outline one assumption of the learning approach, including an example from the study by <u>Saavedra and Silverman (2002)</u>."</div>
                 <button class="qa-toggle" onclick="toggleAns(this)">Show Model Answer</button>
                 <div class="qa-answer">
                     <strong>AO1 (2 marks):</strong> We all begin life as a <span class="keyword">blank slate</span>. <span class="keyword">Experiences</span> and interactions with the <span class="keyword">environment</span> shape our <span class="keyword">behaviour</span> and these changes are directly <span class="keyword">observable</span>.<br><br>
-                    <strong>AO2 (1 mark):</strong> Bandura found that children who observed an aggressive adult model <span class="keyword">learned</span> by imitating specific aggressive acts (e.g., hitting a Bobo doll with a mallet) that they would not have spontaneously produced. The newly-acquired aggressive <span class="keyword">behaviour</span> was directly <span class="keyword">observable</span> in a test phase, showing that the behaviour was shaped by <span class="keyword">environmental experience</span> (the model), not innate.
+                    <strong>AO2 (1 mark):</strong> Saavedra and Silverman's 9-year-old patient was not born afraid of buttons — the phobia began at age five, when a whole bowl of buttons fell over him during a classroom art project. The <span class="keyword">learned</span> disgust response was directly <span class="keyword">observable</span> in his Feelings Thermometer ratings (8 out of 8 for the worst button-related image), showing the fear was shaped by <span class="keyword">environmental experience</span>, not innate.
+                </div>
+            </div>
+            <div class="qa-card">
+                <div class="qa-meta">Q4(a) · 3 marks · AO1 ×2 + AO2 ×1</div>
+                <div class="qa-question">"Outline one assumption of the learning approach, including an example from the study by <u>Fagen et al. (2014)</u>."</div>
+                <button class="qa-toggle" onclick="toggleAns(this)">Show Model Answer</button>
+                <div class="qa-answer">
+                    <strong>AO1 (2 marks):</strong> We all begin life as a <span class="keyword">blank slate</span>. <span class="keyword">Experiences</span> and interactions with the <span class="keyword">environment</span> shape our <span class="keyword">behaviour</span> and these changes are directly <span class="keyword">observable</span>.<br><br>
+                    <strong>AO2 (1 mark):</strong> Fagen trained elephants to perform a trunk-wash sequence that is not part of their natural repertoire. All four juvenile elephants <span class="keyword">learned</span> the behaviour through <span class="keyword">experience</span> of training (25–35 sessions each), and the new behaviour was directly <span class="keyword">observable</span> and scored against a fixed checklist — showing that the behaviour was shaped by the <span class="keyword">environment</span>, not innate.
                 </div>
             </div>
         </div>
@@ -927,38 +987,44 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Ping
 
         <p style="font-size:.9rem;line-height:1.65;margin-bottom:.5rem;"><strong>💡 关键概念 echo：</strong><span class="keyword">operant conditioning</span> + <span class="keyword">classical conditioning</span> + <span class="keyword">social learning</span> 三者必须都出现 + <span class="keyword">stimulus-response</span>。</p>
 
-        <div class="study-grid">
-            <div class="study-card">
+        <div class="study-grid v2">
+            <div class="study-card v2">
                 <div class="top-row">
                     <strong>Saavedra &amp; Silverman (2002)</strong>
                     <span class="badge badge-best">★ Best fit</span>
                 </div>
-                <div class="linking"><em>CS (buttons) + UCS (disgust images) → CR (button fear)</em><br><strong>Link：</strong>Clear <span class="keyword">classical conditioning</span> (evaluative conditioning) — neutral <span class="keyword">stimulus</span> paired with unconditioned <span class="keyword">stimulus</span> → conditioned <span class="keyword">response</span>。S-R model fully applies。</div>
+                <span class="la-label">AO2 完整作答 · 1 mark</span>
+                <p class="la-en"><strong>For example,</strong> in Saavedra and Silverman (2002) the boy's button phobia was acquired through <span class="keyword">classical conditioning</span>: the previously neutral <span class="keyword">stimulus</span> (buttons) was paired with an unconditioned <span class="keyword">stimulus</span> (the distressing experience of a whole bowl of buttons falling onto him), which produced a conditioned <span class="keyword">response</span> (disgust and fear). The <span class="keyword">stimulus–response</span> link became strong enough to disrupt his daily life.</p>
+                <p class="la-cn">例：Saavedra & Silverman (2002) 中男孩的纽扣恐惧通过经典条件反射获得：原本中性的刺激（纽扣）与无条件刺激（整碗纽扣洒在身上的痛苦经历）配对，产生了条件反应（厌恶与恐惧）。这一刺激—反应联结强到足以影响他的日常生活。</p>
                 <a href="../saavedra/" class="link-btn">→ 看完整 study</a>
             </div>
 
-            <div class="study-card">
+            <div class="study-card v2">
                 <div class="top-row">
                     <strong>Bandura et al. (1961)</strong>
                 </div>
-                <div class="linking"><em>Vicarious reinforcement through model</em><br><strong>Link：</strong><span class="keyword">Social learning</span> theory — observed model + observed consequence → imitation. Children imitating rewarded model (vicarious reinforcement) is the <span class="keyword">stimulus</span>-<span class="keyword">response</span> pattern via observation, not direct reinforcement。</div>
+                <span class="la-label">AO2 完整作答 · 1 mark</span>
+                <p class="la-en"><strong>For example,</strong> Bandura et al. (1961) demonstrated <span class="keyword">social learning</span>: children who observed an aggressive adult model later produced imitative aggressive behaviours (e.g. hitting the Bobo doll with a mallet) that they had not shown before, even though no direct reinforcement was given to the child. The modelled act functioned as the <span class="keyword">stimulus</span> and the copied act as the <span class="keyword">response</span>.</p>
+                <p class="la-cn">例：Bandura 等人(1961)示范了社会学习：观察过攻击性成人的儿童随后做出了模仿性的攻击行为（如用木槌打 Bobo doll），而这些行为此前并未出现，且儿童本人未获得任何直接强化。被示范的行为充当 stimulus，被模仿的行为即 response。</p>
                 <a href="../bandura/" class="link-btn">→ 看完整 study</a>
             </div>
 
-            <div class="study-card">
+            <div class="study-card v2">
                 <div class="top-row">
                     <strong>Fagen et al. (2014)</strong>
                 </div>
-                <div class="linking"><em>Shaping with food reward</em><br><strong>Link：</strong><span class="keyword">Operant conditioning</span> — successive approximations reinforced with food → behaviour gradually shaped. Each trial is a <span class="keyword">stimulus</span> (behaviour demand) → <span class="keyword">response</span> (elephant action) → consequence (food or not) loop。</div>
+                <span class="la-label">AO2 完整作答 · 1 mark</span>
+                <p class="la-en"><strong>For example,</strong> Fagen et al. (2014) used <span class="keyword">operant conditioning</span>: each step of the trunk-wash chain was shaped through successive approximations, with every correct <span class="keyword">response</span> to the trainer's cue (the <span class="keyword">stimulus</span>) marked by a whistle and reinforced with chopped banana. All four juvenile elephants learned the full sequence, with 'trunk here' the hardest step (~295 offers needed).</p>
+                <p class="la-cn">例：Fagen 等人(2014)运用操作条件反射：冲洗序列的每一步都通过渐进趋近法塑形，每次对训练者指令（stimulus）做出正确反应（response）就以哨声标记并给予香蕉强化。四头幼象都学会了完整序列，其中「放象鼻」最难（约需 295 次）。</p>
                 <a href="../fagen/" class="link-btn">→ 看完整 study</a>
             </div>
         </div>
 
         <div class="model-answer">
-            <div class="ma-label">⭐ Q4(a) Model Answer — 3 marks <span class="ao-badge">AO1×2 AO2×1</span></div>
+            <div class="ma-label">⭐ Q4(a) 完整 3 分作答示范 = AO1（上方 verbatim）+ AO2（★Best fit 卡片）拼装 <span class="ao-badge">AO1×2 AO2×1</span></div>
             <div class="ma-text">
-                A second assumption of the learning approach is that we learn through the processes of <span class="keyword">operant conditioning</span>, <span class="keyword">classical conditioning</span> and <span class="keyword">social learning</span>, and this can be understood using the <span class="keyword">stimulus-response</span> model <em>(AO1 = 2 marks)</em>. For example, Saavedra and Silverman (2002) used a form of <span class="keyword">classical conditioning</span> (evaluative conditioning): the neutral <span class="keyword">stimulus</span> (buttons) was repeatedly paired with the unconditioned <span class="keyword">stimulus</span> (disgusting images), producing a conditioned <span class="keyword">response</span> (fear/avoidance of buttons) — directly demonstrating the <span class="keyword">stimulus-response</span> learning process <em>(AO2 = 1 mark)</em>.
-                <span class="cn-line">另一个假设是学习通过操作条件、经典条件反射和社会学习进行，这可以用刺激-反应模型理解。例：Saavedra & Silverman (2002) 评估性条件反射——中性刺激（按钮）与无条件刺激（厌恶图像）配对，产生条件反应。</span>
+                A second assumption of the learning approach is that we learn through the processes of <span class="keyword">operant conditioning</span>, <span class="keyword">classical conditioning</span> and <span class="keyword">social learning</span>, and this can be understood using the <span class="keyword">stimulus-response</span> model <em>(AO1 = 2 marks)</em>. For example, Saavedra and Silverman (2002) used a form of <span class="keyword">classical conditioning</span> (evaluative conditioning): the neutral <span class="keyword">stimulus</span> (buttons) was paired with the unconditioned <span class="keyword">stimulus</span> (a whole bowl of buttons tipping over him during a classroom art project at age five), producing a conditioned <span class="keyword">response</span> (fear/avoidance of buttons) — directly demonstrating the <span class="keyword">stimulus-response</span> learning process <em>(AO2 = 1 mark)</em>.
+                <span class="cn-line">另一个假设是学习通过操作条件、经典条件反射和社会学习进行，这可以用刺激-反应模型理解。例：Saavedra & Silverman (2002) 经典条件反射——中性刺激（纽扣）与无条件刺激（5 岁时课堂上整碗纽扣洒在身上的痛苦经历）配对，产生条件反应（恐惧/回避纽扣）。</span>
             </div>
         </div>
 
@@ -1004,7 +1070,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Ping
 
     <div class="id-card">
         <h4>3️⃣ Nature vs nurture / 先天 vs 后天</h4>
-        <p><strong>Nature</strong> = 先天生物/基因；<strong>Nurture</strong> = 后天环境/经验。<strong>支持 nature 的研究</strong>：Hassett (跨物种+动物研究) · Dement (脑电+睡眠生理) · Hoelzel (脑结构改变) · Baron-Cohen (性别差异+先天 ToM 缺陷)。<strong>支持 nurture 的研究</strong>：Saavedra (按钮恐惧) · Bandura (观察学习) · Fagen (训练) · Andrade (涂鸦提升记忆)。</p>
+        <p><strong>Nature</strong> = 先天生物/基因；<strong>Nurture</strong> = 后天环境/经验。<strong>支持 nature 的研究</strong>：Hassett (跨物种+动物研究) · Dement (脑电+睡眠生理) · Hoelzel (脑结构改变) · Baron-Cohen (性别差异+先天 ToM 缺陷)。<strong>支持 nurture 的研究</strong>：Saavedra (纽扣恐惧) · Bandura (观察学习) · Fagen (训练) · Andrade (涂鸦提升记忆)。</p>
         <p style="margin-top:.5rem;"><strong>答题框架</strong>：[Study X] supports the [nature/nurture] side because [specific finding shows ...]，且 MS 接受两种 valid 对比（如 Hassett = nature side / Saavedra = nurture side）。</p>
         <span class="cn-line">CIE AS 必考 debate 之一，AO3 题型常见。</span>
     </div>
@@ -1060,7 +1126,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Ping
             <button class="qa-toggle" onclick="toggleAns(this)">Show Model Answer</button>
             <div class="qa-answer">
                 <strong>Assumption (AO1 = 2 marks):</strong> We learn through the processes of operant conditioning, classical conditioning and social learning. This can be understood using the stimulus-response model.<br><br>
-                <strong>Example (AO2 = 1 mark):</strong> Bandura demonstrated <u>social learning</u>: children observed an adult model behaving aggressively toward a Bobo doll and being rewarded. Through <u>vicarious reinforcement</u>, children later imitated the aggressive acts — this observational <u>stimulus-response</u> pattern supported the assumption.
+                <strong>Example (AO2 = 1 mark):</strong> Bandura demonstrated <u>social learning</u>: children observed an adult model behaving aggressively toward a Bobo doll (no reward was given in the 1961 study). The children later imitated the model's specific aggressive acts — for instance hitting the doll with a mallet — and these new aggressive acts were performed in a new setting without the model present. This observational <u>stimulus-response</u> pattern (model = stimulus, imitation = response) supported the assumption.
             </div>
         </div>
 
@@ -1080,7 +1146,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Ping
             <button class="qa-toggle" onclick="toggleAns(this)">Show Model Answer</button>
             <div class="qa-answer">
                 <strong>Assumption (AO1 = 2 marks):</strong> Similarities and differences between people can be understood in terms of biological factors and their interaction with other factors.<br><br>
-                <strong>Example (AO2 = 1 mark):</strong> Dement found <u>individual differences</u> in dream recall — some participants could vividly recall dreams from every awakening (high recallers) while others could recall none (low recallers). These <u>differences</u> in dream <u>recall</u> reflect variations in <u>biological</u> sleep physiology (REM, eye movement intensity) interacting with personal factors.
+                <strong>Example (AO2 = 1 mark):</strong> Dement found <u>individual differences</u> in <u>biological</u> sleep patterns — although the mean sleep cycle lasted 92 minutes across participants, this cycle length was stable within each individual, and REM dream-recall rates varied between people (KC recalled 36/40 = 90%, the highest). These consistent between-person <u>differences</u> reflect stable <u>biological</u> characteristics rather than random variation.
             </div>
         </div>
 
@@ -1090,7 +1156,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Ping
             <button class="qa-toggle" onclick="toggleAns(this)">Show Model Answer</button>
             <div class="qa-answer">
                 <strong>Assumption (AO1 = 2 marks):</strong> We all begin life as a blank slate. Experiences and interactions with the environment shape our behaviour and these changes are directly observable.<br><br>
-                <strong>Example (AO2 = 1 mark):</strong> Saavedra and Silverman found that participants developed a fear of <u>buttons</u> only after these neutral objects were paired with <u>disgusting images</u> — the phobia was not innate. The newly-acquired <u>fear/avoidance</u> was directly <u>observable</u> through avoidance ratings, supporting that <u>environmental experiences</u> shaped <u>behaviour</u>.
+                <strong>Example (AO2 = 1 mark):</strong> Saavedra and Silverman found that the boy's fear of <u>buttons</u> was not innate — it appeared after a whole bowl of buttons tipped over him during a classroom art project at age five. His newly-acquired <u>fear/avoidance</u> was directly <u>observable</u> through his Feelings Thermometer ratings (8 out of 8 for the worst button image), supporting that <u>environmental experiences</u> shaped <u>behaviour</u>.
             </div>
         </div>
 
@@ -1100,7 +1166,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Ping
             <button class="qa-toggle" onclick="toggleAns(this)">Show Model Answer</button>
             <div class="qa-answer">
                 <strong>Assumption (AO1 = 2 marks):</strong> Behaviour, cognitions and emotions can be influenced by the actual, implied or imagined presence of others.<br><br>
-                <strong>Example (AO2 = 1 mark):</strong> Piliavin found that helping behaviour was influenced by the number of <u>bystanders</u> <u>actually present</u> on the subway carriage — critical-condition helping was 70/40 while there were more passengers, but slowing when the victim was drunk (less <u>"implied"</u> social pressure to help).
+                <strong>Example (AO2 = 1 mark):</strong> Piliavin found that helping was influenced by the <u>actual presence</u> of other people in the carriage. Contrary to diffusion of responsibility, larger groups helped <u>faster</u> — when 7+ males were actually present in the critical area the median helping time was only 1.5 seconds, compared with 7 seconds when only 1–3 males were present. Victim type also mattered: 95% of cane victims were helped versus 50% of drunk victims.
             </div>
         </div>
     </div>
@@ -1134,7 +1200,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Ping
             <div class="qa-question">"<u>Baron-Cohen et al. (2001)</u> can be related to the nature-nurture debate. Discuss."</div>
             <button class="qa-toggle" onclick="toggleAns(this)">Show Model Answer</button>
             <div class="qa-answer">
-                <strong>Nature side (AO2):</strong> Baron-Cohen supports nature because females scored significantly higher than males on the Eyes Test, suggesting sex differences in theory of mind have a <u>biological basis</u> (possibly prenatal testosterone).<br><br>
+                <strong>Nature side (AO2):</strong> Baron-Cohen supports nature because males scored lower than females on the Eyes Test, suggesting sex differences in theory of mind may have a <u>biological basis</u> (possibly prenatal testosterone).<br><br>
                 <strong>Counter — Nurture side (AO3):</strong> However, this can be challenged because socialisation differences could also explain why females perform better (e.g., girls are encouraged to read facial expressions more). The study cannot definitively separate nature from nurture.
             </div>
         </div>
