@@ -1,224 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CIE Approaches & Assumptions | 取向与基本假设</title>
-    <style>
-        :root {
-            --bio: #C62828; --bio-light: #FCEBEB; --bio-dark: #791F1F;
-            --cog: #1565C0; --cog-light: #E6F1FB; --cog-dark: #0C447C;
-            --soc: #E87722; --soc-light: #FAEEDA; --soc-dark: #633806;
-            --lrn: #2E7D32; --lrn-light: #EAF3DE; --lrn-dark: #27500A;
-            --bg: #F5F7FA; --card-bg: #FFFFFF;
-            --text: #2C3E50; --text-light: #607D8B;
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Approaches, Issues &amp; Debates | CIE A Level Psychology</title>
+<style>
+:root {
+    --bio: #C62828; --bio-light: #FCEBEB; --bio-dark: #791F1F;
+    --cog: #1565C0; --cog-light: #E6F1FB; --cog-dark: #0C447C;
+    --soc: #E87722; --soc-light: #FAEEDA; --soc-dark: #633806;
+    --lrn: #2E7D32; --lrn-light: #EAF3DE; --lrn-dark: #27500A;
+    --bg: #F5F7FA; --card-bg: #FFFFFF; --text: #2C3E50; --text-light: #607D8B;
+    --gold: #F59E0B; --green: #16A34A; --blue: #2563EB; --purple: #7C3AED;
+    --border: #E0E0E0; --shadow: 0 1px 4px rgba(0,0,0,.05);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 16px; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Microsoft YaHei', sans-serif; background: var(--bg); color: var(--text); line-height: 1.75; font-size: 1em; }
+.dark-mode { background: #1A1D23; color: #E0E0E0; }
+.dark-mode .card { background: #2A2D33; border-color: #3A3D43; color: #E0E0E0; }
+.dark-mode .nav-bar { background: #23262C; border-color: #3A3D43; }
+.dark-mode .header { background: linear-gradient(135deg, #0d1130, #1c2150); }
+.dark-mode .quickref-card { background: #2A2D33; border-color: #3A3D43; }
+.dark-mode .assumption-text-box, .dark-mode .verbatim-box { background: #23262C; border-color: #3A3D43; }
+.dark-mode .cn-line { color: #888; }
+.dark-mode .model-answer { background: #1c3a26; border-color: #2e6741; }
+.dark-mode .exam-tip { background: #1e2a3f; border-color: #2a4a73; }
+.dark-mode .ms-warn { background: #3d2817; border-color: #6b4423; }
+.dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode h4, .dark-mode p, .dark-mode label, .dark-mode li { color: #E0E0E0; }
 
-        .header {
-            background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
-            color: white; padding: 2.5rem 2rem; text-align: center;
-        }
-        .header h1 { font-size: 2rem; font-weight: 700; margin-bottom: 0.4rem; }
-        .header p { font-size: 1rem; opacity: 0.9; }
-        .header .exam-badge {
-            display: inline-block; background: rgba(255,255,255,0.2);
-            padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.85rem; margin-top: 0.8rem;
-        }
+/* NAV */
+.nav-bar { position: sticky; top: 0; z-index: 100; background: white; border-bottom: 2px solid var(--border); padding: .7rem 1.5rem; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 10px rgba(0,0,0,.08); }
+.nav-left { display: flex; align-items: center; gap: .8rem; }
+.nav-home { display: inline-flex; align-items: center; gap: .4rem; padding: 5px 14px; background: linear-gradient(135deg,#1a237e,#3949ab); color: white; border-radius: 20px; text-decoration: none; font-size: .82rem; font-weight: 600; }
+.nav-home:hover { transform: translateY(-1px); box-shadow: 0 3px 10px rgba(26,35,126,.3); }
+.breadcrumb { display: flex; align-items: center; gap: .4rem; font-size: .8rem; color: var(--text-light); }
+.breadcrumb a { color: #1565C0; text-decoration: none; font-weight: 500; }
+.breadcrumb .sep { color: #bbb; }
+.nav-right { display: flex; align-items: center; gap: .5rem; }
+.nav-btn { padding: 5px 12px; background: white; border: 1px solid var(--border); border-radius: 14px; cursor: pointer; font-size: .8rem; transition: all .15s; }
+.nav-btn:hover { background: #f5f5f5; }
+.dark-mode .nav-btn { background: #2A2D33; color: #E0E0E0; border-color: #3A3D43; }
 
-        .container { max-width: 900px; margin: 1.5rem auto; padding: 0 1.5rem; }
+/* HEADER */
+.header { background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%); color: white; padding: 2.5rem 2rem; text-align: center; }
+.header h1 { font-size: 2rem; font-weight: 700; margin-bottom: .4rem; }
+.header p { font-size: 1rem; opacity: .92; }
+.header .exam-badge { display: inline-block; background: rgba(255,255,255,.18); padding: .4rem 1rem; border-radius: 20px; font-size: .85rem; margin-top: .8rem; }
 
-        /* Tab Navigation */
-        .tabs { display: flex; gap: 8px; margin-bottom: 1.5rem; flex-wrap: wrap; justify-content: center; }
-        .tab-btn {
-            padding: 10px 24px; border-radius: 25px; border: 2px solid #ccc;
-            background: white; font-size: 14px; font-weight: 600; cursor: pointer;
-            transition: all 0.2s;
-        }
-        .tab-btn.bio { border-color: var(--bio); color: var(--bio); }
-        .tab-btn.bio.active { background: var(--bio); color: white; }
-        .tab-btn.cog { border-color: var(--cog); color: var(--cog); }
-        .tab-btn.cog.active { background: var(--cog); color: white; }
-        .tab-btn.soc { border-color: var(--soc); color: var(--soc); }
-        .tab-btn.soc.active { background: var(--soc); color: white; }
-        .tab-btn.lrn { border-color: var(--lrn); color: var(--lrn); }
-        .tab-btn.lrn.active { background: var(--lrn); color: white; }
+/* CONTAINER */
+.container { max-width: 1000px; margin: 0 auto; padding: 1.5rem 1.5rem 5rem; }
 
-        .tab-panel { display: none; }
-        .tab-panel.active { display: block; }
+/* SECTION (replaces tabs - all sections visible) */
+.approach-section { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 3px double #d0d0d0; }
+.approach-section:first-of-type { border-top: 0; margin-top: 1rem; }
+.approach-header {
+    border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem;
+    border-left: 6px solid; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+}
+.approach-header.bio { background: var(--bio-light); border-color: var(--bio); }
+.approach-header.cog { background: var(--cog-light); border-color: var(--cog); }
+.approach-header.soc { background: var(--soc-light); border-color: var(--soc); }
+.approach-header.lrn { background: var(--lrn-light); border-color: var(--lrn); }
+.approach-header .icon { font-size: 2.4rem; }
+.approach-header h2 { font-size: 1.5rem; }
+.approach-header.bio h2 { color: var(--bio-dark); }
+.approach-header.cog h2 { color: var(--cog-dark); }
+.approach-header.soc h2 { color: var(--soc-dark); }
+.approach-header.lrn h2 { color: var(--lrn-dark); }
+.approach-header .meta { font-size: .85rem; opacity: .8; margin-top: .3rem; }
 
-        /* Approach Header */
-        .approach-header {
-            border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem;
-            border-left: 5px solid;
-        }
-        .approach-header.bio { background: var(--bio-light); border-color: var(--bio); }
-        .approach-header.cog { background: var(--cog-light); border-color: var(--cog); }
-        .approach-header.soc { background: var(--soc-light); border-color: var(--soc); }
-        .approach-header.lrn { background: var(--lrn-light); border-color: var(--lrn); }
-        .approach-header h2 { font-size: 1.4rem; margin-bottom: 0.4rem; }
-        .approach-header h2.bio { color: var(--bio-dark); }
-        .approach-header h2.cog { color: var(--cog-dark); }
-        .approach-header h2.soc { color: var(--soc-dark); }
-        .approach-header h2.lrn { color: var(--lrn-dark); }
-        .approach-header .subtitle { font-size: 0.95rem; opacity: 0.85; }
+/* SECTION TITLE */
+.h2-section { display: flex; align-items: center; gap: .8rem; margin: 2rem 0 1rem; padding: .8rem 1rem; border-radius: 10px; }
+.h2-section .label { font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 4px 12px; border-radius: 12px; background: rgba(255,255,255,.4); }
+.h2-section.bio { background: var(--bio-light); color: var(--bio-dark); }
+.h2-section.cog { background: var(--cog-light); color: var(--cog-dark); }
+.h2-section.soc { background: var(--soc-light); color: var(--soc-dark); }
+.h2-section.lrn { background: var(--lrn-light); color: var(--lrn-dark); }
+.h2-section.neutral { background: #f0f0f0; color: #555; }
 
-        /* Section Titles */
-        .section-label {
-            display: inline-block; font-size: 0.75rem; font-weight: 700;
-            text-transform: uppercase; letter-spacing: 1px; padding: 4px 12px;
-            border-radius: 12px; margin-bottom: 1rem;
-        }
-        .label-learn { background: #E3F2FD; color: #1565C0; }
-        .label-practice { background: #FFF3E0; color: #E65100; }
+/* CARDS */
+.card { background: white; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.2rem; border: 1px solid var(--border); box-shadow: var(--shadow); }
+.card h3 { margin-bottom: .6rem; font-size: 1.15rem; }
 
-        /* Assumption Card */
-        .assumption-card {
-            background: white; border-radius: 12px; padding: 1.5rem;
-            margin-bottom: 1.5rem; border: 1px solid #e0e0e0;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.05);
-        }
-        .assumption-num {
-            display: inline-flex; align-items: center; justify-content: center;
-            width: 28px; height: 28px; border-radius: 50%; color: white;
-            font-weight: 700; font-size: 14px; margin-right: 10px;
-        }
-        .assumption-num.bio { background: var(--bio); }
-        .assumption-num.cog { background: var(--cog); }
-        .assumption-num.soc { background: var(--soc); }
-        .assumption-num.lrn { background: var(--lrn); }
+.assumption-card { border-left: 5px solid; }
+.assumption-card.bio { border-left-color: var(--bio); }
+.assumption-card.cog { border-left-color: var(--cog); }
+.assumption-card.soc { border-left-color: var(--soc); }
+.assumption-card.lrn { border-left-color: var(--lrn); }
 
-        .assumption-text-box {
-            background: #f8f9fa; border: 1px dashed #bbb; border-radius: 8px;
-            padding: 1rem 1.2rem; margin: 0.8rem 0; position: relative;
-        }
-        .copy-btn {
-            position: absolute; top: 8px; right: 8px;
-            padding: 4px 10px; font-size: 11px; border-radius: 6px;
-            border: 1px solid #ddd; background: white; cursor: pointer;
-            color: #666; transition: all 0.15s;
-        }
-        .copy-btn:hover { background: #eee; color: #333; }
-        .copy-btn.copied { background: #4CAF50; color: white; border-color: #4CAF50; }
+/* VERBATIM BOX (syllabus source) */
+.verbatim-box {
+    background: #fffbeb; border: 2px solid #fcd34d; border-radius: 10px;
+    padding: 1.1rem 1.3rem; margin: .9rem 0; position: relative;
+}
+.dark-mode .verbatim-box { background: #3d2f17; border-color: #876228; }
+.verbatim-box .syllabus-tag { display: inline-block; background: #f59e0b; color: white; font-size: .68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; padding: 3px 8px; border-radius: 6px; margin-bottom: .5rem; }
+.verbatim-text { font-size: .98rem; font-weight: 500; color: #4a3a00; line-height: 1.65; font-style: italic; }
+.dark-mode .verbatim-text { color: #f3d68c; }
+.copy-btn { position: absolute; top: 10px; right: 10px; padding: 4px 11px; font-size: .72rem; border-radius: 6px; border: 1px solid #ddd; background: white; cursor: pointer; color: #666; font-weight: 600; }
+.copy-btn:hover { background: #fef3c7; }
+.copy-btn.copied { background: var(--green); color: white; border-color: var(--green); }
 
-        .assumption-text { font-size: 1rem; font-weight: 500; color: #333; line-height: 1.65; }
+/* KEYWORD ECHO HELPER */
+.keyword { background: #fef3c7; border-bottom: 1.5px solid #f59e0b; padding: 0 3px; border-radius: 3px; font-weight: 600; }
+.dark-mode .keyword { background: #4a3a00; border-color: #b58a18; color: #fde68a; }
 
-        /* Model Answer */
-        .model-answer {
-            background: #E8F5E9; border-left: 4px solid #4CAF50;
-            border-radius: 0 8px 8px 0; padding: 1rem 1.2rem; margin: 1rem 0;
-        }
-        .model-answer .ma-label {
-            font-size: 0.75rem; font-weight: 700; color: #2E7D32;
-            text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px;
-        }
-        .model-answer .ma-text { font-size: 0.93rem; color: #1B5E20; line-height: 1.6; }
-        .marks-badge {
-            display: inline-block; background: #4CAF50; color: white;
-            font-size: 11px; font-weight: 700; padding: 2px 8px;
-            border-radius: 10px; margin-left: 8px; vertical-align: middle;
-        }
+/* MODEL ANSWER */
+.model-answer { background: #E8F5E9; border-left: 4px solid #4CAF50; border-radius: 0 8px 8px 0; padding: 1.1rem 1.3rem; margin: 1rem 0; }
+.dark-mode .model-answer { background: #1c3a26; border-color: #4ade80; }
+.model-answer .ma-label { font-size: .72rem; font-weight: 700; color: #2E7D32; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 6px; }
+.dark-mode .model-answer .ma-label { color: #86efac; }
+.model-answer .ma-text { font-size: .93rem; color: #1B5E20; line-height: 1.7; }
+.dark-mode .model-answer .ma-text { color: #c5e8d2; }
+.marks-badge { display: inline-block; background: #4CAF50; color: white; font-size: .7rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin-left: 8px; vertical-align: middle; }
+.ao-badge { display: inline-block; background: var(--purple); color: white; font-size: .65rem; font-weight: 700; padding: 2px 7px; border-radius: 10px; margin-left: 4px; vertical-align: middle; letter-spacing: .3px; }
 
-        /* Study Link Tags */
-        .study-links { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 1rem; }
-        .study-tag {
-            display: inline-flex; align-items: center; gap: 6px;
-            padding: 6px 14px; border-radius: 16px; font-size: 0.87rem;
-            text-decoration: none; transition: transform 0.15s;
-            border: 1px solid;
-        }
-        .study-tag:hover { transform: translateY(-2px); }
-        .study-tag.bio { background: var(--bio-light); color: var(--bio-dark); border-color: #F09595; }
-        .study-tag.cog { background: var(--cog-light); color: var(--cog-dark); border-color: #85B7EB; }
-        .study-tag.soc { background: var(--soc-light); color: var(--soc-dark); border-color: #EF9F27; }
-        .study-tag.lrn { background: var(--lrn-light); color: var(--lrn-dark); border-color: #97C459; }
-        .study-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-        .study-tag.bio .study-dot { background: var(--bio); }
-        .study-tag.cog .study-dot { background: var(--cog); }
-        .study-tag.soc .study-dot { background: var(--soc); }
-        .study-tag.lrn .study-dot { background: var(--lrn); }
+/* MS WARNING BOX */
+.ms-warn { background: #FFF3E0; border: 1px solid #FFB74D; border-radius: 8px; padding: .9rem 1.1rem; margin: .8rem 0; font-size: .85rem; color: #6D3A00; line-height: 1.55; }
+.dark-mode .ms-warn { background: #3d2817; border-color: #c47a23; color: #f5cba0; }
+.ms-warn strong { color: #E65100; }
+.dark-mode .ms-warn strong { color: #ffb959; }
 
-        /* Explanation Box */
-        .explain-box {
-            background: #FFF8E1; border: 1px solid #FFE082;
-            border-radius: 8px; padding: 0.9rem 1.1rem; margin-top: 0.7rem;
-            font-size: 0.88rem; color: #5D4037; line-height: 1.55;
-        }
-        .explain-box strong { color: #E65100; }
+/* STUDY CARDS GRID */
+.study-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin: 1rem 0; }
+.study-card { background: white; border: 1.5px solid var(--border); border-radius: 10px; padding: 1rem 1.1rem; transition: all .15s; }
+.dark-mode .study-card { background: #23262C; border-color: #3A3D43; }
+.study-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,.08); }
+.study-card .top-row { display: flex; align-items: baseline; gap: .5rem; flex-wrap: wrap; margin-bottom: .5rem; }
+.study-card .top-row strong { font-size: .98rem; }
+.study-card .top-row .badge { font-size: .68rem; padding: 2px 8px; border-radius: 8px; font-weight: 600; }
+.badge-best { background: #fef3c7; color: #92400e; }
+.dark-mode .badge-best { background: #4a3a00; color: #fde68a; }
+.study-card .linking { font-size: .88rem; color: var(--text); line-height: 1.55; }
+.study-card .linking em { color: var(--text-light); font-style: normal; font-size: .82rem; }
+.study-card .link-btn { display: inline-flex; align-items: center; gap: 4px; margin-top: .6rem; padding: 4px 12px; background: var(--bg); color: #1565C0; border-radius: 14px; font-size: .78rem; font-weight: 600; text-decoration: none; border: 1px solid var(--border); }
+.study-card .link-btn:hover { background: #dbeafe; }
 
-        /* Practice Section */
-        .practice-section {
-            background: white; border-radius: 12px; padding: 1.5rem;
-            margin-top: 2rem; border: 2px solid #FFCC80;
-        }
-        .practice-section h3 { color: #E65100; font-size: 1.2rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 8px; }
+/* EXAM PRACTICE SECTION */
+.exam-practice { background: #fffaf3; border: 2px solid #fbbf24; border-radius: 12px; padding: 1.5rem; margin-top: 1.5rem; }
+.dark-mode .exam-practice { background: #2d2417; border-color: #876228; }
+.exam-practice h3 { color: #b45309; font-size: 1.2rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 8px; }
+.dark-mode .exam-practice h3 { color: #f0c070; }
 
-        .question-block {
-            background: #FAFAFA; border: 1px solid #E0E0E0;
-            border-radius: 10px; padding: 1.2rem 1.4rem; margin-bottom: 1rem;
-        }
-        .q-label { font-weight: 700; color: #333; margin-bottom: 0.5rem; }
-        .q-text { font-size: 0.95rem; color: #444; margin-bottom: 0.8rem; line-height: 1.5; }
-        .q-lines {
-            border: 1px dashed #ccc; border-radius: 6px;
-            min-height: 60px; background: white; padding: 0.8rem;
-            font-family: 'Courier New', monospace; font-size: 0.85rem; color: #999;
-        }
-        .show-ans-btn {
-            padding: 8px 20px; border-radius: 8px; border: none;
-            background: #FF9800; color: white; font-weight: 600;
-            font-size: 0.9rem; cursor: pointer; margin-top: 0.8rem;
-            transition: background 0.15s;
-        }
-        .show-ans-btn:hover { background: #F57C00; }
-        .answer-reveal {
-            display: none; background: #E8F5E9; border-radius: 8px;
-            padding: 1rem 1.2rem; margin-top: 0.8rem; animation: fadeIn 0.3s ease;
-        }
-        .answer-reveal.show { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
+.qa-card { background: white; border: 1px solid #fed7aa; border-radius: 10px; padding: 1rem 1.2rem; margin-bottom: .9rem; }
+.dark-mode .qa-card { background: #23262C; border-color: #876228; }
+.qa-question { font-weight: 600; color: #333; margin-bottom: .6rem; font-size: .95rem; line-height: 1.5; }
+.dark-mode .qa-question { color: #E0E0E0; }
+.qa-meta { font-size: .78rem; color: #92400e; margin-bottom: .5rem; font-weight: 500; }
+.dark-mode .qa-meta { color: #f0c070; }
+.qa-answer { background: #F0FDF4; border-left: 3px solid #4CAF50; padding: .9rem 1.1rem; border-radius: 0 6px 6px 0; margin-top: .7rem; display: none; font-size: .9rem; line-height: 1.65; color: #1B5E20; }
+.dark-mode .qa-answer { background: #1c3a26; color: #c5e8d2; }
+.qa-answer.show { display: block; animation: fadeIn .25s; }
+.qa-toggle { padding: 5px 14px; background: #fbbf24; color: #422006; font-weight: 700; font-size: .82rem; border: none; border-radius: 16px; cursor: pointer; margin-top: .4rem; }
+.qa-toggle:hover { background: #f59e0b; color: white; }
 
-        .ans-part { margin-bottom: 0.8rem; }
-        .ans-part:last-child { margin-bottom: 0; }
-        .ans-label { font-weight: 700; font-size: 0.82rem; color: #2E7D32; margin-bottom: 4px; }
-        .ans-text { font-size: 0.9rem; color: #1B5E20; line-height: 1.6; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* Tip Box */
-        .tip-box {
-            background: #E3F2FD; border-left: 4px solid #1565C0;
-            border-radius: 0 8px 8px 0; padding: 1rem 1.2rem;
-            margin: 1.5rem 0; font-size: 0.9rem; color: #0D47A1; line-height: 1.6;
-        }
-        .tip-box strong { color: #1565C0; }
+/* QUICKREF CARD */
+.quickref-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1rem; margin: 1rem 0; }
+.quickref-card { background: white; border-radius: 10px; padding: 1rem 1.2rem; border: 1px solid var(--border); border-left: 4px solid; }
+.quickref-card.bio { border-left-color: var(--bio); }
+.quickref-card.cog { border-left-color: var(--cog); }
+.quickref-card.soc { border-left-color: var(--soc); }
+.quickref-card.lrn { border-left-color: var(--lrn); }
+.quickref-card h4 { font-size: 1rem; margin-bottom: .5rem; }
+.quickref-card .qr-list { font-size: .88rem; line-height: 1.6; }
+.quickref-card .qr-list li { margin-bottom: .35rem; }
 
-        /* Footer */
-        .footer { text-align: center; padding: 2rem; color: var(--text-light); font-size: 0.85rem; border-top: 1px solid #ddd; margin-top: 2rem; }
+/* EXAM TIP */
+.exam-tip { background: #E3F2FD; border-left: 4px solid #1565C0; border-radius: 0 8px 8px 0; padding: 1rem 1.2rem; margin: 1.5rem 0; font-size: .9rem; color: #0D47A1; line-height: 1.65; }
+.dark-mode .exam-tip { background: #1e2a3f; border-color: #3b82f6; color: #93c5fd; }
+.exam-tip strong { color: #1565C0; }
+.dark-mode .exam-tip strong { color: #bfdbfe; }
 
-        /* Sticky Navigation Bar */
-        .nav-bar{position:sticky;top:0;z-index:100;background:white;border-bottom:2px solid #e0e0e0;padding:.7rem 1.5rem;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 10px rgba(0,0,0,.08)}
-        .nav-left{display:flex;align-items:center;gap:.8rem}
-        .nav-home{display:inline-flex;align-items:center;gap:.4rem;padding:5px 14px;background:linear-gradient(135deg,#1a237e,#3949ab);color:white;border-radius:20px;text-decoration:none;font-size:.82rem;font-weight:600;transition:transform .15s,box-shadow .15s}
-        .nav-home:hover{transform:translateY(-1px);box-shadow:0 3px 10px rgba(26,35,126,.3)}
-        .breadcrumb{display:flex;align-items:center;gap:.4rem;font-size:.8rem;color:#607D8B}
-        .breadcrumb a{color:#1565C0;text-decoration:none;font-weight:500}
-        .breadcrumb a:hover{text-decoration:underline}
-        .breadcrumb .sep{color:#bbb}
-        .nav-right{display:flex;align-items:center;gap:.6rem}
-        .nav-progress{font-size:.75rem;color:#607D8B;background:#f0f0f0;padding:4px 12px;border-radius:12px;font-weight:600}
+/* CN AUX (zh-line small layer) */
+.cn-line { display: block; font-size: .82rem; color: #888; font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif; margin-top: .35rem; line-height: 1.55; }
 
-        @media (max-width: 600px) {
-            .tabs { justify-content: stretch; }
-            .tab-btn { flex: 1; text-align: center; padding: 8px 12px; font-size: 13px; }
-            .container { padding: 0 1rem; }
-            .nav-bar{flex-wrap:wrap;gap:.5rem;padding:.6rem 1rem}
-            .breadcrumb{font-size:.72rem}
-            .nav-progress{display:none}
-        }
-    </style>
+/* I&D LIST */
+.id-card { background: white; border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.2rem; margin-bottom: .7rem; border-left: 4px solid var(--purple); }
+.dark-mode .id-card { background: #23262C; border-color: #3A3D43; }
+.id-card h4 { color: var(--purple); font-size: 1.05rem; margin-bottom: .4rem; }
+.id-card p { font-size: .9rem; line-height: 1.6; }
+
+/* AO / TYPE BANNER */
+.type-banner { background: linear-gradient(90deg, #fef3c7, #fde68a); border-radius: 8px; padding: .5rem .9rem; margin: 1rem 0; font-size: .82rem; font-weight: 600; color: #78350f; display: inline-block; }
+.dark-mode .type-banner { background: #3d2f17; color: #fde68a; }
+
+/* SIDEBAR TOC */
+.toc-floating { position: fixed; right: 20px; top: 80px; width: 200px; background: white; border: 1px solid var(--border); border-radius: 10px; padding: .7rem .9rem; box-shadow: var(--shadow); font-size: .8rem; max-height: 70vh; overflow-y: auto; display: none; }
+@media (min-width: 1300px) { .toc-floating { display: block; } }
+.toc-floating h5 { color: var(--text-light); font-size: .7rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: .5rem; }
+.toc-floating a { display: block; padding: 3px 0; color: var(--text); text-decoration: none; font-weight: 500; line-height: 1.4; border-left: 3px solid transparent; padding-left: 6px; }
+.toc-floating a:hover { color: #1565C0; border-left-color: #1565C0; }
+.toc-floating a.bio { color: var(--bio); }
+.toc-floating a.cog { color: var(--cog); }
+.toc-floating a.soc { color: var(--soc); }
+.toc-floating a.lrn { color: var(--lrn); }
+
+/* FOOTER */
+.footer { text-align: center; padding: 2rem; color: var(--text-light); font-size: .85rem; border-top: 1px solid #ddd; margin-top: 2rem; }
+.footer .signature { font-size: .75rem; opacity: .7; }
+
+@media (max-width: 768px) {
+    .container { padding: 1rem; }
+    .approach-header { padding: 1.2rem; }
+    .nav-bar { flex-wrap: wrap; gap: .5rem; padding: .6rem 1rem; }
+    .breadcrumb { display: none; }
+}
+
+/* BACK TO TOP */
+.back-to-top { position: fixed; bottom: 20px; right: 20px; padding: 10px 16px; background: var(--bio); color: white; border: none; border-radius: 24px; font-size: .82rem; font-weight: 600; cursor: pointer; display: none; z-index: 99; box-shadow: 0 4px 12px rgba(0,0,0,.15); }
+.back-to-top:hover { transform: translateY(-2px); }
+.back-to-top.show { display: block; }
+
+/* HIGHLIGHT NOTE */
+.note-highlight { background: #fef9c3; border-bottom: 2px solid #fbbf24; padding: 0 2px; cursor: pointer; }
+.dark-mode .note-highlight { background: #4a3a00; border-color: #b58a18; color: #fde68a; }
+
+/* NOTES PANEL */
+.notes-fab { position: fixed; bottom: 20px; left: 20px; padding: 12px 14px; background: var(--bg); color: var(--text); border: 1.5px solid var(--border); border-radius: 50%; cursor: pointer; z-index: 99; font-size: 1.1rem; box-shadow: 0 4px 12px rgba(0,0,0,.15); }
+.notes-panel { position: fixed; left: 20px; bottom: 76px; width: 280px; max-height: 60vh; background: white; border: 1px solid var(--border); border-radius: 12px; padding: 1rem 1.1rem; z-index: 99; box-shadow: 0 6px 18px rgba(0,0,0,.15); display: none; }
+.dark-mode .notes-panel { background: #2A2D33; }
+.notes-panel h5 { color: var(--text-light); font-size: .7rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: .5rem; }
+.notes-panel textarea { width: 100%; min-height: 100px; border: 1px solid var(--border); border-radius: 6px; padding: .5rem; font-size: .85rem; resize: vertical; font-family: inherit; }
+.notes-panel .save-info { font-size: .75rem; color: var(--text-light); margin-top: .4rem; }
+.notes-panel.show { display: block; }
+.dark-mode .notes-panel textarea { background: #1A1D23; color: #E0E0E0; border-color: #3A3D43; }
+
+/* SCROLL SPY */
+.section-anchor { scroll-margin-top: 70px; }
+</style>
 </head>
 <body>
 
+<!-- ========== STICKY NAV ========== -->
 <nav class="nav-bar">
     <div class="nav-left">
         <a href="../../index.html" class="nav-home">Home</a>
@@ -227,591 +243,983 @@
             <span class="sep">›</span>
             <a href="../">CIE Psychology</a>
             <span class="sep">›</span>
-            <span>Approaches & Assumptions</span>
+            <span>Approaches, Issues &amp; Debates</span>
         </div>
     </div>
     <div class="nav-right">
-        <span class="nav-progress">4 Approaches · 8 Assumptions</span>
+        <button class="nav-btn" id="fontInc" title="Increase font size">A+</button>
+        <button class="nav-btn" id="fontDec" title="Decrease font size">A-</button>
+        <button class="nav-btn" id="darkToggle">Dark</button>
     </div>
 </nav>
 
+<!-- ========== HEADER ========== -->
 <div class="header">
-    <h1>Approaches & Assumptions</h1>
-    <p>CIE A Level Psychology / 取向与基本假设 — Exam-Focused Revision</p>
-    <div class="exam-badge">Exam Pattern: (a) Outline [2 marks] + (b) Explain how study supports [2 marks]</div>
+    <h1>🎯 Approaches, Issues &amp; Debates</h1>
+    <p>CIE A Level Psychology — 取向、议题与争论综合复习页</p>
+    <div class="exam-badge">Paper 1 Section A · Paper 2 Q4(a)/Q5 · 8 Assumptions · 12 Core Studies</div>
 </div>
 
 <div class="container">
 
-<div class="tabs">
-    <button class="tab-btn bio active" onclick="switchTab('bio', this)">Biological</button>
-    <button class="tab-btn cog" onclick="switchTab('cog', this)">Cognitive</button>
-    <button class="tab-btn soc" onclick="switchTab('soc', this)">Social</button>
-    <button class="tab-btn lrn" onclick="switchTab('lrn', this)">Learning</button>
-</div>
+<!-- ========== §0 HOW TO USE ========== -->
+<section class="approach-section" id="how-to-use">
+    <div class="approach-header" style="background:#fafafa;border-color:#888;">
+        <div class="icon">📖</div>
+        <div>
+            <h2 style="color:#444;">How to use this page</h2>
+            <p class="meta">一页打通所有 Approaches + I&D，覆盖 Paper 1 + Paper 2 真题题型</p>
+        </div>
+    </div>
 
-<!-- ============================================================ -->
-<!-- BIOLOGICAL APPROACH -->
-<!-- ============================================================ -->
-<div id="panel-bio" class="tab-panel active">
+    <div class="card">
+        <h3>🎯 这页为什么存在</h3>
+        <p>Approaches 是 CIE AS Psychology 的核心 — Paper 1 和 Paper 2 都必考。老版 approaches 页用的是教科书简化版文本 + 单一 study 范例，跟真实 syllabus verbatim + 5 个考期 Q4(a) 真题脱节。本页按 syllabus 2024-2026 原文重写，每个 assumption 配 <strong>3 个 study 全覆盖</strong>，帮学生一题通用所有 study。</p>
+    </div>
 
+    <div class="card">
+        <h3>📚 Paper 1 Section A 题型分布速查（5 考期汇总）</h3>
+        <p style="margin-bottom:.5rem;font-size:.88rem;color:var(--text-light);">所有 Paper 1 Section A 题都基于 core study，没有独立 approach 题——但 assumption 题出现在 <strong>Paper 2 Q4(a) 合并型 3 分题</strong>（m26 起新题型）。</p>
+        <div class="quickref-grid">
+            <div class="quickref-card" style="border-left-color:var(--gold);">
+                <h4>Paper 1 Section A 题型分布</h4>
+                <ul class="qr-list">
+                    <li><strong>Q1-Q3</strong> · 从 study 抽 fact（1-4 marks）</li>
+                    <li><strong>Q4</strong> · sample / features（2-4 marks）</li>
+                    <li><strong>Q5</strong> · Application to everyday life（3-4 marks）</li>
+                    <li><strong>Q6</strong> · Ethical guideline（2-4 marks）</li>
+                    <li><strong>Q7</strong> · I&D debate 含义（2-4 marks）</li>
+                    <li><strong>Q8</strong> · Background of study（2-4 marks）</li>
+                    <li><strong>Q9</strong> · Procedure detail（2-4 marks）</li>
+                </ul>
+            </div>
+            <div class="quickref-card" style="border-left-color:var(--blue);">
+                <h4>Paper 2 Q4(a) 合并型（m26 起新题型）</h4>
+                <ul class="qr-list">
+                    <li><strong>Stem：</strong>"Outline one assumption of the [X] approach, including an example from the study by [Y]." <span class="marks-badge">3 marks</span></li>
+                    <li>2 marks：完整 assumption（含 syllabus 原文所有 components）</li>
+                    <li>1 mark：example must be linked to given assumption</li>
+                    <li><strong>⚠️ MS 反面教材：</strong>"Do not credit aim / procedure unless linked to assumption"</li>
+                </ul>
+            </div>
+            <div class="quickref-card" style="border-left-color:var(--purple);">
+                <h4>Assessment Objectives（syllabus p.13）</h4>
+                <ul class="qr-list">
+                    <li><strong>AO1 = Knowledge &amp; Understanding</strong>（factual recall）</li>
+                    <li><strong>AO2 = Application / Interpretation</strong>（应用 explain 真实情境）</li>
+                    <li><strong>AO3 = Evaluation</strong>（assess S&amp;W、debate）</li>
+                    <li>Assumption 题常考 AO1（verbatim）+ AO2（application to study）</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>🎨 颜色 · 缩略词 · 阅读顺序约定</h3>
+        <p style="font-size:.9rem;line-height:1.7;">
+            <span style="color:var(--bio);font-weight:600;">■ 生物取向 Biological</span> ·
+            <span style="color:var(--cog);font-weight:600;">■ 认知取向 Cognitive</span> ·
+            <span style="color:var(--soc);font-weight:600;">■ 社会取向 Social</span> ·
+            <span style="color:var(--lrn);font-weight:600;">■ 学习取向 Learning</span><br>
+            <strong>L1-L4</strong> = Assumption 题等级评分（见下方）；<strong>S&amp;W</strong> = Strengths &amp; Weaknesses；<strong>ECM</strong> = Example Candidate Marker。<br>
+            阅读顺序：<span class="keyword">§1 速查</span> → <span class="keyword">§2-5 各 Approach</span>（含 verbatim + 3 study） → <span class="keyword">§6 I&amp;D</span> → <span class="keyword">§7 综合 Exam Practice</span>。
+        </p>
+    </div>
+</section>
+
+<!-- ========== §1 QUICK REFERENCE: 8 ASSUMPTIONS 速查 ========== -->
+<section class="approach-section" id="quickref">
+    <div class="h2-section neutral">
+        <span class="label">§1 · Cheat Sheet</span>
+        <h2 style="color:#444;">8 Assumptions 速查（一页浓缩）</h2>
+    </div>
+
+    <p style="margin-bottom:1rem;font-size:.92rem;">考前 5 分钟过这一页。所有 assumption 文本均出自 <strong>CIE AS Psychology Syllabus 2024-2026（634461）p.16-19</strong> 原文，可直接抄进答卷。</p>
+
+    <div class="quickref-grid">
+        <!-- Biological -->
+        <div class="quickref-card bio">
+            <h4>🧠 Biological Approach（syllabus p.16）</h4>
+            <ul class="qr-list">
+                <li><strong>A1（p.16）：</strong>Behaviour, cognitions and emotions can be explained in terms of the working of the <span class="keyword">brain and the effect of hormones, genetics and evolution</span>.</li>
+                <li><strong>A2（p.16）：</strong>Similarities and differences between people can be understood in terms of <span class="keyword">biological factors and their interaction with other factors</span>.</li>
+            </ul>
+        </div>
+        <!-- Cognitive -->
+        <div class="quickref-card cog">
+            <h4>💭 Cognitive Approach（syllabus p.17）</h4>
+            <ul class="qr-list">
+                <li><strong>A1（p.17）：</strong>Information is processed through the same route in all humans: <span class="keyword">input – process – output</span>, in a similar way to how information is processed by a computer.</li>
+                <li><strong>A2（p.17）：</strong>There are <span class="keyword">individual differences in cognitive processes</span> such as attention, language, thinking and memory. These processes can also help to explain behaviour and emotion.</li>
+            </ul>
+        </div>
+        <!-- Social -->
+        <div class="quickref-card soc">
+            <h4>👥 Social Approach（syllabus p.19）</h4>
+            <ul class="qr-list">
+                <li><strong>A1（p.19）：</strong>Behaviour, cognitions and emotions are influenced by <span class="keyword">social contexts, social environments and groups</span>.</li>
+                <li><strong>A2（p.19）：</strong>Behaviour, cognitions and emotions can be influenced by the <span class="keyword">actual, implied or imagined presence of others</span>.</li>
+            </ul>
+        </div>
+        <!-- Learning -->
+        <div class="quickref-card lrn">
+            <h4>🎓 Learning Approach（syllabus p.18）</h4>
+            <ul class="qr-list">
+                <li><strong>A1（p.18）：</strong>We all begin life as a <span class="keyword">blank slate</span>. Experiences and interactions with the environment shape our behaviour and these changes are directly observable.</li>
+                <li><strong>A2（p.18）：</strong>We learn through the processes of <span class="keyword">operant conditioning, classical conditioning and social learning</span>. This can be understood using the stimulus-response model.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="exam-tip">
+        <strong>⭐ 速记技巧：</strong>每个 approach 答 assumption 题都只看 syllabus 原文 + 关键词 + 把 example 跟 assumption 中某个 keyword 直接对接（echo 回关键词）。下文 §2-5 每个 assumption 都按这个格式写好。
+    </div>
+</section>
+
+<!-- ========== §2 BIOLOGICAL APPROACH ========== -->
+<section class="approach-section" id="bio">
     <div class="approach-header bio">
-        <h2>Biological Approach / 生物取向</h2>
-        <p class="subtitle">Biological systems and processes — behaviour explained by brain structures, hormones, genetics, and evolution.</p>
+        <div class="icon">🧠</div>
+        <div>
+            <h2>§2 Biological Approach / 生物取向</h2>
+            <p class="meta">Brain · Hormones · Genetics · Evolution — 3 core studies: Holzel · Dement · Hassett</p>
+        </div>
     </div>
 
-    <span class="section-label label-learn">Learn Mode</span>
+    <span class="type-banner">📘 Syllabus p.16 · Paper 2 Q4(a) · Paper 1 I&amp;D</span>
 
-    <!-- Assumption 1 -->
-    <div class="assumption-card">
-        <div style="display:flex;align-items:center;margin-bottom:0.5rem;">
-            <span class="assumption-num bio">1</span>
-            <strong style="font-size:1.05rem;color:#333;">Brain, hormones, genetics &amp; evolution explain behaviour</strong>
+    <!-- BIO A1 -->
+    <div class="assumption-card bio card section-anchor" id="bio-a1">
+        <div style="display:flex;align-items:center;margin-bottom:.8rem;flex-wrap:wrap;gap:.5rem;">
+            <span class="assumption-num bio" style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;color:white;font-weight:700;background:var(--bio);">A1</span>
+            <h3 style="margin:0;">Brain, hormones, genetics &amp; evolution explain behaviour</h3>
         </div>
 
-        <div class="assumption-text-box" id="bio-a1-text">
-            <button class="copy-btn" onclick="copyText('bio-a1-text', this)">Copy</button>
-            <div class="assumption-text">
-                Behaviour, cognitions and emotions can be explained in terms of the working of the brain and the effect of hormones, genetics and evolution.
+        <div class="verbatim-box">
+            <span class="syllabus-tag">Syllabus p.16 verbatim</span>
+            <button class="copy-btn" onclick="copyText('bio-a1-verbatim', this)">Copy</button>
+            <div class="verbatim-text" id="bio-a1-verbatim">Behaviour, cognitions and emotions can be explained in terms of the working of the brain and the effect of hormones, genetics and evolution.</div>
+        </div>
+
+        <p style="font-size:.9rem;line-height:1.65;margin-bottom:.5rem;"><strong>💡 关键概念 echo（学生答 Q4(a) 模板）：</strong>必须命中 syllabus 关键词 <span class="keyword">brain</span>、<span class="keyword">hormones</span>、<span class="keyword">genetics</span>、<span class="keyword">evolution</span> 至少 2 个，example 必须连回其中之一。</p>
+
+        <div class="study-grid">
+            <div class="study-card">
+                <div class="top-row">
+                    <strong>Holzel et al. (2011)</strong>
+                    <span class="badge badge-best">★ Best fit</span>
+                </div>
+                <div class="linking"><em>MRI scan 找到灰质密度变化 → MBSR → mindfulness ↑</em><br><strong>Link：</strong>MBSR causes <span class="keyword">brain</span> structure change in hippocampus（hippocampus 是 brain structure）→ 直接支持 assumption 中"the working of the brain"。</div>
+                <a href="../hoelzel/" class="link-btn">→ 看完整 study</a>
+            </div>
+
+            <div class="study-card">
+                <div class="top-row">
+                    <strong>Dement &amp; Kleitman (1957)</strong>
+                </div>
+                <div class="linking"><em>EEG 记录 REM sleep 脑波 + 梦境报告</em><br><strong>Link：</strong>EEG measures <span class="keyword">brain</span> wave patterns correlate with dreaming → supports "working of the <span class="keyword">brain</span> explains cognitions (dreams)"。</div>
+                <a href="../dement/" class="link-btn">→ 看完整 study</a>
+            </div>
+
+            <div class="study-card">
+                <div class="top-row">
+                    <strong>Hassett et al. (2008)</strong>
+                </div>
+                <div class="linking"><em>雄性恒河猴 vs 雌性偏好 wheeled vs plush toy</em><br><strong>Link：</strong>跨物种相同偏好 → supports <span class="keyword">evolution</span>（进化）影响行为，因为 monkeys 不受人类社会化影响。</div>
+                <a href="../hassett/" class="link-btn">→ 看完整 study</a>
             </div>
         </div>
 
         <div class="model-answer">
-            <div class="ma-label">Model Answer for Q5(a) <span class="marks-badge">2 marks</span></div>
+            <div class="ma-label">⭐ Q4(a) Model Answer — 3 marks <span class="ao-badge">AO1×2 AO2×1</span></div>
             <div class="ma-text">
-                One assumption of the biological approach is that behaviour, cognitions and emotions can be explained by the working of the brain and the effect of hormones, genetics and evolution. For example, brain structures such as the amygdala influence emotional responses, while hormones like testosterone affect aggression levels.
-                <br><br>
-                行为、认知和情绪可以通过大脑的工作以及激素、基因和进化的影响来解释。例如，杏仁核等脑结构影响情绪反应，而睾酮等激素影响攻击水平。
+                <strong>One assumption of the biological approach</strong> is that behaviour, cognitions and emotions can be explained in terms of the <span class="keyword">working of the brain</span> and the effect of hormones, <span class="keyword">genetics</span> and evolution <em>(AO1 = 2 marks)</em>. For example, Holzel et al. (2011) used MRI scans and found that participants who completed an 8-week mindfulness programme showed <span class="keyword">increased grey matter density in the brain's hippocampus</span> (a brain structure linked to memory and emotional regulation) <em>(AO2 = 1 mark, example directly linked to the brain keyword)</em>.
+                <span class="cn-line">生物取向的一个假设是，行为、认知和情绪可以通过大脑的工作以及激素、基因和进化的影响来解释。例：Holzel 等人(2011)用 MRI 扫描发现，完成 8 周正念课程的参与者大脑海马回（与记忆和情绪调节相关的脑区）灰质密度增加。</span>
             </div>
         </div>
 
-        <div class="study-links">
-            <span style="font-size:0.83rem;color:#888;width:100%;margin-bottom:4px;"><strong>Studies supporting this assumption:</strong></span>
-            <a href="../dement/" class="study-tag bio"><span class="study-dot"></span>Dement &amp; Kleitman (1957) — brain/EEG</a>
-            <a href="../hoelzel/" class="study-tag bio"><span class="study-dot"></span>Holzel et al. (2011) — brain/MRI</a>
-            <a href="../hassett/" class="study-tag bio"><span class="study-dot"></span>Hassett et al. (2008) — evolution</a>
+        <div class="ms-warn">
+            <strong>⚠️ MS 反面教材警示：</strong>"Do not credit answers that describe the aim or procedure, rather than a finding linked to the assumption." If you write "Holzel used MRI scanners", that is <strong>procedure</strong>, not a <strong>finding linked to the assumption</strong>. Must be <em>finding</em> (e.g., "increased grey matter") + <em>keyword</em> (e.g., "brain structure").
         </div>
 
-        <div class="explain-box">
-            <strong>Dement (1957):</strong> Used EEG recordings to show that dreaming correlates with REM sleep and specific brain wave patterns — directly supporting that <em>brain activity explains mental experiences (dreaming)</em>.<br><br>
-            <strong>Holzel (2011):</strong> MRI scans revealed increased grey matter density in brain regions after mindfulness training — showing that <em>mental practice causes physical brain changes</em>.<br><br>
-            <strong>Hassett (2008):</strong> Male rhesus monkeys preferred wheeled toys (like human boys), suggesting <em>evolutionary/ genetic influences on gender-typed behaviour</em>.
+        <!-- Exam Practice Q -->
+        <div class="exam-practice">
+            <h3>📝 Exam Practice — Bio A1</h3>
+            <div class="qa-card">
+                <div class="qa-meta">Q4(a) · 3 marks · AO1 ×2 + AO2 ×1</div>
+                <div class="qa-question">"Outline one assumption of the biological approach, including an example from the study by <u>Dement and Kleitman (1957)</u>."</div>
+                <button class="qa-toggle" onclick="toggleAns(this)">Show Model Answer</button>
+                <div class="qa-answer">
+                    <strong>AO1 (2 marks):</strong> One assumption of the biological approach is that behaviour, cognitions and emotions can be explained in terms of the working of the brain and the effect of hormones, genetics and evolution. <em>(full syllabus assumption, includes all 4 keywords: brain, hormones, genetics, evolution)</em><br><br>
+                    <strong>AO2 (1 mark):</strong> Dement and Kleitman used EEG to record <span class="keyword">brain wave</span> patterns and found that when participants were awakened during REM sleep (characterised by specific brain wave activity), they were significantly more likely to report a vivid <span class="keyword">dream</span> (a cognition). This directly supports the assumption by showing that specific <span class="keyword">brain</span> activity explains mental experience. <em>(finding linked to "brain" keyword)</em>
+                </div>
+            </div>
+            <div class="qa-card">
+                <div class="qa-meta">Q4(a) · 3 marks · AO1 ×2 + AO2 ×1</div>
+                <div class="qa-question">"Outline one assumption of the biological approach, including an example from the study by <u>Hassett et al. (2008)</u>."</div>
+                <button class="qa-toggle" onclick="toggleAns(this)">Show Model Answer</button>
+                <div class="qa-answer">
+                    <strong>AO1 (2 marks):</strong> One assumption is that behaviour, cognitions and emotions can be explained in terms of the working of the brain and the effect of hormones, <span class="keyword">genetics</span> and <span class="keyword">evolution</span>.<br><br>
+                    <strong>AO2 (1 mark):</strong> Hassett found that male and female rhesus monkeys showed sex-typed toy preferences (males preferred wheeled toys, females preferred plush toys) in the same way as human children. This supports the assumption because the preference appeared in monkeys that are <span class="keyword">not influenced by human socialisation</span>, suggesting an <span class="keyword">evolutionary / biological</span> origin to gendered play preferences.
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- Assumption 2 -->
-    <div class="assumption-card">
-        <div style="display:flex;align-items:center;margin-bottom:0.5rem;">
-            <span class="assumption-num bio">2</span>
-            <strong style="font-size:1.05rem;color:#333;">Individual differences via biological factors + interactions</strong>
+    <!-- BIO A2 -->
+    <div class="assumption-card bio card section-anchor" id="bio-a2">
+        <div style="display:flex;align-items:center;margin-bottom:.8rem;flex-wrap:wrap;gap:.5rem;">
+            <span class="assumption-num bio" style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;color:white;font-weight:700;background:var(--bio);">A2</span>
+            <h3 style="margin:0;">Individual differences via biological factors + interactions</h3>
         </div>
 
-        <div class="assumption-text-box" id="bio-a2-text">
-            <button class="copy-btn" onclick="copyText('bio-a2-text', this)">Copy</button>
-            <div class="assumption-text">
-                Similarities and differences between people can be understood in terms of biological factors and their interaction with other factors.
+        <div class="verbatim-box">
+            <span class="syllabus-tag">Syllabus p.16 verbatim</span>
+            <button class="copy-btn" onclick="copyText('bio-a2-verbatim', this)">Copy</button>
+            <div class="verbatim-text" id="bio-a2-verbatim">Similarities and differences between people can be understood in terms of biological factors and their interaction with other factors.</div>
+        </div>
+
+        <p style="font-size:.9rem;line-height:1.65;margin-bottom:.5rem;"><strong>💡 关键概念 echo：</strong>命中 <span class="keyword">biological factors</span> + <span class="keyword">interaction with other factors</span>。 Example 必须显示"both similarities AND differences" 或 "interaction"。</p>
+
+        <div class="study-grid">
+            <div class="study-card">
+                <div class="top-row">
+                    <strong>Hassett et al. (2008)</strong>
+                    <span class="badge badge-best">★ Best fit</span>
+                </div>
+                <div class="linking"><em>Monkeys 跟人类一致（similarity），但 monkey 偏好更弱（difference）</em><br><strong>Link：</strong>Biological <span class="keyword">similarities</span> across species + environmental <span class="keyword">interaction</span> (monkey study ruled out social pressure) → supports assumption that <span class="keyword">similarities</span> AND <span class="keyword">differences</span> explained by biology + other factors。</div>
+                <a href="../hassett/" class="link-btn">→ 看完整 study</a>
+            </div>
+
+            <div class="study-card">
+                <div class="top-row">
+                    <strong>Holzel et al. (2011)</strong>
+                </div>
+                <div class="linking"><em>Participants 个体差异 in grey matter change amount</em><br><strong>Link：</strong>Same training but <span class="keyword">individual differences</span> in grey matter increase → biology interacts with experience。</div>
+                <a href="../hoelzel/" class="link-btn">→ 看完整 study</a>
+            </div>
+
+            <div class="study-card">
+                <div class="top-row">
+                    <strong>Dement &amp; Kleitman (1957)</strong>
+                </div>
+                <div class="linking"><em>Dream recall 个体差异：recallers vs non-recallers</em><br><strong>Link：</strong>Same EEG pattern but <span class="keyword">individual differences</span> in dream recall → biology + person factor。</div>
+                <a href="../dement/" class="link-btn">→ 看完整 study</a>
             </div>
         </div>
 
         <div class="model-answer">
-            <div class="ma-label">Model Answer for Q5(a) <span class="marks-badge">2 marks</span></div>
+            <div class="ma-label">⭐ Q4(a) Model Answer — 3 marks <span class="ao-badge">AO1×2 AO2×1</span></div>
             <div class="ma-text">
-                Another assumption is that similarities and differences between people can be understood in terms of biological factors and their interaction with other factors. This means individual variations in behaviour may be due to genetic inheritance or brain differences.
-                <br><br>
-                人与人之间的相似性和差异可以通过生物因素及其与其他因素的相互作用来理解。这意味着行为的个体差异可能源于遗传或大脑差异。
+                Another assumption is that <span class="keyword">similarities and differences between people</span> can be understood in terms of <span class="keyword">biological factors and their interaction with other factors</span> <em>(AO1 = 2 marks)</em>. For example, Hassett et al. (2008) found that male rhesus monkeys showed the same preference for wheeled toys that human boys do (a similarity explained by <span class="keyword">biological factors</span>), but monkeys showed a weaker preference than human children, suggesting that biological factors <span class="keyword">interact</span> with social/cultural factors <em>(AO2 = 1 mark)</em>.
+                <span class="cn-line">另一个假设是，人与人之间的相似性和差异可以通过生物因素及其与其他因素的相互作用来理解。例：Hassett (2008) 发现雄性恒河猴和人类男孩一样偏好轮子类玩具（生物因素解释的相似性），但猴子的偏好弱于儿童，说明生物因素还与社会/文化因素相互作用。</span>
             </div>
         </div>
 
-        <div class="study-links">
-            <span style="font-size:0.83rem;color:#888;width:100%;margin-bottom:4px;"><strong>Studies supporting this assumption:</strong></span>
-            <a href="../hassett/" class="study-tag bio"><span class="study-dot"></span>Hassett et al. (2008) — gender differences</a>
-            <a href="../hoelzel/" class="study-tag bio"><span class="study-dot"></span>Holzel et al. (2011) — individual brain changes</a>
+        <div class="ms-warn">
+            <strong>⚠️ MS 警示：</strong>这一题最容易"抓瞎"——很多学生把 example 写成"monkeys prefer wheeled toys"（只说 difference），缺了 similarity 维度。MS 会 credit partial，但只给 1/2 marks。<strong>必须 example 同时 echo "similarities AND differences"</strong>。
         </div>
 
-        <div class="explain-box">
-            <strong>Hassett (2008):</strong> Found sex differences in toy preferences in both monkeys and humans — suggesting <em>biological (not just social) factors explain gender differences</em> across species.<br><br>
-            <strong>Holzel (2011):</strong> Participants showed <em>individual differences in grey matter changes</em> after mindfulness training — biological factors interact with experience.
-        </div>
-    </div>
-
-    <!-- Practice -->
-    <span class="section-label label-practice">Exam Practice</span>
-    <div class="practice-section">
-        <h3>Paper 2 Style Questions / 考试练习题</h3>
-
-        <div class="question-block">
-            <div class="q-label">5 (a) Outline one assumption of the biological approach.</div>
-            <div class="q-lines">Write your answer here... (2 marks available)</div>
-            <button class="show-ans-btn" onclick="toggleAns('bio-q1')">Show Model Answer</button>
-            <div class="answer-reveal" id="bio-q1">
-                <div class="ans-part">
-                    <div class="ans-label">Acceptable Answer (either assumption):</div>
-                    <div class="ans-text">
-                        <strong>Option 1:</strong> Behaviour, cognitions and emotions can be explained in terms of the working of the brain and the effect of hormones, genetics and evolution.<br><br>
-                        <strong>Option 2:</strong> Similarities and differences between people can be understood in terms of biological factors and their interaction with other factors.<br><br>
-                        <em>(Must include key terms: brain/hormones/genetics/evolution OR biological factors/similarities/differences)</em>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="question-block">
-            <div class="q-label">5 (b) Explain one reason why the study by Holzel et al. (mindfulness and brain scans) supports the assumption you outlined in part (a).</div>
-            <div class="q-lines">Write your answer here... (2 marks available)</div>
-            <button class="show-ans-btn" onclick="toggleAns('bio-q2')">Show Model Answer</button>
-            <div class="answer-reveal" id="bio-q2">
-                <div class="ans-part">
-                    <div class="ans-label">If you chose Assumption 1 (brain explains behaviour):</div>
-                    <div class="ans-text">
-                        Holzel used MRI scans to show that mindfulness meditation caused <strong>increased grey matter density</strong> in the left hippocampus, posterior cingulate cortex, and temporo-parietal junction. This supports the assumption because it demonstrates that <strong>mental practice (a cognition) produces measurable changes in brain structure</strong>, showing the direct link between brain processes and behaviour/cognitions.
-                    </div>
-                </div>
-                <div class="ans-part">
-                    <div class="ans-label">If you chose Assumption 2 (individual differences via biology):</div>
-                    <div class="ans-text">
-                        Holzel found that participants showed <strong>individual differences in the amount of grey matter change</strong> after mindfulness training. This supports the assumption because it shows that <strong>differences between people can be understood through biological measures (brain changes)</strong>, and these changes interact with environmental factors (the mindfulness training programme).
-                    </div>
+        <div class="exam-practice">
+            <h3>📝 Exam Practice — Bio A2</h3>
+            <div class="qa-card">
+                <div class="qa-meta">Q4(a) · 3 marks · AO1 ×2 + AO2 ×1</div>
+                <div class="qa-question">"Outline one assumption of the biological approach, including an example from the study by <u>Holzel et al. (2011)</u>."</div>
+                <button class="qa-toggle" onclick="toggleAns(this)">Show Model Answer</button>
+                <div class="qa-answer">
+                    <strong>AO1 (2 marks):</strong> A second assumption of the biological approach is that similarities and <span class="keyword">differences between people</span> can be understood in terms of <span class="keyword">biological factors and their interaction with other factors</span>.<br><br>
+                    <strong>AO2 (1 mark):</strong> Holzel found that all MBSR participants showed grey matter increase (similarity due to <span class="keyword">biological factors</span>), but the amount of increase varied considerably between participants (individual differences caused by the interaction between training experience and individual brain biology).
                 </div>
             </div>
         </div>
     </div>
+</section>
 
-    <div class="tip-box">
-        <strong>Exam Tip:</strong> In part (a), you must use the <em>exact wording</em> from the textbook. Don't paraphrase too loosely — key terms like "brain", "hormones", "genetics", "evolution" must appear. In part (b), always name a <strong>specific finding</strong> from the study (e.g., "increased grey matter density") and explicitly link it back to the assumption's keywords.
-    </div>
-</div>
-
-<!-- ============================================================ -->
-<!-- COGNITIVE APPROACH -->
-<!-- ============================================================ -->
-<div id="panel-cog" class="tab-panel">
-
+<!-- ========== §3 COGNITIVE APPROACH ========== -->
+<section class="approach-section" id="cog">
     <div class="approach-header cog">
-        <h2>Cognitive Approach / 认知取向</h2>
-        <p class="subtitle">The mind as an information processor — mental processes mediate between stimulus and response.</p>
+        <div class="icon">💭</div>
+        <div>
+            <h2>§3 Cognitive Approach / 认知取向</h2>
+            <p class="meta">Information Processing · Mental Processes — 3 core studies: Andrade · Baron-Cohen · Pozzulo</p>
+        </div>
     </div>
 
-    <span class="section-label label-learn">Learn Mode</span>
+    <span class="type-banner">📘 Syllabus p.17 · Paper 2 Q4(a) · Paper 1 I&amp;D</span>
 
-    <!-- Assumption 1 -->
-    <div class="assumption-card">
-        <div style="display:flex;align-items:center;margin-bottom:0.5rem;">
-            <span class="assumption-num cog">1</span>
-            <strong style="font-size:1.05rem;color:#333;">Information processed through input–process–output, like a computer</strong>
+    <!-- COG A1 -->
+    <div class="assumption-card cog card section-anchor" id="cog-a1">
+        <div style="display:flex;align-items:center;margin-bottom:.8rem;flex-wrap:wrap;gap:.5rem;">
+            <span class="assumption-num cog" style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;color:white;font-weight:700;background:var(--cog);">A1</span>
+            <h3 style="margin:0;">Information processed input–process–output (computer model)</h3>
         </div>
 
-        <div class="assumption-text-box" id="cog-a1-text">
-            <button class="copy-btn" onclick="copyText('cog-a1-text', this)">Copy</button>
-            <div class="assumption-text">
-                Information is processed through the same route in all humans: input – process – output, in a similar way to how information is processed by a computer.
+        <div class="verbatim-box">
+            <span class="syllabus-tag">Syllabus p.17 verbatim</span>
+            <button class="copy-btn" onclick="copyText('cog-a1-verbatim', this)">Copy</button>
+            <div class="verbatim-text" id="cog-a1-verbatim">Information is processed through the same route in all humans: input – process – output, in a similar way to how information is processed by a computer.</div>
+        </div>
+
+        <p style="font-size:.9rem;line-height:1.65;margin-bottom:.5rem;"><strong>💡 关键概念 echo：</strong><span class="keyword">input – process – output</span> 三段式 + computer metaphor 必须命中。</p>
+
+        <div class="study-grid">
+            <div class="study-card">
+                <div class="top-row">
+                    <strong>Andrade (2010)</strong>
+                    <span class="badge badge-best">★ Best fit</span>
+                </div>
+                <div class="linking"><em>Doodling group vs control 在 monitoring task 上的表现</em><br><strong>Link：</strong>Mind received <span class="keyword">input</span> (monitoring task) + doodling <span class="keyword">process</span>ing simultaneously + produced <span class="keyword">output</span> (recall) → demonstrates dual-<span class="keyword">processing</span>, like a computer running parallel processes。</div>
+                <a href="../andrade/" class="link-btn">→ 看完整 study</a>
+            </div>
+
+            <div class="study-card">
+                <div class="top-row">
+                    <strong>Baron-Cohen et al. (2001)</strong>
+                </div>
+                <div class="linking"><em>Eyes Test：眼照片 → 推测 mental state → 选词</em><br><strong>Link：</strong>Visual <span class="keyword">input</span> (eye photos) → cognitive <span class="keyword">process</span>ing (inferring mental states) → verbal <span class="keyword">output</span> (4 choices) → classic input-process-output。</div>
+                <a href="../baron-cohen/" class="link-btn">→ 看完整 study</a>
+            </div>
+
+            <div class="study-card">
+                <div class="top-row">
+                    <strong>Pozzulo et al. (2011)</strong>
+                </div>
+                <div class="linking"><em>View lineup → encode → retrieve → respond</em><br><strong>Link：</strong><span class="keyword">Input</span> (viewing lineup) → memory encoding/<span class="keyword">process</span>ing → identification <span class="keyword">output</span>。</div>
+                <a href="../pozzulo/" class="link-btn">→ 看完整 study</a>
             </div>
         </div>
 
         <div class="model-answer">
-            <div class="ma-label">Model Answer for Q5(a) <span class="marks-badge">2 marks</span></div>
+            <div class="ma-label">⭐ Q4(a) Model Answer — 3 marks <span class="ao-badge">AO1×2 AO2×1</span></div>
             <div class="ma-text">
-                One assumption is that information is processed through the same route in all humans: input – process – output, in a similar way to how information is processed by a computer. The mind receives sensory input, processes it mentally (attention, encoding, interpretation), and produces behavioural output.
-                <br><br>
-                信息在所有人类中通过相同的路径处理：输入—处理—输出，类似于计算机处理信息的方式。心灵接收感官输入，进行心理处理（注意、编码、解释），然后产生行为输出。
+                One assumption of the cognitive approach is that <span class="keyword">information is processed through the same route</span> in all humans: <span class="keyword">input – process – output</span>, in a similar way to how information is processed by a computer <em>(AO1 = 2 marks)</em>. For example, Andrade (2010) demonstrated this when participants in the doodling condition simultaneously <span class="keyword">processed</span> two streams of information (monitoring task <span class="keyword">input</span> + doodling) and produced <span class="keyword">output</span> (better recall), similar to how a computer runs parallel processes <em>(AO2 = 1 mark)</em>.
+                <span class="cn-line">认知取向的一个假设是，信息在所有人类中通过相同的路径处理：输入—处理—输出，类似于计算机处理信息的方式。例：Andrade (2010) 中涂鸦组同时处理两个信息流（监控任务输入+涂鸦），产生输出（更好的回忆）。</span>
             </div>
         </div>
 
-        <div class="study-links">
-            <span style="font-size:0.83rem;color:#888;width:100%;margin-bottom:4px;"><strong>Studies supporting this assumption:</strong></span>
-            <a href="../andrade/" class="study-tag cog"><span class="study-dot"></span>Andrade (2010) — attention/dual-task processing</a>
-            <a href="../pozzulo/" class="study-tag cog"><span class="study-dot"></span>Pozzulo et al. (2011) — memory encoding/retrieval</a>
-            <a href="../baron-cohen/" class="study-tag cog"><span class="study-dot"></span>Baron-Cohen et al. (2001) — cognitive ToM processing</a>
+        <div class="ms-warn">
+            <strong>⚠️ MS 警示：</strong>"input – process – output" 这个短语必须 verbatim（连字符 + 顺序）。不能在 example 里只说"two tasks"，缺 input/process/output 三段式。Examiner 会 credit 第一段但扣第二段。
         </div>
 
-        <div class="explain-box">
-            <strong>Andrade (2010):</strong> Doodling group performed better on a monitoring task while listening — shows the mind can <em>split attention between two tasks</em> (dual-processing model), like a computer running multiple processes.<br><br>
-            <strong>Pozzulo (2011):</strong> Children's identification accuracy depended on lineup type — demonstrates <em>encoding and retrieval processes</em> in memory, similar to computer data input/output.<br><br>
-            <strong>Baron-Cohen (2001):</strong> Eyes Test requires <em>cognitive processing of facial cues</em> to infer mental states — shows the mind actively interprets social information (input → processing → output).
+        <div class="exam-practice">
+            <h3>📝 Exam Practice — Cog A1</h3>
+            <div class="qa-card">
+                <div class="qa-meta">Q4(a) · 3 marks · AO1 ×2 + AO2 ×1</div>
+                <div class="qa-question">"Outline one assumption of the cognitive approach, including an example from the study by <u>Baron-Cohen et al. (2001)</u>."</div>
+                <button class="qa-toggle" onclick="toggleAns(this)">Show Model Answer</button>
+                <div class="qa-answer">
+                    <strong>AO1 (2 marks):</strong> Information is processed through the same route in all humans: <span class="keyword">input – process – output</span>, in a similar way to how information is processed by a computer.<br><br>
+                    <strong>AO2 (1 mark):</strong> Baron-Cohen's Eyes Test required participants to receive visual <span class="keyword">input</span> (photographs of eyes), mentally <span class="keyword">process</span> the information to identify emotions, and produce a verbal <span class="keyword">output</span> by selecting one of four words — demonstrating the input-process-output route.
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- Assumption 2 -->
-    <div class="assumption-card">
-        <div style="display:flex;align-items:center;margin-bottom:0.5rem;">
-            <span class="assumption-num cog">2</span>
-            <strong style="font-size:1.05rem;color:#333;">Individual differences in cognitive processes</strong>
+    <!-- COG A2 -->
+    <div class="assumption-card cog card section-anchor" id="cog-a2">
+        <div style="display:flex;align-items:center;margin-bottom:.8rem;flex-wrap:wrap;gap:.5rem;">
+            <span class="assumption-num cog" style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;color:white;font-weight:700;background:var(--cog);">A2</span>
+            <h3 style="margin:0;">Individual differences in cognitive processes (attention / language / thinking / memory)</h3>
         </div>
 
-        <div class="assumption-text-box" id="cog-a2-text">
-            <button class="copy-btn" onclick="copyText('cog-a2-text', this)">Copy</button>
-            <div class="assumption-text">
-                Individual differences in cognitive processes such as attention, language, thinking and memory. These processes can also help to explain behaviour and emotion.
+        <div class="verbatim-box">
+            <span class="syllabus-tag">Syllabus p.17 verbatim</span>
+            <button class="copy-btn" onclick="copyText('cog-a2-verbatim', this)">Copy</button>
+            <div class="verbatim-text" id="cog-a2-verbatim">There are individual differences in cognitive processes such as attention, language, thinking and memory. These processes can also help to explain behaviour and emotion.</div>
+        </div>
+
+        <p style="font-size:.9rem;line-height:1.65;margin-bottom:.5rem;"><strong>💡 关键概念 echo：</strong><span class="keyword">individual differences</span> + 至少 1 个 cognitive process（<span class="keyword">attention</span>/<span class="keyword">language</span>/<span class="keyword">thinking</span>/<span class="keyword">memory</span>）+ "explain behaviour and emotion"。</p>
+
+        <div class="study-grid">
+            <div class="study-card">
+                <div class="top-row">
+                    <strong>Baron-Cohen et al. (2001)</strong>
+                    <span class="badge badge-best">★ Best fit</span>
+                </div>
+                <div class="linking"><em>Female > Male on Eyes Test (sex difference in ToM / mind-reading)</em><br><strong>Link：</strong><span class="keyword">Individual differences</span> in theory of mind (a <span class="keyword">cognitive</span> process related to social attention/perception) → explains sex differences in social behaviour and emotional understanding。</div>
+                <a href="../baron-cohen/" class="link-btn">→ 看完整 study</a>
+            </div>
+
+            <div class="study-card">
+                <div class="top-row">
+                    <strong>Pozzulo et al. (2011)</strong>
+                </div>
+                <div class="linking"><em>Older > Younger in correct identification</em><br><strong>Link：</strong>Age <span class="keyword">differences</span> in facial <span class="keyword">memory</span> → explains <span class="keyword">individual differences</span> in eyewitness identification behaviour。</div>
+                <a href="../pozzulo/" class="link-btn">→ 看完整 study</a>
+            </div>
+
+            <div class="study-card">
+                <div class="top-row">
+                    <strong>Andrade (2010)</strong>
+                </div>
+                <div class="linking"><em>Some participants benefited more from doodling</em><br><strong>Link：</strong><span class="keyword">Individual</span> variation in <span class="keyword">attention</span> capacity → explains why some benefit more from doodling than others。</div>
+                <a href="../andrade/" class="link-btn">→ 看完整 study</a>
             </div>
         </div>
 
         <div class="model-answer">
-            <div class="ma-label">Model Answer for Q5(a) <span class="marks-badge">2 marks</span></div>
+            <div class="ma-label">⭐ Q4(a) Model Answer — 3 marks <span class="ao-badge">AO1×2 AO2×1</span></div>
             <div class="ma-text">
-                Another assumption is that there are individual differences in cognitive processes such as attention, language, thinking and memory. These processes can also help to explain behaviour and emotion — people vary in how they process information mentally, and this variation helps explain why we behave and feel differently.
-                <br><br>
-                认知过程（如注意、语言、思维和记忆）中存在个体差异。这些过程也可以帮助解释行为和情绪——人们在信息处理方式上存在差异，这种差异有助于解释我们不同的行为和情绪表现。
+                A second assumption of the cognitive approach is that there are <span class="keyword">individual differences in cognitive processes</span> such as attention, language, thinking and memory, and these processes can also help to explain behaviour and emotion <em>(AO1 = 2 marks)</em>. For example, Baron-Cohen et al. (2001) found that <span class="keyword">females scored significantly higher</span> than males on the Eyes Test, demonstrating <span class="keyword">individual differences</span> in theory of mind (a <span class="keyword">cognitive process</span>), and this cognitive <span class="keyword">difference helps explain differing social-emotional behaviours</span> between males and females <em>(AO2 = 1 mark)</em>.
+                <span class="cn-line">另一个假设是认知过程（如注意、语言、思维和记忆）存在个体差异，这些过程也可以帮助解释行为和情绪。例：Baron-Cohen 等人(2001) 发现女性在眼测试中得分显著高于男性，说明心智理论的个体差异。</span>
             </div>
         </div>
 
-        <div class="study-links">
-            <span style="font-size:0.83rem;color:#888;width:100%;margin-bottom:4px;"><strong>Studies supporting this assumption:</strong></span>
-            <a href="../baron-cohen/" class="study-tag cog"><span class="study-dot"></span>Baron-Cohen et al. (2001) — sex differences in ToM</a>
-            <a href="../pozzulo/" class="study-tag cog"><span class="study-dot"></span>Pozzulo et al. (2011) — age differences in memory</a>
-            <a href="../andrade/" class="study-tag cog"><span class="study-dot"></span>Andrade (2010) — individual variation in attention</a>
+        <div class="ms-warn">
+            <strong>⚠️ MS 警示：</strong>写 assumption 时必须 4 个 process 都用 syllabus 顺序（attention → language → thinking → memory）。Examiner 普遍接受少 1-2 个，但必须含 <span class="keyword">attention</span> 或 <span class="keyword">memory</span> 一个，因为这两个最常考。
         </div>
 
-        <div class="explain-box">
-            <strong>Baron-Cohen (2001):</strong> Females scored significantly higher than males on the Eyes Test — showing <em>sex differences in theory of mind (a cognitive process)</em>.<br><br>
-            <strong>Pozzulo (2011):</strong> Younger children were more likely to make incorrect identifications than older children — demonstrating <em>age-related differences in memory and face-processing abilities</em>.<br><br>
-            <strong>Andrade (2010):</strong> Some participants benefited more from doodling than others — showing <em>individual variation in attentional capacity</em>.
-        </div>
-    </div>
-
-    <!-- Practice -->
-    <span class="section-label label-practice">Exam Practice</span>
-    <div class="practice-section">
-        <h3>Paper 2 Style Questions / 考试练习题</h3>
-
-        <div class="question-block">
-            <div class="q-label">5 (a) Outline one assumption of the cognitive approach.</div>
-            <div class="q-lines">Write your answer here... (2 marks available)</div>
-            <button class="show-ans-btn" onclick="toggleAns('cog-q1')">Show Model Answer</button>
-            <div class="answer-reveal" id="cog-q1">
-                <div class="ans-part">
-                    <div class="ans-label">Acceptable Answer (either assumption):</div>
-                    <div class="ans-text">
-                        <strong>Option 1:</strong> Information is processed through the same route in all humans: input – process – output, in a similar way to how information is processed by a computer.<br><br>
-                        <strong>Option 2:</strong> Individual differences in cognitive processes such as attention, language, thinking and memory. These processes can also help to explain behaviour and emotion.<br><br>
-                        <em>(Must include: "input–process–output"/"computer" OR "attention/language/thinking/memory" + "individual differences")</em>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="question-block">
-            <div class="q-label">5 (b) Explain how the study by Baron-Cohen et al. (eyes test) supports the assumption you outlined in part (a).</div>
-            <div class="q-lines">Write your answer here... (2 marks available)</div>
-            <button class="show-ans-btn" onclick="toggleAns('cog-q2')">Show Model Answer</button>
-            <div class="answer-reveal" id="cog-q2">
-                <div class="ans-part">
-                    <div class="ans-label">If you chose Assumption 1 (computer-like processing):</div>
-                    <div class="ans-text">
-                        Baron-Cohen's Eyes Test required participants to <strong>receive visual input (eye photos) → process the information cognitively (interpret mental states) → produce a verbal output</strong>. This follows the <strong>input–process–output</strong> route described in the assumption, supporting that human information processing works similarly to a computer.
-                    </div>
-                </div>
-                <div class="ans-part">
-                    <div class="ans-label">If you chose Assumption 2 (individual differences in cognition):</div>
-                    <div class="ans-text">
-                        Baron-Cohen found that <strong>females scored significantly higher than males</strong> on the Eyes Test. This supports the assumption because it demonstrates <strong>individual differences (sex differences) in a specific cognitive process (theory of mind)</strong>, and this cognitive process helps explain differing social-emotional behaviours between males and females.
-                    </div>
+        <div class="exam-practice">
+            <h3>📝 Exam Practice — Cog A2</h3>
+            <div class="qa-card">
+                <div class="qa-meta">Q4(a) · 3 marks · AO1 ×2 + AO2 ×1</div>
+                <div class="qa-question">"Outline one assumption of the cognitive approach, including an example from the study by <u>Pozzulo et al. (2011)</u>."</div>
+                <button class="qa-toggle" onclick="toggleAns(this)">Show Model Answer</button>
+                <div class="qa-answer">
+                    <strong>AO1 (2 marks):</strong> A second assumption is that there are individual differences in cognitive processes such as attention, language, thinking and <span class="keyword">memory</span>. These processes can also help to explain behaviour and emotion.<br><br>
+                    <strong>AO2 (1 mark):</strong> Pozzulo found that older children made significantly more correct identifications than younger children — showing <span class="keyword">individual differences in memory</span> processes, which helps explain age-related differences in <span class="keyword">behaviour</span> (eyewitness accuracy).
                 </div>
             </div>
         </div>
     </div>
+</section>
 
-    <div class="tip-box">
-        <strong>Exam Tip:</strong> For Assumption 1, always use the exact phrase <strong>"input – process – output"</strong> — this is now explicitly in the 2021 textbook wording. For Assumption 2, always identify <em>which</em> cognitive process differs (attention? memory? ToM?) and note that these processes <em>explain behaviour and emotion</em>.
-    </div>
-</div>
-
-<!-- ============================================================ -->
-<!-- SOCIAL APPROACH -->
-<!-- ============================================================ -->
-<div id="panel-soc" class="tab-panel">
-
+<!-- ========== §4 SOCIAL APPROACH ========== -->
+<section class="approach-section" id="soc">
     <div class="approach-header soc">
-        <h2>Social Approach / 社会取向</h2>
-        <p class="subtitle">Humans as social actors — behaviour shaped by presence of others, contexts, groups, and environments.</p>
+        <div class="icon">👥</div>
+        <div>
+            <h2>§4 Social Approach / 社会取向</h2>
+            <p class="meta">Social Influence · Presence of Others — 3 core studies: Milgram · Piliavin · Perry</p>
+        </div>
     </div>
 
-    <span class="section-label label-learn">Learn Mode</span>
+    <span class="type-banner">📘 Syllabus p.19 · Paper 2 Q4(a) · Paper 1 I&amp;D</span>
 
-    <!-- Assumption 1 -->
-    <div class="assumption-card">
-        <div style="display:flex;align-items:center;margin-bottom:0.5rem;">
-            <span class="assumption-num soc">1</span>
-            <strong style="font-size:1.05rem;color:#333;">Social contexts, environments &amp; groups shape behaviour</strong>
+    <!-- SOC A1 -->
+    <div class="assumption-card soc card section-anchor" id="soc-a1">
+        <div style="display:flex;align-items:center;margin-bottom:.8rem;flex-wrap:wrap;gap:.5rem;">
+            <span class="assumption-num soc" style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;color:white;font-weight:700;background:var(--soc);">A1</span>
+            <h3 style="margin:0;">Social contexts, environments &amp; groups shape behaviour</h3>
         </div>
 
-        <div class="assumption-text-box" id="soc-a1-text">
-            <button class="copy-btn" onclick="copyText('soc-a1-text', this)">Copy</button>
-            <div class="assumption-text">
-                Behaviour, cognitions and emotions are influenced by social contexts, social environments and groups.
+        <div class="verbatim-box">
+            <span class="syllabus-tag">Syllabus p.19 verbatim</span>
+            <button class="copy-btn" onclick="copyText('soc-a1-verbatim', this)">Copy</button>
+            <div class="verbatim-text" id="soc-a1-verbatim">Behaviour, cognitions and emotions are influenced by social contexts, social environments and groups.</div>
+        </div>
+
+        <p style="font-size:.9rem;line-height:1.65;margin-bottom:.5rem;"><strong>💡 关键概念 echo：</strong><span class="keyword">social contexts</span> / <span class="keyword">environments</span> / <span class="keyword">groups</span> 三者至少 1 个 verbatim 出现。</p>
+
+        <div class="study-grid">
+            <div class="study-card">
+                <div class="top-row">
+                    <strong>Milgram (1963)</strong>
+                    <span class="badge badge-best">★ Best fit</span>
+                </div>
+                <div class="linking"><em>Participants obeyed more in Yale lab vs office building</em><br><strong>Link：</strong>Yale <span class="keyword">university</span>实验室 <span class="keyword">context</span> (prestige + scientific legitimacy) → obedience rates 65% vs office 47.5% → 直接示范 <span class="keyword">social context</span> shapes behaviour。</div>
+                <a href="../milgram/" class="link-btn">→ 看完整 study</a>
+            </div>
+
+            <div class="study-card">
+                <div class="top-row">
+                    <strong>Piliavin et al. (1969)</strong>
+                </div>
+                <div class="linking"><em>Subway carriage: 8.9s critical vs 7+min in line</em><br><strong>Link：</strong>Subway carriage <span class="keyword">environment</span> (confined, no escape, public) → fast helping → demonstrates <span class="keyword">social environment</span> shapes prosocial behaviour。</div>
+                <a href="../piliavin/" class="link-btn">→ 看完整 study</a>
+            </div>
+
+            <div class="study-card">
+                <div class="top-row">
+                    <strong>Perry et al. (2015)</strong>
+                </div>
+                <div class="linking"><em>CID task with stranger vs familiar in private room</em><br><strong>Link：</strong>The <span class="keyword">social</span> situation (potential interaction with stranger) → observable distance kept → <span class="keyword">social context</span> shapes personal space behaviour。</div>
+                <a href="../perry/" class="link-btn">→ 看完整 study</a>
             </div>
         </div>
 
         <div class="model-answer">
-            <div class="ma-label">Model Answer for Q5(a) <span class="marks-badge">2 marks</span></div>
+            <div class="ma-label">⭐ Q4(a) Model Answer — 3 marks <span class="ao-badge">AO1×2 AO2×1</span></div>
             <div class="ma-text">
-                One assumption is that behaviour, cognitions and emotions are influenced by social contexts, social environments and groups. Where we are and who we're with shapes everything we do, think, and feel.
-                <br><br>
-                行为、认知和情绪受到社会情境、社会环境和群体的影响。我们所处的环境以及与谁在一起塑造了我们的一切行为、思维和感受。
+                One assumption of the social approach is that behaviour, cognitions and emotions are influenced by <span class="keyword">social contexts</span>, <span class="keyword">social environments</span> and <span class="keyword">groups</span> <em>(AO1 = 2 marks)</em>. For example, in Milgram's (1963) study, participants were significantly more likely to obey the experimenter in the prestigious <span class="keyword">Yale University laboratory</span> (a high-status social context) than in a run-down office building — showing that the <span class="keyword">social context directly shaped participants' obedient behaviour</span> <em>(AO2 = 1 mark)</em>.
+                <span class="cn-line">社会取向的一个假设是行为、认知和情绪受社会情境、社会环境和群体的影响。例：Milgram (1963) 在耶鲁大学实验室比在破旧办公楼中表现出更高的服从率。</span>
             </div>
         </div>
 
-        <div class="study-links">
-            <span style="font-size:0.83rem;color:#888;width:100%;margin-bottom:4px;"><strong>Studies supporting this assumption:</strong></span>
-            <a href="../milgram/" class="study-tag soc"><span class="study-dot"></span>Milgram (1963) — Yale laboratory context</a>
-            <a href="../piliavin/" class="study-tag soc"><span class="study-dot"></span>Piliavin et al. (1969) — subway environment</a>
-            <a href="../perry/" class="study-tag soc"><span class="study-dot"></span>Perry et al. (2015) — room selection task context</a>
+        <div class="ms-warn">
+            <strong>⚠️ MS 警示：</strong>"social" 是关键词。写 example 时必须 <strong>verbatim 用 "social context" / "social environment"</strong>，否则 example 不算 link 回 assumption。例如写"in a lab"不够，要写"the social context of a prestigious institution"。
         </div>
 
-        <div class="explain-box">
-            <strong>Milgram (1963):</strong> The <strong>prestigious Yale University laboratory setting</strong> influenced participants' willingness to obey — the legitimate authority context made disobedience feel more difficult.<br><br>
-            <strong>Piliavin (1969):</strong> The unique <strong>subway carriage environment</strong> (confined space, no escape, public setting) created specific helping patterns not seen in other settings.<br><br>
-            <strong>Perry (2015):</strong> The <strong>room selection task context</strong> (choosing where to sit relative to another chair) created a measurable behavioural outcome (distance kept) shaped entirely by the social situation.
+        <div class="exam-practice">
+            <h3>📝 Exam Practice — Soc A1</h3>
+            <div class="qa-card">
+                <div class="qa-meta">Q4(a) · 3 marks · AO1 ×2 + AO2 ×1</div>
+                <div class="qa-question">"Outline one assumption of the social approach, including an example from the study by <u>Piliavin et al. (1969)</u>."</div>
+                <button class="qa-toggle" onclick="toggleAns(this)">Show Model Answer</button>
+                <div class="qa-answer">
+                    <strong>AO1 (2 marks):</strong> Behaviour, cognitions and emotions are influenced by <span class="keyword">social contexts</span>, <span class="keyword">social environments</span> and groups.<br><br>
+                    <strong>AO2 (1 mark):</strong> Piliavin conducted the study in a <span class="keyword">social environment</span> — the subway carriage was a confined, public space with no escape route, and this context produced a 70/40 critical/non-critical helping split, while the same helping behaviour did not occur in less salient contexts. The <span class="keyword">social environment</span> directly shaped helping <span class="keyword">behaviour</span>.
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- Assumption 2 -->
-    <div class="assumption-card">
-        <div style="display:flex;align-items:center;margin-bottom:0.5rem;">
-            <span class="assumption-num soc">2</span>
-            <strong style="font-size:1.05rem;color:#333;">Presence of others influences behaviour</strong>
+    <!-- SOC A2 -->
+    <div class="assumption-card soc card section-anchor" id="soc-a2">
+        <div style="display:flex;align-items:center;margin-bottom:.8rem;flex-wrap:wrap;gap:.5rem;">
+            <span class="assumption-num soc" style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;color:white;font-weight:700;background:var(--soc);">A2</span>
+            <h3 style="margin:0;">Actual, implied or imagined presence of others influences behaviour</h3>
         </div>
 
-        <div class="assumption-text-box" id="soc-a2-text">
-            <button class="copy-btn" onclick="copyText('soc-a2-text', this)">Copy</button>
-            <div class="assumption-text">
-                Behaviour, cognitions and emotions can be influenced by the actual, implied or imagined presence of others.
+        <div class="verbatim-box">
+            <span class="syllabus-tag">Syllabus p.19 verbatim</span>
+            <button class="copy-btn" onclick="copyText('soc-a2-verbatim', this)">Copy</button>
+            <div class="verbatim-text" id="soc-a2-verbatim">Behaviour, cognitions and emotions can be influenced by the actual, implied or imagined presence of others.</div>
+        </div>
+
+        <p style="font-size:.9rem;line-height:1.65;margin-bottom:.5rem;"><strong>💡 关键概念 echo：</strong><span class="keyword">actual</span> / <span class="keyword">implied</span> / <span class="keyword">imagined</span> presence 三选一 verbatim + "presence of others" 必须出现。</p>
+
+        <div class="study-grid">
+            <div class="study-card">
+                <div class="top-row">
+                    <strong>Perry et al. (2015)</strong>
+                    <span class="badge badge-best">★ Best fit</span>
+                </div>
+                <div class="linking"><em>Empty chair = implied presence (Ot 47.5 vs Saline 38.2 cm)</em><br><strong>Link：</strong>虽然没人 present，但 empty chair 创造 <span class="keyword">implied presence</span> of another person → participants kept greater distance → supports assumption 2 because nobody was physically there, showing <span class="keyword">implied presence</span> alone is enough。</div>
+                <a href="../perry/" class="link-btn">→ 看完整 study</a>
+            </div>
+
+            <div class="study-card">
+                <div class="top-row">
+                    <strong>Milgram (1963)</strong>
+                </div>
+                <div class="linking"><em>Experimenter physically present in room</em><br><strong>Link：</strong><span class="keyword">Actual presence</span> of authority figure in room → obedience. When experimenter left, obedience dropped (e.g., 20.5% in "remote" variation) → comparison directly supports <span class="keyword">actual presence</span> mechanism。</div>
+                <a href="../milgram/" class="link-btn">→ 看完整 study</a>
+            </div>
+
+            <div class="study-card">
+                <div class="top-row">
+                    <strong>Piliavin et al. (1969)</strong>
+                </div>
+                <div class="linking"><em>Number of bystanders on train (real presence)</em><br><strong>Link：</strong>Diffusion of responsibility — increased <span class="keyword">actual</span> presence of other bystanders → slower helping → supports <span class="keyword">actual presence</span> mechanism。</div>
+                <a href="../piliavin/" class="link-btn">→ 看完整 study</a>
             </div>
         </div>
 
         <div class="model-answer">
-            <div class="ma-label">Model Answer for Q5(a) <span class="marks-badge">2 marks</span></div>
+            <div class="ma-label">⭐ Q4(a) Model Answer — 3 marks <span class="ao-badge">AO1×2 AO2×1</span></div>
             <div class="ma-text">
-                Another assumption is that behaviour, cognitions and emotions can be influenced by the actual, implied or imagined presence of others. This means we don't need someone physically present to be affected — even thinking about others can change how we behave.
-                <br><br>
-                行为、认知和情绪会受到他人的实际存在、暗示性存在或想象存在的影响。这意味着不需要有人实际在场，仅仅想到他人就能改变我们的行为方式。
+                A second assumption of the social approach is that behaviour, cognitions and emotions can be influenced by the <span class="keyword">actual</span>, <span class="keyword">implied</span> or <span class="keyword">imagined</span> <span class="keyword">presence of others</span> <em>(AO1 = 2 marks)</em>. For example, Perry et al. (2015) showed that even when no one was physically present in the room, participants kept a greater distance from a chair that was associated with a stranger than from one associated with a familiar person — this <span class="keyword">implied presence</span> of another person was sufficient to influence their personal space behaviour <em>(AO2 = 1 mark)</em>.
+                <span class="cn-line">社会取向的另一个假设是，行为、认知和情绪可能受他人实际、暗示或想象存在的影响。例：Perry 等人(2015) 在没人实际在场时，参与者对与陌生人关联的椅子保持比与熟人关联的椅子更远的距离。</span>
             </div>
         </div>
 
-        <div class="study-links">
-            <span style="font-size:0.83rem;color:#888;width:100%;margin-bottom:4px;"><strong>Studies supporting this assumption:</strong></span>
-            <a href="../milgram/" class="study-tag soc"><span class="study-dot"></span>Milgram (1963) — authority figure (actual presence)</a>
-            <a href="../piliavin/" class="study-tag soc"><span class="study-dot"></span>Piliavin et al. (1969) — bystanders (actual presence)</a>
-            <a href="../perry/" class="study-tag soc"><span class="study-dot"></span>Perry et al. (2015) — stranger vs familiar (implied presence)</a>
+        <div class="ms-warn">
+            <strong>⚠️ MS 警示：</strong>"actual/implied/imagined" 是核心辨别点——很多学生混用。Perry = <span class="keyword">implied</span> presence（空椅子代表他人）；Milgram = <span class="keyword">actual</span> presence（experimenter 在房间）。Examiner 给 AO2 credit 时会看 example 是否明确指出 presence 是哪种类型。
         </div>
 
-        <div class="explain-box">
-            <strong>Milgram (1963):</strong> Participants obeyed the <strong>authority figure (experimenter)</strong> who was actually present in the room — when the experimenter gave orders, participants continued delivering shocks. Shows <em>actual presence of others influences obedience</em>.<br><br>
-            <strong>Piliavin (1969):</strong> Helping behaviour was affected by the <strong>number of bystanders present</strong> on the subway train — more bystanders initially led to slower helping (diffusion of responsibility). Shows <em>actual presence of others influences prosocial behaviour</em>.<br><br>
-            <strong>Perry (2015):</strong> Participants kept a <strong>greater distance from a stranger</strong> than from a familiar person — even though no one else was in the room, the <em>implied presence of another person</em> influenced personal space preferences.
-        </div>
-    </div>
-
-    <!-- Practice -->
-    <span class="section-label label-practice">Exam Practice</span>
-    <div class="practice-section">
-        <h3>Paper 2 Style Questions / 考试练习题</h3>
-
-        <div class="question-block">
-            <div class="q-label">5 (a) Outline one assumption of the social approach.</div>
-            <div class="q-lines">Write your answer here... (2 marks available)</div>
-            <button class="show-ans-btn" onclick="toggleAns('soc-q1')">Show Model Answer</button>
-            <div class="answer-reveal" id="soc-q1">
-                <div class="ans-part">
-                    <div class="ans-label">Acceptable Answer (either assumption):</div>
-                    <div class="ans-text">
-                        <strong>Option 1:</strong> Behaviour, cognitions and emotions are influenced by social contexts, social environments and groups.<br><br>
-                        <strong>Option 2:</strong> Behaviour, cognitions and emotions can be influenced by the actual, implied or imagined presence of others.<br><br>
-                        <em>(Must include: "social contexts/environments/groups" OR "actual/implied/imagined presence of others")</em>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="question-block">
-            <div class="q-label">5 (b) Explain one reason why the study by Piliavin et al. (subway Samaritans) supports the assumption you outlined in part (a).</div>
-            <div class="q-lines">Write your answer here... (2 marks available)</div>
-            <button class="show-ans-btn" onclick="toggleAns('soc-q2')">Show Model Answer</button>
-            <div class="answer-reveal" id="soc-q2">
-                <div class="ans-part">
-                    <div class="ans-label">If you chose Assumption 1 (social contexts):</div>
-                    <div class="ans-text">
-                        Piliavin's study took place in a <strong>natural social environment (subway carriage)</strong> where the confined space, lack of escape routes, and public nature of the setting all influenced helping behaviour. This supports the assumption because it demonstrates that <strong>social environments shape our behaviour</strong> — helping rates differed based on contextual factors like victim type (drunk vs ill) and passenger density.
-                    </div>
-                </div>
-                <div class="ans-part">
-                    <div class="ans-label">If you chose Assumption 2 (presence of others):</div>
-                    <div class="ans-text">
-                        Piliavin found that helping behaviour was <strong>influenced by the number of bystanders present</strong> on the subway train. When more people were present, help was slower (diffusion of responsibility). This supports the assumption because it shows that the <strong>actual presence of others</strong> (bystanders) directly influenced whether and how quickly participants helped the victim.
-                    </div>
+        <div class="exam-practice">
+            <h3>📝 Exam Practice — Soc A2</h3>
+            <div class="qa-card">
+                <div class="qa-meta">Q4(a) · 3 marks · AO1 ×2 + AO2 ×1</div>
+                <div class="qa-question">"Outline one assumption of the social approach, including an example from the study by <u>Milgram (1963)</u>."</div>
+                <button class="qa-toggle" onclick="toggleAns(this)">Show Model Answer</button>
+                <div class="qa-answer">
+                    <strong>AO1 (2 marks):</strong> Behaviour, cognitions and emotions can be influenced by the actual, implied or imagined <span class="keyword">presence of others</span>.<br><br>
+                    <strong>AO2 (1 mark):</strong> Milgram found that 65% of participants delivered the maximum 450V shock when the experimenter was <span class="keyword">actually present</span> in the room giving orders. When the experimenter gave orders by phone or was absent, obedience dropped dramatically (e.g., 20.5% in the "remote" variant) — showing that the <span class="keyword">actual presence of an authority figure</span> strongly influenced obedience <span class="keyword">behaviour</span>.
                 </div>
             </div>
         </div>
     </div>
+</section>
 
-    <div class="tip-box">
-        <strong>Exam Tip:</strong> Distinguish carefully between <strong>actual presence</strong> (someone physically there — Milgram's experimenter, Piliavin's bystanders), <strong>implied presence</strong> (Perry's stranger represented by an empty chair), and <strong>imagined presence</strong> (internalised social norms). Examiners reward precise terminology!
-    </div>
-</div>
-
-<!-- ============================================================ -->
-<!-- LEARNING APPROACH -->
-<!-- ============================================================ -->
-<div id="panel-lrn" class="tab-panel">
-
+<!-- ========== §5 LEARNING APPROACH ========== -->
+<section class="approach-section" id="lrn">
     <div class="approach-header lrn">
-        <h2>Learning Approach / 学习取向</h2>
-        <p class="subtitle">Live to learn or learn to live? — We are born as blank slates; all behaviour is learned through conditioning.</p>
+        <div class="icon">🎓</div>
+        <div>
+            <h2>§5 Learning Approach / 学习取向</h2>
+            <p class="meta">Blank Slate · Conditioning · Social Learning — 3 core studies: Bandura · Saavedra · Fagen</p>
+        </div>
     </div>
 
-    <span class="section-label label-learn">Learn Mode</span>
+    <span class="type-banner">📘 Syllabus p.18 · Paper 2 Q4(a) · Paper 1 I&amp;D</span>
 
-    <!-- Assumption 1 -->
-    <div class="assumption-card">
-        <div style="display:flex;align-items:center;margin-bottom:0.5rem;">
-            <span class="assumption-num lrn">1</span>
-            <strong style="font-size:1.05rem;color:#333;">Blank slate — environment shapes behaviour</strong>
+    <!-- LRN A1 -->
+    <div class="assumption-card lrn card section-anchor" id="lrn-a1">
+        <div style="display:flex;align-items:center;margin-bottom:.8rem;flex-wrap:wrap;gap:.5rem;">
+            <span class="assumption-num lrn" style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;color:white;font-weight:700;background:var(--lrn);">A1</span>
+            <h3 style="margin:0;">Blank slate — environment shapes behaviour</h3>
         </div>
 
-        <div class="assumption-text-box" id="lrn-a1-text">
-            <button class="copy-btn" onclick="copyText('lrn-a1-text', this)">Copy</button>
-            <div class="assumption-text">
-                We all begin life as a blank slate. Experiences and interactions with the environment shape our behaviour and these changes are directly observable.
+        <div class="verbatim-box">
+            <span class="syllabus-tag">Syllabus p.18 verbatim</span>
+            <button class="copy-btn" onclick="copyText('lrn-a1-verbatim', this)">Copy</button>
+            <div class="verbatim-text" id="lrn-a1-verbatim">We all begin life as a blank slate. Experiences and interactions with the environment shape our behaviour and these changes are directly observable.</div>
+        </div>
+
+        <p style="font-size:.9rem;line-height:1.65;margin-bottom:.5rem;"><strong>💡 关键概念 echo：</strong><span class="keyword">blank slate</span> + <span class="keyword">experiences</span> + <span class="keyword">environment</span> shape behaviour + "directly observable"。</p>
+
+        <div class="study-grid">
+            <div class="study-card">
+                <div class="top-row">
+                    <strong>Bandura et al. (1961)</strong>
+                    <span class="badge badge-best">★ Best fit</span>
+                </div>
+                <div class="linking"><em>Children imitated aggressive model</em><br><strong>Link：</strong>Children weren't born aggressive — they <span class="keyword">learned</span> it through observing the model (environmental interaction). Imitation behaviour was directly observable (researchers coded it)。</div>
+                <a href="../bandura/" class="link-btn">→ 看完整 study</a>
+            </div>
+
+            <div class="study-card">
+                <div class="top-row">
+                    <strong>Saavedra &amp; Silverman (2002)</strong>
+                </div>
+                <div class="linking"><em>Buttons paired with disgust → fear of buttons</em><br><strong>Link：</strong>Buttons aren't innately fear-inducing — the phobia was <span class="keyword">learned</span> through environmental pairing (buttons + disgusting images). Fear was directly observable (avoidance/fear ratings)。</div>
+                <a href="../saavedra/" class="link-btn">→ 看完整 study</a>
+            </div>
+
+            <div class="study-card">
+                <div class="top-row">
+                    <strong>Fagen et al. (2014)</strong>
+                </div>
+                <div class="linking"><em>Elephants trained to put leaves on head</em><br><strong>Link：</strong>Complex behaviour not in elephant's natural repertoire — was <span class="keyword">learned</span> through shaping (each step reinforced). Behaviour directly <span class="keyword">observable</span> via video scoring。</div>
+                <a href="../fagen/" class="link-btn">→ 看完整 study</a>
             </div>
         </div>
 
         <div class="model-answer">
-            <div class="ma-label">Model Answer for Q5(a) <span class="marks-badge">2 marks</span></div>
+            <div class="ma-label">⭐ Q4(a) Model Answer — 3 marks <span class="ao-badge">AO1×2 AO2×1</span></div>
             <div class="ma-text">
-                One assumption is that we all begin life as a blank slate. Experiences and interactions with the environment shape our behaviour and these changes are directly observable. We are not born with innate knowledge — everything is learned through experience.
-                <br><br>
-                我们每个人出生时都是一张白纸。与环境的经验和互动塑造了我们的行为，这些变化是可以直接观察到的。我们并非生来就拥有先天知识——所有一切都是通过经验习得的。
+                One assumption of the learning approach is that <span class="keyword">we all begin life as a blank slate</span> — <span class="keyword">experiences</span> and interactions with the <span class="keyword">environment</span> shape our behaviour and these changes are directly <span class="keyword">observable</span> <em>(AO1 = 2 marks)</em>. For example, Saavedra and Silverman (2002) showed that participants developed a fear of buttons after buttons were paired with disgusting images; buttons were not innately feared, and the <span class="keyword">learned</span> fear was directly <span class="keyword">observable</span> through avoidance ratings — demonstrating that the phobia was <span class="keyword">learned through environmental experience</span> <em>(AO2 = 1 mark)</em>.
+                <span class="cn-line">学习取向的一个假设是我们出生时都是白板——经验和环境的互动塑造了我们的行为，这些变化可以直接观察到。例：Saavedra & Silverman (2002) 表明参与者因按钮与令人厌恶的图像配对而对按钮产生了恐惧。</span>
             </div>
         </div>
 
-        <div class="study-links">
-            <span style="font-size:0.83rem;color:#888;width:100%;margin-bottom:4px;"><strong>Studies supporting this assumption:</strong></span>
-            <a href="../bandura/" class="study-tag lrn"><span class="study-dot"></span>Bandura et al. (1961) — learned aggression (modelling)</a>
-            <a href="../saavedra/" class="study-tag lrn"><span class="study-dot"></span>Saavedra &amp; Silverman (2002) — learned phobia (conditioning)</a>
-            <a href="../fagen/" class="study-tag lrn"><span class="study-dot"></span>Fagen et al. (2014) — trained behaviours (operant)</a>
+        <div class="ms-warn">
+            <strong>⚠️ MS 警示：</strong>"blank slate" 是关键词，不能换"empty mind"或"tabula rasa"（syllabus 原话就是 blank slate）。"Directly observable"——A1 题的 example 必须显示"行为可观察/可测量"，否则 example 拿不到 AO2 第 3 分。
         </div>
 
-        <div class="explain-box">
-            <strong>Bandura (1961):</strong> Children who observed an <strong>aggressive adult model imitated the aggressive behaviour</strong> — they weren't born aggressive; they learned it through observation (environmental influence).<br><br>
-            <strong>Saavedra (2002):</strong> Participants developed a <strong>fear of buttons after they were paired with disgusting images</strong> — buttons are not innately fear-inducing; the phobia was learned through environmental pairing (evaluative conditioning).<br><br>
-            <strong>Fagen (2014):</strong> Elephants learned to perform complex tasks (e.g., putting leaves on head) through <strong>shaping and reinforcement</strong> — showing that even complex behaviours can be acquired through environmental interaction (operant conditioning).
+        <div class="exam-practice">
+            <h3>📝 Exam Practice — Lrn A1</h3>
+            <div class="qa-card">
+                <div class="qa-meta">Q4(a) · 3 marks · AO1 ×2 + AO2 ×1</div>
+                <div class="qa-question">"Outline one assumption of the learning approach, including an example from the study by <u>Bandura et al. (1961)</u>."</div>
+                <button class="qa-toggle" onclick="toggleAns(this)">Show Model Answer</button>
+                <div class="qa-answer">
+                    <strong>AO1 (2 marks):</strong> We all begin life as a <span class="keyword">blank slate</span>. <span class="keyword">Experiences</span> and interactions with the <span class="keyword">environment</span> shape our <span class="keyword">behaviour</span> and these changes are directly <span class="keyword">observable</span>.<br><br>
+                    <strong>AO2 (1 mark):</strong> Bandura found that children who observed an aggressive adult model <span class="keyword">learned</span> by imitating specific aggressive acts (e.g., hitting a Bobo doll with a mallet) that they would not have spontaneously produced. The newly-acquired aggressive <span class="keyword">behaviour</span> was directly <span class="keyword">observable</span> in a test phase, showing that the behaviour was shaped by <span class="keyword">environmental experience</span> (the model), not innate.
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- Assumption 2 -->
-    <div class="assumption-card">
-        <div style="display:flex;align-items:center;margin-bottom:0.5rem;">
-            <span class="assumption-num lrn">2</span>
-            <strong style="font-size:1.05rem;color:#333;">Learning occurs through SLT, operant &amp; classical conditioning (S-R)</strong>
+    <!-- LRN A2 -->
+    <div class="assumption-card lrn card section-anchor" id="lrn-a2">
+        <div style="display:flex;align-items:center;margin-bottom:.8rem;flex-wrap:wrap;gap:.5rem;">
+            <span class="assumption-num lrn" style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;color:white;font-weight:700;background:var(--lrn);">A2</span>
+            <h3 style="margin:0;">Learning through conditioning &amp; social learning (S-R model)</h3>
         </div>
 
-        <div class="assumption-text-box" id="lrn-a2-text">
-            <button class="copy-btn" onclick="copyText('lrn-a2-text', this)">Copy</button>
-            <div class="assumption-text">
-                The processes of social learning, operant conditioning and classical conditioning are the ways in which humans and animals learn. These processes involve stimulus-response i.e. experiences within our environment (stimuli) shape our behaviour (response).
+        <div class="verbatim-box">
+            <span class="syllabus-tag">Syllabus p.18 verbatim</span>
+            <button class="copy-btn" onclick="copyText('lrn-a2-verbatim', this)">Copy</button>
+            <div class="verbatim-text" id="lrn-a2-verbatim">We learn through the processes of operant conditioning, classical conditioning and social learning. This can be understood using the stimulus-response model.</div>
+        </div>
+
+        <p style="font-size:.9rem;line-height:1.65;margin-bottom:.5rem;"><strong>💡 关键概念 echo：</strong><span class="keyword">operant conditioning</span> + <span class="keyword">classical conditioning</span> + <span class="keyword">social learning</span> 三者必须都出现 + <span class="keyword">stimulus-response</span>。</p>
+
+        <div class="study-grid">
+            <div class="study-card">
+                <div class="top-row">
+                    <strong>Saavedra &amp; Silverman (2002)</strong>
+                    <span class="badge badge-best">★ Best fit</span>
+                </div>
+                <div class="linking"><em>CS (buttons) + UCS (disgust images) → CR (button fear)</em><br><strong>Link：</strong>Clear <span class="keyword">classical conditioning</span> (evaluative conditioning) — neutral <span class="keyword">stimulus</span> paired with unconditioned <span class="keyword">stimulus</span> → conditioned <span class="keyword">response</span>。S-R model fully applies。</div>
+                <a href="../saavedra/" class="link-btn">→ 看完整 study</a>
+            </div>
+
+            <div class="study-card">
+                <div class="top-row">
+                    <strong>Bandura et al. (1961)</strong>
+                </div>
+                <div class="linking"><em>Vicarious reinforcement through model</em><br><strong>Link：</strong><span class="keyword">Social learning</span> theory — observed model + observed consequence → imitation. Children imitating rewarded model (vicarious reinforcement) is the <span class="keyword">stimulus</span>-<span class="keyword">response</span> pattern via observation, not direct reinforcement。</div>
+                <a href="../bandura/" class="link-btn">→ 看完整 study</a>
+            </div>
+
+            <div class="study-card">
+                <div class="top-row">
+                    <strong>Fagen et al. (2014)</strong>
+                </div>
+                <div class="linking"><em>Shaping with food reward</em><br><strong>Link：</strong><span class="keyword">Operant conditioning</span> — successive approximations reinforced with food → behaviour gradually shaped. Each trial is a <span class="keyword">stimulus</span> (behaviour demand) → <span class="keyword">response</span> (elephant action) → consequence (food or not) loop。</div>
+                <a href="../fagen/" class="link-btn">→ 看完整 study</a>
             </div>
         </div>
 
         <div class="model-answer">
-            <div class="ma-label">Model Answer for Q5(a) <span class="marks-badge">2 marks</span></div>
+            <div class="ma-label">⭐ Q4(a) Model Answer — 3 marks <span class="ao-badge">AO1×2 AO2×1</span></div>
             <div class="ma-text">
-                Another assumption is that learning occurs through three main processes: social learning, operant conditioning, and classical conditioning. All involve stimulus-response associations, where environmental stimuli shape our behavioural responses.
-                <br><br>
-                另一个假设是：学习通过三种主要方式进行——社会学习、操作性条件和经典条件反射。这些都涉及刺激-反应关联，即环境刺激塑造我们的行为反应。
+                A second assumption of the learning approach is that we learn through the processes of <span class="keyword">operant conditioning</span>, <span class="keyword">classical conditioning</span> and <span class="keyword">social learning</span>, and this can be understood using the <span class="keyword">stimulus-response</span> model <em>(AO1 = 2 marks)</em>. For example, Saavedra and Silverman (2002) used a form of <span class="keyword">classical conditioning</span> (evaluative conditioning): the neutral <span class="keyword">stimulus</span> (buttons) was repeatedly paired with the unconditioned <span class="keyword">stimulus</span> (disgusting images), producing a conditioned <span class="keyword">response</span> (fear/avoidance of buttons) — directly demonstrating the <span class="keyword">stimulus-response</span> learning process <em>(AO2 = 1 mark)</em>.
+                <span class="cn-line">另一个假设是学习通过操作条件、经典条件反射和社会学习进行，这可以用刺激-反应模型理解。例：Saavedra & Silverman (2002) 评估性条件反射——中性刺激（按钮）与无条件刺激（厌恶图像）配对，产生条件反应。</span>
             </div>
         </div>
 
-        <div class="study-links">
-            <span style="font-size:0.83rem;color:#888;width:100%;margin-bottom:4px;"><strong>Studies supporting this assumption:</strong></span>
-            <a href="../bandura/" class="study-tag lrn"><span class="study-dot"></span>Bandura et al. (1961) — Social Learning Theory (SLT)</a>
-            <a href="../fagen/" class="study-tag lrn"><span class="study-dot"></span>Fagen et al. (2014) — Operant Conditioning (SPR/shaping)</a>
-            <a href="../saavedra/" class="study-tag lrn"><span class="study-dot"></span>Saavedra &amp; Silverman (2002) — Classical/Evaluative Conditioning</a>
+        <div class="ms-warn">
+            <strong>⚠️ MS 警示：</strong>"operant conditioning" + "classical conditioning" + "social learning" 三者必须都出现。Examiner 允许用缩写（OC / CC / SLT），但顺序按 syllabus。注意："S-R" 必须写完整 "stimulus-response"，不能写"S→R"。
         </div>
 
-        <div class="explain-box">
-            <strong>Bandura (1961):</strong> Demonstrated <strong>Social Learning Theory</strong> — children learned aggression vicariously by observing and then imitating a role model. Those who saw the model rewarded showed the most imitation (<em>vicarious reinforcement</em>).<br><br>
-            <strong>Fagen (2014):</strong> Used <strong>Operant Conditioning</strong> — elephants were trained using Successive Approximations (shaping), where each correct behaviour was reinforced with food rewards. Clear S-R learning through consequences.<br><br>
-            <strong>Saavedra (2002):</strong> Used <strong>Evaluative (Classical) Conditioning</strong> — neutral stimulus (buttons) paired with unconditioned stimulus (disgusting images) produced a conditioned response (button fear/avoidance). Classic S-R association formation.
-        </div>
-    </div>
-
-    <!-- Practice -->
-    <span class="section-label label-practice">Exam Practice</span>
-    <div class="practice-section">
-        <h3>Paper 2 Style Questions / 考试练习题</h3>
-
-        <div class="question-block">
-            <div class="q-label">5 (a) Outline one assumption of the learning approach.</div>
-            <div class="q-lines">Write your answer here... (2 marks available)</div>
-            <button class="show-ans-btn" onclick="toggleAns('lrn-q1')">Show Model Answer</button>
-            <div class="answer-reveal" id="lrn-q1">
-                <div class="ans-part">
-                    <div class="ans-label">Acceptable Answer (either assumption):</div>
-                    <div class="ans-text">
-                        <strong>Option 1:</strong> We all begin life as a blank slate. Experiences and interactions with the environment shape our behaviour and these changes are directly observable.<br><br>
-                        <strong>Option 2:</strong> The processes of social learning, operant conditioning and classical conditioning are the ways in which humans and animals learn. These involve stimulus-response — experiences within our environment (stimuli) shape our behaviour (response).<br><br>
-                        <em>(Must include: "blank slate"/"environment shape behaviour" OR "social learning/operant/classical conditioning"/"stimulus-response")</em>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="question-block">
-            <div class="q-label">5 (b) Explain one reason why the study by Saavedra and Silverman (button phobia) supports the assumption you outlined in part (a).</div>
-            <div class="q-lines">Write your answer here... (2 marks available)</div>
-            <button class="show-ans-btn" onclick="toggleAns('lrn-q2')">Show Model Answer</button>
-            <div class="answer-reveal" id="lrn-q2">
-                <div class="ans-part">
-                    <div class="ans-label">If you chose Assumption 1 (blank slate / environment shapes behaviour):</div>
-                    <div class="ans-text">
-                        Saavedra showed that participants developed a <strong>fear of buttons only after buttons were paired with disgusting images</strong> in the experiment. Buttons are not inherently frightening — the fear was <strong>learned through environmental interaction</strong> (pairing with disgust stimuli). This supports the blank slate assumption because it demonstrates that <strong>experiences and interactions with the environment shaped behaviour</strong>, and this change was directly observable (measured by avoidance/fear ratings).
-                    </div>
-                </div>
-                <div class="ans-part">
-                    <div class="ans-label">If you chose Assumption 2 (learning through conditioning / S-R):</div>
-                    <div class="ans-text">
-                        Saavedra used <strong>evaluative conditioning</strong> — a form of classical conditioning where a neutral stimulus (buttons) was repeatedly paired with an unconditioned stimulus (disgusting images), producing a conditioned response (avoidance/fear of buttons). This supports the assumption because it clearly demonstrates the <strong>stimulus-response learning process</strong>: environmental stimuli (disgusting button pairings) shaped the participant's behavioural response (button avoidance).
-                    </div>
+        <div class="exam-practice">
+            <h3>📝 Exam Practice — Lrn A2</h3>
+            <div class="qa-card">
+                <div class="qa-meta">Q4(a) · 3 marks · AO1 ×2 + AO2 ×1</div>
+                <div class="qa-question">"Outline one assumption of the learning approach, including an example from the study by <u>Fagen et al. (2014)</u>."</div>
+                <button class="qa-toggle" onclick="toggleAns(this)">Show Model Answer</button>
+                <div class="qa-answer">
+                    <strong>AO1 (2 marks):</strong> We learn through the processes of <span class="keyword">operant conditioning</span>, classical conditioning and social learning. This can be understood using the <span class="keyword">stimulus-response</span> model.<br><br>
+                    <strong>AO2 (1 mark):</strong> Fagen used <span class="keyword">operant conditioning</span> — elephants were trained through <span class="keyword">shaping</span> (successive approximations), where each correct <span class="keyword">response</span> to the experimenter's <span class="keyword">stimulus</span> (the cue) was reinforced with a food reward. Over time, the elephants learned complex behaviours (e.g., placing leaves on their heads) that were not in their natural repertoire, demonstrating the <span class="keyword">stimulus-response</span> conditioning process.
                 </div>
             </div>
         </div>
     </div>
+</section>
 
-    <div class="tip-box">
-        <strong>Exam Tip:</strong> When answering Learning approach questions, always identify <strong>which type of learning</strong> the study demonstrates: <em>vicarious reinforcement</em> (Bandura/SLT), <em>shaping and reinforcement</em> (Fagen/operant), or <em>stimulus-response association</em> (Saavedra/classical). Using precise terminology earns marks!
+<!-- ========== §6 AS ISSUES &amp; DEBATES (5 个) ========== -->
+<section class="approach-section" id="id">
+    <div class="h2-section" style="background:#f3e8ff;border-color:#a855f7;">
+        <span class="label">§6 · AS I&amp;D</span>
+        <h2 style="color:#6b21a8;">Issues &amp; Debates（AS 范围 5 个）</h2>
     </div>
-</div>
 
-</div><!-- end container -->
+    <p style="margin-bottom:1rem;font-size:.92rem;">⚠️ 注意：AS syllabus（p.15）只列 <strong>5 个 issues</strong>，不是 6 个。Reductionism/Holism、Free Will/Determinism 是 A2 (Paper 4) 议题，<strong>不进 AS 答卷</strong>。</p>
+
+    <div class="id-card">
+        <h4>1️⃣ Application of psychology to everyday life / 心理学在日常生活中的应用</h4>
+        <p>把核心研究结论迁移到现实场景（如 Milgram → obedience to authority 在 workplace / Milgram variations Burger 2009；Baron-Cohen → autism screening；Hoelzel → corporate mindfulness）。AO2 常考："Suggest two <strong>applications of [study]</strong> to everyday life."</p>
+        <span class="cn-line">把核心研究应用到现实场景是 CIE AS 高频题型。</span>
+    </div>
+
+    <div class="id-card">
+        <h4>2️⃣ Individual &amp; situational explanations / 个体与情境解释</h4>
+        <p><strong>Individual</strong> = 把行为归因为个人特质/内部原因（如 Hassett 解释 toy preference = genetic/biological）；<strong>Situational</strong> = 归因为外部环境/情境（如 same Hassett finding could be explained by environmental socialisation）。<strong>辩论焦点</strong>：行为主要由哪方决定？Hassett 等跨物种研究支持 individual（biological）侧，Milgram 变异支持 situational 侧。</p>
+        <span class="cn-line">AS 焦点：到底是"性格决定命运"还是"情境决定行为"？</span>
+    </div>
+
+    <div class="id-card">
+        <h4>3️⃣ Nature vs nurture / 先天 vs 后天</h4>
+        <p><strong>Nature</strong> = 先天生物/基因；<strong>Nurture</strong> = 后天环境/经验。<strong>支持 nature 的研究</strong>：Hassett (跨物种+动物研究) · Dement (脑电+睡眠生理) · Hoelzel (脑结构改变) · Baron-Cohen (性别差异+先天 ToM 缺陷)。<strong>支持 nurture 的研究</strong>：Saavedra (按钮恐惧) · Bandura (观察学习) · Fagen (训练) · Andrade (涂鸦提升记忆)。</p>
+        <p style="margin-top:.5rem;"><strong>答题框架</strong>：[Study X] supports the [nature/nurture] side because [specific finding shows ...]，且 MS 接受两种 valid 对比（如 Hassett = nature side / Saavedra = nurture side）。</p>
+        <span class="cn-line">CIE AS 必考 debate 之一，AO3 题型常见。</span>
+    </div>
+
+    <div class="id-card">
+        <h4>4️⃣ Use of children in psychological research / 使用儿童作为研究对象</h4>
+        <p><strong>涉及研究</strong>：Baron-Cohen（成人+儿童版本 ToM）· Bandura (1961 children) · Pozzulo (110 个年龄 6/8/10/12 儿童) · Perry (young adults + children eye-contact)。<br><strong>伦理争议</strong>：informed consent (children can't give) · protection from harm (Bandura potentially distressing Bobo) · right to withdraw (often waived) · BPS guidelines on children。<br><strong>辩护</strong>：研究为了解认知/社会发展必不可少；研究后做了 debrief；学校 + 家长同意 + 教师在旁监督。</p>
+        <span class="cn-line">CIE 必考：孩子在 4 篇 Study 出现，注意"伦理可辩护 vs 不可辩护"区别。</span>
+    </div>
+
+    <div class="id-card">
+        <h4>5️⃣ Use of animals in psychological research / 使用动物作为研究对象</h4>
+        <p><strong>涉及研究</strong>：Fagen (elephants) · Hassett (rhesus monkeys)。<strong>Dement</strong> 用的是人类（不是动物）。<br><strong>伦理争议</strong>：动物 welfare 是否被损害 · 物种差异能否 generalize 到人类 · 道德地位。<br><strong>辩护</strong>：Fagen 用 <strong>positive reinforcement</strong>（无电击）· Hassett 仅观察自然 toy preference 无 invasive procedure · 研究为了解 elephant cognition / 进化心理学有不可替代价值。</p>
+        <span class="cn-line">极少见动物议题；Fagen/Hassett 是首选例子。Dement 不是动物实验。</span>
+    </div>
+
+    <div class="exam-tip">
+        <strong>📝 I&amp;D 答题金句模板：</strong>
+        <ol style="margin-top:.5rem;padding-left:1.5rem;">
+            <li>"One debate is [debate name]." (1 mark AO1 = naming the debate)</li>
+            <li>"[Study X] can be related to this debate because [specific finding] supports the [side]." (AO2/AO3 = application)</li>
+            <li>Counter："However, this is limited because [counterargument]." (AO3 = evaluation, only for 4-mark I&amp;D questions)</li>
+        </ol>
+    </div>
+</section>
+
+<!-- ========== §7 综合 EXAM PRACTICE ========== -->
+<section class="approach-section" id="exam">
+    <div class="h2-section" style="background:#fff7ed;border-color:#f59e0b;">
+        <span class="label">§7 · Real Past Paper Questions</span>
+        <h2 style="color:#b45309;">综合 Exam Practice（5 考期真题改编）</h2>
+    </div>
+
+    <p style="margin-bottom:1rem;font-size:.92rem;">以下题目改写自 <strong>CIE 9990 Paper 2 m25/s25/w25/m26/s26</strong> Q4(a) and Paper 1 Section A 真题。点击每题"Show Model Answer"看 MS 标准答法。</p>
+
+    <!-- Q1 -->
+    <div class="card exam-practice">
+        <h3>🎯 Paper 2 Q4(a) 类型 · 6 题综合强化</h3>
+
+        <div class="qa-card">
+            <div class="qa-meta">m25 / Q5 P22 adaptation · 3 marks</div>
+            <div class="qa-question">"Outline one assumption of the cognitive approach, including an example from the study by <u>Baron-Cohen et al. (2001)</u>."</div>
+            <button class="qa-toggle" onclick="toggleAns(this)">Show Model Answer</button>
+            <div class="qa-answer">
+                <strong>Assumption (AO1 = 2 marks):</strong> Information is processed through the same route in all humans: input – process – output, in a similar way to how information is processed by a computer.<br><br>
+                <strong>Example (AO2 = 1 mark):</strong> Baron-Cohen's Eyes Test required participants to receive visual input (eye region photos), mentally process the information (infer the emotion/mental state), and produce an output (word selection from four options) — showing the input-process-output route.
+            </div>
+        </div>
+
+        <div class="qa-card">
+            <div class="qa-meta">m26 / Q4(a) P12 adaptation · 3 marks</div>
+            <div class="qa-question">"Outline one assumption of the learning approach, including an example from the study by <u>Bandura et al. (1961)</u>."</div>
+            <button class="qa-toggle" onclick="toggleAns(this)">Show Model Answer</button>
+            <div class="qa-answer">
+                <strong>Assumption (AO1 = 2 marks):</strong> We learn through the processes of operant conditioning, classical conditioning and social learning. This can be understood using the stimulus-response model.<br><br>
+                <strong>Example (AO2 = 1 mark):</strong> Bandura demonstrated <u>social learning</u>: children observed an adult model behaving aggressively toward a Bobo doll and being rewarded. Through <u>vicarious reinforcement</u>, children later imitated the aggressive acts — this observational <u>stimulus-response</u> pattern supported the assumption.
+            </div>
+        </div>
+
+        <div class="qa-card">
+            <div class="qa-meta">s25 / Q5 P11 adaptation · 3 marks</div>
+            <div class="qa-question">"Outline one assumption of the biological approach, including an example from the study by <u>Holzel et al. (2011)</u>."</div>
+            <button class="qa-toggle" onclick="toggleAns(this)">Show Model Answer</button>
+            <div class="qa-answer">
+                <strong>Assumption (AO1 = 2 marks):</strong> Behaviour, cognitions and emotions can be explained in terms of the working of the brain and the effect of hormones, genetics and evolution.<br><br>
+                <strong>Example (AO2 = 1 mark):</strong> Holzel found that MBSR participants showed increased grey matter density in the <u>brain's</u> hippocampus (a structure linked to memory and emotion regulation) — direct evidence that <u>brain</u> structure change underlies changes in mindfulness cognition.
+            </div>
+        </div>
+
+        <div class="qa-card">
+            <div class="qa-meta">s26 / Q4(a) P13 adaptation · 3 marks</div>
+            <div class="qa-question">"Outline one assumption of the biological approach, including an example from the study by <u>Dement and Kleitman (1957)</u>."</div>
+            <button class="qa-toggle" onclick="toggleAns(this)">Show Model Answer</button>
+            <div class="qa-answer">
+                <strong>Assumption (AO1 = 2 marks):</strong> Similarities and differences between people can be understood in terms of biological factors and their interaction with other factors.<br><br>
+                <strong>Example (AO2 = 1 mark):</strong> Dement found <u>individual differences</u> in dream recall — some participants could vividly recall dreams from every awakening (high recallers) while others could recall none (low recallers). These <u>differences</u> in dream <u>recall</u> reflect variations in <u>biological</u> sleep physiology (REM, eye movement intensity) interacting with personal factors.
+            </div>
+        </div>
+
+        <div class="qa-card">
+            <div class="qa-meta">s25 / Q5 P12 adaptation · 3 marks</div>
+            <div class="qa-question">"Outline one assumption of the learning approach, including an example from the study by <u>Saavedra &amp; Silverman (2002)</u>."</div>
+            <button class="qa-toggle" onclick="toggleAns(this)">Show Model Answer</button>
+            <div class="qa-answer">
+                <strong>Assumption (AO1 = 2 marks):</strong> We all begin life as a blank slate. Experiences and interactions with the environment shape our behaviour and these changes are directly observable.<br><br>
+                <strong>Example (AO2 = 1 mark):</strong> Saavedra and Silverman found that participants developed a fear of <u>buttons</u> only after these neutral objects were paired with <u>disgusting images</u> — the phobia was not innate. The newly-acquired <u>fear/avoidance</u> was directly <u>observable</u> through avoidance ratings, supporting that <u>environmental experiences</u> shaped <u>behaviour</u>.
+            </div>
+        </div>
+
+        <div class="qa-card">
+            <div class="qa-meta">s25 / Q5 P13 adaptation · 3 marks</div>
+            <div class="qa-question">"Outline one assumption of the social approach, including an example from the study by <u>Piliavin et al. (1969)</u>."</div>
+            <button class="qa-toggle" onclick="toggleAns(this)">Show Model Answer</button>
+            <div class="qa-answer">
+                <strong>Assumption (AO1 = 2 marks):</strong> Behaviour, cognitions and emotions can be influenced by the actual, implied or imagined presence of others.<br><br>
+                <strong>Example (AO2 = 1 mark):</strong> Piliavin found that helping behaviour was influenced by the number of <u>bystanders</u> <u>actually present</u> on the subway carriage — critical-condition helping was 70/40 while there were more passengers, but slowing when the victim was drunk (less <u>"implied"</u> social pressure to help).
+            </div>
+        </div>
+    </div>
+
+    <!-- Paper 1 Section A Style Questions -->
+    <div class="card" style="margin-top:1.5rem;background:#f0f9ff;border:2px solid #3b82f6;">
+        <h3 style="color:#1e40af;">🎯 Paper 1 Section A · I&amp;D / Application 类型样题</h3>
+        <p style="margin-bottom:.8rem;font-size:.9rem;">Paper 1 Section A 不直接考 assumption，但 Application / I&amp;D 题需熟读 assumption 文本来答。</p>
+
+        <div class="qa-card">
+            <div class="qa-meta">Paper 1 / Q5 style · 4 marks · AO2</div>
+            <div class="qa-question">"Suggest two <strong>applications</strong> of the findings of the study by <u>Milgram (1963)</u> to <strong>everyday life</strong>."</div>
+            <button class="qa-toggle" onclick="toggleAns(this)">Show Model Answer</button>
+            <div class="qa-answer">
+                <strong>Application 1:</strong> Findings can be applied to workplace safety training — knowing that the <u>actual presence of an authority figure</u> influences obedience, employers can design whistleblower systems where employees report safety violations without their manager being present in the room.<br><br>
+                <strong>Application 2:</strong> Findings can be applied to modern <u>remote work</u> settings — if <u>actual presence</u> reduces obedience, organisations should require critical decisions (disciplinary action, financial) to be made in writing/video, with an appeals process that does not involve the direct manager in real-time.
+            </div>
+        </div>
+
+        <div class="qa-card">
+            <div class="qa-meta">Paper 1 / Q7 style · 2 marks · AO1</div>
+            <div class="qa-question">"Outline what is meant by the <strong>individual/situational explanations</strong> debate."</div>
+            <button class="qa-toggle" onclick="toggleAns(this)">Show Model Answer</button>
+            <div class="qa-answer">
+                <strong>Individual</strong> explanations attribute behaviour to personal characteristics (genes, personality, biology), while <strong>situational</strong> explanations attribute behaviour to the external environment or social context (e.g., Milgram's obedience was driven by the situation, not participants' personalities). The debate concerns whether behaviour is mainly due to the person or the environment.
+            </div>
+        </div>
+
+        <div class="qa-card">
+            <div class="qa-meta">Paper 1 / Q7 style · 4 marks · AO1+AO3</div>
+            <div class="qa-question">"<u>Baron-Cohen et al. (2001)</u> can be related to the nature-nurture debate. Discuss."</div>
+            <button class="qa-toggle" onclick="toggleAns(this)">Show Model Answer</button>
+            <div class="qa-answer">
+                <strong>Nature side (AO2):</strong> Baron-Cohen supports nature because females scored significantly higher than males on the Eyes Test, suggesting sex differences in theory of mind have a <u>biological basis</u> (possibly prenatal testosterone).<br><br>
+                <strong>Counter — Nurture side (AO3):</strong> However, this can be challenged because socialisation differences could also explain why females perform better (e.g., girls are encouraged to read facial expressions more). The study cannot definitively separate nature from nurture.
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Back to top -->
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'});">↑ Top</button>
+
+</div><!-- container -->
 
 <div class="footer">
-    <p>CIE A Level Psychology — Approaches &amp; Assumptions Revision Page</p>
-    <p style="margin-top:0.3rem;font-size:0.8rem;">Click any study tag to jump to the full core study page. Use Copy buttons to memorise exact assumption wording.</p>
+    <p>CIE A Level Psychology — Approaches, Issues &amp; Debates 综合复习</p>
+    <p class="signature">Syllabus 634461 (2024-2026) verbatim · 5 考期 Paper 1/2 Q4(a)/Q5 真题校准 · v3.0 改造</p>
+</div>
+
+<!-- TOC Floating -->
+<div class="toc-floating">
+    <h5>📌 速查导航</h5>
+    <a href="#how-to-use">§0 How to use</a>
+    <a href="#quickref">§1 8 Assumptions 速查</a>
+    <a href="#bio" class="bio">§2 Biological</a>
+    <a href="#cog" class="cog">§3 Cognitive</a>
+    <a href="#soc" class="soc">§4 Social</a>
+    <a href="#lrn" class="lrn">§5 Learning</a>
+    <a href="#id">§6 I&amp;D (5 个)</a>
+    <a href="#exam">§7 Exam Practice</a>
 </div>
 
 <script>
-function switchTab(tab, btn) {
-    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    document.getElementById('panel-' + tab).classList.add('active');
-    btn.classList.add('active');
-}
-
+// Tab switching removed - all sections visible (linear scroll)
 function copyText(elementId, btn) {
     const el = document.getElementById(elementId);
-    const text = el.querySelector('.assumption-text').innerText;
+    const text = el.innerText;
     navigator.clipboard.writeText(text).then(() => {
-        btn.textContent = 'Copied!';
+        btn.textContent = '✓ Copied';
         btn.classList.add('copied');
-        setTimeout(() => {
-            btn.textContent = 'Copy';
-            btn.classList.remove('copied');
-        }, 2000);
+        setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+    }).catch(() => {
+        // fallback
+        const ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select();
+        try { document.execCommand('copy'); btn.textContent = '✓ Copied'; btn.classList.add('copied'); setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000); } catch(e) {}
+        document.body.removeChild(ta);
     });
 }
 
-function toggleAns(id) {
-    const el = document.getElementById(id);
-    el.classList.toggle('show');
+function toggleAns(btn) {
+    const card = btn.closest('.qa-card');
+    const answer = card.querySelector('.qa-answer');
+    answer.classList.toggle('show');
+    btn.textContent = answer.classList.contains('show') ? 'Hide Model Answer' : 'Show Model Answer';
 }
+
+// Dark mode
+const darkToggle = document.getElementById('darkToggle');
+const STORAGE_KEY = 'cie-approaches-darkMode';
+if (localStorage.getItem(STORAGE_KEY) === '1') {
+    document.body.classList.add('dark-mode');
+    darkToggle.textContent = '☀ Light';
+}
+darkToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    const on = document.body.classList.contains('dark-mode');
+    localStorage.setItem(STORAGE_KEY, on ? '1' : '0');
+    darkToggle.textContent = on ? '☀ Light' : '🌙 Dark';
+});
+
+// Font size
+const FONT_KEY = 'cie-approaches-fontSize';
+let curSize = parseFloat(localStorage.getItem(FONT_KEY) || '16');
+document.documentElement.style.fontSize = curSize + 'px';
+document.getElementById('fontInc').addEventListener('click', () => {
+    curSize = Math.min(curSize + 1, 20); document.documentElement.style.fontSize = curSize + 'px'; localStorage.setItem(FONT_KEY, curSize);
+});
+document.getElementById('fontDec').addEventListener('click', () => {
+    curSize = Math.max(curSize - 1, 13); document.documentElement.style.fontSize = curSize + 'px'; localStorage.setItem(FONT_KEY, curSize);
+});
+
+// Back to top
+const backBtn = document.getElementById('backToTop');
+window.addEventListener('scroll', () => {
+    backBtn.classList.toggle('show', window.scrollY > 600);
+});
 </script>
 
 </body>
