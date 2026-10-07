@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CIE 9990 Paper 1 · 题型攻略：9 大题型 × 12 研究</title>
+<style>
+:root{
+  --ink:#1f2933; --muted:#5b6b76; --line:#d9e2ec; --bg:#f7f9fb; --panel:#ffffff;
+  --accent:#1a5fb4; --accent-soft:#eaf2fb; --ok:#1b7a43; --ok-soft:#e8f5ee;
+  --warn:#b45309; --warn-soft:#fdf3e3; --predict:#7c3aed; --predict-soft:#f3ecfd;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue",Arial,sans-serif;
+  line-height:1.65;font-size:15px}
+.page{max-width:1000px;margin:0 auto;padding:28px 20px 80px}
+header.hero{background:linear-gradient(135deg,#1a5fb4,#3d7dd8);color:#fff;border-radius:14px;
+  padding:30px 32px;margin-bottom:22px}
+header.hero h1{margin:0 0 8px;font-size:26px;letter-spacing:.5px}
+header.hero p{margin:0;opacity:.92;font-size:14px}
+.legend{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 6px}
+.legend .lg{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);
+  border-radius:20px;padding:3px 14px;font-size:12.5px}
+nav.toc{background:var(--panel);border:1px solid var(--line);border-radius:12px;
+  padding:18px 22px;margin-bottom:26px}
+nav.toc h2{margin:0 0 10px;font-size:16px}
+nav.toc ol{margin:0;padding-left:22px;columns:2;column-gap:36px}
+nav.toc li{margin:3px 0;font-size:14px}
+nav.toc a{color:var(--accent);text-decoration:none}
+nav.toc a:hover{text-decoration:underline}
+section.qtype{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+  padding:24px 28px;margin-bottom:30px;box-shadow:0 1px 3px rgba(31,41,51,.05)}
+section.qtype>h2{margin:0 0 14px;font-size:20px;color:var(--accent);border-bottom:2px solid var(--accent-soft);
+  padding-bottom:10px}
+span.tag{display:inline-block;background:var(--accent-soft);color:var(--accent);
+  border-radius:6px;font-size:12.5px;font-weight:600;padding:2px 10px;margin-left:8px;vertical-align:middle}
+div.howto{background:var(--accent-soft);border-left:4px solid var(--accent);border-radius:8px;
+  padding:14px 18px;margin-bottom:18px}
+div.howto h3{margin:0 0 8px;font-size:15.5px;color:var(--accent)}
+div.howto p.q{margin:6px 0 10px;font-size:14.5px}
+ol.steps{margin:6px 0 12px;padding-left:22px}
+ol.steps li{margin:5px 0;font-size:14.5px}
+ul.dont{margin:6px 0 2px;padding-left:22px;list-style:none}
+ul.dont li{margin:5px 0;font-size:13.5px;color:var(--warn)}
+ul.dont li::before{content:"✗ ";font-weight:700}
+h3.sub{margin:22px 0 12px;font-size:16px;color:var(--ink);border-left:4px solid var(--accent);
+  padding-left:10px}
+div.study-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:760px){div.study-grid{grid-template-columns:1fr}}
+div.study{border:1px solid var(--line);border-radius:10px;padding:14px 16px;background:var(--bg)}
+div.study[data-tested="no"]{border-style:dashed;border-color:#c4b5fd;background:#fbf9ff}
+div.study h4{margin:0 0 10px;font-size:15px;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+span.badge{border-radius:12px;font-size:11.5px;font-weight:600;padding:1px 10px;white-space:nowrap}
+span.badge-tested{background:var(--ok-soft);color:var(--ok)}
+span.badge-predict{background:var(--predict-soft);color:var(--predict)}
+ol.en,ul.en{padding-left:20px;margin:8px 0}
+ol.en li,ul.en li{margin:5px 0}
+p.en{margin:8px 0}
+ul.zh,ol.zh{padding-left:20px;margin:8px 0}
+p.zh{color:var(--muted);font-size:13.5px;margin:8px 0 2px;border-top:1px dashed var(--line);
+  padding-top:8px}
+b{color:inherit}
+span.warn{color:var(--warn);font-weight:600}
+td.warn{color:var(--warn);font-size:13.5px}
+table.ms{width:100%;border-collapse:collapse;margin:10px 0;font-size:13.5px;background:var(--panel)}
+table.ms th,table.ms td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+table.ms th{background:var(--accent-soft);color:var(--accent);font-weight:600}
+div.pairbox{background:var(--warn-soft);border:1px solid #f0d9b5;border-radius:10px;
+  padding:14px 18px;margin-top:16px}
+div.pairbox h4{margin:0 0 8px;color:var(--warn);font-size:14.5px}
+footer.foot{color:var(--muted);font-size:12.5px;text-align:center;margin-top:36px}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="hero">
+  <h1>CIE 9990 Paper 1 · 题型攻略</h1>
+  <p>9 大题型 × 12 核心研究 · 已考研究贴 MS 官方答案要点，未考研究贴预测答案 · 2024–2026 共 17 份卷逐题提炼</p>
+  <div class="legend">
+    <span class="lg">已考过的研究附官方答案要点 · 没考过的给预测答案</span>
+    <span class="lg">绿标 = 已考（附场次）</span>
+    <span class="lg">紫标虚线框 = ★预测</span>
+  </div>
+</header>
+
+<nav class="toc">
+  <h2>目录</h2>
+  <ol>
+    <li><a href="#qt1">题型一 · Background 历史线（Q8 · 5 分）</a></li>
+    <li><a href="#qt2">题型二 · Psychology 概念链（3–4 分）</a></li>
+    <li><a href="#qt3">题型三 · 程序细节描述（Q9a/Q7 · List is definitive）</a></li>
+    <li><a href="#qt4">题型四 · Evaluation 证据链（Q10 · 10 分）</a></li>
+    <li><a href="#qt5">题型五 · Similarities &amp; Differences（Q9b · 8 分）</a></li>
+    <li><a href="#qt6">题型六 · Debate 例子（Q7 · 4 分）</a></li>
+    <li><a href="#qt7">题型七 · Application to everyday life（Q5 · 4 分）</a></li>
+    <li><a href="#qt8">题型八 · Aim 研究目的（2–4 分 · 背诵）</a></li>
+    <li><a href="#qt9">题型九 · 考前抢分与休眠考点</a></li>
+  </ol>
+</nav>
+
+<!-- ============ 题型一 · Background 历史线 ============ -->
+<section class="qtype" id="qt1">
+  <h2>题型一 · Background 历史线 <span class="tag">Q8 · 5 分 · 1 mark per point</span></h2>
+  <div class="howto">
+    <h3>怎么答</h3>
+    <p class="q">问的是<b>研究之前</b>的事：为什么要做这个研究。</p>
+    <ol class="steps"><li><b>写现实问题</b>（1 句）：这个研究想解决什么现实问题。</li><li><b>写前人研究</b>（2–3 句）：每句 = 人名 + 年份 + 一句发现。这里最容易拿分。</li><li><b>写研究缺口</b>（1 句）：所以还需要进一步研究。</li></ol>
+    <ul class="dont"><li>研究本身的做法和结果，写了不给分。</li><li>只写人名不写发现，不给分。</li><li>定义最多写 1 句——题目给的两个定义只能算 1 分。</li></ul>
+  </div>
+  <h3 class="sub">12 个研究</h3>
+  <div class="study-grid">
+
+    <div class="study" data-tested="yes">
+      <h4>Piliavin et al. (1969) <span class="badge badge-tested">已考 · m26_12</span></h4>
+      <ol class="en">
+        <li>Previous studies had shown that bystanders might derogate the characters of victims, and that people who are partly responsible for their plight would receive less sympathy/helping.</li>
+        <li>People may show <b>diffusion of responsibility</b> — believing others in a group will help instead.</li>
+        <li>Triggered by a real-life crime: <b>Kitty Genovese</b> was murdered in New York (1964); news reports alleged 38 people witnessed/heard it and no one intervened. <span class="zh">（案例最多 2 分）</span></li>
+        <li><b>Darley and Latané</b> reported that bystanders hearing someone have an epileptic fit were less likely to help if they thought others were around.</li>
+        <li><b>Latane and Rodin</b> reported people were less likely to help someone who had fallen if group members were strangers.</li>
+        <li><b>Bryan and Test</b> reported people were more likely to help if they had just witnessed someone else helping.</li>
+        <li>Much of the work on bystander intervention had been conducted in the laboratory, and previous research tended to test emergencies that were only <b>heard, not seen</b>.</li>
+      </ol>
+      <p class="zh">雷区：cost-reward matrix 不给分；写 Piliavin 自己的地铁实验不算分。定义可换分：diffusion of responsibility / bystander apathy。</p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Pozzulo et al. (2011) <span class="badge badge-tested">已考 · s26_11（另 3 分版 w25_11）</span></h4>
+      <ol class="en">
+        <li>Researchers have been interested in whether <b>children are reliable (eye)witnesses</b> — sometimes children are the only witness to a crime.</li>
+        <li>Mistaken eyewitness identification has led to <b>wrongful convictions</b>.</li>
+        <li>Children's eyewitness recall is known to be <b>less reliable</b> than an adult's.</li>
+        <li>Children and adults can identify from a <b>target-present</b> line-up with accuracy; however, children are more likely to pick out an innocent person from a <b>target-absent</b> line-up.</li>
+        <li>Both <b>cognitive factors</b> (matching a previous memory with a person in the line-up — more likely in target-present) and <b>social factors</b> (presence/pressure of an authority figure, fear of getting into trouble — more likely in target-absent) could affect identifications.</li>
+        <li>Children are more likely to produce a <b>false-positive response</b> (choosing someone who is not the culprit while believing they are right).</li>
+        <li>A previous study (<b>Pozzulo &amp; Lindsay, 1997</b>) showed children are less likely to say "I don't know" than adults.</li>
+      </ol>
+      <p class="zh">雷区：false memories 整个话题不给分。定义可换分：EWT 或 false-positive（二选一）。3 分版只写 social factors 一条线（authority figure → child intimidated → chooses to avoid trouble / please the officer → line-up presentation implies a choice must be made）。</p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Andrade (2010) <span class="badge badge-tested">已考 · s26_12</span></h4>
+      <ol class="en">
+        <li>It had been assumed that doing <b>concurrent tasks</b> (e.g. doodling) impairs concentration / distracts from the primary task.</li>
+        <li>Daydreaming had been linked to moments of <b>boredom</b>, and boredom plays a role in paying attention to information — its effects on processing had been overlooked.</li>
+        <li><b>Arousal</b> levels need to be maintained to be able to concentrate.</li>
+        <li>Information processing can be difficult when asked to do "two things at once" (dual/multi-task designs investigate our cognitive resources).</li>
+        <li>However, performance decrements may be lessened if a secondary task <b>reduces mind-wandering / increases arousal</b>.</li>
+        <li>A secondary task can aid concentration if it does <b>not compete with the primary task for cognitive resources</b> (e.g. one visual and one audio task).</li>
+        <li>Doodling could therefore increase concentration/arousal — whether doodling aids concentration/memory had never been experimentally tested.</li>
+      </ol>
+      <p class="zh">雷区：central executive、daydreaming 的作用机制不给分。定义可换分：daydreaming / multi-tasking / doodling 三选一。</p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Hölzel et al. (2011) <span class="badge badge-tested">已考 · s26_13</span></h4>
+      <ol class="en">
+        <li><b>Mindfulness</b> has been shown to have positive psychological/mental effects and has been increasingly used in therapy to help patients.</li>
+        <li>It has been shown to help reduce anxiety/depression/pain.</li>
+        <li><b>Neuroimaging</b> has been used to explore the neural mechanisms linked to mindfulness — including EEGs and fMRIs.</li>
+        <li>Previous research showed <b>anatomical differences in grey matter/brain structure</b> in people who had engaged in meditation for a long time (cross-sectional).</li>
+        <li>The <b>hippocampus</b> is an area of interest as it is one area that "changes" during meditation/mindfulness practice.</li>
+        <li>Research has been clearly showing that <b>neural systems can be modified</b> in people engaging in mindfulness-type activities.</li>
+        <li>There had been <b>no/limited studies looking at the effect longitudinally</b> — the gap this study filled.</li>
+      </ol>
+      <p class="zh">雷区：stress / hormones 与 mindfulness 的关联不给分。1 分可给研究 aim。</p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Perry et al. (2015) <span class="badge badge-tested">已考 3 分版 · w25_12（5 分版未考）</span></h4>
+      <ol class="en">
+        <li><b>3 分 biological 版（已考官方点）</b>：<b>Oxytocin</b> plays a role in personal space/empathy/social bonding.</li>
+        <li><b>Lesions in the amygdala</b> appear to reduce the need for personal space; amygdala activity in healthy individuals is correlated with feeling uncomfortable at close distances.</li>
+        <li>Amygdala activation is affected by levels of oxytocin; oxytocin can also affect the personal space needed between self and someone perceived as attractive.</li>
+        <li><b>5 分背景补充</b>：<b>Edward T. Hall (1966)</b> proposed four interpersonal distance zones (intimate &lt;46cm / personal 46–122cm / social 122–210cm / public) based on middle-class American preferences — a "bubble" that moves with the person.</li>
+        <li><b>Beaulieu (2004)</b> showed cultural factors affect personal space: in no-contact cultures people touch less and stand further apart.</li>
+        <li>Oxytocin is a <b>social hormone</b> regulating social thinking/behaviour — but its effects are not universally positive (also linked to jealousy and lack of cooperation with out-groups).</li>
+      </ol>
+      <p class="zh">3 分版 Do credit "healthy amygdala may prefer further interpersonal distance"；不给分：Perry 的 procedure/findings。</p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Saavedra &amp; Silverman (2002) <span class="badge badge-tested">已考 3 分版 · w25_13（5 分版未考）</span></h4>
+      <ol class="en">
+        <li><b>3 分 disgust 版（已考官方点）</b>：Disgust is a feeling of aversion towards something offensive/something we fear; disgust interacting with fear can result in avoidance behaviour(s).</li>
+        <li>Children can negatively evaluate a specific phobic object <b>without any anticipation of threat</b> — so it must be disgust, not fear, causing the negative evaluation.</li>
+        <li>A study measured disgust in children with a spider phobia and it decreased as fear decreased (<b>De Jong et al., 1997</b>) — a link between disgust and fear.</li>
+        <li><b>5 分背景补充</b>：Phobia is an irrational, persistent fear of an object/event out of proportion to actual danger.</li>
+        <li>Classical conditioning was first studied by <b>Pavlov (1927)</b>; <b>Watson &amp; Rayner (1920)</b> ("Little Albert") showed phobias can be learned by associating a neutral stimulus with a frightening one.</li>
+        <li><b>Hepburn &amp; Page (1999)</b> suggested treating disgust (not just fear) helped adult blood-phobia patients; disgust was called "the forgotten emotion of psychiatry" (<b>Phillips et al., 1998</b>).</li>
+        <li>Disgust-based negative evaluation in childhood phobias had never been targeted in treatment — the gap.</li>
+      </ol>
+      <p class="zh">雷区：disgust 版不可用研究中男孩的例子。Do credit "usually triggered by a traumatic event in childhood"。</p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Fagen et al. (2014) <span class="badge badge-tested">psychology 版已考 · s24_12（5 分版未考）</span></h4>
+      <ol class="en">
+        <li><b>Operant conditioning</b> is learning by consequence: if you are rewarded you are more likely to repeat a behaviour; if punished, less likely.</li>
+        <li>A <b>primary reinforcer</b> fulfils a biological need (e.g. food).</li>
+        <li>A <b>secondary reinforcer</b> can be exchanged for a primary reinforcer; in <b>secondary positive reinforcement (SPR) training</b> a sound (e.g. whistle) is consistently followed by the primary reinforcer.</li>
+        <li><b>5 分背景补充</b>：Trunk wash is needed to screen captive elephants for <b>tuberculosis</b>, which infects 11–25% of captive elephants and is transmissible to humans (zoonotic transfer).</li>
+        <li>Traditional elephant training relied on <b>punishment and negative reinforcement</b> (fear/pain), harming animal welfare.</li>
+        <li>SPR had been successfully applied to <b>pandas, primates and antelopes</b>, but had never been systematically studied and quantitatively documented in <b>elephants</b> — the gap.</li>
+      </ol>
+      <p class="zh">雷区（psychology 版）：ignore classical conditioning。There are other creditworthy responses, including shaping and behavioural chaining。</p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Hassett et al. (2008) <span class="badge badge-tested">psychology 版已考 · s25_13（5 分版未考）</span></h4>
+      <ol class="en">
+        <li><b>Sex differences</b> refer to behavioural differences based on biological differences between males and females.</li>
+        <li>These can be based on <b>hormones/chromosomes</b>: the main male hormone is testosterone; the main female hormone is oestrogen.</li>
+        <li><b>Play</b> is any mental/physical activity performed in leisure time for enjoyment; <b>socialisation</b> is any mechanism that changes/adapts behaviour to societal/cultural expectations.</li>
+        <li><b>5 分背景补充</b>：Children show gendered toy play (boys: active/aggressive toys; girls: nurturing toys), long assumed to be the result of <b>socialisation</b> and gender stereotypes.</li>
+        <li>In children it is impossible to separate biology from socialisation; rare studies of girls exposed to pre-natal <b>androgens</b> showed stronger preference for "boys' toys" despite feminine socialisation.</li>
+        <li><b>Alexander and Hines (2002)</b> found a similar pattern in <b>vervet monkeys</b> — monkeys can provide a model in which socialisation is removed, testing whether toy preferences are biologically driven.</li>
+      </ol>
+      <p class="zh">雷区（psychology 版）：do not accept any answer about gender of monkeys；do credit nature–nurture 描述 1 分。</p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Baron-Cohen et al. (2001) <span class="badge badge-tested">psychology 版已考 · w25_13（5 分版未考）</span></h4>
+      <ol class="en">
+        <li><b>Theory of Mind</b> refers to our ability to attribute mental states to ourselves and others — understanding that others may have different ideas and hold different emotions to us.</li>
+        <li>It is linked to <b>empathy</b>: the ability to understand how other people are feeling/thinking, and to use this knowledge to explain and predict others' actions.</li>
+        <li><b>ASD</b> affects about 1% of the population; ASD/AS/HFA individuals have difficulties in social functioning and communication.</li>
+        <li>An earlier version of the Eyes Test (<b>Baron-Cohen, 1997</b>) found adults with AS/HFA correctly identified fewer emotions from the eyes than controls.</li>
+        <li>The old test had <b>only 2 options</b> (often semantic opposites) and <b>25 sets of eyes</b>, producing a <b>ceiling effect</b>; some items could be answered from gaze direction alone; some emotion words were too difficult.</li>
+        <li>Existing ToM measures were mostly designed for <b>children</b> — an adult-appropriate test with greater sensitivity was needed (the revised test: 4 options, 36 sets, glossary, judged by 8 panels).</li>
+      </ol>
+      <p class="zh">Do credit descriptions of AS/HFA for 1 mark max；研究例子（Eyes Test 本身）可换 1 分。</p>
+    </div>
+
+    <div class="study" data-tested="no">
+      <h4>Bandura, Ross &amp; Ross (1961) <span class="badge badge-predict">★预测</span></h4>
+      <ol class="en">
+        <li>Children copy adults — the immediate social setting encourages a child to imitate what he/she is watching.</li>
+        <li><b>Social learning</b> is the learning of a new behaviour observed in a role model and imitated later <b>in the absence of that model</b>; it requires the observer to pay attention, retain and reproduce the behaviour.</li>
+        <li>Previous research had only shown that children imitate a model <b>in the presence of the model</b> — whether the behaviour would be reproduced without the model present was unknown.</li>
+        <li>Bandura had previously conducted experiments on social learning and wanted to test whether social learning theory could explain <b>aggression</b> specifically.</li>
+        <li>In the USA in the <b>1960s</b>, boys were rewarded for sex-appropriate behaviours and punished for inappropriate ones; aggression was seen as a masculine-type behaviour.</li>
+        <li>It was therefore expected that children would imitate <b>same-sex models</b> more, and that boys would show more readiness to imitate aggression.</li>
+      </ol>
+      <p class="zh">定义可换分：social learning / model / aggression。第 3 点"前人局限"是本研究的招牌背景点。</p>
+    </div>
+
+    <div class="study" data-tested="no">
+      <h4>Milgram (1963) <span class="badge badge-predict">★预测</span></h4>
+      <ol class="en">
+        <li>During <b>World War II / the Holocaust</b>, millions of innocent people were systematically murdered <b>on command</b> — this required the obedience of many ordinary citizens, not just Nazi officers.</li>
+        <li><b>Obedience</b> is following the orders of an authority figure; <b>destructive obedience</b> is obedience causing potential psychological or physical harm to another person.</li>
+        <li>One explanation was the <b>"Germans are different" hypothesis</b> — that German citizens possessed defective personal traits making extreme obedience possible (an individual explanation).</li>
+        <li>Milgram sought to challenge this by testing a <b>situational explanation</b>: whether ordinary people of any nationality would obey harmful orders.</li>
+        <li>Before the study, Milgram described the procedure to psychology students and colleagues: they predicted only an insignificant minority would go to the end — estimates from <b>0% to 3%</b> (class mean 1.2%).</li>
+        <li>The core question was why ordinary people would obey an authority's commands even when these harm another person.</li>
+      </ol>
+      <p class="zh">注意：Hofling et al. (1966) 在 Milgram 之后，不能写进 Milgram 的背景。"0–3% 预测"发生在研究之前，可给分。</p>
+    </div>
+
+    <div class="study" data-tested="no">
+      <h4>Dement &amp; Kleitman (1957) <span class="badge badge-predict">★预测</span></h4>
+      <ol class="en">
+        <li>Sleep is an <b>altered state of consciousness</b>; dreams are vivid, generally visual sequences of imagery during sleep.</li>
+        <li>Traditionally, dreaming was studied only through <b>dream recall</b> — a subjective method limited by forgetting and impossible to verify while the dream was happening.</li>
+        <li>When participants in earlier research were randomly woken, they sometimes reported no dream, for reasons that could not be explained — an objective method was needed.</li>
+        <li><b>Aserinsky and Kleitman (1955)</b> first applied objective physiological measurement (EEG) to sleep: participants woken from <b>REM sleep</b> were more likely to report vivid visual dreams than those woken at other times.</li>
+        <li>They found rapid eye movements occur in both eyes simultaneously, in cycles of roughly <b>90 minutes</b>; during REM other body muscles are inactive and breathing/heart rate increase.</li>
+        <li>EEG can detect that dreaming is occurring but cannot read dream content — so waking participants to report dreams was combined with <b>EOG</b> eye-movement recording.</li>
+      </ol>
+      <p class="zh">定义可换分：REM / nREM / dream。Aserinsky &amp; Kleitman (1955) 是必写前人研究（Kleitman 本人是原作者之一）。</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ 题型二 · Psychology 概念链 ============ -->
+<section class="qtype" id="qt2">
+  <h2>题型二 · Psychology 概念链 <span class="tag">3–4 分 · "Describe the psychology being investigated"</span></h2>
+  <div class="howto">
+    <h3>怎么答</h3>
+    <p class="q">问的是研究背后的<b>概念</b>——像写一段课本定义，不是写研究做了什么。</p>
+    <ol class="steps"><li><b>总概念</b>写一句话定义。</li><li><b>拆 2–3 个子概念</b>，各写一句定义——这是主要得分点。</li><li>最后可以加 1 句本研究的例子，最多换 1 分。</li></ol>
+    <ul class="dont"><li>只写术语名不展开（如光写 "Theory of Mind"），不给分。</li><li>Fagen：别写 classical conditioning；Hassett：别写猴子的性别，要写人类层面的内容。</li></ul>
+  </div>
+
+  <h3 class="sub">另一种问法（2 分）：approach 版 "Explain why this study is from the X approach"</h3>
+  <div class="howto">
+    <h3>怎么答</h3>
+    <p class="q">问的是<b>这个研究为什么属于某个流派</b>。两句话拿 2 分。</p>
+    <ol class="steps">
+      <li>写该流派的一句假设（用下表原句）。</li>
+      <li>接一句 <b>"This was clearly shown here as…"</b> + 本研究的做法或结果。</li>
+    </ol>
+    <ul class="dont">
+      <li>只描述研究、不解释"为什么属于这个流派" = 0 分。</li>
+    </ul>
+    <table class="ms">
+      <tr><th>流派</th><th>假设（背原句）</th></tr>
+      <tr><td>Social</td><td>Behaviour, cognitions and emotions are influenced by social contexts, social environments and groups / by the actual, implied or imagined presence of others.</td></tr>
+      <tr><td>Cognitive</td><td>Input–process–output：信息输入 → 加工 → 输出（计算机类比）。</td></tr>
+      <tr><td>Learning</td><td>行为由经验习得：classical / operant conditioning（强化与惩罚）、social learning（观察与模仿）。</td></tr>
+      <tr><td>Biological</td><td>行为有生物基础：hormones、brain structures（amygdala / hippocampus / grey matter）、genetics。</td></tr>
+    </table>
+  </div>
+
+  <h3 class="sub">12 个研究（已考 5 贴官方点，未考 7 贴预测概念链）</h3>
+  <div class="study-grid">
+
+    <div class="study" data-tested="yes">
+      <h4>Fagen et al. (2014) <span class="badge badge-tested">已考 · s24_12 · 4 分</span></h4>
+      <ol class="en">
+        <li>Operant conditioning is learning by consequence.</li>
+        <li>If you are rewarded you are more likely to repeat a behaviour.</li>
+        <li>If you are punished you are less likely to repeat a behaviour.</li>
+        <li>A primary reinforcer is one that fulfils a biological need.</li>
+        <li>A secondary reinforcer can be used as an exchange for a primary reinforcer.</li>
+        <li>Secondary positive reinforcement can use a sound as a secondary reinforcer that is consistently followed by a primary reinforcer/food.</li>
+        <li>The elephants got chopped banana if they were successful at any task <b>(example mark — 最多 1 分)</b></li>
+      </ol>
+      <p class="zh">GUIDANCE：No identification mark. <span class="warn">Ignore reference to classical conditioning.</span> Other creditworthy responses, including shaping and behavioural chaining。7 点里 6 点纯概念 + 1 点例子——这就是标准配比。</p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Andrade (2010) <span class="badge badge-tested">已考 · w24_13 · 4 分</span></h4>
+      <ol class="en">
+        <li>Looking at whether doodling aids (cognitive) concentration/memory/attention.</li>
+        <li>Arousal levels need to be maintained to be able to concentrate.</li>
+        <li>Cognitive processing of dual tasks compete for the same levels of performance.</li>
+        <li>This may slow down our overall cognitive processing speed.</li>
+        <li>Boredom plays a role in paying attention to information.</li>
+        <li>Information processing when asked to do 'two things at once'/multitasking.</li>
+        <li>Removes attention/takes away concentration/acts as a distraction (a second task).</li>
+      </ol>
+      <p class="zh">GUIDANCE：There are no ID marks available. 1 mark is available for an example from Andrade. <b>Do credit definitions of terms like attention, memory etc.</b>——认知类研究可放心写 textbook 定义。</p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Pozzulo et al. (2011) <span class="badge badge-tested">已考 · s25_11 · 3 分</span></h4>
+      <ol class="en">
+        <li>Some eyewitnesses can produce <b>false positive responses</b> which is when a person in a line-up is chosen by an eyewitness that is not accurate, but the eyewitness believes it is.</li>
+        <li><b>Eyewitness testimony</b> is when a person attempts to recall what they have seen in relation to a crime.</li>
+        <li>The information can be anything from what the person looked like/what they were wearing.</li>
+        <li>The information obtained from an eyewitness may be used in a court of law.</li>
+        <li><b>Social demands</b> are when people/children feel pressured to make a choice.</li>
+        <li>Children were asked to choose a cartoon face from a line-up <b>(1 mark: example)</b></li>
+      </ol>
+      <p class="zh">GUIDANCE：Anything about what Pozzulo <i>did</i> is the example mark. <b>1 mark maximum for computer analogy or input–process–output.</b> <span class="warn">不认"孩子擅长认卡通人物"充当 example。</span> Do credit a generic description of a line-up for 1 mark。approach 版（2 分，已考 w24_11）：cognitive 假设 + 研究数据（卡通面孔识别 0.99 / 真人面孔 0.66——0.99 为儿童卡通、0.66 为成人真人，引用时注意归属）挂钩。</p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Hassett et al. (2008) <span class="badge badge-tested">已考 · s25_13 · 3 分</span></h4>
+      <ol class="en">
+        <li><b>Sex differences</b> refer to behavioural differences based on biological differences between males and females.</li>
+        <li>These can be based on <b>hormones/chromosomes</b>.</li>
+        <li>The main male hormone is <b>testosterone</b>/the main female hormone is <b>oestrogen</b>.</li>
+        <li><b>Play</b> is any mental/physical activity performed in leisure time for enjoyment/pleasure.</li>
+        <li><b>Socialisation</b> is any mechanism that changes/adapts a behaviour to societal/cultural expectations.</li>
+        <li>The study looked at whether male and female monkeys preferred masculine or feminine toys <b>(1 mark: example)</b></li>
+      </ol>
+      <p class="zh">GUIDANCE：<span class="warn">Do not accept any answer about gender of monkeys.</span> Accept description of nature-nurture for 1 mark。最阴的雷区：sex differences 是人类层面的生物学概念，猴子只是"移除 socialisation 的模型"。</p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Baron-Cohen et al. (2001) <span class="badge badge-tested">已考 · w25_13 · 4 分</span></h4>
+      <ol class="en">
+        <li><b>Theory of Mind</b> refers to our ability to attribute mental states to ourselves and others.</li>
+        <li>It is linked to <b>empathy</b> which is the ability to understand how other people are feeling/thinking.</li>
+        <li>This can be done by imagining what the other person is feeling/thinking/putting ourselves in the shoes of others.</li>
+        <li>It is also about how we use this knowledge to <b>explain</b> the actions of other people.</li>
+        <li>It is also about how we use this knowledge to <b>predict</b> the actions of others.</li>
+        <li>We use this knowledge to understand that people may have <b>different ideas and hold different emotions</b> to us.</li>
+        <li>It can be tested using the Eyes Test where people have to judge the emotions of others by looking at eyes only <b>(example mark)</b></li>
+      </ol>
+      <p class="zh">GUIDANCE：Creditworthy points include theory of mind, social sensitivity, reliability, validity（研究方法概念也算 psychology 的一部分）。Do credit descriptions of AS/HFA for 1 mark max。</p>
+    </div>
+
+    <div class="study" data-tested="no">
+      <h4>Bandura, Ross &amp; Ross (1961) <span class="badge badge-predict">★预测</span></h4>
+      <ol class="en">
+        <li><b>Social learning</b> is the learning of a new behaviour observed in a role model and imitated later <b>in the absence of that model</b>.</li>
+        <li>A <b>model</b> is a person whose behaviour is observed and may be imitated — imitation is copying the behaviour of the model.</li>
+        <li>Social learning requires the observer to <b>pay attention</b> to the model's behaviour, <b>retain</b> it in memory, and be able to <b>reproduce</b> it.</li>
+        <li><b>Aggression</b> is behaviour intended to harm another person (physically or verbally); the study tested whether social learning theory could explain aggression specifically.</li>
+        <li>Imitation is more likely when the model is <b>similar to the observer</b> (e.g. same sex) and when the modelled behaviour is <b>rewarded</b> rather than punished.</li>
+        <li>The children watched an adult model behave aggressively towards a Bobo doll and were then observed alone with the doll <b>(example mark)</b>.</li>
+      </ol>
+      <p class="zh">概念族：social learning / model / imitation / attention–retention–reproduction / aggression / same-sex similarity。别把"1960s 美国性别社会化"当主力写——那是 background 版的得分点。</p>
+    </div>
+
+    <div class="study" data-tested="no">
+      <h4>Milgram (1963) <span class="badge badge-predict">★预测</span></h4>
+      <ol class="en">
+        <li><b>Obedience</b> is following the orders/instructions of an <b>authority figure</b>.</li>
+        <li><b>Destructive obedience</b> is obedience that causes potential psychological or physical harm to another person.</li>
+        <li>Authority figures can command obedience because of their <b>perceived position/status</b> (uniform, title, institutional setting) rather than personal power.</li>
+        <li>An <b>individual (dispositional) explanation</b> attributes obedience to the person's own traits — e.g. the "Germans are different" hypothesis claimed German citizens had defective traits making extreme obedience possible.</li>
+        <li>A <b>situational explanation</b> attributes obedience to the social situation — whether ordinary people of any nationality would obey harmful orders.</li>
+        <li>Participants were ordered by an experimenter in a lab coat to give electric shocks up to 450V to a "learner" <b>(example mark)</b>.</li>
+      </ol>
+      <p class="zh">概念族：obedience / destructive obedience / authority / dispositional vs situational explanation。"0–3% 预测"、Holocaust 动因是 background 版得分点，此处最多作引入一句。</p>
+    </div>
+
+    <div class="study" data-tested="no">
+      <h4>Piliavin et al. (1969) <span class="badge badge-predict">★预测（approach 版已考 m24_12 · 2 分）</span></h4>
+      <ol class="en">
+        <li><b>Bystander intervention</b> is about whether a witness to an emergency helps — and how the social situation affects that decision.</li>
+        <li><b>Diffusion of responsibility</b> is believing that others in a group will help instead, so each individual feels less personally responsible.</li>
+        <li><b>Bystander apathy</b> is the phenomenon of witnesses in a group failing to intervene while someone needs help.</li>
+        <li>Helping may depend on characteristics of the <b>victim</b> — people who seem partly responsible for their own plight, or who are drunk/undesirable, receive less sympathy and less help.</li>
+        <li>Witnessing someone else helping can <b>model</b> helping behaviour and increase it in observers.</li>
+        <li>On a subway train, a person collapsed and either a model or no one helped, and the speed of helping by other passengers was timed <b>(example mark)</b>.</li>
+      </ol>
+      <p class="zh">概念族：bystander intervention / diffusion of responsibility / bystander apathy / victim characteristics / modelling of helping。approach 版满分公式：social approach 假设一句 + "This was clearly shown here as…"（model 条件 / group size）挂钩一句。</p>
+    </div>
+
+    <div class="study" data-tested="no">
+      <h4>Perry et al. (2015) <span class="badge badge-predict">★预测（3 分 outline 版已考 w25_12）</span></h4>
+      <ol class="en">
+        <li><b>Personal space</b> is the invisible "bubble" around a person; intruding into it causes discomfort — it moves with the person wherever they go.</li>
+        <li><b>Oxytocin</b> is a <b>social hormone</b> that regulates social thinking and behaviour, playing a role in empathy and social bonding.</li>
+        <li>The <b>amygdala</b> is a brain structure involved in detecting threat and social distance: lesions appear to reduce the need for personal space, and amygdala activity in healthy individuals correlates with feeling uncomfortable at close distances.</li>
+        <li>Amygdala activation is affected by levels of oxytocin — oxytocin can change the personal space kept from others.</li>
+        <li><b>Biological approach</b> assumption: behaviour and emotions are explained by biological structures (brain areas) and hormones, rather than by conscious choice.</li>
+        <li>Participants received intranasal oxytocin or placebo and judged the comfort of interpersonal distances shown in images <b>(example mark)</b>.</li>
+      </ol>
+      <p class="zh">概念族：personal space / oxytocin / amygdala / biological approach 假设。已考的 3 分 outline 版（biological factors）只需中间三条生物线。</p>
+    </div>
+
+    <div class="study" data-tested="no">
+      <h4>Dement &amp; Kleitman (1957) <span class="badge badge-predict">★预测</span></h4>
+      <ol class="en">
+        <li>Sleep is an <b>altered state of consciousness</b>; a <b>dream</b> is a vivid, generally visual sequence of imagery experienced during sleep.</li>
+        <li><b>REM (rapid eye movement) sleep</b> is a sleep stage in which the eyes move rapidly and simultaneously; during REM other body muscles are inactive while breathing and heart rate increase.</li>
+        <li>REM alternates with non-REM (nREM) sleep in cycles of roughly <b>90 minutes</b> through the night.</li>
+        <li><b>Dream recall</b> is a subjective method of studying dreaming — limited by forgetting and impossible to verify while the dream is happening.</li>
+        <li>An objective, physiological measure (EEG for brain activity, EOG for eye movements) can detect <b>that</b> dreaming is occurring but cannot read dream <b>content</b>.</li>
+        <li>Participants slept in a lab, were woken at various points (including during REM and nREM) and asked to report whether they had been dreaming <b>(example mark)</b>.</li>
+      </ol>
+      <p class="zh">概念族：altered state of consciousness / dream / REM–nREM 与 90 分钟周期 / dream recall 的主观性 / 生理测量（EEG/EOG）的能与不能。⚠️ psychology 版里 Aserinsky &amp; Kleitman (1955) 不是主体——那是 background 版的必写点。</p>
+    </div>
+
+    <div class="study" data-tested="no">
+      <h4>Saavedra &amp; Silverman (2002) <span class="badge badge-predict">★预测（3 分 outline 版已考 w25_13）</span></h4>
+      <ol class="en">
+        <li>A <b>specific phobia</b> is an irrational, persistent fear of a particular object or event that is out of proportion to any actual danger.</li>
+        <li>Phobias are usually triggered by a <b>traumatic event in childhood</b>, and can be learned: <b>Watson and Rayner (1920)</b> showed a neutral stimulus (white rat) paired with a frightening event (loud noise) created "Little Albert's" fear — classical conditioning of fear.</li>
+        <li><b>Disgust</b> is a feeling of aversion towards something offensive; disgust interacting with fear can result in avoidance behaviour.</li>
+        <li>Children can negatively evaluate a phobic object <b>without any anticipation of threat</b> — meaning it is disgust, not fear, causing the negative evaluation.</li>
+        <li><b>Systematic desensitisation</b> is a behavioural therapy that treats phobias by gradually exposing the person to the feared object while teaching relaxation — the fear hierarchy pairs feared stimuli with an incompatible (relaxed) response.</li>
+        <li>A boy with a phobia of buttons was treated with systematic desensitisation using a fear hierarchy and Feelings Thermometer ratings <b>(example mark)</b>.</li>
+      </ol>
+      <p class="zh">概念族：specific phobia / classical conditioning（Watson &amp; Rayner）/ disgust vs fear / systematic desensitisation + fear hierarchy。<b>与 Fagen 雷区相反：S&amp;S 的 psychology 就是 conditioning——这里是合法得分点</b>。</p>
+    </div>
+
+    <div class="study" data-tested="no">
+      <h4>Hölzel et al. (2011) <span class="badge badge-predict">★预测（background 版已考 s26_13）</span></h4>
+      <ol class="en">
+        <li><b>Mindfulness</b> is intentionally paying attention to the present moment in a non-judgemental way.</li>
+        <li><b>MBSR (Mindfulness-Based Stress Reduction)</b> is a structured 8-week programme of mindfulness training, used to reduce stress and increasingly used in therapy.</li>
+        <li><b>Neuroplasticity</b> is the brain's ability to change its structure (not just its activity) in response to experience and practice.</li>
+        <li><b>Grey matter</b> is brain tissue containing the cell bodies of neurons; the <b>hippocampus</b> is a structure important for memory and learning, and an area of interest because it "changes" during mindfulness practice.</li>
+        <li>Measuring brain structure requires <b>neuroimaging</b> — MRI scans can show anatomical differences in grey matter between people.</li>
+        <li>Participants completed an 8-week MBSR course and their brains were scanned before and after, compared with a wait-list control group <b>(example mark)</b>.</li>
+      </ol>
+      <p class="zh">概念族：mindfulness / MBSR / neuroplasticity / grey matter + hippocampus / MRI。分工：background 写故事线，psychology 写这套定义链；stress/hormones 关联两版都不是保险点。</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ 题型三 · 程序细节描述 ============ -->
+<section class="qtype" id="qt3">
+  <h2>题型三 · 程序细节描述 <span class="tag">State/Identify 小题 + Q9(a) 4 分 + Q7 5 分</span></h2>
+  <div class="howto">
+    <h3>怎么答</h3>
+    <p class="q">问的是研究里<b>某个具体环节</b>——样本、某个程序步骤、某台仪器。</p>
+    <ol class="steps"><li>答案就是下面每张卡里的<b>给分点清单</b>：MS 的答案是固定清单，背全就满分，自己编没有用。</li><li><b>数字要准</b>：有的研究数字不允许任何误差。</li><li><b>只写题目问的环节</b>：问脑扫描就写脑扫描，写样本细节不给分。</li></ol>
+    <ul class="dont"><li>题目分了两半时（如 how… / how often…）要两边都写，各算各的分。</li></ul>
+  </div>
+  <h3 class="sub">12 个研究（最可能考的环节 + 给分点列表；数字全保留）</h3>
+  <div class="study-grid">
+
+    <div class="study" data-tested="yes">
+      <h4>Milgram (1963) <span class="badge badge-tested">已考 · 本题型曝光最高</span></h4>
+      <p class="zh"><b>最可能考：sample（2026 Q2(a) 节奏）+ paired-associate learning task（很可能接着考）</b></p>
+      <p class="zh">样本（w24_12 Q9a 4 分 / s25_12 Q3a 2 分）：</p>
+      <ol class="en">
+        <li>n=40 · males · volunteer sample（newspaper advert + direct mail）· aged 20–50 · New Haven and surrounding areas · wide range of occupations · wide range of educational levels · paid for participation</li>
+      </ol>
+      <p class="zh">paired-associate learning task（w24_11 Q4 5 分）：</p>
+      <ol class="en">
+        <li>P read out a series of word pairs · then read out one word along with four terms · learner indicated which word was originally paired · by pressing one of four switches · this lit up one of four quadrants in the answer box <span class="zh">（必须写 learner 视角；"each incorrect answer received a shock" max 1）</span></li>
+      </ol>
+      <p class="zh">其他已考环节速查：抽签后至学习任务开始（m24_12 Q6a 5 分：both pieces said 'teacher'、45v sample shock、pressing the third button 等）；victim 反馈（s26_11 Q9a 4 分：predetermined responses、3 wrong to 1 correct、no response until 300v、pounds at 300v/315v、不收 verbal responses）；shock generator（s25_13 Q7 5 分：15V–450V in 15V increments、verbal designations、XXX、red light/buzzing/blue light，不收 answer box）；欺骗方式（s26_13 Q1b）；signs of tension（w25_12 Q1b：sweating、trembling、stuttering、biting lip、groaning、seizure——不收 shouting/nervous laughter）；Yale students' prediction（w25_12 Q1c）；<b>数字：26 人按到最大 450v</b>。</p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Andrade (2010) <span class="badge badge-tested">已考 · sample ×3 卷</span></h4>
+      <p class="zh"><b>最可能考：sample（m24_12 / s25_11 / w25_13 已考，随时再考）+ 纸的特征（2 分冷门）</b></p>
+      <p class="zh">样本（m24_12 Q9a / s25_11 Q9a / w25_13 Q1a）：</p>
+      <ol class="en">
+        <li>Opportunity sample · had just finished a different/unrelated study · members of a university participant panel（Applied Psychology Unit）· general population · aged 18–55 · paid for participation · majority female（35F/5M；doodling 17F3M，control 18F2M）· n=40 <span class="zh">（s25 卷不收 'students'、不收 MRC；m24 卷收 'males and females' 但 s24 卷不收——写具体数字最稳）</span></li>
+      </ol>
+      <p class="zh">doodling condition 程序（s25_12 Q7 5 分）：</p>
+      <ol class="en">
+        <li>Recruited after completing a different study · taken into a visually dull room · listened to a tape recording of a telephone message · asked to shade in the squares and circles · told it does not matter how neat/how quickly（to relieve boredom）· told they did not need to remember the message · instructed to write down names of party-goers · one-minute conversation with experimenter · then asked to write names of party-goers or places · surprise test（not told about places test）· debriefed and asked if they suspected a memory test <span class="zh">（粗体必答：至少写一条 bold；不收 'asked to doodle'）</span></li>
+      </ol>
+      <p class="zh">材料：纸的特征（w25_13 Q1b 2 分：shapes 1cm in diameter、10 shapes per row、alternating squares and circles、margin down the side、A4）。<b>数字</b>：incidental recall = number of places recalled；招募话术 "spend another 5 minutes helping out another study"。</p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Piliavin et al. (1969) <span class="badge badge-tested">已考 · s26_11 Q2a</span></h4>
+      <p class="zh"><b>最可能考：sample（s26_11 Q2a 刚考，注意数字 tolerance）+ 两名 victim / models 细节</b></p>
+      <p class="zh">样本（s26_11 Q2a 3 分）：</p>
+      <ol class="en">
+        <li>Opportunity sample · approximately 4450（tol 4000–5000）· 45% black / 55% white · unsolicited（never knew/asked）· males and females · average of 43 participants per carriage <span class="zh">（无 % 时可写 majority white/minority black；不收 'adults'）</span></li>
+      </ol>
+      <p class="zh">四人小组上车后至 victim 倒下（s24_11 Q6 5 分）：</p>
+      <ol class="en">
+        <li>Team always 2 males + 2 females · boarded using different doors · location of 'experimental' car varied · females took seats outside critical area · recorded data as covertly as possible · male victim/model always stood up · victim always next to the pole（in critical area）· model went to adjacent/critical area depending on condition · victim waited 70s before collapsing</li>
+      </ol>
+      <p class="zh">其他已考：两名 victim（s25_12 Q9a 4 分：Victim 1 drunk + smelled of liquor / bottle in brown paper bag；Victim 2 ill + carried a black cane / acted sober——clothing/male/aged 26–35/n=4 合计 max 1）；models（w25_12 Q3a 2 分：white、male、aged 24–29、informal clothes、n=4——不收 'adults'）。</p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Perry et al. (2015) <span class="badge badge-tested">已考 · w25_13 Q5a / s26_13 Q2a</span></h4>
+      <p class="zh"><b>最可能考：sample（s26_13 Q2a 刚考）+ Exp1 单个 trial（很可能接着考）</b></p>
+      <p class="zh">样本（w25_13 Q5a / s26_13 Q2a 3 分）：</p>
+      <ol class="en">
+        <li>n=54 · males · undergraduates/students · University of Haifa · aged 19–32（average 25.29，tol 25–26）· gained course credit or payment · normal or corrected-to-normal vision · no history of psychiatric/neurological conditions · 5 were left-handed</li>
+      </ol>
+      <p class="zh">Exp1 单个 trial（w25_11 Q4 4 分，从 fixation point 起）：</p>
+      <ol class="en">
+        <li>Shown a still picture of a circular room · figure at the centre of the room · an approaching figure · from one of eight entrances · ball/friend/authority/stranger（example max 1）· 3s animation of the figure approaching · asked to imagine themselves at the centre · press the spacebar when they wanted the figure to stop · or trial ended when the figure collided with the 'participant' <span class="zh">（不收 fixation point 本身、不收主角名字显示）</span></li>
+      </ol>
+      <p class="zh">其他已考：两种结束方式（s25_11 Q2a 2 分：collided / after 3 seconds / reached the centre，or participant pressed the spacebar——'participant stops the figure' = 0）；oxytocin 给药（w24_11 Q6a 3 分：self-administered、24 international units in 250ml、intranasally、medicine dropper、three drops per nostril、in the presence of the experimenter；另一条件 = saline，收 'placebo' 不收 pill/injection）。速查：IRI 分组（s24_13 Q1c：高共情 ≥40 分或高于均值半个标准差、低共情 <33 分，不收 'empathy test'）；Exp2 欺骗（s25_12 Q1b）；Exp2 图片物品（chair/table/plant/closet）；approaching figures（stranger/authority/ball，收 boss/teacher，reject parents）。</p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Bandura, Ross &amp; Ross (1961) <span class="badge badge-tested">已考 · s26_13 Q9a 截图题</span></h4>
+      <p class="zh"><b>最可能考：样本（'male + female' = 0 高频坑）+ Aggression Arousal（s25_12 Q7 已考）+ 条件分配（相邻环节）</b></p>
+      <p class="zh">样本（s25_13 Q3b 2 分）：</p>
+      <ol class="en">
+        <li>n=72 · aged 37–69 months（mean 52）/ accept 3–6 years · 36 male and 36 female · enrolled at Stanford University Nursery School <span class="zh">（'male + female' = 0；'from Stanford Uni' = 0——必须写 Nursery School）</span></li>
+      </ol>
+      <p class="zh">aggressive condition 的模型行为（s26_13 Q9a 4 分 ★截图题，2026 已考）：</p>
+      <ol class="en">
+        <li>Model began assembling tinker toys · laid the Bobo doll on its side/sat on it · punched it in the face/nose · hit it on the head with a mallet/hammer · threw it in the air · kicked it · sequence repeated approximately three times / lasted 10 minutes · verbal aggression like 'pow'/'kick him'（max 1）</li>
+      </ol>
+      <p class="zh">Aggression Arousal 环节（s25_12 Q7 5 分）：</p>
+      <ol class="en">
+        <li>Child brought to an anteroom containing toys · toys included fire engine/locomotive/fighter jet/cable/spinning top/doll/doll carriage/crib/car/wardrobe（any two = 1 mark）· told they could play · as soon as they began（usually 2 mins）experimenter stopped them/took toys away · explained she did not let just anyone play with them · said they were reserved for some other children · said they were her very best toys · experimenter sat away/completed paperwork <span class="zh">（不收 'not allowed to play with toys'——本来是被允许玩的）</span></li>
+      </ol>
+      <p class="zh">其他已考：条件分配（s24_12 Q1b：四量表加分、matched in triplets、random assignment）；延迟模仿测试间（s24_12 Q1c：fixed order、one-way mirror——不收 2-way）；操作性定义：mallet aggression = strikes/hits object with mallet + object was not the Bobo doll（s24_11）；aggressive gun play（s24_13）。</p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Baron-Cohen et al. (2001) <span class="badge badge-tested">已考 · s24_13 Q9a</span></h4>
+      <p class="zh"><b>最可能考：样本 Group 1/2（数字 tolerance：29–30 / 28）+ glossary 指导语</b></p>
+      <p class="zh">样本 Group 1（s24_13 Q9a）：</p>
+      <ol class="en">
+        <li>Adults · mean age c.30y（29.7，tol 29–30）· males · n=15 · diagnosed with AS/HFA · volunteer sample/responded to advert in National Autism Society magazine · same socioeconomic class as Group 2 · same educational levels · typical/average IQ 115（matched with Group 4）</li>
+      </ol>
+      <p class="zh">样本 Group 2（s24_13 Q9a，选答）：</p>
+      <ol class="en">
+        <li>Adults · mean age 28y · n=122 · adult community/education classes（Exeter）· public library users（Cambridge）· broad range of occupations · same SES/education as Group 1 · accept opportunity sample</li>
+      </ol>
+      <p class="zh">glossary 使用指导语（m24_12 Q1c 2 分）：could read through/refer to the glossary · could indicate any word meanings they were unsure about · could read those particular meanings · told they could use the glossary throughout the test（不收 'told to use it'）。<b>数字与术语</b>：'social sensitivity'（m26_12 Q1b 2 分）= ability to identify/understand that other people have feelings and ideas in a social situation（2 分完整；1 分 = 只写其一）；n Group 1 = 15（m26 Q1a）。Group 2 均龄两版并存：s24 MS 给分点写 28y，课件按原论文写 46.5——答题优先写 n=122 与招募渠道这两个稳点。</p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Pozzulo et al. (2011) <span class="badge badge-tested">已考 · line-up 题 ×2 卷</span></h4>
+      <p class="zh"><b>最可能考：line-up presentation（target-absent / target-present 各 5 分——粗体必答点题型）+ 样本 young children</b></p>
+      <p class="zh">line-up presentation（target-absent s24_12 / target-present w24_13，各 5 分）：</p>
+      <ol class="en">
+        <li><b>粗体必答</b>：absent = target replaced with a similar foil（foil had similar features）；present = target in the line-up with three other photographs/foils</li>
+        <li>all pictures shown simultaneously · target's line-up position randomised · four photographs/foils · a silhouette included（representing possibly-absent target）· each participant watched four videos · presented on a laptop/screen · in random order · photo array shown after each video · position counterbalanced across arrays · none of the photos had been in the video（absent 卷另有 replacement position counterbalanced）<span class="zh">（不收照片如何挑选、不收被试该做什么；3 foils + silhouette = 2 分）</span></li>
+      </ol>
+      <p class="zh">样本：young children 组（s24_11 Q1b 2 分：n=59（tol 58–60）、aged 4–7（average c.5）、majority male（38M/21F）、pre-kindergarten/kindergarten、Eastern Ontario, Canada、familiar with the cartoon characters——不收 'Canadian' 单独说）。其他已考：cartoon foils 筛选（w25_13 Q4 4 分：internet images、similar to Dora/Diego、similarity based on facial structure/hair length/hair colour（任一 = 1）、three judges、10 photographs per target、top four used）；human face target（s25_12 Q2a 2 分：Caucasian、student、22 years old、brushing her hair in bathroom）。</p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Dement &amp; Kleitman (1957) <span class="badge badge-tested">已考 · m24_12 Q7 / s26_12 Q2a</span></h4>
+      <p class="zh"><b>最可能考：EEG 的使用（4 分档）+ 样本（s26_12 Q2a 刚考）</b></p>
+      <p class="zh">样本（m25_12 Q3b / s26_12 Q2a 3 分）：</p>
+      <ol class="en">
+        <li>Total n=9 · adults · mostly male（7 males, 2 females）· 5 studied intensively（6–17 nights）· 4 used minimally to confirm results（1–2 nights）· accept opportunity sampling · credit told to avoid caffeine/alcohol <span class="zh">（不收 '4 withdrew'、不收 equal males/females、不收 from Chicago）</span></li>
+      </ol>
+      <p class="zh">EEG 的使用（s25_13 Q2a / w25_11 Q9a 4 分）：</p>
+      <ol class="en">
+        <li>Electrodes placed next to the eyes · on the scalp/head · all lead wires attached to top of the head · made into a single cord · to prevent entanglement/give free movement · EEG ran continuously all night · paper speed 3 or 6 mm per sec allowed easy recognition of eye movements · enabled waking at specific times（REM/NREM）/ identify sleep stage · measured direction of eye movement <span class="zh">（不收 'on the eyes'/'in the brain'/'attached to head'；检测脑波/电活动 max 1；不收 'in a ponytail'）</span></li>
+      </ol>
+      <p class="zh">被叫醒并报告梦境（m24_12 Q7 5 分，up to 3 + up to 3）：woken by a doorbell · loud enough to wake them · asked if they were having a dream or not · asked to tell the experimenter the content · talk into a recording device · experimenter may come in for more information · may be asked to estimate dream duration（收现代替代设备；不收复述题干）。<b>术语/数字</b>：device = EEG（不收 EOG/ECG/EGG，s26_11 Q1a）；'ultradian rhythm' = rhythms lasting less than 24 hours + example sleep cycle/REM/NREM（不收 sleep-wake cycle）；梦内容 findings 为 definitive list（two people throwing tomatoes at each other 等 2 分/梦）。</p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Fagen et al. (2014) <span class="badge badge-tested">已考 · w24_13 Q9a / s24_13 Q6</span></h4>
+      <p class="zh"><b>最可能考：样本（4 分档）+ 操作性定义（trunk here / steady——高频 2 分坑）</b></p>
+      <p class="zh">样本（w24_13 Q9a 4 分）：</p>
+      <ol class="en">
+        <li>n=5 · all females · same elephant stable in Nepal · four juveniles aged 5–7 · one adult in her 50s · elderly elephant had foot abscess/impaired vision · selected for docility · not pregnant/no calf · mahout willing to participate · all trained using traditional methods · no experience of secondary positive reinforcement training <span class="zh">（收 'in captivity'）</span></li>
+      </ol>
+      <p class="zh">trunk up 训练（s24_13 Q6 5 分）：</p>
+      <ol class="en">
+        <li>Used lure and shaping techniques · elephant tempted to perform the behaviour · reward placed strategically · banana pieces a few inches from their forehead · could only reach banana by lifting trunk · for adults/too-big elephants the lure was at the end of trainer's arm · trunk position shaped · shaping used increasing height until trunk up achieved</li>
+      </ol>
+      <p class="zh">操作性定义（高频坑）：<b>'trunk here'</b>（s25_13 Q1c）= distal end of trunk placed gently on palm of trainer + underside（ventral）part also touching the palm；<b>'steady'</b>（s25_11 Q1c）= holds the trunk still + previously requested behaviour held in position（'holds the trunk steady' = 0）；<b>'capture technique'</b>（w25_11 Q3a）= trainer waits for specified spontaneous/natural behaviour + marked/rewarded repeatedly；强化物：primary = banana（不收 'food'）、secondary = whistle/sound（不收 'sound' 单独说）。<b>数字</b>：elephants = 5（s25_13 Q1a）；passed trunk-wash test = 4（s25_11 Q1a）。</p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Saavedra &amp; Silverman (2002) <span class="badge badge-tested">已考 · w25_12 Q9a / m26_12 Q2a</span></h4>
+      <p class="zh"><b>最可能考：样本/参与者（题干已给信息不收是最大坑）+ Feelings Thermometer</b></p>
+      <p class="zh">样本/参与者（w25_12 Q9a 4 分 / s25_11 Q3b / m26_12 Q2a 3 分）：</p>
+      <ol class="en">
+        <li>One boy · 9-year-old · Hispanic/American · presented by his mum to a Child Anxiety and Phobic Program · did not meet criteria for OCD · did meet DSM-IV criteria for a phobia · experienced a bowl of buttons falling on him at school · had phobia at age 5 / 4 years prior <span class="zh">（题干已给的信息一律不收：boy/buttons phobia/opportunity sample）</span></li>
+      </ol>
+      <p class="zh">Feelings Thermometer（w24_12 Q1b 2 分）：</p>
+      <ol class="en">
+        <li>A hierarchy of distress/fear/disgust · measured subjective feelings of distress about buttons · 9-point scale 0–8（0=no distress, 8=highest）· 11 different buttons to rate · small denim jean buttons rated a 3（example）</li>
+      </ol>
+      <p class="zh">其他已考：positive reinforcement 的使用（w24_13 Q3a 2 分：provided by the boy's mother、contingent on successfully completing gradual exposure）；post-treatment findings（w24_12 Q1c 2 分：minimal distress、no longer met DSM criteria、could wear clear plastic buttons on school uniform shirt daily——不收泛泛 'improvement'）。</p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Hassett et al. (2008) <span class="badge badge-tested">已考 · m26_12 Q9a 截图题</span></h4>
+      <p class="zh"><b>最可能考：单个 trial（w24_12 Q6a / s25_11 Q7，2026 年还没重考过）+ 样本（No tolerance！）</b></p>
+      <p class="zh">样本（m25_12 Q9a 4 分 / w25_13 Q3a）：</p>
+      <ol class="en">
+        <li>Rhesus monkeys · troop of 135 individuals · lived together more than 25 years · lived at Yerkes Center · same natal group · 14 not used due to hormonal treatment · age range 3 months to over 13 years · 61 females/21 males（82 potential）· 23F/11M = 34 used in analysis · 39 infants not used（interactions not coded）· 53 excluded in total（= 39 幼猴 + 14 激素处理） <span class="zh">（⚠ No tolerance on numbers；可补 rank 信息）</span></li>
+      </ol>
+      <p class="zh">单个 trial（w24_12 Q6a / s25_11 Q7，各 4–5 分）：</p>
+      <ol class="en">
+        <li>Monkeys placed indoors · one wheeled + one plush toy placed in outdoor area · 10m apart · location counterbalanced（left/right）· monkeys allowed into outdoor area · each interaction recorded/videotaped · separate camera focused on each toy · each trial lasted 25 minutes <span class="zh">（不收 behavioural checklist/双观察者/时长频次记录——都是 trial 之后的事；toy 例子各认 1 分：plush = Winnie-the-Pooh/Raggedy-Ann/koala/armadillo/bear/Scooby-Doo；wheeled = wagon/truck/car/construction vehicle/shopping cart/dump truck）</span></li>
+      </ol>
+      <p class="zh">居住条件（m26_12 Q9a 4 分 ★2026 已考）：in natal/family groups/troop for 25 years · 25m×25m outdoor compounds（tol 2m）· temperature-controlled indoor quarters · water continuously available · fed monkey chow twice per day · fed fruit/vegetables once per day（收 'natural/typical/familiar environment' max 1）。操作性定义：<b>'drag'</b>（w25_11 Q1b）= moving the toy along the ground + with the toy behind the monkey；plush = 收 soft/stuffed（不收具体例子）；<b>'play'</b>（s26_12 Q1b）= fun and engaging + voluntary（2 分需两成分）。</p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Hölzel et al. (2011) <span class="badge badge-tested">已考 · s26_12 Q9a 截图题</span></h4>
+      <p class="zh"><b>最可能考：MBSR 组 inclusion criteria（w24_12 Q4 5 分——库中标注的很可能接着考）+ FFMQ</b></p>
+      <p class="zh">MBSR 组 inclusion criteria（w24_12 Q4 5 分）：</p>
+      <ol class="en">
+        <li>Doctor or self-enrolled on MBSR course/seeking stress reduction · self-report physically/psychologically healthy（last 6 months）· not taking any medication · no meditation class participation in last 6 months · no more than 4 meditation classes in past 5 years / 10 in lifetime · aged 25–55 · no issues with MRI（claustrophobia/metal implants）· commitment to attend all 8 classes and homework · taken from four MBSR classes in New England <span class="zh">（忽略课程内容本身；handedness 不是标准）</span></li>
+      </ol>
+      <p class="zh">脑扫描方式与频率（s26_12 Q9a 4 分 ★2026 已考，how max 3 / how often max 2）：</p>
+      <ol class="en">
+        <li>How：all scanned at the same centre · all given an MRI scan · using a standard head coil · data sets for the whole brain collected · VBM used to measure grey matter/segment grey and white matter</li>
+        <li>How often：MBSR group scanned two weeks before the program · also two weeks after · control participants scanned twice, two months apart <span class="zh">（'once before and once after' = 1 分；间隔 MBSR 56 天、control 66 天 ±2）</span></li>
+      </ol>
+      <p class="zh">FFMQ（s25_13 Q9a 4 分）：39-item questionnaire · measures five factors of mindfulness（observing/describing/acting with awareness/non-judging/non-reactivity——命名任一 = max 1）· 5-point Likert scale 1–5 · 1 = never or rarely true · 5 = very often or always true（'1=never, 5=very often' 这句 = 3 分）。其他已考：body scan 训练（m25_12 Q2a 2 分：sequentially guided through the entire body、aware of sensations、non-judgemental、end point = body 'as a whole'）；'acting with awareness'（w25_12 Q5a）= focusing on current behaviour instead of behaving automatically（2 分需 conscious vs unconscious 对比）。</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ 题型四 · Evaluation 证据链 ============ -->
+<section class="qtype" id="qt4">
+  <h2>题型四 · Evaluation 证据链 <span class="tag">Q10 · 10 分 · L1–L5 banded</span></h2>
+  <div class="howto">
+    <h3>怎么答</h3>
+    <p class="q">问的是<b>两个优点 + 两个缺点</b>，每个点都要用这个研究自己的细节来支撑。</p>
+    <ol class="steps"><li><b>论点</b>（1 句）：是 strength 还是 weakness，关于哪个方面（reliability / validity / ethics…）。</li><li><b>证据</b>（2 句）：这个研究的具体细节——数字、器材、程序、原话。</li><li><b>Therefore</b>（1 句）：所以这对 reliability / validity 意味着什么。</li></ol>
+    <ul class="dont"><li>题目最后指定的议题，至少要有一个点回应它，否则最多 5–6 分。</li><li>每个点只有一个细节，最多到 5–6 分；想上 9–10 分，四个点都要写多个细节。</li><li>泛泛的句子（"standardised procedure so replicable"）换个研究也成立，只能算低档。</li></ul>
+  </div>
+  <h3 class="sub">12 个研究（每研究 2S + 2W 完整版：论点 → 证据 → Therefore）</h3>
+  <div class="study-grid">
+
+    <div class="study" data-tested="yes">
+      <h4>Milgram (1963) <span class="badge badge-tested">已考 · reliability m26_12 · sampling s25_11</span></h4>
+      <p class="en"><b>S1 · Reliability / Standardisation：</b> The study had a highly standardised procedure, making it very reliable. The four prods were always delivered in the same fixed order ("Please continue… The experiment requires that you continue…"), and the learner's protests were scripted, from the grunt at 75V to the scream and pounding on the wall at 270V, followed by complete silence. Even the learner's answer pattern was fixed at roughly three wrong to one correct. Therefore, anyone could replicate the exact procedure and test whether comparable obedience levels are obtained.</p>
+      <p class="en"><b>S2 · Validity (experimental realism)：</b> The study had high internal/experimental realism, so it measured genuine obedience rather than play-acting. Every participant received a real 45V sample shock from the generator before starting, and the machine looked authentic with 30 labelled switches from 15V to 450V, buzzes and flashing lights. In fact, no participant suspected the shocks were simulated, and participants afterwards rated the learner's pain at a mean of 13.42 out of 14. Therefore, the 65% full-obedience rate reflects what people truly believed they were doing to another person.</p>
+      <p class="en"><b>W1 · Ethics：</b> Participants were deceived (the shocks were fake, the draw was rigged so the naive participant always became the teacher) and were exposed to psychological harm: observers noted profuse sweating, trembling and stuttering, 14 of the 40 participants showed nervous laughter, and 3 suffered uncontrollable seizures — one so severe that the session had to be stopped early. Although a friendly debrief followed, by modern standards the distress should have been terminated far earlier. Therefore, the benefit of the findings has to be weighed against the cost to the participants.</p>
+      <p class="en"><b>W2 · Sampling technique / Generalisability：</b> All 40 participants were males aged 20–50 recruited through a newspaper advertisement offering $4.50, i.e. a volunteer (self-selected) sample from one small US area around New Haven. Volunteers attracted by such an ad may be more cooperative or more deferential to authority than the general population, and women and other cultures are entirely excluded. Therefore, the 65% obedience rate may not generalise beyond obediently-inclined American males of the 1960s.</p>
+      <p class="zh">已考过的指定议题：reliability（m26_12）· sampling technique（s25_11）。可以写：ethics（W1）；quantitative data（最大电压 65% 到 450V、全数至少 300V、均值 368V）；ecological validity / generalisations（W2 同素材）。</p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Piliavin et al. (1969) <span class="badge badge-tested">已考 · ethics w24_13 · quantitative s26_12</span></h4>
+      <p class="en"><b>S1 · Ecological validity：</b> The study has high ecological validity because it took place in a real setting with real participants. Over 103 trials, around 4,450 genuine New York subway passengers witnessed the staged collapse on the A/D express line between Harlem and the Bronx, and none of them knew an experiment was taking place. Therefore, the helping behaviour observed was completely natural and free of demand characteristics, unlike behaviour produced in a laboratory.</p>
+      <p class="en"><b>S2 · Quantitative data：</b> The study collected quantitative data, which makes meaningful comparisons between conditions possible. Observers timed how quickly the first helper responded (in seconds) and counted how many people helped and of which race and gender. As a result, the 95% helping rate for the cane victim could be directly compared with the 50% rate for the drunk victim, showing that the type of victim strongly affects helping. This also produced an unexpected trend — larger groups tended to help faster (median 1.5s with 7+ males in the critical area), contrary to what diffusion of responsibility predicts.</p>
+      <p class="en"><b>W1 · Ethics：</b> None of the ~4,450 passengers gave informed consent or was debriefed — they never learned the collapse was staged. They were deceived into believing a drunk or ill victim genuinely needed help, and passengers who failed to help may have experienced guilt or anxiety afterwards. Privacy was also invaded, as female observers secretly noted down passengers' remarks. Therefore, the researchers prioritised scientific value over participants' rights to a degree that would not be permitted today.</p>
+      <p class="en"><b>W2 · Validity (internal — limited control)：</b> As a field experiment, the study had limited control over extraneous variables, reducing internal validity. The researchers could not standardise who happened to be in the carriage: group size, the mix of passengers and even time of day varied across the 103 trials. Worse, the researchers' own records show that Team 2 ran the wrong condition on Day 4 because the victim "didn't like" playing drunk, and there was only one Black victim, so any race-of-victim comparison rests on very limited data. Therefore, some differences between conditions may be confounded rather than caused by the victim type alone.</p>
+      <p class="zh">已考过的指定议题：ethics（w24_13）· quantitative data（s26_12）。可以写：ecological validity 在此研究是 <b>strength</b>（别写反）；validity（W2）；reliability（同一 victim 装束、70 秒固定倒下、同一路线）。</p>
+    </div>
+
+    <div class="study" data-tested="no">
+      <h4>Perry et al. (2015) <span class="badge badge-predict">★预测</span></h4>
+      <p class="en"><b>S1 · Reliability / Controls (double-blind)：</b> The study used rigorous controls that make the findings reliable and free from researcher bias. Administration of 24 IU intranasal oxytocin versus a saline placebo was double-blind, so neither the participants nor the experimenters knew who received the hormone, and the two test sessions were counterbalanced one week apart. All stimuli were computer-generated and presented in exactly the same way to every participant (each room pair displayed for 2 seconds). Therefore, the differences in preferred distance cannot be explained by researcher expectations or order effects, and the procedure could be replicated exactly.</p>
+      <p class="en"><b>S2 · Ethics：</b> The study met ethical guidelines to a high standard, which is a strength compared with classic social studies such as Milgram or Piliavin. It was approved by the ethics committees of both the University of Haifa and Hadassah Medical Centre (appropriate for a drug study), all participants gave informed consent, and they were fully debriefed about the real aims. The only deception was the cover story in Experiment 2 (that they would later discuss personal topics with another participant), which the researchers judged unlikely to cause distress. Therefore, the study shows obedience and personal-space research can be done ethically without losing scientific value.</p>
+      <p class="en"><b>W1 · Ecological validity：</b> Participants judged how close a computer-drawn figure should approach on a screen by pressing the spacebar, or chose between computer-generated colour images of rooms with chairs at fixed distances (20–140 cm) and angles. Real personal-space behaviour depends on dynamic social cues such as facial expression, tone of voice and gestures, none of which were present. Therefore, the distances preferred on a computer task may not reflect how people would actually position themselves in a real face-to-face encounter.</p>
+      <p class="en"><b>W2 · Generalisability：</b> All 54 participants (40 in the final high/low empathy groups) were male undergraduates aged 19–32 from a single Israeli university, participating for course credit or payment. Personal-space norms are known to vary with gender and culture (e.g. no-contact cultures differ from contact cultures), and females were excluded entirely, even though oxytocin is a social hormone involved in social behaviour. Therefore, the finding that oxytocin narrows distance for high-empathy but widens it for low-empathy men may not apply to women or to other cultures.</p>
+      <p class="zh">已考过的指定议题：<b>未考</b>（10 分题未出，很可能考）。可以写：ecological validity（W1 最可能）· ethics（S2 作 strength）· reliability（S1）· quantitative data（Exp1 电脑任务四类人物的平均距离占比：Stranger 39.82% > Authority 34.12% > Ball 20.20% > Friend 12.46%）· self-reports（IRI 分组的社会赞许偏差）。</p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Andrade (2010) <span class="badge badge-tested">已考 · sampling w24_12 · eco validity s26_11</span></h4>
+      <p class="en"><b>S1 · Reliability / Standardisation：</b> The procedure was highly standardised, giving the study good reliability. Every participant heard exactly the same mock telephone message from a cassette recording, delivered in a fairly monotone voice at 227 words per minute, in a quiet, visually dull room. The doodling task was also standardised — an A4 sheet of alternating squares and circles to shade with a pencil — and the order of the two recall tests was counterbalanced across participants. Therefore, another researcher could replicate the procedure exactly and check whether the 29% memory advantage for doodlers is reproducible.</p>
+      <p class="en"><b>S2 · Validity (controls)：</b> Participants were randomly assigned to the doodling or control condition, and in the doodling group the experimenter actively encouraged shading so that the IV (doing a concurrent task) was genuinely in operation. Memory performance was carefully operationalised as the number of correct names/places minus false alarms, and plausible mishearings (e.g. "Greg" for "Craig") still counted as correct. Therefore, the group difference can confidently be attributed to doodling rather than to chance differences between the groups.</p>
+      <p class="en"><b>W1 · Sampling technique / Generalisability：</b> All 40 participants came from the participant panel of the MRC Applied Psychology Unit — people who had volunteered to take part in research and were paid a small honorarium — and 35 of the 40 were female. Panel volunteers may be more cooperative or more practiced at laboratory tasks than the general population. Therefore, the 29% recall advantage may not generalise to people who have not volunteered for research or to male participants.</p>
+      <p class="en"><b>W2 · Ecological validity：</b> Listening to a deliberately boring two-and-a-half-minute mock telephone message about a party while shading printed shapes is not an everyday activity, and the doodling itself was a standardised shading task rather than the free, self-directed doodling people actually do in real life (e.g. during a lecture or phone call). The study also never measured daydreaming, so it cannot be certain that doodling worked by preventing mind-wandering rather than in some other way. Therefore, we cannot be sure that real-life doodling would produce the same memory benefit.</p>
+      <p class="zh">已考过的指定议题：sampling technique（w24_12）· ecological validity（s26_11）。可以写：reliability（S1）；validity（S2 控制 / W2 生态两面）；quantitative data（monitoring 7.7 vs 6.9）；ethics（mild deception + surprise test）。</p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Baron-Cohen et al. (2001) <span class="badge badge-tested">已考 · ethics s24_12 · quantitative s25_12</span></h4>
+      <p class="en"><b>S1 · Validity (control tasks)：</b> The design included clever controls that make the conclusion about theory of mind specifically valid. The AS/HFA group also completed a gender-recognition control task on the same eyes and all scored at least 33 out of 36, showing they could process the visual information in the photos. A fourth, IQ-matched comparison group (mean IQ 116 vs 115 for the clinical group) ruled out intelligence as an explanation, and Eye Test scores correlated with the AQ questionnaire (r = −0.53) but not with IQ. Therefore, the deficit shown is specific to social cognition, not to perception or general ability.</p>
+      <p class="en"><b>S2 · Reliability / Quantitative data：</b> Each of the 36 items was checked by a panel of 8 independent judges, with at least 5 agreeing on the target word before the item was kept, and all participants could consult the same glossary of terms, which removes vocabulary ability as a confound. Scoring was simply the number of correct emotion identifications, so performance could be compared directly across the four groups (AS/HFA 21.9 vs student comparison 28.0 vs IQ-matched 30.9). Therefore, the group differences are based on objective, replicable measurement rather than clinical judgement.</p>
+      <p class="en"><b>W1 · Generalisability：</b> The AS/HFA group contained only 15 participants, all of them male, recruited through advertisements in an Autistic Society magazine (self-selected), and every eye photograph was of a Caucasian face. Females with AS/HFA may perform differently, and emotion recognition is harder across ethnic groups. Therefore, the claim that people with AS/HFA have impaired theory of mind may only be safely made about adult Caucasian men with the condition.</p>
+      <p class="en"><b>W2 · Ecological validity：</b> Participants judged mental states from static, black-and-white photographs of the eye region alone, whereas in real life we infer what others think from whole moving faces, voices, gestures and context. The authors themselves recommended that future studies use videos. Therefore, a person scoring poorly on the Eyes Test may still function better in real social interaction than the score suggests — the test measures a narrow slice of theory of mind.</p>
+      <p class="zh">已考过的指定议题：quantitative data（s25_12）· ethics（s24_12——<span class="warn">只认 minimising harm、informed consent、confidentiality 三条</span>）。可以写：generalisations（W1）· ecological validity（W2）· reliability（8-judge 程序）。称其为 laboratory experiment 本身不计分。</p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Pozzulo et al. (2011) <span class="badge badge-tested">已考 · ecological validity w25_12</span></h4>
+      <p class="en"><b>S1 · Reliability / Standardisation：</b> For every participant the instructions for the line-up were the same ("The person you saw may or may not be there. If the correct person is NOT there, please point to the silhouetted box"), the four target videos (Dora, Diego, and two human targets) were fixed 6-second silent clips shown in counterbalanced order, and the foil photographs were selected for similarity by three independent raters, then cropped to show only face, neck and shoulders in black and white. Therefore, the identification rates of children versus adults (e.g. 0.99 vs 0.95 for cartoons) can be compared fairly, and the procedure is replicable.</p>
+      <p class="en"><b>S2 · Ethics (model of ethical research with children)：</b> Informed consent was obtained twice — written parental consent plus the child's own verbal assent in age-appropriate language — and children were explicitly and repeatedly told they could change their mind at any time without getting into trouble. The researchers first built rapport through craft activities, used only neutral cartoon and everyday videos rather than crime material, monitored the children for fatigue and anxiety, and every child received crayons and a colouring book at the end. Therefore, the study shows scientifically valuable developmental research can be conducted without compromising young participants' rights.</p>
+      <p class="en"><b>W1 · Ecological validity：</b> Children and adults identified targets from a laptop line-up after watching a calm 6-second video in which the face was visible for only 2–3 seconds. A real eyewitness sees a possibly threatening event under stress and high arousal, and later makes an identification in a police station with real consequences. None of that pressure was present here. Therefore, the finding that children make more false identifications from target-absent line-ups (for cartoon faces, correct rejection only 0.74 vs adult 0.94) may underestimate or distort what happens in genuine forensic settings.</p>
+      <p class="en"><b>W2 · Generalisability / Confounds：</b> The 59 children came from three private schools in Eastern Ontario, the 53 adults were university psychology students from a research participation pool who may have been more motivated to participate, and all human targets and foils were Caucasian faces. Cross-ethnic identification is known to be poorer, so own-race bias is an uncontrolled confounding variable. There is also no adolescent group between age 7 and 17, so the developmental trend cannot be traced. Therefore, the child/adult differences may partly reflect sampling rather than pure developmental effects.</p>
+      <p class="zh">已考过的指定议题：ecological validity（w25_12）。可以写：ethics（S2 作 strength）· quantitative data（0.99 vs 0.95；0.74 vs 0.94）· generalisations（W2，私校儿童 + 被试池成人）· reliability（S1）。</p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Bandura, Ross &amp; Ross (1961) <span class="badge badge-tested">已考 · validity w24_11 · generalisations m25_12 · ethics w25_11</span></h4>
+      <p class="en"><b>S1 · Reliability (double inter-rater)：</b> The aggressive model followed a fixed script — a roughly 9-minute sequence of hitting the 5-foot Bobo doll with the mallet, sitting on it and kicking it, accompanied by set phrases like "Kick him! Sock him! Hit him down!" — and in the test phase the toys were always presented in the same order while behaviour was recorded through a one-way mirror in 5-second intervals (240 response units per child). Two independent observers agreed closely on their ratings (inter-rater reliability of about r = 0.9), and the pre-study aggression ratings also agreed at r = 0.89. Therefore, the measurement of imitative aggression is objective, and the standardised procedure can be replicated.</p>
+      <p class="en"><b>S2 · Validity (controls)：</b> Before the experiment, the experimenter and nursery teacher rated all 72 children on four 5-point aggression scales, and children were then matched into triplets of similar aggression and randomly assigned to the aggressive, non-aggressive or control conditions. Therefore, Bandura could be confident that differences in imitative aggression between groups (e.g. boys with a male model averaging 25.8 acts versus around 2 in the control group) were caused by the type of model the child had seen, not by pre-existing aggressiveness.</p>
+      <p class="en"><b>W1 · Generalisability：</b> All 72 children were aged 3–6 and came from one Stanford University nursery school, meaning most were children of academic families, and there were only six children per experimental condition. The research also took place in 1961 America. Therefore, the finding that children imitate an aggressive model may not generalise to older children, other social classes or other cultures and eras.</p>
+      <p class="en"><b>W2 · Ecological validity / Ethics：</b> A Bobo doll is a toy designed to be hit, so hitting it after watching an adult do so is not the same as real aggression; novel acts such as throwing the doll in the air and kicking it rarely occur in everyday life, and the laboratory playroom observed through a one-way mirror is not a natural learning environment. In addition, children were deliberately frustrated before the test (attractive toys were taken away and said to be reserved for other children) and were taught aggressive behaviour without any debrief, which would not pass modern ethical review. Therefore, both the realism of the task and the treatment of the children weaken what the study tells us about real aggressive learning.</p>
+      <p class="zh">已考过的指定议题：validity（w24_11）· generalisations（m25_12）· ethics（w25_11，3 次之最——官方范例 "psychologically harmed by watching an adult beat up a Bobo doll"）。可以写：quantitative data（25.8 vs 2.0 两面可写）· reliability（S1）· ecological validity（W2 前半）。</p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Saavedra &amp; Silverman (2002) <span class="badge badge-tested">已考 · quantitative s24_13 · subjective s25_13</span></h4>
+      <p class="en"><b>S1 · Validity (method triangulation + follow-up)：</b> The case study used method triangulation and long-term follow-up, giving it high validity for understanding this individual's phobia. Information came from interviews with both the boy and his mother, direct observation of his behaviour in therapy, and self-report ratings; the origin of the fear (a bowl of buttons falling on him during a kindergarten art project at age 5) emerged from these interviews. Crucially, follow-ups at 6 and 12 months showed the gains lasted — he no longer met diagnostic criteria and was able to wear his school uniform with small buttons every day. Therefore, the conclusion that disgust-focused imagery exposure works is supported by converging evidence over time, not just a single session's improvement.</p>
+      <p class="en"><b>S2 · Quantitative data：</b> At every session the boy rated his distress on a Feelings Thermometer from 0 to 8, separately for each of the 11 hierarchy items (from large denim buttons rated 2 up to small coloured buttons rated 8), and the number of buttons he could handle was counted (rising from 1 to 3, 6 and then 11). As a result, the effect of each intervention could be compared over time — for example his rating for "hundreds of buttons falling on my body" fell from 8 to 3 across imagery exposure. Therefore, the therapists could make valid judgements about which treatment was working.</p>
+      <p class="en"><b>W1 · Generalisability：</b> With a single participant, generalisation is extremely limited. The study describes one 9-year-old Hispanic American boy with a specific phobia of buttons — a very rare condition (koumpounophobia) that he had had for four years. Females may respond differently to this type of therapy, and people with more common phobias of concrete objects may not find a Feelings Thermometer useful if their feared object is not concrete. Therefore, the success of disgust-focused imagery exposure here cannot be assumed for other children, other phobias or other cultures.</p>
+      <p class="en"><b>W2 · Subjective data / Self-report bias：</b> All distress ratings came from the boy's own Feelings Thermometer judgements, and the fear hierarchy was built from his own descriptions, so demand characteristics could have distorted the data — he was fully aware he was undergoing therapy and could have rated buttons as less frightening than he truly felt so as to appear to be improving, and his mother's own ratings could have been influenced by her desire to see her son improve. There was also no control condition, so the improvement cannot be compared against no-treatment or alternative treatment conditions. Therefore, the apparent effectiveness of the therapy partly rests on a single child's self-report.</p>
+      <p class="zh">已考过的指定议题：quantitative data（s24_13）· subjective data（s25_13）。可以写：self-reports（W2 同素材）· generalisations（W1）· ethics（consent 男孩+母亲、vulnerable participant、刻意暴露的暂时 distress）· validity（S1）。</p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Fagen et al. (2014) <span class="badge badge-tested">已考 · quantitative s24_11</span></h4>
+      <p class="en"><b>S1 · Quantitative data：</b> For every task the researchers counted the number of sessions, the mean session length, the number of offers required and the percentage of correct responses at each test, with a strict pass criterion of 80% correct over 10 trials. As a result, learning could be tracked numerically — the group's average success rose from 36.0% at session 10 to 89.3% by session 35, and the fastest elephant (Elephant 2) completed training in 25 sessions totalling 257 minutes while the adult needed 424 minutes and still failed. Therefore, the effectiveness of secondary-positive-reinforcement training could be objectively demonstrated rather than just described.</p>
+      <p class="en"><b>S2 · Ethics (animal welfare)：</b> The training method was ethically strong for animal research. It used only secondary positive reinforcement — a whistle as a conditioned marker followed by chopped banana — with no punishment or coercion at all, and participation was voluntary: an elephant could simply turn away. The research also had clear welfare value, since trunk washes are needed to screen captive elephants for tuberculosis, which infects 11–25% of captive elephants and is transmissible to humans. Therefore, the study follows the principles of minimising harm and using reward rather than deprivation in a way that benefits both the animals and their keepers.</p>
+      <p class="en"><b>W1 · Generalisability：</b> Only five female elephants from a single working stable in Nepal were studied — four juveniles aged 5–7 and one adult of about 50 — and the adult failed the training despite 424 minutes of work. Therefore, the finding that elephants can learn a trunk wash through reinforcement in about a week may only apply to young captive females in this setting, and not to adult elephants, males, or elephants in different housing conditions.</p>
+      <p class="en"><b>W2 · Reliability / Objectivity：</b> Whether an elephant's behaviour was good enough for a real trunk wash was decided by the trainer — the first author of the study — with no third-party assessment and no video review, and the training plan was adapted individually for each elephant rather than following a fixed protocol. Therefore, another trainer might have judged the same performances differently, which weakens the objectivity and replicability of the findings.</p>
+      <p class="zh">已考过的指定议题：quantitative data（s24_11）。可以写：ethics（S2，SPR 无惩罚）· generalisations（W1）· reliability（W2 是弱点方向）· validity（真实 working stable 的 ecological validity 作 strength）。<span class="warn">雷区：写"用大象所以 demand characteristics 低"不给分；称 field experiment 不给分。</span></p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Hassett et al. (2008) <span class="badge badge-tested">已考 · ethics m24_12 · generalisations s26_13</span></h4>
+      <p class="en"><b>S1 · Reliability (operationalisation + double observers)：</b> The observation was systematic and objective. The researchers defined a checklist of 15 specific behaviours (extended touch, hold, sit on, carry, drag, sniff, mouth, throw and so on) and recorded both the frequency and the exact duration of each from two video cameras, with two observers working together to reach a consensus on coding. Each trial was a standard 25 minutes, the plush and wheeled toys were always placed 10 metres apart, and their left–right positions were counterbalanced. Therefore, the measurements of toy interaction are replicable and not dependent on a single observer's impression.</p>
+      <p class="en"><b>S2 · Ethics (animal guidelines)：</b> The study followed animal-research ethical guidelines closely. It was approved by Emory University's animal care committee; the monkeys remained in their established natal groups in a 25 × 25 metre outdoor enclosure with temperature-controlled indoor access, were fed monkey chow twice daily with fruit and vegetables and constant water, and were observed only by video cameras, which would not have been distressing — the only incident was one plush toy being torn apart. Therefore, in terms of minimising harm, appropriate housing and reward-free non-invasive procedures, the study satisfies the standards expected of primate research.</p>
+      <p class="en"><b>W1 · Generalisability：</b> Although 135 monkeys lived in the troop, analyses were based on only 34 individuals (11 males, 23 females) from one research station, all living in captivity in their natal groups — some troop members were excluded because they were too young to identify reliably, and monkeys with fewer than five recorded behaviours on the checklist were dropped. Therefore, the sex-typed toy preferences found may only apply to this captive troop and not to wild monkeys, where no human toys are available at all.</p>
+      <p class="en"><b>W2 · Validity (toy categorisation and comparison)：</b> The toys were chosen for their object properties (wheeled versus plush) rather than being validated as "masculine" or "feminine", so the preference difference might actually be driven by other features such as texture or how the toy moves. The famous comparison with children's data (Berenbaum &amp; Hines, 1992) is also not like-for-like: the children were tested individually and only duration was measured, while the monkeys were tested as a group and frequency was the key measure — and presentation style is known to affect toy preference results. Therefore, the claim that monkey play parallels human gendered play is built on non-parallel measurements.</p>
+      <p class="zh">已考过的指定议题：ethics（m24_12；<span class="warn">只认动物指南清单：Minimising harm, Replacement, Species, Numbers, Pain/Distress, Housing, Reward/deprivation/aversive——写人类指南/写"未放归野外"不给分</span>）· generalisations（s26_13）。可以写：reliability（S1）· quantitative data（male wheeled 9.77 vs plush 2.06 次；偏好 wheeled 73% vs 39%）· validity（W2）。observer bias 论点须写明具体行为如何被带偏见观察，否则只按 brief 给分。</p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Hölzel et al. (2011) <span class="badge badge-tested">已考 · self-reports w25_13</span></h4>
+      <p class="en"><b>S1 · Validity (objective physiological measure + control group)：</b> Grey-matter concentration was assessed by structural MRI scans taken within two weeks before and after the eight-week programme, and a participant cannot deliberately change the density of their hippocampus in the way they could bias a questionnaire. The wait-list control group was matched to the same entry criteria and showed no grey-matter changes of its own (no increase in the left hippocampus), and the two groups did not differ at baseline (e.g. pre-test left-hippocampus scores and education level). Therefore, the increase in left hippocampal grey matter in the MBSR group can be attributed to the intervention rather than to expectancy or the passage of time.</p>
+      <p class="en"><b>S2 · Reliability / Self-reports (quantitative comparison)：</b> Participants completed the 39-item Five Facet Mindfulness Questionnaire at two fixed time points, before and after MBSR or the waiting period, and the MBSR group improved significantly on three facets — acting with awareness, observing and non-judging — while the control group did not change. As a result, the subjective experience of mindfulness could be compared across groups and time to test whether the programme had longer-term effects alongside the brain changes. Therefore, the study combines a standardised questionnaire with a standardised 8-week course (weekly 2.5-hour sessions plus one full-day session), both of which are replicable.</p>
+      <p class="en"><b>W1 · Generalisability：</b> Only 16 participants completed the MBSR group (two men withdrew after the first scan) and 17 were in the wait-list control, all aged 25–55, self-referred or doctor-referred stressed but psychologically and physically healthy adults who had signed up for an MBSR course at one US university. Therefore, the brain changes may not generalise to older adults, clinical populations or people who did not themselves choose to attend a stress-reduction course.</p>
+      <p class="en"><b>W2 · Self-reports / interpretive limits：</b> The FFMQ is a self-report, so the mindfulness scores depend on participants' own subjective judgements rather than any physiological measure. More importantly, the grey-matter increases correlated with neither the amount of homework practice (a mean of 22.6 hours overall) nor the change in FFMQ scores, and the authors themselves note that further research is needed with a control group receiving only the non-mindfulness-specific parts of the course (such as the social contact of the full-day session), so non-specific factors cannot yet be separated from mindfulness itself. Therefore, the claim that mindfulness practice changes the brain remains under-determined by the data.</p>
+      <p class="zh">已考过的指定议题：self-reports（w25_13——S2 strength 方向 / W2 weakness 方向，两面都备）。可以写：generalisations（W1）· reliability（标准化 MBSR + 固定扫描时点 ~56 天间隔）· quantitative data（灰质浓度 + FFMQ 分数）· validity（S1）· ethics（IRB 批准 + 排除金属植入/幽闭恐惧 + 2 人退出）。</p>
+    </div>
+
+    <div class="study" data-tested="no">
+      <h4>Dement &amp; Kleitman (1957) <span class="badge badge-predict">★预测</span></h4>
+      <p class="en"><b>S1 · Reliability / Objective measurement：</b> The study used objective physiological measurement, making the data reliable. Sleep stage was identified from EEG brain-wave records and eye movements from EOG electrodes placed around the eyes, with the wires gathered into a single cord so participants could move freely; the same electrode placement was used for every participant every night, so the recorded information was identical in kind. Waking was triggered by a doorbell loud enough to rouse participants instantly from any stage, and the procedure produced results consistent with earlier findings (Aserinsky &amp; Kleitman, 1955). Therefore, the key measurements do not depend on the experimenters' judgement, and the method is replicable.</p>
+      <p class="en"><b>S2 · Validity (controls)：</b> Participants did not know their EEG pattern or their eye movements, so they could not tailor their dream reports to what the experimenters expected — demand characteristics were low. A dream only counted if the participant could recall specific content, with vague "I dreamt something" reports excluded, which operationalised dreaming strictly. To control forgetting, participants were woken immediately by the doorbell, and one participant who might have learned the waking pattern (DN) still reported like the others, showing no practice effect. Therefore, the dramatic difference — dreams recalled after 152 of 191 REM awakenings (79.6%) but only 11 of 160 NREM awakenings (6.9%) — is a valid estimate of the REM–dream link.</p>
+      <p class="en"><b>W1 · Generalisability：</b> Only nine adults were studied — seven men and two women — with the main results coming from just five of them, all volunteers, who may have been people who dream vividly and remember dreams well (a self-selection bias). Therefore, the finding that everyone dreams on every night, and that dreams mostly occur in REM, is based on a handful of potentially untypical sleepers.</p>
+      <p class="en"><b>W2 · Ecological validity / Ethics：</b> Sleeping in the laboratory is not normal sleep. Participants spent the night in a dark but unfamiliar room, attached to EEG and EOG electrodes gathered into a "ponytail" of wires, under observation, and woken repeatedly at various times during the night by a doorbell, and they had to abstain from caffeine and alcohol, which may itself have made their sleep atypical. There was also deception: participant WD was told he would only be woken in REM when in fact he was woken in both stages, so fully informed consent was impossible. Therefore, the dream–REM relationship found may partly reflect the artificial conditions rather than natural sleep.</p>
+      <p class="zh">已考过的指定议题：<b>未考</b>（10 分题未出，很可能考——素材已在 B 类题多次作比较对象）。可以写：reliability（S1，EEG/EOG 客观性）· validity（S2，低 demand characteristics + 操作化）· generalisations（W1，9 人/核心 5 人）· ecological validity（W2 前半，实验室睡眠）· ethics（W2 后半，WD 的 deception；辩护：这是检验"预期是否影响报告"的唯一方法——写了辩证更亮眼）· quantitative data（79.6% vs 6.9%、5/15 分钟估计正确率 88%/78%、r=0.4–0.71）· subjective data（梦境叙述依赖自陈）。</p>
+    </div>
+
+  </div>
+</section>
+<!-- ============================================================
+     CIE 9990 Paper 1 · 复习文档 · 题型五至题型九
+     （片段文件：仅 4 个 section.qtype，供主文档拼装）
+     素材来源：答题素材库 / Debate题答案库 / Application题答案库 /
+     index.html 真题库 / Evaluation满分答案库（不得引用库外事实）
+============================================================ -->
+
+<!-- ==================== 题型五 ==================== -->
+<section class="qtype" id="qt5">
+  <h2>题型五 · Similarities &amp; Differences <span class="tag">Q9(b) · 8 分 · L1–L4</span></h2>
+
+  <div class="howto">
+    <h3>怎么答</h3>
+    <p class="q">问的是两个研究的<b>相似点和不同点</b>。每个点固定四句话。</p>
+    <ol class="steps"><li><b>点明</b>（1 句）：一句话说清是相似还是不同。</li><li><b>For example, in study A…</b>（1 句）。</li><li><b>In study B…</b>（1 句）。</li><li><b>Therefore…</b>（1 句）：解释这个比较说明什么。缺这句最多到 3 分档。</li></ol>
+    <ul class="dont"><li>只分别讲两个研究各做了什么、不点明异同 → 最多 1 分档。</li><li>题目禁写的内容（如 "Do not refer to sample"）写了整点作废——动笔前先读题。</li></ul>
+  </div>
+
+  <h3 class="sub">12 个研究的对照要点</h3>
+  <div class="study-grid">
+
+    <div class="study" data-tested="yes">
+      <h4>Bandura <span class="badge badge-tested">已考 3 次 · 配 Fagen(w24) / S&amp;S(w25) / Perry(s26)</span></h4>
+      <p class="en">Both the Fagen study and the Bandura study used observation as part of their data collection techniques. This means that specific behaviours could be operationalised to improve validity (explanation). For example, in Fagen there was trunk down which meant the trunk was hanging loose and in Bandura gun play was pretending to shoot at an object in the room.</p>
+      <p class="zh">建议写的维度：① Observation 作 similarity（上句官方满分）；② Experimental nature / IV（模型类型：攻击-非攻击、男-女）；③ Quantitative data（攻击行为模仿次数 → aggressive/nonaggressive、male/female 直接比较）。<span class="warn">高风险：experimental design 作差异 = 0（w24_13）；both used children = L1（w25_12）；多卷禁 sample。</span></p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Milgram <span class="badge badge-tested">已考 3 次 · 配 Perry(w24) / Piliavin(s25) / Piliavin(s26)</span></h4>
+      <p class="en">Both the Piliavin and Milgram studies have ethical issues. Both studies broke the guideline of deception and stressed participants [explanation]. In the Milgram study, participants believed they were giving real electric shocks to a stranger who could not remember word pairs. In the Piliavin study, the participants were led to believe that the drunk or ill victim needed help.</p>
+      <p class="zh">建议写的维度：① Ethics 作 similarity（上句官方满分，s26_11）；② Stooges 作 difference（human stooge vs animated，w24_12 官方）；③ Quantitative data（最大电击电压）。<span class="warn">高风险：ethics 作 difference 只认 Consent / harm / right to withdraw / deception——Confidentiality / Debriefing = 0 分（w24_12）；experimental designs 作差异 = 0；both volunteer samples = 0。</span></p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Piliavin <span class="badge badge-tested">已考 2 次 · 配 Perry(s25) / Milgram(s26)</span></h4>
+      <p class="en">The studies used stooges in different ways (explanation). In the Piliavin study a human stooge played the ill or drunk victim and further stooges acted as models, whereas Perry used an animated (computer) stooge.</p>
+      <p class="zh">建议写的维度：① Ethics 作 similarity（与 Milgram 共用上题官方句）；② Stooges 作 difference（human victim/model stooge vs animated）；③ Observation 作 similarity（s26_11 清单明示 both used observations）；④ Quantitative data（帮助潜伏时间、按种族/受害者计的帮助人数）。<span class="warn">高风险：sample 必答卷（s25_12）——至少各研究一项样本信息正确、且必须明确点出差异是什么才到 L4；sampling technique 不算 sample；只描述两个样本 = L2。</span></p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Perry <span class="badge badge-tested">已考 3 次 · 配 Milgram(w24) / Piliavin(s25) / Bandura(s26)</span></h4>
+      <p class="en">The studies used stooges in different ways (explanation). Milgram used a human stooge that the participant met beforehand but did not see during the duration of the procedure. In the Perry study the participants 'met' the animated stooge in various rooms/scenarios until they felt the stooge was invading personal space.</p>
+      <p class="zh">建议写的维度：① Stooges 作 difference（真人 vs 动画，上句官方满分 w24_12/s25_12）；② Ethics 作 difference（VR 情境避免真实伤害，注意只认四条指南）；③ Experimental nature（VR 情境实验的 IV：oxytocin/安慰剂）。<span class="warn">高风险：Confidentiality / Debriefing = 0 分；生物卷配对时 Perry 仅限其生物面向（m25_12）/ 仅限 oxytocin（s25_13）；use of a model 维度与 stooges 同源可互换（s26_13）。</span></p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Andrade <span class="badge badge-tested">已考 3 次 · 配 Pozzulo(m24) / 认知研究(s25) / Baron-Cohen(w25)</span></h4>
+      <p class="en">The studies by Andrade and Pozzulo used different experimental designs within them. Andrade was only independent groups with participants being placed in the doodling or control group. Part of the Pozzulo study was repeated measures as all participants saw target absent and target present line-ups. Therefore, in Andrade Ps only participated in one level of the IV whilst in Pozzulo Ps participated in multiple levels of the IV (explanation).</p>
+      <p class="zh">建议写的维度：① Experimental design 作 difference（上句官方满分 s25_11，但该维度只在部分卷给分）；② Experimental nature（doodling 有无，m24_12/w25_13 官方）；③ Cognitive skills 作 difference（sustained attention vs 面孔再认/情绪识别，用准术语）；④ Quantitative data。<span class="warn">高风险：audio vs visual task = L3 max（s25_11）；standardisation 比较 / different conclusions = L0；禁 sample 卷里 sampling technique 能否答逐字读题。</span></p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Pozzulo <span class="badge badge-tested">已考 2 次 · 配 Andrade(m24) / Andrade 备选(s25)</span></h4>
+      <p class="en">Part of the Pozzulo study was repeated measures as all participants saw target absent and target present line-ups, whereas Andrade used independent groups — therefore in Pozzulo Ps participated in multiple levels of the IV (explanation).</p>
+      <p class="zh">建议写的维度：① Experimental design（repeated measures：每人看 target present/absent）；② Quantitative data（识别正确率——儿童卡通面孔 99% / 成人真人 66%）；③ Cognitive skills（面孔再认 memory / line-up 识别）。<span class="warn">高风险：与 Baron-Cohen 从未配对（认知三研究唯一空白，预测答案见下方"还没考过的配对"）；experimental design 维度只在部分卷给分（w24_13 = 0）。</span></p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Baron-Cohen <span class="badge badge-tested">已考 3 次 · B4(s24) / Andrade 备选(s25) / Andrade(w25)</span></h4>
+      <p class="en">Both Andrade and Baron-Cohen studies were experimental in nature. For example, both studies had IVs. In the Andrade study there were two conditions of doodling and non-doodling. In the Baron-Cohen study the IV was natural and based around if a person had been diagnosed with AS/HFA or not. Therefore, both were trying to establish cause and effect (explanation).</p>
+      <p class="zh">建议写的维度：① Experimental nature（natural IV，上句官方满分 m24_12/w25_13）；② Quantitative data（眼神情绪判断正确数，四组比较）；③ Lack of mundane realism 作 similarity（只凭眼睛判断情绪）。<span class="warn">高风险：称其为 laboratory experiment 本身不给分（s24_13/w25_13）；matched pairs = L2 max（s25_11）；B4 禁 sample 卷里凡涉 sample/sampling technique = L0。</span></p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Dement &amp; Kleitman <span class="badge badge-tested">已考 5 次（最多）· 配 Hölzel(w24, s26) / Hassett 备选 / 单独点名(s24, w25)</span></h4>
+      <p class="en">Hölzel used an MRI scan to be able to see brain density changes after a mindfulness stress reduction course. Dement &amp; Kleitman used a different technique called an EEG that could only monitor brain wave activity/patterns. Therefore, Hölzel's method looked at structure whereas Dement looked at (real-time) function (explanation).</p>
+      <p class="zh">建议写的维度：① Brain measurement technique 作 difference（MRI vs EEG，上句三季共用官方满分：s24_11 / s25_13 / s26_12）；② Quantitative data（REM/NREM 梦境回忆次数、5/15 分钟判断）；③ Ethics（实验室睡眠、反复唤醒）。<span class="warn">高风险：禁 brain measurement 卷（w25_11）此维度整个作废；取样只接受 opportunity sampling（s24_11）；different species 作差异 = L1。</span></p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Hölzel <span class="badge badge-tested">已考 4 次 · 配 D&amp;K(w24, s26) / 单独点名(s25_13)</span></h4>
+      <p class="en">Both studies had small samples (Hölzel n=16; D&amp;K n≈7–9), making generalisability limited in both cases. Therefore, the findings of both may only apply to those in the sample (explanation).</p>
+      <p class="zh">建议写的维度：① Brain measurement 作 difference（与 D&amp;K 共用 MRI vs EEG 官方句，见上卡）；② Small samples / generalisability 作 similarity（s25_13 点名可用：Hölzel n=16）；③ Quantitative data（灰质密度、FFMQ 分数 → 前后比较）。<span class="warn">高风险：s25_13 禁 questionnaires——FFMQ/问卷相关答案忽略；B17 禁 sample；research method 作差异时两个方法都必须说对，否则 L0。</span></p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Hassett <span class="badge badge-tested">已考 2 次（点名）· 配 S&amp;S(m26) / 生物研究备选(m25, w25)</span></h4>
+      <p class="en">Both studies collected quantitative data. This allowed direct/statistical comparisons to be made across groups (explanation). In the Hassett study the frequency of play was measured for both types of toys to see a difference in plush-wheeled play. In Saavedra and Silverman, the boy rated buttons on a Feelings Thermometer so progression across therapy sessions could be compared.</p>
+      <p class="zh">建议写的维度：① Quantitative data（上句官方满分 m26_12）；② Research method 作 difference（structured observation vs case study：S&amp;S 有直接接触被试、Hassett 观察者无接触，m26_12 官方）；③ Ethics 作 similarity（动物指南）。<span class="warn">高风险：ethics 作 difference = L2 max（m25_12）；Hassett 不是 lab experiment（m26_12 明示）；different species 作差异 = L1 或 L0；gender of monkeys 不认。</span></p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Fagen <span class="badge badge-tested">已考 2 次 · 配 Bandura(w24) / 学习研究备选(s24)</span></h4>
+      <p class="en">Both the Fagen study and the Bandura study used observation as part of their data collection techniques. This means that specific behaviours could be operationalised to improve validity (explanation). For example, in Fagen there was trunk down which meant the trunk was hanging loose.</p>
+      <p class="zh">建议写的维度：① Observation 作 similarity（与 Bandura 共用官方句，w24_13）；② Quantitative data（通过任务所需 trial 数与难度等级）；③ Ethics（SPR 无惩罚、protective contact）。<span class="warn">高风险：称 Fagen 为 field experiment = 0（w24_13 明示）；experimental designs 作差异 = 0；different species = L1；both opportunity sampling = L2（s24_12）。</span></p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Saavedra &amp; Silverman <span class="badge badge-tested">已考 2 次 · 配 Bandura(w25) / Hassett(m26)</span></h4>
+      <p class="en">The two studies focus on a different theory from the learning approach. Bandura focused on social learning involving imitation and observation. Saavedra focused on operant conditioning/classical conditioning whereby the boy got rewarded by his mum during the treatment of his button phobia. So, Bandura is about vicarious learning, but Saavedra is about direct 'hands-on' experiences (explanation).</p>
+      <p class="zh">建议写的维度：① Learning theory 类型作 difference（上句官方满分 w25_12）；② Quantitative data（Feelings Thermometer，与 Hassett 共用 m26_12 官方句）；③ Research method 作 difference（case study vs 实验/观察）。<span class="warn">高风险：S&amp;S 不是 lab experiment 也不是 observation（m26_12 明示，说错 = L0）；both used children = L1；quantitative vs qualitative 作差异 = L2 max（w25_12）。</span></p>
+    </div>
+
+  </div>
+
+  <div class="pairbox">
+    <h3 class="sub">还没考过的配对（4 组）</h3>
+    <table class="ms">
+      <tr><th>未考配对</th><th>类型</th><th>最可能的高分比较点</th></tr>
+      <tr>
+        <td><strong>Pozzulo – Baron-Cohen</strong></td>
+        <td>认知流派对（三研究中唯一没配过的一对）</td>
+        <td>S：experimental / 量化数据 / 都被试池取样；D：cognitive skills（面孔再认 memory vs 情绪识别 emotion recognition，用准术语否则 L3 max）、对照组设计</td>
+      </tr>
+      <tr>
+        <td><strong>Hassett – D&amp;K</strong></td>
+        <td>生物流派对</td>
+        <td>S：量化数据、受控环境；D：测量技术（EEG vs 行为观察）。<span class="warn">雷区：different species = L1；禁 sample 卷别写非人类被试</span></td>
+      </tr>
+      <tr>
+        <td><strong>Hassett – Hölzel</strong></td>
+        <td>生物流派对</td>
+        <td>S：都遵守伦理机构规范（动物委员会 vs 医院/医学院指南——m25_12 官方认可方向）；量化数据；小样本</td>
+      </tr>
+      <tr>
+        <td><strong>Fagen – S&amp;S</strong></td>
+        <td>学习流派对（Bandura 已分别配过两者，只剩这对）</td>
+        <td>S：都用强化/reward（香蕉 vs 母亲奖励）、量化数据；D：research method（structured observation vs case study，两个方法都说对否则 L0）</td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<!-- ==================== 题型六 ==================== -->
+<section class="qtype" id="qt6">
+  <h2>题型六 · Debate <span class="tag">Q7 · 4 分 · individual vs situational / nature-nurture</span></h2>
+
+  <div class="howto">
+    <h3>怎么答</h3>
+    <p class="q">问的是<b>individual vs situational</b>（或 nature vs nurture）：两句定义 + 两个例子。</p>
+    <ol class="steps"><li><b>定义 individual</b>：背官方原句（见下）。</li><li><b>该研究的 individual 例子</b>（1 句，必须来自题目指定的研究）。</li><li><b>定义 situational</b>：背官方原句。</li><li><b>该研究的 situational 例子</b>（1 句）。</li></ol>
+    <ul class="dont"><li>循环定义不给分："situational is about the situation" = 0 分。</li><li>用别的研究的例子 = 0 分。</li></ul>
+  </div>
+  <table class="ms">
+    <tr><th>概念</th><th>官方定义（逐字背，7 份 MS 完全一致）</th></tr>
+    <tr><td><b>Individual</b></td><td>The individual side refers to behaviours from factors within the person/organism (dispositional).</td></tr>
+    <tr><td><b>Situational</b></td><td>The situational side refers to behaviour from factors in the external environment.</td></tr>
+    <tr><td><b>Nature</b></td><td>Nature is about behaviours being genetically encoded and with us from birth.</td></tr>
+    <tr><td><b>Nurture</b></td><td>Nurture is about the learning of behaviours through experiences/after birth.</td></tr>
+  </table>
+
+
+  <h3 class="sub">12 个研究的例子</h3>
+  <div class="study-grid">
+
+    <div class="study" data-tested="yes">
+      <h4>Bandura <span class="badge badge-tested">N/N 已考 w25_13 · ind-sit ★未考</span></h4>
+      <p class="en">★(ind) Children were matched on pre-existing aggression yet still showed different levels of imitation — dispositional differences remained. ★(sit) Only children who saw an aggressive model imitated aggression — the model's behaviour was the external trigger. (nat, official) Boys were more physically aggressive than girls, as this could be due to higher levels of testosterone/hormones. (nur, official) Participants were matched on aggression levels yet were much more likely to imitate a same-sex physically aggressive model — so learned.</p>
+      <p class="zh">nature-nurture 是官方已考（w25_13）——nat/nur 两句都可直接背。ind-sit 版需按★句预备。</p>
+    </div>
+
+    <div class="study" data-tested="no">
+      <h4>Milgram <span class="badge badge-predict">★全未考</span></h4>
+      <p class="en">★(ind) A few participants refused to continue at all — their personal conscience/personality traits made them disobedient. ★(sit) The 65% obedience was produced by the Yale setting, the lab coat of authority and the four prods — all external factors. (nat ★) the "Germans are different" hypothesis attributed obedience to national/dispositional traits. (nur ★) obedience to authority is a habit learned as we grow up.</p>
+      <p class="zh">Milgram 的 Debate 题从未考过——两句定义 + 上面例子即可组满 4 分答案。</p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Piliavin <span class="badge badge-tested">已考 w25_11（另有 w24_12 2分前身）</span></h4>
+      <p class="en">(ind, official) Some people left the critical area after the victim collapsed as they had a personality of not helping. (sit, official) Overall the ill victim was helped more than the drunk victim — could be because the drunk victim had caused the situation of collapsing themselves; (alt) the amount of people in the subway carriage affected how quickly help was given.</p>
+      <p class="zh">两侧都是官方原句，直接背。N/N ★预测：助人性格是天生倾向（nat）；助人是习得的社会规范（nur）。</p>
+    </div>
+
+    <div class="study" data-tested="no">
+      <h4>Perry <span class="badge badge-predict">★全未考</span></h4>
+      <p class="en">★(ind) Participants differed in their comfort threshold for distance — some allowed the stooge much closer before pressing the stop key. ★(sit) Participants given oxytocin kept different distances from those given placebo — the substance changed behaviour. (nat ★) innate differences in amygdala structure/OT receptors determine personal-space needs; (nur ★) cultural norms (Hall/Beaulieu) learn to set interpersonal distance.</p>
+      <p class="zh">ind-sit 最顺的写法：个体距离阈值（ind） vs oxytocin 操纵改变行为（sit）。</p>
+    </div>
+
+    <div class="study" data-tested="no">
+      <h4>Baron-Cohen <span class="badge badge-predict">★ind-sit 未考</span></h4>
+      <p class="en">★(ind) The AS/HFA group scored much lower on the Eyes Test than the comparison groups — individual differences in theory of mind ability. ★(sit) The groups were recruited differently (e.g. adults from the community/ads), which could have affected performance. (nat ★) ToM/empathy capacity shows innate differences (linked to ASD); (nur ★) understanding of emotion vocabulary comes from language experience (hence the glossary).</p>
+      <p class="zh">ind 侧素材极强（组间 ToM 差异），sit 侧较弱——考到时优先写 ind 例句 + 定义分全拿。</p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Andrade <span class="badge badge-tested">已考 s26_13</span></h4>
+      <p class="en">(ind, official) There were individual differences in the amount of doodling that each participant engaged in. (sit, official) The situation of a boring/monotonous telephone message made the participants doodle.</p>
+      <p class="zh">注意：ind 句里的 "individual differences" 作<strong>例子</strong>给分、作<strong>定义</strong>不给分——同一短语位置很重要。</p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Pozzulo <span class="badge badge-tested">已考 s26_12</span></h4>
+      <p class="en">(ind, official) The identification rate for adults for human faces in a target-present line-up was 0.66, showing that people's memories do differ. (sit, official) The correct rejection rate in children for human faces in the target-absent line-up was 0.45, showing that social pressures made them choose the wrong face.</p>
+      <p class="zh">例子可带数据（0.66 / 0.45）——"数据 + 指向该侧的解释"是最稳写法；Guidance 明示接受基于 children/adult memory 的论证作 ind 例子。</p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Dement &amp; Kleitman <span class="badge badge-tested">ind-sit 已考 w25_12 · N/N ★未考</span></h4>
+      <p class="en">(ind, official) All the dreams reported were unique, like throwing tomatoes at each other, showing that a person's individual personality is seen in their dreams. (sit, official) The participants were sleeping in a laboratory with an EEG attached, so this scenario may have affected their ability to recall dreams/estimated time in REM. (nat ★) the ~90-minute REM cycle is a physiological rhythm we are born with; (nur ★) dream content comes from waking experiences.</p>
+      <p class="zh"><span class="warn">雷区："different people have different dreams" 不算 ind 例子</span>——必须落到具体梦的内容（扔番茄）。</p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Fagen <span class="badge badge-tested">已考 m26_12（另有 s25_12 Two-friends 版）</span></h4>
+      <p class="en">(ind, official) All the juvenile elephants passed the full trunk wash, but the older adult elephant did not — it found it difficult due to poor eyesight/an abscess of its foot. (sit, official) The elephants were rewarded with bananas to encourage them to repeat the trained behaviours; (alt) the older elephant did not train well as a calf from the next stable kept visiting/interrupting.</p>
+      <p class="zh">s25_12 Two-friends 版补充：ind——Elephant 2 只需 25 次训练 / Elephant 1 要 30 次 / Elephant 5 失败（写编号）；sit——游客分心拖慢训练。</p>
+    </div>
+
+    <div class="study" data-tested="no">
+      <h4>Saavedra &amp; Silverman <span class="badge badge-predict">ind-sit ★未考 · nurture 已考 w24_12（2分版）</span></h4>
+      <p class="en">★(ind) Only this boy developed the button phobia — his fear had its own unique cause (the bowl of buttons in class). ★(sit) A jar of buttons fell on him in art class — an external event triggered the phobic behaviour; the therapy situation (maternal positive reinforcement) reduced his distress. (nur, official 2-mark) the phobia was learned through experiences after birth.</p>
+      <p class="zh">nurture 官方 2 分句可直接迁移到 4 分版的 nurture 例子位。</p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Hassett <span class="badge badge-tested">ind-sit 已考 s26_11 · N/N ★未考</span></h4>
+      <p class="en">(ind, official) Some monkeys were not used in the final analysis as they did not play with the toys, which was their choice. (sit, official) The situation was new and exciting for the monkeys as they had never seen the toys before, so this made them play. (nat ★) hormone differences (testosterone/oestrogen) produced the toy preference difference — same logic as the official Bandura nature example.</p>
+      <p class="zh"><span class="warn">雷区：gender of monkeys 不认；social rank 两头可用但只能用一次。</span>若考 N/N 版此研究风险全场最高——nurture 侧几乎无素材，可用对比句："human children's gendered toy play is usually attributed to socialisation, whereas these monkeys rule socialisation out"。</p>
+    </div>
+
+    <div class="study" data-tested="no">
+      <h4>Hölzel <span class="badge badge-predict">★全未考</span></h4>
+      <p class="en">★(ind) Participants differed in how much grey matter increase they showed — individual differences in brain plasticity. ★(sit/nur) An 8-week MBSR course (an external experience) produced the grey-matter increases — behaviour/brain shaped by environmental experience; neuroplasticity itself is evidence for nurture. (nat ★) innate differences in structures such as the hippocampus.</p>
+      <p class="zh">Hölzel 的 Debate 从未考——"经历改变脑结构"是最顺的 nurture/situational 素材。</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ==================== 题型七 ==================== -->
+<section class="qtype" id="qt7">
+  <h2>题型七 · Application to Everyday Life <span class="tag">Q5 · 4 分 · two applications</span></h2>
+
+  <div class="howto">
+    <h3>怎么答</h3>
+    <p class="q">问的是<b>两条"怎么用这个研究"的建议</b>，每条 = what + how 各 1 分。</p>
+    <ol class="steps"><li><b>WHAT</b>：用在哪个具体人群或场景（teachers、nurses、therapists…不能只写 people）。</li><li><b>HOW</b>：具体怎么做——借用研究里的方法（EEG、token system、MRI、正念课程…），不能只写术语。</li></ol>
+    <ul class="dont"><li>写"这个研究解释了为什么…"不给分——必须写"可以用它去做…"。</li><li>两条不能是同一个想法（换个说法或换个人群也算重复），只给一条的分。</li></ul>
+  </div>
+
+  <h3 class="sub">12 个研究的应用示例</h3>
+  <div class="study-grid">
+
+    <div class="study" data-tested="yes">
+      <h4>Milgram <span class="badge badge-tested">已考 3 次（最热）· s25_12 2分 / w24_13 情景 / s24_13 辩论版</span></h4>
+      <p class="en">① A teacher could get students to be more obedient (what) by wearing clothes that show authority like a technician's coat (how). ② Soldiers could be encouraged to be more obedient (what) as an authority figure can give out commands in a firm tone/stern voice (how).</p>
+      <p class="zh">官方补充方向：职场举报保护机制（"including whistleblowing policies in the workplace"）。<span class="warn">黑名单：dress code / prods 的例子必须具体才给分。</span></p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Andrade <span class="badge badge-tested">已考 2 次 · s24_11 5分 / w24_11 情景</span></h4>
+      <p class="en">① Students revising for an examination to help concentrate (what) — provide paper and allow them to doodle freely/with pre-drawn shapes to shade during revision (how). ② People in offices/meetings who need to concentrate (what) — allow doodling whilst listening (how).</p>
+      <p class="zh">满分路径：一条写深 = 人群 + 具体做法。<span class="warn">黑名单：次要任务不是涂鸦但合理（音乐/减压玩具）max L2；同一个 how 重复 REP 不给分；情景版"只说 doodle 一词"或 "use a pencil/pen" 不给分。</span></p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Hölzel <span class="badge badge-tested">已考 2 次 · s24_12 5分 / m26_12 4分</span></h4>
+      <p class="en">① Mindfulness can be used in the workplace to reduce stress (what) — yoga/meditation sessions as part of the working day (how). ② The study showed mindfulness increased grey matter concentration (what via finding) so meditation programmes could be introduced to populations experiencing cognitive decline (how).</p>
+      <p class="zh">官方另有：学校把正念纳入课程帮学生考后放松；焦虑/压力人群的冥想中心；MRI 用于识别脑结构问题；作业未改善 FFMQ → 减少作业量。<span class="warn">黑名单：涉及脑扫描必须写 MRI，否则 0 分；"mindfulness/MBSR" 一词本身不能当 how；只写 "stressed people" max 1。</span></p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Pozzulo <span class="badge badge-tested">已考 2 次 · w24_12 情景 / s26_13 4分</span></h4>
+      <p class="en">① Useful for police to improve children's EWT (what) by not making it an expectation that they must choose someone from the line-up (how). ② Interviewing child witnesses (what) by dressing the interviewer in casual/less authoritative clothing (how), or do not question a decision to avoid making the child doubt their choice (how).</p>
+      <p class="zh">w24 情景版素材：非权威着装、事前 child-friendly play、确保 target 在场、不用 target-absent line-up、开放式提问、监控儿童压力。<span class="warn">黑名单：卡通 line-up max 1。</span></p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Perry <span class="badge badge-tested">已考 1 次 · s26_11 4分</span></h4>
+      <p class="en">① Help companies with jobs requiring regular invasion of personal space (what) — applicants screened for high/low empathy via CIDS and selected on coping ability (how). ② Design therapy rooms (what) — allow clients to choose preferred chair angle/distance (how); or nurses take the IRI to measure empathy for staff selection (how).</p>
+      <p class="zh">how 三件套素材：CIDS、IRI、椅角/距离偏好。<span class="warn">黑名单：giving oxytocin to a population（给人群催产素）= 0；只写 "people/friends can" 无人群无场景 = 0。</span></p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Fagen <span class="badge badge-tested">已考 1 次 · s26_12 4分</span></h4>
+      <p class="en">① Teachers help students learn new skills (what) using a token system to motivate completing work on time (how). ② Domestic animal treatment (what) — move an eye dropper closer with a treat until used effectively (how); also vets/zookeepers train animals to undertake clinical procedures voluntarily / decrease stress (what).</p>
+      <p class="zh">how 素材：token/secondary reinforcer（有声点击器+食物）、shaping 渐进、通过长杆训练；pet owner 建议可给分。<span class="warn">黑名单：using SPR/rewards on animals for entertainment；SPR 一词本身不能当 how；同 idea 换人群只算一次。</span></p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Hassett <span class="badge badge-tested">已考 1 次 · s24_13 5分 banded</span></h4>
+      <p class="en">① Useful for advertising to focus content (what) — toy adverts tailored by what male/female monkeys (and children) preferentially play with (how). ② Product development for toy manufacturers (what) — make toys sex-specific (how). ③ Rehabilitation of monkeys/primates (what).</p>
+      <p class="zh"><span class="warn">黑名单：anything about gender issues and mental health 一律不给分</span>——按性别分类设计玩具可以，谈"性别刻板印象影响心理健康"不行。</p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Dement &amp; Kleitman <span class="badge badge-tested">已考 1 次 · m25_12 2分</span></h4>
+      <p class="en">① Help people with sleep-related disorders (what) — patients attached to an EEG monitor to see if brain waves whilst sleeping are typical (how). ② Used in therapy involving dream analysis (what) — patients woken in REM sleep (via a device detecting REM) and asked to recall dream content immediately (how).</p>
+      <p class="zh">how 直接搬研究器材（EEG + REM 唤醒）——"方法要素变应用"的教科书示范。</p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Saavedra &amp; Silverman <span class="badge badge-tested">已考 1 次 · s25_11 2分</span></h4>
+      <p class="en">① The boy revealed a bowl of buttons fell on him in art class (what = finding) — therefore a therapist may investigate when the person first came into contact with the phobic stimulus to unearth the cause (how). ② After just four treatment sessions the boy could cope with his worst fears (what = finding) — for children with phobias, having a parent involved in therapy might bring faster positive outcomes (how).</p>
+      <p class="zh">此卷 what 可以是 finding；治疗过程均视为 ethical。<span class="warn">黑名单：只说"imagery exposure therapy 应该被使用"不收——必须写怎么用（如逐步暴露）。</span></p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Bandura <span class="badge badge-tested">已考 1 次 · s25_13 2分</span></h4>
+      <p class="en">① Children could be taught prosocial behaviour (what) — observe a model engaging in prosocial behaviour/speech and imitate (how). ② TV companies/video game creators (what) — reduce aggression in programmes / present more prosocial behaviour (how); or parents censor TV/game content (what) — restrict time / not allow aggressive games (how).</p>
+      <p class="zh">示范 → 模仿的观察学习机制是 how 的万能来源。<span class="warn">黑名单：解释日常行为类答案（"要小心在孩子面前做 X"= 0，那是 retrospective）。</span></p>
+    </div>
+
+    <div class="study" data-tested="no">
+      <h4>Piliavin <span class="badge badge-predict">★还没考过</span></h4>
+      <p class="en">★① Emergency-response training for station staff / transport workers (what) — train them to step in immediately when someone collapses, because the study showed help is likely to be given quickly in public (how). ② First-aid education in schools (what) — teach pupils that helping is a shared responsibility, countering diffusion of responsibility (how). ③ Public-health campaigns to reduce bystander apathy (what) — posters/announcements telling commuters anyone can help and helping carries little cost (how).</p>
+      <p class="zh">应用素材 12 研究里最顺（真实地铁 + 助人行为）。可借要素：collapse 场景、helping latency、cane vs drunk（可用于减少对某些求助群体的污名宣传）。<span class="warn">避免写成"这个研究证明了人会算账"式 retrospective。</span></p>
+    </div>
+
+    <div class="study" data-tested="no">
+      <h4>Baron-Cohen <span class="badge badge-predict">★还没考过</span></h4>
+      <p class="en">★① Training programmes for adults with AS/HFA to improve mind-reading (what) — practise judging mental states from photographs of the eye region, with feedback, as a social-skills intervention (how). ② Clinical screening/assessment support (what) — clinicians use the revised Eyes Test as one measure when assessing adults for ASD traits, flagging low scores for fuller diagnosis (how). ③ Teacher training in mainstream schools (what) — staff use eye-region/face exercises in social-skills lessons for children with AS/HFA (how).</p>
+      <p class="zh">可借要素：Eyes Test 材料本身、eye-region 对比、AS/HFA vs 对照组成绩差。<span class="warn">黑名单预警：别写"给自闭症人群贴标签/强制治疗"类越界建议；筛选场景要写清楚是"辅助"而非"诊断"。</span></p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ==================== 题型八 · Aim 研究目的 ==================== -->
+<section class="qtype" id="qt8">
+  <h2>题型八 · Aim 研究目的 <span class="tag">2–4 分 · "State / Outline the aim(s)"</span></h2>
+  <div class="howto">
+    <h3>怎么答</h3>
+    <p class="q">问的是<b>研究想干什么</b>——不是研究做了什么、更不是发现了什么。这类题背熟原句就是送分题。</p>
+    <ol class="steps"><li>原句都以 <b>To investigate / To see if / To test / To identify</b> 开头，直接默写下面对应研究的句子。</li><li>一个研究常有多条 aim：题目问几条写几条；没说数量就写最核心的两条。</li><li>多份 MS 都有同一条提示：<b>不能照抄题目里的原词</b>——用背好的原句就不会踩这条。</li></ol>
+    <ul class="dont"><li>写成研究结果或结论（如 "found that 65% obeyed"）= 0 分。</li><li>把 aim 和 hypothesis（可检验的预测）混在一起写。</li></ul>
+  </div>
+
+  <h3 class="sub">12 个研究的 Aim（背诵版）</h3>
+  <div class="study-grid">
+
+    <div class="study" data-tested="yes">
+      <h4>Milgram (1963)</h4>
+      <p class="en">To investigate the level of obedience when an authority figure orders a person to administer a physical punishment to a stranger.</p>
+      <p class="zh">一条 aim。别顺手写 65%——那是结果。</p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Piliavin et al. (1969)</h4>
+      <p class="en">To investigate factors affecting helping behaviour on a New York subway train — specifically how the following affected help offered to a passenger who collapsed in the carriage: the type of victim (drunk or ill); the race of the victim (black or white); modelled help provided by another passenger; the number of people in the carriage (group size).</p>
+      <p class="zh">核心句 + 四个因素，四个都要列全。</p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Perry et al. (2015)</h4>
+      <p class="en">To investigate how oxytocin affects preferred interpersonal distance for those scoring high or low in empathy traits.</p>
+      <p class="zh">三个要素一个不能少：oxytocin / preferred interpersonal distance / 高低共情组。</p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Bandura, Ross &amp; Ross (1961)</h4>
+      <ol class="en">
+        <li>To investigate whether children imitate aggression of a model in the absence of the model.</li>
+        <li>To investigate whether children are more likely to imitate the behaviour of a same-sex model.</li>
+      </ol>
+      <p class="zh">两条都围绕 imitation；"in the absence of the model" 是第一条的关键短语。</p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Andrade (2010)</h4>
+      <ol class="en">
+        <li>To investigate whether doodling improves our ability to pay attention to (or concentrate on) auditory information.</li>
+        <li>To investigate whether doodling affects later recall of auditory information.</li>
+      </ol>
+      <p class="zh">两条 = attention 一条 + recall 一条；只写 "helps memory" 太笼统不给分。</p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Baron-Cohen et al. (2001)</h4>
+      <ol class="en">
+        <li>To test adults with AS/HFA on the revised Eyes Test to see if the deficits on the original test were still seen.</li>
+        <li>To see if there is a negative correlation between AQ and Eyes Test scores.</li>
+        <li>To see if females score higher on the Eyes Test than males.</li>
+      </ol>
+      <p class="zh">三条对应三组分析（临床组 / AQ 相关 / 性别差异）。</p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Pozzulo et al. (2011)</h4>
+      <p class="en">To explore the role of social and cognitive factors in children's identification of target faces in line-ups — specifically whether children: are less able to recognise human faces than adults; make more false positive identifications than adults when faced with target-absent line-ups versus target-present line-ups, and human faces versus cartoon characters.</p>
+      <p class="zh">social and cognitive factors 是主句关键词，两个"是否"各算一条。</p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Dement &amp; Kleitman (1957)</h4>
+      <ol class="en">
+        <li>To see if dream recall occurs during REM or non-REM sleep.</li>
+        <li>To see if there is a link between the estimate of dream length and the length of REM period.</li>
+        <li>To see if the pattern of eye movements (vertical/horizontal) is related to dream content.</li>
+        <li>To see if there is a positive correlation between the length of REM and the number of words given in a dream narrative.</li>
+      </ol>
+      <p class="zh">四条对应四个研究问题，任选题目要求数量默写。</p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Fagen et al. (2014)</h4>
+      <p class="en">To investigate whether secondary positive reinforcement (SPR) could be used to train elephants to voluntarily complete a trunk wash — a behaviour that allows the elephants to be tested for a disease called TB.</p>
+      <p class="zh">trunk wash 和 TB 的关系（为了筛查结核）要带上。</p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Saavedra &amp; Silverman (2002)</h4>
+      <ol class="en">
+        <li>To highlight the role of evaluative learning and disgust in the development and treatment of children's phobias.</li>
+        <li>To test the efficacy (effectiveness) of imagery exposure as part of an exposure-based cognitive-behavioural treatment for a specific phobia of buttons.</li>
+      </ol>
+      <p class="zh">evaluative learning + disgust 两个关键词在第 1 条里。</p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Hassett et al. (2008)</h4>
+      <ol class="en">
+        <li>To test if sex differences in children's toy preferences result from biological factors (e.g. prenatal hormone exposure) rather than through socialisation.</li>
+        <li>To investigate if male and female rhesus monkeys have similar toy preferences to human infants, despite no socialisation experience with human toys.</li>
+      </ol>
+      <p class="zh">第 2 条的 "despite no socialisation" 是猴子做被试的理由，别删。</p>
+    </div>
+
+    <div class="study" data-tested="yes">
+      <h4>Hölzel et al. (2011)</h4>
+      <ol class="en">
+        <li>To identify if regular participation in Mindfulness-Based Stress Reduction (MBSR) leads to measurable neurological changes.</li>
+        <li>To identify brain structures which changed as a result of an eight-week MBSR programme.</li>
+      </ol>
+      <p class="zh">两条都以 To identify 开头；别写成 "meditation changes the brain" 这种结论句。</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ==================== 题型九 ==================== -->
+<section class="qtype" id="qt9">
+  <h2>题型九 · 考前抢分与休眠考点 <span class="tag">综合收尾 · Q10 轮换 / B 类存量 / 陷阱 / 背诵</span></h2>
+
+  <div class="howto">
+    <h3>怎么用这一节</h3>
+    <p class="q">考试前最后看的部分：哪些内容<b>还没考过、最值得优先准备</b>，以及最容易丢分的地方。</p>
+    <ul class="dont">
+      <li>10 分题还没考过的研究：<b>Dement &amp; Kleitman、Perry</b>——两套完整答案已在题型四。</li>
+      <li>10 分题还没考够的议题：<b>reliability、generalisability</b>——每个研究的标准答案里都有现成的段落。</li>
+      <li>Q9(b) 还没考过的配对 4 组、Q5 还没考过的研究 2 个，都在各自题型章节的末尾。</li>
+    </ul>
+  </div>
+
+
+  <h3 class="sub">一、10 分题指定议题全记录（2024–2026 共 18 题）</h3>
+  <p class="zh">看一眼就够：哪些议题考得最多（ethics ×4、quantitative data ×3），哪些研究还没考过 10 分题（Dement &amp; Kleitman、Perry）。</p>
+<table class="ms">
+      <tr><th>场次</th><th>研究</th><th>Named issue</th></tr>
+      <tr><td>m24_12</td><td>Hassett</td><td>ethics</td></tr>
+      <tr><td>s24_11</td><td>Fagen</td><td>quantitative data</td></tr>
+      <tr><td>s24_12</td><td>Baron-Cohen</td><td>ethics</td></tr>
+      <tr><td>s24_13</td><td>S&amp;S</td><td>quantitative data</td></tr>
+      <tr><td>w24_11</td><td>Bandura</td><td>validity</td></tr>
+      <tr><td>w24_12</td><td>Andrade</td><td>sampling technique</td></tr>
+      <tr><td>w24_13</td><td>Piliavin</td><td>ethics</td></tr>
+      <tr><td>m25_12</td><td>Bandura</td><td>generalisations from the sample</td></tr>
+      <tr><td>s25_11</td><td>Milgram</td><td>sampling technique</td></tr>
+      <tr><td>s25_12</td><td>Baron-Cohen</td><td>quantitative data</td></tr>
+      <tr><td>s25_13</td><td>S&amp;S</td><td>subjective data</td></tr>
+      <tr><td>w25_11</td><td>Bandura</td><td>ethics</td></tr>
+      <tr><td>w25_12</td><td>Pozzulo</td><td>ecological validity</td></tr>
+      <tr><td>w25_13</td><td>Hölzel</td><td>self-reports</td></tr>
+      <tr><td>m26_12</td><td>Milgram</td><td>reliability</td></tr>
+      <tr><td>s26_11</td><td>Andrade</td><td>ecological validity</td></tr>
+      <tr><td>s26_12</td><td>Piliavin</td><td>quantitative data</td></tr>
+      <tr><td>s26_13</td><td>Hassett</td><td>generalisations</td></tr>
+    </table>
+  <h3 class="sub">二、B 类休眠维度清单（官方已认可、考场还没用）</h3>
+  <div class="pairbox">
+    <table class="ms">
+      <tr><th>休眠维度</th><th>出处（哪份 MS 点名）</th><th>一句话模板</th></tr>
+      <tr><td><strong>Correlations</strong></td><td>m25_12（Hassett 清单）</td><td>某研究分析了变量间相关（如 Hölzel 的 FFMQ–灰质零相关），另一研究只做组间比较 → 差异点</td></tr>
+      <tr><td><strong>Individual-situation arguments</strong></td><td>s25_11（Andrade 清单）</td><td>Baron-Cohen 的 IV 是个体特征（无法分配 situation）vs Andrade 操纵情境 → 设计差异</td></tr>
+      <tr><td><strong>Use of a model</strong></td><td>s26_13（Bandura–Perry 清单）</td><td>Bandura 用真人攻击榜样 vs Perry 用动画 stooge——与 stooges 维度同源可互换</td></tr>
+      <tr><td><strong>Control group 的有无/类型</strong></td><td>s25_11</td><td>Andrade 有 no-doodling 对照组 vs Baron-Cohen 用 IQ-matched 对照组（类型不同）</td></tr>
+      <tr><td><strong>Nature-nurture 取向</strong></td><td>m26_12（Hassett–S&amp;S 清单）</td><td>Hassett 检验先天偏好（排除社会化）vs S&amp;S 治疗后天习得恐惧 → 差异点</td></tr>
+      <tr><td><strong>Social approach 假设作 similarity</strong></td><td>s26_11（=L3 max，须写出正确假设）</td><td>两研究都体现"行为受他人实际/想象在场影响"——只说 both social approach 不带假设 = L1</td></tr>
+      <tr><td><strong>Generalisability 作 similarity</strong></td><td>多卷清单（s24_11、w24_12 等）</td><td>两研究都难以概化（小样本/单一地区）→ 相似点，配各研究数字</td></tr>
+      <tr><td><strong>Observation 作 similarity</strong></td><td>s26_11 清单（both used observations）</td><td>Milgram（观察被试表现）与 Piliavin（观察帮助行为）都靠观察收集数据</td></tr>
+    </table>
+    <ul class="zh">
+      <li><strong>未考配对 4 组：</strong>Pozzulo–Baron-Cohen、Hassett–D&amp;K、Hassett–Hölzel（生物对）、Fagen–S&amp;S（学习对）——预测答案见题型五末尾。</li>
+      <li><strong>限制条件未考变体：</strong>已考 must-be-about 只有 sample（×2）、brain technique、ethics——未来可能 "must be about quantitative data / observation / research method"；已考禁答 5 种之外可能出现 "Do not refer to ethics"（此时 ethics 封顶规则反转为禁区）。</li>
+    </ul>
+  </div>
+
+  <h3 class="sub">三、失分陷阱 TOP10（按出现频率排序，附英文原话）</h3>
+  <div class="study-grid">
+    <div class="study" data-tested="yes">
+      <h4>TOP 1 · Q9(b) "different aims" / 只分别描述两研究</h4>
+      <p class="en">"Different aims" = L1 max; just describing what happened in each study is treated as different aims.</p>
+      <p class="zh">几乎所有 B 类卷都写了这条。对策：第一句必须直接点明相似/不同点是什么。</p>
+    </div>
+    <div class="study" data-tested="yes">
+      <h4>TOP 2 · 未明确点出异同（2025–2026 收紧）</h4>
+      <p class="en">If the similarity/difference is not explicitly stated = L2 max (B10/B13/B16/B17/B18).</p>
+      <p class="zh">读起来像两研究各描述一遍 = L1。点明句在前，例证在后。</p>
+    </div>
+    <div class="study" data-tested="yes">
+      <h4>TOP 3 · 踩题干禁区</h4>
+      <p class="en">"Do not refer to sample / questionnaires / brain measurement techniques / sampling / approaches" — 写了就是 L0 或整点不给分。</p>
+      <p class="zh">审题第一；注意禁 sample 的卷里 sampling technique 是否可答要逐字读题干（两卷口径相反）。</p>
+    </div>
+    <div class="study" data-tested="yes">
+      <h4>TOP 4 · 无解释句 / "easy to analyse" 充当解释</h4>
+      <p class="en">Description only = L3 max; "easy to analyse/compare" does not count as the explanation for quantitative data.</p>
+      <p class="zh">解释必须说比较带来了什么（direct/statistical comparisons across groups）并以 Therefore 开头。</p>
+    </div>
+    <div class="study" data-tested="yes">
+      <h4>TOP 5 · Debate 同义反复定义</h4>
+      <p class="en">"Ignore tautological definitions"; "Do not credit individual differences as a definition mark."</p>
+      <p class="zh">定义只有官方两句，逐字背；"individual differences" 放定义位 0 分、放例子位 1 分。</p>
+    </div>
+    <div class="study" data-tested="yes">
+      <h4>TOP 6 · Application 写成回顾性解释</h4>
+      <p class="en">"They must be proactive/prospective applications, not explanations/retrospective"; "help us understand X" = 0.</p>
+      <p class="zh">检查句式：开头必须是 can/could be used to <strong>do</strong> 什么。</p>
+    </div>
+    <div class="study" data-tested="yes">
+      <h4>TOP 7 · Application 人群/场景不具体</h4>
+      <p class="en">"Do not credit responses that simply state 'people / children / friends can'."</p>
+      <p class="zh">开头点名人群：nurses、teachers、therapists、toy manufacturers、police officers；只写 "stressed people" max 1。</p>
+    </div>
+    <div class="study" data-tested="yes">
+      <h4>TOP 8 · 10 分题 named issue 缺失 / no context 泛泛点</h4>
+      <p class="en">Not including the named issue = max L3 (5–6 marks); no-context points (e.g. "There was a standardised procedure meaning it could be replicated") only support low bands.</p>
+      <p class="zh">写前 30 秒先问：题目指定的议题是什么、哪两点回应它；每个论点挂具体细节（数字、器材、程序）。</p>
+    </div>
+    <div class="study" data-tested="yes">
+      <h4>TOP 9 · 研究事实张冠李戴</h4>
+      <p class="en">Milgram–Perry ethics difference only credits Consent / harm / right to withdraw / deception (Confidentiality / Debriefing = 0); Baron-Cohen ethics only three guidelines (right to withdraw / deception / privacy / debrief not in the paper); "Do not credit Fagen as a field experiment"; D&amp;K sampling only opportunity.</p>
+      <p class="zh">另：S&amp;S 不是 lab experiment 也不是 observation；Hassett 不是 lab experiment；混淆研究名称/术语 = L2 max（标 NBOD）。</p>
+    </div>
+    <div class="study" data-tested="yes">
+      <h4>TOP 10 · 卷专属黑名单 + 两条 application 同源</h4>
+      <p class="en">Perry: "giving oxytocin to a population"; Hassett: "anything about gender issues and mental health"; Fagen: "using SPR/rewards on animals for entertainment"; Hölzel: brain-scan applications must say MRI; "same idea but just a different population then only credit once" (REP).</p>
+      <p class="zh">术语（SPR、mindfulness、imagery exposure）不能当 how；两条只写一条 = 丢 2 分——4 分版是两栏结构，写满。</p>
+    </div>
+  </div>
+
+  <h3 class="sub">四、考前一天背诵清单（checklist）</h3>
+  <div class="pairbox">
+    <table class="ms">
+      <tr><th>背诵项</th><th>内容（库内原文）</th></tr>
+      <tr><td>□ Debate 两句定义（ind-sit）</td><td>"The individual side refers to behaviours from factors within the person/organism (dispositional)." / "The situational side refers to behaviour from factors in the external environment."</td></tr>
+      <tr><td>□ Debate 两句定义（N/N）</td><td>"Nature is about behaviours being genetically encoded and with us from birth." / "Nurture is about the learning of behaviours through experiences/after birth."</td></tr>
+      <tr><td>□ Q9(b) L4 公式</td><td>点明异同 → For example, in study A … → In study B … → Therefore / This means that …（缺 Therefore 最高 L3；缺点明最高 L2）</td></tr>
+      <tr><td>□ Q5 两步公式</td><td>WHAT（tick）：specific population + goal；HOW（plus）：借研究方法要素的动作。自检三问：人群具体？how 是动作？两条 what 不同源？</td></tr>
+      <tr><td>□ Q10 三句式</td><td>论点 → 该研究 2–3 个具体细节（数字/器材/程序）→ Therefore 后果句；named issue 必踩否则 max L3。</td></tr>
+      <tr><td>□ Milgram 最稳证据句</td><td>The prods were always the same and the feedback from the learner never changed (it was recorded) → easier to replicate for comparable findings.</td></tr>
+      <tr><td>□ Piliavin 最稳证据句</td><td>They timed how quickly people helped / how many of each race helped → compare helping between races or victim types (95% cane vs 50% drunk).</td></tr>
+      <tr><td>□ Perry 最稳证据句</td><td>Double-blind oxytocin vs saline placebo, two counterbalanced sessions one week apart → differences cannot be explained by researcher expectations or order effects.</td></tr>
+      <tr><td>□ Andrade 最稳证据句</td><td>Every participant heard the same mock telephone message at 227 words per minute → increases reliability / replicable.</td></tr>
+      <tr><td>□ Baron-Cohen 最稳证据句</td><td>They counted the number of correct emotions identified from the eyes → compare performance across the four groups (AS/HFA 21.9 vs student 28.0).</td></tr>
+      <tr><td>□ Pozzulo 最稳证据句</td><td>For every participant the instructions for the line-up identification process were the same; the cartoon targets were Dora and Diego → testable for reliability.</td></tr>
+      <tr><td>□ Bandura 最稳证据句</td><td>Participants were rated on aggression prior to the study → more confident it was the IV (type of model) affecting the DV.</td></tr>
+      <tr><td>□ S&amp;S 最稳证据句</td><td>The boy rated buttons on a Feelings Thermometer so progression across therapy sessions could be compared（n=1 是最稳 weakness）。</td></tr>
+      <tr><td>□ Fagen 最稳证据句</td><td>They counted the number of trials it took to pass the trunk wash → compare performance across the five elephants; only 5 elephants → may not represent other elephants including adult ones.</td></tr>
+      <tr><td>□ Hassett 最稳证据句</td><td>Only 34 rhesus monkeys, some of the troop too young to be reliably identified, captive troop → findings may only apply to those in the sample / not wild monkeys.</td></tr>
+      <tr><td>□ Hölzel 最稳证据句</td><td>Participants completed the FFMQ at two time points (before and after MBSR or control) → compare changes in all five mindfulness measures for both groups.</td></tr>
+      <tr><td>□ D&amp;K 最稳证据句</td><td>Dreams recalled after 152 of 191 REM awakenings (79.6%) but only 11 of 160 NREM awakenings (6.9%)；EEG/EOG 客观记录。</td></tr>
+      <tr><td>□ 两句 Q9(b) 官方满分范例</td><td>MRI vs EEG："Hölzel's method looked at structure whereas Dement looked at (real-time) function"；Stooges："Milgram used a human stooge … Perry … the animated stooge"。</td></tr>
+      <tr><td>□ 优先准备</td><td>D&amp;K 与 Perry 的 Q10 从未考（很可能接着考）；Q9(b) 未考配对 4 组（Pozzulo–B-C / Hassett–D&amp;K / Hassett–Hölzel / Fagen–S&amp;S）；Q5 未考研究 2 个（Piliavin、Baron-Cohen）。</td></tr>
+    </table>
+  </div>
+</section>
+
+<footer class="foot">
+  <p>CIE 9990 Psychology · Paper 1 题型攻略 · 素材来源：2024–2026 共 17 份官方 QP + Mark Scheme 与配套线上课件</p>
+</footer>
+
+</div>
+</body>
+</html>
