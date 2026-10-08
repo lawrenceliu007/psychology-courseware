@@ -1393,7 +1393,7 @@ body.nav-open #sn-mask{display:block}
   var sections=[].slice.call(document.querySelectorAll('section.qtype'));
   var secTargets=[],studyTargets=[];
   var mq=window.matchMedia('(min-width:1300px)');
-  function applyDesktop(){document.body.classList.toggle('sn-desktop',mq.matches);}
+  function applyDesktop(){document.body.classList.toggle('sn-desktop',mq.matches);if(mq.matches)document.body.classList.remove('nav-open');}
   mq.addEventListener?mq.addEventListener('change',applyDesktop):mq.addListener(applyDesktop);
   applyDesktop();
 
