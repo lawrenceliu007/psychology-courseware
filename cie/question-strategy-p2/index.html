@@ -44,6 +44,14 @@ ol.steps li{margin:5px 0;font-size:14.5px}
 ul.dont{margin:6px 0 2px;padding-left:22px;list-style:none}
 ul.dont li{margin:5px 0;font-size:13.5px;color:var(--warn)}
 ul.dont li::before{content:"✗ ";font-weight:700}
+div.model{margin:12px 0 4px;padding:12px 14px;background:#f0fbf7;border:1px solid #b7e4d5;
+  border-left:4px solid #0e9f7a;border-radius:10px}
+div.model-head{font-weight:700;color:#065f46;font-size:14px;margin-bottom:2px}
+span.model-src{font-weight:400;color:#6b7280;font-size:12px;margin-left:6px}
+p.model-p{margin:8px 0;font-size:13.5px;line-height:1.6;color:#1f2937}
+span.ft{display:inline-block;background:#0e9f7a;color:#fff;font-size:11px;font-weight:700;
+  border-radius:5px;padding:0 6px;margin-right:5px;vertical-align:1px}
+p.model-note{margin:8px 0 0;font-size:12.5px;color:#374151;border-top:1px dashed #b7e4d5;padding-top:7px}
 h3.sub{margin:22px 0 12px;font-size:16px;color:var(--ink);border-left:4px solid var(--accent);
   padding-left:10px}
 div.study-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
@@ -529,6 +537,7 @@ footer.foot{color:var(--muted);font-size:12.5px;text-align:center;margin-top:36p
       <li><b>策略：先写下 4 个 feature 的小标题，每个标题下写 2–3 句具体操作</b>——保证 tick + underline 双拿。</li>
       <li>方法错配封顶：correlation 卷写成 experiment → max L2（s24_23）；longitudinal 卷写成单次实验 → 不可接受（s26_22）。</li>
     </ol>
+    <p class="zh">📄 <b>下面每张方法卡都附一篇满分范文</b>（Level 5 结构 · 全部用真题原情景写 · 每段开头标注它拿的是哪个 required feature 的分）。和 Paper 1 的 Evaluation 一样：先把范文背熟，考场上换人名、换变量直接套。</p>
   </div>
 
   <div class="study">
@@ -544,6 +553,14 @@ footer.foot{color:var(--muted);font-size:12.5px;text-align:center;margin-top:36p
       <li>写成实验（manipulate 一个变量）→ max Level 2</li>
       <li>(b) 部写 "experiments 的优缺点" = 0；写"测量方式的优缺点"可以</li>
     </ul>
+    <div class="model">
+      <div class="model-head">🏆 满分范文（Level 5 结构 · 可直接背）<span class="model-src">真题情景：s26_23 · Lorna — public transport vs musical knowledge</span></div>
+      <p class="model-p"><span class="ft">[a ✓]</span>The two co-variables are the <b>amount of time spent travelling on public transport</b> (measured in minutes per week) and the <b>level of musical knowledge</b> (a score on a music test).</p>
+      <p class="model-p"><span class="ft">[b ✓]</span>Time travelling is measured with a short questionnaire: each passenger reports how many minutes they spend on public transport in a typical week (e.g. "under 1 hour / 1–3 hours / over 3 hours per day"), and the answers are converted into a weekly total in minutes.</p>
+      <p class="model-p"><span class="ft">[c ✓]</span>Musical knowledge is measured by a 20-item music quiz: participants hear short song clips and name the song or artist, scoring 1 mark per correct answer, giving a total score out of 20.</p>
+      <p class="model-p"><span class="ft">[d ✓]</span>Each participant's two totals are plotted on a <b>scatter graph</b> (minutes travelled on the x-axis, quiz score on the y-axis) to show the nature of the relationship — its direction (positive or negative) and its strength (strong or weak).</p>
+      <p class="model-note">为什么这是 L5：4 个 feature 全部出现且每个都带 underline 级细节（两个变量都是"量"、每种测量都写到了具体工具和计分）。背熟后考场上换两个变量即可复用。</p>
+    </div>
   </div>
 
   <div class="study">
@@ -558,6 +575,14 @@ footer.foot{color:var(--muted);font-size:12.5px;text-align:center;margin-top:36p
       <li>只写 "interview people about X" 没有 format/questions/scoring 三件套 → features 丢失</li>
       <li>问题例子必须具体到能直接念出来（"How often do you talk to your parents? Every day / week / month"）</li>
     </ul>
+    <div class="model">
+      <div class="model-head">🏆 满分范文（Level 5 结构 · 可直接背）<span class="model-src">真题情景：m25_22 · Dr Anand — structured interviews with 8–10 year olds and their parents</span></div>
+      <p class="model-p"><span class="ft">[a ✓]</span>Dr Anand will use mostly <b>open questions</b> (which produce qualitative data about what the children talk about), with some <b>closed questions</b> for the "how long / how positive" features, and a friendly <b>filler question</b> at the start to put each child at ease.</p>
+      <p class="model-p"><span class="ft">[b ✓]</span>Example questions: "What did you talk about with your parent this week?" (open — any answer about any topic) and "How happy do you feel talking to your parent: very happy, quite happy, or not happy?" (closed — three fixed responses).</p>
+      <p class="model-p"><span class="ft">[c ✓]</span>Scoring: the closed positivity question is scored 1–3, and the minutes each child reports talking for are totalled so Dr Anand can compare the <b>mean</b> conversation length; the open answers are analysed qualitatively for common themes (e.g. school, hobbies, feelings).</p>
+      <p class="model-p"><span class="ft">[d ✓]</span>The interview is <b>structured</b>: every parent–child pair is asked the <b>same 10 questions, in the same order</b>, in the same friendly tone, with Dr Anand dressed the same way for every interview.</p>
+      <p class="model-note">为什么这是 L5：format/questions/scoring 三件套齐全，例子具体到"能直接念出来"，且 structured 的标准句（same questions, same order, same tone）全部点名——这正是 MS 列的 (d) 原文。</p>
+    </div>
   </div>
 
   <div class="study">
@@ -572,6 +597,14 @@ footer.foot{color:var(--muted);font-size:12.5px;text-align:center;margin-top:36p
       <li>只写一种 data collection technique → 丢一个 feature</li>
       <li>w25_23 版只禁 ethics、没禁 sampling——看清题干禁令</li>
     </ul>
+    <div class="model">
+      <div class="model-head">🏆 满分范文（Level 5 结构 · 可直接背）<span class="model-src">真题情景：s24_21 · Mary — case study of doodling in a boy with ASD</span></div>
+      <p class="model-p"><span class="ft">[a ✓]</span>The participant is a <b>9-year-old boy diagnosed with an autistic spectrum disorder</b>, referred to Mary through his school; background information is gathered from his <b>parents and teachers</b> (diagnosis details, school reports, home situation).</p>
+      <p class="model-p"><span class="ft">[b ✓]</span>The content collected about the doodles includes: the <b>types</b> of doodles he draws (collected from his notebooks over one month), <b>how often</b> he doodles (frequency per day), and what each doodle is <b>associated with</b> — e.g. whether he doodles when anxious, bored or happy.</p>
+      <p class="model-p"><span class="ft">[c ✓]</span>At least two techniques: Mary <b>observes</b> him in class and tallies every doodle on a checklist; she <b>interviews</b> him with simple open questions about his doodles; and his parents and teachers complete a <b>5-point rating scale</b> of how often he doodles at home and at school.</p>
+      <p class="model-p"><span class="ft">[d ✓]</span>Analysis: the checklists and rating scales give <b>quantitative</b> data (frequencies, means) and the interviews give <b>qualitative</b> data. Mary uses <b>triangulation</b> — checking that the three sources agree — so she can be confident in her conclusion about the function of his doodling.</p>
+      <p class="model-note">为什么这是 L5：MS 的 4 个 feature 原文逐条对应；triangulation 按 MS 原话写"sources agree → confident conclusion"（MS 特别注明这不是 reliability，别写错词）。</p>
+    </div>
   </div>
 
   <div class="study">
@@ -586,6 +619,14 @@ footer.foot{color:var(--muted);font-size:12.5px;text-align:center;margin-top:36p
       <li>四个维度每个都要 explicit——混在一句里只 tick 一次</li>
       <li>categories 必须可观察（"being friendly" 不行，"smiling at others" 行）</li>
     </ul>
+    <div class="model">
+      <div class="model-head">🏆 满分范文（Level 5 结构 · 可直接背）<span class="model-src">真题情景：s24_22 · Chloë — participant observation of mealtimes at work</span></div>
+      <p class="model-p"><span class="ft">[a ✓]</span><b>Participant observation</b>: Chloë takes a job as a <b>server in the staff canteen</b>, so she takes part in the social context of mealtimes — serving and eating alongside the workers — while recording their behaviour.</p>
+      <p class="model-p"><span class="ft">[b ✓]</span>The observation is <b>covert</b>: the workers are <b>not told</b> she is observing them, so they behave naturally at mealtimes.</p>
+      <p class="model-p"><span class="ft">[c ✓]</span>It is <b>naturalistic</b>: the behaviour happens in the real workplace during real mealtimes, not a set-up situation (though the type of food served and the time of day vary naturally).</p>
+      <p class="model-p"><span class="ft">[d ✓]</span>It is <b>structured</b>, using behavioural categories, e.g.: (1) eats alone in silence; (2) eats while talking to one colleague; (3) eats in a group of three or more with conversation; (4) shares food with others. Chloë tallies each category on a checklist during every mealtime.</p>
+      <p class="model-note">为什么这是 L5：MS 明示四个维度必须 explicit and separate——范文每段只写一个维度；categories 全部是可观察行为（不是 "sociable" 这种模糊词）。</p>
+    </div>
   </div>
 
   <div class="study">
@@ -600,6 +641,22 @@ footer.foot{color:var(--muted);font-size:12.5px;text-align:center;margin-top:36p
       <li>controls 只写 "controlled variables" 不列具体 → 没有 underline</li>
       <li>IMD 卷可以补 location（field 版）替代 design（s25_21 给了 And/OR 选项）</li>
     </ul>
+    <div class="model">
+      <div class="model-head">🏆 满分范文 1 · Lab experiment（Level 5 结构 · 可直接背）<span class="model-src">真题情景：m24_22 · Henri — pleasant smells and daydreaming</span></div>
+      <p class="model-p"><span class="ft">[a ✓]</span><b>IV</b>: the smell in the room, operationalised as two conditions — participants sit in a room with a <b>pleasant flower smell</b> (fresh flowers placed in the room) vs a <b>no-smell control condition</b> (same room, no flowers).</p>
+      <p class="model-p"><span class="ft">[b ✓]</span><b>DV</b>: daydreaming, operationalised as the <b>number of daydreams each participant reports</b> — they press a handheld counter every time they notice themselves daydreaming while listening to a 20-minute dull audio recording (as in Andrade), plus a 5-point self-report rating of "how much did you daydream?".</p>
+      <p class="model-p"><span class="ft">[c ✓]</span><b>Controls</b>: the same quiet room for everyone, same temperature and lighting, the <b>same nature and intensity of the flower smell</b> for every participant in that condition, and the <b>same dull 20-minute recording</b> for all participants.</p>
+      <p class="model-p"><span class="ft">[d ✓]</span><b>Design</b>: independent measures — <b>different participants in each condition, allocated randomly</b>.</p>
+      <p class="model-note">为什么这是 L5：IV/DV 都 operationalised 到"两个具体水平 + 怎么测"；controls 列了 3 个具体方面（MS 要 at least 2 explicit）；design 点名 + 写清 how allocated。</p>
+    </div>
+    <div class="model">
+      <div class="model-head">🏆 满分范文 2 · IMD experiment（Level 5 结构 · 可直接背）<span class="model-src">真题情景：s25_21 · Dr Miller — creative activities and sleep</span></div>
+      <p class="model-p"><span class="ft">[a ✓]</span><b>IV</b>: the creative activity before bed, operationalised as two conditions — an <b>art condition</b> (painting a picture for 30 minutes) vs a <b>control condition</b> (reading a magazine for 30 minutes).</p>
+      <p class="model-p"><span class="ft">[b ✓]</span><b>DV</b>: how well participants sleep, operationalised as the <b>number of minutes asleep</b> (recorded by an EEG / sleep-tracking watch) and a <b>1–10 self-report rating of sleep quality</b> in the morning.</p>
+      <p class="model-p"><span class="ft">[c ✓]</span><b>Controls</b>: everyone sleeps in the <b>same sleep-lab location</b>, goes to bed at the <b>same time (10 pm)</b> in the same bed type, and has no caffeine from the afternoon onwards.</p>
+      <p class="model-p"><span class="ft">[d ✓]</span><b>Design</b>: independent measures — <b>different participants</b> in the art condition and the control condition, <b>allocated randomly</b>. (Field version: the activities take place in real evening classes, with participants followed home.)</p>
+      <p class="model-note">为什么这是 L5：MS 的 And/OR 选项两种写法都给了——考 IMD 卷背范文 2，考 lab 卷背范文 1，骨架完全一样，只换 IV/DV 内容。</p>
+    </div>
   </div>
 
   <div class="study">
@@ -614,6 +671,14 @@ footer.foot{color:var(--muted);font-size:12.5px;text-align:center;margin-top:36p
       <li>s26_21 特殊：(b) 部转考 ethics（见题型六），但 (a) 仍禁 ethics</li>
       <li>两 IV 卷：design 必须两个都交代（sex 用 IM + toy type 用 RM）</li>
     </ul>
+    <div class="model">
+      <div class="model-head">🏆 满分范文（Level 5 结构 · 可直接背）<span class="model-src">真题情景：s26_21 · Gladys — field experiment on toy preferences in a nursery</span></div>
+      <p class="model-p"><span class="ft">[a ✓]</span>Two <b>IVs</b>: (1) <b>sex</b> — a naturally occurring IV (girls vs boys, all children aged 4 so the two groups are similar in age); (2) <b>toy type</b> — a "typically girls' toy" (a doll) vs a "typically boys' toy" (a toy truck).</p>
+      <p class="model-p"><span class="ft">[b ✓]</span><b>DV</b>: interest in the toys, operationalised as the <b>time in seconds each child spends playing with each toy</b>, timed with a stopwatch by a nursery assistant watching during the free-play hour.</p>
+      <p class="model-p"><span class="ft">[c ✓]</span><b>Controls</b>: the two toys are matched for <b>size, noisiness and familiarity</b>; the observation happens at the <b>same time each day</b> in the same corner of the nursery.</p>
+      <p class="model-p"><span class="ft">[d ✓]</span><b>Design</b>: independent measures for sex (the <b>girls' scores are compared with the boys' scores</b>) and repeated measures for toy type (every child plays with <b>both</b> toys, order <b>counterbalanced</b>).</p>
+      <p class="model-note">为什么这是 L5：双 IV 卷最容易丢 (d)——范文把两个 IV 的 design 分开各写一句（MS 原话：sex 必须 IM、toy type 必须 RM）。"naturally occurring IV" 这个短语本身就是 MS 给的 underline 素材。</p>
+    </div>
   </div>
 
   <div class="study">
@@ -627,6 +692,14 @@ footer.foot{color:var(--muted);font-size:12.5px;text-align:center;margin-top:36p
     <ul class="dont">
       <li>问题例子不能抄题干给的 behaviour——要自选新的</li>
     </ul>
+    <div class="model">
+      <div class="model-head">🏆 满分范文（Level 5 结构 · 可直接背）<span class="model-src">真题情景：w24_21 · Tanya — questionnaire for teachers on prosocial behaviours</span></div>
+      <p class="model-p"><span class="ft">[a ✓]</span><b>Question format</b>: mostly <b>closed questions</b> using a <b>4-point ranked scale</b> (never / sometimes / often / always), plus one or two <b>open questions</b> for detail, and a filler question first ("Which class do you teach?").</p>
+      <p class="model-p"><span class="ft">[b ✓]</span>Example questions (behaviours chosen by Tanya, not copied from the question): "How often does the child <b>share toys or equipment with classmates</b>? (never / sometimes / often / always)" and "How often does the child <b>invite other children to play games together</b>?"</p>
+      <p class="model-p"><span class="ft">[c ✓]</span><b>Scoring</b>: each answer is scored 1–4 (never = 1 … always = 4); the marks are added to give a <b>total prosocial score per child</b>, and the <b>mean</b> scores from different teachers can be compared; open answers are analysed qualitatively for examples.</p>
+      <p class="model-p"><span class="ft">[d ✓]</span><b>Technique</b>: <b>paper and pencil</b> — printed questionnaires handed to every teacher in the staffroom and returned anonymously to a locked box.</p>
+      <p class="model-note">为什么这是 L5：四个 feature 与 interview 卡共享三件套（format / examples / scoring）+ 第 4 个换成 technique；例子是自选的新 behaviour（shares / invites），完全避开题干已给内容。</p>
+    </div>
   </div>
 
   <div class="study">
@@ -641,6 +714,14 @@ footer.foot{color:var(--muted);font-size:12.5px;text-align:center;margin-top:36p
       <li>"an experiment is not acceptable"——不能只是一次 test + retest 的 RM design（必须多次 + 多 measure）</li>
       <li><b>frequency/interval 不给分（REP）</b>——题干已给（each birthday week yearly）</li>
     </ul>
+    <div class="model">
+      <div class="model-head">🏆 满分范文（Level 5 结构 · 可直接背）<span class="model-src">真题情景：s26_22 · Sydney — longitudinal study on children's activity choices</span></div>
+      <p class="model-p"><span class="ft">[a ✓]</span><b>Tests/tasks</b>: within a week of each birthday, every child does the same <b>free-choice session</b>: the same four activities are laid out (cooking, stories, sports, maths club) and Sydney records each child's <b>first, second and third choice</b>, then asks two short questions about why they chose them.</p>
+      <p class="model-p"><span class="ft">[b ✓]</span><b>Scoring</b>: each activity is scored <b>3 (first choice), 2 (second), 1 (third)</b>; the totals for each activity are compared <b>over time</b> (e.g. the mean score for sports at age 6, 7 and 8), and the "why" answers are analysed qualitatively for changing themes.</p>
+      <p class="model-p"><span class="ft">[c ✓]</span><b>Recontacting</b>: Sydney keeps a record of each family's contact details (updated at every visit) and recontacts them <b>by email or phone before each birthday</b> to arrange the session; families who move are traced through the centre.</p>
+      <p class="model-p"><span class="ft">[d ✓]</span><b>Controls/standardisation</b>: the <b>same activity list, same free-choice setting, same questions and same scoring system</b> are used at every yearly session, so each year's scores are directly comparable.</p>
+      <p class="model-note">为什么这是 L5：四 feature 原文全对应；注意范文<b>没写</b> "every year" 之类的频率句——那是题干已给（写 = REP = 0 分）。只写"每年怎么保持一致"。</p>
+    </div>
   </div>
 </section>
 
