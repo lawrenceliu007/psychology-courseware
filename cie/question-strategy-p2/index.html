@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CIE 9990 Paper 2 · 题型攻略（Research Methods）</title>
+<style>
+:root{
+  --ink:#1f2933; --muted:#5b6b76; --line:#d9e2ec; --bg:#f7f9fb; --panel:#ffffff;
+  --accent:#0f766e; --accent-soft:#e6f4f2; --ok:#1b7a43; --ok-soft:#e8f5ee;
+  --warn:#b45309; --warn-soft:#fdf3e3; --predict:#7c3aed; --predict-soft:#f3ecfd;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue",Arial,sans-serif;
+  line-height:1.65;font-size:15px}
+.page{max-width:1000px;margin:0 auto;padding:28px 20px 80px}
+header.hero{background:linear-gradient(135deg,#0f766e,#14b8a6);color:#fff;border-radius:14px;
+  padding:30px 32px;margin-bottom:22px}
+header.hero h1{margin:0 0 8px;font-size:26px;letter-spacing:.5px}
+header.hero p{margin:0;opacity:.92;font-size:14px}
+.legend{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 6px}
+.legend .lg{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);
+  border-radius:20px;padding:3px 14px;font-size:12.5px}
+nav.toc{background:var(--panel);border:1px solid var(--line);border-radius:12px;
+  padding:18px 22px;margin-bottom:26px}
+nav.toc h2{margin:0 0 10px;font-size:16px}
+nav.toc ol{margin:0;padding-left:22px;columns:2;column-gap:36px}
+nav.toc li{margin:3px 0;font-size:14px}
+nav.toc a{color:var(--accent);text-decoration:none}
+nav.toc a:hover{text-decoration:underline}
+section.qtype{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+  padding:24px 28px;margin-bottom:30px;box-shadow:0 1px 3px rgba(31,41,51,.05)}
+section.qtype>h2{margin:0 0 14px;font-size:20px;color:var(--accent);border-bottom:2px solid var(--accent-soft);
+  padding-bottom:10px}
+span.tag{display:inline-block;background:var(--accent-soft);color:var(--accent);
+  border-radius:6px;font-size:12.5px;font-weight:600;padding:2px 10px;margin-left:8px;vertical-align:middle}
+div.howto{background:var(--accent-soft);border-left:4px solid var(--accent);border-radius:8px;
+  padding:14px 18px;margin-bottom:18px}
+div.howto h3{margin:0 0 8px;font-size:15.5px;color:var(--accent)}
+div.howto p.q{margin:6px 0 10px;font-size:14.5px}
+ol.steps{margin:6px 0 12px;padding-left:22px}
+ol.steps li{margin:5px 0;font-size:14.5px}
+ul.dont{margin:6px 0 2px;padding-left:22px;list-style:none}
+ul.dont li{margin:5px 0;font-size:13.5px;color:var(--warn)}
+ul.dont li::before{content:"✗ ";font-weight:700}
+h3.sub{margin:22px 0 12px;font-size:16px;color:var(--ink);border-left:4px solid var(--accent);
+  padding-left:10px}
+div.study-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:760px){div.study-grid{grid-template-columns:1fr}}
+div.study{border:1px solid var(--line);border-radius:10px;padding:14px 16px;background:var(--bg);margin:12px 0}
+div.study[data-tested="no"]{border-style:dashed;border-color:#c4b5fd;background:#fbf9ff}
+div.study h4{margin:0 0 10px;font-size:15px;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+span.badge{border-radius:12px;font-size:11.5px;font-weight:600;padding:1px 10px;white-space:nowrap}
+span.badge-tested{background:var(--ok-soft);color:var(--ok)}
+span.badge-predict{background:var(--predict-soft);color:var(--predict)}
+ol.en,ul.en{padding-left:20px;margin:8px 0}
+ol.en li,ul.en li{margin:5px 0}
+p.en{margin:8px 0}
+ul.zh,ol.zh{padding-left:20px;margin:8px 0}
+p.zh{color:var(--muted);font-size:13.5px;margin:8px 0 2px;border-top:1px dashed var(--line);
+  padding-top:8px}
+b{color:inherit}
+span.warn{color:var(--warn);font-weight:600}
+td.warn{color:var(--warn);font-size:13.5px}
+table.ms{width:100%;border-collapse:collapse;margin:10px 0;font-size:13.5px;background:var(--panel)}
+table.ms th,table.ms td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+table.ms th{background:var(--accent-soft);color:var(--accent);font-weight:600}
+div.pairbox{background:var(--warn-soft);border:1px solid #f0d9b5;border-radius:10px;
+  padding:14px 18px;margin-top:16px}
+div.pairbox h4{margin:0 0 8px;color:var(--warn);font-size:14.5px}
+footer.foot{color:var(--muted);font-size:12.5px;text-align:center;margin-top:36px}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="hero">
+  <h1>CIE 9990 Paper 2 · 题型攻略（Research Methods）</h1>
+  <p>60 分 / 90 分钟 · Section A（Q1–9）+ Section B（10 分设计大题 + 4 分评价）· 2024–2026 共 18 份卷逐题提炼，所有给分点与禁区均出自官方 Mark Scheme 原文</p>
+  <div class="legend">
+    <span class="lg">绿标 = 已考（附场次）</span>
+    <span class="lg">紫标虚线框 = ★预测</span>
+    <span class="lg">全部规则可溯源到具体 MS 卷次</span>
+  </div>
+</header>
+
+<nav class="toc">
+  <h2>目录</h2>
+  <ol>
+    <li><a href="#qt-cheatsheet">答题禁区速查（先看这个）</a></li>
+    <li><a href="#qt1">题型一 · 术语定义（Q1 · 1–2 分）</a></li>
+    <li><a href="#qt2">题型二 · 核心研究情境题（Q2–5 · 1–4 分）</a></li>
+    <li><a href="#qt3">题型三 · 双概念描述（Q5/6 · 6 分）</a></li>
+    <li><a href="#qt4">题型四 · 情景应用题（Q7–9 · 1–2 分成串）</a></li>
+    <li><a href="#qt5">题型五 · 设计大题（Section B a · 10 分）</a></li>
+    <li><a href="#qt6">题型六 · 设计评价（Section B b · 2–4 分）</a></li>
+    <li><a href="#qt7">考前抢分</a></li>
+  </ol>
+</nav>
+
+<!-- ══════════════════ 答题禁区速查 ══════════════════ -->
+<section class="qtype" id="qt-cheatsheet">
+  <h2>答题禁区速查<span class="tag">考前 30 秒版</span></h2>
+  <div class="howto">
+    <h3>Paper 2 送分逻辑一句话</h3>
+    <p>几乎每道小题都是 <b>"判定/建议/术语 = 1 分 + 一句 link 到情景或研究的 detail = 1 分"</b>。泛泛的心理学术语永远拿不到第二分——MS 反复写 <b>"Must be linked to study for 2 marks"</b>（s24_23、w25_22、w25_23 多卷明示）。</p>
+  </div>
+
+  <h3 class="sub">三大送命写法（18 份 MS 高频归零规则）</h3>
+  <table class="ms">
+    <tr><th style="width:15%">类型</th><th style="width:40%">是什么</th><th>典型死法（MS 原文）</th></tr>
+    <tr>
+      <td><b>REP<br>复述题干</b></td>
+      <td>把题目已给的信息换个说法再写一遍</td>
+      <td class="warn">"Generalisability = 0 as repeating the question"（s25_21）· "Copying the numbers = 0 [REP]"（s24_23）· "'Shows direction of results' = 0 = REP"（s24_22）· "just restating results = 0 [NAQ]"（w24_21）· "'To study button phobia' = 0 [REP]"（s26_21）</td>
+    </tr>
+    <tr>
+      <td><b>NAQ<br>答非所问</b></td>
+      <td>问 A 答 B——最常见：问 practical 答 ethical、问 species 答 numbers、问 participant variable 写情境</td>
+      <td class="warn">"Practical advantage = 0 [NAQ]"（m24_22）· "Ethical problem = 0"（问 practical 时，m24_22）· "Use fewer of a species = 0 = NAQ (about numbers not species)"（s26_21）· "'not being objective' = 0 [NAQ]"（s25_23，问 subjectivity 要说它<b>是什么</b>）</td>
+    </tr>
+    <tr>
+      <td><b>明令排除</b></td>
+      <td>题干写 "Do not refer to…" 你偏要写</td>
+      <td class="warn">Section B 设计题写 sampling / ethics = 0（题干明令）· "Do not include verbal behaviours"（m26_22 观察类别题）· 问 reliability/validity 时答 generalisability = 0 [NAQ]（w25_23）</td>
+    </tr>
+  </table>
+
+  <h3 class="sub">高频 = 0 速查（按主题）</h3>
+  <table class="ms">
+    <tr><th style="width:28%">规则</th><th>MS 原文与出处</th></tr>
+    <tr><td>只写术语不解释</td><td class="warn">"DO NOT credit answers simply for using a 'key term'"（每卷通用原则）· "cannot award for a term alone"（w24_21）</td></tr>
+    <tr><td>复数答案只判第一个</td><td class="warn">"Where there are two answers, mark first only"（s26_21）</td></tr>
+    <tr><td>方向写反</td><td class="warn">"'less ethical' = 0"（w24_23，题目问为什么 imagined 更 ethical）</td></tr>
+    <tr><td>概念混替</td><td class="warn">"Random sampling = 0 [incorrect]"（s26_23，问 random allocation 时）· "Observer does not interact with participants = 0 [this is non-participant obs]"（s24_23）· qualitative 定义写 "in words" = 0（w24_23）</td></tr>
+    <tr><td>复述数字当解读</td><td class="warn">"The mean of the AS/HFA group was bigger = 0 [NAQ]"（s25_21）· "deviated more = 0 [REP]"</td></tr>
+    <tr><td>复述结果当结论</td><td class="warn">"Must be a conclusion not a repetition of the results"（m24_22）</td></tr>
+    <tr><td>比较题不做比较</td><td class="warn">"Must make comparison for 2 marks"（m25_22）——写 overt 的优点必须带 "but in covert…"</td></tr>
+    <tr><td>押宝式两面写</td><td class="warn">"DO NOT credit answers which are obviously self-contradicting or trying to cover all possibilities"（通用原则）</td></tr>
+    <tr><td>自动排除项写了白写</td><td class="warn">"Sampling = 0; Environment (lab) = 0 [NAQ]"（w24_21 问 eyes test 生态效度时，lab 环境本身不算，要写<b>任务</b>哪里不真实）</td></tr>
+  </table>
+</section>
+
+<!-- ══════════════════ 题型一 术语定义 ══════════════════ -->
+<section class="qtype" id="qt1">
+  <h2>题型一 · 术语定义<span class="tag">Q1 · 1–2 分</span></h2>
+  <div class="howto">
+    <h3>怎么答</h3>
+    <p class="q">"Describe/Outline/Define what is meant by X"</p>
+    <ol class="steps">
+      <li>给分结构：<b>Outline/Define = 1 分，Detail/Example = 1 分</b>（2 分题）。1 分题只需一句正确定义。</li>
+      <li>定义要写它<b>是什么</b>，不能写它"不是什么"——"Stating what it is not = 0 marks"（w24_21）。</li>
+      <li>带 [definitive] 的术语必须用准确术语名，描述性替代 = 0："the Ps were selected by replying to an advert = 0"，必须写 <b>volunteer sampling</b>（s24_21）。</li>
+    </ol>
+  </div>
+
+  <div class="study" data-tested="yes">
+    <h4>已考术语库<span class="badge badge-tested">18 卷已考 20+ 术语</span></h4>
+    <table class="ms">
+      <tr><th style="width:20%">术语</th><th style="width:10%">考次</th><th>MS 给分答案（原文）</th></tr>
+      <tr><td><b>questionnaire</b></td><td>s25_21</td><td>Self-report / questions + written / on paper / online（"written questions = 2"）。practical strength：unlikely to lie / low social desirability <b>because not face to face</b>；或 wider sample → more representative。<span class="warn">Ethical advantages = 0</span></td></tr>
+      <tr><td><b>negative correlation</b></td><td>m24_22</td><td>Relationship/link between two variables + as one goes up the other goes down</td></tr>
+      <tr><td><b>overt observation</b></td><td>m25_22</td><td>When the role of the observer is not hidden / people know they are being observed。比较题：<b>必须写出比较</b>（"but in covert…"）</td></tr>
+      <tr><td><b>covert observation</b></td><td>s24_23</td><td>Participants unaware of (role of) observer + 例子：out of view / disguised / Bandura one-way mirror / Hassett camera / Piliavin observers looked like passengers。<span class="warn">"In Piliavin the Ps did not know the observers were there" = 0 = REP</span></td></tr>
+      <tr><td><b>case study</b></td><td>s24_22</td><td><b>Single unit/person studied = 1 [definitive] + in depth/detailed = 1 [definitive]</b>。<span class="warn">Longitudinal = 0 · Aim to give therapy = 0 · Rare case = 0 · Lots of data = 0</span></td></tr>
+      <tr><td><b>aim</b></td><td>s26_21</td><td>The purpose/intention/goal of a study / what the researcher intends to investigate。<span class="warn">"What they are trying to prove"、IVs &amp; DVs、"like a hypothesis" = 0</span></td></tr>
+      <tr><td><b>mode</b></td><td>m26_22</td><td>判定题：mode = 6 [definitive] + 解释 because it gives the most frequent score</td></tr>
+      <tr><td><b>participant variable</b></td><td>s26_23 / m26_22</td><td>Individual differences between participants that can affect the DV / an internal characteristic of the participants (which affects responses)。情境判定：Hunger [definitive]。situational variable = an external/environmental factor（判定：Noise [definitive]）</td></tr>
+      <tr><td><b>matched pairs design</b></td><td>w24_21</td><td>Participants matched on key variables, one placed in each condition + 例子（如 B-C 组间按 age/IQ 匹配）。例子须 illustrate 而非 explain</td></tr>
+      <tr><td><b>random sampling</b></td><td>w24_23</td><td>Selecting participants so that each has an <b>equal chance</b> of being chosen</td></tr>
+      <tr><td><b>sampling technique</b></td><td>s26_22</td><td>The way that participants are chosen/selected/recruited from the population。判定：Peter = volunteer [definitive]；Cicely = opportunity [definitive]</td></tr>
+      <tr><td><b>fatigue effect</b></td><td>w25_22</td><td>Poor performance due to repetition / worse scores due to boredom。情境例（Hölzel）：bored with mindfulness exercises and stopped trying</td></tr>
+      <tr><td><b>counterbalancing</b></td><td>w25_23</td><td>Having two groups who do conditions in opposite orders (ABBA) + importance: to reduce order effects</td></tr>
+      <tr><td><b>subjectivity</b></td><td>s25_23 / s26_22</td><td>Seeing things from your own perspective / interpretation influenced by personal bias。<span class="warn">"not being objective" = 0</span></td></tr>
+      <tr><td><b>ecological validity</b></td><td>w24_21 / s26_21</td><td>Whether results from one situation would apply to another / can be generalised to real-world settings。<span class="warn">"Whether results from a lab apply to the real world" = 0 · "The realism of the study" = 0</span></td></tr>
+      <tr><td><b>informed consent</b></td><td>w24_22</td><td>Giving participants enough details <b>so that they can decide whether to participate</b>。<span class="warn">只写 consent = 0</span></td></tr>
+      <tr><td><b>confidentiality</b></td><td>s25_23</td><td>通用版 = 1 分（names not published）；linked 版 = 2 分（如 D&amp;K 用 initials 替代姓名）</td></tr>
+      <tr><td><b>experiment（定义）</b></td><td>w24_21</td><td>三点取二 [definitive]：<b>(manipulated) IV + (measured) DV</b>（两个都要才给分）· control of variables · to investigate causal effects。<span class="warn">Formulation of hypotheses = 0</span></td></tr>
+    </table>
+  </div>
+
+  <div class="study" data-tested="no">
+    <h4>★预测术语（RM 大纲内 · 18 卷未考）<span class="badge badge-predict">预测</span></h4>
+    <p>按出题频率推断，以下术语随时可能出现在 Q1——定义已按 MS 风格写好：</p>
+    <table class="ms">
+      <tr><th style="width:22%">术语</th><th>安全定义</th></tr>
+      <tr><td><b>pilot study</b></td><td>A small-scale version/trial run of a study conducted before the real one, to check the procedure works and identify problems (e.g. unclear questions)</td></tr>
+      <tr><td><b>directional hypothesis</b></td><td>A hypothesis that states the direction of the difference/relationship (which condition will be higher)</td></tr>
+      <tr><td><b>volunteer sampling</b></td><td>Participants select themselves / respond to an advertisement</td></tr>
+      <tr><td><b>snowball sampling</b></td><td>Participants recruit other participants (each P suggests further Ps)</td></tr>
+      <tr><td><b>median / range</b></td><td>Median = middle value when data ordered；Range = difference between highest and lowest score</td></tr>
+      <tr><td><b>standard deviation</b></td><td>A measure of spread/variation, calculated as the (average) difference from the mean（w25_22 已在情境题考过定义）</td></tr>
+      <tr><td><b>demand characteristics</b></td><td>Cues that let participants guess the aim, so they change behaviour</td></tr>
+      <tr><td><b>deception / debriefing</b></td><td>Deception = misleading participants about the aim/procedure；Debriefing = telling participants the true aim after the study</td></tr>
+      <tr><td><b>operationalisation</b></td><td>Making abstract variables measurable/observable（m26_22 已在 6 分题考过）</td></tr>
+      <tr><td><b>null hypothesis</b></td><td>A hypothesis stating there will be no difference/relationship</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ══════════════════ 题型二 核心研究情境题 ══════════════════ -->
+<section class="qtype" id="qt2">
+  <h2>题型二 · 核心研究情境题<span class="tag">Q2–5 · 1–4 分</span></h2>
+  <div class="howto">
+    <h3>怎么答</h3>
+    <p class="q">"In the study by X (…), explain/outline/state…"——拿核心研究当载体考 RM 概念。</p>
+    <ol class="steps">
+      <li><b>黄金公式：definitive 术语 + 一句具体 link 到研究细节。</b>generic = 1 分，linked = 2 分的分层贯穿全卷（w24_22、s25_23、w25_22 多卷明示）。</li>
+      <li>数字解读题（mean/SD）：必须写<b>比较性陈述</b>（more spread out / older than），禁止复述数字。</li>
+      <li>注意出题人只挑<b>原始论文有抽样信息</b>的研究出 sampling 题："No marks for Bandura et al., Hölzel et al., Perry et al. as no information on sampling in the original paper"（s25_21 MS 原文）。</li>
+    </ol>
+  </div>
+
+  <div class="study">
+    <h4>Milgram (obedience)<span class="badge badge-tested">7 卷最常客</span></h4>
+    <table class="ms">
+      <tr><th style="width:22%">RM 维度</th><th>MS 认可要点</th></tr>
+      <tr><td>Sampling</td><td><b>Volunteer sampling [definitive]</b>（s24_21）+ how：advertisement / in newspaper / in New Haven / by direct mail / payment $4.50 / aged 20–50。<span class="warn">描述性替代（"selected by replying to an advert"）= 0</span></td></tr>
+      <tr><td>DV 测量</td><td>Shock level/voltage on the generator + how far they went / maximum reached / 450 V = fully obedient（w24_22，分层：只说 "number of volts" = 1；"how high participants would go" = 2）</td></tr>
+      <tr><td>Data types</td><td>voltage = <b>quantitative/objective [definitive]</b>； disobedience mode = 300 V [definitive]；comments = <b>qualitative/subjective [definitive]</b>（s25_22——举 comment 原文如 "It'll hurt his heart"。<span class="warn">复述题干 bullet = 0 [REP]</span>）</td></tr>
+      <tr><td>Validity</td><td>哪些特征使研究 valid：shock machine looked real / rigged lots / grey technician's coat / university location / prods standardised + how（unlikely to suspect the deception）。<span class="warn">只写 "Authority figure" = 0；写 "authority figure looked real because of coat/location" = 1（s24_23）</span></td></tr>
+      <tr><td>Subjectivity</td><td>解释 + 例：interpreting Ps' comments may be based on his own expectations（s26_23）</td></tr>
+      <tr><td>Generalisability</td><td>不同职业/年龄的理由 = linked suggestion + example 分开写（s25_21）。<span class="warn">"Generalisability" 本身 = 0 = repeating the question</span></td></tr>
+    </table>
+    <p class="zh">考过卷次：s24_21（抽样）、s24_23（validity）、s25_21（职业/年龄）、s25_22（数据类型 7 分大题）、s26_23（subjectivity）、w24_22（DV 测量）、w25_22（qualitative 选答）</p>
+  </div>
+
+  <div class="study">
+    <h4>Bandura (aggression)<span class="badge badge-tested">5 卷</span></h4>
+    <table class="ms">
+      <tr><th style="width:22%">RM 维度</th><th>MS 认可要点</th></tr>
+      <tr><td>Consent</td><td>consent = agreeing to take part；为何重要：children could be made (permanently) more aggressive / could have been hurt / parents might not have wanted them to learn aggression（s25_21）。<span class="warn">"had a choice" = 0 [not linked]</span></td></tr>
+      <tr><td>Informed consent（儿童化）</td><td>tell children they will watch an adult play with toys, do they want to join in?（w24_22：gain consent = 1 + child-friendly = 1）</td></tr>
+      <tr><td>Sampling</td><td><span class="warn">原始论文无抽样信息——MS 明示不考（s25_21）；但可考"为何可能不是 volunteer"：aggressive child's parent may have been too embarrassed = 2（linked）（s25_23）</span></td></tr>
+      <tr><td>Participant variables</td><td>sensitivity to authority / age + 对 aggression 的影响（s26_23）。<span class="warn">"children's level of aggression" = 0 unless 说明 matching inadequate</span></td></tr>
+      <tr><td>Subjectivity / Reliability</td><td>observers could have differed in what they reported as aggression（s26_22，必须具体到研究）。<span class="warn">"the researcher might be biased" = 0（generic）</span></td></tr>
+      <tr><td>Design</td><td>matched on aggression（matched pairs 例）+ <b>random allocation</b> to conditions（s26_23 6 分题例）</td></tr>
+    </table>
+    <p class="zh">考过卷次：s25_21（consent）、s25_23（volunteer 质疑）、s26_22（subjectivity）、s26_23（participant variable + random allocation 例）、w24_22（informed consent）</p>
+  </div>
+
+  <div class="study">
+    <h4>Piliavin (subway Samaritans)<span class="badge badge-tested">6 卷</span></h4>
+    <table class="ms">
+      <tr><th style="width:22%">RM 维度</th><th>MS 认可要点</th></tr>
+      <tr><td>Population / sample</td><td>population = subway passengers / people on the trains；sample = passengers in the carriages with the observers / 4500 people（m24_22）</td></tr>
+      <tr><td>Design</td><td>intended IM design；为何<b>可能不是</b>：could not know if the same people had been on the train for more than one victim/model type（m26_22）</td></tr>
+      <tr><td>Victims 的 standardisation</td><td>两类 victim 差异：drunk vs ill / cane vs bottle / smelled of liquor vs sober；为何要其他方面相似：so differences were only due to the IV / victims looked like ordinary passengers（w25_23，需 link 才满分）</td></tr>
+      <tr><td>Ecological validity</td><td>提高方式：make victim more realistic（drunk victim smell of alcohol / ill victim leg in plaster）+ link（w24_23）</td></tr>
+      <tr><td>Observation 类型</td><td><b>participant observation 的官方例子</b>：observers appeared to be passengers（s24_21）。<span class="warn">victims/models were NOT observing；Milgram stooge 也不是 observer</span></td></tr>
+      <tr><td>Data</td><td>qualitative = comments people made about the victims（w25_22）；correlation 例：group size 与 frequency of helping（s24_22）</td></tr>
+    </table>
+    <p class="zh">考过卷次：m24_22（population/sample）、m26_22（design）、w24_21（Chen 对比题）、w24_23（ecological validity）、w25_23（victim 差异 6 分）、w25_22（qualitative 选答）</p>
+  </div>
+
+  <div class="study">
+    <h4>Perry (personal space)<span class="badge badge-tested">3 卷</span></h4>
+    <table class="ms">
+      <tr><th style="width:22%">RM 维度</th><th>MS 认可要点</th></tr>
+      <tr><td>图表</td><td>bar chart 全套评分点（4 分）：x-label "Being approached by a…" / x-units ball·friend·stranger·authority / y-label Mean stop distance / y-units 至少 11–39 / bar 高度全对；<b>bars 必须分开</b>（否则 max 3）。为何 bar chart：<b>IV is categorical/discrete [definitive]</b>（m24_22）</td></tr>
+      <tr><td>Ecological validity</td><td>为何低（way + explanation 各 2）：approaching figures were not real / ball 不是人 / choosing room 不真实 / oxytocin 不会常规给人。<span class="warn">"it was done in a lab" = 0（generic）——必须落到具体任务（s26_21）</span></td></tr>
+      <tr><td>Ethics</td><td>虚拟房间的 ethical strength：less risk of invading privacy / protection from harm + linked detail（m24_22）</td></tr>
+      <tr><td>Imagined vs stooges</td><td>imagined 更 ethical（less distressing，可以停止想象 / less deception）+ stooges 更 practical（fewer demand characteristics / behaviour can be controlled / more realistic）（w24_23）。<span class="warn">方向写反 = 0</span></td></tr>
+      <tr><td>Sampling</td><td><span class="warn">原始论文无抽样信息——不考（s25_21 MS 明示）</span></td></tr>
+    </table>
+    <p class="zh">考过卷次：m24_22（bar chart 9 分）、s26_21（ecological validity 4 分）、w24_23（imagined vs stooges 4 分）</p>
+  </div>
+
+  <div class="study">
+    <h4>Andrade (doodling)<span class="badge badge-tested">3 卷</span></h4>
+    <table class="ms">
+      <tr><th style="width:22%">RM 维度</th><th>MS 认可要点</th></tr>
+      <tr><td>IV operationalisation</td><td><b>doodling or no doodling</b>（IV 分）+ whether Ps had paper and pen with shapes to shade（detail 分）（s25_22）。<span class="warn">"doodling and control" = 0——必须写 "or no doodling"，不能叫 control group</span></td></tr>
+      <tr><td>Memory score 计算</td><td>false alarms/errors 被<b>减去</b>：correct responses minus false alarms（m24_22：第二数据源 = 1 分 + 怎么算 = 1 分）</td></tr>
+      <tr><td>Mean / range 解读</td><td>mean 36.3，range 3–110：the mean was in the bottom half of the range / the variation was very wide。<span class="warn">只谈 non-doodlers = 0 [NAQ]；抄数字 = 0 [REP]；写结论 = 0</span>（s24_23）</td></tr>
+      <tr><td>Design</td><td>IMD + <b>random allocation</b> to doodling/non-doodling（s26_23 例）；counterbalancing 用于 names/places 两测验（s25_22 例）</td></tr>
+      <tr><td>6 分题官方例</td><td>quantitative data 例（recall of names/places）；IV operationalisation 例（gave or did not give doodling paper）；注意 MS 判定：Andrade 算 <b>opportunity</b>（recruited by opportunity after leaving another study）</td></tr>
+    </table>
+    <p class="zh">考过卷次：m24_22（memory score）、s24_23（mean/range）、s25_22（IV operationalisation）+ 6 分题高频例源</p>
+  </div>
+
+  <div class="study">
+    <h4>Baron-Cohen (eyes test)<span class="badge badge-tested">5 卷</span></h4>
+    <table class="ms">
+      <tr><th style="width:22%">RM 维度</th><th>MS 认可要点</th></tr>
+      <tr><td>Means / SD</td><td>Group 1 mean 29.7 (SD 14.5) vs Group 3 mean 20.8 (SD 0.8)：means → <b>Group 1 were older</b>（比较句）；SD → <b>Group 1 ages more spread out / larger range of ages</b>。<span class="warn">"The mean of Group 1 was bigger" = 0 [NAQ]；"deviated more" = 0 [REP]（s25_21）</span></td></tr>
+      <tr><td>Standardisation</td><td>All Ps given glossary / all completed test in a quiet room / all alone（s26_23，任一即 1 分）</td></tr>
+      <tr><td>Control task</td><td>Gender (recognition) [definitive]；Ps 任务 = <b>judge the gender of each person in each photograph</b>（s24_22）。<span class="warn">"say whether they were male or female" = 0（缺 each photo）</span></td></tr>
+      <tr><td>Ecological validity</td><td>eyes not stationary in real life / can look as long as needed / normally see whole face + body language → 解法：video of moving eyes / whole-face photos（w24_21）。<span class="warn">generic "not natural" = 0；lab 环境 = 0</span></td></tr>
+      <tr><td>IM design 优劣</td><td>strength：less demand characteristics（Ps only see one level）/ can study pre-existing groups（AS vs control）/ no order effects；weakness：individual differences hard to control（AS group might have less experience with people）/ needs bigger sample（w25_21）</td></tr>
+      <tr><td>Sampling（6 分题例）</td><td>opportunity 例：found participants in adult community education class (Exeter) / public library (Cambridge)；<b>random sampling (allegedly) = 1 mark</b>（s25_21）</td></tr>
+    </table>
+    <p class="zh">考过卷次：s24_22（control task）、s25_21（means/SD）、s26_23（standardisation）、w24_21（ecological validity）、w25_21（IM design）</p>
+  </div>
+
+  <div class="study">
+    <h4>Pozzulo (line-ups)<span class="badge badge-tested">5 卷</span></h4>
+    <table class="ms">
+      <tr><th style="width:22%">RM 维度</th><th>MS 认可要点</th></tr>
+      <tr><td>IV / DV operationalisation</td><td>IV：Age → children and adults；或 line-up type → target-present / target-absent（identify 1 分 + operationalise 1 分）。DV：correct identification → picking out the target when present；correct rejection → picking no target when absent（s26_22）。<span class="warn">"descriptions of how the images were made" = 0 [NAQ]</span></td></tr>
+      <tr><td>Consent</td><td>为何儿童和父母都要 consent：children may not understand enough（parental consent）+ children have feelings too（child consent）（s24_21，三点式）</td></tr>
+      <tr><td>Foils</td><td>与 target 相似：facial structure / hair length / hair colour / clothes / sex。<span class="warn">不收 "race/ethnic group"（MS 原文：Latino/Latina form a pan-ethnicity）</span></td></tr>
+      <tr><td>图转表</td><td>评分点：准确数字 / target type / cartoon vs human / child vs adult / 表头一次（%写多遍 ignore）（s24_21）</td></tr>
+      <tr><td>Mean 计算</td><td>通用公式（add all + divide by number）= 1；套入研究（divide by number of possible identifications）= 2（w24_23）</td></tr>
+      <tr><td>SD / 样本</td><td>成人 SD 更大：spread of adult ages greater（children 4–7 vs decades of adulthood）——link 才满分；两组都要男女：否则 gender 会 confound age 效应（w25_22）</td></tr>
+      <tr><td>样本相似性</td><td>similarity：sample size (53/59) / genders / all from Canada；应当相似的其他方面 + justify：ethnicity / experience of court proceedings / intelligence-memory（s26_21）。<span class="warn">Age/Gender = 0（已是 IV）；"equal number" = 0</span></td></tr>
+    </table>
+    <p class="zh">考过卷次：s24_21（consent + foils + 图转表）、s26_21（样本相似性）、s26_22（IV/DV）、w24_23（mean）、w25_22（SD + 性别构成）</p>
+  </div>
+
+  <div class="study">
+    <h4>Dement &amp; Kleitman (sleep and dreams)<span class="badge badge-tested">5 卷</span></h4>
+    <table class="ms">
+      <tr><th style="width:22%">RM 维度</th><th>MS 认可要点</th></tr>
+      <tr><td>Sampling</td><td><b>opportunity / snowball [definitive]</b>（m26_22）+ 弱点：low generalisability（all Ps similar / very small sample）+ too few women + bias（some Ps were researchers → demand characteristics）</td></tr>
+      <tr><td>Instructions → validity</td><td>no alcohol / no coffee / eat normally / arrive before bedtime + 为什么（drugs affect sleep → dream data unrepresentative；ensure DV changes due to IV）（m24_22）</td></tr>
+      <tr><td>EEG 用途</td><td>必须 1 个 function（detects brain waves / sleep stages）+ 1 个 link（know when to wake Ps in REM/NREM → ask for dream narrative / time REM length）（s26_21，"cannot have 3 function points"）</td></tr>
+      <tr><td>Data</td><td>词数 = quantitative + justification（numerical / how many）（s24_21）。strength：can be analysed/compared (compare words in REM and NREM) / objective。<span class="warn">"factual/accurate" = 0；"measurable" 无 because/than = 0</span></td></tr>
+      <tr><td>Confidentiality</td><td>generic（names not published）= 1；linked（<b>identified by initials</b> / only genders and occupations known）= 2（s25_23）</td></tr>
+      <tr><td>Interview</td><td>官方 semi-structured 例：asked all Ps whether they had a dream (fixed) + followed up with more questions（w25_22 给 2 分的 detailed 版）</td></tr>
+    </table>
+    <p class="zh">考过卷次：m24_22（instructions）、m26_22（sampling + 弱点）、s24_21（数据类型）、s25_23（confidentiality）、s26_21（EEG）</p>
+  </div>
+
+  <div class="study">
+    <h4>Fagen (elephant learning)<span class="badge badge-tested">5 卷</span></h4>
+    <table class="ms">
+      <tr><th style="width:22%">RM 维度</th><th>MS 认可要点</th></tr>
+      <tr><td>Data types</td><td>qualitative = descriptive/in-depth/detailed（<span class="warn">"in words" = 0</span>）；quantitative = numerical/count/totals + 例：time / number of cue offers / % success on trunk wash（w24_23，example 可独立给分）</td></tr>
+      <tr><td>Validity（80% 标准）</td><td>为何 performance test 可能 lacks validity：only had to reach 80% correct → the other 20% may be a bit or a lot wrong；改进：90/100% criterion / more specific operationalisation（m25_22）</td></tr>
+      <tr><td>Structured observation</td><td>strength：improved inter-observer reliability（two trunk positions compared to ensure agreement）/ observers not distracted by other behaviours（w25_22，必须至少一处 link）</td></tr>
+      <tr><td>训练时长不固定</td><td>individual differences / one had to be retrained because she preferred saline to water / trainers knew the elephants, learning tailored（w25_23）</td></tr>
+      <tr><td>Relative difficulty 测量</td><td>total number of offers/cues to pass + <b>average of the totals was used</b>。<span class="warn">只写 "average number of offers" = 1 分（缺 totals→average 过程）（w25_23）</span></td></tr>
+      <tr><td>动物体型</td><td>very large enclosure needed / researchers careful not to get hurt / could not be caged（m26_22）</td></tr>
+    </table>
+    <p class="zh">考过卷次：m25_22（validity）、m26_22（体型）、w24_23（data types）、w25_22（structured observation）、w25_23（时长 + difficulty）</p>
+  </div>
+
+  <div class="study">
+    <h4>Saavedra &amp; Silverman (button phobia)<span class="badge badge-tested">3 卷</span></h4>
+    <table class="ms">
+      <tr><th style="width:22%">RM 维度</th><th>MS 认可要点</th></tr>
+      <tr><td>Case study 特征</td><td>just one boy (and his mum) = single unit + history/measurement/monitoring of his phobia = in depth（s24_22）</td></tr>
+      <tr><td>Aim</td><td>to treat/reduce a 9-year-old boy's button phobia + detail（using imagery exposure / classical conditioning / self-control strategies）。<span class="warn">"To study button phobia" = 0 [REP]（s26_21）</span></td></tr>
+      <tr><td>Time frames</td><td>三个时点：before / midway through / after imagery exposure session（全对 2 分、对二 1 分、对一 0 分）；severity rating decreased over time（w25_21）</td></tr>
+      <tr><td>6 分题例源</td><td>opportunity sampling 例（child and mother in treatment at Florida International University）；participant observation 例（observed boy performing in vivo button tasks）；structured interview 例（6/12-month follow-up）；unstructured 例（asked about stressful life events triggering onset）</td></tr>
+    </table>
+    <p class="zh">考过卷次：s24_22（case study）、s26_21（aim）、w25_21（time frames）</p>
+  </div>
+
+  <div class="study">
+    <h4>Hassett (monkey toy preferences)<span class="badge badge-tested">4 卷</span></h4>
+    <table class="ms">
+      <tr><th style="width:22%">RM 维度</th><th>MS 认可要点</th></tr>
+      <tr><td>动物伦理 guidelines</td><td>guideline 名 = 1 ×2 + link to monkeys/Hassett = 1 ×2：minimising harm（not hurting monkeys, they sense pain）/ replacement（use previous videos）/ species（monkeys socialise and play like humans）/ numbers（as few as possible）/ housing（enough space, kept with conspecifics）（s24_22）。<span class="warn">"lots of space and controlled temperature" = 0 [NAQ as just description]</span></td></tr>
+      <tr><td>Bar chart</td><td>为何合适：<b>male and female are discrete categories [definitive]</b>（s25_22）</td></tr>
+      <tr><td>Experiment 定义 + IV</td><td>experiment 三点定义 + IV = sex (males and females) / type of toy (plush and wheeled)（w24_21）</td></tr>
+      <tr><td>Correlation 例</td><td>positive correlation between rank and total frequency with plush/wheeled toys for females；males 无相关（w24_22：correlation 1 分 + 变量具体 1 分）</td></tr>
+      <tr><td>Observation</td><td>MS 官方判定：Hassett = <b>non-participant</b> observation（s24_21 备注）</td></tr>
+    </table>
+    <p class="zh">考过卷次：s24_21（6 分题备注）、s24_22（动物伦理 4 分）、s25_22（bar chart）、w24_21（experiment + IV）、w24_22（correlation 例）</p>
+  </div>
+
+  <div class="study">
+    <h4>Hölzel (mindfulness)<span class="badge badge-tested">5 卷</span></h4>
+    <table class="ms">
+      <tr><th style="width:22%">RM 维度</th><th>MS 认可要点</th></tr>
+      <tr><td>Inclusion criteria</td><td>not taking medications / physically and psychologically healthy / no meditation classes (6 months) / 25–55 years / commit to attend classes and homework / no MRI contraindications / right-handed + 每条理由（otherwise difficult to tell if MBSR was the cause）（w25_21）</td></tr>
+      <tr><td>被试退出 → validity</td><td>smaller sample / biased sample（withdrawers might have been more stressed）/ both males withdrew → gender bias（m25_22）</td></tr>
+      <tr><td>样本代表性</td><td>gender bias（more females）/ all right-handed / all adults / small sample + each "so less representative of…"（s24_23，linked 才满分）</td></tr>
+      <tr><td>FFMQ 问卷</td><td>strength：high internal reliability / five subscales consistent with each other / objective quantitative data；weakness：might lie or give socially desirable answers / fatigue（39 items is a lot）/ practice effect（w25_23）</td></tr>
+      <tr><td>Fatigue effect</td><td>情境例：bored with mindfulness exercises and stopped trying（w25_22）</td></tr>
+      <tr><td>6 分题例源</td><td>lab experiment 例（IV pre/post course, DV brain scans）；repeated measures 例（before/after 8-week MBSR → order effect risk on FFMQ）</td></tr>
+    </table>
+    <p class="zh">考过卷次：m25_22（退出）、s24_23（代表性）、w25_21（inclusion criteria）、w25_22（fatigue）、w25_23（FFMQ）</p>
+  </div>
+
+  <div class="pairbox">
+    <h4>12 研究考点暴露度（18 卷统计）</h4>
+    <p>Milgram 7 卷 &gt; Piliavin 6 &gt; D&amp;K / Hölzel / Pozzulo / Fagen / Bandura / Baron-Cohen 各 5 &gt; Hassett 4 &gt; Perry / Andrade / Saavedra 各 3。<b>每个研究都可能从 sampling / design / IV-DV / data types / descriptive statistics / 图表 / validity / reliability / ethics 任意角度出题</b>——上表每个维度的一句话就是该研究在该角度的官方答案。</p>
+  </div>
+</section>
+
+<!-- ══════════════════ 题型三 6 分双概念题 ══════════════════ -->
+<section class="qtype" id="qt3">
+  <h2>题型三 · 双概念描述<span class="tag">Q5/6 · 6 分 · 固定句式</span></h2>
+  <div class="howto">
+    <h3>6 分题公式（18 卷逐字一致的 rubric）</h3>
+    <p class="q">"Describe X and Y, using any example(s)"</p>
+    <ol class="steps">
+      <li>每个概念最多 <b>2 分 definition/detail + 2 分 example</b>；全题封顶 6 分。</li>
+      <li><b>两条硬约束：</b>完全没有 example，或只写一个概念 → <b>封顶 4 分</b>；<b>只需 1 个 example 即可拿满 6 分</b>。</li>
+      <li>典型满分组合：概念 A（2 def + 2 example）+ 概念 B（2 def）；或两边各 2 def + 合计 2 example。</li>
+      <li>example 来源三选一：<b>core studies、其他研究、自编例子</b>——用 12 核心研究当例子最稳（MS 大量列出核心研究例）。</li>
+      <li>"how/List" 型题（如 how IVs can be operationalised、ethical guidelines List）把 "term" 换成 "way/guideline"，规则不变。</li>
+    </ol>
+  </div>
+
+  <div class="study">
+    <h4>已考 18 对 · 概念对档案<span class="badge badge-tested">18 卷 18 对零重复</span></h4>
+    <table class="ms">
+      <tr><th style="width:24%">概念对</th><th style="width:8%">卷</th><th>给分要点精华（MS 原文）</th></tr>
+      <tr><td><b>practice &amp; fatigue effects</b></td><td>m24</td><td>共享分点（只计一次）：order effects = consequences of doing tasks more than once, in RM design or longitudinal, overcome by counterbalancing。practice = improve with repetition（记住了答案）；fatigue = get worse（bored/tired）</td></tr>
+      <tr><td><b>quantitative &amp; qualitative data</b></td><td>m25</td><td>quant：numerical/counted，from closed Qs/Likert/behavioural categories，可统计分析；qual：descriptive/in-depth，from open Qs/non-focused observation/transcripts。核心研究例：Andrade recall / Milgram voltage / Piliavin helping totals ‖ Saavedra 描述 / Milgram reactions / Piliavin comments</td></tr>
+      <tr><td><b>how IVs can be operationalised</b></td><td>m26</td><td>三种 way：① existing/naturally occurring differences between people（Baron-Cohen：with/without ASD）② existing differences in situations（Hassett：plush vs wheeled toys）③ manipulate differences（Andrade：gave or did not give doodling paper）</td></tr>
+      <tr><td><b>participant &amp; non-participant observation</b></td><td>s24_21</td><td>P：researcher watches as part of ongoing activity，appears like participants（Piliavin 例）。NP：observer not involved，camera/one-way mirror/distanced（Bandura、Milgram 例）。<span class="warn">两大陷阱：see the observer = overt（混淆）；"Piliavin victims were observing" = 0</span></td></tr>
+      <tr><td><b>how variables in correlations can be measured</b></td><td>s24_22</td><td>途径：interview/questionnaire（closed Qs, ratings）· tests/tasks（numerical values, totals）· observation（tallying, durations）。核心研究例：B-C AQ/IQ/eyes test；D&amp;K words + REM time；Piliavin group size + helping frequency。<span class="warn">Any point must relate to a continuous variable, otherwise = 0</span></td></tr>
+      <tr><td><b>repeated measures &amp; matched pairs</b></td><td>s24_23</td><td>RM：same Ps in each level；order effects risk；counterbalancing 解决（例：D&amp;K 5/15 min、Hölzel pre/post、Perry 全部 CID 对象）。MP：different Ps, matched on key variables（age/IQ/aggression——Bandura 例）。<span class="warn">"Ps matched into pairs" = 0 [REP]</span></td></tr>
+      <tr><td><b>opportunity &amp; random sampling</b></td><td>s25_21</td><td>opp：available at the time（例：B-C adult education class / library；Saavedra child in treatment；Piliavin passengers；Andrade 也收 opportunity）。random：equal chance + 具体做法（numbered list + hat / random number generator）。<span class="warn">evaluation（more/less representative）= 0；Bandura/Hölzel/Perry 无抽样信息 = 0；"definition of sampling technique" 整体 = 1 分 max</span></td></tr>
+      <tr><td><b>order effects（单概念）</b></td><td>s25_22</td><td>order（max 2）：consequences of doing tasks more than once，RM design / longitudinal，controlled by counterbalancing；fatigue（max 2）：performance gets worse, boredom/tiredness；practice（max 2）：improves, remembering answers。例：D&amp;K randomisation of wakings；Andrade counterbalancing；Hölzel pre/post FFMQ</td></tr>
+      <tr><td><b>structured &amp; semi-structured interviews</b></td><td>s25_23</td><td>structured：follows set questions/script, same tone（D&amp;K 例：all Ps asked whether they had a dream）；semi-structured：some set questions + follow-up based on responses（D&amp;K 例：followed up with more questions；Saavedra follow-up interviews；Milgram one-year interviews）</td></tr>
+      <tr><td><b>animal ethics: replacement &amp; species</b></td><td>s26_21</td><td>replacement：replace animal experiments with alternatives where possible（videos / computer simulations / modern less-invasive human studies EEG·fMRI）；species：use the species that will suffer the least / that will fulfil the aim（Hassett 猴子 socialise like humans；Fagen 大象为 TB testing）。<span class="warn">Replacement ≠ 换物种；"use fewer" = 0（那是 numbers）；"replace if harmed" = 0</span></td></tr>
+      <tr><td><b>human ethics: confidentiality &amp; privacy</b></td><td>s26_22</td><td>confidentiality：information anonymous/not public（initials / codes / 匿名化地点 / limited access / secure storage；例：D&amp;K initials；Saavedra 细节不足以识别）；privacy：right not to have physical/psychological space invaded（不在人们不期望被看的场合观察；例：D&amp;K 尴尬梦境）</td></tr>
+      <tr><td><b>counterbalancing &amp; random allocation</b></td><td>s26_23</td><td>CB：different groups do conditions in different orders (ABBA)，controls order effects（例：Andrade 两电话轮换、Hassett 切换玩具、Pozzulo 序列平衡）；RA：each P has equal chance of assignment to each condition（例：Bandura 匹配后随机分配、Andrade 随机分组）。<span class="warn">Random sampling = 0 [incorrect]</span></td></tr>
+      <tr><td><b>inter-rater &amp; inter-observer reliability</b></td><td>w24_21</td><td>inter-rater：different researchers scoring consistently（test/questionnaire/interview responses）；inter-observer：different researchers producing same records of same behaviours（behavioural categories / structured observation）。例：Fagen 两观察者记录一致；Bandura 攻击评分核对；Hassett 统一定义；Piliavin 两观察者都记录 comments。<span class="warn">generic 定义（two researchers rating same way）只计一次</span></td></tr>
+      <tr><td><b>paper &amp; pencil vs online questionnaires</b></td><td>w24_22</td><td>paper：fill in physical sheet by hand, then give to researcher（often by post）；online：on website/email/social media, submit electronically。例：Hölzel FFMQ（paper）；B-C AQ（online）；Perry IRI（online）。<span class="warn">paper ≠ face-to-face；Perry 的 CIDS 不是 paper &amp; pencil</span></td></tr>
+      <tr><td><b>laboratory &amp; field experiments</b></td><td>w24_23</td><td>lab：IV + DV，artificial environment，many controls（例：Hölzel IV pre/post course；Perry IV antagonists；D&amp;K 控制 alcohol/caffeine；B-C glossary 控制）；field：IV + DV，normal environment for the activity，fewer controls（例：Piliavin IV cane/drunk, DV helping；控制 stooge 的动作服装）</td></tr>
+      <tr><td><b>measures of central tendency（单概念）</b></td><td>w25_21</td><td>way to find typical/average + mean/median/mode + 每个计算方法 = 1 分 max。MS 给出<b>12 研究全部 mean 用法</b>（详见题型二各研究卡）</td></tr>
+      <tr><td><b>semi-structured &amp; unstructured interviews</b></td><td>w25_22</td><td>semi：some set questions + follow-up（D&amp;K 详细例 = 2 分：fixed dream question + follow-up）；unstructured：no set questions, follow lines of interest（Saavedra 问 stressful life events 例）</td></tr>
+      <tr><td><b>open &amp; closed questions</b></td><td>w25_23</td><td>open：choose own response → detailed/qualitative/subjective（例：D&amp;K describe the dream）；closed：limited options → quantitative/objective（例：B-C eyes test choices）</td></tr>
+    </table>
+  </div>
+
+  <div class="study" data-tested="no">
+    <h4>★预测概念对<span class="badge badge-predict">预测</span></h4>
+    <p>18 对已把 RM 大纲挖了大半，剩余高概率组合（按大纲查漏）：</p>
+    <table class="ms">
+      <tr><th style="width:30%">预测概念对</th><th>理由与准备要点</th></tr>
+      <tr><td><b>volunteer &amp; opportunity sampling</b></td><td>sampling 三兄弟已考 opp/random、判定题考过 volunteer，剩 volunteer 做双概念；volunteer = Ps select themselves / respond to advertisement（Milgram 例）</td></tr>
+      <tr><td><b>structured &amp; unstructured observation</b></td><td>observation 维度已考 participant/non-participant；structured = fixed behavioural categories（Fagen 例），unstructured = record everything, detailed description</td></tr>
+      <tr><td><b>naturalistic &amp; controlled observation</b></td><td>observation 最后一个维度；naturalistic = normal environment（Piliavin/Hassett 例），controlled = researcher sets up situation</td></tr>
+      <tr><td><b>deception &amp; debriefing</b></td><td>human ethics 已考 confidentiality/privacy，剩 deception（misleading about aim——Milgram 例）与 debriefing（true aim afterwards——Milgram one-year interview 例）</td></tr>
+      <tr><td><b>directional &amp; non-directional hypothesis</b></td><td>hypothesis 判定在情景题反复考（见题型四），尚未出双概念版</td></tr>
+      <tr><td><b>mean, median &amp; mode</b></td><td>central tendency 整体考过（w25_21），可能拆成逐个计算描述；range/SD 同理</td></tr>
+      <tr><td><b>protection from harm &amp; right to withdraw</b></td><td>ethics 剩余高频 guidelines；Milgram/Bandura 均有现成例</td></tr>
+      <tr><td><b>case study &amp; experiment / interview &amp; questionnaire</b></td><td>方法对比型双概念尚未出现，大纲允许</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ══════════════════ 题型四 情景应用题 ══════════════════ -->
+<section class="qtype" id="qt4">
+  <h2>题型四 · 情景应用题<span class="tag">Q7–9 · 1–2 分小题成串</span></h2>
+  <div class="howto">
+    <h3>怎么答</h3>
+    <p class="q">一个新人名情景（Josie / Nolan / Dr Gao…）挂 4–7 个小问，主题轮换：observation / questionnaire / correlation / longitudinal / case study / 动物 ethics / mini experiment。</p>
+    <ol class="steps">
+      <li>几乎所有小题 = <b>"判定/建议 = 1 分 + linked detail = 1 分"</b>；判定本身常常 0 分（"[definitive] but mark is for explanation"）——分数全在解释。</li>
+      <li>判定题用准确术语（field experiment / independent measures），解释必须扣回情景细节（为什么这里算 field）。</li>
+      <li>建议题（suggest a category / a way to measure）必须<b>可观察、可测量</b>："observe them laughing" is not enough；非行为指标（oxytocin/血压）= 0 [NAQ]。</li>
+    </ol>
+  </div>
+
+  <div class="study">
+    <h4>十二类问法类型学<span class="badge badge-tested">全卷通用</span></h4>
+    <table class="ms">
+      <tr><th style="width:26%">问法</th><th style="width:24%">给分结构</th><th>代表规则</th></tr>
+      <tr><td>Identify / State / Name</td><td>definitive 判定 = 1</td><td>抄题代替字母<b>可以</b>给分（s24_21）；<span class="warn">把 DV operationalise 了 = 0 [NAQ]（题目只要求 identify）</span></td></tr>
+      <tr><td>Outline / Define</td><td>Outline = 1（+ example/link = 1）</td><td>写它是什么，<span class="warn">"baseline / to compare" alone = 0（control condition 定义）</span></td></tr>
+      <tr><td>Suggest one/two X</td><td>way/category = 1 ×n</td><td>必须 observable/measurable；<span class="warn">"Number of participants" = 0（问 situational variables 时）；"verbal behaviours" = 0（题干排除）</span></td></tr>
+      <tr><td>Suggest + Justify</td><td>identification = 1 ×2 + justification = 1 ×2</td><td>justify 要扣研究；<span class="warn">描述怎么操作 ≠ justification（w24_23）</span></td></tr>
+      <tr><td>Explain one problem（validity/reliability/ethics/practical）</td><td>problem = 1 + linked detail = 1</td><td><span class="warn">问 practical 时 ethical = 0；问 ethics 时要 correct link to guideline</span></td></tr>
+      <tr><td>Explain which / whether（二选一）</td><td>判定常 0 分，explanation = 1</td><td>field experiment 判定 [definitive] + why（students at home）；<span class="warn">"normal setting" 不带 link = 0</span></td></tr>
+      <tr><td>Explain one strength/weakness</td><td>identification = 1 + detail = 1</td><td>带 "Do not refer to sampling or ethics" 指令时照办</td></tr>
+      <tr><td>Write one question</td><td>closed 必须带 options；open 用 Describe/Explain/Tell 开头</td><td><span class="warn">closed 无 choices = 0；open 必须能产生真正的 qualitative data</span></td></tr>
+      <tr><td>同异比较（vs 核心研究）</td><td>explicit difference = 1 ×2（must include comparison）</td><td><span class="warn">"both field experiments" 这类任何研究都适用的 generic = 0（w24_21）</span></td></tr>
+      <tr><td>多重判定分级</td><td>3 项全对 = 2，对 2 = 1，对 1 = 0</td><td>time frames 判定（w25_21）；bar chart 4 特征逐项给分</td></tr>
+    </table>
+  </div>
+
+  <div class="study">
+    <h4>画图题给分点（每卷必考 2–4 分）<span class="badge badge-tested">bar / histogram / scatter / axes / table</span></h4>
+    <table class="ms">
+      <tr><th style="width:16%">图型</th><th>逐项给分点（MS 原文模式）</th></tr>
+      <tr><td><b>Bar chart</b><br>（离散 IV）</td><td>固定 4 项：x-axis <b>label</b> / x-axis <b>units</b>（类别名）/ y-axis <b>label</b> / y-axis <b>units</b>（数值范围）/ bar 高度全对；<b>bars not separate → max 3</b>（m24_22、s26_23）。数值有容差（如 43–47、16–20，w24_21）</td></tr>
+      <tr><td><b>Histogram</b><br>（连续分组 IV）</td><td>同上 4 项，但 <b>bars must be touching</b>，否则 max 3（w25_22：age groups 20–29 等）</td></tr>
+      <tr><td><b>Scatter graph</b><br>（correlation）</td><td>两轴 label（either way round）= 1 + 方向线/点（positive/negative slope）= 1；有时加 axis units / scale（w24_23、s25_23 各 1 分）。<span class="warn">full marks must be a scatter graph（画直线坐标图不完整）</span></td></tr>
+      <tr><td><b>只画/写 axes</b></td><td>x label = 1 + x units = 1 + y label = 1 + y units = 1；<span class="warn">只有 1 个 label → max 2</span>（s25_21 Dr Smith 题）</td></tr>
+      <tr><td><b>Draw a table</b></td><td>3 分制：完整（tally/count + 两级 IV + DV）= 3；有 DV 缺 IV 级 = 1；只 outline = 1（m24_22）</td></tr>
+      <tr><td><b>为何 bar chart</b></td><td><b>Definitive：(IV is) categorical / discrete data / nominal categories</b>（m24_22；s25_22 Hassett 同款）</td></tr>
+    </table>
+  </div>
+
+  <div class="study">
+    <h4>Hypothesis 题规则<span class="badge badge-tested">判定 + 理由分离</span></h4>
+    <table class="ms">
+      <tr><th style="width:30%">考法</th><th>MS 规则</th></tr>
+      <tr><td>directional / non-directional / null 判定</td><td>判定常 [definitive]（1 分或不给分），理由 = generic 1 分 / linked 2 分：directional 因为 says which level of the IV will be higher。<span class="warn">"Shows direction of results" = 0 [REP]；"it says there will be a difference" 用于 directional 也 = 0</span></td></tr>
+      <tr><td>为何选 Y 不选 X</td><td>答案 Y（non-directional），分数在 because。<span class="warn">All attempts to justify X = 0；说 X 没有 direction = 0 [REP]（s24_21）</span></td></tr>
+      <tr><td>alternative 判定</td><td>alternative = says there will be a difference（over time/with age）。<span class="warn">"Stating what it is not" = 0；anything correlational = 0（w24_21）</span></td></tr>
+      <tr><td>correlational hypothesis</td><td>情景题判定 correlation 用哪个 measure 合适：二选一变量里<b>分类的那个不能用</b>（tidy/untidy 是分类，0–5 rating 才连续，s25_21）</td></tr>
+    </table>
+  </div>
+
+  <div class="study">
+    <h4>Correlation ≠ Cause（反复出现）<span class="badge badge-tested">标准答语</span></h4>
+    <ul class="en">
+      <li><b>结论题</b>：Explain what she will conclude → <b>positive correlation</b> + as both variables go up together。<span class="warn">"One variable causes the other" = 0；"tidy work makes students enjoy lessons" = 0（s25_21）</span></li>
+      <li><b>能否下因果结论</b>：Explain whether X can conclude that Y influences Z → <b>No, a correlation does not mean causation</b> + <b>a third factor could be causing both</b>（e.g. parenting）（s25_21、w25_22——至少一处 link 才满分）</li>
+      <li><b>为何用 correlation 不用 experiment</b>：the relationship may not be causal / unethical to manipulate the variable（m25_22）</li>
+      <li><b>反驳他人因果结论</b>：Explain why this conclusion is not correct → cannot say causal + could only conclude the two are related + third factor（w25_22）</li>
+    </ul>
+  </div>
+
+  <div class="study">
+    <h4>数据下结论 + 其他高频小规则<span class="badge badge-tested">杂项</span></h4>
+    <ul class="en">
+      <li><b>下结论</b>：Any conclusion = 1，complete（含比较方向）= 2。<span class="warn">just restating results = 0 [NAQ]（w24_21）</span></li>
+      <li><b>反驳结论</b>：the difference is very small → might not be significant / could be due to chance（s24_22）</li>
+      <li><b>longitudinal vs cross-sectional</b>：advantage of comparing different ages at one time = quicker/cheaper/no attrition（<span class="warn">"changes over the lifespan" = 0 [NAQ]，s25_21</span>）</li>
+      <li><b>retest 间隔选择</b>：yearly（固定 interval）+ justification（m26_22）</li>
+      <li><b>控制变量建议</b>：suggest a variable to control + justify（age of participants / hours of sleep / stress——each linked）。<span class="warn">"Have two age groups" = 0 [NAQ]（那是另一个 IV）；"control stress in multiple groups" = 0 [not ethical]（s26_23）</span></li>
+      <li><b>增大样本≠提高 reliability</b>：<span class="warn">"Improve reliability/replicability" = 0（s24_22，问增大样本的理由时）</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══════════════════ 题型五 Section B 设计大题 ══════════════════ -->
+<section class="qtype" id="qt5">
+  <h2>题型五 · 设计大题<span class="tag">Section B (a) · 10 分</span></h2>
+  <div class="howto">
+    <h3>给分机制（18 卷一致）</h3>
+    <p class="q">"Describe how [人名] could conduct a [方法] to investigate [问题]"——统一禁令：<b>Do not describe sample/sampling technique or ethical issues/guidelines.</b></p>
+    <ol class="steps">
+      <li>阅卷人按 <b>4 个 required features</b> 打勾（tick-a/b/c/d），出现细节再 underline——<b>features 覆盖度 × detail 程度决定 Level</b>。</li>
+      <li>Level 5（9–10）：4 features 全有全带 detail；Level 4（7–8）：全有、部分带 detail；Level 3（5–6）：部分有 detail 或全有但无 detail；Level 2（3–4）：≥2 features 无 detail；Level 1（1–2）：只有 1 个 feature 或用错方法。</li>
+      <li><b>策略：先写下 4 个 feature 的小标题，每个标题下写 2–3 句具体操作</b>——保证 tick + underline 双拿。</li>
+      <li>方法错配封顶：correlation 卷写成 experiment → max L2（s24_23）；longitudinal 卷写成单次实验 → 不可接受（s26_22）。</li>
+    </ol>
+  </div>
+
+  <div class="study">
+    <h4>Correlational study<span class="badge badge-tested">已考 4 次：s24_23 / s25_22 / m26_22 / s26_23</span></h4>
+    <ol class="en">
+      <li><b>Two co-variables</b>——两个都定义清楚（how MUCH they enjoy spending time with others + NUMBER OF books——必须是"量"）</li>
+      <li><b>Measure of variable 1</b>——怎么测（questionnaire 的具体问题 / interview 的 rating）</li>
+      <li><b>Measure of variable 2</b>——怎么测（number of hours on train / Kindle library / 时间记录）</li>
+      <li><b>Nature of relationship</b>——positive/negative、strong/weak + <b>scatter graph</b> 呈现</li>
+    </ol>
+    <ul class="dont">
+      <li>两个变量必须是 continuous data——"Both variables must be at least ordinal scales for L3"</li>
+      <li>写成实验（manipulate 一个变量）→ max Level 2</li>
+      <li>(b) 部写 "experiments 的优缺点" = 0；写"测量方式的优缺点"可以</li>
+    </ul>
+  </div>
+
+  <div class="study">
+    <h4>Interview<span class="badge badge-tested">已考 3 次：m25_22 / w24_23 / w25_21</span></h4>
+    <ol class="en">
+      <li><b>Format</b>——structured/semi-structured/unstructured 选一个并描述（same questions, same order, same tone）</li>
+      <li><b>Question format</b>——open / closed / fillers（+ 产生什么 data）</li>
+      <li><b>Examples of questions</b>——至少写 2 条具体问题（2 个对象 × 2 种回答）</li>
+      <li><b>Question scoring / interpretation</b>——numerical scoring / measures of central tendency / qualitative analysis</li>
+    </ol>
+    <ul class="dont">
+      <li>只写 "interview people about X" 没有 format/questions/scoring 三件套 → features 丢失</li>
+      <li>问题例子必须具体到能直接念出来（"How often do you talk to your parents? Every day / week / month"）</li>
+    </ul>
+  </div>
+
+  <div class="study">
+    <h4>Case study<span class="badge badge-tested">已考 2 次：s24_21 / w25_23</span></h4>
+    <ol class="en">
+      <li><b>Details about the participant/unit</b>——who（性别年龄）、how found、背景信息（诊断/家长/老师）</li>
+      <li><b>Content of information collected</b>——depth/detail：收集什么（类型、频率、关联情绪…）</li>
+      <li><b>Two or more techniques</b>——至少两种：observation + interview him + interview parents/teachers + rating scales</li>
+      <li><b>Analysis / interpretation / triangulation</b>——qualitative + quantitative 怎么用；triangulation = sources agree → confident conclusion（<b>MS 特别注明：triangulation 不是 reliability</b>）</li>
+    </ol>
+    <ul class="dont">
+      <li>只写一种 data collection technique → 丢一个 feature</li>
+      <li>w25_23 版只禁 ethics、没禁 sampling——看清题干禁令</li>
+    </ul>
+  </div>
+
+  <div class="study">
+    <h4>Observational study<span class="badge badge-tested">已考 2 次：s24_22 participant / w24_22 structured</span></h4>
+    <ol class="en">
+      <li><b>Participant / non-participant</b>——observer 怎么进入情境（server in the canteen）</li>
+      <li><b>Overt / covert</b>——被观察者知不知道（explicit and separate——必须单列说明）</li>
+      <li><b>Naturalistic / controlled</b>——基本是 naturalistic + 说明为什么</li>
+      <li><b>Structured (behavioural categories) / unstructured</b>——structured 要列 <b>至少 3 个 behavioural categories + operational definitions</b></li>
+    </ol>
+    <ul class="dont">
+      <li>四个维度每个都要 explicit——混在一句里只 tick 一次</li>
+      <li>categories 必须可观察（"being friendly" 不行，"smiling at others" 行）</li>
+    </ul>
+  </div>
+
+  <div class="study">
+    <h4>Experiment（lab / IMD）<span class="badge badge-tested">已考 3 次：m24_22 lab / s25_21 IMD / s25_23</span></h4>
+    <ol class="en">
+      <li><b>IV</b>——operationalised（smells: flowers vs unpleasant；art vs music vs dance——两个具体水平）</li>
+      <li><b>DV</b>——operationalised + <b>怎么测</b>（time asleep / quality rating / EEG / test scores）</li>
+      <li><b>Controls / standardisation</b>——至少 2 个具体方面（sleep location, time to bed, nature/intensity of smell, silence）</li>
+      <li><b>Experimental design</b>——named（independent measures: different Ps in each condition, <b>how allocated</b> i.e. random；repeated: counterbalancing?）</li>
+    </ol>
+    <ul class="dont">
+      <li>controls 只写 "controlled variables" 不列具体 → 没有 underline</li>
+      <li>IMD 卷可以补 location（field 版）替代 design（s25_21 给了 And/OR 选项）</li>
+    </ul>
+  </div>
+
+  <div class="study">
+    <h4>Field experiment<span class="badge badge-tested">已考 2 次：s26_21 / w25_22</span></h4>
+    <ol class="en">
+      <li><b>IV</b>——naturally occurring in the field（ads bright vs dull coloured；sex [girls vs boys]）</li>
+      <li><b>DV</b>——operationalised（time spent looking at ads / time playing with toys, how measured: observe）</li>
+      <li><b>Controls / standardisation</b>——至少 2 个（advert size/content, time of day, train route；toy size/noisiness/familiarity）</li>
+      <li><b>Experimental design</b>——IMD for sex（males vs females）；两个 IV 时一个必须 repeated（toy type + counterbalancing）</li>
+    </ol>
+    <ul class="dont">
+      <li>s26_21 特殊：(b) 部转考 ethics（见题型六），但 (a) 仍禁 ethics</li>
+      <li>两 IV 卷：design 必须两个都交代（sex 用 IM + toy type 用 RM）</li>
+    </ul>
+  </div>
+
+  <div class="study">
+    <h4>Questionnaire<span class="badge badge-tested">已考 1 次：w24_21</span></h4>
+    <ol class="en">
+      <li><b>Question format</b>——open / closed（+ fillers），closed 写明类型（ranked scale / yes-no / multiple choice）</li>
+      <li><b>Examples of questions</b>——至少 2 条具体问题（2 个 prosocial behaviour，如 sharing、playing games together）</li>
+      <li><b>Question scoring / interpretation</b>——numerical scoring / measures of central tendency / qualitative analysis</li>
+      <li><b>Technique</b>——paper &amp; pencil 还是 online</li>
+    </ol>
+    <ul class="dont">
+      <li>问题例子不能抄题干给的 behaviour——要自选新的</li>
+    </ul>
+  </div>
+
+  <div class="study">
+    <h4>Longitudinal study<span class="badge badge-tested">已考 1 次：s26_22</span></h4>
+    <ol class="en">
+      <li><b>Tests / tasks</b>——measures used（tasks/tests/questions 的具体描述 + 例子）</li>
+      <li><b>Scoring</b>——怎么打分/分析（ratings / totals / comparing scores over time with averages）</li>
+      <li><b>Recontacting of participants</b>——named method：post / email / phone / social media + 记录怎么维护</li>
+      <li><b>Controls / standardisation</b>——across testing intervals 保持一致（同一天生日周测试等）</li>
+    </ol>
+    <ul class="dont">
+      <li>"an experiment is not acceptable"——不能只是一次 test + retest 的 RM design（必须多次 + 多 measure）</li>
+      <li><b>frequency/interval 不给分（REP）</b>——题干已给（each birthday week yearly）</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══════════════════ 题型六 Section B (b) 评价题 ══════════════════ -->
+<section class="qtype" id="qt6">
+  <h2>题型六 · 设计评价<span class="tag">Section B (b) · 2–4 分</span></h2>
+  <div class="howto">
+    <h3>三种问法与给分结构</h3>
+    <table class="ms">
+      <tr><th style="width:30%">问法</th><th style="width:30%">给分结构</th><th>已考卷</th></tr>
+      <tr>
+        <td><b>strength / weakness</b><br>"Describe one practical/methodological strength of the procedure…"（最常见）</td>
+        <td>identification of generic strength/weakness = 1 + detail/explanation (generic or linked) = 1。<b>term alone 不给 identification 分，但可当 detail 分</b>（w24_21）</td>
+        <td>m24_22、s24_22、s24_23、m26_22、w24_21、w25_21、w25_22、s26_22、s25_23</td>
+      </tr>
+      <tr>
+        <td><b>validity / reliability 专题</b><br>"Explain how one feature of the procedure… helps to make the study valid / reliable"</td>
+        <td>identification of helpful feature / problem = 1 + explanation (generic or linked) = 1；改善型（s24_21）：suggestion = 1 + justification = 1</td>
+        <td>s24_21（validity + improve reliability）、w24_22（validity）、w25_23（validity ×2 合并 4 分）、m25_22 / w24_23（reliability）、s26_23（validity problem）</td>
+      </tr>
+      <tr>
+        <td><b>design 对比 / ethics 专题</b><br>"Explain one advantage of IMD compared to RMD" / "Explain one ethical problem…"</td>
+        <td>IMD vs RMD：identification = 1 + explanation (linked) = 1，<b>No marks for ethics</b>；ethics 题（s26_21）：brief explanation = 1 + detailed/linked = 2（1+2 结构）</td>
+        <td>s25_21（IMD vs RMD）、s26_21（ethics problem + reduction）</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="study">
+    <h4>官方给分领域清单（写哪个方向都行）<span class="badge badge-tested">MS 原文</span></h4>
+    <table class="ms">
+      <tr><th style="width:20%">方向</th><th>可给分领域（跨卷汇总）</th></tr>
+      <tr><td><b>Validity 向</b></td><td>operationalisation · situational / participant variables (factors) · controls / standardisation · design / counterbalancing · demand characteristics</td></tr>
+      <tr><td><b>Reliability 向</b></td><td>standardisation · consistency within and between raters · inter-rater / intra-rater consistency · test-retest · replication</td></tr>
+      <tr><td><b>方法专属补充</b></td><td>observation 卷：being participant/non-participant、being overt/covert；case study 卷：data collection techniques、triangulation；longitudinal 卷：ethical benefits；questionnaire 卷：type of question/data、lack of depth</td></tr>
+    </table>
+    <p class="zh">每份 MS 都注明 "Accept other practical/methodological strengths/weaknesses"——领域清单是保底方向，不是封闭列表。</p>
+  </div>
+
+  <div class="study">
+    <h4>(b) 部禁区<span class="badge badge-tested">照做就稳</span></h4>
+    <ul class="dont">
+      <li>每小题重申 <b>"Do not refer to sampling or ethics"</b>（ethics 专题卷只禁 sampling；IMD 对比卷只禁 ethics）</li>
+      <li>双面题（b)(i)(ii) 通常必须围绕<b>同一个</b> feature/variable/part："If (bi) and (bii) are about different features, only one gains credit. Mark both and credit the best."（s25_23、s25_22）</li>
+      <li>方法错位：correlation 卷写 "strengths of experiments" = 0（s24_23）</li>
+      <li>correlation 卷 (b) 写 "quantitative data" 当 strength = 0——"Not quantitative data as it has to be for correlational data"（s26_23）</li>
+      <li>m24_22 特殊版："Explain why it is a strength" 两分全给解释——<b>Max 1 mark if no link to planned study</b></li>
+      <li>longitudinal 卷 (b)(i)(ii) 的 measure <b>不需要</b>相同（s26_22 明示）——与双面题规则相反，读题干为准</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══════════════════ 考前抢分 ══════════════════ -->
+<section class="qtype" id="qt7">
+  <h2>考前抢分<span class="tag">三条元规律 + 时间分配</span></h2>
+  <div class="howto">
+    <h3>从 18 份 MS 归纳的三条元规律</h3>
+    <ol class="steps">
+      <li><b>6 分题公式</b>：每个概念 2 条 definition/detail + 至少 1 个 example（example 可来自核心研究）——无 example 或只写一个概念封顶 4 分；<b>1 个 example 就够拿 6</b>。</li>
+      <li><b>情景小题公式</b>：判定/建议 = 1 + linked detail = 1，MS 反复要求 "Must be linked to study for 2 marks"——多写一句 link 到情景细节，1 分变 2 分。</li>
+      <li><b>三大送命写法</b>：复述题干（REP）、答非所问（NAQ）、踩明令排除项——MS 直接归零，没有商量。</li>
+    </ol>
+  </div>
+  <h3 class="sub">90 分钟时间分配（60 分）</h3>
+  <table class="ms">
+    <tr><th>部分</th><th>分值</th><th>建议用时</th><th>要诀</th></tr>
+    <tr><td>Section A Q1–6（定义 + 情境 + 6 分双概念）</td><td>约 20 分</td><td>25 分钟</td><td>6 分双概念题留 8 分钟：两个概念各写 2 点 + 1–2 个 example</td></tr>
+    <tr><td>Section A Q7–9（情景串题）</td><td>约 26 分</td><td>30 分钟</td><td>画图题先做（分数固定好拿）；每小题两句：判定 + link</td></tr>
+    <tr><td>Section B (a) 10 分设计</td><td>10 分</td><td>20 分钟</td><td>先列 4 个 feature 小标题再填内容；写完自查有没有碰 sampling/ethics</td></tr>
+    <tr><td>Section B (b) + 检查</td><td>4 分</td><td>15 分钟</td><td>(b) 必须围绕 (a) 里写过的同一个 feature；留 5 分钟全卷扫 REP/NAQ</td></tr>
+  </table>
+
+  <div class="pairbox">
+    <h4>最后检查清单（交卷前 5 分钟）</h4>
+    <ul class="en">
+      <li>Section B 有没有写 sampling / ethics？——写了整段划掉，别可惜</li>
+      <li>6 分题有没有 example？——临时加一个核心研究的例子就能从 4 分变 6 分</li>
+      <li>所有 "Explain…" 题有没有第二句 link？——"because + 情景细节"</li>
+      <li>数字解读题有没有只抄数字？——改成比较句（older / more spread out / wider range）</li>
+      <li>比较题有没有真的比较？——加 "whereas / but in …"</li>
+      <li>画图题轴有没有 label + units？bars 分开了吗？scatter 是散点吗？</li>
+    </ul>
+  </div>
+</section>
+
+<footer class="foot">
+  <p>CIE 9990 Psychology · Paper 2 (Research Methods) 题型攻略 · 素材来源：2024–2026 共 18 份官方 QP + Mark Scheme（m24–s26 全考季）逐题提炼</p>
+</footer>
+
+</div>
+<style>
+/* ===== 侧边栏导航 ===== */
+#sidenav{position:fixed;top:0;left:0;bottom:0;width:254px;background:var(--panel);
+  border-right:1px solid var(--line);z-index:60;overflow-y:auto;overscroll-behavior:contain;
+  transform:translateX(-100%);transition:transform .25s ease;scrollbar-width:thin}
+body.nav-open #sidenav{transform:none}
+.sn-head{position:sticky;top:0;background:var(--panel);border-bottom:1px solid var(--line);
+  padding:14px 16px 10px;font-size:14px;font-weight:700;color:var(--accent);z-index:2}
+.sn-sec{border-bottom:1px solid var(--line)}
+.sn-sec-link{display:block;padding:9px 14px 8px;font-weight:600;font-size:13px;
+  color:var(--ink);text-decoration:none;cursor:pointer;line-height:1.4}
+.sn-sec-link:hover{color:var(--accent)}
+.sn-sec-link.active{color:var(--accent);background:var(--accent-soft)}
+.sn-studies{display:none;padding:2px 0 8px}
+.sn-sec.open .sn-studies{display:block}
+.sn-study{display:block;padding:3px 14px 3px 28px;font-size:12.3px;color:var(--muted);
+  text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.5}
+.sn-study:hover{color:var(--accent)}
+.sn-study.active{color:var(--accent);font-weight:600;background:var(--accent-soft)}
+.sn-top{display:block;padding:11px 14px;font-size:12.5px;color:var(--muted);text-decoration:none}
+.sn-top:hover{color:var(--accent)}
+#sn-toggle{position:fixed;left:16px;bottom:18px;z-index:61;width:48px;height:48px;border-radius:50%;
+  background:var(--accent);color:#fff;border:none;box-shadow:0 4px 14px rgba(15,118,110,.45);
+  font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+#sn-toggle:active{transform:scale(.94)}
+#sn-mask{position:fixed;inset:0;background:rgba(31,41,51,.35);z-index:59;display:none}
+body.nav-open #sn-mask{display:block}
+@media(min-width:1300px){
+  #sidenav{transform:none}
+  #sn-toggle{display:none}
+  body.sn-desktop .page{margin-left:calc(50vw - 500px + 128px);margin-right:auto}
+}
+@media print{
+  #sidenav,#sn-toggle,#sn-mask{display:none!important}
+  body.sn-desktop .page{margin-left:auto}
+}
+</style>
+<aside id="sidenav" aria-label="题型导航">
+  <div class="sn-head">Paper 2 题型导航</div>
+  <div id="sn-body"></div>
+  <a class="sn-top" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false">↑ 回到顶部</a>
+</aside>
+<button id="sn-toggle" aria-label="打开导航">☰</button>
+<div id="sn-mask"></div>
+<script>
+(function(){
+  var body=document.getElementById('sn-body');
+  if(!body)return;
+  var sections=[].slice.call(document.querySelectorAll('section.qtype'));
+  var secTargets=[],studyTargets=[];
+  var mq=window.matchMedia('(min-width:1300px)');
+  function applyDesktop(){document.body.classList.toggle('sn-desktop',mq.matches);if(mq.matches)document.body.classList.remove('nav-open');}
+  mq.addEventListener?mq.addEventListener('change',applyDesktop):mq.addListener(applyDesktop);
+  applyDesktop();
+
+  sections.forEach(function(sec,si){
+    var h2=sec.querySelector('h2');
+    var titleEl=h2?h2.cloneNode(true):null;
+    if(titleEl){var tg=titleEl.querySelector('span.tag');if(tg)tg.remove();}
+    var title=titleEl?titleEl.textContent.replace(/\s+/g,' ').trim():('Part '+(si+1));
+    var group=document.createElement('div');
+    group.className='sn-sec';group.dataset.sec=sec.id;
+    var a=document.createElement('a');
+    a.className='sn-sec-link';a.href='#'+sec.id;
+    a.textContent=title;a.title=title;
+    a.addEventListener('click',function(){
+      group.classList.add('open');
+      if(!mq.matches)document.body.classList.remove('nav-open');
+    });
+    group.appendChild(a);
+    secTargets.push({el:sec,link:a,id:sec.id});
+
+    var wrap=document.createElement('div');
+    wrap.className='sn-studies';
+    var cards=[].slice.call(sec.querySelectorAll('div.study'));
+    cards.forEach(function(card,ci){
+      var h4=card.querySelector('h4');
+      var nameEl=h4?h4.cloneNode(true):null;
+      if(nameEl){var b=nameEl.querySelector('span.badge');if(b)b.remove();}
+      var name=nameEl?nameEl.textContent.replace(/\s+/g,' ').trim():('Item '+(ci+1));
+      var sid=sec.id+'-s'+(ci+1);
+      card.id=sid;
+      var sa=document.createElement('a');
+      sa.className='sn-study';sa.href='#'+sid;
+      sa.textContent=name;sa.title=name;
+      sa.addEventListener('click',function(){
+        group.classList.add('open');
+        if(!mq.matches)document.body.classList.remove('nav-open');
+      });
+      wrap.appendChild(sa);
+      studyTargets.push({el:card,link:sa,sec:sec.id});
+    });
+    group.appendChild(wrap);
+    body.appendChild(group);
+  });
+
+  var toggle=document.getElementById('sn-toggle');
+  var mask=document.getElementById('sn-mask');
+  if(toggle)toggle.addEventListener('click',function(){document.body.classList.toggle('nav-open');});
+  if(mask)mask.addEventListener('click',function(){document.body.classList.remove('nav-open');});
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape')document.body.classList.remove('nav-open');
+  });
+
+  var ticking=false;
+  function spy(){
+    ticking=false;
+    var curSec=null,curStudy=null;
+    secTargets.forEach(function(t){
+      if(t.el.getBoundingClientRect().top<=130)curSec=t;
+    });
+    if(!curSec&&secTargets.length)curSec=secTargets[0];
+    secTargets.forEach(function(t){t.link.classList.toggle('active',curSec&&t===curSec);});
+    if(curSec){
+      studyTargets.forEach(function(t){
+        if(t.sec===curSec.id&&t.el.getBoundingClientRect().top<=150)curStudy=t;
+      });
+      var g=document.querySelector('.sn-sec[data-sec="'+curSec.id+'"]');
+      if(g)g.classList.add('open');
+    }
+    studyTargets.forEach(function(t){t.link.classList.toggle('active',curStudy&&t===curStudy);});
+  }
+  window.addEventListener('scroll',function(){
+    if(!ticking){ticking=true;requestAnimationFrame(spy);}
+  },{passive:true});
+  window.addEventListener('resize',function(){
+    if(!ticking){ticking=true;requestAnimationFrame(spy);}
+  });
+  spy();
+})();
+</script>
+</body>
+</html>
